@@ -25,10 +25,13 @@ x_plot = np.linspace(0, 10)
 plt.plot(
     x_plot,
     params[0] * x_plot + params[1],
+    'r',
     label ='Lineare Regression'
 )
 plt.legend(loc="best")
-
+plt.title('Linear Regression')
+plt.xlabel('Auslenkung in cm')
+plt.ylabel('Newton')
 plt.savefig('build/plot.pdf')
 
 D_bar=np.mean(D)
