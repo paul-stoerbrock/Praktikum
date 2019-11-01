@@ -6,6 +6,14 @@ from uncertainties.unumpy import (
     std_devs as stds
 )
 
+
+def linreg(x, y):
+
+    m= (np.mean(x*y)-np.mean(x)* np.mean(y))/(np.mean(x^2)-np.mean(x)^2)
+    b= (np.mean(y)* np.mean(x^2)-np.mean(xy)* np.mean(x))/(np.mean(x^2)-np.mean(x)^2)
+
+    return m,b
+
 x, F = np.genfromtxt('data.txt', unpack=True)
 
 D = F / x
@@ -18,7 +26,6 @@ plt.plot(
     x_plot,
     params[0] * x_plot + params[1],
     label ='Lineare Regression'
-    #linwidth=3,
 )
 plt.legend(loc="best")
 
@@ -40,7 +47,7 @@ with open('build/meanD.tex', 'w') as g:
 table_header = r'''
   \begin{tabular}{c c c}
     \toprule
-    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\per\centi\meter\tothe{-1}}$}\\
+    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\per\centi\meter}$}\\
     \midrule
 '''
 
