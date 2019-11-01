@@ -8,14 +8,14 @@ from uncertainties.unumpy import (
 
 x, F = np.genfromtxt('data.txt', unpack=True)
 
-D = F * x
+D = F / x
 
 
 
 table_header = r'''
   \begin{tabular}{c c c}
     \toprule
-    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\per\centi\meter\tothe{-1}}$}
+    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\per\centi\meter\tothe{-1}}$}\\
     \midrule
 '''
 
