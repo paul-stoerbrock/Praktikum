@@ -36,17 +36,21 @@ plt.savefig('build/plot.pdf')
 
 D_bar=np.mean(D)
 
-meanD=r' $\SI{{D_bar}}{\newton\per\centi\meter}$'
+meanD=r' }{\newton\per\centi\meter}$'
 
 with open('build/meanD.tex', 'w') as g:
+    g.write('$\SI{')
+    g.write(f'{D_bar}')
     g.write(meanD)
 
-D_linreg=linreg(x, F)
+D_linreg, b=linreg(x, F)
 
 
-linregD=r' $\SI{{D_linreg}}{\newton\per\centi\meter}$'
+linregD=r' }{\newton\per\centi\meter}$'
 
 with open('build/linregD.tex','w') as h:
+    h.write('$\SI{')
+    h.write(f'{D_linreg}')
     h.write(linregD)
 
 
