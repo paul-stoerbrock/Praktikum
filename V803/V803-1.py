@@ -46,7 +46,7 @@ D_linreg=linreg(x, F)
 
 linregD=r' $\SI{{D_linreg}}{\newton\per\centi\meter}$'
 
-with open('build/linregD.tex','w') as h 
+with open('build/linregD.tex','w') as h:
     h.write(linregD)
 
 
