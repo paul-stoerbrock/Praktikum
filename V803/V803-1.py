@@ -9,8 +9,8 @@ from uncertainties.unumpy import (
 
 def linreg(x, y):
 
-    m= (np.mean(x*y)-np.mean(x)* np.mean(y))/(np.mean(x^2)-np.mean(x)^2)
-    b= (np.mean(y)* np.mean(x^2)-np.mean(xy)* np.mean(x))/(np.mean(x^2)-np.mean(x)^2)
+    m= (np.mean(x*y)-np.mean(x)* np.mean(y))/(np.mean(x*x)-np.mean(x)*np.mean(x))
+    b= (np.mean(y)* np.mean(x*x)-np.mean(x*y)* np.mean(x))/(np.mean(x*x)-np.mean(x)*np.mean(x))
 
     return m,b
 
@@ -33,15 +33,18 @@ plt.savefig('build/plot.pdf')
 
 D_bar=np.mean(D)
 
-meanD=r' $\SI{{D_bar}}{\centi\meter}$'
+meanD=r' $\SI{{D_bar}}{\newton\per\centi\meter}$'
 
 with open('build/meanD.tex', 'w') as g:
     g.write(meanD)
 
+D_linreg=linreg(x, F)
 
 
+linregD=r' $\SI{{D_linreg}}{\newton\per\centi\meter}$'
 
-
+with open('build/linregD.tex','w') as h 
+    h.write(linregD)
 
 
 table_header = r'''
