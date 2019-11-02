@@ -40,7 +40,7 @@ meanD=r' }{\newton\per\centi\meter}$'
 
 with open('build/meanD.tex', 'w') as g:
     g.write('$\SI{')
-    g.write(f'{D_bar}')
+    g.write(f'{D_bar:.2f}')
     g.write(meanD)
 
 D_linreg, b=linreg(x, F)
