@@ -50,7 +50,7 @@ linregD=r' }{\newton\per\centi\meter}$'
 
 with open('build/linregD.tex','w') as h:
     h.write('$\SI{')
-    h.write(f'{D_linreg}')
+    h.write(f'{D_linreg:.2f}')
     h.write(linregD)
 
 
