@@ -21,7 +21,7 @@ D = F / x
 params, cov_mat = np.polyfit(x, F, deg=1, cov=True)
 plt.plot(x, F, 'k.', label="Messwerte")
 
-x_plot = np.linspace(0, 10)
+x_plot = np.linspace(0, 60)
 plt.plot(
     x_plot,
     params[0] * x_plot + params[1],
