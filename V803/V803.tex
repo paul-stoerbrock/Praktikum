@@ -18,10 +18,19 @@
     \end{abstract}
     
 \newpage
-
-\flushleft
 \section{Versuchsaufbau:}
+    Benötigt werden:    \textit{Zwei Stative, eine Feder, ein ca. 1m langes Stück Faden, ein 60cm Lineal, eine Umlenkrolle,
+    ein digitales Newton Meter, ein zugehöriger Adapter, ein Auslesegerät (Laptop)} \\
+    \quad Die Feder wird an ein Newton Meter gehängt, welches von einem Stativ gehalten wird. An das freie untere Ende der Feder wird eine Schnur
+    befestigt, welche über eine Umlenkrolle mit eienm Schieber befestigt wird. Der Schieber soll die Auslenkung auf dem waagerechten Lineal 
+    anzeigen, welches zwischen die beiden Stative befestigt wird. Das Newton Meter wird an einen Laptop angeschlossen um die entsprechende
+    Kraft zur Auslenkung auszugeben.
+
 \section{Versuchsdurchführung:}
+    \quad Mithilfe des Schiebers am Lineal wird die Feder auf eine beliebigen Entfernung zwischen 0 und 60cm und einer Genauigkeit von maximal
+    0.5cm ausgelenkt. Es werden für zehn Messungen die Auslenkung in cm vom Lineal und die zugehörige Kraft in Newton vom Laptop abgelesen und in der 
+    Tabelle \ref{tab:data} notiert.
+    Anschlie\ss end wird mit Hilfe der Formel \ref{eq.mean} der Mittelwert bestimmt.
     \begin{align*}
     \intertext{\quad Dies ist ein Beispieltext der wunderschön im Dokument ausschauen soll,
     aber vielleicht ein error aufrufen wird. zehn zahme ziegen ziehen zehn cent zucker.}
@@ -32,11 +41,12 @@
     
 \begin{table}
     \centering
+    \input{table.tex} 
+    \caption{Messdaten}
     \label{tab:data}
-    \input{table.tex}   
 \end{table}
     \subsection{Mittelwert:}
-    \begin{equation}
+    \begin{equation}\label{eq.mean}
         \overline{x} = \frac{1}{N}\sum\limits_{i=1}^{N} x_i
     \end{equation}
     Mittelwert\:$\overline{x}$\:=\:\input{meanD.tex}
