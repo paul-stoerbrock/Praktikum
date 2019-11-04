@@ -14,7 +14,7 @@
 \center{\Large Versuchsgruppe: \textbf{42}}
     
     \begin{abstract}
-        Ziel: Beweis des hookschen Gesetzes über Bestimmung der Federkonstante. 
+        Ziel: Bestimmung der Federkonstante mithilfe des hookschen Gesetzes. 
     \end{abstract}
     
 \newpage
@@ -24,13 +24,13 @@
     ein digitales Newton Meter, ein zugehöriger Adapter, ein Auslesegerät (Laptop)} \\
     Die Feder wird an ein Newton Meter gehängt, welches von einem Stativ gehalten wird. An das freie untere Ende der Feder wird eine Schnur
     befestigt, welche über eine Umlenkrolle mit einem Schieber befestigt wird. Der Schieber soll die Auslenkung auf dem waagerechten Lineal 
-    anzeigen, welches zwischen die beiden Stative befestigt wird. Das Newton Meter wird an einen Laptop angeschlossen um die entsprechende
+    anzeigen, welches zwischen den beiden Stative befestigt wird. Das Newton Meter wird an einen Laptop angeschlossen um die entsprechende
     Kraft zur Auslenkung auszugeben.
 
 \section{Versuchsdurchführung:}
     Mithilfe des Schiebers am Lineal wird die Feder auf eine beliebige Entfernung zwischen 0cm und 60cm mit einer Genauigkeit von maximal
     0.5cm ausgelenkt. Es werden für zehn Messungen die Auslenkung und die Kraft bestimmt und in der Tabelle \ref{tab:data} notiert.
-    Anschlie\ss end wird mit Hilfe der Formel \ref{eq.mean} der Mittelwert von der Federkonstante $D$ berechnet.
+    Anschlie\ss end wird mit Hilfe der Formel \eqref{eq.mean} der Mittelwert von der Federkonstante $D$ berechnet.
     \begin{align*}
     \text{Das hooksche Gesetz:\;}D\;=\;F\;\cdot\;\Delta\;x^{-1}\vspace{-4ex}
     \end{align*}
@@ -39,8 +39,9 @@
     
 \begin{table}
     \centering
-    \input{table.tex} 
     \caption{Messungen}
+    \input{table.tex} 
+    
     \label{tab:data}
 \end{table}
 \newpage
@@ -48,7 +49,7 @@
     \begin{equation}\label{eq.mean}
         \overline{x} = \frac{1}{N}\sum\limits_{i=1}^{N} x_i
     \end{equation}
-    Mittelwert von D: $\overline{x}$\:=\:\input{meanD.tex}
+    Mittelwert von D: $\overline{D}$\:=\:\input{meanD.tex}
 
     \subsection{Lineare Ausgleichsrechnung:}
     \begin{align}\label{eq.linreg}
