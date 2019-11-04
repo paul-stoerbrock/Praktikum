@@ -57,7 +57,7 @@ with open('build/linregD.tex','w') as h:
 table_header = r'''
   \begin{tabular}{c c c}
     \toprule
-    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\per\centi\meter}$}\\
+    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\centi\meter\tothe{-1}}$}\\
     \midrule
 '''
 
