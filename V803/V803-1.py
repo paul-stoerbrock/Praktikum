@@ -16,6 +16,8 @@ def linreg(x, y):
 
 x, F = np.genfromtxt('data.txt', unpack=True)
 
+x *= 1e-02
+
 D = F / x
 
 params, cov_mat = np.polyfit(x, F, deg=1, cov=True)
@@ -36,7 +38,7 @@ plt.savefig('build/plot.pdf')
 
 D_bar=np.mean(D)
 
-meanD=r' }{\newton\per\centi\meter}$'
+meanD=r' }{\newton\per\meter}$'
 
 with open('build/meanD.tex', 'w') as g:
     g.write('$\SI{')
@@ -46,7 +48,7 @@ with open('build/meanD.tex', 'w') as g:
 D_linreg, b=linreg(x, F)
 
 
-linregD=r' }{\newton\per\centi\meter}$'
+linregD=r' }{\newton\per\meter}$'
 
 with open('build/linregD.tex','w') as h:
     h.write('$\SI{')
@@ -57,14 +59,14 @@ with open('build/linregD.tex','w') as h:
 table_header = r'''
   \begin{tabular}{c c c}
     \toprule
-    {$\Delta x \:/\: \si{\centi\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\centi\meter\tothe{-1}}$}\\
+    {$\Delta x \:/\: \si{\meter}$} & {$F \:/\: \si{\newton}$} & {$D \:/\: \si{\newton\meter\tothe{-1}}$}\\
     \midrule
 '''
 
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f}  \\'
+row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f}  \\'
 
 
 with open('build/table.tex', 'w') as f:
