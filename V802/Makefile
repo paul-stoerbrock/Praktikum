@@ -12,7 +12,7 @@ build/V802pdf: V802.tex build/plot.pdf |build
 
 build/plot.pdf: V802.py data.txt  |build
 	
-	python fourier.py
+	python 802.py
 
 
 build:
