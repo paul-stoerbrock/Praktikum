@@ -1,4 +1,5 @@
 \input{../header.tex}
+\graphicspath{ {./V802/} }  % der path zum Ordner mit den Bildern funktioniert ähnlich wie beim Input command
 \begin{document}
     \title{V802 Fouriersynthese}
     \author{  
@@ -18,9 +19,25 @@
     
 \newpage
 \justifying
-\section{Versuchsaufbau:}
-    \blindtext
 
 \section{Versuchsdurchführung:}
     \blindtext
+    
+\section{Auswertung}
+ 
+    \begin{align}\label{frow}   % align Umgebung sieht schmucker aus als die equation Umgebung
+        &f(t) = \sum_{k=0}^{\infty} (A_k \cos\!{(\omega_kt)} + B_k \sin\!{(w_kt)}) \qquad \qquad \text{mit} \:\: \omega_k = \frac{2\pi k}{T}
+    \end{align}
+    \begin{align}\label{Ak} % man könnte alles in eine align Umgebung packen, aber dann stehen die Gleichungen zu eng zusammen 
+        &A_k = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \cos\!{(\omega_kt)} dt \qquad \qquad \text{mit} \:\: A_0 = \frac{1}{T} \int f(t)dt
+    \end{align}
+    \begin{align}\label{Bk}
+        &B_k = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \sin\!{(w_kt)} dt \qquad \qquad \qquad \qquad \!\!\text{mit} \:\: B_0 = 0
+    \end{align}
+
+    \begin{figure}[h]   % hier habe ich beide Screenshots eingefügt (für den benötigten path siehe l.2)
+        \includegraphics[width=\textwidth]{abs_sinx_fourier}
+        \includegraphics[width=\textwidth]{x_fourier}
+    \end{figure}
+
 \end{document}
