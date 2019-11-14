@@ -1,6 +1,6 @@
 all: build/V802.pdf
 
-build/V802pdf: V802.tex build/plot.pdf |build
+build/V802.pdf: V802.tex |build
 	TEXINPUTS="$(call translate,build:)" \
 	max_print_line=1048576 \
 	latexmk \
@@ -10,9 +10,9 @@ build/V802pdf: V802.tex build/plot.pdf |build
 	  --halt-on-error \
 	V802.tex
 
-build/plot.pdf: V802.py data.txt  |build
+#build/plot.pdf: V802.py data.txt  |build
 	
-	python 802.py
+#	python 802.py
 
 
 build:
