@@ -1,6 +1,6 @@
 all: build/V802.pdf
 
-build/V803.pdf: fourier.tex build/plot.pdf |build
+build/V802.pdf: fourier.tex build/plot.pdf |build
 	TEXINPUTS="$(call translate,build:)" \
 	max_print_line=1048576 \
 	latexmk \
