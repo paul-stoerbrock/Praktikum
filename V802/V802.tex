@@ -19,11 +19,7 @@
     
 \newpage
 \justifying
-
 \section{Versuchsauswertung:}
-
-    
-
     \begin{align}   % align Umgebung sieht schmucker aus als die equation Umgebung
         &f(t) = \sum_{k=0}^{\infty} (A_k \cos(\omega_kt) + B_k \sin(w_kt))  &\text{mit} \:\: \omega_k = \frac{2\pi k}{T} \label{eq:frow}\\
         &A_k \hphantom{)} = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \cos(\omega_kt) dt  &\text{mit} \:\: A_0 = \frac{1}{T} \int f(t)dt \label{eq:Ak}\\
@@ -45,11 +41,11 @@
     \begin{figure}[h]
          \centering
          \fbox{\includegraphics[width=\textwidth]{abs_sinx_fourier}}  \vspace{-1.5em}
-         \caption{Darstellung der Fourierreihe von der Funktion \eqref{eq:abs_sin}}
+         \caption{Graphische Darstellung der Fourierreihe von der Funktion \eqref{eq:abs_sin}}
          \label{fig:sc_sin} 
     \end{figure}
-    \newpage
-    Mit der zweiten Funktion
+\newpage
+    \flushleft{Mit der zweiten Funktion}
     \begin{align}
         &f(t) = t &\text{für} -\pi < x < \pi \label{eq:t}
     \end{align}
@@ -66,7 +62,7 @@
     \begin{figure}[h]   % Screenshot für Darstellung der Fourierreihe von f(t) = t
         \centering
         \fbox{\includegraphics[width=\textwidth]{x_fourier}}
-        \caption{Darstellung der Fourierreihe von der Funktion \eqref{eq:t}} \vspace{-1.5em}
+        \caption{Graphische Darstellung der Fourierreihe von der Funktion \eqref{eq:t}} \vspace{-1.5em}
         \label{fig:sc_t}
     \end{figure}
 
