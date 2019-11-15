@@ -22,34 +22,52 @@
 
 \section{Versuchsauswertung:}
 
-    \blindtext
+    
 
     \begin{align}   % align Umgebung sieht schmucker aus als die equation Umgebung
-        &f(t) = \sum_{k=0}^{\infty} (A_k \cos\!{(\omega_kt)} + B_k \sin\!{(w_kt)}) \qquad \qquad &\text{mit} \:\: \omega_k = \frac{2\pi k}{T} \label{eq:frow}\\
-        &A_k \hphantom{)} = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \cos\!{(\omega_kt)} dt \qquad \qquad &\text{mit} \:\: A_0 = \frac{1}{T} \int f(t)dt \label{eq:Ak}\\
-        &B_k \hphantom{)} = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \sin\!{(w_kt)} dt \qquad \qquad \qquad \qquad \!\!&\text{mit} \:\: B_0 = 0 \label{eq:Bk}
+        &f(t) = \sum_{k=0}^{\infty} (A_k \cos(\omega_kt) + B_k \sin(w_kt))  &\text{mit} \:\: \omega_k = \frac{2\pi k}{T} \label{eq:frow}\\
+        &A_k \hphantom{)} = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \cos(\omega_kt) dt  &\text{mit} \:\: A_0 = \frac{1}{T} \int f(t)dt \label{eq:Ak}\\
+        &B_k \hphantom{)} = \frac{2}{T} \int_{-T/2}^{+T/2} f(t) \sin(w_kt) dt \!\!&\text{mit} \:\: B_0 = 0 \label{eq:Bk}
     \end{align}
-    Mithilfe der Formeln \eqref{eq:Ak} und \eqref{eq:Bk} erhalten wir durch Einsetzen der gegebenen Formel
+    Mithilfe der Formeln \eqref{eq:Ak} und \eqref{eq:Bk} erhalten wir durch Einsetzen der gegebenen Funktion
     \begin{align}
-        f(t) = \abs{\sin{\!(t)}} \label{eq:abs_sin} 
+        f(t) = \abs{\sin(t)} \label{eq:abs_sin} 
     \end{align}
-    die Fourierkoeffizienten $A_k$ und $B_k$:
+    die folgenden Fourierkoeffizienten für $A_k$ und $B_k$:
     \begin{align*}
         &A_0 = \frac{2}{\pi} &A_k = -\frac{4}{\pi}\:\frac{1}{4k^{2}-1}\\
         &B_0 = 0 &B_k = 0
     \end{align*}
-    Mit der zweiten gegebenen Formel
+    damit sieht die Fourierreihe für \eqref{eq:abs_sin} folgendermaßen aus:
     \begin{align}
-        f(t) = t \label{eq:t}
+        f(t)=\frac{2}{\pi}+\sum_{k=1}^{\infty} \left(-\frac{4}{\pi} \:\frac{1}{4k^2+1} \cos(2kt)\right)
+    \end{align}
+    \begin{figure}[h]
+         \centering
+         \fbox{\includegraphics[width=\textwidth]{abs_sinx_fourier}}  \vspace{-1.5em}
+         \caption{Darstellung der Fourierreihe von der Funktion \eqref{eq:abs_sin}}
+         \label{fig:sc_sin} 
+    \end{figure}
+    \newpage
+    Mit der zweiten Funktion
+    \begin{align}
+        &f(t) = t &\text{für} -\pi < x < \pi \label{eq:t}
     \end{align}
     erhalten wir die folgenden Koeffizienten für $A_k$ und $B_k$:
+    \begin{align*}
+        &A_0 = 0 &A_k &= 0\\
+        &B_0 = 0 &B_k &= \frac{2}{k}\:(-1)^{k+1}
+    \end{align*}
+    Die Fourierreihe für \eqref{eq:t} sieht damit folgendermaßen aus:
+
     \begin{align}
-        &A_0 = 0 &A_k = 0\\
-        &B_0 = 0 &B_k = \frac{2}{k}\:(-1)^{k+1}
+        f(t)= \sum_{k=1}^{\infty} \left(\frac{2}{k} (-1)^{k+1}\right)
     \end{align}
-    \begin{figure}[h]   % hier habe ich beide Screenshots eingefügt (für den benötigten path siehe l.2)
-        \includegraphics[width=\textwidth]{abs_sinx_fourier}
-        \includegraphics[width=\textwidth]{x_fourier}
+    \begin{figure}[h]   % Screenshot für Darstellung der Fourierreihe von f(t) = t
+        \centering
+        \fbox{\includegraphics[width=\textwidth]{x_fourier}}
+        \caption{Darstellung der Fourierreihe von der Funktion \eqref{eq:t}} \vspace{-1.5em}
+        \label{fig:sc_t}
     \end{figure}
 
 \end{document}
