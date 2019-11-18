@@ -14,6 +14,7 @@
 \center{\Large Versuchsgruppe: \textbf{42}}
     
     \begin{abstract}
+        \centering
         \textbf{Ziel:} Bestimmung der Fourierkoeffizienten und Darstellung der Fouriersynthese 
     \end{abstract}
     
@@ -35,13 +36,13 @@
         &B_0 = 0 &B_k &= 0
     \end{align*}
     Die $B_k$'s fallen weg, da $\abs{sin(t)}$ eine gerade Funktion ist.
-
+\newpage
     \flushleft{Damit sieht die Fourierreihe für \eqref{eq:abs_sin} folgendermaßen aus:}
 
     \begin{align}
         f(t)=\frac{2}{\pi}+\sum_{k=1}^{\infty} \left(-\frac{4}{\pi} \:\frac{1}{4k^2+1} \cos(2kt)\right)
     \end{align}
-    \newpage
+    
     \begin{figure}[h]
          \centering
          \fbox{\includegraphics[width=\textwidth]{abs_sinx_fourier}}  \vspace{-1.5em}
@@ -49,7 +50,7 @@
          \label{fig:sc_sin} 
     \end{figure}
     \footnotetext{Graphenerstellung erfolgte Online unter j-berkemeier.de/Fouriersynthese.html mit dem Programm Fouriersynthese (Besucht am 08.11.2019) }
-
+\newpage
     \flushleft{Mit der zweiten Funktion}
     \begin{align}
         &f(t) = t &\text{für} -\pi < x < \pi \label{eq:t}
@@ -66,7 +67,6 @@
     \begin{align}
         f(t)= \sum_{k=1}^{\infty} \left(\frac{2}{k} (-1)^{k+1}\right)
     \end{align}
-    \newpage
 
     \begin{figure}[h]   % Screenshot für Darstellung der Fourierreihe von f(t) = t
         \centering
