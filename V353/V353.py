@@ -1,4 +1,5 @@
 
+import pylab
 import matplotlib.pyplot as plt
 import numpy as np
 import uncertainties.unumpy as unp
@@ -10,18 +11,27 @@ from scipy import stats
 from scipy.stats import sem #standard error of mean = sem(x)
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
-f, A, a = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, a=Zeit
+U0 = 0.3 
 
-params, cov_mat = np.polyfit(a, A, deg=1, cov=True)
-a.set_xscale('linear')
-A.set_yscale('log')
-plt.plot(a, A, 'k.', label="Messwerte")
+f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
 
-x_plot = np.linspace(0, 10)
-plt.plot(x_plot, params[0] * x_plot + params[1], 'r-', label="Lineare Regression")
-plt.savefig('build/plot.pdf')
+def f(f, A, x, t):
+    return [...] * np.exp(xt)
+
+A0 = A / U0
+#params, cov_mat = np.polyfit(f, A0, deg=1, cov=True)
+slope, intercept, r_value, p_value, std_err = stats.linregress(f, A0)
+plt.plot(f, A0, 'k.', label="Messwerte")
+plt.yscale('log')
+
+x_plot = np.linspace(0, 100)
+
+
+
+plt.plot(x_plot, y_plot, 'r-', label="Nicht-lineare Regression")
+
 plt.legend(loc="best")
 plt.title('Messwerte + Linear Regression')
-plt.xlabel('Zeit in Sekunden')
+plt.xlabel('Frequenz in Hertz')
 plt.ylabel('Amplitude in Volt')
-plt.savefig('build/4a.pdf')
+plt.savefig('build/plot.pdf')
