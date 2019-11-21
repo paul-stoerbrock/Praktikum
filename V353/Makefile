@@ -1,7 +1,8 @@
 all: build/V353.pdf
 
-build/V353.pdf: V353.tex build/plot.pdf |build
+build/V353.pdf: FORCE V353.tex build/plot.pdf |build
 	TEXINPUTS="$(call translate,build:)" \
+	BIBINPUTS=build: \
 	max_print_line=1048576 \
 	latexmk \
 	  --lualatex \
@@ -12,7 +13,7 @@ build/V353.pdf: V353.tex build/plot.pdf |build
 
 build/plot.pdf: V353.py data.txt  |build
 	
-	python V353.py
+	TEXINPUTS=$$(pwd): python V353.py
 
 
 build:
