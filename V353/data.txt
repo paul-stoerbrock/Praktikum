@@ -1,4 +1,4 @@
-# Versuch 353 RC-Kreis Messwete
+# Versuch 353 RC-Kreis Messwete angelegte Spannungsamplitude U0 = 0,3 bei 4b und c
 #Aufgabe     4a     4b
 #Frequenz/Hz A(w)/V a/s
 
