@@ -28,14 +28,25 @@
   sans-style=italic,
   nabla=upright,
   partial=upright,
+  warnings-off={
+    mathtools-colon,
+    mathtools-overbracket,
+  },
 ]{unicode-math}
+
+\setmathfont{Latin Modern Math}
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
 
 \usepackage[
   locale=DE,
   separate-uncertainty=true,
-  per-mode=symbol-or-fraction,
+  per-mode=reciprocal,
   output-decimal-marker=.,
 ]{siunitx}
+
+\usepackage{xfrac}
 
 \usepackage{float}
 \floatplacement{figure}{htbp}
