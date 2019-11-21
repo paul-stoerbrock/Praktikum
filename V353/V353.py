@@ -10,4 +10,4 @@ from uncertainties.unumpy import (
 
 x = np.linspace(0, 1)
 plt.plot(x, x**2, 'b-')
-plt.savefig('plot.pdf')
+plt.savefig('build/plot.pdf')
