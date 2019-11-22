@@ -12,7 +12,7 @@ from scipy.stats import sem #standard error of mean = sem(x)
 from scipy.optimize import curve_fit #function curve_fit 
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
-U0 = 0.3 
+U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
 
@@ -33,9 +33,9 @@ popt, pcov = curve_fit(
 print(popt) #Überprüfung von Größe RC
 
 plt.plot(f, A0, 'k.', label="Messwerte")
-plt.yscale('log')
+plt.xscale('log')
 
-x_plot = np.linspace(0, 100000, 100000)
+x_plot = np.linspace(1, 100000, 100000)
 
 
 
@@ -44,6 +44,6 @@ plt.plot(x_plot, g(x_plot,*popt), 'r-', label="Nicht-lineare Regression")
 plt.legend(loc="best")
 plt.title('Messwerte + Linear Regression')
 plt.xlabel('Frequenz in Hertz')
-plt.ylabel('A/U0 in Volt')
+plt.ylabel('A/$U_0$ in Volt')
 plt.tight_layout
 plt.savefig('build/plot.pdf')
