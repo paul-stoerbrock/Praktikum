@@ -2,7 +2,7 @@ all: build/V353.pdf
 
 build/V353.pdf: FORCE V353.tex build/plot.pdf |build
 	TEXINPUTS="$(call translate,build:)" \
-	BIBINPUTS=build: \
+	BIBINPUTS=build:\
 	max_print_line=1048576 \
 	latexmk \
 	  --lualatex \
