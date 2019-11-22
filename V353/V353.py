@@ -26,7 +26,8 @@ U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
 
 A0 = A / U0
-phi = f * t
+phi = f * t * 2 * np.pi
+
 
 
 
@@ -50,10 +51,9 @@ phiRC, phicov = curve_fit(
     p0=[1e-03]
     )
 
-
 #Plot für 4b) [A(w)/U0]
 
-plt.subplot(2,1,1)
+
 plt.plot(f, A0, 'kx', label="Frequenz und Amplitude")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
@@ -62,9 +62,13 @@ plt.legend(loc="best")
 plt.title('4b)')
 plt.xlabel('Frequenz in Hertz')
 plt.ylabel('A/$U_0$ in Volt')
+plt.tight_layout
 
-plt.subplot(2,1,2)
-plt.plot(f, t, 'kx', label="Frequenz und Phase")
+plt.savefig('build/plotA.pdf')
+
+plt.close()
+
+plt.plot(f, phi, 'kx', label="Frequenz und Phase")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nicht-lineare Regression")
