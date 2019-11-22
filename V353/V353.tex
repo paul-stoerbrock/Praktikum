@@ -21,6 +21,23 @@
 \newpage
 \justifying
 \section{Theorie}
+  Als RC-Kreis wird eine Schaltung bestehend aus einem Kondensator 
+  und einem Widerstand beschrieben, durch welchen ein Strom I fließt. \\
+  Dabei stellt der Kondensator beim Auf- und Entladen einen Relaxationsvorgang dar, 
+  was bedeutet, dass die Spannung des Kondensators bei einem Entladevorgang 
+  nicht-oszillatorisch zum Anfangszustand zurückkehrt \\
+  Beim Entladevorgang eines Kondensators mit der Kapazität C wird eine Spannung $U_0$ 
+  angelegt, die nach dem trennen des Generators über einen Widerstand R abfällt.\\
+  Der Entladevorgang kann dabei beschrieben werden durch
+  \begin{align}
+    U_C= U_0 \cdot e^{-\frac{1}{\tau} t} \text{\cite{V353}} \quad \text{mit}  \tau = R \cdot C  \label{eq:UcEnd} \text{ ,}
+  \end{align}
+  wobei \tau Zeitkonstante des Relaxationsvorgangs genannt wird. Sie beschreibt, wie 
+  schnell sich das System seinem Endzustand nähert.
+
+  
+
+
 \section{Versuchsaufbau}
 Benötigt werden: \textit{ein analoges Zweikanal-Oszilloskop, ein Generator, ein RC-Glied, drei BNC-Kabel, ein BNC-Steckverbinder }\\
 Zuerst wird an dem Generatorausgang eine BNC-Steckverbindung angebracht. 
@@ -38,4 +55,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \end{table}
 
 \section{Diskussion}
+\newpage
+\nocite{V353}
+\printbibliography
 \end{document}
