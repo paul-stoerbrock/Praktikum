@@ -29,7 +29,7 @@ def d(A0 ,f , RC):
 U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 
 U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
-
+Uc = np.log(U/U0)
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
 A0 = A / U0
 phi = f * t * 2 * np.pi
