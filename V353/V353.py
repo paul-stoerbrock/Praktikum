@@ -103,19 +103,49 @@ plt.legend(loc="best")
 plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plotpolar.pdf')
+plt.close()
+
+
+#richtiger Plot 4c) #########################################################################################################
+
+fr, Ar, tr = np.genfromtxt('true.txt', unpack=True)
+
+plt.plot(fr, phi, 'kx', label="Frequenz und Phase")
+plt.xscale('log')
+x_plot = np.linspace(1, 100000, 100000)
+plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nicht-lineare Regression richtig")
+plt.legend(loc="best")
+plt.title('4c) richtig')
+plt.xlabel('Frequenz in Hertz')
+plt.ylabel('Phase')
+plt.grid(True)
+plt.tight_layout
+plt.savefig('build/plot4ctrue.pdf')
+plt.close()
 
 
 
-#SI Einheiten
+#SI Einheiten 
 
 ohmF=r' }{\Ohm\Farad}$'
 
-with open('build/mean_RC.tex', 'w') as RC:
+#RC nach a berechnet ####################################################################################################################
+
+with open('build/mean_aRC.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{slope:.2f}')
+    RC.write(ohmF)
+
+#RC nach b berechnet ########################################################################################################
+
+with open('build/mean_bRC.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{popt[0]:.2f}')
     RC.write(ohmF)
 
-with open('build/mean_phiRC.tex', 'w') as RC:
+#RC nach c berechnet ###################################################################################
+
+with open('build/mean_cRC.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{phiRC[0]:.2f}')
     RC.write(ohmF)
