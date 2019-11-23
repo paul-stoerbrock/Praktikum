@@ -21,7 +21,7 @@
 \newpage
 \justifying
 \section{Theorie}
-  Als RC-Kreis wird eine Schaltung bestehend aus einem Kondensator 
+  Als RC-Kreis wird eine Reihenschaltung bestehend aus einem Kondensator 
   und einem Widerstand beschrieben, durch welchen ein Strom I fließt. \\
   Dabei stellt der Kondensator beim Auf- und Entladen einen Relaxationsvorgang dar, 
   was bedeutet, dass die Spannung des Kondensators bei einem Entladevorgang 
@@ -61,11 +61,14 @@
   Das wird im allgemeinen als Tiefpass bezeichnet und  wird in der 
   elektrischen Schaltungstechnik häufig eingesetzt, um tiefe Frequenzen
   herauszufiltern.
+  Ein RC-Kreis kann auch unter der Bedingung $\omega >> \frac{1}{RC}$ eine 
+  zeitlich veränderliche Spannung $U(t)$ integrieren. Dann lässt sich 
+  zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch:
+  \begin{align}
+    U_C(t)=\frac{1}{R\;C} \int_0^t{U(t')\, \symup{d}t'}
+  \end{align}
 
 
-
-
-  
 
 
 \section{Versuchsaufbau}
