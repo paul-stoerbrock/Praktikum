@@ -20,8 +20,8 @@ def g(f, RC):
 def h(f, RC):
     return np.arctan(-2 * np.pi * f * RC)
 
-def d(phi ,f , RC):
-    return np.arcsin(-U0/(A0*2*np.pi*f*RC))
+def d(A0 ,f , RC):
+    return np.arcsin(-2 * np.pi * f * RC * A0)
 
 
 U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
@@ -50,7 +50,7 @@ phiRC, phicov = curve_fit(
     absolute_sigma=True,
     p0=[1e-03]
     )
-print(phi)
+
 
 # Plot für 4b) [A(w)/U0] ############################################################################################################################################################################
 
@@ -81,8 +81,8 @@ plt.savefig('build/plot.pdf')
 plt.close()
 
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
-x_plot = np.linspace(0, 2*np.pi, 24)
-plt.polar(x_plot,d(x_plot ,f ,*phiRC) , 'r-', label="Polarplot")
+x_plot = np.linspace(0, 1, 24)
+plt.polar(d(x_plot,f , phiRC), x_plot, 'r-', label="Polarplot")
 plt.legend(loc="best")
 #plt.title('4d)')
 plt.grid(True)
@@ -93,17 +93,17 @@ plt.savefig('build/plotpolar.pdf')
 
 #SI Einheiten
 
-mean_RC=r' }{\Ohm\Farad}$'
+ohmF=r' }{\Ohm\Farad}$'
 
 with open('build/mean_RC.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{popt[0]:.2f}')
-    RC.write(mean_RC)
+    RC.write(ohmF)
 
 with open('build/mean_phiRC.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{phiRC[0]:.2f}')
-    RC.write(mean_RC)
+    RC.write(ohmF)
 
 # Tabelle wird erstellt ############################################################################################################################################################################
 
@@ -132,3 +132,10 @@ with open('build/table_4b.tex', 'w') as h:
         h.write(row_template.format(*row))
         h.write('\n')
     h.write(table_footer)
+
+
+# Testprints #########################################################################
+
+print(-(np.sin(phi))/(2 * np.pi * f * phiRC[0]))
+print(phi)
+print(A0)
