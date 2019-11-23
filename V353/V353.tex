@@ -30,17 +30,17 @@
   angelegt, die nach dem trennen des Generators über einen Widerstand R abfällt.\\
   Mit der Anfangsbedingung $U_C(0)=U_0$ kann der Entladevorgang beschrieben werden durch \cite{V353}
   \begin{align}
-  &U_C(t) = U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= R \, C  \label{eq:UcEnd} \text{,}
+  &U_C(t) = U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= RC  \label{eq:UcEnd} \text{,}
     \intertext{wobei $\tau$ \;Zeitkonstante des Relaxationsvorgangs genannt wird. Sie bestimmt, 
     wie schnell sich das System seinem Endzustand nähert.
     Beim Aufladevorgang sieht die Gleichung mit der Anfangsbedingung $U(0)=0$ 
     folgendermaßen aus \cite{V353}:}
-  &U_C(t) = U_0 \, (1-U_C^{-\frac{1}{\tau}}) \quad &\text{mit} \, \tau &= R \, C  \label{eq:UcAuf}
+  &U_C(t) = U_0 \, (1-U_C^{-\frac{1}{\tau} t}) \quad &\text{mit} \, \tau &= RC  \label{eq:UcAuf}
     \intertext{Relaxationsvorgänge sind beim RC-Kreis allerdings nicht auf den Ent- und 
     Aufladevorgang beschränkt. Auch bei einer Wechselspannung lässt sich dieses 
     Verhalten wiederfinden. Bei einer Wechselspannung stellt sich zwischen Strom 
     und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ ein \cite{V353}}
-  &\varphi(\nu) = \arctan (-\omega \, R \, C) \quad &\text{mit} \; \omega &= 2 \pi \nu. \label{eq:nu}
+  &\varphi(\nu) = \arctan (-\omega \, RC) \quad &\text{mit} \; \omega &= 2 \pi \nu. \label{eq:nu}
   \end{align}
   Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega \ll \sfrac{1}{\tau}$
   noch ungefähr null sein. Bei steigender Frequenz wird die Phasendifferenz immer größer
@@ -48,15 +48,15 @@
   Die Beziehung zwischen der Amplitude der Spannung und der Kreisfrequenz lautet dann 
   folgendermaßen \cite{V353}:
   \begin{align}
-    A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2 \, C^2}} \label{eq:A}
+    A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2  C^2}} \label{eq:A}
   \end{align}
   Dadurch zeigt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
   Frequenzen geht $A(\omega)$ gegen $U_0$. Während es für große Frequenzen
   gegen Null geht.
   Das wird im allgemeinen als Tiefpass bezeichnet und  wird in der 
   elektrischen Schaltungstechnik häufig eingesetzt, um tiefe Frequenzen
-  herauszufiltern.
-  Ein RC-Kreis kann auch unter der Bedingung $\omega \ll \sfrac{1}{R \, C}$ eine 
+  herauszufiltern.\\
+  Ein RC-Kreis kann auch unter der Bedingung $\omega \gg \sfrac{1}{RC}$ eine 
   zeitlich veränderliche Spannung $U(t)$ integrieren. Dann lässt sich 
   zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch:
   \begin{align}
@@ -64,7 +64,21 @@
   \end{align}
 
 \subsection{Aufgaben}
+  Für den Aufgabenteil a) sollte die Zeitkonstante eines RC-Glieds durch 
+  eine lineare Ausgleichsrechnung bestimmt werden. Die Messwerte \ref{tab:data} 
+  stammen dabei aus einem Foto von einem Aufladevorgang des Kondensators.\\
 
+  \flushleft{Für den Aufgabenteil b) sollte aus den aufgenommenen Messwerten für Spannung}\\ und
+  Frequenz RC mit einer nicht-lineare Ausgleichsrechnung berechnet und ein 
+  $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet werden.
+
+  \flushleft{Für Aufgabenteil c) sollte der gleiche Prozess nochmal mit}
+  $\varphi$ statt $A(\nu _i)/U_0$ durchgeführt werden.
+
+  \flushleft{Für den letzten Aufgabenteil d) sollte gezeigt werden, dass }
+  ein RC-Kreis unter hohen Frequenzen als Integrator arbeiten kann.
+
+  
 
 
 
@@ -74,6 +88,18 @@ Zuerst wird an dem Generatorausgang eine BNC-Steckverbindung angebracht.
 Dann wird der Generator mit dem RC-Glied und dem Oszilloskop verbunden. \\
 Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 \section{Versuchsdurchführung}
+Zuerst wird der Generator auf eine Rechteckspannung geschaltet. Daraufhin wird
+ein geeigneter Triggerpegel eingestellt und ein Bild von der Auf- bzw. Entladekurve
+der Schaltung angefertigt.\\
+Für den nächsten Teil wird der Generator auf eine Sinusspannung eingestellt.
+Dabei sollen die Spannungsverläufe von $U_C(t)$ und der Generatorspannung auf dem
+Oszilloskop gleichzeitig angezeigt werden. Dann werden die Werte für die Amplitude 
+der Kondensatorspannung [$A(\omega$)] und dem zeitlichen Abstand der Nulldurchgänge 
+[$a$] in Abhängigkeit von der Frequenz über drei Potenzen gemessen.
+Zuletzt wird am Generator eine passende Frequenz für die Integration eingestellt.
+Dannach wird nacheinander eine Rechteck-, Sinus- und Dreiecksschwingung auf das
+RC-Glied gegeben. Dabei sollen wieder beide Spannungen auf dem Oszilloskop 
+dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemacht.
 
 \section{Auswertung}
 
