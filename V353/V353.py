@@ -14,7 +14,7 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 # A(Omega)/U0 ############################################################################################################################################################################
 def UC(U0, tc, RC):
-    return U0 *(1 - np.exp((-1/RC)* tc))
+    return U0 * np.exp((-1/RC)* tc)
 
 def g(f, RC):
     return  1/(np.sqrt(4 * (np.pi)**2 * f**2 * RC**2+1))
@@ -37,7 +37,7 @@ phi = f * t * 2 * np.pi
 
 # Definition von RC (popt) ############################################################################################################################################################################
 
-slope, intercept, r_value, p_value, std_err = stats.linregress(U, tc)
+slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 
 popt, pcov = curve_fit(
     g,
@@ -60,9 +60,9 @@ phiRC, phicov = curve_fit(
 
 # Plot für 4a-d) [A(w)/U0] ############################################################################################################################################################################
 
-plt.plot(tc, U, 'kx', label="4a) RC aus Ausgleichsgerade")
+plt.plot(tc, U/U0, 'kx', label="4a) RC aus Ausgleichsgerade")
 plt.yscale('log')
-plt.plot(tc, intercept + slope*tc, 'r-', label="Lineare Regression")
+plt.plot(tc, np.exp(intercept + slope*tc), 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.title('4a)')
 plt.xlabel('Zeit in ms')
@@ -96,7 +96,7 @@ plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plot4c.pdf')
 plt.close()
-
+-0.80474048462341-0.804740484623419595
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
 x_plot = np.linspace(0, 1, 24)
 plt.polar(d(x_plot,f , phiRC), x_plot, 'r-', label="Polarplot")
@@ -183,3 +183,4 @@ with open('build/table_4b.tex', 'w') as i:
 print(-(np.sin(phi))/(2 * np.pi * f * phiRC[0]))
 print(phi)
 print(A0)
+print(slope)
