@@ -20,11 +20,14 @@ def g(f, RC):
 def h(f, RC):
     return np.arctan(-2 * np.pi * f * RC)
 
+def d(phi ,f , RC):
+    return -(np.sin(phi))/(2 * np.pi * f * RC)
+
 
 U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
-
+t *= 1e-03
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
@@ -50,6 +53,7 @@ phiRC, phicov = curve_fit(
     absolute_sigma=True,
     p0=[1e-03]
     )
+print(phi)
 
 #Plot für 4b) [A(w)/U0]
 
@@ -70,7 +74,7 @@ plt.close()
 
 plt.plot(f, phi, 'kx', label="Frequenz und Phase")
 plt.xscale('log')
-x_plot = np.linspace(1, 100000, 100000)
+x_plot = np.linspace(1, 1000, 1000)
 plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nicht-lineare Regression")
 plt.legend(loc="best")
 plt.title('4c)')
@@ -80,6 +84,19 @@ plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plot.pdf')
 
+
+plt.close()
+plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
+x_plot = np.linspace(1, 24, 24)
+plt.polar(d(x_plot ,f ,*phiRC), x_plot, 'r-', label="Polarplot")
+plt.legend(loc="best")
+#plt.title('4d)')
+plt.grid(True)
+plt.tight_layout
+plt.savefig('build/plotpolar.pdf')
+
+
+
 #SI Einheiten
 
 mean_RC=r' }{\Ohm\Farad}$'
@@ -87,6 +104,11 @@ mean_RC=r' }{\Ohm\Farad}$'
 with open('build/mean_RC.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{popt[0]:.2f}')
+    RC.write(mean_RC)
+
+with open('build/mean_phiRC.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{phiRC[0]:.2f}')
     RC.write(mean_RC)
 
 #Tabelle wird erstellt
