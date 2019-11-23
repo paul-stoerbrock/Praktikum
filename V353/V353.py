@@ -13,9 +13,8 @@ from scipy.optimize import curve_fit #function curve_fit
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
 # A(Omega)/U0 ############################################################################################################################################################################
-
-#def UC(U0, tc, RC):
-#    return U0 *np.exp((-1/RC)* tc)
+def UC(U0, tc, RC):
+    return U0 * np.exp((-1/RC)* tc)
 
 def g(f, RC):
     return  1/(np.sqrt(4 * (np.pi)**2 * f**2 * RC**2+1))
@@ -38,7 +37,7 @@ phi = f * t * 2 * np.pi
 
 # Definition von RC (popt) ############################################################################################################################################################################
 
-slope, intercept, r_value, p_value, std_err = stats.linregress(tc, Uc)
+slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 
 popt, pcov = curve_fit(
     g,
@@ -61,7 +60,7 @@ phiRC, phicov = curve_fit(
 
 # Plot für 4a-d) [A(w)/U0] ############################################################################################################################################################################
 
-plt.plot(tc, U, 'kx', label="4a) RC aus Ausgleichsgerade")
+plt.plot(tc, U/U0, 'kx', label="4a) RC aus Ausgleichsgerade")
 plt.yscale('log')
 plt.plot(tc, np.exp(intercept + slope*tc), 'r-', label="Lineare Regression")
 plt.legend(loc="best")
@@ -184,3 +183,4 @@ with open('build/table_4b.tex', 'w') as i:
 print(-(np.sin(phi))/(2 * np.pi * f * phiRC[0]))
 print(phi)
 print(A0)
+print(slope)
