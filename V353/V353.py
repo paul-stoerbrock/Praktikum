@@ -31,7 +31,6 @@ U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
-t *= 1e-03
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
@@ -66,7 +65,7 @@ plt.plot(tc, np.exp(intercept + slope*tc), 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.title('4a)')
 plt.xlabel('Zeit in ms')
-plt.ylabel('$U_c$ in Volt')
+plt.ylabel('$U_c/U0$ in Volt')
 plt.tight_layout
 plt.savefig('build/plot4a.pdf')
 plt.close()
@@ -96,12 +95,11 @@ plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plot4c.pdf')
 plt.close()
--0.80474048462341-0.804740484623419595
+
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
 x_plot = np.linspace(0, 1, 24)
 plt.polar(d(x_plot,f , phiRC), x_plot, 'r-', label="Polarplot")
 plt.legend(loc="best")
-#plt.title('4d)')
 plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plotpolar.pdf')
