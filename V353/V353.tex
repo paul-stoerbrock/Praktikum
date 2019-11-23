@@ -28,32 +28,27 @@
   nicht-oszillatorisch zum Anfangszustand zurückkehrt \\
   Beim Entladevorgang eines Kondensators mit der Kapazität C wird eine Gleichspannung $U_0$ 
   angelegt, die nach dem trennen des Generators über einen Widerstand R abfällt.\\
-  Mit der Anfangsbedingung $U_C(0)=U_0$ kann der Entladevorgang beschrieben werden durch
+  Mit der Anfangsbedingung $U_C(0)=U_0$ kann der Entladevorgang beschrieben werden durch \cite{V353}
   \begin{align}
-    U_C(t)= U_0 \cdot e^{-\frac{1}{\tau} t} \text{\cite{V353}} \quad \text{mit} \, \tau = R\, C  \label{eq:UcEnd} \text{ ,}
+  &U_C(t) = U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= R \, C  \label{eq:UcEnd} \text{,}
+    \intertext{wobei $\tau$ \;Zeitkonstante des Relaxationsvorgangs genannt wird. Sie bestimmt, 
+    wie schnell sich das System seinem Endzustand nähert.
+    Beim Aufladevorgang sieht die Gleichung mit der Anfangsbedingung $U(0)=0$ 
+    folgendermaßen aus \cite{V353}:}
+  &U_C(t) = U_0 \, (1-U_C^{-\frac{1}{\tau}}) \quad &\text{mit} \, \tau &= R \, C  \label{eq:UcAuf}
+    \intertext{Relaxationsvorgänge sind beim RC-Kreis allerdings nicht auf den Ent- und 
+    Aufladevorgang beschränkt. Auch bei einer Wechselspannung lässt sich dieses 
+    Verhalten wiederfinden. Bei einer Wechselspannung stellt sich zwischen Strom 
+    und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ ein \cite{V353}}
+  &\varphi(\nu) = \arctan (-\omega \, R \, C) \quad &\text{mit} \; \omega &= 2 \pi \nu. \label{eq:nu}
   \end{align}
-  wobei $\tau$ \;Zeitkonstante des Relaxationsvorgangs genannt wird. Sie bestimmt, 
-  wie schnell sich das System seinem Endzustand nähert.\\
-  Beim Aufladevorgang sieht die Gleichung mit der Anfangsbedingung $U(0)=0$ 
-  folgendermaßen aus:
-  \begin{align}
-    U_C(t)= U_0\, (1-U_C^{-\frac{1}{\tau}}) \text{\cite{V353}} \quad \text{mit} \, \tau = R\, C  \label{eq:UcAuf}
-  \end{align}
-
-  \flushleft{Relaxationsvorgänge sind beim RC-Kreis allerdings nicht auf den Ent- und} 
-  Aufladevorgang beschränkt. Auch bei einer Wechselspannung lässt sich dieses 
-  Verhalten wiederfinden. Bei einer Wechselspannung stellt sich zwischen Strom 
-  und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ ein
-  \begin{align}
-      \varphi(\nu)=\arctan (-\omega \, R\, C) \text{\cite{V353}} \quad mit \; \omega = 2 \pi \nu. \label{eq:nu}
-  \end{align}
-  Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega << \frac{1}{\tau}$
+  Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega \ll \sfrac{1}{\tau}$
   noch ungefähr null sein. Bei steigender Frequenz wird die Phasendifferenz immer größer
   bis sie im Unendlichen gegen $\sfrac{\pi}{2}$ geht.
   Die Beziehung zwischen der Amplitude der Spannung und der Kreisfrequenz lautet dann 
-  folgendermaßen:
+  folgendermaßen \cite{V353}:
   \begin{align}
-    A(\omega)= \frac{U_0}{\sqrt{1+\omega^2\, R^2\, C^2}} \text{\cite{V353}} \label{eq:A}
+    A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2 \, C^2}} \label{eq:A}
   \end{align}
   Dadurch zeigt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
   Frequenzen geht $A(\omega)$ gegen $U_0$. Während es für große Frequenzen
@@ -61,11 +56,11 @@
   Das wird im allgemeinen als Tiefpass bezeichnet und  wird in der 
   elektrischen Schaltungstechnik häufig eingesetzt, um tiefe Frequenzen
   herauszufiltern.
-  Ein RC-Kreis kann auch unter der Bedingung $\omega >> \frac{1}{RC}$ eine 
+  Ein RC-Kreis kann auch unter der Bedingung $\omega \ll \sfrac{1}{R \, C}$ eine 
   zeitlich veränderliche Spannung $U(t)$ integrieren. Dann lässt sich 
   zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch:
   \begin{align}
-    U_C(t)=\frac{1}{R\;C} \int_0^t{U(t')\, \symup{d}t'}
+    U_C(t) &= \frac{1}{R \, C} \int_0^t{U(t') \, \symup{d}t'}
   \end{align}
 
 
@@ -82,7 +77,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
     \begin{table}
         \centering
-        \caption{Messungen}
+        \caption{Messdaten}
         \input{table_4b.tex} 
         \label{tab:data}
     \end{table}
