@@ -13,8 +13,8 @@ from scipy.optimize import curve_fit #function curve_fit
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
 # A(Omega)/U0 ############################################################################################################################################################################
-def UC(U, tc, RC):
-    return (U * (1 - exp((-1/RC)* tc)))
+def UC(U0, tc, RC):
+    return U0 *(1 - np.exp((-1/RC)* tc))
 
 def g(f, RC):
     return  1/(np.sqrt(4 * (np.pi)**2 * f**2 * RC**2+1))
@@ -28,7 +28,7 @@ def d(A0 ,f , RC):
 
 U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 
-U, tc = np.genfromtxt('4a.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
+U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
 t *= 1e-03
@@ -37,7 +37,7 @@ phi = f * t * 2 * np.pi
 
 # Definition von RC (popt) ############################################################################################################################################################################
 
-slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U))
+slope, intercept, r_value, p_value, std_err = stats.linregress(U, tc)
 
 popt, pcov = curve_fit(
     g,
@@ -58,17 +58,17 @@ phiRC, phicov = curve_fit(
     )
 
 
-# Plot für 4b) [A(w)/U0] ############################################################################################################################################################################
+# Plot für 4a-d) [A(w)/U0] ############################################################################################################################################################################
 
-plt.plot(tc, np.log(U), 'kx', label="4a) RC aus Ausgleichsgerade")
-#plt.yscale('log')
+plt.plot(tc, U, 'kx', label="4a) RC aus Ausgleichsgerade")
+plt.yscale('log')
 plt.plot(tc, intercept + slope*tc, 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.title('4a)')
 plt.xlabel('Zeit in ms')
 plt.ylabel('$U_c$ in Volt')
 plt.tight_layout
-plt.savefig('build/4a.pdf')
+plt.savefig('build/plot4a.pdf')
 plt.close()
 
 plt.plot(f, A0, 'kx', label="Frequenz und Amplitude")
@@ -79,13 +79,14 @@ plt.legend(loc="best")
 plt.title('4b)')
 plt.xlabel('Frequenz in Hertz')
 plt.ylabel('A/$U_0$ in Volt')
+plt.grid(True)
 plt.tight_layout
-plt.savefig('build/plotA.pdf')
+plt.savefig('build/plot4b.pdf')
 plt.close()
 
 plt.plot(f, phi, 'kx', label="Frequenz und Phase")
 plt.xscale('log')
-x_plot = np.linspace(1, 1e+05, 1e+05)
+x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nicht-lineare Regression")
 plt.legend(loc="best")
 plt.title('4c)')
@@ -93,7 +94,7 @@ plt.xlabel('Frequenz in Hertz')
 plt.ylabel('Phase')
 plt.grid(True)
 plt.tight_layout
-plt.savefig('build/plot.pdf')
+plt.savefig('build/plot4c.pdf')
 plt.close()
 
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
