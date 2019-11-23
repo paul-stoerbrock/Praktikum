@@ -1,5 +1,7 @@
 \documentclass[
-  captions=tableheading, 
+  captions=tableheading,
+  bibliography=totoc, 
+  titepage=firstiscover,
 ]{scrartcl}
 
 \usepackage{blindtext} %neuer input
@@ -8,17 +10,21 @@
 
 \usepackage{scrhack}
 
-\usepackage[aux]{rerunfilecheck}
+\usepackage[aux]{rerunfilecheck} %Warnung falls nochmal kompiliert werden muss
 
-\usepackage{fontspec}
+\usepackage{fontspec} %Fonteinstellungen
 
-\usepackage[main=ngerman]{babel}
+\recalctypearea{}
+
+\usepackage[main=ngerman]{babel} %deutsche Spracheinstellung
 
 \usepackage{ragged2e} %neuer input
 
 \usepackage{amsmath, nccmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
+
+\usepackage{amssymb} %viele mathe Symbole
+
+\usepackage{mathtools} %Erweiterungen für amsmath
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 
@@ -46,11 +52,20 @@
   output-decimal-marker=.,
 ]{siunitx}
 
+\usepackage[autostyle]{csquotes} %richtige Anführungszeichen
+
 \usepackage{xfrac}
 
 \usepackage{float}
+
 \floatplacement{figure}{htbp}
+
 \floatplacement{table}{htbp}
+
+\usepackage[ %floats innerhalb einer section halten
+  section,   %floats innerhalb er section halten
+  below,     %unterhalb der Section aber auf der selben Seite ist ok
+]{placeins}
 
 \usepackage[
   labelfont=bf,
@@ -58,14 +73,30 @@
   width=0.9\textwidth,
 ]{caption}
 
+\usepackage{subcaption} %subfigure, subtable, subref
+
 \usepackage{graphicx}
+
 \usepackage{grffile}
 
 \usepackage{booktabs}
 
+\usepackage{microtype} %Verbesserungen am Schriftbild
+
 \usepackage[
+backend=biber,
+]{biblatex}
+
+\addbibresource{../lit.bib}
+
+\usepackage[ %Hyperlinks im Dokument
+  german,
   unicode,
+  pdfusetitle,
+  pdfcreator={},
+  pdfproducer={},
 ]{hyperref}
+
 \usepackage{bookmark}
-\usepackage{biblatex}
-\addbibresource{../litbib}
+
+\usepackage[shortcuts]{extdash}
