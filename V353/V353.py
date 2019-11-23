@@ -31,7 +31,6 @@ U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
 U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
 Uc = np.log(U/U0)
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
-t *= 1e-03
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
@@ -166,7 +165,7 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.0f} & {1:1.2f} & {2:1.2f} & {3:1.0f} & {4:1.2f} & {5:1.2f} & {6:1.0f} & {7:1.2f} & {8:1.2f} \\'
+row_template = r'     {0:1.0f} & {1:1.2f} & {2:1.4f} & {3:1.0f} & {4:1.2f} & {5:1.4f} & {6:1.0f} & {7:1.2f} & {8:1.4f} \\'
 
 # Tabelle für 4b-c) wird im Tex Format geschrieben ############################################################################################################################################################################
 
