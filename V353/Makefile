@@ -11,10 +11,9 @@ build/V353.pdf: FORCE V353.tex build/plot.pdf |build
 	  --halt-on-error \
 	V353.tex
 
-build/plot.pdf: V353.py data.txt entladung.txt |build
+build/plot.pdf: V353.py data.txt entladung.txt true.txt|build
 	
 	TEXINPUTS=$$(pwd): python V353.py
-
 
 build:
 	mkdir -p build
