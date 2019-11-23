@@ -21,7 +21,7 @@ def h(f, RC):
     return np.arctan(-2 * np.pi * f * RC)
 
 def d(phi ,f , RC):
-    return -(np.sin(phi))/(2 * np.pi * f * RC)
+    return np.arcsin(-U0/(A0*2*np.pi*f*RC))
 
 
 U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
@@ -64,9 +64,7 @@ plt.title('4b)')
 plt.xlabel('Frequenz in Hertz')
 plt.ylabel('A/$U_0$ in Volt')
 plt.tight_layout
-
 plt.savefig('build/plotA.pdf')
-
 plt.close()
 
 plt.plot(f, phi, 'kx', label="Frequenz und Phase")
@@ -80,12 +78,11 @@ plt.ylabel('Phase')
 plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plot.pdf')
-
-
 plt.close()
+
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
-x_plot = np.linspace(1, 24, 24)
-plt.polar(d(x_plot ,f ,*phiRC), x_plot, 'r-', label="Polarplot")
+x_plot = np.linspace(0, 2*np.pi, 24)
+plt.polar(x_plot,d(x_plot ,f ,*phiRC) , 'r-', label="Polarplot")
 plt.legend(loc="best")
 #plt.title('4d)')
 plt.grid(True)
