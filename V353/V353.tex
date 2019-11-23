@@ -35,7 +35,7 @@
     wie schnell sich das System seinem Endzustand nähert.
     Beim Aufladevorgang sieht die Gleichung mit der Anfangsbedingung $U(0)=0$ 
     folgendermaßen aus \cite{V353}:}
-  &U_C(t) = U_0 \, (1-U_C^{-\frac{1}{\tau} t}) \quad &\text{mit} \, \tau &= RC  \label{eq:UcAuf}
+  &U_C(t) = U_0 \, (1-e^{-\frac{1}{\tau} t}) \quad &\text{mit} \, \tau &= RC  \label{eq:UcAuf}
     \intertext{Relaxationsvorgänge sind beim RC-Kreis allerdings nicht auf den Ent- und 
     Aufladevorgang beschränkt. Auch bei einer Wechselspannung lässt sich dieses 
     Verhalten wiederfinden. Bei einer Wechselspannung stellt sich zwischen Strom 
@@ -58,7 +58,7 @@
   herauszufiltern.\\
   Ein RC-Kreis kann auch unter der Bedingung $\omega \gg \sfrac{1}{RC}$ eine 
   zeitlich veränderliche Spannung $U(t)$ integrieren. Dann lässt sich 
-  zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch:
+  zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch \cite{V353}:
   \begin{align}
     U_C(t) &= \frac{1}{R \, C} \int_0^t{U(t') \, \symup{d}t'}
   \end{align}
@@ -66,10 +66,10 @@
 \subsection{Aufgaben}
   Für den Aufgabenteil a) sollte die Zeitkonstante eines RC-Glieds durch 
   eine lineare Ausgleichsrechnung bestimmt werden. Die Messwerte \ref{tab:data} 
-  stammen dabei aus einem Foto von einem Aufladevorgang des Kondensators.\\
+  stammen dabei aus einem Foto von einem Aufladevorgang des Kondensators.
 
   \flushleft{Für den Aufgabenteil b) sollte aus den aufgenommenen Messwerten für Spannung}\\ und
-  Frequenz RC mit einer nicht-lineare Ausgleichsrechnung berechnet und ein 
+  Frequenz mit einer nicht-linearen Ausgleichsrechnung RC berechnet und ein 
   $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet werden.
 
   \flushleft{Für Aufgabenteil c) sollte der gleiche Prozess nochmal mit}
