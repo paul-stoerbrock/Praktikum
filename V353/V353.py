@@ -12,7 +12,7 @@ from scipy.stats import sem #standard error of mean = sem(x)
 from scipy.optimize import curve_fit #function curve_fit 
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
-#A(Omega)/U0
+# A(Omega)/U0 ############################################################################################################################################################################
 
 def g(f, RC):
     return  1/(np.sqrt(4 * (np.pi)**2 * f**2 * RC**2+1))
@@ -31,10 +31,7 @@ t *= 1e-03
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
-
-
-
-#Definition von RC (popt)
+# Definition von RC (popt) ############################################################################################################################################################################
 
 popt, pcov = curve_fit(
     g,
@@ -55,7 +52,7 @@ phiRC, phicov = curve_fit(
     )
 print(phi)
 
-#Plot für 4b) [A(w)/U0]
+# Plot für 4b) [A(w)/U0] ############################################################################################################################################################################
 
 
 plt.plot(f, A0, 'kx', label="Frequenz und Amplitude")
@@ -111,24 +108,30 @@ with open('build/mean_phiRC.tex', 'w') as RC:
     RC.write(f'{phiRC[0]:.2f}')
     RC.write(mean_RC)
 
-#Tabelle wird erstellt
+# Tabelle wird erstellt ############################################################################################################################################################################
+
+f1, f2, f3= np.array_split(f, 3)
+A1, A2, A3 = np.array_split(A, 3)
+t1, t2, t3 = np.array_split(1000*t, 3)
 
 table_header = r'''
-  \begin{tabular}{c c c}
+  \begin{tabular}{c c c c c c c c c}
     \toprule
-    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$}\\
-    \midrule
+    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$} & 
+    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$} & 
+    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$}\\
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6} \cmidrule(lr{0,5em}){7-9}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.0f} & {1:1.2f} & {2:1.2f}  \\'
+row_template = r'     {0:1.0f} & {1:1.2f} & {2:1.2f} & {3:1.0f} & {4:1.2f} & {5:1.2f} & {6:1.0f} & {7:1.2f} & {8:1.2f} \\'
 
-#Tabelle wird im Tex Format geschrieben
+# Tabelle wird im Tex Format geschrieben ############################################################################################################################################################################
 
 with open('build/table_4b.tex', 'w') as h:
     h.write(table_header)
-    for row in zip(f, A*1e+03, t*1e+03):
+    for row in zip(f1, A1*1e+03, t1, f2, A2*1e+03, t2, f3, A3*1e+03, t3):
         h.write(row_template.format(*row))
         h.write('\n')
     h.write(table_footer)
