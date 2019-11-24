@@ -38,7 +38,11 @@ phi = f * t * 2 * np.pi
 slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 
 x = ufloat(slope, std_err)
-y=-1/x
+y = -1/x
+
+R = ufloat(15.056e-03, 0.6e-03)
+C = 93.2e-09
+L = R*C
 
 popt, pcov = curve_fit(
     g,
@@ -163,6 +167,13 @@ with open('build/mean_aRC.tex', 'w') as RC:
 with open('build/mean_bRC.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(popt[0]*1e+03):.2f}e-03')
+    RC.write(ohmF)
+
+#Literaturwert L nach b berechnet ########################################################################################################
+
+with open('build/L.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{y.n:.3f} \pm {y.s:.3f} e-3')
     RC.write(ohmF)
 
 #RC nach c berechnet ###################################################################################

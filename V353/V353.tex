@@ -160,12 +160,18 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
 % Auswertung 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \begin{table}
+  Für die nichtlineare Ausgleichsrechnung aus Aufgaben b) und c) benötigten Messwerte finden sich in der folgenden Tabelle:
+
+  \begin{table}[H]
         \centering
         \caption{Messdaten von b) und c)}
         \input{table_4b.tex} 
         \label{tab:data}
   \end{table}
+
+  Die Werte aus der Tabelle für $\nu$ und $\sfrac{A(\omega)}{U_0}$ wurden in Abbildung \ref{fig:4b} graphisch
+  dargestellt. Mithilfe der Formel \ref{eq:A} und dem Befehl curve\_fit() aus Scipy \cite{scipy} wurde 
+  die nichtlineare Regressionskurve für Abbildung \ref{fig:4b} berechnet:
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4b.pdf}
@@ -174,9 +180,20 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4b}
   \end{figure}
 
+  Aus der curve\_fit() Funktion wird anschließend 
+
   \begin{equation}
   \tau = \text{\input{build/mean_bRC}}
   \end{equation}
+
+  entnommen.
+  
+  Der Literaturwert für $\tau$ berechnet sich aus den Werten für die Kapazität des Kondensators C und 
+  des Widerstandes des RC-Glieds:
+  \begin{equation}
+  \tau_{Lit.} = \text{\input{build/L}}
+  \end{equation}
+
 
   % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
