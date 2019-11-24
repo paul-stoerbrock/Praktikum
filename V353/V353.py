@@ -63,7 +63,7 @@ plt.plot(tc, np.exp(intercept + slope*tc), 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.title('4a)')
 plt.xlabel('Zeit in ms')
-plt.ylabel('$U_c/U0$ in Volt')
+plt.ylabel('$U_c/U_0$ in Volt')
 plt.tight_layout
 plt.savefig('build/plot4a.pdf')
 plt.close()
