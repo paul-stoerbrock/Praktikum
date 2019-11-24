@@ -1,6 +1,6 @@
 all: build/V353.pdf
 
-build/V353.pdf: FORCE V353.tex build/plot.pdf |build
+build/V353.pdf: FORCE V353.tex build/plot.pdf build/mean_aRC.tex build/mean_bRC.tex build/mean_cRC.tex |build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS=build:\
 	max_print_line=1048576 \
