@@ -3,9 +3,10 @@ import pylab
 import matplotlib.pyplot as plt
 import numpy as np
 import uncertainties.unumpy as unp
+from uncertainties import ufloat
 from uncertainties.unumpy import (
     nominal_values as noms,
-    std_devs as stds
+    std_devs as stds,
 )
 from scipy import stats 
 from scipy.stats import sem #standard error of mean = sem(x)
@@ -35,6 +36,9 @@ phi = f * t * 2 * np.pi
 # Bestimmung von RC (slope, popt, phiRC) ############################################################################################################################################################################
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
+
+x = ufloat(slope, std_err)
+y=-1/x
 
 popt, pcov = curve_fit(
     g,
@@ -151,7 +155,7 @@ with open('build/intercept.tex', 'w') as RC:
 
 with open('build/mean_aRC.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{-1/slope:.2f}\pm {std_err:.2f} e-3') #unsicher, ob std_err überhaupt noch passt?
+    RC.write(f'{y.n:.2f} \pm {y.s:.2f} e-3') #unsicher, ob std_err überhaupt noch passt?
     RC.write(ohmF)
 
 #RC nach b berechnet ########################################################################################################
