@@ -24,11 +24,11 @@ def d(A0 ,f , RC):
     return np.arcsin(-2 * np.pi * f * RC * A0)
 
 
-U0 = 3 #kann es sein, dass U0 eigentlich 3V war, und nicht 0,3V?
+U0 = 3 
 
 U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
 Uc = np.log(U/U0)
-f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeit
+f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeitabstand der Nulldurchgänge
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
@@ -88,15 +88,15 @@ plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nichtlineare Regression")
 plt.legend(loc="best")
 plt.title('4c)')
 plt.xlabel('Frequenz in Hertz')
-plt.ylabel('Phase')
+plt.ylabel('Phase in Bogenmaß')
 plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plot4c.pdf')
 plt.close()
 
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
-x_plot = np.linspace(1, 1, 24)
-plt.polar(d(x_plot,f , phiRC), x_plot, 'r-', label="Polarplot")
+x_plot = np.linspace(0, 1, 24)
+plt.polar(d(x_plot,f , *phiRC), x_plot, 'r-', label="Polarplot")
 plt.legend(loc="best")
 plt.grid(True)
 plt.tight_layout
@@ -195,9 +195,9 @@ t1, t2, t3 = np.array_split(1000*t, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c c c c}
     \toprule
-    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$} & 
-    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$} & 
-    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$}\\
+    {$\nu \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$} & 
+    {$\nu \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$} & 
+    {$\nu \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$}\\
     \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6} \cmidrule(lr{0,5em}){7-9}
 '''
 table_footer = r'''    \bottomrule
