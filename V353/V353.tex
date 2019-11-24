@@ -103,21 +103,76 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
 
 \section{Auswertung}
 
-  \begin{table}
+%Auswertung 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{table}[H]
         \centering
         \caption{Messdaten 4a)}
         \input{table_4a.tex} 
         \label{tab:data4a}
-    \end{table}
+  \end{table}
+  
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plot4a.pdf}
+    \centering
+    \caption{Lineare Regression von Aufgabe 4a)}
+    \label{fig:4a}
+  \end{figure}
 
-    \begin{table}
+  $RC=$\input{build/mean_aRC.tex}
+
+% Auswertung 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{table}
         \centering
         \caption{Messdaten}
         \input{table_4b.tex} 
         \label{tab:data}
-    \end{table}
+  \end{table}
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plot4b.pdf}
+    \centering
+    \caption{Nichtlineare Regression von Aufgabe 4b)}
+    \label{fig:4b}
+  \end{figure}
+
+  $RC=$\input{build/mean_bRC}
+
+  % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plot4c.pdf}
+    \centering
+    \caption{Nichtlineare Regression von Aufgabe 4c)}
+    \label{fig:4c}
+  \end{figure}
+
+  $RC=$\input{build/mean_cRC}
+
+  % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plot4d.pdf}
+    \centering
+    \caption{Polarplot von Aufgabe 4d)}
+    \label{fig:4d}
+  \end{figure}
+
+  
+
 
 \section{Diskussion}
+
+% Diskussion 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plot4ctrue.pdf}
+    \centering
+    \caption{korregierte Nichtlineare Regression von Aufgabe 4c)}
+    \label{fig:4ctrue}
+  \end{figure}
+
 \newpage
 \nocite{V353}
 \printbibliography
