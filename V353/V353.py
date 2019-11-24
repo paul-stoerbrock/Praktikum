@@ -40,7 +40,7 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 x = ufloat(slope, std_err)
 y = -1/x
 
-R = ufloat(15.056e-03, 0.6e-03)
+R = ufloat(15.056e+03, 0.6e+03)
 C = 93.2e-09
 L = R*C
 
@@ -241,4 +241,4 @@ with open('build/table_4b.tex', 'w') as i:
 
 # Testprints #########################################################################
 
-print(pcov)
+print(L)
