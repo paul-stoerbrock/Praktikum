@@ -113,33 +113,28 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
 %Auswertung 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-  Das Diagramm aus dem die Messwerte für die Tabelle \ref{tab:data4a} entnommen 
+  Das Diagramm des Oszilloskops aus dem die Messwerte für die Tabelle \ref{tab:data4a} entnommen 
   wurden, sieht folgendermaßen aus:
-
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/4a.jpg}
     \centering
     \caption{Auf- und Entladekurve des Kondensators}
     \label{fig:4ajpg}
   \end{figure}
-
-  Die Messwerte stammen dabei aus dem rechten Entladevorgang.
-
+  Die Messwerte stammen dabei aus der rechten Entladungskurve.
   \begin{table}[H]
         \centering
         \caption{Messdaten von a)}
         \input{table_4a.tex} 
         \label{tab:data4a}
   \end{table}
-
   Aus diesen Messwerten wurde dann mithilfe des Programms Scipy \cite{scipy} eine
-  Ausgleichsgerade berechnet mit den Parametern
-
-  \begin{align}
-    m &= \text{\input{slope.tex}} \label{eq:slope} \\
-    b &= \text{\input{intercept.tex}} \label{eq:inter}
-  \end{align}
-  
+  Ausgleichsgerade mit dem Befehl linregress() und den Parametern
+  \begin{align*}
+    m &= \text{\input{slope.tex}} \\
+    b &= \text{\input{intercept.tex}}
+  \end{align*}
+  berechnet.
   
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4a.pdf}
