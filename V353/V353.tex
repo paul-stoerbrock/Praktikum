@@ -64,19 +64,20 @@
   \end{align}
 
 \subsection{Aufgaben}
-  Für den Aufgabenteil a) sollte die Zeitkonstante eines RC-Glieds durch 
-  eine lineare Ausgleichsrechnung bestimmt werden. Die Messwerte \ref{tab:data} 
-  stammen dabei aus einem Foto von einem Aufladevorgang des Kondensators.
+ \begin{enumerate}
+    \item[a)] Zuerst wird die Zeitkonstante eines RC-Glieds durch 
+              eine lineare Ausgleichsrechnung bestimmt.
 
-  \flushleft{Für den Aufgabenteil b) sollte aus den aufgenommenen Messwerten für Spannung}\\ und
-  Frequenz mit einer nicht-linearen Ausgleichsrechnung RC berechnet und ein 
-  $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet werden.
-
-  \flushleft{Für Aufgabenteil c) sollte der gleiche Prozess nochmal mit}
-  $\varphi$ statt $A(\nu _i)/U_0$ durchgeführt werden.
-
-  \flushleft{Für den letzten Aufgabenteil d) sollte gezeigt werden, dass }
-  ein RC-Kreis unter hohen Frequenzen als Integrator arbeiten kann.
+    \item[b)] Dannach wird aus den aufgenommenen Messwerten für Spannung und 
+              Frequenz mit einer nicht-linearen Ausgleichsrechnung RC berechnet 
+              und ein $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet.
+  
+    \item[c)] Daraufhin wird  der gleiche Prozess nochmal mit
+              $\varphi$ statt $A(\nu _i)/U_0$ durchgeführt.
+  
+    \item[d)] Zuletzt wird gezeigt, dass ein RC-Kreis unter hohen Frequenzen 
+              als Integrator arbeiten kann.
+  \end{enumerate}
 
   
 
@@ -88,26 +89,38 @@ Zuerst wird an dem Generatorausgang eine BNC-Steckverbindung angebracht.
 Dann wird der Generator mit dem RC-Glied und dem Oszilloskop verbunden. \\
 Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 \section{Versuchsdurchführung}
-Zuerst wird der Generator auf eine Rechteckspannung geschaltet. Daraufhin wird
-ein geeigneter Triggerpegel eingestellt und ein Bild von der Auf- bzw. Entladekurve
-der Schaltung angefertigt.\\
-Für den nächsten Teil wird der Generator auf eine Sinusspannung eingestellt.
-Dabei sollen die Spannungsverläufe von $U_C(t)$ und der Generatorspannung auf dem
-Oszilloskop gleichzeitig angezeigt werden. Dann werden die Werte für die Amplitude 
-der Kondensatorspannung [$A(\omega$)] und dem zeitlichen Abstand der Nulldurchgänge 
-[$a$] in Abhängigkeit von der Frequenz über drei Potenzen gemessen.
-Zuletzt wird am Generator eine passende Frequenz für die Integration eingestellt.
-Dannach wird nacheinander eine Rechteck-, Sinus- und Dreiecksschwingung auf das
-RC-Glied gegeben. Dabei sollen wieder beide Spannungen auf dem Oszilloskop 
-dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemacht.
+\begin{enumerate}
+\item[a)] Für die Berechnung von RC über eine Auf- oder Entladekurve wird der 
+          Generator auf eine Rechteckspannung geschaltet  und auf einen geeigneten 
+          Triggerpegel eingestellt. Daraufhin wird ein Bild von der Auf- 
+          oder Entladekurve der Schaltung angefertigt.\\
+\item[b)\textbackslash c)] Für den nächsten Teil wird der Generator auf eine Sinusspannung 
+             eingestellt. Dabei sollen die Spannungsverläufe von $U_C(t)$ und der 
+             Generatorspannung auf dem Oszilloskop gleichzeitig angezeigt werden. 
+             Dann werden die Werte für die Amplitude der Kondensatorspannung 
+             [$A(\omega$)] und dem zeitlichen Abstand der Nulldurchgänge 
+             [$a$] in Abhängigkeit von der Frequenz über drei Potenzen gemessen.\\
+\item[d)] Um die Integrierbarkeit nachzuweisen, wird am Generator eine passende 
+          Frequenz für die Integration eingestellt. Dannach wird nacheinander eine 
+          Rechteck-, Sinus- und Dreiecksschwingung auf das RC-Glied gegeben. 
+          Dabei sollen wieder beide Spannungen auf dem Oszilloskop dargestellt 
+          werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemacht.
+\end{enumerate}
 
 \section{Auswertung}
 
 %Auswertung 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{images/4a.jpg}
+    \centering
+    \caption{Auf- und Entladekurve des Kondensators}
+    \label{fig:4ajpg}
+  \end{figure}
 
   \begin{table}[H]
         \centering
-        \caption{Messdaten 4a)}
+        \caption{Messdaten von a)}
         \input{table_4a.tex} 
         \label{tab:data4a}
   \end{table}
@@ -115,7 +128,7 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4a.pdf}
     \centering
-    \caption{Lineare Regression von Aufgabe 4a)}
+    \caption{Lineare Regression von Aufgabe a)}
     \label{fig:4a}
   \end{figure}
 
@@ -125,7 +138,7 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
 
   \begin{table}
         \centering
-        \caption{Messdaten}
+        \caption{Messdaten von b) und c)}
         \input{table_4b.tex} 
         \label{tab:data}
   \end{table}
@@ -133,7 +146,7 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4b.pdf}
     \centering
-    \caption{Nichtlineare Regression von Aufgabe 4b)}
+    \caption{Nichtlineare Regression von Aufgabe b)}
     \label{fig:4b}
   \end{figure}
 
@@ -144,7 +157,7 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4c.pdf}
     \centering
-    \caption{Nichtlineare Regression von Aufgabe 4c)}
+    \caption{Nichtlineare Regression von Aufgabe c)}
     \label{fig:4c}
   \end{figure}
 
@@ -153,9 +166,30 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
   % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
   \begin{figure}[H]
+    \includegraphics[width=\textwidth]{images/rechteck.jpg}
+    \centering
+    \caption{Rechteckschwingung für d)}
+    \label{fig:rechteck}
+  \end{figure}
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{images/sinus.jpg}
+    \centering
+    \caption{Sinusschwingung für d)}
+    \label{fig:4c}
+  \end{figure}
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{images/dreieck.jpg}
+    \centering
+    \caption{Dreieckschwingung für d)}
+  \end{figure}
+
+
+  \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4d.pdf}
     \centering
-    \caption{Polarplot von Aufgabe 4d)}
+    \caption{Polarplot von Aufgabe d)}
     \label{fig:4d}
   \end{figure}
 
@@ -169,7 +203,7 @@ dargestellt werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemach
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4ctrue.pdf}
     \centering
-    \caption{korregierte Nichtlineare Regression von Aufgabe 4c)}
+    \caption{korregierte Nichtlineare Regression von Aufgabe c)}
     \label{fig:4ctrue}
   \end{figure}
 
