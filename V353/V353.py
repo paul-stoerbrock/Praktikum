@@ -57,11 +57,10 @@ phiRC, phicov = curve_fit(
 
 # Plot für 4a-d) [A(w)/U0] ############################################################################################################################################################################
 
-plt.plot(tc, U/U0, 'kx', label="4a) RC aus Ausgleichsgerade")
+plt.plot(tc, U/U0, 'kx', label="Messdaten")
 plt.yscale('log')
 plt.plot(tc, np.exp(intercept + slope*tc), 'r-', label="Lineare Regression")
 plt.legend(loc="best")
-plt.title('4a)')
 plt.xlabel('Zeit in ms')
 plt.ylabel('$U_c/U0$ in Volt')
 plt.tight_layout
@@ -73,7 +72,6 @@ plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, g(x_plot,*popt), 'r-', label="Nicht-lineare Regression")
 plt.legend(loc="best")
-plt.title('4b)')
 plt.xlabel('Frequenz in Hertz')
 plt.ylabel('A/$U_0$ in Volt')
 plt.grid(True)
@@ -86,7 +84,6 @@ plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nicht-lineare Regression")
 plt.legend(loc="best")
-plt.title('4c)')
 plt.xlabel('Frequenz in Hertz')
 plt.ylabel('Phase in Bogenmaß')
 plt.grid(True)
@@ -126,7 +123,7 @@ plt.plot(x_plot, h(x_plot,*phiRCr), 'r-', label="Nicht-lineare Regression richti
 plt.legend(loc="best")
 plt.title('4c) richtig')
 plt.xlabel('Frequenz in Hertz')
-plt.ylabel('Phase')
+plt.ylabel('Phase in Bogenmaß')
 plt.grid(True)
 plt.tight_layout
 plt.savefig('build/plot4ctrue.pdf')
@@ -137,6 +134,18 @@ plt.close()
 #SI Einheiten 
 
 ohmF=r' }{\ohm\farad}$'
+
+#slope und intercept übergeben ##################################################################################################################
+
+with open('build/slope.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{slope:.2f}\pm {std_err:.2f} e-3') 
+    RC.write(ohmF)
+
+with open('build/intercept.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{intercept:.2f}')
+    RC.write('}$')
 
 #RC nach a berechnet ####################################################################################################################
 
