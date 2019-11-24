@@ -152,7 +152,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     m = -\frac{1}{\tau} \cdot 10^{-3}
   \end{align*}
   \begin{equation}
-   \Rightarrow \tau = \text{\input{build/mean_aRC.tex}}
+   \Rightarrow \tau_1 = \text{\input{build/mean_aRC.tex}}
   \end{equation}
   Die Berechnung des Wertes $\tau$ erfolgte mit dem Programm Uncertainties \cite{uncertainties}.
 
@@ -183,7 +183,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
   Aus der curve\_fit() Funktion wird anschließend 
 
   \begin{equation}
-  \tau = \text{\input{build/mean_bRC}}
+  \tau_2 = \text{\input{build/mean_bRC}}
   \end{equation}
 
   entnommen.
@@ -193,6 +193,12 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
   \begin{equation}
   \tau_{Lit.} = \text{\input{build/L}}
   \end{equation}
+
+  Die relative Fehler für $\tau_1$ und $tau_2$ ergibt dann:
+  \begin{align}
+    \frac{\tau_1-\tau_{Lit.}}{\tau_{Lit.}}&=\phantom{-}\text{\input{SF1.tex}} \\
+    \frac{\tau_2-\tau_{Lit.}}{\tau_{Lit.}}&=\text{\input{SF2.tex}}
+  \end{align}
 
 
   % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
