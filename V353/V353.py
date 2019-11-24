@@ -40,9 +40,11 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 x = ufloat(slope, std_err)
 y = -1/x
 
-R = ufloat(15.056e-03, 0.6e-03)
+R = ufloat(15.056e+03, 0.6e+03)
 C = 93.2e-09
 L = R*C
+
+
 
 popt, pcov = curve_fit(
     g,
@@ -52,6 +54,9 @@ popt, pcov = curve_fit(
     absolute_sigma=True,
     p0=[1e-03]
     )
+
+SF1 = (popt-L)/L
+SF2 = (y-L)/L
 
 phiRC, phicov = curve_fit(
     h,
@@ -173,7 +178,19 @@ with open('build/mean_bRC.tex', 'w') as RC:
 
 with open('build/L.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{y.n:.3f} \pm {y.s:.3f} e-3')
+    RC.write(f'{L.n*1000:.3f} \pm {L.s*1000:.3f} e-3')
+    RC.write(ohmF)
+
+#Relativen Fehler nach b berechnet ########################################################################################################
+
+with open('build/SF1.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{SF1.n*1000:.3f} \pm {SF1.s*1000:.3f} e-3')
+    RC.write(ohmF)
+
+with open('build/SF2.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{SF2.n*1000:.3f} \pm {SF2.s*1000:.3f} e-3')
     RC.write(ohmF)
 
 #RC nach c berechnet ###################################################################################
