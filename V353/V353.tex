@@ -30,17 +30,19 @@
   angelegt, die nach dem trennen des Generators über einen Widerstand R abfällt.\\
   Mit der Anfangsbedingung $U_C(0)=U_0$ kann der Entladevorgang beschrieben werden durch \cite{V353}
   \begin{align}
-  &U_C(t) = U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= RC  \label{eq:UcEnt} \text{,}
+   U_C(t) &= U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= RC  \label{eq:UcEnt} \text{,}
     \intertext{wobei $\tau$ \;Zeitkonstante des Relaxationsvorgangs genannt wird. Sie bestimmt, 
     wie schnell sich das System seinem Endzustand nähert.
     Beim Aufladevorgang sieht die Gleichung mit der Anfangsbedingung $U(0)=0$ 
     folgendermaßen aus \cite{V353}:}
-  &U_C(t) = U_0 \, (1-e^{-\frac{1}{\tau} t}) \quad &\text{mit} \, \tau &= RC  \label{eq:UcAuf}
+   U_C(t) &= U_0 \, (1-e^{-\frac{1}{\tau} t}) \quad &\text{mit} \, \tau &= RC  \label{eq:UcAuf}
     \intertext{Relaxationsvorgänge sind beim RC-Kreis allerdings nicht auf den Ent- und 
     Aufladevorgang beschränkt. Auch bei einer Wechselspannung lässt sich dieses 
     Verhalten wiederfinden. Bei einer Wechselspannung stellt sich zwischen Strom 
     und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ ein \cite{V353}}
-  &\varphi(\nu) = \arctan (-\omega \, RC) \quad &\text{mit} \; \omega &= 2 \pi \nu. \label{eq:nu}
+  \varphi(\nu) &= \arctan (-\omega \, RC) \quad &\text{mit} \; \omega &= 2 \pi \nu, \label{eq:nu}
+  \intertext{die auch durch \cite{V353}}
+  \varphi(\nu) &= \Delta T \cdot \nu \cdot 2 \pi \label{eq:nu2}
   \end{align}
   Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega \ll \sfrac{1}{\tau}$
   noch ungefähr null sein. Bei steigender Frequenz wird die Phasendifferenz immer größer
