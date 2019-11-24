@@ -45,19 +45,19 @@
   Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega \ll \sfrac{1}{\tau}$
   noch ungefähr null sein. Bei steigender Frequenz wird die Phasendifferenz immer größer
   bis sie im Unendlichen gegen $\sfrac{\pi}{2}$ geht.
-  Die Beziehung zwischen der Amplitude der Spannung und der Kreisfrequenz lautet dann 
+  Die Beziehung zwischen der Amplitude, der Spannung und der Kreisfrequenz lautet dann 
   folgendermaßen \cite{V353}:
   \begin{align}
     A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2  C^2}} \label{eq:A}
   \end{align}
-  Dadurch zeigt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
+  Aus \ref{eq:A} ergibt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
   Frequenzen geht $A(\omega)$ gegen $U_0$. Während es für große Frequenzen
   gegen Null geht.
   Das wird im allgemeinen als Tiefpass bezeichnet und  wird in der 
-  elektrischen Schaltungstechnik häufig eingesetzt, um tiefe Frequenzen
+  elektrischen Schaltungstechnik häufig eingesetzt, um niedrige Frequenzen
   herauszufiltern.\\
   Ein RC-Kreis kann auch unter der Bedingung $\omega \gg \sfrac{1}{RC}$ eine 
-  zeitlich veränderliche Spannung $U(t)$ integrieren. Dann lässt sich 
+  zeitlich veränderliche Spannung $U(t)$ integrieren. Infolgedessen lässt sich 
   zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch \cite{V353}:
   \begin{align}
     U_C(t) &= \frac{1}{RC} \int_0^t{U(t') \, \symup{d}t'}
@@ -66,15 +66,15 @@
 
 \section{Aufgaben}
  \begin{enumerate}
-    \item[a)] Zuerst wird die Zeitkonstante eines RC-Glieds durch 
+    \item[a)] Zuerst wird die Zeitkonstante $\tau$ eines RC-Glieds durch 
               eine lineare Ausgleichsrechnung bestimmt.
 
     \item[b)] Dannach wird aus den aufgenommenen Messwerten für Spannung und 
-              Frequenz mit einer nicht-linearen Ausgleichsrechnung RC berechnet 
-              und ein $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet.
+              Frequenz mit einer nicht-linearen Ausgleichsrechnung $\tau$ berechnet 
+              und ein zugehöriges $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet.
   
-    \item[c)] Daraufhin wird  der gleiche Prozess nochmal mit
-              $\varphi$ statt $A(\nu _i)/U_0$ durchgeführt.
+    \item[c)] Daraufhin wird der gleiche Prozess aus b) nochmal mit
+              $\varphi$ anstelle von $A(\nu _i)/U_0$ durchgeführt.
   
     \item[d)] Zuletzt wird gezeigt, dass ein RC-Kreis unter hohen Frequenzen 
               als Integrator arbeiten kann.
@@ -89,18 +89,19 @@ Benötigt werden: \textit{ein analoges Zweikanal-Oszilloskop, ein Generator, ein
 Zuerst wird an dem Generatorausgang eine BNC-Steckverbindung angebracht. 
 Dann wird der Generator mit dem RC-Glied und dem Oszilloskop verbunden. \\
 Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
+
 \section{Versuchsdurchführung}
 \begin{enumerate}
-\item[a)] Für die Berechnung von RC über eine Auf- oder Entladekurve wird der 
-          Generator auf eine Rechteckspannung geschaltet  und auf einen geeigneten 
+\item[a)] Für die Berechnung von $\tau$ über eine Auf- oder Entladekurve wird der 
+          Generator auf eine Rechteckspannung geschaltet und auf einen geeigneten 
           Triggerpegel eingestellt. Daraufhin wird ein Bild von der Auf- 
           oder Entladekurve der Schaltung angefertigt.\\
 \item[b)\textbackslash c)] Für den nächsten Teil wird der Generator auf eine Sinusspannung 
-             eingestellt. Dabei sollen die Spannungsverläufe von $U_C(t)$ und der 
-             Generatorspannung auf dem Oszilloskop gleichzeitig angezeigt werden. 
-             Dann werden die Werte für die Amplitude der Kondensatorspannung 
-             [$A(\omega$)] und dem zeitlichen Abstand der Nulldurchgänge 
-             [$a$] in Abhängigkeit von der Frequenz über drei Potenzen gemessen.\\
+          eingestellt. Dabei sollen die Spannungsverläufe von $U_C(t)$ und der 
+          Generatorspannung auf dem Oszilloskop gleichzeitig angezeigt werden. 
+          Dann werden die Werte für die Amplitude, der Kondensatorspannung 
+          [$A(\omega$)] und dem zeitlichen Abstand der Nulldurchgänge 
+          [$a$] in Abhängigkeit von der Frequenz über drei Zehnerpotenzen gemessen.\\
 \item[d)] Um die Integrierbarkeit nachzuweisen, wird am Generator eine passende 
           Frequenz für die Integration eingestellt. Dannach wird nacheinander eine 
           Rechteck-, Sinus- und Dreiecksschwingung auf das RC-Glied gegeben. 
@@ -147,7 +148,9 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4a}
   \end{figure}
 
-  $RC=$\input{build/mean_aRC.tex}
+  \begin{equation}
+  \tau = \text{\input{build/mean_aRC.tex}}
+  \end{equation}
 
 % Auswertung 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -165,7 +168,9 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4b}
   \end{figure}
 
-  $RC=$\input{build/mean_bRC}
+  \begin{equation}
+  \tau = \text{\input{build/mean_bRC}}
+  \end{equation}
 
   % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -176,32 +181,33 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4c}
   \end{figure}
 
-  $RC=$\input{build/mean_cRC}
+  \begin{equation}
+  \tau = \text{\input{build/mean_cRC}}
+  \end{equation}
 
   % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
   \begin{figure}[H]
-    \includegraphics[width=\textwidth]{images/rechteck.jpg}
-    \centering
-    \caption{Rechteckschwingung für d)}
-    \label{fig:rechteck}
+  \centering
+    \begin{subfigure}{0.48\linewidth}
+      \includegraphics[width=\textwidth]{images/rechteck.jpg}
+      \centering
+      \caption{Rechteckschwingung für d)}
+      \label{fig:rechteck}
+    \end{subfigure}
+    \begin{subfigure}{0.48\linewidth}
+      \includegraphics[width=\textwidth]{images/sinus.jpg}
+      \centering
+      \caption{Sinusschwingung für d)}
+      \label{fig:4c}
+    \end{subfigure}
+    \begin{subfigure}{0.48\linewidth}
+      \vspace{5mm}
+      \includegraphics[width=\textwidth]{images/dreieck.jpg}
+      \centering
+      \caption{Dreieckschwingung für d)}  
+    \end{subfigure}
   \end{figure}
-
-
-
-  \begin{figure}[H]
-    \includegraphics[width=\textwidth]{images/sinus.jpg}
-    \centering
-    \caption{Sinusschwingung für d)}
-    \label{fig:4c}
-  \end{figure}
-
-  \begin{figure}[H]
-    \includegraphics[width=\textwidth]{images/dreieck.jpg}
-    \centering
-    \caption{Dreieckschwingung für d)}
-  \end{figure}
-
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4d.pdf}
