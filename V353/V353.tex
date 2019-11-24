@@ -30,7 +30,7 @@
   angelegt, die nach dem trennen des Generators über einen Widerstand R abfällt.\\
   Mit der Anfangsbedingung $U_C(0)=U_0$ kann der Entladevorgang beschrieben werden durch \cite{V353}
   \begin{align}
-  &U_C(t) = U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= RC  \label{eq:UcEnd} \text{,}
+  &U_C(t) = U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= RC  \label{eq:UcEnt} \text{,}
     \intertext{wobei $\tau$ \;Zeitkonstante des Relaxationsvorgangs genannt wird. Sie bestimmt, 
     wie schnell sich das System seinem Endzustand nähert.
     Beim Aufladevorgang sieht die Gleichung mit der Anfangsbedingung $U(0)=0$ 
@@ -60,10 +60,11 @@
   zeitlich veränderliche Spannung $U(t)$ integrieren. Infolgedessen lässt sich 
   zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch \cite{V353}:
   \begin{align}
-    U_C(t) &= \frac{1}{R \, C} \int_0^t{U(t') \, \symup{d}t'}
+    U_C(t) &= \frac{1}{RC} \int_0^t{U(t') \, \symup{d}t'}
   \end{align}
 
-\subsection{Aufgaben}
+
+\section{Aufgaben}
  \begin{enumerate}
     \item[a)] Zuerst wird die Zeitkonstante $\tau$ eines RC-Glieds durch 
               eine lineare Ausgleichsrechnung bestimmt.
@@ -112,6 +113,9 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
 %Auswertung 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
+  Das Diagramm aus dem die Messwerte für die Tabelle \ref{tab:data4a} entnommen 
+  wurden, sieht folgendermaßen aus:
+
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/4a.jpg}
     \centering
@@ -119,12 +123,23 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4ajpg}
   \end{figure}
 
+  Die Messwerte stammen dabei aus dem rechten Entladevorgang.
+
   \begin{table}[H]
         \centering
         \caption{Messdaten von a)}
         \input{table_4a.tex} 
         \label{tab:data4a}
   \end{table}
+
+  Aus diesen Messwerten wurde dann mithilfe des Programms Scipy \cite{scipy} eine
+  Ausgleichsgerade berechnet mit den Parametern
+
+  \begin{align}
+    m &= \text{\input{slope.tex}} \label{eq:slope} \\
+    b &= \text{\input{intercept.tex}} \label{eq:inter}
+  \end{align}
+  
   
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4a.pdf}
@@ -217,5 +232,6 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
 \newpage
 \nocite{V353}
+\nocite{scipy}
 \printbibliography
 \end{document}
