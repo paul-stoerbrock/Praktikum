@@ -155,7 +155,7 @@ with open('build/intercept.tex', 'w') as RC:
 
 with open('build/mean_aRC.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{y.n:.2f} \pm {y.s:.2f} e-3') #unsicher, ob std_err überhaupt noch passt?
+    RC.write(f'{y.n:.2f} \pm {y.s:.2f} e-3')
     RC.write(ohmF)
 
 #RC nach b berechnet ########################################################################################################
@@ -230,7 +230,4 @@ with open('build/table_4b.tex', 'w') as i:
 
 # Testprints #########################################################################
 
-print(-(np.sin(phi))/(2 * np.pi * f * phiRC[0]))
-print(phi)
-print(A0)
-print(popt)
+print(pcov)

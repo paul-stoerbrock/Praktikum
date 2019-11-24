@@ -144,10 +144,17 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \caption{Lineare Regression von Aufgabe a)}
     \label{fig:4a}
   \end{figure}
-
+  Bei Betrachtung der Formel \eqref{eq:UcEnt} und der Darstellung der Wertepaare als 
+  \{($ln(U_C(t_i)/U0),t_i$)\} stellt sich heraus, dass
+  \begin{align*}
+    m = -\frac{1}{\tau} \cdot 10^{-3}
+  \end{align*}
   \begin{equation}
-  \tau = \text{\input{build/mean_aRC.tex}}
+   \Rightarrow \tau = \text{\input{build/mean_aRC.tex}}
   \end{equation}
+  Die Berechnung des Wertes $\tau$ erfolgte mit dem Programm Uncertainties \cite{uncertainties}.
+
+
 
 % Auswertung 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -193,6 +200,8 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
   \end{equation}
 
   % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+  \newpage
+  Das sind die Fotos der in d) zu erstellenden Oszillogramme:
 
   \begin{figure}[H]
   \centering
@@ -215,6 +224,8 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
       \caption{Dreieckschwingung für d)}  
     \end{subfigure}
   \end{figure}
+
+
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4d.pdf}
@@ -240,5 +251,6 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 \newpage
 \nocite{V353}
 \nocite{scipy}
+\nocite{uncertainties}
 \printbibliography
 \end{document}
