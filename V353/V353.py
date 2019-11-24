@@ -55,8 +55,8 @@ popt, pcov = curve_fit(
     p0=[1e-03]
     )
 
-SF1 = (popt-L)/L
-SF2 = (y-L)/L
+SF1 = (popt[0]-L.n)/L.n
+SF2 = (y.n * 1e-03 -L.n)/L.n
 
 phiRC, phicov = curve_fit(
     h,
@@ -184,14 +184,14 @@ with open('build/L.tex', 'w') as RC:
 #Relativen Fehler nach b berechnet ########################################################################################################
 
 with open('build/SF1.tex', 'w') as RC:
-    RC.write('$\SI{')
-    RC.write(f'{SF1.n*1000:.3f} \pm {SF1.s*1000:.3f} e-3')
-    RC.write(ohmF)
+    RC.write('$\\num{')
+    RC.write(f'{SF1:.3f}')
+    RC.write('}$')
 
 with open('build/SF2.tex', 'w') as RC:
-    RC.write('$\SI{')
-    RC.write(f'{SF2.n*1000:.3f} \pm {SF2.s*1000:.3f} e-3')
-    RC.write(ohmF)
+    RC.write('$\\num{')
+    RC.write(f'{SF2:.3f}')
+    RC.write('}$')
 
 #RC nach c berechnet ###################################################################################
 
@@ -258,4 +258,8 @@ with open('build/table_4b.tex', 'w') as i:
 
 # Testprints #########################################################################
 
-print(L)
+print(popt[0]-L.n)
+print(L.n)
+print(y.n-L.n)
+print(SF1)
+print(SF2)
