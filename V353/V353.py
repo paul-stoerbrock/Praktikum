@@ -13,8 +13,6 @@ from scipy.optimize import curve_fit #function curve_fit
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
 # A(Omega)/U0 ############################################################################################################################################################################
-def UC(U0, tc, RC):
-    return U0 * np.exp((-1/RC)* tc)
 
 def g(f, RC):
     return  1/(np.sqrt(4 * (np.pi)**2 * f**2 * RC**2+1))
@@ -34,7 +32,7 @@ f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequen
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
-# Definition von RC (popt) ############################################################################################################################################################################
+# Bestimmung von RC (slope, popt, phiRC) ############################################################################################################################################################################
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 
@@ -102,7 +100,7 @@ plt.polar(d(x_plot,f , phiRC), x_plot, 'r-', label="Polarplot")
 plt.legend(loc="best")
 plt.grid(True)
 plt.tight_layout
-plt.savefig('build/plotpolar.pdf')
+plt.savefig('build/plot4d.pdf')
 plt.close()
 
 
@@ -110,10 +108,21 @@ plt.close()
 
 fr, Ar, tr = np.genfromtxt('true.txt', unpack=True)
 
-plt.plot(fr, phi, 'kx', label="Frequenz und Phase")
+phir = fr * tr * 2 * np.pi
+
+phiRCr, phicovr = curve_fit(
+    h,
+    fr,
+    phir,
+    sigma=None,
+    absolute_sigma=True,
+    p0=[1e-03]
+    )
+
+plt.plot(fr, phir, 'kx', label="Frequenz und Phase")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
-plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nicht-lineare Regression richtig")
+plt.plot(x_plot, h(x_plot,*phiRCr), 'r-', label="Nicht-lineare Regression richtig")
 plt.legend(loc="best")
 plt.title('4c) richtig')
 plt.xlabel('Frequenz in Hertz')
@@ -123,24 +132,24 @@ plt.tight_layout
 plt.savefig('build/plot4ctrue.pdf')
 plt.close()
 
-
+######################################################################################################################################
 
 #SI Einheiten 
 
-ohmF=r' }{\Ohm\Farad}$'
+ohmF=r' }{\ohm\farad}$'
 
 #RC nach a berechnet ####################################################################################################################
 
 with open('build/mean_aRC.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{slope:.2f}')
+    RC.write(f'{-1/slope:.2f}\pm {std_err:.2f} e-3') #unsicher, ob std_err überhaupt noch passt?
     RC.write(ohmF)
 
 #RC nach b berechnet ########################################################################################################
 
 with open('build/mean_bRC.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{popt[0]:.2f}')
+    RC.write(f'{(popt[0]*1e+03):.2f}e-03')
     RC.write(ohmF)
 
 #RC nach c berechnet ###################################################################################
@@ -186,8 +195,8 @@ t1, t2, t3 = np.array_split(1000*t, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c c c c}
     \toprule
-    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$} & 
-    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$} & 
+    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$} & 
+    {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\milli\second}$} & 
     {$f \:/\: \si{\hertz}$} & {$A(\omega) \:/\: \si{\milli\volt}$} & {$\Delta T \:/\: \si{\micro\second}$}\\
     \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6} \cmidrule(lr{0,5em}){7-9}
 '''
@@ -211,4 +220,4 @@ with open('build/table_4b.tex', 'w') as i:
 print(-(np.sin(phi))/(2 * np.pi * f * phiRC[0]))
 print(phi)
 print(A0)
-print(slope)
+print(popt)
