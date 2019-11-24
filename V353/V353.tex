@@ -194,14 +194,17 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
   \tau_{Lit.} = \text{\input{build/L}}
   \end{equation}
 
-  Die relative Fehler für $\tau_1$ und $tau_2$ ergibt dann:
+  Die relative Fehler für $\tau_1$ und $\tau_2$ ergibt dann:
   \begin{align}
-    \frac{\tau_1-\tau_{Lit.}}{\tau_{Lit.}}&=\phantom{-}\text{\input{SF1.tex}} \\
-    \frac{\tau_2-\tau_{Lit.}}{\tau_{Lit.}}&=\text{\input{SF2.tex}}
+    &\frac{\tau_1-\tau_{Lit.}}{\tau_{Lit.}}=\phantom{-}\text{\input{SF1.tex}} \qquad \qquad
+    &\frac{\tau_2-\tau_{Lit.}}{\tau_{Lit.}}=\text{\input{SF2.tex}}
   \end{align}
 
 
   % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  Der Tabelle \ref{tab:data} werden die Frequenz $\nu$ und die Zeit $\Delta T$ entnommen um mit der Formel \ref{eq:nu2} das 
+  Bogenmaß zu bestimmen. Anschließend werden die Wertepaare $\{(\varphi(\nu_i), \nu_i\}$ im folgenden Graphen dargestellt.
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4c.pdf}
@@ -210,13 +213,24 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4c}
   \end{figure}
 
+  Aus $\nu$ und der Formel \ref{eq:nu} wird die nichtlineare Regressionskurve berechnet. Dazu wird der Scipy Befehl curve\_fit() 
+  \cite{scipy} verwendet. Durch die nichtlineare Regression wird die Zeitkonstante
+ 
   \begin{equation}
-  \tau = \text{\input{build/mean_cRC}}
+  \tau_3 = \text{\input{build/mean_cRC}}
   \end{equation}
 
-  % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+  bestimmt.
+
+  Der relative Fehler für $\tau_3$ ergibt:
+
+  \begin{equation}
+  \frac{\tau_3-\tau_{Lit.}}{\tau_{Lit.}}=\text{\input{SF3.tex}}
+  \end{equation}
+
+  % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \newpage
-  Das sind die Fotos der in d) zu erstellenden Oszillogramme:
+  Bei den folgenden Fotos handelt es sich um die in d) zu erstellenden Oszillogramme:
 
   \begin{figure}[H]
   \centering
