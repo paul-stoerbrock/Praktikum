@@ -21,8 +21,8 @@ def g(f, RC):
 def h(f, RC):
     return np.arctan(-2 * np.pi * f * RC)
 
-def d(A0 ,f , RC):
-    return np.arcsin(-2 * np.pi * f * RC * A0)
+def d(A0, U0):
+    return np.arccos(A0/U0)
 
 
 
@@ -83,7 +83,7 @@ plt.tight_layout
 plt.savefig('build/plot4a.pdf')
 plt.close()
 
-plt.plot(f, A0, 'kx', label="Frequenz und Amplitude")
+plt.plot(f, A0*5, 'kx', label="Messdaten")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, g(x_plot,*popt), 'r-', label="Nichtlineare Regression")
@@ -95,7 +95,7 @@ plt.tight_layout
 plt.savefig('build/plot4b.pdf')
 plt.close()
 
-plt.plot(f, phi, 'kx', label="Frequenz und Phase")
+plt.plot(f, phi, 'kx', label="Messdaten")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, h(x_plot,*phiRC), 'r-', label="Nichtlineare Regression")
@@ -107,9 +107,9 @@ plt.tight_layout
 plt.savefig('build/plot4c.pdf')
 plt.close()
 
-plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
-x_plot = np.linspace(0, np.pi/2, 10000)
-plt.polar(x_plot, np.cos(x_plot), 'r-', label="Polarplot")
+plt.polar(phi, A0*5, 'kx', label="Messdaten")
+x_plot = np.linspace(0, np.pi, 10000)
+plt.polar(d(x_plot,U0), x_plot, 'r-', label="Polarplot")
 plt.legend(loc="best")
 plt.grid(True)
 plt.tight_layout
@@ -133,7 +133,7 @@ phiRCr, phicovr = curve_fit(
     p0=[1e-03]
     )
 
-plt.plot(fr, phir, 'kx', label="Frequenz und Phase")
+plt.plot(fr, phir, 'kx', label="Messdaten")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, h(x_plot,*phiRCr), 'r-', label="Nicht-lineare Regression richtig")
@@ -153,13 +153,13 @@ plt.close()
 popttrue, pcovtrue = curve_fit(
     g,
     f,
-    A0/5,
+    A0,
     sigma=None,
     absolute_sigma=True,
     p0=[1e-03]
     )
 
-plt.plot(f, A0/5, 'kx', label="Messdaten")
+plt.plot(f, A0, 'kx', label="Messdaten")
 plt.xscale('log')
 x_plot = np.linspace(1, 100000, 100000)
 plt.plot(x_plot, g(x_plot,*popttrue), 'r-', label="Nichtlineare Regression")

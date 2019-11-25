@@ -43,17 +43,22 @@
     und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ ein \cite{V353}}
   \varphi(\nu) &= \arctan (-\omega \, RC) \quad &\text{mit} \; \omega &= 2 \pi \nu, \label{eq:nu}
   \intertext{die auch durch \cite{V353}}
-  \varphi(\nu) &= \Delta T \cdot \nu \cdot 2 \pi \label{eq:nu2}
+  \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu2}
   \end{align}
+  $\Delta T$\; beschreibt dabei den Abstand der Nulldurchgänge der beiden Spannungen 
+  $U_0$ und $U_C(t)$.
   Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega \ll \sfrac{1}{\tau}$
   noch ungefähr null sein. Bei steigender Frequenz wird die Phasendifferenz immer größer
-  bis sie im Unendlichen gegen $\sfrac{\pi}{2}$ geht.
+  bis sie im Unendlichen gegen den Wert $\sfrac{\pi}{2}$ geht.
   Die Beziehung zwischen der Amplitude, der Spannung und der Kreisfrequenz lautet dann 
   folgendermaßen \cite{V353}:
   \begin{align}
-    A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2  C^2}} \label{eq:A}
+    A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2  C^2}} \label{eq:A}\\
+    \intertext{Oder, formuliert durch $\varphi$ und $\omega$, ergibt \cite{V353}:}
+    A(\omega) &= -\frac{\sin (\varphi)}{\omega \text{RC}} U_0 \label{eq:A2}
   \end{align}
-  Aus \ref{eq:A} ergibt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
+
+  Aus Gl. \eqref{eq:A} ergibt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
   Frequenzen geht $A(\omega)$ gegen $U_0$. Während es für große Frequenzen
   gegen Null geht.
   Das wird im allgemeinen als Tiefpass bezeichnet und  wird in der 
@@ -174,7 +179,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
   \end{table}
 
   Die Werte aus der Tabelle für $\nu$ und $\sfrac{A(\omega)}{U_0}$ wurden in Abbildung \ref{fig:4b} graphisch
-  dargestellt. Mithilfe der Formel \ref{eq:A} und dem Befehl curve\_fit() aus Scipy \cite{scipy} wurde 
+  dargestellt. Mithilfe der Formel \eqref{eq:A} und dem Befehl curve\_fit() aus Scipy \cite{scipy} wurde 
   die nichtlineare Regressionskurve für Abbildung \ref{fig:4b} berechnet:
 
   \begin{figure}[H]
@@ -184,7 +189,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \label{fig:4b}
   \end{figure}
 
-  Aus der curve\_fit() Funktion wird anschließend 
+  Aus der curve\_fit() Funktion wird anschließend
 
   \begin{equation}
   \tau_2 = \text{\input{build/mean_bRC}}
@@ -207,7 +212,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
   % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  Der Tabelle \ref{tab:data} werden die Frequenz $\nu$ und die Zeit $\Delta T$ entnommen um mit der Formel \ref{eq:nu2} das 
+  Der Tabelle \ref{tab:data} werden die Frequenz $\nu$ und die Zeit $\Delta T$ entnommen um mit der Formel \eqref{eq:nu2} das 
   Bogenmaß zu bestimmen. Anschließend werden die Wertepaare $\{(\varphi(\nu_i), \nu_i\}$ im folgenden Graphen dargestellt.
 
   \begin{figure}[H]
@@ -256,7 +261,12 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \end{subfigure}
   \end{figure}
 
+Für die Erstellung der Ausgleichskurve des Polarplots wurde die Formel \eqref{eq:nu}
+in die Formel \eqref{eq:A2} eingesetzt und nach $\varphi$ umestellt:
 
+\begin{equation}
+  \varphi = \arccos \left(\frac{A}{U_0}\right) \label{eq:phi}
+\end{equation}
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4d.pdf}
@@ -289,7 +299,7 @@ folgendermaßen aus:}
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{plot4btrue.pdf}
     \centering
-    \caption{Korregierte nichtlineare Regression von Aufgabe b)}
+    \caption{Korrigierte nichtlineare Regression von Aufgabe b)}
     \label{fig:4btrue}
 \end{figure}
 
@@ -314,7 +324,7 @@ Würde die Größenordnung korrigiert werden, sähe der neue Graph aus wie folgt
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4ctrue.pdf}
     \centering
-    \caption{Korregierte nichtlineare Regression von Aufgabe c)}
+    \caption{Korrigierte nichtlineare Regression von Aufgabe c)}
     \label{fig:4ctrue}
   \end{figure}
 
