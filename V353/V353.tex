@@ -14,21 +14,25 @@
 \center{\Large Versuchsgruppe: \textbf{42}}
     
     \begin{abstract}
-        Ziel: 
+    \centering
+        \textbf{Ziel:} Bestimmung der Zeitkonstante $\tau$ des Relaxationsverhaltens 
     \end{abstract}
+
 \newpage
 \tableofcontents
 \newpage
 
+% Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Theorie}\justifying
 
   Als RC-Kreis wird eine Reihenschaltung bestehend aus einem Kondensator 
-  und einem Widerstand beschrieben, durch welchen ein Strom I fließt. \\
+  und einem Widerstand beschrieben, durch welchen ein Strom I fließt. 
   Dabei stellt der Kondensator beim Auf- und Entladen einen Relaxationsvorgang dar, 
   was bedeutet, dass die Spannung des Kondensators bei einem Entladevorgang 
-  nicht-oszillatorisch zum Anfangszustand zurückkehrt. \\
+  nicht-oszillatorisch zum Anfangszustand zurückkehrt. 
   Beim Entladevorgang eines Kondensators mit der Kapazität C wird eine Gleichspannung $U_0$ 
-  angelegt, die nach dem trennen des Generators über einen Widerstand R abfällt.\\
+  angelegt, die nach dem Trennen des Generators über einen Widerstand R abfällt.
   Mit der Anfangsbedingung $U_C(0)=U_0$ kann der Entladevorgang beschrieben werden durch \cite{V353}
   \begin{align}
    U_C(t) &= U_0 \cdot e^{-\frac{1}{\tau} t} \quad &\text{mit} \, \tau &= RC  \label{eq:UcEnt} \text{,}
@@ -40,12 +44,12 @@
     \intertext{Relaxationsvorgänge sind beim RC-Kreis allerdings nicht auf den Ent- und 
     Aufladevorgang beschränkt. Auch bei einer Wechselspannung lässt sich dieses 
     Verhalten wiederfinden. Bei einer Wechselspannung stellt sich zwischen Strom 
-    und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ ein \cite{V353}}
+    und Spannung eine frequenzabhängige Phase $\varphi(\nu)$ \cite{V353}}
   \varphi(\nu) &= \arctan (-\omega \, RC) \quad &\text{mit} \; \omega &= 2 \pi \nu, \label{eq:nu}
-  \intertext{die auch durch \cite{V353}}
+  \intertext{ein, die auch durch \cite{V353}}
   \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu2}
   \end{align}
-  $\Delta T$\; beschreibt dabei den Abstand der Nulldurchgänge der beiden Spannungen 
+  beschrieben werden kann. $\Delta T$\; beschreibt dabei den Abstand der Nulldurchgänge der beiden Spannungen 
   $U_0$ und $U_C(t)$.
   Dadurch wird die Phase zwischen $U_C(t)$ und $U(t)$ bei $\omega \ll \sfrac{1}{\tau}$
   noch ungefähr null sein. Bei steigender Frequenz wird die Phasendifferenz immer größer
@@ -54,75 +58,80 @@
   folgendermaßen \cite{V353}:
   \begin{align}
     A(\omega) &= \frac{U_0}{\sqrt{1 + \omega^2 \, R^2  C^2}} \label{eq:A}\\
-    \intertext{Oder, formuliert durch $\varphi$ und $\omega$, ergibt \cite{V353}:}
+    \intertext{Oder ergibt, formuliert mit $\varphi$ und $\omega$ \cite{V353}:}
     A(\omega) &= -\frac{\sin (\varphi)}{\omega \text{RC}} U_0 \label{eq:A2}
   \end{align}
-
-  Aus Gl. \eqref{eq:A} ergibt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
-  Frequenzen geht $A(\omega)$ gegen $U_0$. Während es für große Frequenzen
+  \newpage
+  \flushleft{Aus }\justifying Gl. \eqref{eq:A} ergibt sich eine weitere Eigenschaft des RC-Glieds. Bei niedrigen 
+  Frequenzen geht $A(\omega)$ gegen $U_0$, während es für große Frequenzen
   gegen Null geht.
-  Das wird im allgemeinen als Tiefpass bezeichnet und  wird in der 
+  Das wird im allgemeinen als Tiefpass bezeichnet und in der 
   elektrischen Schaltungstechnik häufig eingesetzt, um niedrige Frequenzen
   herauszufiltern.\\
-  Ein RC-Kreis kann auch unter der Bedingung $\omega \gg \sfrac{1}{RC}$ eine 
+  Ein RC-Kreis kann auch unter der Bedingung $\omega \gg \sfrac{1}{\tau}$ eine 
   zeitlich veränderliche Spannung $U(t)$ integrieren. Infolgedessen lässt sich 
   zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch \cite{V353}:
   \begin{align}
     U_C(t) &= \frac{1}{RC} \int_0^t{U(t') \, \symup{d}t'}\label{eq:int}
   \end{align}
 
+% Aufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Aufgaben}\justifying
+\section{Aufgaben}
 
  \begin{enumerate}
-    \item[a)] Zuerst wird die Zeitkonstante $\tau$ eines RC-Glieds durch 
+    \item[a)] \justifying Zuerst wird die Zeitkonstante $\tau$ eines RC-Glieds durch 
               eine lineare Ausgleichsrechnung bestimmt.
 
-    \item[b)] Dannach wird aus den aufgenommenen Messwerten für Spannung und 
+    \item[b)] \justifying Danach wird aus den aufgenommenen Messwerten für Spannung und 
               Frequenz mit einer nicht-linearen Ausgleichsrechnung $\tau$ berechnet 
               und ein zugehöriges $\{ A(\nu _i)/U_0,\nu _i \}$-Diagramm geplottet.
   
-    \item[c)] Daraufhin wird der gleiche Prozess aus b) nochmal mit
+    \item[c)] \justifying Daraufhin wird der gleiche Prozess aus b) nochmal mit
               $\varphi$ anstelle von $A(\nu _i)/U_0$ durchgeführt.
   
-    \item[d)] Zuletzt wird gezeigt, dass ein RC-Kreis unter hohen Frequenzen 
+    \item[d)] \justifying Zuletzt wird gezeigt, dass ein RC-Kreis unter hohen Frequenzen 
               als Integrator arbeiten kann.
   \end{enumerate}
 
-  
-
-
+% Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau}\justifying
 
-Benötigt werden: \textit{ein analoges Zweikanal-Oszilloskop, ein Generator, ein RC-Glied, drei BNC-Kabel, ein BNC-Steckverbinder }\\
-Zuerst wird an dem Generatorausgang eine BNC-Steckverbindung angebracht. 
-Dann wird der Generator mit dem RC-Glied und dem Oszilloskop verbunden. \\
+Benötigt werden: \textit{ein analoges Zweikanal-Oszilloskop, ein Generator, ein RC-Glied, drei BNC-Kabel und ein BNC-Steckverbinder }\\
+Zuerst wird an dem Generatorausgang ein BNC-Steckverbinder angebracht.\\ 
+Anschließend wird der Generator mit dem RC-Glied und dem Oszilloskop verbunden. \\
 Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
+% Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \section{Versuchsdurchführung}\justifying
 
 \begin{enumerate}
 \item[a)] Für die Berechnung von $\tau$ über eine Auf- oder Entladekurve wird der 
-          Generator auf eine Rechteckspannung von 0.3V geschaltet und auf einen geeigneten 
-          Triggerpegel eingestellt. Daraufhin wird ein Bild von der Auf- 
+          Generator auf eine Rechteckspannung von 0.3V geschaltet und das Oszilloskop
+          auf einen geeigneten Triggerpegel eingestellt. Daraufhin wird ein Bild von der Auf- 
           oder Entladekurve der Schaltung angefertigt.\\
 \item[b-c)] Für den nächsten Teil wird der Generator auf eine Sinusspannung 
           eingestellt. Dabei sollen die Spannungsverläufe von $U_C(t)$ und der 
           Generatorspannung auf dem Oszilloskop gleichzeitig angezeigt werden. 
           Dann werden die Werte für die Amplitude, der Kondensatorspannung 
           [$A(\omega$)] und dem zeitlichen Abstand der Nulldurchgänge 
-          [$a$] in Abhängigkeit von der Frequenz über drei Zehnerpotenzen gemessen.\\
+          [$a$] in Abhängigkeit von der Frequenz $\nu$ über drei Zehnerpotenzen gemessen.\\
 \item[d)] Um die Integrierbarkeit nachzuweisen, wird am Generator eine passende 
-          Frequenz für die Integration eingestellt. Dannach wird nacheinander eine 
+          Frequenz für die Integration eingestellt. Danach wird nacheinander eine 
           Rechteck-, Sinus- und Dreiecksschwingung auf das RC-Glied gegeben. 
           Dabei sollen wieder beide Spannungen auf dem Oszilloskop dargestellt 
           werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemacht.
 \end{enumerate}
 
+% Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \section{Auswertung}\justifying
 
-%Auswertung 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Auswertung 4a ----------------------------------------------------------------------------------------------------------------------------------------
   
   Das Diagramm des Oszilloskops aus dem die Messwerte für die Tabelle \ref{tab:data4a} entnommen 
   wurden, sieht folgendermaßen aus:
@@ -132,14 +141,14 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     \caption{Auf- und Entladekurve des Kondensators}
     \label{fig:4ajpg}
   \end{figure}
-  Die Messwerte stammen dabei aus der rechten Entladungskurve.
+  \flushleft{Die} Messwerte stammen dabei aus der rechten Entladungskurve.
   \begin{table}[H]
         \centering
-        \caption{Messdaten von a)}
+        \caption{Messdaten von Aufg. a)}
         \input{table_4a.tex} 
         \label{tab:data4a}
   \end{table}
-
+  \newpage
   \flushleft{Aus diesen Messwerten wurde dann mithilfe des Programms Scipy} \cite{scipy} und dem Befehl linregress() eine
   Ausgleichsgerade mit den Parametern
 
@@ -147,29 +156,25 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
     m &= \text{\input{slope.tex}}\\
     b &= \text{\input{intercept.tex}}
   \end{align*}
-  berechnet.
-  
+  berechnet, die sich folgerndermaßen darstellen lässt:
   \begin{figure}[H]
-    \includegraphics[width=\textwidth]{build/plot4a.pdf}
     \centering
-    \caption{Lineare Regression von Aufgabe a)}
+    \includegraphics[width=\textwidth]{build/plot4a.pdf}
+    \caption{Lineare Regression von Aufg. a)}
     \label{fig:4a}
   \end{figure}
-  Bei Betrachtung der Formel \eqref{eq:UcEnt} und der Darstellung der Wertepaare als 
-  \{($ln(U_C(t_i)/U0),t_i$)\} stellt sich heraus, dass
-  \begin{align*}
-    m = -\frac{1}{\tau} \cdot 10^{-3}
-  \end{align*}
-  \begin{equation}
-   \Rightarrow \tau_1 = \text{\input{build/mean_aRC.tex}}
-  \end{equation}
+  \flushleft{Bei} \justifying Betrachtung der Formel \eqref{eq:UcEnt} und der Darstellung der Wertepaare als 
+  \{$ln(U_C(t_i)/U_0),t_i$\} stellt sich heraus, dass
+  \begin{align}
+    m = -\frac{1}{\tau} \cdot 10^{-3} \qquad \qquad
+   \Rightarrow \qquad \qquad \tau_1 = \text{\input{build/mean_aRC.tex}}
+  \end{align}
   Die Berechnung des Wertes $\tau$ erfolgte mit dem Programm Uncertainties \cite{uncertainties}.
 
-
-
-% Auswertung 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  Für die nichtlineare Ausgleichsrechnung aus Aufgaben b) und c) benötigten Messwerte finden sich in der folgenden Tabelle:
+% Auswertung 4b ----------------------------------------------------------------------------------------------------------------------------------------
+  
+  \newpage
+  \flushleft{Die} \justifying für die nichtlineare Ausgleichsrechnung aus Aufgaben b) und c) benötigten Messwerte finden sich in der folgenden Tabelle:
 
   \begin{table}[H]
         \centering
@@ -178,96 +183,97 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
         \label{tab:data}
   \end{table}
 
-  Die Werte aus der Tabelle für $\nu$ und $\sfrac{A(\omega)}{U_0}$ wurden in Abbildung \ref{fig:4b} graphisch
+  \flushleft{Die} \justifying Werte aus der Tabelle für $\nu$ und $\sfrac{A(\omega)}{U_0}$ wurden in Abbildung \ref{fig:4b} graphisch
   dargestellt. Mithilfe der Formel \eqref{eq:A} und dem Befehl curve\_fit() aus Scipy \cite{scipy} wurde 
   die nichtlineare Regressionskurve für Abbildung \ref{fig:4b} berechnet:
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4b.pdf}
     \centering
-    \caption{Nichtlineare Regression von Aufgabe b)}
+    \caption{Nichtlineare Regression von Aufg. b)}
     \label{fig:4b}
   \end{figure}
 
-  Aus der curve\_fit() Funktion wird anschließend
+  \flushleft{Aus} \justifying der curve\_fit() Funktion wird anschließend
 
   \begin{equation}
   \tau_2 = \text{\input{build/mean_bRC}}
   \end{equation}
 
-  entnommen.
-  
-  Der Literaturwert für $\tau$ berechnet sich aus den Werten für die Kapazität des Kondensators C und 
-  des Widerstandes des RC-Glieds:
+  \flushleft{entnommen.} \justifying  
+  Der Literaturwert für $\tau$ berechnet sich aus den Werten für die Kapazität C des Kondensators und 
+  des Widerstandes R des RC-Glieds:
   \begin{equation}
   \tau_{Lit.} = \text{\input{build/L}} \label{eq:tauL}
   \end{equation}
 
-  Die relative Fehler für $\tau_1$ und $\tau_2$ ergibt dann:
+  \flushleft{Der} \justifying relative Fehler für $\tau_1$ und $\tau_2$ ergibt dann:
   \begin{align}\label{eq:tau1_2}
     &\frac{\tau_1-\tau_{Lit.}}{\tau_{Lit.}}=\phantom{-}\text{\input{SF1.tex}} \qquad \qquad
     &\frac{\tau_2-\tau_{Lit.}}{\tau_{Lit.}}=\text{\input{SF2.tex}}
   \end{align}
 
+  % Auswertung 4c ----------------------------------------------------------------------------------------------------------------------------------------
 
-  % Auswertung 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  Der Tabelle \ref{tab:data} werden die Frequenz $\nu$ und die Zeit $\Delta T$ entnommen um mit der Formel \eqref{eq:nu2} das 
-  Bogenmaß zu bestimmen. Anschließend werden die Wertepaare $\{(\varphi(\nu_i), \nu_i\}$ im folgenden Graphen dargestellt.
+  \flushleft{Aus} \justifying Tabelle \ref{tab:data} werden die Frequenz $\nu$ 
+  und die Zeit $\Delta T$ entnommen um mit der Formel \eqref{eq:nu2} das 
+  Bogenmaß $\varphi (\nu)$ zu bestimmen. Anschließend werden die Wertepaare $\{(\varphi(\nu_i), 
+  \nu_i\}$ im folgenden Graphen \ref{fig:4c} dargestellt.
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4c.pdf}
     \centering
-    \caption{Nichtlineare Regression von Aufgabe c)}
+    \caption{Nichtlineare Regression von Aufg. c)}
     \label{fig:4c}
   \end{figure}
 
-  Aus $\nu$ und der Formel \ref{eq:nu} wird die nichtlineare Regressionskurve berechnet. Dazu wird der Scipy Befehl curve\_fit() 
+  \newpage
+  \flushleft{Mit} \justifying $\nu$ und der Formel \eqref{eq:nu} wird die nichtlineare Regressionskurve berechnet. Dazu wird der Scipy Befehl curve\_fit() 
   \cite{scipy} verwendet. Durch die nichtlineare Regression wird die Zeitkonstante
  
   \begin{equation}
   \tau_3 = \text{\input{build/mean_cRC}}
   \end{equation}
 
-  bestimmt.
-
-  Der relative Fehler für $\tau_3$ ergibt:
+  \flushleft{bestimmt.} \justifying Der relative Fehler für $\tau_3$ ergibt:
 
   \begin{equation}
   \frac{\tau_3-\tau_{Lit.}}{\tau_{Lit.}}=\text{\input{SF3.tex}}
   \end{equation}
 
-  % Auswertung 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \newpage
-  Bei den folgenden Fotos handelt es sich um die in d) zu erstellenden Oszillogramme:
+  % Auswertung 4d ----------------------------------------------------------------------------------------------------------------------------------------
+
+  \flushleft{Bei} \justifying den folgenden Fotos handelt es sich um die in d) zu erstellenden Oszillogramme:
 
   \begin{figure}[H]
   \centering
-  \caption{Ausgegebene Schwingungen}
+  \caption{Schwingungstypen}
+  \vspace{+1em}
     \begin{subfigure}{0.48\linewidth}
       \includegraphics[width=\textwidth]{images/rechteck.jpg}
       \centering
-      \caption{Rechteckschwingung für d)}
+      \caption{Rechteckschwingung für Aufg. d)}
       \label{fig:rechteck}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
       \includegraphics[width=\textwidth]{images/sinus.jpg}
       \centering
-      \caption{Sinusschwingung für d)}
+      \caption{Sinusschwingung für Aufg. d)}
       \label{fig:sinus}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
       \vspace{5mm}
       \centering
       \includegraphics[width=\textwidth]{images/dreieck.jpg}
-      \caption{Dreieckschwingung für d)} 
+      \caption{Dreieckschwingung für Aufg. d)} 
       \label{fig:dreieck} 
     \end{subfigure}
   
   \label{fig:schwingungen}
   \end{figure}
 
-Für die Erstellung der Ausgleichskurve des Polarplots wurde die Formel \eqref{eq:nu}
+\newpage
+\flushleft{Für} \justifying die Erstellung der Ausgleichskurve des Polarplots wurde die Formel \eqref{eq:nu}
 in die Formel \eqref{eq:A2} eingesetzt und nach $\varphi$ umestellt:
 
 \begin{equation}
@@ -277,56 +283,54 @@ in die Formel \eqref{eq:A2} eingesetzt und nach $\varphi$ umestellt:
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4d.pdf}
     \centering
-    \caption{Polarplot von Aufgabe d)}
+    \caption{Polarplot von Aufg. d)}
     \label{fig:4d}
   \end{figure}
-
   
-
+% Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}\justifying
 
+% Diskussion 4a ----------------------------------------------------------------------------------------------------------------------------------------
 
-% Diskussion 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Das Bild \ref{fig:4ajpg} zeigt den erwarteten Verlauf einer Auf- und Entladekurve
 eines Kondensators nach Gl. \eqref{eq:UcEnt} und \eqref{eq:UcAuf}, wobei der Kondensator bei $t=0$ fast voll aufgeladen ist.
 Die Ausgleichsgerade gibt dabei den vermuteten Entladeverlauf nach Gl. \eqref{eq:UcEnt} wieder 
-ohne große Abweichungen von den Messdaten.\\
+ohne große Abweichungen von den Messdaten.
 
-% Diskussion 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\justifying{
-\flushleft{Die} gefittete Kurve \ref{fig:4b} erfüllt nicht nach Formel \eqref{eq:A} unsere Erwartung eines Tiefpasses. 
+% Diskussion 4b ----------------------------------------------------------------------------------------------------------------------------------------
+
+\flushleft{Die} \justifying gefittete Kurve \ref{fig:4b} erfüllt nicht nach Formel \eqref{eq:A} unsere Erwartung eines Tiefpasses. 
 Die Messwerte aus Tabelle \ref{tab:data} stellen allerdings die eigentliche Kurve
 dar. Der Grund dafür ist, dass beim Aufschreiben der Messwerte nicht beachtet wurde,
 dass der 5x-Multiplikatorknopf für Eingang 1 gedrückt war. Dies ist auch auf dem Bild \ref{fig:4ajpg}
-zu sehen. Wenn A um den Faktor $\sfrac{1}{5}$ korrigiert wird, sieht die Kurve 
-folgendermaßen aus:}
+zu sehen.
+
+\newpage
+\flushleft{Wenn} \justifying $A(\omega)$ um den Faktor $\sfrac{1}{5}$ korrigiert wird, sieht die Kurve 
+folgendermaßen aus:
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{plot4btrue.pdf}
     \centering
-    \caption{Korrigierte nichtlineare Regression von Aufgabe b)}
+    \caption{Korrigierte nichtlineare Regression von Aufg. b)}
     \label{fig:4btrue}
 \end{figure}
 
 
-Dies zeigt die Eigenschaft des RC-Kreises als Tiefpass.
+\flushleft{Dies} \justifying zeigt die Eigenschaft des RC-Kreises als Tiefpass.
 Denn bei hohen Frequenzen geht $\sfrac{A(\omega)}{U_0}$ gegen Null und bei kleinen
 Frequenzen ist $\sfrac{A(\omega)}{U_0}$ ungefähr 1.
-Wird der Wert $\tau_1$ \eqref{eq:tau1_2} mit dem Literaturwert
+Wird der Wert $\tau_1$ \eqref{eq:tau1_2} mit dem Literaturwert $\tau_{Lit.}$
 \eqref{eq:tauL} verglichen, wird vestgestellt, dass der relative Fehler für $\tau_1$ 
 44,2\% beträgt. Dies ist ein signifikanter Fehler, der sich mit einem  
-systematischen Fehler erklären ließe. Dieser zeigt sich unter anderem 
-in unserer Konstanten $b$ der Ausgleichsgeraden, da diese einen Wert $\ne 0$ 
+systematischen Fehler erklären ließe. Dieser spiegelt sich unter anderem 
+in der Konstanten $b$ der Ausgleichsgeraden wieder, da diese einen Wert $\ne 0$ 
 annimmt. 
-\\
 
+% Diskussion 4c ----------------------------------------------------------------------------------------------------------------------------------------
 
-
-% Diskussion 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Der Graph \ref{fig:4c} stellt nicht die wie erwartete Werteentwicklung nach Formel
+\flushleft{Der} \justifying Graph \ref{fig:4c} stellt nicht die wie erwartete Werteentwicklung nach Formel
 \eqref{eq:nu} dar. Auffällig ist die Größenordung der y-Achse, da die Phase zu
 springen scheint. Daraus lässt sich schlussfolgern, dass bei den ersten 14 Messwerten
 für die Phase aus Tabelle \ref{tab:data} eine falsche Größenordnung vorliegt.
@@ -336,23 +340,22 @@ Würde die Größenordnung korrigiert werden, sähe der neue Graph aus wie folgt
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4ctrue.pdf}
     \centering
-    \caption{Korrigierte nichtlineare Regression von Aufgabe c)}
+    \caption{Korrigierte nichtlineare Regression von Aufg. c)}
     \label{fig:4ctrue}
   \end{figure}
 
-Der korrigierte Graph beinhaltet eine arcctan-Kurve, welche von der Theorie 
+\flushleft{Der} \justifying korrigierte Graph beinhaltet eine arcctan-Kurve, welche aus der Theorie 
 erwartet wurde. Die Streuung der einzelnen Werte lässt sich zum Teil von dem 
 systematischen Fehler und zum Teil von der Messungenauigkeit des Oszilloskop erklären.
-Die Ungenauigkeit stellt sich besonders aus den letzten vier Messwerten hervor. 
-Eine mögliche Erklärung der großen Abweichung der letzten Messwerte ist die hoche 
+Die Ungenauigkeit hebt sich besonders bei den letzten vier Messwerten hervor. 
+Eine mögliche Erklärung der großen Abweichung der letzten Messwerte ist die hohe 
 Streurate der Elektronen bei erhöhten Frequenzen. Diese Ungenauigkeit führte zu einer 
-Halbierung der Phase.
-\\
+konsekutiven Halbierung der Phase.
 
-% Diskussion 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Diskussion 4d ----------------------------------------------------------------------------------------------------------------------------------------
 
-Anhand der Gl. \eqref{eq:int} und der Bilder \ref{fig:schwingungen} lässt sich die Integrierbarkeit
-zeigen. Zum Beispiel stellt die Rechteckschwingung in Bild \subref{fig:rechteck} 
+\flushleft{Anhand} \justifying der Gl. \eqref{eq:int} und der Bilder aus Abbildung\ref{fig:schwingungen} 
+lässt sich die Integrierbarkeit darstellen. Zum Beispiel stellt die Rechteckschwingung in Bild \subref{fig:rechteck}\\
 Für den Polarplot \ref{fig:4d} setzt sich der Fehler aus Aufgabe b) und c) weiter fort.
 Mithilfe der Formel \eqref{eq:phi} wird eine Sinkurve zu einer Kosinuskurve integriert.
 Gleiches gilt für die Dreiecksspannung, welche zu einer parabelförmigen
