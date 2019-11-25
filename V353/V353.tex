@@ -68,7 +68,7 @@
   zeitlich veränderliche Spannung $U(t)$ integrieren. Infolgedessen lässt sich 
   zeigen, dass $U_C(t)$ näherungseweise beschrieben werden kann durch \cite{V353}:
   \begin{align}
-    U_C(t) &= \frac{1}{RC} \int_0^t{U(t') \, \symup{d}t'}
+    U_C(t) &= \frac{1}{RC} \int_0^t{U(t') \, \symup{d}t'}\label{eq:int}
   \end{align}
 
 
@@ -200,11 +200,11 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
   Der Literaturwert für $\tau$ berechnet sich aus den Werten für die Kapazität des Kondensators C und 
   des Widerstandes des RC-Glieds:
   \begin{equation}
-  \tau_{Lit.} = \text{\input{build/L}}
+  \tau_{Lit.} = \text{\input{build/L}} \label{eq:tauL}
   \end{equation}
 
   Die relative Fehler für $\tau_1$ und $\tau_2$ ergibt dann:
-  \begin{align}
+  \begin{align}\label{eq:tau1_2}
     &\frac{\tau_1-\tau_{Lit.}}{\tau_{Lit.}}=\phantom{-}\text{\input{SF1.tex}} \qquad \qquad
     &\frac{\tau_2-\tau_{Lit.}}{\tau_{Lit.}}=\text{\input{SF2.tex}}
   \end{align}
@@ -243,22 +243,28 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
   \begin{figure}[H]
   \centering
+  \caption{Ausgegebene Schwingungen}
     \begin{subfigure}{0.48\linewidth}
       \includegraphics[width=\textwidth]{images/rechteck.jpg}
       \centering
       \caption{Rechteckschwingung für d)}
+      \label{fig:rechteck}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
       \includegraphics[width=\textwidth]{images/sinus.jpg}
       \centering
       \caption{Sinusschwingung für d)}
+      \label{fig:sinus}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
       \vspace{5mm}
       \centering
       \includegraphics[width=\textwidth]{images/dreieck.jpg}
-      \caption{Dreieckschwingung für d)}  
+      \caption{Dreieckschwingung für d)} 
+      \label{fig:dreieck} 
     \end{subfigure}
+  
+  \label{fig:schwingungen}
   \end{figure}
 
 Für die Erstellung der Ausgleichskurve des Polarplots wurde die Formel \eqref{eq:nu}
@@ -307,6 +313,12 @@ folgendermaßen aus:}
 Dies zeigt die Eigenschaft des RC-Kreises als Tiefpass.
 Denn bei hohen Frequenzen geht $\sfrac{A(\omega)}{U_0}$ gegen Null und bei kleinen
 Frequenzen ist $\sfrac{A(\omega)}{U_0}$ ungefähr 1.
+Wird der Wert $\tau_1$ \eqref{eq:tau1_2} mit dem Literaturwert
+\eqref{eq:tauL} verglichen, wird vestgestellt, dass der relative Fehler für $\tau_1$ 
+44,2\% beträgt. Dies ist ein signifikanter Fehler, der sich mit einem  
+systematischen Fehler erklären ließe. Dieser zeigt sich unter anderem 
+in unserer Konstanten $b$ der Ausgleichsgeraden, da diese einen Wert $\ne 0$ 
+annimmt. 
 \\
 
 
@@ -334,9 +346,26 @@ systematischen Fehler und zum Teil von der Messungenauigkeit des Oszilloskop erk
 Die Ungenauigkeit stellt sich besonders aus den letzten vier Messwerten hervor. 
 Eine mögliche Erklärung der großen Abweichung der letzten Messwerte ist die hoche 
 Streurate der Elektronen bei erhöhten Frequenzen. Diese Ungenauigkeit führte zu einer 
-Halbierung der Phase. 
+Halbierung der Phase.
+\\
 
+% Diskussion 4d %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Anhand der Gl. \eqref{eq:int} und der Bilder \ref{fig:schwingungen} lässt sich die Integrierbarkeit
+zeigen. Zum Beispiel stellt die Rechteckschwingung in Bild \subref{fig:rechteck} 
+Für den Polarplot \ref{fig:4d} setzt sich der Fehler aus Aufgabe b) und c) weiter fort.
+Mithilfe der Formel \eqref{eq:phi} wird eine Sinkurve zu einer Kosinuskurve integriert.
+Gleiches gilt für die Dreiecksspannung, welche zu einer parabelförmigen
+Kurve für unsere Spannung $U_C(t)$ wird.
+Werden die korrigierten Werte aus c) auf den Polarplot \ref{fig:4d} angewandt, ergibt sich 
+folgender Polarplot:
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plot4dtrue.pdf}
+    \centering
+    \caption{Polarplot von Aufgabe d)}
+    \label{fig:4dtrue}
+  \end{figure}
 
 \newpage
 \nocite{V353}
