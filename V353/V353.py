@@ -21,8 +21,8 @@ def g(f, RC):
 def h(f, RC):
     return np.arctan(-2 * np.pi * f * RC)
 
-def d(A0, U0):
-    return np.arccos(A0/U0)
+def d(A0):
+    return np.arccos(A0)
 
 
 
@@ -109,7 +109,7 @@ plt.close()
 
 plt.polar(phi, A0*5, 'kx', label="Messdaten")
 x_plot = np.linspace(0, np.pi, 10000)
-plt.polar(d(x_plot,U0), x_plot, 'r-', label="Polarplot")
+plt.polar(d(x_plot), x_plot, 'r-', label="Polarplot")
 plt.legend(loc="best")
 plt.grid(True)
 plt.tight_layout
@@ -171,7 +171,16 @@ plt.tight_layout
 plt.savefig('build/plot4btrue.pdf')
 plt.close()
 
+# richtiger Plot für d) ######################################################################################################
 
+plt.polar(phir, A0, 'kx', label="Messdaten")
+x_plot = np.linspace(0, 1, 10000)
+plt.polar(d(x_plot), x_plot, 'r-', label="Polarplot")
+plt.legend(loc="best")
+plt.grid(True)
+plt.tight_layout
+plt.savefig('build/plot4dtrue.pdf')
+plt.close()
 
 #SI Einheiten 
 
@@ -294,7 +303,7 @@ with open('build/table_4b.tex', 'w') as i:
 
 # Testprints #########################################################################
 
-print(popt[0]-L.n)
+print(A0)
 print(L.n)
 print(y.n-L.n)
 print(SF1)
