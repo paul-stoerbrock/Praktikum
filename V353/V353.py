@@ -25,9 +25,10 @@ def d(A0 ,f , RC):
     return np.arcsin(-2 * np.pi * f * RC * A0)
 
 
-U0 = 3 
+U0 = 0.3 
 
 U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
+U *= 1/5
 Uc = np.log(U/U0)
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeitabstand der Nulldurchgänge
 A0 = A / U0
@@ -40,7 +41,7 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(tc, np.log(U/U0))
 x = ufloat(slope, std_err)
 y = -1/x
 
-R = ufloat(15.056e+03, 0.6e+03)
+R = ufloat(15.056e+03, 0.6e+03)+600
 C = 93.2e-09
 L = R*C
 
@@ -49,7 +50,7 @@ L = R*C
 popt, pcov = curve_fit(
     g,
     f,
-    A0,
+    A0/5,
     sigma=None,
     absolute_sigma=True,
     p0=[1e-03]
@@ -64,8 +65,8 @@ phiRC, phicov = curve_fit(
     p0=[1e-03]
     )
 
-SF1 = (popt[0]-L.n)/L.n
-SF2 = (y.n * 1e-03 - L.n)/L.n
+SF2 = (popt[0]-L.n)/L.n
+SF1 = (y.n * 1e-03 - L.n)/L.n
 SF3 = (phiRC[0] * 1e-03 - L.n)/L.n
 
 # Plot für 4a-d) [A(w)/U0] ############################################################################################################################################################################
@@ -143,6 +144,31 @@ plt.savefig('build/plot4ctrue.pdf')
 plt.close()
 
 ######################################################################################################################################
+
+# richtiger Plot für b) ######################################################################################################
+
+popttrue, pcovtrue = curve_fit(
+    g,
+    f,
+    A0/5,
+    sigma=None,
+    absolute_sigma=True,
+    p0=[1e-03]
+    )
+
+plt.plot(f, A0/5, 'kx', label="Messdaten")
+plt.xscale('log')
+x_plot = np.linspace(1, 100000, 100000)
+plt.plot(x_plot, g(x_plot,*popttrue), 'r-', label="Nichtlineare Regression")
+plt.legend(loc="best")
+plt.xlabel('Frequenz in Hertz')
+plt.ylabel('A/$U_0$ in Volt')
+plt.grid(True)
+plt.tight_layout
+plt.savefig('build/plot4btrue.pdf')
+plt.close()
+
+
 
 #SI Einheiten 
 
