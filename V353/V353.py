@@ -25,12 +25,14 @@ def d(A0 ,f , RC):
     return np.arcsin(-2 * np.pi * f * RC * A0)
 
 
+
 U0 = 0.3 
 
 U, tc = np.genfromtxt('entladung.txt', unpack=True) #Variablen definieren U=Q/C, tc=Zeit aus 4a)
 U *= 1/5
 Uc = np.log(U/U0)
 f, A, t = np.genfromtxt('data.txt', unpack=True) #Variablen definieren f=Frequenz, A=Amplitude, t=Zeitabstand der Nulldurchgänge
+A *= 1/5
 A0 = A / U0
 phi = f * t * 2 * np.pi
 
@@ -106,8 +108,8 @@ plt.savefig('build/plot4c.pdf')
 plt.close()
 
 plt.polar(phi, A0, 'kx', label="Amplitude und Phase")
-x_plot = np.linspace(0, 1, 24)
-plt.polar(d(x_plot,f , *phiRC), x_plot, 'r-', label="Polarplot")
+x_plot = np.linspace(0, np.pi/2, 10000)
+plt.polar(x_plot, np.cos(x_plot), 'r-', label="Polarplot")
 plt.legend(loc="best")
 plt.grid(True)
 plt.tight_layout
@@ -118,6 +120,7 @@ plt.close()
 #richtiger Plot 4c) #########################################################################################################
 
 fr, Ar, tr = np.genfromtxt('true.txt', unpack=True)
+Ar *= 1/5
 
 phir = fr * tr * 2 * np.pi
 
