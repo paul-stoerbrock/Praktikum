@@ -19,8 +19,9 @@
 \newpage
 \tableofcontents
 \newpage
-\justifying
-\section{Theorie}
+
+\section{Theorie}\justifying
+
   Als RC-Kreis wird eine Reihenschaltung bestehend aus einem Kondensator 
   und einem Widerstand beschrieben, durch welchen ein Strom I fließt. \\
   Dabei stellt der Kondensator beim Auf- und Entladen einen Relaxationsvorgang dar, 
@@ -71,7 +72,8 @@
   \end{align}
 
 
-\section{Aufgaben}
+\section{Aufgaben}\justifying
+
  \begin{enumerate}
     \item[a)] Zuerst wird die Zeitkonstante $\tau$ eines RC-Glieds durch 
               eine lineare Ausgleichsrechnung bestimmt.
@@ -91,19 +93,21 @@
 
 
 
-\section{Versuchsaufbau}
+\section{Versuchsaufbau}\justifying
+
 Benötigt werden: \textit{ein analoges Zweikanal-Oszilloskop, ein Generator, ein RC-Glied, drei BNC-Kabel, ein BNC-Steckverbinder }\\
 Zuerst wird an dem Generatorausgang eine BNC-Steckverbindung angebracht. 
 Dann wird der Generator mit dem RC-Glied und dem Oszilloskop verbunden. \\
 Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
-\section{Versuchsdurchführung}
+\section{Versuchsdurchführung}\justifying
+
 \begin{enumerate}
 \item[a)] Für die Berechnung von $\tau$ über eine Auf- oder Entladekurve wird der 
           Generator auf eine Rechteckspannung von 0.3V geschaltet und auf einen geeigneten 
           Triggerpegel eingestellt. Daraufhin wird ein Bild von der Auf- 
           oder Entladekurve der Schaltung angefertigt.\\
-\item[b)\textbackslash c)] Für den nächsten Teil wird der Generator auf eine Sinusspannung 
+\item[b-c)] Für den nächsten Teil wird der Generator auf eine Sinusspannung 
           eingestellt. Dabei sollen die Spannungsverläufe von $U_C(t)$ und der 
           Generatorspannung auf dem Oszilloskop gleichzeitig angezeigt werden. 
           Dann werden die Werte für die Amplitude, der Kondensatorspannung 
@@ -116,7 +120,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
           werden. Im Anschluss werden dann Fotos von den Oszillogrammen gemacht.
 \end{enumerate}
 
-\section{Auswertung}
+\section{Auswertung}\justifying
 
 %Auswertung 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
@@ -243,18 +247,16 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
       \includegraphics[width=\textwidth]{images/rechteck.jpg}
       \centering
       \caption{Rechteckschwingung für d)}
-      \label{fig:rechteck}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
       \includegraphics[width=\textwidth]{images/sinus.jpg}
       \centering
       \caption{Sinusschwingung für d)}
-      \label{fig:4c}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
       \vspace{5mm}
-      \includegraphics[width=\textwidth]{images/dreieck.jpg}
       \centering
+      \includegraphics[width=\textwidth]{images/dreieck.jpg}
       \caption{Dreieckschwingung für d)}  
     \end{subfigure}
   \end{figure}
@@ -276,23 +278,23 @@ in die Formel \eqref{eq:A2} eingesetzt und nach $\varphi$ umestellt:
   
 
 
-\section{Diskussion}
+\section{Diskussion}\justifying
+
 
 % Diskussion 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Das Bild \ref{fig:4ajpg} zeigt den erwarteten Verlauf einer Auf- und Entladekurve
 eines Kondensators nach Gl. \eqref{eq:UcEnt} und \eqref{eq:UcAuf}, wobei der Kondensator bei $t=0$ fast voll aufgeladen ist.
 Die Ausgleichsgerade gibt dabei den vermuteten Entladeverlauf nach Gl. \eqref{eq:UcEnt} wieder 
-ohne große Abweichungen von den Messdaten. \\
-
+ohne große Abweichungen von den Messdaten.\\
 
 % Diskussion 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Die gefittete Kurve \ref{fig:4b} erfüllt nicht unsere Erwartung eines Tiefpasses
-nach Formel \eqref{eq:A}. Die Messwerte aus Tabelle \ref{tab:data} stellen allerdings die eigentliche Kurve
+\justifying{
+\flushleft{Die} gefittete Kurve \ref{fig:4b} erfüllt nicht nach Formel \eqref{eq:A} unsere Erwartung eines Tiefpasses. 
+Die Messwerte aus Tabelle \ref{tab:data} stellen allerdings die eigentliche Kurve
 dar. Der Grund dafür ist, dass beim Aufschreiben der Messwerte nicht beachtet wurde,
-dass der 5x-Multiplikatorknopf gedrückt war. Dies ist auch auf dem Bild \ref{fig:4ajpg}
+dass der 5x-Multiplikatorknopf für Eingang 1 gedrückt war. Dies ist auch auf dem Bild \ref{fig:4ajpg}
 zu sehen. Wenn A um den Faktor $\sfrac{1}{5}$ korrigiert wird, sieht die Kurve 
-folgendermaßen aus:
+folgendermaßen aus:}
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{plot4btrue.pdf}
@@ -301,22 +303,40 @@ folgendermaßen aus:
     \label{fig:4btrue}
 \end{figure}
 
-Dies zeigt unter anderem die Eigenschaft des RC-Kreises als Tiefpass.
-Denn bei hohen Frequenzen geht $\sfrac{A(\omega)}{U_0}$  gegen Null und bei kleinen
+
+Dies zeigt die Eigenschaft des RC-Kreises als Tiefpass.
+Denn bei hohen Frequenzen geht $\sfrac{A(\omega)}{U_0}$ gegen Null und bei kleinen
 Frequenzen ist $\sfrac{A(\omega)}{U_0}$ ungefähr 1.
+\\
 
 
 
 % Diskussion 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+Der Graph \ref{fig:4c} stellt nicht die wie erwartete Werteentwicklung nach Formel
+\eqref{eq:nu} dar. Auffällig ist die Größenordung der y-Achse, da die Phase zu
+springen scheint. Daraus lässt sich schlussfolgern, dass bei den ersten 14 Messwerten
+für die Phase aus Tabelle \ref{tab:data} eine falsche Größenordnung vorliegt.
+Erwartet wurden Werte, welche um drei Zehnerpotenzen kleiner sein sollten. 
+Würde die Größenordnung korrigiert werden, sähe der neue Graph aus wie folgt:
 
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plot4ctrue.pdf}
     \centering
-    \caption{Korrigierte Nichtlineare Regression von Aufgabe c)}
+    \caption{Korrigierte nichtlineare Regression von Aufgabe c)}
     \label{fig:4ctrue}
   \end{figure}
+
+Der korrigierte Graph beinhaltet eine arcctan-Kurve, welche von der Theorie 
+erwartet wurde. Die Streuung der einzelnen Werte lässt sich zum Teil von dem 
+systematischen Fehler und zum Teil von der Messungenauigkeit des Oszilloskop erklären.
+Die Ungenauigkeit stellt sich besonders aus den letzten vier Messwerten hervor. 
+Eine mögliche Erklärung der großen Abweichung der letzten Messwerte ist die hoche 
+Streurate der Elektronen bei erhöhten Frequenzen. Diese Ungenauigkeit führte zu einer 
+Halbierung der Phase. 
+
+
 
 \newpage
 \nocite{V353}
