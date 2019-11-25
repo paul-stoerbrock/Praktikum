@@ -52,7 +52,7 @@ L = R*C
 popt, pcov = curve_fit(
     g,
     f,
-    A0/5,
+    A0*5,
     sigma=None,
     absolute_sigma=True,
     p0=[1e-03]
