@@ -95,7 +95,7 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 \section{Versuchsdurchführung}
 \begin{enumerate}
 \item[a)] Für die Berechnung von $\tau$ über eine Auf- oder Entladekurve wird der 
-          Generator auf eine Rechteckspannung geschaltet und auf einen geeigneten 
+          Generator auf eine Rechteckspannung von 0.3V geschaltet und auf einen geeigneten 
           Triggerpegel eingestellt. Daraufhin wird ein Bild von der Auf- 
           oder Entladekurve der Schaltung angefertigt.\\
 \item[b)\textbackslash c)] Für den nächsten Teil wird der Generator auf eine Sinusspannung 
@@ -267,11 +267,34 @@ Zuletzt wird das RC-Glied am zweiten Eingang des Oszilloskop angeschlossen.
 
 
 \section{Diskussion}
+
+% Diskussion 4a %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Das Bild \ref{fig:4ajpg} zeigt den erwarteten Verlauf einer Auf- und Entladekurve
+eines Kondensators nach Gl. \eqref{eq:UcEnt} und \eqref{eq:UcAuf}, wobei der Kondensator bei $t=0$ fast voll aufgeladen ist.
+Die Ausgleichsgerade gibt dabei den vermuteten Entladeverlauf nach Gl. \eqref{eq:UcEnt} wieder 
+ohne große Abweichungen von den Messdaten. 
+
+
 % Diskussion 4b %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Die Formel \ref{eq:A} diktiert einen Tiefpass, welcher in der Theorie nur niedrige Frequenzen durchlässt und hohe Frequenzen
-blockiert. Der Graph \ref{fig:4b} spiegelt dieses Verhalten deutlich wieder, da die Voltzahl bei Frequenzen ab $10^4$ 
-praktisch gegen null verläuft. 
+Die gefittete Kurve \ref{fig:4b} erfüllt nicht unsere Erwartung eines Tiefpasses
+nach Formel \eqref{eq:A}. Die Messwerte aus Tabelle \ref{tab:table_4b} stellen allerdings die eigentliche Kurve
+dar. Der Grund dafür ist, dass beim Aufschreiben der Messwerte nicht beachte wurde,
+dass der 5x-Multiplikatorknopf gedrückt war. Dies ist auch auf dem Bild \ref{fig:4ajpg}
+zu sehen. Wenn A um den Faktor $\sfrac{1}{5}$ korrigiert wird, sieht die Kurve 
+folgendermaßen aus:
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{plot4btrue.pdf}
+    \centering
+    \caption{Korregierte nichtlineare Regression von Aufgabe b)}
+    \label{fig:4btrue}
+\end{figure}
+
+Dies zeigt unter anderem die EIgenschaft des RC-Kreises als Tiefpass.
+Denn bei hohen Frequenzen geht $\sfrac{A(\omega)}{U_0}$  gegen Null und bei kleinen
+Frequenzen ist $\sfrac{A(\omega)}{U_0}$ ungefähr 1.
+
 
 
 % Diskussion 4c %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
