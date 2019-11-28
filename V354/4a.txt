@@ -1,0 +1,11 @@
+#Versuch 354 Gedämpfte und erzw. Schwingungen: Messwerte 
+#angelegte Spannung U0 = 10V 
+#A(w)/V a/s
+8.4e+00 0.00e-06
+6.0e+00 2.00e-05
+4.4e+00 5.40e-05
+3.2e+00 8.00e-05
+2.4e+00 1.06e-04
+1.6e+00 1.34e-04
+1.2e+00 1.60e-04
+0.8e+00 1.88e-04

@@ -15,11 +15,10 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 # Funktionsdefinitionen #########################################################################
 
-#def U_C(f, L, R, C):
-#    return 1/(np.sqrt(R**2 + (2*np.pi*f*L-1/(2*np.pi*f*C))**2))
 
 
 # Messdaten ##################################################################################
+Aa, ta = np.genfromtxt('4a.txt', unpack=True) # Aa=Amplitudenspannung für 4a), ta=Zeitdifferenz der Nulldurchgänge für 4a)
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) # f=Frequenz, A=Amplitudenspannung, t=Zeitdifferenz der Nulldurhgänge
 
@@ -27,20 +26,27 @@ U0 = 10 # angelegte Spannung in Volt
 
 A0 = A/U0
 
-t *= 1e+06
-
 phi = f * t * 2 * np.pi # Umrechnung von t in phi
 
 
+#Plot für 4a) #################################################################################
 
+plt.plot(ta*1e+04,np.log(Aa), 'kx', label="Messdaten")
+x_plot = np.linspace(0, 2e-04, 10)
+plt.plot(x_plot*1e04,intercept+slope*x_plot, 'r-', label="Lineare Regression")
+plt.legend(loc="best")
+plt.xlabel('Zeit in s')
+plt.ylabel('Log(A) in Volt')
+plt.tight_layout
+plt.title('Plot für Aufg. 4a)')
+plt.savefig('build/plota.pdf')
+plt.close()
 
-#Plot für c) #################################################################################
 
 # Erstellung des Plots c in ln-Darstellung
 
 plt.plot(f, A0, 'rx', label="Messdaten")
 plt.xscale('log')
-plt.legend(loc="best")
 plt.xlabel('Frequenz in Hertz')
 plt.ylabel('$U_C/U_0$ in Volt')
 plt.tight_layout
