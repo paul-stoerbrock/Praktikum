@@ -15,8 +15,8 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 # Funktionsdefinitionen #########################################################################
 
-def U_C(f, L, R, C):
-    return 1/(np.sqrt(R**2 + (2*np.pi*f*L-1/(2*np.pi*f*C))**2))
+#def U_C(f, L, R, C):
+#    return 1/(np.sqrt(R**2 + (2*np.pi*f*L-1/(2*np.pi*f*C))**2))
 
 
 # Messdaten ##################################################################################
@@ -29,38 +29,48 @@ A0 = A/U0
 
 t *= 1e+06
 
-
-
-
 phi = f * t * 2 * np.pi # Umrechnung von t in phi
 
 
 
 
-#Plot für 4b) #################################################################################
+#Plot für c) #################################################################################
 
-# Curve-Fit zur Berechnung der Parameter L, C und R 
+# Erstellung des Plots c in ln-Darstellung
 
-popt, pcov = curve_fit(
-    U_C,
-    f,
-    A0,
-    sigma=None,
-    absolute_sigma=True,
-    p0=[3e-03  ,10e06,5e-09 ]
-    )
-
-# Erstellung des Plots
-
-plt.plot(f, A0, 'kx', label="Messdaten")
-#plt.xscale('log')
-x_plot = np.linspace(1, 60000, 60000)
-plt.plot(x_plot, U_C(x_plot, *popt), 'r-', label="Lineare Regression")
+plt.plot(f, A0, 'rx', label="Messdaten")
+plt.xscale('log')
 plt.legend(loc="best")
 plt.xlabel('Frequenz in Hertz')
-plt.ylabel('$U_c/U_0$ in Volt')
+plt.ylabel('$U_C/U_0$ in Volt')
 plt.tight_layout
-plt.savefig('build/plotc.pdf')
+plt.savefig('build/plotcln.pdf')
+plt.close()
+
+# Erstellung des Plots c in linearer Darstellung
+
+plt.plot(f, A0, 'rx', label="Messdaten")
+plt.legend(loc="best")
+plt.xlabel('Frequenz in Hertz')
+plt.ylabel('$U_C/U_0$ in Volt')
+plt.tight_layout
+plt.savefig('build/plotclin.pdf')
+plt.close()
+
+
+# Plot d) ###########################################################################################
+
+# Erstellung des Plots d) linear
+
+plt.plot(f*1e-04, phi, 'kx', label="Messdaten")
+plt.xscale('log')
+plt.yscale('log')
+plt.axis([0, 5, 0, np.pi])
+plt.legend(loc="best")
+plt.xlabel(f'$\nu$ / $10^4 Hz$')
+plt.ylabel('Phi in Bogenmaß')
+plt.tight_layout
+plt.savefig('build/plotd.pdf')
 plt.close()
 
 # Erstellung Tabelle c), d) ###################################################################################
@@ -98,4 +108,3 @@ with open('build/table_c.tex', 'w') as h:
 
 # Kontrollprints
 
-print(popt)
