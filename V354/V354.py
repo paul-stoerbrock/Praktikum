@@ -15,11 +15,15 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 # Funktionsdefinitionen #########################################################################
 
+def einh(Aa, ta):
+    return np.exp(-2*np.pi*Aa*ta)
+
 def U_C(f, L, R, C):
     return 1/(np.sqrt(R**2 + (2*np.pi*f*L-1/(2*np.pi*f*C))**2))
 
 
 # Messdaten ##################################################################################
+Aa, ta = np.genfromtxt('4a.txt', unpack=True) # Aa=Amplitudenspannung für 4a), ta=Zeitdifferenz der Nulldurchgänge für 4a)
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) # f=Frequenz, A=Amplitudenspannung, t=Zeitdifferenz der Nulldurhgänge
 
@@ -34,8 +38,23 @@ t *= 1e+06
 
 phi = f * t * 2 * np.pi # Umrechnung von t in phi
 
+#Plot für 4a) #################################################################################
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(ta, np.log(Aa))
 
 
+# Erstellung des Plots
+
+plt.plot(ta*1e+04,np.log(Aa), 'kx', label="Messdaten")
+x_plot = np.linspace(0, 2e-04, 10)
+plt.plot(x_plot*1e04,intercept+slope*x_plot, 'r-', label="Lineare Regression")
+plt.legend(loc="best")
+plt.xlabel('Zeit in s')
+plt.ylabel('Log(A) in Volt')
+plt.tight_layout
+plt.title('Plot für Aufg. 4a)')
+plt.savefig('build/plota.pdf')
+plt.close()
 
 #Plot für 4b) #################################################################################
 
