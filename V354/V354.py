@@ -18,13 +18,14 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 
 # Messdaten ##################################################################################
+
 Aa, ta = np.genfromtxt('4a.txt', unpack=True) # Aa=Amplitudenspannung für 4a), ta=Zeitdifferenz der Nulldurchgänge für 4a)
 
 f, A, t = np.genfromtxt('data.txt', unpack=True) # f=Frequenz, A=Amplitudenspannung, t=Zeitdifferenz der Nulldurhgänge
 
 U0 = 10 # angelegte Spannung in Volt
 
-Umax= 13  # Resonanzamplitude
+Umax= 13  # Resonanzamplitude in Volt
 
 A0 = A/U0
 
@@ -98,7 +99,7 @@ plt.close()
 plt.plot(f*1e-03, A0, 'rx', label="Messdaten")
 plt.legend(loc="best")
 plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--') 
-plt.axvline(27.8,linestyle='--') # nu-
+plt.axvline(27.8,linestyle='--', label=r'$\nu_r') # nu-
 plt.axvline(42.7,linestyle='--') # nu+
 plt.xlabel(r'$\nu \:/\: $kHz')
 plt.ylabel(r'$U_C/U_0 \:/\: $V')
@@ -106,7 +107,6 @@ plt.grid()
 plt.tight_layout
 plt.savefig('build/plotclin.pdf')
 plt.close()
-
 
 # Plot für d) ###########################################################################################
 
@@ -149,16 +149,38 @@ plt.close()
 
 # SI-Einheiten ####################################################################################
 
+# Erstellung Tabelle a) ###################################################################################
 
+Aa1, Aa2 = np.array_split(Aa, 2)
+ta1, ta2 = np.array_split(ta*1e+06, 2)
 
+table_header = r'''
+  \begin{tabular}{c c c c}
+    \toprule
+    {$U_C \:/\: \si{\volt}$} & {$t \:/\: \si{\micro\second}$} &
+    {$U_C \:/\: \si{\volt}$} & {$t \:/\: \si{\micro\second}$} \\
 
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f}  \\'
 
+# Tabelle für 4a) wird im Tex Format geschrieben ############################################################################################################################################################################
+
+with open('build/table_a.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(Aa1, ta1, Aa2, ta2):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
 
 # Erstellung Tabelle c), d) ###################################################################################
 
 f1, f2, f3= np.array_split(f*1e-03, 3)
 A1, A2, A3 = np.array_split(A, 3)
-t1, t2, t3 = np.array_split(t, 3)
+t1, t2, t3 = np.array_split(t*1e+06, 3)
 
 
 table_header = r'''
@@ -174,9 +196,9 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {0:1.2f} & {1:1.2f} & {2:1.2f} & {0:1.2f} & {1:1.2f} & {2:1.2f}  \\'
+row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} & {8:1.2f}  \\'
 
-# Tabelle für 4a) wird im Tex Format geschrieben ############################################################################################################################################################################
+# Tabelle für 4c-d) wird im Tex Format geschrieben ############################################################################################################################################################################
 
 with open('build/table_c.tex', 'w') as h:
     h.write(table_header)
@@ -195,3 +217,6 @@ print(np.exp(1)**intercept)
 print(nuRech)
 print(nuGraph)
 print(RF_nu)
+print(f1)
+print(f2)
+print(f3)
