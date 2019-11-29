@@ -9,7 +9,7 @@
     Paul Störbrock\\
     \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
     }
-    \date{Durchführung: 19.11.2019, Abgabe: 03.12.2019\vspace{-4ex}}
+    \date{Durchführung: 26.11.2019, Abgabe: 03.12.2019\vspace{-4ex}}
 \maketitle
 \center{\Large Versuchsgruppe: \textbf{42}}
     
@@ -83,16 +83,67 @@ Bei diesem ist die Bedingung:
 
 \section{Aufgaben}\justifying
 
+ \begin{enumerate}
+
+    \item[a)] \justifying Zu Beginn wird die Einhüllende Funktion der gedämpften
+    Schwingung \eqref{eq:} mit einer linearen Ausgleichsrechnung graphisch dargestellt. 
+    Mit Hilfe der Ausgleichsrechnung wird der Dämpfungswiderstand der Schwingung errechnet.
+
+    \item[b)] \justifying Anschließend wird mit dem variablen Widerstand $R_ap$ bestimmt.
+  
+    \item[c)] \justifying 
+  
+    \item[d)] \justifying 
+    
+  \end{enumerate}
+
 % Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau}\justifying
+Benötigt werden: \textit{Ein Generator mit einem Innenwiderstand von 600 $\Omega$, 
+ein analoges Zweikanal-Oszilloskop, ein LRC-Glied mit drei ohmschen Widerständen 
+($R_1 < R_2$), wobei einer der Widerständen ($R_3$ variabel sein soll, 
+zwei BNC-Kabel, eine BNC-Steckverbindung und einen Tastkopf}
+Zuerst wird die BNC-Steckverbindung an dem Generator angebracht. 
+Dann wird die Steckverbindung mit einem der Widerstände des LRC-Glieds und mit dem zweiten 
+Eingang des Oszilloskops verbunden.
+Zuletzt wird das LRC-Glied mit dem ersten Eingang des Oszilloskops verbunden.
+
 
 % Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsdurchführung}\justifying
 
+ \begin{enumerate}
+
+    \item[a)] \justifying Zu Beginn wird am Generator eine Frequenz von 100Hz 
+    eingestellt. Außerdem soll eine Spannung von 10V auf das LRC-Glied und Oszilloskop
+    gegeben werden. 
+    Um die lineare Ausgleichsrechnung der Einhüllenden zu bestimmen,
+    werden anhand des Bildes \ref{fig:} Messwertpaare für Amplitude $A(\omega)$ und Zeit 
+    $t$ abgelesen. 
+
+    \item[b)] \justifying Um den Widerstand $R_ap$ zu bestimmen, wird der Generator 
+    an den manximal eingestellten variablen Widerstand angeschlossen. Anschließend wird 
+    der variable Widerstand reduziert, bis am Oszilloskop eine Überschwingung erkennbar 
+    ist. Nun wird der Widerstand erhöht und notiert, sobald die Überschwingung verschwindet.
+  
+    \item[c)] \justifying 
+  
+    \item[d)] \justifying 
+
+  \end{enumerate}
+
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Auswertung}\justifying
+
+  \begin{table}[H]
+        \centering
+        \caption{Messdaten von a)}
+        \input{table_a.tex} 
+        \label{tab:data_a}
+  \end{table}
 
 \section{Auswertung}\justifying
 
@@ -100,7 +151,7 @@ Bei diesem ist die Bedingung:
         \centering
         \caption{Messdaten von c) und d)}
         \input{table_c.tex} 
-        \label{tab:datac}
+        \label{tab:data_c}
   \end{table}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
