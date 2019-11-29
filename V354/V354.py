@@ -367,6 +367,5 @@ print(RF_nu2)
 print(RF_nu_res)
 print(RF_R)
 print(RF_nu)
-print(nu_res_lit)
 
 
