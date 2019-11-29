@@ -46,14 +46,14 @@ C= 5.01 *1e-09
 
 # Berechnung R_ap aus Literaturwerten
 
-R_ap_lit = unp.sqrt(4*L/C)
+R_ap_lit = unp.sqrt(4*L/C)/2*2
 # Relativer Fehler R
 
-RF_R = (R-R_ap_lit)/R_ap_lit # RF= relativer Fehler
+RF_R = (R-R_ap_lit.n)/R_ap_lit.n # RF= relativer Fehler
 
 # Berechnung von nu+ - nu-
 
-nuRech= (R2)/(2 * np.pi * L)
+nuRech= R2/(2*np.pi*L)
 
 # Relativer Fehler nu+ - nu-
 
@@ -75,11 +75,11 @@ nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 RF_nu2= (nu2 - nu2_lit.n)/nu2_lit.n
 
-# Berechnung nu_rel
+# Berechnung nu_res
 
-nu_res_lit= unp.sqrt(1/L*C)*1/(2*np.pi)
+nu_res_lit= unp.sqrt(1/(L*C))*1/(2*np.pi)
 
-#Berechnung relativer nu_res
+#Berechnung relativer Fehler nu_res
 
 RF_nu_res= (nu_res-nu_res_lit.n)/nu_res_lit.n
 
@@ -265,6 +265,40 @@ with open('build/nu1_lit.tex', 'w') as RC:
     RC.write(f'{nu1_lit.n*1e-03:.2f}\pm{nu1_lit.s*1e-03}')
     RC.write('}{\kilo\hertz}$')
 
+# Tex file of RF_nu1
+
+with open('build/RF_nu1.tex', 'w') as RC:
+    RC.write('$\num{')
+    RC.write(f'{RF_nu1:.2f}')
+    RC.write('}$')
+
+# Tex file of nu2_lit
+
+with open('build/nu2_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{nu2_lit.n*1e-03:.2f}\pm{nu2_lit.s*1e-03}')
+    RC.write('}{\kilo\hertz}$')
+
+# Tex file of RF_nu2
+
+with open('build/RF_nu2.tex', 'w') as RC:
+    RC.write('$\num{')
+    RC.write(f'{RF_nu2:.2f}')
+    RC.write('}$')
+
+# Tex file of nu_res_lit
+
+with open('build/nu_res_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{nu_res_lit.n*1e-03:.2f}\pm{nu_res_lit.s*1e-03}')
+    RC.write('}{\kilo\hertz}$')
+
+# Tex file of RF_nu_res
+
+with open('build/RF_nu_res.tex', 'w') as RC:
+    RC.write('$\num{')
+    RC.write(f'{RF_nu_res:.2f}')
+    RC.write('}$')
 
 
 # Erstellung Tabelle a) ###################################################################################
@@ -328,12 +362,11 @@ with open('build/table_c.tex', 'w') as h:
 
 
 # Kontrollprints
-
-print(R_ap_lit)
+print(RF_nu1)
+print(RF_nu2)
+print(RF_nu_res)
 print(RF_R)
-print(nuRech)
-print(nuGraph)
-print(nuRech)
 print(RF_nu)
-print(nu1_lit)
+print(nu_res_lit)
+
 
