@@ -44,16 +44,14 @@ Der erste Fall beshreibt, dass \cite{V354}
 }
 \frac{1}{LC} & > \frac{R^2}{4L^2} \label{eq:Fall1}
 \intertext{ ist und damit der Wurzelterm von $\tilde{\omega}$ \eqref{eq:omega} komplex wird.
-    Die zugehörige Schwingungsgleichung entspricht damit:
-}
+    Die zugehörige Schwingungsgleichung entspricht damit \cite{V354}}
 I(t)=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}
 \intertext{
  Diese Gleichung beschreibt eine ungedämpfte Schwingung. Die Amlitude $A_0$ läuft dabei
  exponentiell gegen null.}
 \end{align}
 \justify
-Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als:
-
+Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als\cite{V354}:
 \begin{align}
     T_0 =\frac{2 \pi}{\omega _0}=2 \pi \sqrt{LC} \text{, wobei sich nach einer Zeit $T_{ex}$}\\
     T_{ex}:= \frac{1}{2 \pi \mu}=\frac{2L}{R} \label{eq:Abkling}
@@ -62,22 +60,81 @@ Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als:
 die Spannungsamplitude um den Faktor $\sfrac{1}{e}$ verringert hat.
 $T_{ex}$ wird daher auch Ablinkdauer genannt.
 \justify
-Der zweite Fall
+Der zweite Fall \cite{V354}
 \begin{align}
     \frac{1}{LC} <\frac{R^2}{4L^2} \label{eq:Fall2}
 \end{align}
 stellt den Kriechfall dar. Bei diesem verschwindet der oszillatorische Teil und
 die Wurzel aus Gleichung \eqref{eq:omega} wird positiv.
 Die Funktion geht mit maximal einem Nulldurchgang nicht-oszillatorisch gegen null.
+Ob ein Nulldurchgang sattfindet hängt dabei von den Anfangsbedingungen ab.
 \justify
 Der dritte Fall stellt einen Spezialfall des zweiten dar.
-Bei diesem ist die Bedingung:
+Bei diesem ist die Bedingung \cite{V354}:
 \begin{align}
     \frac{1}{LC} = \frac{R^2}{4L^2} \label{eq:Fall3}
 \end{align}
-
-
-
+Dieser wird der aperiodische Grenzfall genannt. Bei diesem kehrt die Kurve
+am schnellsten zur Null zurück.\\
+Neben gedämpften Schwingungen treten auch häufig erzwungene Schwingungen auf,
+die hier durch eine sinusförmige Wechselpannung realisiert wird. 
+Die Frequenzabhängigkeit des Kondensators wird dabei durch 
+\begin{align}
+    U_C (\omega)=\frac{U_0}{\sqrt{(1-LC\omega ^2)^2+\omega ^2 R^2 C^2}}
+\end{align}
+beschrieben.
+Dabei ist zu bemerken, dass diese Funktion ein Maximum besitzt, welches die
+angelegte Spannungsamplitude $U_0$ übersteigen kann.\\
+Diese Frequenz wird im Allgemeinen als Resonanzfrequenz $\omega_{res}$ \cite{V354} 
+\begin{align}
+    \omega_{res} = \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
+\end{align}
+bezeichnet.\\
+Aus dieser Formel können zwei Fälle betrachtet werden.
+Für den ersten Fall wird die schwache Dämpfung betrachtet \cite{V354}:
+\begin{align}
+    \frac{1}{LC} \gg \frac{R^2}{4L^2} \label{eq:Fall1b}
+\end{align}
+Der Faktor $\sfrac{1}{\omega _0 RC}$ beschreibt in diesem Fall, um welchen Faktor 
+$U_{C,\text{max}}$ die Spannung $U_0$ übersteigt. Daher wird er auch als Güte 
+oder Resonanzüberhöhung q bezeichnet.
+Eine andere Beschreibung von q lässt sich mit der Breite der 
+Resonanzkurve finden \cite{V354}:
+\begin{align}
+    q = \frac{\omega _0}{\omega _+ - \omega _-} \label{eq:guete}
+\end{align}
+Dabei beschreiben $\omega _+$ und $\omega _-$ die Breite der Resonanzkurve.
+Sie beschreiben die Fequenzen, bei denen die Spannung auf die Größe 
+$\sfrac{U_{C,\text{max}}}{\sqrt{2}}$ vom Maximum gesunken ist.
+Die Breite der Resonanzkurve kann dabei durch
+\begin{align}
+    \omega _+ - \omega _- \approx \frac{R}{L}
+\end{align}
+approximiert werden.\\
+Für den Fall der starken Dämpfung \cite{V354}
+\begin{align}
+    \frac{1}{LC} \ll \frac{R^2}{4L^2} \label{eq:Fall2b}
+\end{align}
+existiert keine Resonanzüberhöhung mehr. 
+Die frenquenzabhängige Phasenverschiebung \cite{V353}
+\begin{align}
+    \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu}
+\end{align}
+zeigt, dass sich bei der Wert $\sfrac{\pi}{2}$ bei \cite{V354}
+\begin{align}
+    \omega _0^2 = \frac{1}{LC} \label{eq:omega0}
+\end{align}
+ergibt.
+Wird $\omega _0 $ um $\pm\sfrac{\pi}{4}$ verschoben, so ergeben sich die Werte \cite{V354}
+\begin{align}
+    \omega_{1,2} = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} + \frac{1}{LC} } \label{eq:om12}
+\end{align}
+für $\omega _1$ und $\omega _2$.
+Daraus lässt sich die Beziehung \cite{V354}
+\begin{align}
+    \omega _1 - \omega _2 = \frac{R}{L} \label{eq:omdiff}
+\end{align}
+herleiten.
 
 % Aufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -85,15 +142,18 @@ Bei diesem ist die Bedingung:
 
  \begin{enumerate}
 
-    \item[a)] \justifying Zu Beginn wird die Einhüllende Funktion der gedämpften
-    Schwingung \eqref{eq:} mit einer linearen Ausgleichsrechnung graphisch dargestellt. 
-    Mit Hilfe der Ausgleichsrechnung wird der Dämpfungswiderstand der Schwingung errechnet.
-
-    \item[b)] \justifying Anschließend wird mit dem variablen Widerstand $R_ap$ bestimmt.
+    \item[a)] \justifying Zuerst wird mittels der Tabelle \ref{tab::data_a} eine lineare
+                          Ausgleichsrechnung durchgeführt und aus dem Ergebnis der effektive
+                          Dämpfungswiderstand bestimmt
+    \item[b)] \justifying Anschließend wird über einen variablen Widerstand bestimmt,
+                          wo sich der aperiodische Grenzfall befindet. 
   
-    \item[c)] \justifying 
+    \item[c)] \justifying Daraufhin wird die Frequenzabhängigkeit
+                          der Kondensatorspanung über einen Plot der Messwertpaare
+                          betrachtet
   
-    \item[d)] \justifying 
+    \item[d)] \justifying Schließlich wird der Zusammenhang zwischen Phase und Frequenz
+                          durch eine Messung an einem Serienresonanzkreis bestimmt.
     
   \end{enumerate}
 
@@ -102,12 +162,13 @@ Bei diesem ist die Bedingung:
 \section{Versuchsaufbau}\justifying
 Benötigt werden: \textit{Ein Generator mit einem Innenwiderstand von 600 $\Omega$, 
 ein analoges Zweikanal-Oszilloskop, ein LRC-Glied mit drei ohmschen Widerständen 
-($R_1 < R_2$), wobei einer der Widerständen ($R_3$ variabel sein soll, 
+($R_1 < R_2$), wovon einer der Widerstände ($R_3$) variabel sein soll, 
 zwei BNC-Kabel, eine BNC-Steckverbindung und einen Tastkopf}
 Zuerst wird die BNC-Steckverbindung an dem Generator angebracht. 
 Dann wird die Steckverbindung mit einem der Widerstände des LRC-Glieds und mit dem zweiten 
 Eingang des Oszilloskops verbunden.
-Zuletzt wird das LRC-Glied mit dem ersten Eingang des Oszilloskops verbunden.
+Zuletzt wird das LRC-Glied über einem BNC-Kabel mit Tastkopf 
+mit dem ersten Eingang des Oszilloskops verbunden.
 
 
 % Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,20 +178,24 @@ Zuletzt wird das LRC-Glied mit dem ersten Eingang des Oszilloskops verbunden.
  \begin{enumerate}
 
     \item[a)] \justifying Zu Beginn wird am Generator eine Frequenz von 100Hz 
-    eingestellt. Außerdem soll eine Spannung von 10V auf das LRC-Glied und Oszilloskop
-    gegeben werden. 
-    Um die lineare Ausgleichsrechnung der Einhüllenden zu bestimmen,
-    werden anhand des Bildes \ref{fig:} Messwertpaare für Amplitude $A(\omega)$ und Zeit 
-    $t$ abgelesen. 
+    eingestellt und eine Erregerspannung von 10V eingestellt.Danach wird der 
+    Generator mit dem kleineren der festen Widerstände verbunden.
+    Um die lineare Ausgleichsrechnung der Einhüllenden zu bestimmen, wird
+    ein Bild vom Oszilloskop angefertigt aus dem dann Messwerte entnommen werden
+    können.
 
-    \item[b)] \justifying Um den Widerstand $R_ap$ zu bestimmen, wird der Generator 
-    an den manximal eingestellten variablen Widerstand angeschlossen. Anschließend wird 
+    \item[b)] \justifying Um den Widerstand $R_{ap}$ zu bestimmen, wird der Generator 
+    an den maximal eingestellten variablen Widerstand angeschlossen. Anschließend wird 
     der variable Widerstand reduziert, bis am Oszilloskop eine Überschwingung erkennbar 
-    ist. Nun wird der Widerstand erhöht und notiert, sobald die Überschwingung verschwindet.
+    wird. Daraufhin wird der Widerstand stetig erhöht bis die Überschwingung verschwindet 
+    und der bestimmte Widerstand notiert.
   
-    \item[c)] \justifying 
+    \item[c/d)] \justifying Dann wird für die Messung der Frequenzabhängigkeit
+                          der gößere Widerstand angeschlossen.
+                          Daraufhin werden Werte für Phase und Frequenz um die 
+                          Resonanzfrequenz gemessen und datiert.
   
-    \item[d)] \justifying 
+    
 
   \end{enumerate}
 
