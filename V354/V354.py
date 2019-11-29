@@ -13,10 +13,6 @@ from scipy.optimize import curve_fit #function curve_fit
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
 
-# Funktionsdefinitionen #########################################################################
-
-
-
 # Messdaten ##################################################################################
 
 Aa, ta = np.genfromtxt('4a.txt', unpack=True) # Aa=Amplitudenspannung für 4a), ta=Zeitdifferenz der Nulldurchgänge für 4a)
@@ -33,11 +29,11 @@ phi = f * t * 2 * np.pi # Umrechnung von t in phi
 
 R= 2.9 * 1e03      # Widerstand für aperiodischen Grenzfall
 
-nuGraph = 14.9*1e03 # nu+ - nu- Breite der Resonanzkurve
+nuGraph = 14.9 *1e03 # nu+ - nu- Breite der Resonanzkurve
 
-nu1 = 3.2 *1e04
+nu1 = 3.2 * 1e04
 
-nu2 = 4.43*1e04
+nu2 = 4.43* 1e04
 
 nu_res = 3.74*1e04
 
@@ -46,12 +42,11 @@ nu_res = 3.74*1e04
 L= ufloat(3.5,0.01)*1e-03 
 R1= ufloat(30.3, 0.1)
 R2= ufloat(271.6,0.2)
-C= 5.01 * 1e-09
+C= 5.01 *1e-09
 
 # Berechnung R_ap aus Literaturwerten
 
-R_ap_lit= unp.sqrt(4*L/C)
-
+R_ap_lit = unp.sqrt(4*L/C)
 # Relativer Fehler R
 
 RF_R = (R-R_ap_lit)/R_ap_lit # RF= relativer Fehler
@@ -181,6 +176,96 @@ with open('build/Rap.tex', 'w') as RC:
 
 # Tex file of nuGraph
 
+with open('build/nuGraph.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(nuGraph*1e-03):.2f}') 
+    RC.write('}{\kilo\ohm}$')
+
+# Tex file of nu1
+
+with open('build/nu1.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(nu1*1e-03):.2f}') 
+    RC.write('}{\kilo\ohm}*1e+03*1e+03$')
+
+# Tex file nu2
+
+with open('build/nu2.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(nu2*1e-03):.2f}') 
+    RC.write('}{\kilo\ohm}$')
+
+# Tex file of nu_res
+
+with open('build/nu_res.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(nu_res*1e-03):.2f}') 
+    RC.write('}{\kilo\ohm}$')
+
+# Tex file of L Literaturwert
+
+with open('build/L.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(L.n*1e03):.2f}\pm{L.s*1e03:.2f}') 
+    RC.write('}{\milli\henry}$')
+
+# Tex file of R1 Literaturwert
+
+with open('build/R1.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(R1.n):.2f}\pm{R1.s:.2f}') 
+    RC.write('}{\ohm}$')
+
+# Tex file of R2 Literaturwert
+
+with open('build/R2.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(R2.n):.2f}\pm{R2.s:.2f}') 
+    RC.write('}{\ohm}$')
+
+# Tex file C Literaturwert
+
+with open('build/C.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{C*1e09:.2f}') 
+    RC.write('}{\nano\farad}$')
+
+# Tex file of R_ap_lit
+
+with open('build/R_ap_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(R_ap_lit*1e-03):.2f}') 
+    RC.write('}{\kilo\ohm}$')
+
+# Tex file of RF_R
+
+with open('build/RF_R.tex', 'w') as RC:
+    RC.write('$\num{')
+    RC.write(f'{RF_R:.2f}')
+    RC.write('}$')
+
+# Tex file of nuRech
+
+with open('build/nuRech.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{nuRech.n*1e-03:.2f}\pm{nuRech.s*1e-03}')
+    RC.write('}{\kilo\hertz}$')
+
+# Tex file of RF_nu    
+
+with open('build/RF_nu.tex', 'w') as RC:
+    RC.write('$\num{')
+    RC.write(f'{RF_nu:.2f}')
+    RC.write('}$')
+
+# Tex file of nu1_lit
+
+with open('build/nu1_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{nu1_lit.n*1e-03:.2f}\pm{nu1_lit.s*1e-03}')
+    RC.write('}{\kilo\hertz}$')
+
+
 
 # Erstellung Tabelle a) ###################################################################################
 
@@ -246,14 +331,9 @@ with open('build/table_c.tex', 'w') as h:
 
 print(R_ap_lit)
 print(RF_R)
-print(np.exp(1)**intercept)
 print(nuRech)
 print(nuGraph)
-
-print(nu)
 print(nuRech)
 print(RF_nu)
-print(RF_nu)
-print(f1)
-print(f2)
-print(f3)
+print(nu1_lit)
+
