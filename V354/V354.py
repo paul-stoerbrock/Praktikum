@@ -34,11 +34,11 @@ R= 2.9 * 1e03      # Widerstand für aperiodischen Grenzfall
 
 nuGraph = 14.9*1e03 # nu+ - nu- Breite der Resonanzkurve
 
-nu1 = 3.2 
+nu1 = 3.2 *1e04
 
-nu2 = 4.43
+nu2 = 4.43*1e04
 
-nures = 3.74
+nu_res = 3.74*1e04
 
 # Literaturwerte ##########################################################################################
 
@@ -49,11 +49,11 @@ C= 5.01 * 1e-09
 
 # Berechnung R_ap aus Literaturwerten
 
-R_aplit= unp.sqrt(4*L/C)
+R_ap_lit= unp.sqrt(4*L/C)
 
 # Relativer Fehler R
 
-RF_R = (R-R_aplit)/R_aplit
+RF_R = (R-R_ap_lit)/R_ap_lit # RF= relativer Fehler
 
 # Berechnung von nu+ - nu-
 
@@ -63,6 +63,29 @@ nuRech= (R2)/(2 * np.pi * L)
 
 RF_nu= (nuGraph-nuRech.n)/nuRech.n
 
+#Berechnung nu 1
+
+nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
+
+#Berechnung relativer Fehler nu 1
+
+RF_nu1= (nu1 - nu1_lit.n)/nu1_lit.n
+
+# Berechnung nu 2
+
+nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
+
+#Berechnung relativer Fehler nu 2
+
+RF_nu2= (nu2 - nu2_lit.n)/nu2_lit.n
+
+# Berechnung nu_rel
+
+nu_res_lit= unp.sqrt(1/L*C)*1/(2*np.pi)
+
+#Berechnung relativer nu_res
+
+RF_nu_res= (nu_res-nu_res_lit.n)/nu_res_lit.n
 
 
 #Plot für a) #################################################################################
@@ -149,6 +172,14 @@ plt.close()
 
 # SI-Einheiten ####################################################################################
 
+# Tex file of Rap
+
+with open('build/Rap.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(R*1e-03):.2f}') 
+    RC.write('}{\kilo\ohm}$')
+
+# Tex file of nuGraph
 
 
 
@@ -189,9 +220,12 @@ with open('build/table_c.tex', 'w') as h:
 
 # Kontrollprints
 
-print(R_aplit)
+print(R_ap_lit)
 print(RF_R)
 print(np.exp(1)**intercept)
 print(nuRech)
 print(nuGraph)
+
+print(nu)
+print(nuRech)
 print(RF_nu)
