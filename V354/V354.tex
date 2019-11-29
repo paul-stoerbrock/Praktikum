@@ -25,6 +25,59 @@
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Theorie}\justifying
+\begin{align}
+\intertext{Ein Schwingkreis beschreibt einen Schalkreis bestehend aus einem
+Kondensator und einer Spule. Die Spule besitzt dabei die Induktivität L und der
+Kondensator die Kapazität C. Wird auf diese Schaltung nun eine Spannung $U_0$ 
+gegeben, so oszilliert der Schwingkreis und führt eine ungedämpfte Schwingung aus. 
+Wird nun ein Widerstand in die Schaltung eingebaut, so verliert das System mit der
+Zeit Energie, die in Form von Joulscher Wärme an den Widerstand irreversibel
+übertragen wird. 
+Dadurch führt das System eine gedämpfte Schwingung aus.
+Die zeitliche Veränderung der Stromstärke kann dabei durch folgende Formel
+beschrieben werden\cite{V354}:}
+\symbffrak{I}(t) &= \symbffrak{U}_1e^ {i\tilde{\omega}_1 t}+\symbffrak{U}_2 e^{i \tilde{\omega}_2 t} \text{, wobei}\\
+\tilde{\omega} _{1,2} &= i\frac{R}{2L} \pm \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \label{eq:omega}\\
+\intertext{ist. 
+Aus diesem Zusammenhang ergeben sich drei verschiedene Fälle.
+Der erste Fall beshreibt, dass \cite{V354}
+}
+\frac{1}{LC} & > \frac{R^2}{4L^2} \label{eq:Fall1}
+\intertext{ ist und damit der Wurzelterm von $\tilde{\omega}$ \eqref{eq:omega} komplex wird.
+    Die zugehörige Schwingungsgleichung entspricht damit:
+}
+I(t)=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}
+\intertext{
+ Diese Gleichung beschreibt eine ungedämpfte Schwingung. Die Amlitude $A_0$ läuft dabei
+ exponentiell gegen null.}
+\end{align}
+\justify
+Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als:
+
+\begin{align}
+    T_0 =\frac{2 \pi}{\omega _0}=2 \pi \sqrt{LC} \text{, wobei sich nach einer Zeit $T_{ex}$}\\
+    T_{ex}:= \frac{1}{2 \pi \mu}=\frac{2L}{R} \label{eq:Abkling}
+\end{align}
+\justify
+die Spannungsamplitude um den Faktor $\sfrac{1}{e}$ verringert hat.
+$T_{ex}$ wird daher auch Ablinkdauer genannt.
+\justify
+Der zweite Fall
+\begin{align}
+    \frac{1}{LC} <\frac{R^2}{4L^2} \label{eq:Fall2}
+\end{align}
+stellt den Kriechfall dar. Bei diesem verschwindet der oszillatorische Teil und
+die Wurzel aus Gleichung \eqref{eq:omega} wird positiv.
+Die Funktion geht mit maximal einem Nulldurchgang nicht-oszillatorisch gegen null.
+\justify
+Der dritte Fall stellt einen Spezialfall des zweiten dar.
+Bei diesem ist die Bedingung:
+\begin{align}
+    \frac{1}{LC} = \frac{R^2}{4L^2} \label{eq:Fall3}
+\end{align}
+
+
+
 
 % Aufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -56,6 +109,7 @@
 
 \newpage
 \nocite{V354}
+\nocite{V353}
 \printbibliography
 \end{document}
 
