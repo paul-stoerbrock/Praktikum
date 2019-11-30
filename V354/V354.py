@@ -229,19 +229,19 @@ with open('build/R2.tex', 'w') as RC:
 with open('build/C.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{C*1e09:.2f}') 
-    RC.write('}{\nano\farad}$')
+    RC.write('}{\\nano\\farad}$')
 
 # Tex file of R_ap_lit
 
 with open('build/R_ap_lit.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{(R_ap_lit*1e-03):.2f}') 
+    RC.write(f'{(R_ap_lit.n*1e-03):.2f}\pm{R_ap_lit.s*1e-03:.2f}') 
     RC.write('}{\kilo\ohm}$')
 
 # Tex file of RF_R
 
 with open('build/RF_R.tex', 'w') as RC:
-    RC.write('$\num{')
+    RC.write('$\\num{')
     RC.write(f'{RF_R:.2f}')
     RC.write('}$')
 
@@ -255,7 +255,7 @@ with open('build/nuRech.tex', 'w') as RC:
 # Tex file of RF_nu    
 
 with open('build/RF_nu.tex', 'w') as RC:
-    RC.write('$\num{')
+    RC.write('$\\num{')
     RC.write(f'{RF_nu:.2f}')
     RC.write('}$')
 
@@ -269,7 +269,7 @@ with open('build/nu1_lit.tex', 'w') as RC:
 # Tex file of RF_nu1
 
 with open('build/RF_nu1.tex', 'w') as RC:
-    RC.write('$\num{')
+    RC.write('$\\num{')
     RC.write(f'{RF_nu1:.2f}')
     RC.write('}$')
 
@@ -283,7 +283,7 @@ with open('build/nu2_lit.tex', 'w') as RC:
 # Tex file of RF_nu2
 
 with open('build/RF_nu2.tex', 'w') as RC:
-    RC.write('$\num{')
+    RC.write('$\\num{')
     RC.write(f'{RF_nu2:.2f}')
     RC.write('}$')
 
@@ -297,7 +297,7 @@ with open('build/nu_res_lit.tex', 'w') as RC:
 # Tex file of RF_nu_res
 
 with open('build/RF_nu_res.tex', 'w') as RC:
-    RC.write('$\num{')
+    RC.write('$\\num{')
     RC.write(f'{RF_nu_res:.2f}')
     RC.write('}$')
 
