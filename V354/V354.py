@@ -64,7 +64,7 @@ nuRech= R2/(2*np.pi*L)
 
 RF_nu= (nuGraph-nuRech.n)/nuRech.n
 
-#Berechnung nu 1
+#Berechnung nu 1 starke Dämfung
 
 nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
@@ -72,7 +72,7 @@ nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 RF_nu1= (nu1 - nu1_lit.n)/nu1_lit.n
 
-# Berechnung nu 2
+# Berechnung nu 2 starke Dämfung
 
 nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
@@ -80,11 +80,11 @@ nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 RF_nu2= (nu2 - nu2_lit.n)/nu2_lit.n
 
-# Berechnung nu_res
+# Berechnung nu_resonanz
 
 nu_res_lit= unp.sqrt(1/(L*C))*1/(2*np.pi)
 
-#Berechnung relativer Fehler nu_res
+#Berechnung relativer Fehler nu_resonanz
 
 RF_nu_res= (nu_res-nu_res_lit.n)/nu_res_lit.n
 
@@ -146,7 +146,7 @@ plt.close()
 
 # Erstellung des Plots d) in ln-Darstellung
 
-plt.plot(f*1e-04, phi, 'kx', label="Messdaten")
+plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -161,7 +161,7 @@ plt.close()
 
 #Erstellung des Plots d) in linearer Darstellung
 
-plt.plot(f*1e-04, phi, 'kx', label="Messdaten")
+plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -202,7 +202,7 @@ with open('build/nuGraph.tex', 'w') as RC:
 with open('build/nu1.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu1*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}*1e+03*1e+03$')
+    RC.write('}{\kilo\ohm}$')
 
 # Tex file nu2
 
