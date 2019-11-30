@@ -131,7 +131,7 @@ herleiten.
 \section{Fehlerrechnung}
 
 Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell anfallenden Fehler benötigt:
-    
+\begin{subequations}    
 \begin{align}
     \intertext{Der Mittelwert}
         \overline{x} &= \frac{1}{N}\sum_{i=1}{N} x_i \label{eq:mittelw}
@@ -139,7 +139,13 @@ Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell an
         \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:fmittelw}
     \intertext{Die gaußsche Fehlerfortpflanzung}
         \Delta f &= \sqrt{\sum_{i=1}{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:ffort}
+    \intertext{In der Auswertung selbst wird die Fehlerrechnung mithilfe von Pyhtonbefehlen \cite{uncertainties} durchgeführt.
+    Für die lineare und nichtlineare Ausgleichsrechnung werden folgende Funktionen benötigt:}
+        y &= m \cdot x + b\\
+        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \qquad \qquad
+        b = \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2}
 \end{align}
+\end{subequations}
 
 % Aufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -234,21 +240,45 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
-  \begin{table}[H]
-        \centering
-        \caption{Messdaten von c) und d)}
-        \input{table_c.tex} 
-        \label{tab:data_c}
-  \end{table}
+
 
   Der aus $L$ und $C$ errechnete Widerstand beim Eintritt des aperiodischen Grenzfalls lautet:
   \begin{equation}
-  R_{ap} = \text{\input{Rap.tex}}
+  R_{ap} = \text{\input{Rap.tex}} \label{Rap}
   \end{equation}
-  Aus Literaturwerten $L = \text{\input{L.tex}}$ und $C =\text{\input{C.tex}}$ ergibt sich der Widerstand 
+  Aus den Literaturwerten $L = \text{\input{L.tex}}$ und $C =\text{\input{C.tex}}$ ergibt sich der Widerstand 
   \begin{equation}
-  R_{ap, Lit.} = \text{}
+  R_{ap, Lit.} = \text{\input{R_ap_lit.tex}} \label{RapLit}
   \end{equation}
+  Wird nun der Literaturwert mit dem errechneten Wert verglichen fällt ein relativer Fehler von
+  \begin{equation}
+  \frac{R_{ap} - R_{ap,Lit.}}{R_{ap,Lit.}} = \text{\input{RF_R.tex}} \label{RapAbw}
+  \end{equation}
+  an.
+
+%Auswertung 5c ----------------------------------------------------------------------------------------------------------------------------------------
+
+  \begin{table}[H]
+        \centering
+        \caption{Messdaten von c) und d)}
+        \input{build/table_c.tex} 
+        \label{tab:data_c}
+  \end{table}
+
+  \begin{figure}[H]
+        \centering
+        \caption{ln-Darstellung}
+        \input{build/plota.pdf} 
+        \label{fig:plotcln}
+  \end{figure}  
+%
+%  \begin{figure}[H]
+%        \centering
+%        \caption{Lineare Darstellung}
+%        \input{build/plotclin.pdf} 
+%        \label{tab:plotclin}
+%  \end{figure}  
+%
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}\justifying
