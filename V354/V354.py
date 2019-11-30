@@ -64,7 +64,7 @@ nuRech= R2/(2*np.pi*L)
 
 RF_nu= (nuGraph-nuRech.n)/nuRech.n
 
-#Berechnung nu 1
+#Berechnung nu 1 starke Dämfung
 
 nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
@@ -72,7 +72,7 @@ nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 RF_nu1= (nu1 - nu1_lit.n)/nu1_lit.n
 
-# Berechnung nu 2
+# Berechnung nu 2 starke Dämfung
 
 nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
@@ -80,11 +80,11 @@ nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 RF_nu2= (nu2 - nu2_lit.n)/nu2_lit.n
 
-# Berechnung nu_res
+# Berechnung nu_resonanz
 
 nu_res_lit= unp.sqrt(1/(L*C))*1/(2*np.pi)
 
-#Berechnung relativer Fehler nu_res
+#Berechnung relativer Fehler nu_resonanz
 
 RF_nu_res= (nu_res-nu_res_lit.n)/nu_res_lit.n
 
