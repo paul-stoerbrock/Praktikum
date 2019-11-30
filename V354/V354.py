@@ -15,7 +15,7 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 #Funktionen
 
 def U(f, R, L, C):
- return R/(np.sqrt(R**2 + (-1/(C*2*np.pi*f)+L*2*np.pi*f)**2)*10)
+ return 1/(np.sqrt((1-L*C*4*np.pi**2*f**2)**2+4*np.pi**2*f**2*R**2*C**2))
 
 # Messdaten ##################################################################################
 
@@ -37,9 +37,9 @@ nuGraph = 14.9 *1e03 # nu+ - nu- Breite der Resonanzkurve
 
 nu1 = 3.2 * 1e04
 
-nu2 = 4.43* 1e04
+nu2 = 4.43 * 1e04
 
-nu_res = 3.74*1e04
+nu_res = 3.74 * 1e04
 
 # Literaturwerte ##########################################################################################
 
@@ -93,9 +93,9 @@ RF_nu_res= (nu_res-nu_res_lit.n)/nu_res_lit.n
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(ta, np.log(Aa))
 
-plt.plot(ta*1e+04,np.log(Aa), 'kx', label="Messdaten")
+plt.plot(ta*1e+04,np.log(Aa), 'rx', label="Messdaten")
 x_plot = np.linspace(0, 2e-04, 10)
-plt.plot(x_plot*1e04,intercept+slope*x_plot, 'r-', label="Lineare Regression")
+plt.plot(x_plot*1e04,intercept+slope*x_plot, 'k-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel('t / s')
 plt.ylabel(r'$\log (A) \:/\: $V')
@@ -112,7 +112,7 @@ popU, pcovU = curve_fit(
     A[0:18],
     sigma=None,
     absolute_sigma=True,
-    p0=[300, 1e-03, 1e-09]
+    p0=[300, 3.5*1e-03, 5*1e-09]
     )
 
 # Erstellung des Plots c) in ln-Darstellung
@@ -130,7 +130,7 @@ plt.close()
 
 plt.plot(f*1e-03, A0, 'rx', label="Messdaten")
 x_plot = np.linspace(26*1e03,45*1e03,10000)
-plt.plot(x_plot*1e-03, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot*1e-03, U(x_plot,*popU)/10,linestyle='-',label='Nichtlineare Regression')
 plt.legend(loc="best")
 plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--') 
 plt.axvline(27.8,linestyle='--', label=r'$\nu_r$') # nu-
@@ -146,7 +146,7 @@ plt.close()
 
 # Erstellung des Plots d) in ln-Darstellung
 
-plt.plot(f*1e-04, phi, 'kx', label="Messdaten")
+plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -161,7 +161,7 @@ plt.close()
 
 #Erstellung des Plots d) in linearer Darstellung
 
-plt.plot(f*1e-04, phi, 'kx', label="Messdaten")
+plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -202,7 +202,7 @@ with open('build/nuGraph.tex', 'w') as RC:
 with open('build/nu1.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu1*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}*1e+03*1e+03$')
+    RC.write('}{\kilo\ohm}$')
 
 # Tex file nu2
 
@@ -380,9 +380,12 @@ with open('build/table_c.tex', 'w') as h:
 # Kontrollprints
 print(RF_nu1)
 print(RF_nu2)
+print(nu_res_lit)
 print(RF_nu_res)
 print(RF_R)
 print(RF_nu)
 print(popU)
+print(1/R2.n * np.sqrt(L.n/C)*U0)
+print(nu1)
 
 
