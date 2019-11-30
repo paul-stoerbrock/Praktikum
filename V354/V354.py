@@ -12,6 +12,10 @@ from scipy.stats import sem #standard error of mean = sem(x)
 from scipy.optimize import curve_fit #function curve_fit 
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
+#Funktionen
+
+def U(f, R, L, C):
+ return R/(np.sqrt(R**2 + (-1/(C*2*np.pi*f)+L*2*np.pi*f)**2)*10)
 
 # Messdaten ##################################################################################
 
@@ -102,6 +106,15 @@ plt.close()
 
 #Plot für c) #######################################################################################################
 
+popU, pcovU = curve_fit(
+    U,
+    f[0:18],
+    A[0:18],
+    sigma=None,
+    absolute_sigma=True,
+    p0=[300, 1e-03, 1e-09]
+    )
+
 # Erstellung des Plots c) in ln-Darstellung
 
 plt.plot(f, A0, 'rx', label="Messdaten")
@@ -116,9 +129,11 @@ plt.close()
 # Erstellung des Plots c) in linearer Darstellung
 
 plt.plot(f*1e-03, A0, 'rx', label="Messdaten")
+x_plot = np.linspace(26*1e03,45*1e03,10000)
+plt.plot(x_plot*1e-03, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
 plt.legend(loc="best")
 plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--') 
-plt.axvline(27.8,linestyle='--', label=r'$\nu_r') # nu-
+plt.axvline(27.8,linestyle='--', label=r'$\nu_r$') # nu-
 plt.axvline(42.7,linestyle='--') # nu+
 plt.xlabel(r'$\nu \:/\: $kHz')
 plt.ylabel(r'$U_C/U_0 \:/\: $V')
@@ -368,5 +383,6 @@ print(RF_nu2)
 print(RF_nu_res)
 print(RF_R)
 print(RF_nu)
+print(popU)
 
 

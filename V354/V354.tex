@@ -218,11 +218,31 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 %Auswertung 5a ----------------------------------------------------------------------------------------------------------------------------------------
 
   \begin{figure}[H]
+    \begin{subfigure}{0.495\linewidth}
+     \includegraphics[width=\textwidth]{images/R1.jpg}
+     \centering
+     \caption{Widerstand R1}
+     \label{fig:R1}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+     \includegraphics[width=\textwidth]{images/R2.jpg}
+     \centering
+     \caption{Widerstand R2}
+     \label{fig:R2}
+    \end{subfigure}
+    \caption{Dämpfungsverhalten der Widerstände R1 und R2}
+  \end{figure} 
+
+  \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/5a.jpg}
     \centering
     \caption{Einhüllende der Schwingungskurve}
-    \label{fig:4ajpg}
+    \label{fig:5a}
   \end{figure}
+
+  Die in Abbildung \ref{fig:5a} zu sehende Kurve beschreibt das Dämpfungsverhalten des LRC-Kreises bei einer angelegten Spannung von 
+  10V, einem Widerstand von [...] und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
+  abgelesen und in Tabelle \ref{tab:data_a} mit der zugehörigen Phasenverschiebung zusammengetragen.
 
   \begin{table}[H]
         \centering
@@ -231,18 +251,24 @@ mit dem ersten Eingang des Oszilloskops verbunden.
         \label{tab:data_a}
   \end{table}
 
+  \flushleft{Mithilfe}\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
+  Funktion $e^{+2\pi\mu t}$ des Schwingverhaltens als lineare Regression darstellt.
+
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plota.pdf}
     \centering
     \caption{Lineare Regression der Einhüllenden}
-    \label{fig:4ajpg}
+    \label{fig:5ajpg}
   \end{figure}
+
+  $R_{eff} =$
+
+  $T_{ex} =$
+
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-  Der aus $L$ und $C$ errechnete Widerstand beim Eintritt des aperiodischen Grenzfalls lautet:
+  \flushleft{Der}\justifying aus $L$ und $C$ errechnete Widerstand beim Eintritt des aperiodischen Grenzfalls lautet:
   \begin{equation}
   R_{ap} = \text{\input{Rap.tex}} \label{Rap}
   \end{equation}
@@ -258,6 +284,8 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
 %Auswertung 5c ----------------------------------------------------------------------------------------------------------------------------------------
 
+  
+  
   \begin{table}[H]
         \centering
         \caption{Messdaten von c) und d)}
@@ -265,18 +293,58 @@ mit dem ersten Eingang des Oszilloskops verbunden.
         \label{tab:data_c}
   \end{table}
 
-  \begin{figure}[H]
-    \includegraphics[width=\textwidth]{build/plotclin.pdf}
-    \centering
-    \caption{Lineare Darstellung}
-    \label{fig:4clin}
-  \end{figure}
+  \flushleft{Aus }\justifying den Messwertpaaren $(\nu, U_C)$ der Tabelle \ref{tab:data_c} werden zwei Graphen erstellt. Der erste Graph \ref{fig:4clin} 
+  gibt den linearen Verlauf von Frequenz und Spannung wieder. Außerdem wurde die Breite der Resonanzkurve mit zwei vertikalen
+  Linien eingezeichnet. Bestimmt wurden die Werte für $\nu_+$ und $\nu_-$ durch die Schnittpunkte der Resonanzkurve mit der Geraden
+  $\sfrac{U_{max}}{U_0\cdot\sqrt{2}}$.
 
   \begin{figure}[H]
-    \includegraphics[width=\textwidth]{build/plotcln.pdf}
-    \centering
-    \caption{Logarithmische Darstellung}
-    \label{fig:4cln}
+    \begin{subfigure}{0.495\linewidth}
+     \includegraphics[width=\textwidth]{build/plotclin.pdf}
+     \centering
+     \caption{Lineare Darstellung}
+     \label{fig:4clin}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+     \includegraphics[width=\textwidth]{build/plotcln.pdf}
+     \centering
+     \caption{Logarithmische Darstellung}
+     \label{fig:4cln}
+    \end{subfigure}
+    \caption{Resonanzkurve aus Aufg. 4c)}
+  \end{figure} 
+
+  \flushleft{Werden }\justifying $\nu_+$ und $\nu_-$ nun anhand des Graphen \ref{fig:4clin} bestimmt, ergibt sich:
+  \begin{subequations}
+  \begin{align}
+    &\nu_1 = &\intertext{\input{nu1.tex}}
+    &\nu_2 = &\intertext{\input{nu2.tex}}
+  \end{align}
+  \flushleft{mit }\justifying einem relativen Fehler von:
+  \begin{align}
+    \frac{\nu_1 - \nu_{1,Lit.}}{\nu_{1,Lit.}} &= \text{\input{RF_nu1.tex}}\\
+    \frac{\nu_2 - \nu_{2,Lit.}}{\nu_{2,Lit.}} &= \text{\input{RF_nu2.tex}}
+  \end{align} 
+  \end{subequations}
+
+%Auswertung 5d ----------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+  \begin{figure}[H]
+    \begin{subfigure}{0.495\linewidth}
+     \includegraphics[width=\textwidth]{build/plotdlin.pdf}
+     \centering
+     \caption{Lineare Darstellung}
+     \label{fig:4dlin}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+     \includegraphics[width=\textwidth]{build/plotdln.pdf}
+     \centering
+     \caption{Logarithmische Darstellung}
+     \label{fig:4dln}
+    \end{subfigure}
+    \caption{Resonanzkurve aus Aufg. 4d)}
   \end{figure} 
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
