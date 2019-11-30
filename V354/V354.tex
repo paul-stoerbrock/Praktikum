@@ -126,21 +126,37 @@ zeigt, dass sich dabei der Wert $\sfrac{\pi}{2}$ bei \cite{V354}
 \end{align}
 herleiten.
 
+% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fehlerrechnung}
+
+Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell anfallenden Fehler benötigt:
+    
+\begin{align}
+    \intertext{Der Mittelwert}
+        \overline{x} &= \frac{1}{N}\sum_{i=1}{N} x_i \label{eq:mittelw}
+    \intertext{Der Fehler des Mittelwerts}
+        \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:fmittelw}
+    \intertext{Die gaußsche Fehlerfortpflanzung}
+        \Delta f &= \sqrt{\sum_{i=1}{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:ffort}
+\end{align}
+
 % Aufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Aufgaben}\justifying
 
  \begin{enumerate}
 
-    \item[a)] \justifying Zuerst wird mittels der Tabelle \ref{tab::data_a} eine lineare
+    \item[a)] \justifying Zuerst wird mittels der Tabelle \ref{tab:data_a} eine lineare
                           Ausgleichsrechnung durchgeführt und aus dem Ergebnis der effektive
-                          Dämpfungswiderstand bestimmt
+                          Dämpfungswiderstand bestimmt.
+
     \item[b)] \justifying Anschließend wird über einen variablen Widerstand bestimmt,
                           wo sich der aperiodische Grenzfall befindet. 
   
     \item[c)] \justifying Daraufhin wird die Frequenzabhängigkeit
                           der Kondensatorspanung über einen Plot der Messwertpaare
-                          betrachtet
+                          betrachtet.
   
     \item[d)] \justifying Schließlich wird der Zusammenhang zwischen Phase und Frequenz
                           durch eine Messung an einem Serienresonanzkreis bestimmt.
@@ -150,10 +166,10 @@ herleiten.
 % Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau}\justifying
-Benötigt werden: \textit{Ein Generator mit einem Innenwiderstand von 600 $\Omega$, 
+Benötigt werden: \textit{Ein Generator mit einem Innenwiderstand von 2.5$\Omega$, 
 ein analoges Zweikanal-Oszilloskop, ein LRC-Glied mit drei ohmschen Widerständen 
 ($R_1 < R_2$), wovon einer der Widerstände ($R_3$) variabel sein soll, 
-zwei BNC-Kabel, eine BNC-Steckverbindung und einen Tastkopf}
+zwei BNC-Kabel, eine BNC-Steckverbindung und einen Tastkopf}.\\
 Zuerst wird die BNC-Steckverbindung an dem Generator angebracht. 
 Dann wird die Steckverbindung mit einem der Widerstände des LRC-Glieds und mit dem zweiten 
 Eingang des Oszilloskops verbunden.
@@ -193,14 +209,30 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
 \section{Auswertung}\justifying
 
+%Auswertung 5a ----------------------------------------------------------------------------------------------------------------------------------------
+
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{images/5a.jpg}
+    \centering
+    \caption{Einhüllende der Schwingungskurve}
+    \label{fig:4ajpg}
+  \end{figure}
+
   \begin{table}[H]
         \centering
-        \caption{Messdaten von a)}
+        \caption{Messdaten von Aufg. a)}
         \input{table_a.tex} 
         \label{tab:data_a}
   \end{table}
 
-\section{Auswertung}\justifying
+  \begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/plota.pdf}
+    \centering
+    \caption{Lineare Regression der Einhüllenden}
+    \label{fig:4ajpg}
+  \end{figure}
+
+%Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
   \begin{table}[H]
         \centering
