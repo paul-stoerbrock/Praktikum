@@ -26,35 +26,31 @@
 
 \section{Theorie}\justifying
 \begin{align}
-\intertext{Ein Schwingkreis beschreibt einen Schalkreis bestehend aus einem
-Kondensator und einer Spule. Die Spule besitzt dabei die Induktivität L und der
-Kondensator die Kapazität C. Wird auf diese Schaltung nun eine Spannung $U_0$ 
+\intertext{Ein Schwingkreis beschreibt einen Schaltkreis bestehend aus einem
+Kondensator und einer Spule. Die Spule besitzt dabei die Induktivität $L$ und der
+Kondensator die Kapazität $C$. Wird auf diese Schaltung nun eine Spannung $U_0$ 
 gegeben, so oszilliert der Schwingkreis und führt eine ungedämpfte Schwingung aus. 
 Wird nun ein Widerstand in die Schaltung eingebaut, so verliert das System mit der
 Zeit Energie, die in Form von Joulscher Wärme an den Widerstand irreversibel
-übertragen wird. 
-Dadurch führt das System eine gedämpfte Schwingung aus.
+übertragen wird. Dadurch führt das System eine gedämpfte Schwingung aus.
 Die zeitliche Veränderung der Stromstärke kann dabei durch folgende Formel
-beschrieben werden\cite{V354}:}
+beschrieben werden \cite{V354}:}
 \symbffrak{I}(t) &= \symbffrak{U}_1e^ {i\tilde{\omega}_1 t}+\symbffrak{U}_2 e^{i \tilde{\omega}_2 t} \text{, wobei}\\
 \tilde{\omega} _{1,2} &= i\frac{R}{2L} \pm \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \label{eq:omega}\\
-\intertext{ist. 
-Aus diesem Zusammenhang ergeben sich drei verschiedene Fälle.
-Der erste Fall beshreibt, dass \cite{V354}
-}
+\intertext{Aus diesem Zusammenhang ergeben sich drei verschiedene Fälle.
+Der erste Fall beschreibt, dass \cite{V354}}
 \frac{1}{LC} & > \frac{R^2}{4L^2} \label{eq:Fall1}
-\intertext{ ist und damit der Wurzelterm von $\tilde{\omega}$ \eqref{eq:omega} komplex wird.
-    Die zugehörige Schwingungsgleichung entspricht damit \cite{V354}}
-I(t)=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}
-\intertext{
- Diese Gleichung beschreibt eine ungedämpfte Schwingung. Die Amlitude $A_0$ läuft dabei
- exponentiell gegen null.}
+\intertext{ist und damit der Wurzelterm von $\tilde{\omega}$ \eqref{eq:omega} komplex wird.
+Die zugehörige Schwingungsgleichung entspricht damit \cite{V354}}
+    I(t)&=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}
 \end{align}
-\justify
-Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als\cite{V354}:
+\justifying
+Diese Gleichung beschreibt eine ungedämpfte Schwingung. Die Amlitude $A_0$ läuft dabei
+exponentiell gegen null.
+Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als \cite{V354}:
 \begin{align}
-    T_0 =\frac{2 \pi}{\omega _0}=2 \pi \sqrt{LC} \text{, wobei sich nach einer Zeit $T_{ex}$}\\
-    T_{ex}:= \frac{1}{2 \pi \mu}=\frac{2L}{R} \label{eq:Abkling}
+    T_0 &\phantom{:}=\frac{2 \pi}{\omega _0}=2 \pi \sqrt{LC} \text{, wobei sich nach einer Zeit $T_{ex}$} mit\\
+    T_{ex}&:= \frac{1}{2 \pi \mu}=\frac{2L}{R} \label{eq:Abkling}
 \end{align}
 \justify
 die Spannungsamplitude um den Faktor $\sfrac{1}{e}$ verringert hat.
@@ -120,19 +116,13 @@ Die frenquenzabhängige Phasenverschiebung \cite{V353}
 \begin{align}
     \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu}
 \end{align}
-zeigt, dass sich bei der Wert $\sfrac{\pi}{2}$ bei \cite{V354}
+zeigt, dass sich dabei der Wert $\sfrac{\pi}{2}$ bei \cite{V354}
 \begin{align}
-    \omega _0^2 = \frac{1}{LC} \label{eq:omega0}
-\end{align}
-ergibt.
-Wird $\omega _0 $ um $\pm\sfrac{\pi}{4}$ verschoben, so ergeben sich die Werte \cite{V354}
-\begin{align}
-    \omega_{1,2} = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} + \frac{1}{LC} } \label{eq:om12}
-\end{align}
-für $\omega _1$ und $\omega _2$.
-Daraus lässt sich die Beziehung \cite{V354}
-\begin{align}
-    \omega _1 - \omega _2 = \frac{R}{L} \label{eq:omdiff}
+    \omega _0^2 &= \frac{1}{LC} \label{eq:omega0}
+\intertext{ergibt. Wird $\omega _0 $ um $\pm\sfrac{\pi}{4}$ verschoben, so ergeben sich die Werte \cite{V354}}
+    \omega_{1,2} &= \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} + \frac{1}{LC} } \label{eq:om12}
+\intertext{für $\omega _1$ und $\omega _2$. Daraus lässt sich die Beziehung \cite{V354}}
+    \omega _1 - \omega _2 &= \frac{R}{L} \label{eq:omdiff}
 \end{align}
 herleiten.
 
