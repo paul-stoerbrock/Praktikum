@@ -47,6 +47,7 @@ C= 5.01 *1e-09
 # Berechnung R_ap aus Literaturwerten
 
 R_ap_lit = unp.sqrt(4*L/C)/2*2
+
 # Relativer Fehler R
 
 RF_R = (R-R_ap_lit.n)/R_ap_lit.n # RF= relativer Fehler
