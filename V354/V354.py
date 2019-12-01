@@ -166,6 +166,8 @@ popphi, pcovphi = curve_fit(
 # Erstellung des Plots d) in ln-Darstellung
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
+x_plot = np.linspace(2*1e04,4.5*1e04,10000)
+plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -184,8 +186,8 @@ plt.close()
 #Erstellung des Plots d) in linearer Darstellung
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
-x_plot = np.linspace(3*1e03,4*1e03,10000)
-plt.plot(x_plot*1e-03, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
+x_plot = np.linspace(2*1e04,4.5*1e04,10000)
+plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
@@ -285,7 +287,7 @@ with open('build/RF_R.tex', 'w') as RC:
 
 with open('build/nuRech.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{nuRech.n*1e-03:.2f}\pm{nuRech.s*1e-03}')
+    RC.write(f'{nuRech.n*1e-03:.2f}\pm{nuRech.s*1e-03:.2f}')
     RC.write('}{\kilo\hertz}$')
 
 # Tex file of RF_nu    
@@ -299,7 +301,7 @@ with open('build/RF_nu.tex', 'w') as RC:
 
 with open('build/nu1_lit.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{nu1_lit.n*1e-03:.2f}\pm{nu1_lit.s*1e-03}')
+    RC.write(f'{nu1_lit.n*1e-03:.2f}\pm{nu1_lit.s*1e-03:.2f}')
     RC.write('}{\kilo\hertz}$')
 
 # Tex file of RF_nu1
@@ -313,7 +315,7 @@ with open('build/RF_nu1.tex', 'w') as RC:
 
 with open('build/nu2_lit.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{nu2_lit.n*1e-03:.2f}\pm{nu2_lit.s*1e-03}')
+    RC.write(f'{nu2_lit.n*1e-03:.2f}\pm{nu2_lit.s*1e-03:.2f}')
     RC.write('}{\kilo\hertz}$')
 
 # Tex file of RF_nu2
