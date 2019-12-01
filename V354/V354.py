@@ -67,7 +67,7 @@ RF_R = (R-R_ap_lit.n)/R_ap_lit.n # RF= relativer Fehler
 
 # Berechnung von nu+ - nu-
 
-nuRech= R2/(2*np.pi*L)
+nuRech= (R2+2.5)/(2*np.pi*L)
 
 # Relativer Fehler nu+ - nu-
 
@@ -95,7 +95,7 @@ RF_q = (q-q_lit.n)/q_lit.n
 
 # Berechnung nu 1 starke Dämfung
 
-nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
+nu1_lit= (-(R2+2.5)/(2*L)+unp.sqrt((R2+2.5)**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 # Berechnung relativer Fehler nu 1
 
@@ -103,7 +103,7 @@ RF_nu1= (nu1 - nu1_lit.n)/nu1_lit.n
 
 # Berechnung nu 2 starke Dämfung
 
-nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
+nu2_lit= ((R2+2.5)/(2*L)+unp.sqrt((R2+2.5)**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 # Berechnung relativer Fehler nu 2
 
@@ -126,6 +126,14 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(ta, np.log(Aa))
 slopefehl=ufloat(slope, std_err)
 
 T_ex= -1/slopefehl
+
+#Berechnung T_ex_lit
+
+T_ex_lit= 2 * L/(R1+2.5)
+
+#Berechnung Relativer Fehler T_ex
+
+RF_T_ex=(T_ex-T_ex_lit.n)/T_ex_lit.n
 
 # Erstellung Plot a)
 
@@ -403,6 +411,15 @@ with open('build/b.tex', 'w') as RC:
     RC.write(f'{intercept:.2f}')
     RC.write('}$')
 
+with open('build/T_ex_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{T_ex_lit.n*1e06:.2f}\pm{T_ex_lit.s*1e06:.2f}')
+    RC.write('}{\micro\second}$')
+
+with open('build/RF_T_ex.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{RF_T_ex.n:.2f}')
+    RC.write('}$')
 
 # Erstellung Tabelle a) ###################################################################################
 
@@ -465,7 +482,6 @@ with open('build/table_c.tex', 'w') as h:
 
 
 # Kontrollprints
-print(q)
-print(q_lit)
-
+print(T_ex_lit)
+print(1/slope)
 
