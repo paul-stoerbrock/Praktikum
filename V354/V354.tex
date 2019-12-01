@@ -190,7 +190,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
  \begin{enumerate}
 
     \item[a)] \justifying Zu Beginn wird am Generator eine Frequenz von 100Hz 
-    eingestellt und eine Erregerspannung von 10V eingestellt.Danach wird der 
+    eingestellt und eine Erregerspannung von 10V eingestellt. Danach wird der 
     Generator mit dem kleineren der festen Widerstände verbunden.
     Um die lineare Ausgleichsrechnung der Einhüllenden zu bestimmen, wird
     ein Bild vom Oszilloskop angefertigt aus dem dann Messwerte entnommen werden
@@ -203,8 +203,8 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     und der bestimmte Widerstand notiert.
   
     \item[c/d)] \justifying Dann wird für die Messung der Frequenzabhängigkeit
-                          der gößere Widerstand angeschlossen.
-                          Daraufhin werden Werte für Phase und Frequenz um die 
+                          der größere Widerstand von 271.6$\pm0.2\Omega$ angeschlossen.
+                          Daraufhin werden die Werte für Phase und Frequenz um die 
                           Resonanzfrequenz gemessen und datiert.
   
     
@@ -233,6 +233,10 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Dämpfungsverhalten der Widerstände R1 und R2}
   \end{figure} 
 
+  Die Kurven in den Bildern \ref{fig:R1} und \ref{fig:R2} spiegeln das Dämpfungsverhalten der einzelnen Widerstände wieder. 
+  Es ist erkennbar, dass die Schingung in Bild \ref{fig:R2} stärker gedämpft wird, was darauf schließen lässt, dass R2 der 
+  größere der beiden Widerständen ist. 
+
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/5a.jpg}
     \centering
@@ -240,8 +244,9 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \label{fig:5a}
   \end{figure}
 
+  \flushleft{Die }\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
   Die in Abbildung \ref{fig:5a} zu sehende Kurve beschreibt das Dämpfungsverhalten des LRC-Kreises bei einer angelegten Spannung von 
-  10V, einem Widerstand von [...] und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
+  10V, einem Widerstand von 271.6$\pm0.2\Omega$ und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
   abgelesen und in Tabelle \ref{tab:data_a} mit der zugehörigen Phasenverschiebung zusammengetragen.
 
   \begin{table}[H]
@@ -320,24 +325,25 @@ Der Wert für die Abklingdauer nach Formel \eqref{eq:T_ex} ergibt dabei:
   \end{figure} 
 
   \flushleft{Bestimmt }\justifying wurde die Breite der Resonanzkurve $\omega_+ - \omega_-$ mit $\omega = 2\cdot\pi\cdot\nu$ 
-  und der Formel \eqref{eq:om+-}. Der errechnete Wert für $\omega_+ - \omega_-$ sieht aus wie folgt:
+  und der Formel \eqref{eq:om+-}. Der errechneten Werte für $\omega_+ - \omega_-$ und $\omega_{+-,Lit.}$ sehen aus wie folgt:
    
-  \begin{equation}
-  \omega_+ - \omega_- = \text{\input{nuGraph.tex}}
-  \end{equation}
+  \begin{align}
+  \omega_+ - \omega_- &= \text{\input{nuGraph.tex}}\\
+  \omega_{+-,Lit.} &= \text{\input{nuRech.tex}}
+  \end{align}
   \flushleft{Wird }\justifying $\omega_+ - \omega_-$ mit dem Literaturwert verglichen, folgt ein relativer Fehler von:
   \begin{equation}
   \frac{\omega_{+-} - \omega_{+-,Lit.}}{\omega_{+-,Lit.}} = \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
   \end{equation}
 
   \flushleft{Aus }\justifying dem Graphen \ref{fig:4clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
-  \begin{equation}
-  q = \text{\input{q.tex}}
-  \end{equation}
-  Der relative Fehler der Güte des Schwingkreises ergibt:
-  \begin{equation}
-  \frac{q - q_{Lit.}}{q_{Lit.}} = \text{\input{RF_q.tex}}
-  \end{equation}
+  \begin{align}
+  q &= \text{\input{q.tex}}
+  \intertext{mit dem Literaturwert}
+  q_{Lit.} &= \text{\input{q_lit.tex}}.
+  \intertext{Der relative Fehler der Güte des Schwingkreises ergibt:}
+  \frac{q - q_{Lit.}}{q_{Lit.}} &= \text{\input{RF_q.tex}}
+  \end{align}
 
 %Auswertung 5d ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -361,12 +367,13 @@ Der Wert für die Abklingdauer nach Formel \eqref{eq:T_ex} ergibt dabei:
 
   \flushleft{Mithilfe }\justifying der Formel \eqref{eq:omegares} wird der Wert für $\nu_{res.}$ berechnet. Anhand $\nu_{res.}$
   können die Werte für $\nu_{1,2}$ bestimmt werden, indem $\nu_{res.}$ um $\sfrac{\pi}{4}$ nach oben, beziehungsweise nach unten 
-  verschoben wird. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$:
+  verschoben wird. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$ und die
+  zugehörigen Literaturwerte:
   \begin{subequations}
   \begin{align}
-    &\nu_1 = \text{\input{nu1.tex}}\\
-    &\nu_2 = \text{\input{nu2.tex}}\\
-    &\nu_{res.} = \text{\input{nu_res.tex}}
+    &\nu_1 = \text{\input{nu1.tex}} \qquad &\nu_{1,Lit.} &= \text{\input{nu1_lit.tex}}\\
+    &\nu_2 = \text{\input{nu2.tex}} \qquad &\nu_{2,Lit.} &= \text{\input{nu2_lit.tex}}\\
+    &\nu_{res.} = \text{\input{nu_res.tex}} &\qquad \nu_{res.,Lit.} &= \text{\input{nu_res_lit.tex}}
   \end{align}
   \end{subequations}
   \flushleft{Der }\justifying relative Fehler von $\nu_{1,2,res.}$ sieht folgendermaßen aus:
