@@ -265,7 +265,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
       &b=\text{\input{b.tex}}
   \end{align}
 
-  Dabei ist $m=-2\pi \mu$.
+  \flushleft{Dabei }\justifying ist $m=-2\pi \mu$.
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plota.pdf}
     \centering
@@ -280,40 +280,31 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
  \begin{align}
     T_{\text{ex}} =\text{\input{T_ex.tex}}
+    \intertext{Die aus den Theoriewerten erechnete Abklingdauer lautet:}
+    T_{\text{ex,Lit.}}&=\text{\input{T_ex_lit.tex}}
+    \intertext{Daraus folgt dann ein relativer Fehler von}
+    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}}
  \end{align}
-
- Die aus den Theoriewerten erechnete Abklingdauer lautet:
- \begin{align}
-    T_{\text{ex,Lit.}}=\text{\input{T_ex_lit.tex}}
- \end{align}
-
- Daraus folgt dann ein relativer Fehler von
- \begin{align}
-    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}=\text{\input{RF_T_ex.tex}}
- \end{align}
-
 
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
   \flushleft{Der }\justifying aus dem Experiment bestimmte Widerstand beim aperiodischen Grenzfalls lautet:
   \begin{equation}
-  R_{\text{ap}} = \text{\input{Rap.tex}} \label{Rap}
+  R_{\text{ap}} = \text{\input{Rap.tex}} \label{eq:Rap}
   \end{equation}
   Aus den Literaturwerten $L = \text{\input{L.tex}}$ und $C =\text{\input{C.tex}}$ ergibt sich der Widerstand 
   \begin{equation}
-  R_{\text{ap, Lit.}} = \text{\input{R_ap_lit.tex}} \label{RapLit}
+  R_{\text{ap, Lit.}} = \text{\input{R_ap_lit.tex}} \label{eq:RapLit}
   \end{equation}
   Wird nun der Literaturwert mit dem errechneten Wert verglichen fällt ein relativer Fehler von
   \begin{equation}
-  \frac{R_{\text{ap}} - R_{\text{ap,Lit.}}}{R_{\text{ap,Lit.}}} = \text{\input{RF_R.tex}} \label{RapAbw}
+  \frac{R_{\text{ap}} - R_{\text{ap,Lit.}}}{R_{\text{ap,Lit.}}} = \text{\input{RF_R.tex}} \label{eq:RapAbw}
   \end{equation}
   an.
 
 %Auswertung 5c ----------------------------------------------------------------------------------------------------------------------------------------
 
-  
-  
   \begin{table}[H]
         \centering
         \caption{Messdaten von c) und d)}
@@ -321,8 +312,10 @@ mit dem ersten Eingang des Oszilloskops verbunden.
         \label{tab:data_c}
   \end{table}
 
-  \flushleft{Aus }\justifying den Messwertpaaren $(U_C, \nu)$ der Tabelle \ref{tab:data_c} werden zwei Graphen erstellt. Der erste Graph \ref{fig:4clin} 
-  gibt den linearen Verlauf von Frequenz und Spannung wieder. Außerdem wurde die Breite der Resonanzkurve mit zwei vertikalen Linien eingezeichnet. 
+  \flushleft{Aus }\justifying den Messwertpaaren $(U_C, \nu)$ der Tabelle \ref{tab:data_c} werden zwei Graphen erstellt. Der erste Graph \ref{fig:5clin} 
+  gibt den linearen Verlauf von Frequenz und Spannung wieder. Die waagerechte Gerade stellt $\sfrac{U_{C,\text{max}}}{\sqrt{2}}$ graphisch dar und diktiert
+  die Breite der Resonanzkurve anhand der Schnittpunkte mit den Messwerten. Um dies zu verdeutlichen wurde die Breite der Resonanzkurve mit zwei vertikalen 
+  Linien eingezeichnet. 
 
 
   \begin{figure}[H]
@@ -330,15 +323,15 @@ mit dem ersten Eingang des Oszilloskops verbunden.
      \includegraphics[width=\textwidth]{build/plotclin.pdf}
      \centering
      \caption{Lineare Darstellung}
-     \label{fig:4clin}
+     \label{fig:5clin}
     \end{subfigure}
     \begin{subfigure}{0.495\linewidth}
      \includegraphics[width=\textwidth]{build/plotcln.pdf}
      \centering
      \caption{Logarithmische Darstellung}
-     \label{fig:4cln}
+     \label{fig:5cln}
     \end{subfigure}
-    \caption{Resonanzkurve aus Aufg. 4c)}
+    \caption{Resonanzkurve aus Aufg. c)}
   \end{figure} 
 
   \flushleft{Bestimmt }\justifying wurde die Breite der Resonanzkurve $\omega_+ - \omega_-$ mit $\omega = 2\cdot\pi\cdot\nu$ 
@@ -353,7 +346,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \frac{\omega_{+-} - \omega_{+-,\text{Lit.}}}{\omega_{+-,\text{Lit.}}} = \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
   \end{equation}
 
-  \flushleft{Aus }\justifying dem Graphen \ref{fig:4clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
+  \flushleft{Aus }\justifying dem Graphen \ref{fig:5clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
   \begin{align}
   q &= \text{\input{q.tex}}
   \intertext{mit dem Literaturwert}
@@ -406,6 +399,27 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
 \section{Diskussion}\justifying
 
+\flushleft{Der }\justifying Kurve der gemessen Werte für a) liegt nahe der erwarteten Kurve aus der Theorie. Bei einer angelegten 
+Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = 2.3V$ erwartet. Die Maximalamplitude aus \ref{tab:5a}, 
+welche kleiner als 2.3V ist, ließe sich durch einen weiteren Peak mit einer negativen Amplitude erklären, der nicht auf dem Bild 
+\ref{fig:5a} aufgeführt ist. 
+
+\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler \eqref{eq:Raplit}. 
+Dieser könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
+des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $5k\Omega$ lag. Dieser Umstand wirft die 
+Vermutung auf, dass die Skalierung $0.5k\Omega$ pro Einheit betrug, anstelle der hier verwendeten $1k\Omega$ pro Einheit. Demnach 
+würde der Widerstand $R_{ap} = 1.45k\Omega$ entsprechen, was deutlich näher am Theoriewert läge.
+
+\flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder. 
+Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Beim Vergleich der 
+Resonanzüberhöhung mit dessen Literaturwert wurde eine
+
+\flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,res.}$ und deren relativen Fehlern lässt sich entnehmen,
+dass die errechneten Werte jeweils sehr nahe an den Literaturwerten liegen. Demnach folgt aus den geringen Abweichungen, in 
+Verbindung mit den Formeln \eqref{eq:omega0} und \eqref{eq:om12}, dass es sich hier um eine starke Dämpfung handelt.
+
+\flushleft{Mit }\justifying den Erkenntnissen aus Aufgaben c) und d) lässt sich folgern, dass das vorliegende System nach Formel 
+\eqref{eq:Fall2b} der starken Dämpfung sehr nahe könnte.  
 
 \newpage
 
