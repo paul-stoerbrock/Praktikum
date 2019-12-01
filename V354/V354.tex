@@ -265,31 +265,25 @@ mit dem ersten Eingang des Oszilloskops verbunden.
       &b=\text{\input{b.tex}}
   \end{align}
 
-  Dabei ist $m=-2\pi \mu$.
+  \flushleft{Dabei }\justifying ist $m=-2\pi \mu$.
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plota.pdf}
     \centering
     \caption{Lineare Regression der Einhüllenden}
     \label{fig:5ajpg}
   \end{figure}
- \begin{align}
+  \begin{align}
     R_{eff} =
- \end{align}
+  \end{align}
 
  \flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:
 
  \begin{align}
-    T_{ex} =\text{\input{T_ex.tex}}
- \end{align}
-
- Die aus den Theoriewerten erechnete Abklingdauer lautet:
- \begin{align}
-    T_{\text{ex,Lit.}}=\text{\input{T_ex_lit.tex}}
- \end{align}
-
- Daraus folgt dann ein relativer Fehler von
- \begin{align}
-    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}=\text{\input{RF_T_ex.tex}}
+    T_{ex} &=\text{\input{T_ex.tex}}
+    \intertext{Die aus den Theoriewerten erechnete Abklingdauer lautet:}
+    T_{\text{ex,Lit.}}&=\text{\input{T_ex_lit.tex}}
+    \intertext{Daraus folgt dann ein relativer Fehler von}
+    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}}
  \end{align}
 
 
@@ -352,7 +346,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \frac{\omega_{+-} - \omega_{+-,Lit.}}{\omega_{+-,Lit.}} = \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
   \end{equation}
 
-  \flushleft{Aus }\justifying dem Graphen \ref{fig:4clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
+  \flushleft{Aus }\justifying dem Graphen \ref{fig:5clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
   \begin{align}
   q &= \text{\input{q.tex}}
   \intertext{mit dem Literaturwert}
@@ -417,7 +411,15 @@ Vermutung auf, dass die Skalierung $0.5k\Omega$ pro Einheit betrug, anstelle der
 würde der Widerstand $R_{ap} = 1.45k\Omega$ entsprechen, was deutlich näher am Theoriewert läge.
 
 \flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder. 
-Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. 
+Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Beim Vergleich der 
+Resonanzüberhöhung mit dessen Literaturwert wurde eine
+
+\flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,res.}$ und deren relativen Fehlern lässt sich entnehmen,
+dass die errechneten Werte jeweils sehr nahe an den Literaturwerten liegen. Demnach folgt aus den geringen Abweichungen, in 
+Verbindung mit den Formeln \eqref{eq:omega0} und \eqref{eq:om12}, dass es sich hier um eine starke Dämpfung handelt.
+
+\flushleft{Mit }\justifying den Erkenntnissen aus Aufgaben c) und d) lässt sich folgern, dass das vorliegende System nach Formel 
+\eqref{eq:Fall2b} der starken Dämpfung sehr nahe könnte.  
 
 \newpage
 
