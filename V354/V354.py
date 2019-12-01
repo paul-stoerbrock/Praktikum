@@ -236,28 +236,28 @@ with open('build/Rap.tex', 'w') as RC:
 with open('build/nuGraph.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nuGraph*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file of nu1
 
 with open('build/nu1.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu1*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file nu2
 
 with open('build/nu2.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu2*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file of nu_res
 
 with open('build/nu_res.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu_res*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file of L Literaturwert
 
