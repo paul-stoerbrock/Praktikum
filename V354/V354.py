@@ -17,6 +17,9 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 def U(f, R, L, C):
  return 1/(np.sqrt((1-L*C*4*np.pi**2*f**2)**2+4*np.pi**2*f**2*R**2*C**2))
 
+def phi1(f, R, L, C):
+    return np.arctan((-2*np.pi*f*R*C)/(1-L*C*4 *np.pi**2*f**2))
+
 # Messdaten ##################################################################################
 
 Aa, ta = np.genfromtxt('4a.txt', unpack=True) # Aa=Amplitudenspannung für 4a), ta=Zeitdifferenz der Nulldurchgänge für 4a)
@@ -82,7 +85,7 @@ RF_nu2= (nu2 - nu2_lit.n)/nu2_lit.n
 
 # Berechnung nu_resonanz
 
-nu_res_lit= unp.sqrt(1/(L*C))*1/(2*np.pi)
+nu_res_lit= (unp.sqrt(1/(L*C)))/(2*np.pi)
 
 #Berechnung relativer Fehler nu_resonanz
 
@@ -92,6 +95,13 @@ RF_nu_res= (nu_res-nu_res_lit.n)/nu_res_lit.n
 #Plot für a) #################################################################################
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(ta, np.log(Aa))
+
+#Berechnung T_ex
+slopefehl=ufloat(slope, std_err)
+
+T_ex= -1/slopefehl
+
+# Erstellung Plot a)
 
 plt.plot(ta*1e+04,np.log(Aa), 'rx', label="Messdaten")
 x_plot = np.linspace(0, 2e-04, 10)
@@ -130,7 +140,7 @@ plt.close()
 
 plt.plot(f*1e-03, A0, 'rx', label="Messdaten")
 x_plot = np.linspace(26*1e03,45*1e03,10000)
-plt.plot(x_plot*1e-03, U(x_plot,*popU)/10,linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot*1e-03, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
 plt.legend(loc="best")
 plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--') 
 plt.axvline(27.8,linestyle='--', label=r'$\nu_r$') # nu-
@@ -144,6 +154,15 @@ plt.close()
 
 # Plot für d) ###########################################################################################
 
+popphi, pcovphi = curve_fit(
+    phi1,
+    f[0:18],
+    phi[0:18],
+    sigma=None,
+    absolute_sigma=True,
+    p0=[300, 3.5*1e-03, 5*1e-09]
+    )
+
 # Erstellung des Plots d) in ln-Darstellung
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
@@ -151,6 +170,9 @@ plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
+plt.xticks( [3 ,4 ],
+            [3,4]
+)
 plt.legend(loc="best")
 plt.xlabel(r'$\nu \:/\: 10^4$Hz')
 plt.ylabel(r'$\phi \:/\: $rad')
@@ -162,13 +184,12 @@ plt.close()
 #Erstellung des Plots d) in linearer Darstellung
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
-plt.xscale('log')
+x_plot = np.linspace(3*1e03,4*1e03,10000)
+plt.plot(x_plot*1e-03, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
-plt.xticks( [3 ,4 ],
-            [3,4]
-)
+
 plt.legend(loc="best")
 plt.xlabel(r'$\nu \:/\: 10^4$ Hz')
 plt.ylabel(r'$\phi \:/\: $rad')
@@ -316,6 +337,13 @@ with open('build/RF_nu_res.tex', 'w') as RC:
     RC.write(f'{RF_nu_res:.2f}')
     RC.write('}$')
 
+# Tex file of T_ex
+
+with open('build/T_ex.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{T_ex.n*1e06:.2f}\pm{T_ex.s*1e06:.2f}')
+    RC.write('}{\micro\second}$')
+
 
 # Erstellung Tabelle a) ###################################################################################
 
@@ -378,14 +406,11 @@ with open('build/table_c.tex', 'w') as h:
 
 
 # Kontrollprints
-print(RF_nu1)
-print(RF_nu2)
-print(nu_res_lit)
-print(RF_nu_res)
-print(RF_R)
 print(RF_nu)
-print(popU)
+print(nuRech)
+print(popphi)
 print(1/R2.n * np.sqrt(L.n/C)*U0)
-print(nu1)
+print(nu1_lit)
+print(nu2_lit)
 
 
