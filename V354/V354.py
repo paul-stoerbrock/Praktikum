@@ -69,7 +69,7 @@ RF_nu= (nuGraph-nuRech.n)/nuRech.n
 
 # Berechnung Omega_0
 
-w0 = 35.3*1e+03
+w0 = 35.3*1e+03*2*np.pi
 
 # Berechnung von w0_Lit.
 
@@ -85,7 +85,7 @@ q_lit = w0_lit/nuRech
 
 # Berechnung des relativen Fehlers von q
 
-RF_q = (q-q_lit)/q_lit
+RF_q = (q-q_lit.n)/q_lit.n
 
 # Berechnung nu 1 starke Dämfung
 
@@ -160,7 +160,7 @@ plt.close()
 
 plt.plot(f*1e-03, A0, 'rx', label="Messdaten")
 x_plot = np.linspace(26*1e03,45*1e03,10000)
-plt.plot(x_plot*1e-03, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
+#plt.plot(x_plot*1e-03, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
 plt.legend(loc="best")
 plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--') 
 plt.axvline(27.8,linestyle='--', label=r'$\nu_r$') # nu-
@@ -187,7 +187,7 @@ popphi, pcovphi = curve_fit(
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 x_plot = np.linspace(2*1e04,4.5*1e04,10000)
-plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
+#plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -207,7 +207,7 @@ plt.close()
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 x_plot = np.linspace(2*1e04,4.5*1e04,10000)
-plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
+#plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
@@ -238,28 +238,28 @@ with open('build/Rap.tex', 'w') as RC:
 with open('build/nuGraph.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nuGraph*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file of nu1
 
 with open('build/nu1.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu1*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file nu2
 
 with open('build/nu2.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu2*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file of nu_res
 
 with open('build/nu_res.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{(nu_res*1e-03):.2f}') 
-    RC.write('}{\kilo\ohm}$')
+    RC.write('}{\kilo\hertz}$')
 
 # Tex file of L Literaturwert
 
@@ -327,9 +327,9 @@ with open('build/q_lit.tex', 'w') as RC:
 # Tex file of RF_q
 
 with open('build/RF_q.tex', 'w') as RC:
-    RC.write('$\SI{')
-    RC.write(f'{RF_q.n:.2f}')
-    RC.write('}{\hertz}$')
+    RC.write('$\\num{')
+    RC.write(f'{RF_q:.2f}')
+    RC.write('}$')
 
 # Tex file of RF_nu    
 
@@ -449,11 +449,7 @@ with open('build/table_c.tex', 'w') as h:
 
 
 # Kontrollprints
-print(RF_nu)
-print(nuRech)
-print(popphi)
-print(1/R2.n * np.sqrt(L.n/C)*U0)
-print(nu1_lit)
-print(nu2_lit)
+print(q)
+print(q_lit)
 
 
