@@ -14,6 +14,12 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 #Funktionen
 
+def SI(W ,F ,NW ,NF ):
+    return ' '
+
+
+#Auswertungsfunktionen
+
 def U(f, R, L, C):
  return 1/(np.sqrt((1-L*C*4*np.pi**2*f**2)**2+4*np.pi**2*f**2*R**2*C**2))
 
@@ -61,7 +67,7 @@ RF_R = (R-R_ap_lit.n)/R_ap_lit.n # RF= relativer Fehler
 
 # Berechnung von nu+ - nu-
 
-nuRech= R2/(2*np.pi*L)
+nuRech= (R2+2.5)/(2*np.pi*L)
 
 # Relativer Fehler nu+ - nu-
 
@@ -89,7 +95,7 @@ RF_q = (q-q_lit.n)/q_lit.n
 
 # Berechnung nu 1 starke Dämfung
 
-nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
+nu1_lit= (-(R2+2.5)/(2*L)+unp.sqrt((R2+2.5)**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 # Berechnung relativer Fehler nu 1
 
@@ -97,7 +103,7 @@ RF_nu1= (nu1 - nu1_lit.n)/nu1_lit.n
 
 # Berechnung nu 2 starke Dämfung
 
-nu2_lit= (R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
+nu2_lit= ((R2+2.5)/(2*L)+unp.sqrt((R2+2.5)**2/(4*L**2)+1/(L*C)))/(2*np.pi)
 
 # Berechnung relativer Fehler nu 2
 
@@ -120,6 +126,14 @@ slope, intercept, r_value, p_value, std_err = stats.linregress(ta, np.log(Aa))
 slopefehl=ufloat(slope, std_err)
 
 T_ex= -1/slopefehl
+
+#Berechnung T_ex_lit
+
+T_ex_lit= 2 * L/(R1+2.5)
+
+#Berechnung Relativer Fehler T_ex
+
+RF_T_ex=(T_ex-T_ex_lit.n)/T_ex_lit.n
 
 # Erstellung Plot a)
 
@@ -313,16 +327,16 @@ with open('build/nuRech.tex', 'w') as RC:
 # Tex file of q
 
 with open('build/q.tex', 'w') as RC:
-    RC.write('$\SI{')
+    RC.write('$\\num{')
     RC.write(f'{q:.2f}')
-    RC.write('}{\hertz}$')
+    RC.write('}$')
 
 # Tex file of q_lit
 
 with open('build/q_lit.tex', 'w') as RC:
-    RC.write('$\SI{')
-    RC.write(f'{q_lit.n:.2f}\pm{q_lit.s:.2f}')
-    RC.write('}{\hertz}$')
+   RC.write('$\\num{')
+   RC.write(f'{q_lit.n:.2f}\pm{q_lit.s:.2f}')
+   RC.write('}$')
 
 # Tex file of RF_q
 
@@ -387,6 +401,25 @@ with open('build/T_ex.tex', 'w') as RC:
     RC.write(f'{T_ex.n*1e06:.2f}\pm{T_ex.s*1e06:.2f}')
     RC.write('}{\micro\second}$')
 
+with open('build/m.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{slope:.2f}\pm{std_err:.2f}')
+    RC.write('}$')
+
+with open('build/b.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{intercept:.2f}')
+    RC.write('}$')
+
+with open('build/T_ex_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{T_ex_lit.n*1e06:.2f}\pm{T_ex_lit.s*1e06:.2f}')
+    RC.write('}{\micro\second}$')
+
+with open('build/RF_T_ex.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{RF_T_ex.n:.2f}')
+    RC.write('}$')
 
 # Erstellung Tabelle a) ###################################################################################
 
@@ -449,7 +482,6 @@ with open('build/table_c.tex', 'w') as h:
 
 
 # Kontrollprints
-print(q)
-print(q_lit)
-
+print(T_ex_lit)
+print(1/slope)
 

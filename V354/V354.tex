@@ -49,7 +49,7 @@ Diese Gleichung beschreibt eine ungedämpfte Schwingung. Die Amlitude $A_0$ läu
 exponentiell gegen null.
 Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als \cite{V354}:
 \begin{align}
-    T_0 &\phantom{:}=\frac{2 \pi}{\omega _0}=2 \pi \sqrt{LC} \text{, wobei sich nach einer Zeit $T_{ex}$} mit\\
+    T_0 &\phantom{:}=\frac{2 \pi}{\omega _0}=2 \pi \sqrt{LC} \text{, wobei sich nach einer Zeit $T_{ex}$ mit}\\
     T_{ex}&:= \frac{1}{2 \pi \mu}=\frac{2L}{R} \label{eq:Abkling}
 \end{align}
 \justify
@@ -142,7 +142,7 @@ Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell an
     \intertext{In der Auswertung selbst wird die Fehlerrechnung mithilfe von Pyhtonbefehlen \cite{uncertainties} durchgeführt.
     Für die lineare und nichtlineare Ausgleichsrechnung werden folgende Funktionen benötigt:}
         y &= m \cdot x + b\\
-        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \qquad \qquad
+        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2}  \qquad \qquad
         b = \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2}
 \end{align}
 \end{subequations}
@@ -257,22 +257,45 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \end{table}
 
   \flushleft{Mithilfe }\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
-  Funktion $e^{+2\pi\mu t}$ des Schwingverhaltens als lineare Regression darstellt.
+  Funktion $e^{-2\pi\mu t}$ des Schwingverhaltens als lineare Regression darstellt.\\
+  Die Formel ergibt sich dabei aus Formel \eqref{eq:I}.\\
+  Die ausgerechnten Werte bei der Ausgleichsrechnung sehen dabei folgendermaßen aus:
+  \begin{align}
+      &m=\text{\input{m.tex}}
+      &b=\text{\input{b.tex}}
+  \end{align}
 
+  Dabei ist $m=-2\pi \mu$.
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plota.pdf}
     \centering
     \caption{Lineare Regression der Einhüllenden}
     \label{fig:5ajpg}
   \end{figure}
+ \begin{align}
+    R_{eff} =
+ \end{align}
 
-  $R_{eff} =$
+ \flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:
 
-  $T_{ex} =\text{\input{T_ex.tex}}$
+ \begin{align}
+    T_{ex} =\text{\input{T_ex.tex}}
+ \end{align}
+
+ Die aus den Theoriewerten erechnete Abklingdauer lautet:
+ \begin{align}
+    T_{\text{ex,Lit.}}=\text{\input{T_ex_lit.tex}}
+ \end{align}
+
+ Daraus folgt dann ein relativer Fehler von
+ \begin{align}
+    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}=\text{\input{RF_T_ex.tex}}
+ \end{align}
+
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
-  \flushleft{Der }\justifying aus $L$ und $C$ errechnete Widerstand beim Eintritt des aperiodischen Grenzfalls lautet:
+  \flushleft{Der }\justifying aus dem Experiment bestimmte Widerstand beim aperiodischen Grenzfalls lautet:
   \begin{equation}
   R_{ap} = \text{\input{Rap.tex}} \label{eq:Rap}
   \end{equation}
@@ -359,8 +382,8 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \end{figure} 
 
   \flushleft{Mithilfe }\justifying der Formel \eqref{eq:omegares} wird der Wert für $\nu_{res.}$ berechnet. Anhand $\nu_{res.}$
-  können die Werte für $\nu_{1,2}$ bestimmt werden, indem $\nu_{res.}$ um $\sfrac{\pi}{4}$ nach oben, beziehungsweise nach unten 
-  verschoben wird. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$ und die
+  können die Werte für $\nu_{1,2}$ bestimmt werden, indem die Funktionswerte bei $\sfrac{\pi}{2}$ und 
+  $\sfrac{3 \\pi}{2}$ betrachtet werden. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$ und die
   zugehörigen Literaturwerte:
   \begin{subequations}
   \begin{align}
@@ -397,8 +420,7 @@ würde der Widerstand $R_{ap} = 1.45k\Omega$ entsprechen, was deutlich näher am
 Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. 
 
 \newpage
-\nocite{V354}
-\nocite{V353}
+
 \printbibliography
 \end{document}
 
