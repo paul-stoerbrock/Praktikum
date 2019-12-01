@@ -264,6 +264,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
       &m=\text{\input{m.tex}}
       &b=\text{\input{b.tex}}
   \end{align}
+
   Dabei ist $m=-2\pi \mu$.
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/plota.pdf}
@@ -271,10 +272,26 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Lineare Regression der Einhüllenden}
     \label{fig:5ajpg}
   \end{figure}
+ \begin{align}
+    R_{eff} =
+ \end{align}
 
-  $R_{eff} =$
-Der Wert für die Abklingdauer nach Formel \eqref{eq:T_ex} ergibt dabei:
-  $T_{ex} =\text{\input{T_ex.tex}}$
+ \flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:
+
+ \begin{align}
+    T_{ex} =\text{\input{T_ex.tex}}
+ \end{align}
+
+ Die aus den Theoriewerten erechnete Abklingdauer lautet:
+ \begin{align}
+    T_{\text{ex,Lit.}}=\text{\input{T_ex_lit.tex}}
+ \end{align}
+
+ Daraus folgt dann ein relativer Fehler von
+ \begin{align}
+    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}=\text{\input{RF_T_ex.tex}}
+ \end{align}
+
 
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
@@ -366,8 +383,8 @@ Der Wert für die Abklingdauer nach Formel \eqref{eq:T_ex} ergibt dabei:
   \end{figure} 
 
   \flushleft{Mithilfe }\justifying der Formel \eqref{eq:omegares} wird der Wert für $\nu_{res.}$ berechnet. Anhand $\nu_{res.}$
-  können die Werte für $\nu_{1,2}$ bestimmt werden, indem $\nu_{res.}$ um $\sfrac{\pi}{4}$ nach oben, beziehungsweise nach unten 
-  verschoben wird. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$ und die
+  können die Werte für $\nu_{1,2}$ bestimmt werden, indem die Funktionswerte bei $\sfrac{\pi}{2}$ und 
+  $\sfrac{3 \\pi}{2}$ betrachtet werden. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$ und die
   zugehörigen Literaturwerte:
   \begin{subequations}
   \begin{align}
