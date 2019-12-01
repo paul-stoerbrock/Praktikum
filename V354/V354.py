@@ -127,7 +127,7 @@ plt.plot(ta*1e+04,np.log(Aa), 'rx', label="Messdaten")
 x_plot = np.linspace(0, 2e-04, 10)
 plt.plot(x_plot*1e04,intercept+slope*x_plot, 'k-', label="Lineare Regression")
 plt.legend(loc="best")
-plt.xlabel('t / s')
+plt.xlabel('t / $\mu$s')
 plt.ylabel(r'$\log (A) \:/\: $V')
 plt.grid()
 plt.tight_layout
