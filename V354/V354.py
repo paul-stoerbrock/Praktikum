@@ -14,6 +14,12 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 #Funktionen
 
+def SI(W ,F ,NW ,NF ):
+    return ' '
+
+
+#Auswertungsfunktionen
+
 def U(f, R, L, C):
  return 1/(np.sqrt((1-L*C*4*np.pi**2*f**2)**2+4*np.pi**2*f**2*R**2*C**2))
 
@@ -313,16 +319,16 @@ with open('build/nuRech.tex', 'w') as RC:
 # Tex file of q
 
 with open('build/q.tex', 'w') as RC:
-    RC.write('$\SI{')
+    RC.write('$\\num{')
     RC.write(f'{q:.2f}')
-    RC.write('}{\hertz}$')
+    RC.write('}$')
 
 # Tex file of q_lit
 
 with open('build/q_lit.tex', 'w') as RC:
-    RC.write('$\SI{')
-    RC.write(f'{q_lit.n:.2f}\pm{q_lit.s:.2f}')
-    RC.write('}{\hertz}$')
+   RC.write('$\\num{')
+   RC.write(f'{q_lit.n:.2f}\pm{q_lit.s:.2f}')
+   RC.write('}$')
 
 # Tex file of RF_q
 
@@ -386,6 +392,16 @@ with open('build/T_ex.tex', 'w') as RC:
     RC.write('$\SI{')
     RC.write(f'{T_ex.n*1e06:.2f}\pm{T_ex.s*1e06:.2f}')
     RC.write('}{\micro\second}$')
+
+with open('build/m.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{slope:.2f}\pm{std_err:.2f}')
+    RC.write('}$')
+
+with open('build/b.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{intercept:.2f}')
+    RC.write('}$')
 
 
 # Erstellung Tabelle a) ###################################################################################
