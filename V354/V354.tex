@@ -134,11 +134,11 @@ Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell an
 \begin{subequations}    
 \begin{align}
     \intertext{Der Mittelwert}
-        \overline{x} &= \frac{1}{N}\sum_{i=1}{N} x_i \label{eq:mittelw}
+        \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:mittelw}
     \intertext{Der Fehler des Mittelwerts}
         \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:fmittelw}
     \intertext{Die gaußsche Fehlerfortpflanzung}
-        \Delta f &= \sqrt{\sum_{i=1}{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:ffort}
+        \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:ffort}
     \intertext{In der Auswertung selbst wird die Fehlerrechnung mithilfe von Pyhtonbefehlen \cite{uncertainties} durchgeführt.
     Für die lineare und nichtlineare Ausgleichsrechnung werden folgende Funktionen benötigt:}
         y &= m \cdot x + b\\
@@ -251,7 +251,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
         \label{tab:data_a}
   \end{table}
 
-  \flushleft{Mithilfe}\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
+  \flushleft{Mithilfe }\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
   Funktion $e^{+2\pi\mu t}$ des Schwingverhaltens als lineare Regression darstellt.
 
   \begin{figure}[H]
@@ -268,7 +268,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
-  \flushleft{Der}\justifying aus $L$ und $C$ errechnete Widerstand beim Eintritt des aperiodischen Grenzfalls lautet:
+  \flushleft{Der }\justifying aus $L$ und $C$ errechnete Widerstand beim Eintritt des aperiodischen Grenzfalls lautet:
   \begin{equation}
   R_{ap} = \text{\input{Rap.tex}} \label{Rap}
   \end{equation}
@@ -317,8 +317,8 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \flushleft{Werden }\justifying $\nu_+$ und $\nu_-$ nun anhand des Graphen \ref{fig:4clin} bestimmt, ergibt sich:
   \begin{subequations}
   \begin{align}
-    &\nu_1 = &\intertext{\input{nu1.tex}}
-    &\nu_2 = &\intertext{\input{nu2.tex}}
+    &\nu_1 = \text{\input{nu1.tex}}\\
+    &\nu_2 = \text{\input{nu2.tex}}
   \end{align}
   \flushleft{mit }\justifying einem relativen Fehler von:
   \begin{align}
@@ -329,7 +329,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
 %Auswertung 5d ----------------------------------------------------------------------------------------------------------------------------------------
 
-  
+  \flushleft{Mit }\justifying den Messwertpaaren $(\nu, t)$ aus Tabelle \ref{tab:data_c} lassen sich die folgenden zwei Graphen erstellen:
 
   \begin{figure}[H]
     \begin{subfigure}{0.495\linewidth}
@@ -346,6 +346,20 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \end{subfigure}
     \caption{Resonanzkurve aus Aufg. 4d)}
   \end{figure} 
+
+  \flushleft{Anhand }\justifying des ersten Graphen können die Werte für $\nu_1 \; \text{bei} \; \sfrac{\pi}{4}$, $\nu_2 \; \text{bei} \; \sfrac{\pi}{2}$ und 
+  $\nu_3 \; \text{bei} \; \sfrac{3\pi}{4}$ abgelesen werden. Daraus folgen die Werte $\nu_{1,2,res.}$:
+  \begin{subequations}
+  \begin{align}
+    &\nu_1 = \text{\input{nu1.tex}}\\
+    &\nu_2 = \text{\input{nu2.tex}}
+  \end{align}
+  \flushleft{mit }\justifying einem relativen Fehler von:
+  \begin{align}
+    \frac{\nu_1 - \nu_{1,Lit.}}{\nu_{1,Lit.}} &= \text{\input{RF_nu1.tex}}\\
+    \frac{\nu_2 - \nu_{2,Lit.}}{\nu_{2,Lit.}} &= \text{\input{RF_nu2.tex}}
+  \end{align} 
+  \end{subequations}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
