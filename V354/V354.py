@@ -67,6 +67,26 @@ nuRech= R2/(2*np.pi*L)
 
 RF_nu= (nuGraph-nuRech.n)/nuRech.n
 
+# Berechnung Omega_0
+
+w0 = 35.3*1e+03
+
+# Berechnung von w0_Lit.
+
+w0_lit = unp.sqrt(1/(L*C))
+
+# Berechnung von q -> w0/(nu+ - nu-)
+
+q = w0/nuGraph
+
+# Berechnung von q_lit
+
+q_lit = w0_lit/nuRech
+
+# Berechnung des relativen Fehlers von q
+
+RF_q = (q-q_lit)/q_lit
+
 # Berechnung nu 1 starke Dämfung
 
 nu1_lit= (-R2/(2*L)+unp.sqrt(R2**2/(4*L**2)+1/(L*C)))/(2*np.pi)
@@ -290,6 +310,27 @@ with open('build/nuRech.tex', 'w') as RC:
     RC.write(f'{nuRech.n*1e-03:.2f}\pm{nuRech.s*1e-03:.2f}')
     RC.write('}{\kilo\hertz}$')
 
+# Tex file of q
+
+with open('build/q.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{q:.2f}')
+    RC.write('}{\hertz}$')
+
+# Tex file of q_lit
+
+with open('build/q_lit.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{q_lit.n:.2f}\pm{q_lit.s:.2f}')
+    RC.write('}{\hertz}$')
+
+# Tex file of RF_q
+
+with open('build/RF_q.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{RF_q.n:.2f}')
+    RC.write('}{\hertz}$')
+
 # Tex file of RF_nu    
 
 with open('build/RF_nu.tex', 'w') as RC:
@@ -329,7 +370,7 @@ with open('build/RF_nu2.tex', 'w') as RC:
 
 with open('build/nu_res_lit.tex', 'w') as RC:
     RC.write('$\SI{')
-    RC.write(f'{nu_res_lit.n*1e-03:.2f}\pm{nu_res_lit.s*1e-03}')
+    RC.write(f'{nu_res_lit.n*1e-03:.2f}\pm{nu_res_lit.s*1e-03:.2f}')
     RC.write('}{\kilo\hertz}$')
 
 # Tex file of RF_nu_res

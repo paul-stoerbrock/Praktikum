@@ -83,7 +83,7 @@ Dabei ist zu bemerken, dass diese Funktion ein Maximum besitzt, welches die
 angelegte Spannungsamplitude $U_0$ übersteigen kann.\\
 Diese Frequenz wird im Allgemeinen als Resonanzfrequenz $\omega_{res}$ \cite{V354} 
 \begin{align}
-    \omega_{res} = \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}
+    \omega_{res} = \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}} \label{eq:omegares}
 \end{align}
 bezeichnet.\\
 Aus dieser Formel können zwei Fälle betrachtet werden.
@@ -104,7 +104,7 @@ Sie beschreiben die Fequenzen, bei denen die Spannung auf die Größe
 $\sfrac{U_{C,\text{max}}}{\sqrt{2}}$ vom Maximum gesunken ist.
 Die Breite der Resonanzkurve kann dabei durch
 \begin{align}
-    \omega _+ - \omega _- \approx \frac{R}{L}
+    \omega _+ - \omega _- \approx \frac{R}{L} \label{eq:om+-}
 \end{align}
 approximiert werden.\\
 Für den Fall der starken Dämpfung \cite{V354}
@@ -293,10 +293,9 @@ mit dem ersten Eingang des Oszilloskops verbunden.
         \label{tab:data_c}
   \end{table}
 
-  \flushleft{Aus }\justifying den Messwertpaaren $(\nu, U_C)$ der Tabelle \ref{tab:data_c} werden zwei Graphen erstellt. Der erste Graph \ref{fig:4clin} 
-  gibt den linearen Verlauf von Frequenz und Spannung wieder. Außerdem wurde die Breite der Resonanzkurve mit zwei vertikalen
-  Linien eingezeichnet. Bestimmt wurden die Werte für $\nu_+$ und $\nu_-$ durch die Schnittpunkte der Resonanzkurve mit der Geraden
-  $\sfrac{U_{max}}{U_0\cdot\sqrt{2}}$.
+  \flushleft{Aus }\justifying den Messwertpaaren $(U_C, \nu)$ der Tabelle \ref{tab:data_c} werden zwei Graphen erstellt. Der erste Graph \ref{fig:4clin} 
+  gibt den linearen Verlauf von Frequenz und Spannung wieder. Außerdem wurde die Breite der Resonanzkurve mit zwei vertikalen Linien eingezeichnet. 
+
 
   \begin{figure}[H]
     \begin{subfigure}{0.495\linewidth}
@@ -314,22 +313,29 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Resonanzkurve aus Aufg. 4c)}
   \end{figure} 
 
-  \flushleft{Werden }\justifying $\nu_+$ und $\nu_-$ nun anhand des Graphen \ref{fig:4clin} bestimmt, ergibt sich:
-  \begin{subequations}
-  \begin{align}
-    &\nu_1 = \text{\input{nu1.tex}}\\
-    &\nu_2 = \text{\input{nu2.tex}}
-  \end{align}
-  \flushleft{mit }\justifying einem relativen Fehler von:
-  \begin{align}
-    \frac{\nu_1 - \nu_{1,Lit.}}{\nu_{1,Lit.}} &= \text{\input{RF_nu1.tex}}\\
-    \frac{\nu_2 - \nu_{2,Lit.}}{\nu_{2,Lit.}} &= \text{\input{RF_nu2.tex}}
-  \end{align} 
-  \end{subequations}
+  \flushleft{Bestimmt }\justifying wurde die Breite der Resonanzkurve $\omega_+ - \omega_-$ mit $\omega = 2\cdot\pi\cdot\nu$ 
+  und der Formel \eqref{eq:om+-}. Der errechnete Wert für $\omega_+ - \omega_-$ sieht aus wie folgt:
+   
+  \begin{equation}
+  \omega_+ - \omega_- = \text{\input{nuGraph.tex}}
+  \end{equation}
+  \flushleft{Wird }\justifying $\omega_+ - \omega_-$ mit dem Literaturwert verglichen, folgt ein relativer Fehler von:
+  \begin{equation}
+  \frac{\omega_{+-} - \omega_{+-,Lit.}}{\omega_{+-,Lit.}} = \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
+  \end{equation}
+
+  \flushleft{Aus }\justifying dem Graphen \ref{fig:4clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
+  \begin{equation}
+  q = \text{\input{q.tex}}
+  \end{equation}
+  Der relative Fehler der Güte des Schwingkreises ergibt:
+  \begin{equation}
+  \frac{q - q_{Lit.}}{q_{Lit.}} = \text{\input{RF_q.tex}}
+  \end{equation}
 
 %Auswertung 5d ----------------------------------------------------------------------------------------------------------------------------------------
 
-  \flushleft{Mit }\justifying den Messwertpaaren $(\nu, t)$ aus Tabelle \ref{tab:data_c} lassen sich die folgenden zwei Graphen erstellen:
+  \flushleft{Mit }\justifying den Messwertpaaren $(t, \nu)$ aus Tabelle \ref{tab:data_c} lassen sich die folgenden zwei Graphen erstellen:
 
   \begin{figure}[H]
     \begin{subfigure}{0.495\linewidth}
@@ -347,17 +353,22 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Resonanzkurve aus Aufg. 4d)}
   \end{figure} 
 
-  \flushleft{Anhand }\justifying des ersten Graphen können die Werte für $\nu_1 \; \text{bei} \; \sfrac{\pi}{4}$, $\nu_2 \; \text{bei} \; \sfrac{\pi}{2}$ und 
-  $\nu_3 \; \text{bei} \; \sfrac{3\pi}{4}$ abgelesen werden. Daraus folgen die Werte $\nu_{1,2,res.}$:
+  \flushleft{Mithilfe }\justifying der Formel \eqref{eq:omegares} wird der Wert für $\nu_{res.}$ berechnet. Anhand $\nu_{res.}$
+  können die Werte für $\nu_{1,2}$ bestimmt werden, indem $\nu_{res.}$ um $\sfrac{\pi}{4}$ nach oben, beziehungsweise nach unten 
+  verschoben wird. Demnach folgen aus Formeln \eqref{eq:omegares} und \eqref{eq:om12} die Werte für $\nu_{1,2,res.}$:
   \begin{subequations}
   \begin{align}
     &\nu_1 = \text{\input{nu1.tex}}\\
-    &\nu_2 = \text{\input{nu2.tex}}
+    &\nu_2 = \text{\input{nu2.tex}}\\
+    &\nu_{res.} = \text{\input{nu_res.tex}}
   \end{align}
-  \flushleft{mit }\justifying einem relativen Fehler von:
+  \end{subequations}
+  \flushleft{Der }\justifying relative Fehler von $\nu_{1,2,res.}$ sieht folgendermaßen aus:
+  \begin{subequations}
   \begin{align}
     \frac{\nu_1 - \nu_{1,Lit.}}{\nu_{1,Lit.}} &= \text{\input{RF_nu1.tex}}\\
-    \frac{\nu_2 - \nu_{2,Lit.}}{\nu_{2,Lit.}} &= \text{\input{RF_nu2.tex}}
+    \frac{\nu_2 - \nu_{2,Lit.}}{\nu_{2,Lit.}} &= \text{\input{RF_nu2.tex}}\\
+    \frac{\nu_{res.} - \nu_{res.,Lit.}}{\nu_{res.,Lit.}} &= \text{\input{RF_nu_res.tex}}
   \end{align} 
   \end{subequations}
 
