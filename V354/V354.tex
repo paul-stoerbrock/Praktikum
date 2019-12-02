@@ -15,7 +15,7 @@
     
     \begin{abstract}
     \centering
-        \textbf{Ziel:} 
+        \textbf{Ziel:} Bestimmung des Dämpfungswiderstands eines LRC-Kreises. 
     \end{abstract}
 
 \newpage
@@ -64,6 +64,7 @@ stellt den Kriechfall dar. Bei diesem verschwindet der oszillatorische Teil und
 die Wurzel aus Gleichung \eqref{eq:omega} wird positiv.
 Die Funktion geht mit maximal einem Nulldurchgang nicht-oszillatorisch gegen null.
 Ob ein Nulldurchgang sattfindet hängt dabei von den Anfangsbedingungen ab.
+\newpage
 \justify
 Der dritte Fall stellt einen Spezialfall des zweiten dar.
 Bei diesem ist die Bedingung \cite{V354}:
@@ -106,8 +107,9 @@ Die Breite der Resonanzkurve kann dabei durch
 \begin{align}
     \omega _+ - \omega _- \approx \frac{R}{L} \label{eq:om+-}
 \end{align}
-approximiert werden.\\
-Für den Fall der starken Dämpfung \cite{V354}
+approximiert werden.
+\newpage
+\flushleft{Für }\justifying den Fall der starken Dämpfung \cite{V354}
 \begin{align}
     \frac{1}{LC} \ll \frac{R^2}{4L^2} \label{eq:Fall2b}
 \end{align}
@@ -182,7 +184,6 @@ Eingang des Oszilloskops verbunden.
 Zuletzt wird das LRC-Glied über einem BNC-Kabel mit Tastkopf 
 mit dem ersten Eingang des Oszilloskops verbunden.
 
-
 % Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsdurchführung}\justifying
@@ -206,16 +207,17 @@ mit dem ersten Eingang des Oszilloskops verbunden.
                           der größere Widerstand von 271.6$\pm0.2\Omega$ angeschlossen.
                           Daraufhin werden die Werte für Phase und Frequenz um die 
                           Resonanzfrequenz gemessen und datiert.
-  
-    
-
-  \end{enumerate}
+ \end{enumerate}
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}\justifying
 
 %Auswertung 5a ----------------------------------------------------------------------------------------------------------------------------------------
+
+  Die Kurven in den Bildern \ref{fig:R1} und \ref{fig:R2} spiegeln das Dämpfungsverhalten der einzelnen Widerstände wieder. 
+  Es ist erkennbar, dass die Schingung in Bild \ref{fig:R2} stärker gedämpft wird, was darauf schließen lässt, dass R2 der 
+  größere der beiden Widerständen ist.
 
   \begin{figure}[H]
     \begin{subfigure}{0.495\linewidth}
@@ -232,20 +234,14 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \end{subfigure}
     \caption{Dämpfungsverhalten der Widerstände R1 und R2}
   \end{figure} 
-
-  Die Kurven in den Bildern \ref{fig:R1} und \ref{fig:R2} spiegeln das Dämpfungsverhalten der einzelnen Widerstände wieder. 
-  Es ist erkennbar, dass die Schingung in Bild \ref{fig:R2} stärker gedämpft wird, was darauf schließen lässt, dass R2 der 
-  größere der beiden Widerständen ist. 
-
   \begin{figure}[H]
-    \includegraphics[width=\textwidth]{images/5a.jpg}
+    \includegraphics[width=0.75\textwidth]{images/5a.jpg}
     \centering
     \caption{Einhüllende der Schwingungskurve}
     \label{fig:5a}
   \end{figure}
 
-  \flushleft{Die }\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
-  Die in Abbildung \ref{fig:5a} zu sehende Kurve beschreibt das Dämpfungsverhalten des LRC-Kreises bei einer angelegten Spannung von 
+  \flushleft{Die }\justifying in Abbildung \ref{fig:5a} zu sehende Kurve beschreibt das Dämpfungsverhalten des LRC-Kreises bei einer angelegten Spannung von 
   10V, einem Widerstand von 271.6$\pm0.2\Omega$ und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
   abgelesen und in Tabelle \ref{tab:data_a} mit der zugehörigen Phasenverschiebung zusammengetragen.
 
@@ -264,14 +260,15 @@ mit dem ersten Eingang des Oszilloskops verbunden.
       &m=\text{\input{m.tex}}
       &b=\text{\input{b.tex}}
   \end{align}
-
   \flushleft{Dabei }\justifying ist $m=-2\pi \mu$.
+
   \begin{figure}[H]
-    \includegraphics[width=\textwidth]{build/plota.pdf}
+    \includegraphics[width=0.75\textwidth]{build/plota.pdf}
     \centering
     \caption{Lineare Regression der Einhüllenden}
     \label{fig:5ajpg}
   \end{figure}
+  \newpage
   \begin{align}
     R_{\text{eff}} &=
     \intertext{\flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:}
@@ -390,6 +387,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \frac{\nu_{\text{res.}} - \nu_{\text{res.,Lit.}}}{\nu_{\text{res.,Lit.}}} &= \text{\input{RF_nu_res.tex}}
   \end{align} 
   \end{subequations}
+  \newpage
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -408,7 +406,8 @@ würde der Widerstand $R_{ap} = 1.45k\Omega$ entsprechen, was deutlich näher am
 
 \flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder. 
 Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Beim Vergleich der 
-Resonanzüberhöhung mit dessen Literaturwert wurde eine
+Resonanzüberhöhung mit dessen Literaturwert entsteht ein relativer Fehler von 0.22. Dieser Fehler könnte auf einen systematischen 
+Fehler zurückgeführt werden. 
 
 \flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,res.}$ und deren relativen Fehlern lässt sich entnehmen,
 dass die errechneten Werte jeweils sehr nahe an den Literaturwerten liegen. Demnach folgt aus den geringen Abweichungen, in 
