@@ -156,12 +156,14 @@ popU, pcovU = curve_fit(
     A[0:18],
     sigma=None,
     absolute_sigma=True,
-    p0=[300, 3.5*1e-03, 5*1e-09]
+    p0=[320, 3.5*1e-03, 5*1e-09]
     )
 
 # Erstellung des Plots c) in ln-Darstellung
 
 plt.plot(f, A0, 'rx', label="Messdaten")
+x_plot = np.linspace(10*1e03,60*1e03,10000)
+plt.plot(x_plot, U(x_plot,*popU)/U0,linestyle='-',label='Nichtlineare Regression')
 plt.xscale('log')
 plt.xlabel(r'$\nu \:/\: $Hz')
 plt.ylabel(r'$U_C/U_0 \:/\: $V')
@@ -172,13 +174,16 @@ plt.close()
 
 # Erstellung des Plots c) in linearer Darstellung
 
-plt.plot(f*1e-03, A0, 'rx', label="Messdaten")
+plt.plot(f, A0, 'rx', label="Messdaten")
 x_plot = np.linspace(26*1e03,45*1e03,10000)
-#plt.plot(x_plot*1e-03, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot, U(x_plot,*popU)/U0,linestyle='-',label='Nichtlineare Regression')
+plt.xticks( [27500 ,30000,32500, 35000, 37500, 40000, 42500, 45000 ],
+            [27.5, 30.0, 32.5, 35.0, 37.5, 40.0, 42.5, 45.0]
+)
 plt.legend(loc="best")
 plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--') 
-plt.axvline(27.8,linestyle='--', label=r'$\nu_r$') # nu-
-plt.axvline(42.7,linestyle='--') # nu+
+plt.axvline(27.8*1e03,linestyle='--', label=r'$\nu_r$') # nu-
+plt.axvline(42.7*1e03,linestyle='--') # nu+
 plt.xlabel(r'$\nu \:/\: $kHz')
 plt.ylabel(r'$U_C/U_0 \:/\: $V')
 plt.grid()
@@ -206,8 +211,8 @@ plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
-plt.xticks( [3 ,4 ],
-            [3,4]
+plt.xticks( [3, 4],
+            [3, 4]
 )
 plt.legend(loc="best")
 plt.xlabel(r'$\nu \:/\: 10^4$Hz')
@@ -484,4 +489,5 @@ with open('build/table_c.tex', 'w') as h:
 # Kontrollprints
 print(T_ex_lit)
 print(1/slope)
+print(popU)
 
