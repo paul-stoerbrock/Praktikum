@@ -272,19 +272,15 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Lineare Regression der Einhüllenden}
     \label{fig:5ajpg}
   \end{figure}
- \begin{align}
-    R_{\text{eff}} =
- \end{align}
-
- \flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:
-
- \begin{align}
-    T_{\text{ex}} =\text{\input{T_ex.tex}}
+  \begin{align}
+    R_{\text{eff}} &=
+    \intertext{\flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:}
+    T_{\text{ex}} &=\text{\input{T_ex.tex}}
     \intertext{Die aus den Theoriewerten erechnete Abklingdauer lautet:}
     T_{\text{ex,Lit.}}&=\text{\input{T_ex_lit.tex}}
     \intertext{Daraus folgt dann ein relativer Fehler von}
     \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}}
- \end{align}
+  \end{align}
 
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
@@ -400,11 +396,11 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 \section{Diskussion}\justifying
 
 \flushleft{Der }\justifying Kurve der gemessen Werte für a) liegt nahe der erwarteten Kurve aus der Theorie. Bei einer angelegten 
-Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = 2.3V$ erwartet. Die Maximalamplitude aus \ref{tab:5a}, 
+Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = 2.3V$ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
 welche kleiner als 2.3V ist, ließe sich durch einen weiteren Peak mit einer negativen Amplitude erklären, der nicht auf dem Bild 
 \ref{fig:5a} aufgeführt ist. 
 
-\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler \eqref{eq:Raplit}. 
+\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler \eqref{eq:RapLit}. 
 Dieser könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
 des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $5k\Omega$ lag. Dieser Umstand wirft die 
 Vermutung auf, dass die Skalierung $0.5k\Omega$ pro Einheit betrug, anstelle der hier verwendeten $1k\Omega$ pro Einheit. Demnach 
