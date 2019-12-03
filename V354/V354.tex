@@ -77,7 +77,7 @@ Neben gedämpften Schwingungen treten auch häufig erzwungene Schwingungen auf,
 die hier durch eine sinusförmige Wechselpannung realisiert wird. 
 Die Frequenzabhängigkeit des Kondensators wird dabei durch 
 \begin{align}
-    U_C (\omega)=\frac{U_0}{\sqrt{(1-LC\omega ^2)^2+\omega ^2 R^2 C^2}}
+    U_C (\omega)=\frac{U_0}{\sqrt{(1-LC\omega ^2)^2+\omega ^2 R^2 C^2}} \label{eq:9}
 \end{align}
 beschrieben.
 Dabei ist zu bemerken, dass diese Funktion ein Maximum besitzt, welches die
@@ -116,7 +116,9 @@ approximiert werden.
 existiert keine Resonanzüberhöhung mehr. 
 Die frenquenzabhängige Phasenverschiebung \cite{V353}
 \begin{align}
-    \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu}
+    \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu}\\
+    \intertext{oder auch}
+    \varphi(\nu)&=\arctan \left(-\frac{\omega R C}{1-LC \omega ^2}\right) \label{eq:phi}
 \end{align}
 zeigt, dass sich dabei der Wert $\sfrac{\pi}{2}$ bei \cite{V354}
 \begin{align}
@@ -174,7 +176,7 @@ Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell an
 % Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau}\justifying
-Benötigt werden: \textit{Ein Generator mit einem Innenwiderstand von 2.5$\Omega$, 
+Benötigt werden: \textit{Ein Generator mit einem Innenwiderstand von $\SI{2.5}{\ohm}$, 
 ein analoges Zweikanal-Oszilloskop, ein LRC-Glied mit drei ohmschen Widerständen 
 ($R_1 < R_2$), wovon einer der Widerstände ($R_3$) variabel sein soll, 
 zwei BNC-Kabel, eine BNC-Steckverbindung und einen Tastkopf}.\\
@@ -197,14 +199,14 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     ein Bild vom Oszilloskop angefertigt aus dem dann Messwerte entnommen werden
     können.
 
-    \item[b)] \justifying Um den Widerstand $R_{ap}$ zu bestimmen, wird der Generator 
+    \item[b)] \justifying Um den Widerstand $R_{\text{ap}}$ zu bestimmen, wird der Generator 
     an den maximal eingestellten variablen Widerstand angeschlossen. Anschließend wird 
     der variable Widerstand reduziert, bis am Oszilloskop eine Überschwingung erkennbar 
     wird. Daraufhin wird der Widerstand stetig erhöht bis die Überschwingung verschwindet 
     und der bestimmte Widerstand notiert.
   
     \item[c/d)] \justifying Dann wird für die Messung der Frequenzabhängigkeit
-                          der größere Widerstand von 271.6$\pm0.2\Omega$ angeschlossen.
+                          der größere Widerstand von $\SI{271.6\pm 0.2}{\ohm}$ angeschlossen.
                           Daraufhin werden die Werte für Phase und Frequenz um die 
                           Resonanzfrequenz gemessen und datiert.
  \end{enumerate}
@@ -242,7 +244,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \end{figure}
 
   \flushleft{Die }\justifying in Abbildung \ref{fig:5a} zu sehende Kurve beschreibt das Dämpfungsverhalten des LRC-Kreises bei einer angelegten Spannung von 
-  10V, einem Widerstand von 271.6$\pm0.2\Omega$ und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
+  10V, einem Widerstand von $\SI{271.6\pm0.2}{\ohm}$ und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
   abgelesen und in Tabelle \ref{tab:data_a} mit der zugehörigen Phasenverschiebung zusammengetragen.
 
   \begin{table}[H]
@@ -270,7 +272,6 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \end{figure}
   \newpage
   \begin{align}
-    R_{\text{eff}} &=
     \intertext{\flushleft{Der} Wert für die Abklingdauer nach Formel \eqref{eq:Abkling} ergibt dabei:}
     T_{\text{ex}} &=\text{\input{T_ex.tex}}
     \intertext{Die aus den Theoriewerten erechnete Abklingdauer lautet:}
@@ -278,7 +279,18 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \intertext{Daraus folgt dann ein relativer Fehler von}
     \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}}
   \end{align}
+  Die Werte für den effektiven Widerstand lauten nach Gleichung \eqref{eq:Abkling} wie folgt:
 
+\begin{align}
+  &R_{\text{eff}}=\text{\input{R_eff.tex}} 
+  &R_{\text{eff,Lit.}}=\text{\input{R1.tex} }
+\end{align}
+
+Daraus folgt ein relativer Fehler von
+
+\begin{align}
+  \frac{R_{\text{eff}}-R_{\text{eff,Lit.}}}{R_{\text{eff,Lit.}}}= \text{\input{RF_R_eff.tex} }
+\end{align}
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -327,12 +339,14 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Resonanzkurve aus Aufg. c)}
   \end{figure} 
 
+  Die Ausgleichskurve wurde dabei mit der Formel 
+
   \flushleft{Bestimmt }\justifying wurde die Breite der Resonanzkurve $\omega_+ - \omega_-$ mit $\omega = 2\cdot\pi\cdot\nu$ 
   und der Formel \eqref{eq:om+-}. Der errechneten Werte für $\omega_+ - \omega_-$ und $\omega_{+-,\text{Lit.}}$ sehen aus wie folgt:
    
   \begin{align}
   \omega_+ - \omega_- &= \text{\input{nuGraph.tex}}\\
-  \omega_{+-,\text{Lit.}} &= \text{\input{nuRech.tex}}
+  \omega_{+-,\text{Lit.}} &= \text{\input{nuRech.tex}} \label{eq:29}
   \end{align}
   \flushleft{Wird }\justifying $\omega_+ - \omega_-$ mit dem Literaturwert verglichen, folgt ein relativer Fehler von:
   \begin{equation}
@@ -394,24 +408,35 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 \section{Diskussion}\justifying
 
 \flushleft{Der }\justifying Kurve der gemessen Werte für a) liegt nahe der erwarteten Kurve aus der Theorie. Bei einer angelegten 
-Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = 2.3V$ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
+Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = \SI{2.3}{\volt} $ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
 welche kleiner als 2.3V ist, ließe sich durch einen weiteren Peak mit einer negativen Amplitude erklären, der nicht auf dem Bild 
-\ref{fig:5a} aufgeführt ist. 
+\ref{fig:5a} aufgeführt ist. Die Werte für Abklingdauer und den effektiven Widerstan allerdings
+haben einen relativ hohen Fehler, welcher sich eventuell auf systematische Fehler
+zurückführen liese. 
 
 \flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler \eqref{eq:RapLit}. 
 Dieser könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
-des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $5k\Omega$ lag. Dieser Umstand wirft die 
-Vermutung auf, dass die Skalierung $0.5k\Omega$ pro Einheit betrug, anstelle der hier verwendeten $1k\Omega$ pro Einheit. Demnach 
-würde der Widerstand $R_{ap} = 1.45k\Omega$ entsprechen, was deutlich näher am Theoriewert läge.
+des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $\SI{5.0}{\kilo\ohm} $ lag. Dieser Umstand wirft die 
+Vermutung auf, dass die Skalierung $\SI{0.5}{\kilo\ohm}$ pro Einheit betrug, anstelle der hier verwendeten $\SI{1}{\kilo\ohm} $ pro Einheit. Demnach 
+würde der Widerstand $R_{\text{p}} = \SI{1.45}{\kilo\ohm}$ entsprechen, was deutlich näher am Theoriewert läge.
 
-\flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder. 
+\flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder. \\
+Dabei entspricht die gefittete Kurve in keiner Weise den Messwerten.
+Auch der theoretisch erwarteten Kurve entspricht sie nicht, da ihre Breite der Resonanzkurve zu
+schmal ist nach Gleichung \eqref{eq:29}. Eine Möglichkeit für den misslungenen Plot können
+systematische Fehler sein oder aber, dass die Gleichung \eqref{eq:9} nicht als Fitkurve
+geeignet ist.
 Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Beim Vergleich der 
-Resonanzüberhöhung mit dessen Literaturwert entsteht ein relativer Fehler von 0.22. Dieser Fehler könnte auf einen systematischen 
-Fehler zurückgeführt werden. 
+Resonanzüberhöhung mit dessen Literaturwert entsteht ein relativer Fehler von 22$\%$. Dieser Fehler könnte auf einen systematischen 
+Fehler zurückgeführt werden. \\
 
-\flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,res.}$ und deren relativen Fehlern lässt sich entnehmen,
+\flushleft{Die} im Graphen \ref{fig:4dln} gefittete Kurve entspricht den Messwerten nichtmal im Ansatz.
+Die Ursache hierbei liegt höchstwahrscheinlich daran, dass die Gleichung \eqref{eq:phi} unsere Kurve nicht
+beschreiben kann. Dies sieht man daran, dass der Wertebereich der Funktion sich nur von $\sfrac{-\pi}{2} $ bis
+$\sfrac{\pi}{2} $ erstreckt, unsere Funktion der Theorie zufolge auch in $\sfrac{3\pi}{2} $ definiert sein muss.\\
+\flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,\text{res.}}$ und deren relativen Fehlern lässt sich entnehmen,
 dass die errechneten Werte jeweils sehr nahe an den Literaturwerten liegen. Demnach folgt aus den geringen Abweichungen, in 
-Verbindung mit den Formeln \eqref{eq:omega0} und \eqref{eq:om12}, dass es sich hier um eine starke Dämpfung handelt.
+Verbindung mit den Formeln \eqref{eq:omega0} und \eqref{eq:om12}, dass es sich hier um eine starke Dämpfung handeln könnte.
 
 \flushleft{Mit }\justifying den Erkenntnissen aus Aufgaben c) und d) lässt sich folgern, dass das vorliegende System nach Formel 
 \eqref{eq:Fall2b} der starken Dämpfung sehr nahe könnte.  
