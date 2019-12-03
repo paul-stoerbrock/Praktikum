@@ -135,6 +135,14 @@ T_ex_lit= 2 * L/(R1+2.5)
 
 RF_T_ex=(T_ex-T_ex_lit.n)/T_ex_lit.n
 
+#Berechnung R_eff
+
+R_eff=2*L*(-slope)
+
+#Berechnung relativer Fehler R_eff
+
+RF_R_eff=(R_eff.n-R1.n)/R1.n
+
 # Erstellung Plot a)
 
 plt.plot(ta*1e+04,np.log(Aa), 'rx', label="Messdaten")
@@ -206,7 +214,7 @@ popphi, pcovphi = curve_fit(
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 x_plot = np.linspace(2*1e04,4.5*1e04,10000)
-#plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.xscale('log')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
@@ -226,7 +234,7 @@ plt.close()
 
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 x_plot = np.linspace(2*1e04,4.5*1e04,10000)
-#plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
 plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
             [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
@@ -244,6 +252,20 @@ plt.close()
 
 
 # SI-Einheiten ####################################################################################
+
+# Tex file of R_ex
+
+with open('build/R_eff.tex', 'w') as RC:
+    RC.write('$\SI{')
+    RC.write(f'{(R_eff.n):.2f}\pm{R_eff.s:.2f}') 
+    RC.write('}{\ohm}$')
+
+# Tex file of RF_R_eff
+
+with open('build/RF_R_eff.tex', 'w') as RC:
+    RC.write('$\\num{')
+    RC.write(f'{RF_R_eff:.2f}')
+    RC.write('}$')
 
 # Tex file of Rap
 
