@@ -1,0 +1,63 @@
+\input{../header.tex}
+
+\begin{document}
+    \title{V101 Trägheitsmoment}
+    \author{  
+    Tobias Rücker\\
+    \texorpdfstring{\href{mailto:tobias.ruecker@tu-dortmund.de}{tobias.ruecker@tu-dortmund.de}
+    \and}{,} 
+    Paul Störbrock\\
+    \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
+    }
+    \date{Durchführung: 03.12.2019, Abgabe: 10.12.2019\vspace{-4ex}}
+\maketitle
+\center{\Large Versuchsgruppe: \textbf{42}}
+    
+    \begin{abstract}
+    \centering
+        \textbf{Ziel:} 
+    \end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theorie}\justifying
+
+% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fehlerrechnung}\justifying
+Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler verwendet:
+\begin{subequations}
+\begin{align}
+\intertext{Den Mittelwert wird berechnet mit}
+     \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7}.
+\intertext{Der Fehler des Mittelwerts wird berechnet mit}
+        \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:8},
+\intertext{Die Gaußsche Fehlerfortpflanzung wird mit der folgenden Formel berechnet} \text{und}
+        \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:9}
+        \intertext{verwendet.}
+\intertext{Zur Berechnung von Ausgleichsgeraden werden dabei}
+        y &= m \cdot x + b\\
+        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2}  \qquad \qquad
+        b = \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2}
+\end{align}
+\end{subequations}
+
+
+% Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Versuchsaufbau}\justifying
+
+% Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Versuchsdurchführung}\justifying
+
+% Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Auswertung}\justifying
+
+% Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Diskussion}\justifying
+
+\newpage
+
+\printbibliography
+\end{document}
