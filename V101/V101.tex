@@ -31,11 +31,11 @@ Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler 
 \begin{subequations}
 \begin{align}
 \intertext{Den Mittelwert wird berechnet mit}
-     \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7}.
+     \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7a}.
 \intertext{Der Fehler des Mittelwerts wird berechnet mit}
-        \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:8},
+        \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:7b},
 \intertext{Die Gaußsche Fehlerfortpflanzung wird mit der folgenden Formel berechnet} \text{und}
-        \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:9}
+        \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:7c}
         \intertext{verwendet.}
 \intertext{Zur Berechnung von Ausgleichsgeraden werden dabei}
         y &= m \cdot x + b\\
