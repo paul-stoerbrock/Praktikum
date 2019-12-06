@@ -38,9 +38,13 @@ D = (F*a)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
 D_mittelw = np.mean(D) # Bestimmung der Federkonstante
 
-I_zylinder_theorie = 1.5255*((0.04**2)/4+(0.1395**2)/12)
-
 # Berechnung der Trägheitsmomente #####################################################################
+
+# experimenteller Wert des Trägheitsmoment des Zylinders
+
+# theoretischer Wert des Trägheitsmoments des Zylinders
+
+I_Zylinder_Theorie = 1.5255*((0.04**2)/4+(0.1395**2)/12)
 
 # experimenteller Wert des Trägheitsmoment der Kugel
 
@@ -50,6 +54,9 @@ I_zylinder_theorie = 1.5255*((0.04**2)/4+(0.1395**2)/12)
 
 I_Kugel_Theorie = 2/5 * 1.1685 * 0.146/2
 
+# experimenteller Wert des Trägheitsmoment der Puppe
+
+  # theoretischer Wert des Trägheitsmoments der Puppe
 
 # Erstellung der Plots ######################################################################################################################
 
@@ -154,4 +161,5 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
+print(I_Zylinder_Theorie)
 print(I_Kugel_Theorie)
