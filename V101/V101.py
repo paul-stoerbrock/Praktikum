@@ -45,6 +45,14 @@ slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_
 
 # Berechnung der Trägheitsmomente #####################################################################
 
+# experimenteller Wert des Trägheitsmoment des Zylinders
+
+I_Zylinder = I(T_Zylinder[0:5], D_mittelw, I_D)
+
+# theoretischer Wert des Trägheitsmoments des Zylinders
+
+I_Zylinder_Theorie = 1.5255*((0.04*2)/4+(0.1395**2)/12)
+
 # experimentelle Wert des Trägheitsmoment der Drillachse
 
 I_D = intercept * (4*np.pi)/D_mittelw *1e-05 
