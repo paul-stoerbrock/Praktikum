@@ -25,6 +25,10 @@ phi_Bogen = phi_Grad/180 * np.pi # Umrechnung von Gradmaß in Bogenmaß
 
 T_I_Stab = (T_I_Stab1 + T_I_Stab2)/6
 
+D = (F*a)/phi_Bogen # Bestimmung der Winkelrichtgröße
+
+D_mittelw = np.mean(D) #Bestimmung der Federkonstante
+
 # Erstellung der Plots ######################################################################################################################
 
 # Plot zur Bestimmung des Trägheitsmoment I_Stab
@@ -128,3 +132,4 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
+print(D_mittelw)
