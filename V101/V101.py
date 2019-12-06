@@ -38,24 +38,28 @@ D = (F*0.3)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
 D_mittelw = np.mean(D) # Bestimmung der Federkonstante
 
+
+
 # Lineare Regression zur Bestimmung des Trägheitsmoments der Drehachse
 
 slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_I_Stab[0:10]**2)
 
 
+
 # Berechnung der Trägheitsmomente #####################################################################
+
+# experimentelle Wert des Trägheitsmoment der Drillachse
+
+I_D = intercept * (4*np.pi)/D_mittelw *1e-05
 
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
-I_Zylinder = I(T_Zylinder[0:5], D_mittelw, I_D)
+I_Zylinder = I(T_Zylinder[0:5], D_mittelw, I_D, 0, 0)
+I_Zylinder_mean = np.mean(I_Zylinder)
 
 # theoretischer Wert des Trägheitsmoments des Zylinders
 
 I_Zylinder_Theorie = 1.5255*((0.04*2)/4+(0.1395**2)/12)
-
-# experimentelle Wert des Trägheitsmoment der Drillachse
-
-I_D = intercept * (4*np.pi)/D_mittelw *1e-05 
 
 # experimenteller Wert des Trägheitsmoment der Kugel
 
