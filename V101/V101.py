@@ -23,7 +23,7 @@ def I(T, D, I_D, m, a):
 
 F, phi_Grad, a, T_I_Stab1, T_I_Stab2, T_Kugel, T_Zylinder, T_Puppe_fast, T_Puppe_slow = np.genfromtxt('data.txt', unpack=True) 
 # F=Federkraft, phi_Grad=Winkel in Gradmaß, a=Abstand Drehachse(rot,blau), 
-#T_I_Stab1 und 2 = dreifache Periodendauer(zu Bestimmun Trägheitsmoment Stab),
+#T_I_Stab1 und 2 = dreifache Periodendauer(zur Bestimmung Trägheitsmoment Stab),
 #T_Kugel = Periodendauer Kugel, T_Zylinder =  Periodendauer des Zylinders, 
 #T_Puppe_fast =  Periodendauer Puppe angelegte Arme,
 #T_Puppe_slow = Periodendauer Puppe ausgestreckte Arme
