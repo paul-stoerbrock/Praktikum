@@ -14,8 +14,8 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 # Funktionsdefinitionen
 
-def I(T, D, I_D):
-  return (T/(2*np.pi))**2 * D - I_D
+def I(T, D, I_D, m, a):
+  return (T/(2*np.pi))**2 * D - I_D - m * a**2
 
 
 
@@ -59,15 +59,35 @@ I_D = intercept * (4*np.pi)/D_mittelw *1e-05
 
 # experimenteller Wert des Trägheitsmoment der Kugel
 
-I_Kugel = I(T_Kugel[0:5], D_mittelw, I_D)
+I_Kugel = I(T_Kugel[0:5], D_mittelw, I_D, 0, 0)
+I_Kugel_mean = np.mean(I_Kugel)
 
 # theoretischer Wert des Trägheitsmoments der Kugel
 
 I_Kugel_Theorie = 2/5 * 1168.5 * 14.6/2 *1e-05
 
-# experimenteller Wert des Trägheitsmoment der Puppe
+# theoretischer Wert des Trägheitsmoment der Puppe Arme angelegt
 
-  # theoretischer Wert des Trägheitsmoments der Puppe
+m_Torso = np.pi * (3.89/2)**2 * 9.625 * 0.78
+m_Arm  = np.pi * (1.65/2)**2 * 13.25 * 0.78
+m_Kopf = np.pi * (3.265/2)**2 * 4.380 * 0.78
+m_Bein = np.pi * (2.18/2)**2 * 14.475 * 0.78
+
+I_Puppe_an_theo = (m_Torso * (3.89/2)**2/2 + m_Kopf * (3.265/2)**2/2 + 2 * m_Bein * (2.18/2)**2/2 + 2 * ( m_Arm * (1.65/2)**2/2 + m_Arm * (1.65/2 + 3.89/2)**2))*1e-05
+
+# experimenteller Wert des Trägheitsmoment der Puppe Arme angelegt
+
+I_Puppe_an_exp = (2 * I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Arm, 1.65/2 + 3.89/2) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Torso, 0) + 2* I(T_Puppe_fast[0:5], D_mittelw, I_D,2 * m_Bein, 0))*1e-05
+I_Puppe_an_exp_mean = np.mean(I_Puppe_an_exp)
+
+# theoretischer Wert des Trägheitsmoment der Puppe Arme ausgestreckt
+
+I_Puppe_aus_theo = (m_Torso * (3.89/2)**2/2 + m_Kopf * (3.265/2)**2/2 + 2 * m_Bein * (2.18/2)**2/2 + 2 * ( m_Arm * ((1.65/2)**2/4+(13.25)**2/12) + m_Arm * (13.25/2 + 3.89/2)**2))*1e-05
+
+# experimanteller Wert des Trägheitsmoment der Puppe Arme ausgestreckt
+
+I_Puppe_aus_exp =(2 * I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Arm, 13.25/2 + 3.89/2) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Torso, 0) + 2* I(T_Puppe_slow[0:5], D_mittelw, I_D,2 * m_Bein, 0))*1e-05
+I_Puppe_aus_exp_mean = np.mean(I_Puppe_aus_exp)
 
 # Erstellung der Plots ######################################################################################################################
 
@@ -170,10 +190,7 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
-print(I_Kugel_Theorie)
-print(D_mittelw)
-print(I_Kugel)
-print(I_D)
-print(intercept)
-print(slope)
-
+print(I_Puppe_an_exp_mean)
+print(I_Puppe_an_theo)
+print(I_Puppe_aus_exp_mean)
+print(I_Puppe_aus_theo)
