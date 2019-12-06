@@ -27,7 +27,9 @@ T_I_Stab = (T_I_Stab1 + T_I_Stab2)/6
 
 D = (F*a)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
-D_mittelw = np.mean(D) #Bestimmung der Federkonstante
+D_mittelw = np.mean(D) # Bestimmung der Federkonstante
+
+I_zylinder_theorie = 1.5255*((0.04**2)/4+(0.1395**2)/12)
 
 # Erstellung der Plots ######################################################################################################################
 
@@ -132,4 +134,4 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
-print(D_mittelw)
+print(I_zylinder_theorie)
