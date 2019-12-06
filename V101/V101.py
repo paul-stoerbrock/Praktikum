@@ -34,25 +34,28 @@ phi_Bogen = phi_Grad/180 * np.pi # Umrechnung von Gradmaß in Bogenmaß
 
 T_I_Stab = (T_I_Stab1 + T_I_Stab2)/6
 
-D = (F*a)/phi_Bogen # Bestimmung der Winkelrichtgröße
+D = (F*0.3)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
 D_mittelw = np.mean(D) # Bestimmung der Federkonstante
 
+# Lineare Regression zur Bestimmung des Trägheitsmoments der Drehachse
+
+slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_I_Stab[0:10]**2)
+
+
 # Berechnung der Trägheitsmomente #####################################################################
 
-# experimenteller Wert des Trägheitsmoment des Zylinders
+# experimentelle Wert des Trägheitsmoment der Drillachse
 
-# theoretischer Wert des Trägheitsmoments des Zylinders
-
-I_Zylinder_Theorie = 1.5255*((0.04**2)/4+(0.1395**2)/12)
+I_D = intercept * (4*np.pi)/D_mittelw *1e-05 
 
 # experimenteller Wert des Trägheitsmoment der Kugel
 
-#I_Kugel = I(T_Kugel[0:5], D_mittelw, I_D)
+I_Kugel = I(T_Kugel[0:5], D_mittelw, I_D)
 
 # theoretischer Wert des Trägheitsmoments der Kugel
 
-I_Kugel_Theorie = 2/5 * 1.1685 * 0.146/2
+I_Kugel_Theorie = 2/5 * 1168.5 * 14.6/2 *1e-05
 
 # experimenteller Wert des Trägheitsmoment der Puppe
 
@@ -61,8 +64,6 @@ I_Kugel_Theorie = 2/5 * 1.1685 * 0.146/2
 # Erstellung der Plots ######################################################################################################################
 
 # Plot zur Bestimmung des Trägheitsmoment I_Stab
-
-slope, intercept, r_value, p_value, std_err = stats.linregress(a[0:10]**2 , T_I_Stab[0:10]**2)
 
 plt.plot(a[0:10]**2 , T_I_Stab[0:10]**2, 'bx', label="Messdaten")
 x_plot = np.linspace(0, 700, 1000)
@@ -161,5 +162,10 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
-print(I_Zylinder_Theorie)
 print(I_Kugel_Theorie)
+print(D_mittelw)
+print(I_Kugel)
+print(I_D)
+print(intercept)
+print(slope)
+
