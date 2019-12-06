@@ -2,7 +2,7 @@
 
 # Bestimmung der Winkelrichtgröße D 
 # Literaturwerte: m(Stab) = 435.26g, Länge(Stab) = 62cm Kraftmesser beginnt bei -0.05N // phi = const = 20°(bei Kugel Massen) 10°(bei Puppe Zylinder waagrecht) // Masse Zylinder rot (261.55g) und blau (261.50g), Kugelmasse=1168.5g, Zylinder 1525.5g
-# Maase: rot(d=4.5cm,h=2cm),blau(d=4.5,h=2), Kugel(14.6+-0.005cm), Zylinder(d=8cm,h=13,95+-0.005cm)
+# Maase: rot(d=4.5cm,h=2cm),blau(d=4.5,h=2), Kugel(d=14.6+-0.005cm), Zylinder(d=8cm,h=13,95+-0.005cm)
 # Abstand der Kerben bei Stabachse = 5cm(13 Kerben)
 # Maase Puppe: Kopf(Zylinder) d=3.265cm h=4.380cm, Arm d=1.65cm h=13.25cm, Torso d=3.89cm h=9.625cm, Bein d=2.18cm h=14.475cm 
 # Kraft[F]/N,  Auslenkung[phi]/Gradmaß, Abstand zur Drehachse[a]/cm  ,Periodendauer[T]/s (3 Perioden zwei mal), Kugel Periodendauer[T]/s, Zylinder Periodendauer[T]/s, Puppe Arme angelegt Periodendauer[T]/s, Puppe Arme ausgesteckt Perodendauer[T]/s
