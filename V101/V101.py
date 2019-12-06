@@ -12,6 +12,13 @@ from scipy.stats import sem #standard error of mean = sem(x)
 from scipy.optimize import curve_fit #function curve_fit 
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
+# Funktionsdefinitionen
+
+def I(T, D, I_D):
+  return (T/(2*np.pi))**2 * D - I_D
+
+
+
 # Messwerte
 
 F, phi_Grad, a, T_I_Stab1, T_I_Stab2, T_Kugel, T_Zylinder, T_Puppe_fast, T_Puppe_slow = np.genfromtxt('data.txt', unpack=True) 
@@ -21,6 +28,8 @@ F, phi_Grad, a, T_I_Stab1, T_I_Stab2, T_Kugel, T_Zylinder, T_Puppe_fast, T_Puppe
 #T_Puppe_fast =  Periodendauer Puppe angelegte Arme,
 #T_Puppe_slow = Periodendauer Puppe ausgestreckte Arme
 
+# Berechnungen ##########################################################################################################
+
 phi_Bogen = phi_Grad/180 * np.pi # Umrechnung von Gradmaß in Bogenmaß
 
 T_I_Stab = (T_I_Stab1 + T_I_Stab2)/6
@@ -28,6 +37,17 @@ T_I_Stab = (T_I_Stab1 + T_I_Stab2)/6
 D = (F*a)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
 D_mittelw = np.mean(D) #Bestimmung der Federkonstante
+
+# Berechnung der Trägheitsmomente #####################################################################
+
+# experimenteller Wert des Trägheitsmoment der Kugel
+
+#I_Kugel = I(T_Kugel[0:5], D_mittelw, I_D)
+
+# theoretischer Wert des Trägheitsmoments der Kugel
+
+I_Kugel_Theorie = 2/5 * 1.1685 * 0.146/2
+
 
 # Erstellung der Plots ######################################################################################################################
 
@@ -132,4 +152,4 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
-print(D_mittelw)
+print(I_Kugel_Theorie)
