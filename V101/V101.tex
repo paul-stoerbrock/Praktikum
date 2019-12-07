@@ -23,54 +23,56 @@
 \newpage
 
 % Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\textbf{Ziel}
+\section{\textbf{Ziel}}
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theorie}\justifying
 \begin{align}
     \intertext{Rotationsbewegungen beschreiben Bewegungen bei denen sich eine Massenverteilung
-    um eine Rotationsachse drehen. Dabei werden diese Bewegungen hauptsächlich durch dre Größen
+    um eine Rotationsachse dreht. Dabei werden diese Bewegungen hauptsächlich durch die Größen
     beschrieben: dem Trägheitsmoment $I$, dem Drehmoment $M$ und der Winkelbeschleunigung $\dot{\omega}$.
     Das Trägheitsmoment beschreibt dabei eine skalare Größe, welche ein Maß der Trägheit einer Massenverteilung
-    gegenüber Rotatonen darstellen. Es bildet damit ein Aquivalent zur Masse in Translationsbewegungen.
-    Ein Trägheitsmoment hängt dabei explizit von dem Abstand und der Wahl der Rotationsachse ab.
-    Für eine Punktmasse zum Beispiel lässt sich das Trägheitsmoment durch folgende Formel 
-    beschreiben \cite{V101} :
+    gegenüber Rotationen darstellen. Es bildet damit ein Äquivalent zur Masse in Translationsbewegungen.
+    Ein Trägheitsmoment hängt dabei explizit von dem Abstand zur und der Wahl der Rotationsachse ab.
+    Für eine Punktmasse zum Beispiel, lässt sich das Trägheitsmoment durch folgende Formel 
+    beschreiben \cite{V101}:
     }
-    I = m  r^2 \label{eq:1}
-    \intertext{Für ausgedehnte Massekörper wird diese Formel über infinitesimal kleine Massestücke aufintegriert \cite{V101} :
+    I &= m  r^2 \label{eq:1}
+    \intertext{Für ausgedehnte Massekörper wird diese Formel über infinitesimal kleine Massestücke aufintegriert \cite{V101}:
     }
-    I = \int r^2 \symup{d} \, m \label{eq:2}
-    \intertext{Für einfache Körper lassen sich diese Integrale einfach lösen. 
-    Einige Beispiele für Trägheitsmomente einfacher Körper sind dabei \cite{V101} :
+    I &= \int r^2 \symup{d} \, m \label{eq:2}
+    \intertext{Für homogene Körper lassen sich diese Integrale einfach lösen. 
+    Einige Beispiele für Trägheitsmomente einfacher Körper sind das Trägheitsmoment einer homogenen Vollkugel durch seinen 
+    Mittelpunkt \cite{V101}:
     }
-    I_{\text{Kugel}}= \frac{2}{5} m R^2 \label{eq:3}
-    \intertext{-das Trägheitsmoment einer homogenen Vollkugel durch seinen Mittelpunkt}
-    I_{\text{Zylinder,v}}= \frac{mR^2}{2} \label{eq:4}
-    \intertext{-das Trägheitsmoment eines homogenen Vollzylinders mit der Drehachse durch den  Mittelpunkt des Bodens}
-    I_{\text{Zylinder,h}}= m \left( \frac{R^2}{4}+\frac{h^2}{12} \right) \label{eq:5}
-    \intertext{-das Trägheitsmoment eines homogenen Vollzylinders deren Drehachse senkrecht zum Mantel durch den
-    Schwerpunkt verläuft.
-    Bei komplexeren Körper wird versucht diesen durch eine Zusammensetzung einfacher Körper zu bechreiben.
-    Verläuft die Drehachse parallel zu zu einer Achse durch den Schwerpunkt, wird das Trägheitsmoment
-    mithilfe des Steinerschen Satzes berechnet \cite{V101} :
+    I_{\text{Kugel}} &= \frac{2}{5} m R^2 \label{eq:3}
+    \intertext{Das Trägheitsmoment eines homogenen Vollzylinders mit der Drehachse durch den  Mittelpunkt des Bodens \cite{V101}:
     }
-    I=I_s+m \cdot a^2 \label{eq.6}
+    I_{\text{Zylinder,v}} &= \frac{mR^2}{2} \label{eq:4}
+    \intertext{Und das Trägheitsmoment eines homogenen Vollzylinders deren Drehachse senkrecht zum Mantel durch den
+    Schwerpunkt verläuft \cite{V101}:
+    }
+    I_{\text{Zylinder,h}} &= m \left( \frac{R^2}{4}+\frac{h^2}{12} \right) \label{eq:5}
+    \intertext{Bei komplexeren Körper wird versucht den Schwerpunkt durch eine Zusammensetzung einfacher Körper zu beschreiben.
+    Verläuft die Drehachse parallel zu einer Achse durch den Schwerpunkt, wird das Trägheitsmoment
+    mithilfe des Steinerschen Satzes berechnet \cite{V101}:
+    }
+    I &= I_s+m \cdot a^2 \label{eq.6}
     \intertext{$I_s$ beschreibt dabei das Trägheitsmoment bezüglich der parallelen Drehachse durch den Schwerpunkt.
-    die skalare Größe a stellt dabei den Abstand der beiden parallelen Achsen.
-    Das Drehmoment ist definiert als die Kraft, welche an einem drehenden Körper ansetzt.
-    Beschreiben lässt sich dieser durch \cite{V101} :
+    Die skalare Größe $a$ stellt dabei den Abstand der beiden parallelen Achsen dar.
+    Das Drehmoment ist definiert als die Kraft, welche an einen drehenden Körper ansetzt.
+    Beschreiben lässt sich dieser durch \cite{V101}:
     }
-    \vec{M} = \vec{F} \times \vec{r} \label{eq:7}
+    \vec{M} &= \vec{F} \times \vec{r} \label{eq:7}
     \intertext{Liegt nun ein oszillierendes System vor, welches um einen Winkel $\varphi$
-    ausgelenkt, so wirkt eine Feder eine rücktreibende Kraft der Bewegung entgegen.
-    Die Periodendauer der Schwingung kann dabei beschrieben werden durch \cite{V101} :
+    ausgelenkt wird, so wirkt der Feder eine rücktreibende Kraft der Bewegung entgegen.
+    Die Periodendauer der Schwingung kann dabei beschrieben werden durch \cite{V101}:
     }
-    T=2 \pi \sqrt{\frac{I}{D}} \label{eq:8}
-    \intertext{Wobei das Dremoment und die Winkelrichtgröße in folgender Beziehung
-    stehen \cite{V101} :
+    T &= 2 \pi \sqrt{\frac{I}{D}} \label{eq:8}
+    \intertext{Wobei das Dremoment $M$ und die Winkelrichtgröße $D$ in folgender Beziehung
+    stehen \cite{V101}:
     }
-    M = D \cdot \varphi \label{eq:9}
+    M &= D \cdot \varphi \label{eq:9}
 \end{align}
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,17 +80,19 @@
 Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler verwendet:
 \begin{subequations}
 \begin{align}
-\intertext{Den Mittelwert wird berechnet mit}
-     \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:10a}.
-\intertext{Der Fehler des Mittelwerts wird berechnet mit}
-        \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:10b},
-\intertext{Die Gaußsche Fehlerfortpflanzung wird mit der folgenden Formel berechnet} \text{und}
-        \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:10c}
-        \intertext{verwendet.}
+\intertext{Der Mittelwert wird berechnet mit:
+}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:10a}.
+\intertext{Der Fehler des Mittelwerts wird berechnet:
+}
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:10b},
+\intertext{Und die Gaußsche Fehlerfortpflanzung wird mit der folgenden Formel berechnet:
+}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:10c}
 \intertext{Zur Berechnung von Ausgleichsgeraden werden dabei}
         y &= m \cdot x + b \label{eq:10d} \\ 
         m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10e} \qquad \qquad\\
-        b = \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10f}
+        b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10f}
 \end{align}
 \end{subequations}
 
@@ -118,16 +122,17 @@ Neben dem Trägheitsmoment der Drehachse ist die Federkonstante der Spiralfeder 
 werden die Massen an der Stabachse abgenommen und die Stabachse um $\SI{90}{\degree}$ ausgelenkt. Nun wird mit dem Newtonmeter an einem konstanten Abstant von 
 $\SI{30}{\centi\meter}$ zur Mitte die Kraft, welche die ausgelenkte Spiralfeder auf die Stabachse ausübt, aufgenommen. Dabei wird das Newtonmeter
 senkrecht zur Stabachse gehalten. Anschließend werden die Kräfte für eine schrittweise Erhöhung des Auslenkwinkels um $\SI{10}{\degree}$ gemessen.
-Aus den gemessenen Werten wird der Mittelwert mit der Mittelwertsformel \eqref{eq:7a} bestimmt, welcher die Federkonstante beschreibt.\\
+Aus den gemessenen Werten wird der Mittelwert mit der Mittelwertsformel \eqref{eq:10a} bestimmt, welcher die Federkonstante beschreibt.\\
 Nachdem Federkonstante und Trägheitsmoment der Drehachse bestimmt wurden, können die Trägheitsmomente des Zylinders, der Kugel und der Puppe
 errechnet werden. Für die Kugel wurden fünf Werte für die Schwingdauer einer Periode $T$ bei einem konstanten Winkel von $\SI{20}{\degree}$ erfasst.
 Für den Zylinder werden ebenfalls fünf Messwerte für eine Periode aufgenommen, bei einem konstanten Winkel von $\SI{10}{\degree}$. 
 Zuletzt werden die Schwingperioden der Puppe in Position 1 (Arme angelegt) und Position 2 (Arme ausgestreckt) gemessen. Dafür wurde der Auslenkwinkel
 bei $\SI{10}{\degree}$ konstant gehalten. Um bei einer kurzen Schwingdauer verlässliche Messwerte zu erhalten, wurde die Zeitlupenfunktion einer 
 Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr, welche den zeitlichen Verlauf der Schwingung verdeutlicht.\\
-Die Puppe wurde als eine Kombination aus sechs Zylindern approximiert. 
-Zum Bestimmen der einzelnen Trägheitsmomente werden die Formeln [...] gebraucht. Das Trägheitsmoment der Zylinder lässt sich mit den Formeln [...]
-berechnen, das Trägheitsmoment der Kugel mit den Formeln [...].
+Die Puppe wurde als eine Kombination aus sechs Zylindern approximiert.
+Das Trägheitsmoment der Zylinder lässt sich mit den Formeln \eqref{eq:4} und \eqref{eq:5} berechnen, das Trägheitsmoment der Kugel mit den Formeln \eqref{eq:3}.
+Um die Masse der einzelnen Zylinder der Puppe zu bestimmen werden die Dichte des Holzes \cite{Holzdichte} $\rho=\SI{780}{\kilo\gram\per\cubic\meter}$
+und die Formel $m = \rho \cdot V$ verwendet.
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Auswertung}\justifying
 
