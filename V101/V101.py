@@ -257,7 +257,7 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f}  \\'
+row_template = r'     {0:1.0f} & {1:1.2f} & {2:1.0f} & {3:1.2f}  \\'
 
 # Tabelle für Winkelrichtgröße D wird im Tex Format geschrieben ############################################################################################################################################################################
 
@@ -307,7 +307,7 @@ table_header = r'''
     {$T_{\text{Kugel}} \:/\: \si{\second}$} & {$T_{\text{Zylinder}} \:/\: \si{\second}$} &
     {$T_{\text{Puppe,an}} \:/\: \si{\second}$} & {$T_{\text{Puppe,aus}} \:/\: \si{\second}$} \\
 
-    \cmidrule(lr{0,5em}){1} \cmidrule(lr{0,5em}){2} \cmidrule(lr{0,5em}){3} \cmidrule(lr{0,5em}){4}
+    \cmidrule(lr{0,5em}){1-4}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
