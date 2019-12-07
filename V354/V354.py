@@ -14,9 +14,6 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 #Funktionen
 
-def SI(W ,F ,NW ,NF ):
-    return ' '
-
 
 #Auswertungsfunktionen
 
