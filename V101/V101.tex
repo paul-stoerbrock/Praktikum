@@ -140,34 +140,34 @@ und die Formel $m = \rho \cdot V$ verwendet.
 
 \includegraphics[width=\textwidth]{plot.pdf}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \input{table_D.tex}
     \caption{Tabelle der Messwerte für die Federkonstante $D$}
     \label{tab:D}
 \end{table}
 
-%\begin{table} % Diese Tabelle kann nicht ausgegeben werden (vermutlich ein Fehler in der .py Datei)
-%    \centering
-%    \input{table_I.tex}
-%    \caption{Tabelle der Messwerte für }
-%    \label{tab:I}
-%\end{table}
+\flushleft{Die\;}\justifying Federkonstante der Drehachse ist:
+\input{D_mean.tex} % Federkonstante
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \input{table_IStab.tex}
     \caption{Tabelle der Messwerte für das Trägheitsmoment der Stabachse $I_D$}
     \label{tab:IStab}
 \end{table}
 
-\flushleft{Die\;}\justifying Federkonstante der Drehachse ist:
-\input{D_mean.tex} % Federkonstante
-
 \flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist:
 \input{I_D.tex} % Trägheitsmoment Drehachse
 
 \subsection{Zylinder}\justifying
+
+\begin{table}[H]
+    \centering
+    \input{table_I.tex}
+    \caption{Tabelle der Messwerte für die Perioden $T$ der einzelnen Körper}
+    \label{tab:I}
+\end{table}
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment des Zylinders ist:
 \input{I_Zylinder_mean.tex}
