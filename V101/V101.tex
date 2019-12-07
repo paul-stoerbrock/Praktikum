@@ -15,7 +15,7 @@
     
     \begin{abstract}
     \centering
-        \textbf{Ziel: Messung des Trägheitsmoment verschiedener Körper und Nachweis des Satzes von Steiner} 
+        \textbf{Ziel:} Messung des Trägheitsmoments verschiedener Körper und Nachweis des Satzes von Steiner
     \end{abstract}
 
 \newpage
@@ -138,11 +138,78 @@ und die Formel $m = \rho \cdot V$ verwendet.
 
 \subsection{Drehachse}\justifying
 
+\includegraphics[width=\textwidth]{plot.pdf}
+
+\begin{table}[h]
+    \centering
+    \input{table_D.tex}
+    \caption{Tabelle der Messwerte für die Federkonstante $D$}
+    \label{tab:D}
+\end{table}
+
+%\begin{table} % Diese Tabelle kann nicht ausgegeben werden (vermutlich ein Fehler in der .py Datei)
+%    \centering
+%    \input{table_I.tex}
+%    \caption{Tabelle der Messwerte für }
+%    \label{tab:I}
+%\end{table}
+
+\begin{table}[h]
+    \centering
+    \input{table_IStab.tex}
+    \caption{Tabelle der Messwerte für das Trägheitsmoment der Stabachse $I_D$}
+    \label{tab:IStab}
+\end{table}
+
+\flushleft{Die\;}\justifying Federkonstante der Drehachse ist:
+\input{D_mean.tex} % Federkonstante
+
+\flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist:
+\input{I_D.tex} % Trägheitsmoment Drehachse
+
 \subsection{Zylinder}\justifying
+
+\flushleft{Das\;}\justifying errechnete Trägheitsmoment des Zylinders ist:
+\input{I_Zylinder_mean.tex}
+
+\flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders ist:
+\input{I_Zylinder_Theorie.tex}
+
+\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments vom Zylinder ist:
+\input{RF_I_Zylinder.tex}
 
 \subsection{Kugel}\justifying
 
-\subsection{Puppe}\justifying
+\flushleft{Das\;}\justifying errechnete Trägheitsmoment der Kugel ist:
+\input{I_Kugel_mean.tex}
+
+\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Kugel ist:
+\input{I_Kugel_Theorie.tex}
+
+\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
+\input{RF_I_Kugel.tex}
+
+\subsection{Puppe (Position 1)}\justifying
+
+\flushleft{Das\;}\justifying errechnete Trägheitsmoment der Puppe in Position 1 ist:
+\input{I_Puppe_an_exp_mean.tex}
+
+\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Puppe in Position 1 ist:
+\input{I_Puppe_an_theo.tex}
+
+\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
+\input{RF_I_Puppe_an.tex}
+
+\subsection{Puppe (Position 2)}\justifying
+
+\flushleft{Das\;}\justifying errechnete Trägheitsmoment der Puppe in Position 2 ist:
+\input{I_Puppe_aus_exp_mean.tex}
+
+\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Puppe in Position 2 ist:
+\input{I_Puppe_aus_theo.tex}
+
+\flushleft{Das\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 2 ist:
+\input{RF_I_Puppe_aus.tex}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Diskussion}\justifying
