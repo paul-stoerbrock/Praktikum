@@ -41,7 +41,7 @@ F, phi_Grad, a, T_I_Stab1, T_I_Stab2, T_Kugel, T_Zylinder, T_Puppe_fast, T_Puppe
 
 phi_Bogen = phi_Grad/180 * np.pi # Umrechnung von Gradmaß in Bogenmaß
 
-T_I_Stab = (T_I_Stab1 + T_I_Stab2)/6
+T_I_Stab = (np.round(T_I_Stab1,1) + np.round(T_I_Stab2))/6
 
 D = (F*30)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
@@ -63,8 +63,8 @@ I_D = intercept * (4*np.pi)/D_mittelw *1e-05
 
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
-I_Zylinder = I(T_Zylinder[0:5], D_mittelw, I_D, 0, 0)*1e-05
-I_Zylinder_mean = np.mean(I_Zylinder)*1e+06
+I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D, 0, 0)*1e-05
+I_Zylinder_mean = np.mean(I_Zylinder)
 
 # theoretischer Wert des Trägheitsmoments des Zylinders
 
@@ -72,7 +72,7 @@ I_Zylinder_Theorie = 1525.5*((4**2)/4+(13.95**2)/12)*1e-05
 
 # experimenteller Wert des Trägheitsmoment der Kugel
 
-I_Kugel = I(T_Kugel[0:5], D_mittelw, I_D, 0, 0)
+I_Kugel = I(np.round(T_Kugel[0:5],1), D_mittelw, I_D, 0, 0)
 I_Kugel_mean = np.mean(I_Kugel)
 
 # theoretischer Wert des Trägheitsmoments der Kugel
@@ -90,7 +90,7 @@ I_Puppe_an_theo = (m_Torso * (3.89/2)**2/2 + m_Kopf * (3.265/2)**2/2 + 2 * m_Bei
 
 # experimenteller Wert des Trägheitsmoment der Puppe Arme angelegt
 
-I_Puppe_an_exp = (2 * I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Arm, 1.65/2 + 3.89/2) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Torso, 0) + 2* I(T_Puppe_fast[0:5], D_mittelw, I_D,2 * m_Bein, 0))*1e-05
+I_Puppe_an_exp = (2 * I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Arm, 1.65/2 + 3.89/2) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Torso, 0) + 2* I(T_Puppe_fast[0:5], D_mittelw, I_D,2 * m_Bein, 2.18/2))*1e-05
 I_Puppe_an_exp_mean = np.mean(I_Puppe_an_exp)
 
 # theoretischer Wert des Trägheitsmoment der Puppe Arme ausgestreckt
@@ -99,7 +99,7 @@ I_Puppe_aus_theo = (m_Torso * (3.89/2)**2/2 + m_Kopf * (3.265/2)**2/2 + 2 * m_Be
 
 # experimanteller Wert des Trägheitsmoment der Puppe Arme ausgestreckt
 
-I_Puppe_aus_exp =(2 * I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Arm, 13.25/2 + 3.89/2) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Torso, 0) + 2* I(T_Puppe_slow[0:5], D_mittelw, I_D,2 * m_Bein, 0))*1e-05
+I_Puppe_aus_exp =(2 * I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Arm, 13.25/2 + 3.89/2) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Torso, 0) + 2* (I(T_Puppe_slow[0:5], D_mittelw, I_D,2 * m_Bein, 2.18/2)))*1e-05
 I_Puppe_aus_exp_mean = np.mean(I_Puppe_aus_exp)
 
 
@@ -107,19 +107,19 @@ I_Puppe_aus_exp_mean = np.mean(I_Puppe_aus_exp)
 
 # Relativer Fehler von I_Zylinder
 
-RF_I_Zylinder = (abs(I_Zylinder_mean) - I_Zylinder_Theorie)/I_Zylinder_Theorie
+RF_I_Zylinder = (I_Zylinder_mean - I_Zylinder_Theorie)/I_Zylinder_Theorie
 
 # Relativer Fehler von I_Kugel
 
-RF_I_Kugel = (abs(I_Kugel_mean)-I_Kugel_Theorie)/I_Kugel_Theorie
+RF_I_Kugel = (I_Kugel_mean-I_Kugel_Theorie)/I_Kugel_Theorie
 
 # Relativer Fehler von I_Puppe_an
 
-RF_I_Puppe_an = (abs(I_Puppe_an_exp_mean)-I_Puppe_an_theo)/I_Puppe_an_theo
+RF_I_Puppe_an = (I_Puppe_an_exp_mean-I_Puppe_an_theo)/I_Puppe_an_theo
 
 # Relativer Fehler von I_Puppe_aus
 
-RF_I_Puppe_aus = (abs(I_Puppe_aus_exp_mean)-I_Puppe_aus_theo)/I_Puppe_aus_theo
+RF_I_Puppe_aus = (I_Puppe_aus_exp_mean-I_Puppe_aus_theo)/I_Puppe_aus_theo
 
 
 # Erstellung der Plots ######################################################################################################################
@@ -275,26 +275,27 @@ with open('build/table_D.tex', 'w') as g:
 #Tabelle für Trägheitsmoment Stab
 
 table_header = r'''
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c c c c}
     \toprule
-    {$a \:/\: \si{\centi\meter}$} & {$T_{Stab} \:/\: \si{\second}$} &
-    {$a \:/\: \si{\centi\meter}$} & {$T_{Stab} \:/\: \si{\second}$} \\
+    {$a \:/\: \si{\centi\meter}$} & {$T_{Stab1} \:/\: \si{\second}$} & {$T_{Stab2} \:/\: \si{\second}$} &
+    {$a \:/\: \si{\centi\meter}$} & {$T_{Stab1} \:/\: \si{\second}$} & {$T_{Stab2} \:/\: \si{\second}$} \\
    
 
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f}  \\'
+row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f}  \\'
 
 # Tabelle für Trägheitsmoment Stab wird im Tex Format geschrieben ############################################################################################################################################################################
 a1,a2 = np.array_split(a[0:10],2)
-T_I_Stab1, T_I_Stab2 = np.array_split(T_I_Stab[0:10], 2)
+T_I_Stab11, T_I_Stab12 = np.array_split(T_I_Stab1[0:10], 2)
+T_I_Stab21, T_I_Stab22 = np.array_split(T_I_Stab2[0:10], 2)
 
 with open('build/table_IStab.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(a1, T_I_Stab1, a2, T_I_Stab2):
+    for row in zip(a1, T_I_Stab11,T_I_Stab21, a2, T_I_Stab12, T_I_Stab22):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -326,12 +327,9 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
-print(I_D)
-print(I_Zylinder_Theorie)
-print(I_Zylinder_mean)
 print(I_Kugel_mean)
-print(I_Kugel_Theorie)
-print(RF_I_Zylinder)
-print(RF_I_Kugel)
-print(RF_I_Puppe_an)
-print(RF_I_Puppe_aus)
+print(I_Zylinder_mean)
+print(I_Puppe_an_exp_mean)
+print(I_Puppe_aus_exp_mean)
+
+
