@@ -103,7 +103,7 @@ Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler 
 Benötigt werden: \textit{Eine Drehachse die durch eine Spiralfeder mit einem festen Rahmen verbunden ist, eine Stabachse der Länge $\SI{62}{\centi\meter}$, 
 zwei identische zylindrische Gewichte ($\SI{261.5}{\gram}$), eine Kugel mit Aufsatz (m=$\SI{1168.5}{\gram}$, r=$\SI{7.3}{\centi\meter}$), einen Zylinder mit 
 Aufsatz (m=$\SI{1525.5}{\gram}$, h=$\SI{13,95}{\centi\meter}$, d=$\SI{8}{\centi\meter}$), eine Holzpuppe mit Aufsatz ($\rho=\SI{780}{\kilo\gram\per\cubic\meter}$), 
-ein Newtonmeter (von $\SI{0.1}{\newton}$ bis $\SI{1}{\newton}$), ein Ma\ss band, eine Schieblehre, eine Stopuhr.}\\
+ein Newtonmeter (von $\SI{0.1}{\newton}$ bis $\SI{1}{\newton}$), eine Drehwinkel-Messscheibe, ein Ma\ss band, eine Schieblehre, eine Stopuhr.}\\
 Zu Beginn wird die Stabachse horizontal auf der Drehachse befestigt. An beiden Enden der Stabachse werden die beiden zylindrischen Gewichte angebracht.
 Anschließend wird die Kugel auf die Drehachse gesteckt.
 Der Zylinder wird längs auf der Drehachse aufgesteckt. 
@@ -115,30 +115,25 @@ Armen, auf der Drehachse befestigt.
 
 Um die Trägheitsmomente der einzelnen Körper zu berechnen, soll zuerst das Trägheitsmoment der Drehachse bestimmt werden. Infolgedessen wird die
 Stabachse auf der Drehachse befestigt. Die beiden zylindrischen Gewichte werden mit einem Abstand von $\SI{25}{\centi\meter}$ zur Mitte an beiden 
-Enden der Stabachse angebracht. Daraufhin wird die Stabachse um einen konstantbleibenden Winkel $\varphi = \SI{20}{\degree}$ ausgelenkt. Dies wird
-für jede Reduzierung des Abstandes um $\SI{2.5}{\centi\meter}$ wiederholt, bis beide Massen bei einem Abstand von $\SI{2.5}{\centi\meter}$ zur Mitte 
-angekommen sind.\\
+Enden der Stabachse angebracht. Daraufhin wird die Stabachse um einen konstanten Winkel $\varphi = \SI{20}{\degree}$ ausgelenkt und die Periodendauer mithilfe
+einer Stoppuhr über drei Perioden genau zweimal gemessen. Dies wird für jede Reduzierung des Abstandes um $\SI{2.5}{\centi\meter}$ wiederholt, bis beide 
+Massen bei einem Abstand von $\SI{2.5}{\centi\meter}$ zur Mitte angekommen sind.\\
 Neben dem Trägheitsmoment der Drehachse ist die Federkonstante der Spiralfeder für die folgenden Trägheitsmomente wichtig. Um diese zu bestimmen 
-werden die Massen an der Stabachse abgenommen und die Stabachse um $\SI{90}{\degree}$ ausgelenkt. Nun wird mit dem Newtonmeter an einem konstanten Abstant von 
-$\SI{30}{\centi\meter}$ zur Mitte die Kraft, welche die ausgelenkte Spiralfeder auf die Stabachse ausübt, aufgenommen. Dabei wird das Newtonmeter
-senkrecht zur Stabachse gehalten. Anschließend werden die Kräfte für eine schrittweise Erhöhung des Auslenkwinkels um $\SI{10}{\degree}$ gemessen.
-Aus den gemessenen Werten wird der Mittelwert mit der Mittelwertsformel \eqref{eq:10a} bestimmt, welcher die Federkonstante beschreibt.\\
+werden die Massen von der Stabachse genommen und diese um einen Winkel von $\SI{90}{\degree}$  ausgelenkt. Nun wird das Newtonmeter an einem konstanten Abstand von 
+$\SI{30}{\centi\meter}$ zur Mitte angesetzt und die Kraft der Spiralfeder übers Newtonmeter aufgenommen. Dabei wird das Newtonmeter
+senkrecht zum Radius der Kreisbahn gehalten Anschließend werden die Kräfte für eine schrittweise Erhöhung des Auslenkwinkels um $\SI{10}{\degree}$ gemessen,
+bis der ein Wert von $\SI{260}{\degree}$ erreicht wird.\\
 Nachdem Federkonstante und Trägheitsmoment der Drehachse bestimmt wurden, können die Trägheitsmomente des Zylinders, der Kugel und der Puppe
-errechnet werden. Für die Kugel wurden fünf Werte für die Schwingdauer einer Periode $T$ bei einem konstanten Winkel von $\SI{20}{\degree}$ erfasst.
+errechnet werden. Für die Kugel werden fünf Werte für die Schwingdauer einer Periode $T$ bei einem konstanten Winkel von $\SI{20}{\degree}$ erfasst.
 Für den Zylinder werden ebenfalls fünf Messwerte für eine Periode aufgenommen, bei einem konstanten Winkel von $\SI{10}{\degree}$. 
 Zuletzt werden die Schwingperioden der Puppe in Position 1 (Arme angelegt) und Position 2 (Arme ausgestreckt) gemessen. Dafür wurde der Auslenkwinkel
 bei $\SI{10}{\degree}$ konstant gehalten. Um bei einer kurzen Schwingdauer verlässliche Messwerte zu erhalten, wurde die Zeitlupenfunktion einer 
 Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr, welche den zeitlichen Verlauf der Schwingung verdeutlicht.\\
-Die Puppe wurde als eine Kombination aus sechs Zylindern approximiert.
-Das Trägheitsmoment der Zylinder lässt sich mit den Formeln \eqref{eq:4} und \eqref{eq:5} berechnen, das Trägheitsmoment der Kugel mit den Formeln \eqref{eq:3}.
-Um die Masse der einzelnen Zylinder der Puppe zu bestimmen werden die Dichte des Holzes \cite{Holzdichte} $\rho=\SI{780}{\kilo\gram\per\cubic\meter}$
-und die Formel $m = \rho \cdot V$ verwendet.
+
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Auswertung}\justifying
 
-\subsection{Drehachse}\justifying
-
-\includegraphics[width=\textwidth]{plot.pdf}
+\subsection{Drehachse}\justifying % Drehachse ---------------------------------------------------------------------------------------------------------
 
 \begin{table}[H]
     \centering
@@ -147,8 +142,24 @@ und die Formel $m = \rho \cdot V$ verwendet.
     \label{tab:D}
 \end{table}
 
-\flushleft{Die\;}\justifying Federkonstante der Drehachse ist:
-\input{D_mean.tex} % Federkonstante
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{plot.pdf}
+    \caption{Lineare Regression für $I_{Stab}$}
+    \label{fig:1}
+\end{figure}
+
+\flushleft{Die\;}\justifying Steigung $m$ und der Schnittpunkt der y-Achse $b$ sehen folgendermaßen aus:
+
+\begin{subequations}
+\begin{align}
+m &= \text{\input{slope.tex}}\label{eq:11a}\\
+b &= \text{\input{intercept.tex}}\label{eq:11b}
+\end{align}
+\end{subequations}
+
+\flushleft{Die\;}\justifying Federkonstante der Spiralfeder ist:
+\input{D_mean.tex} % Federkonstante der Spiralfeder
 
 \begin{table}[H]
     \centering
@@ -160,7 +171,7 @@ und die Formel $m = \rho \cdot V$ verwendet.
 \flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist:
 \input{I_D.tex} % Trägheitsmoment Drehachse
 
-\subsection{Zylinder}\justifying
+\subsection{Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
 
 \begin{table}[H]
     \centering
@@ -178,7 +189,7 @@ und die Formel $m = \rho \cdot V$ verwendet.
 \flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments vom Zylinder ist:
 \input{RF_I_Zylinder.tex}
 
-\subsection{Kugel}\justifying
+\subsection{Kugel}\justifying % Kugel ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment der Kugel ist:
 \input{I_Kugel_mean.tex}
@@ -189,7 +200,17 @@ und die Formel $m = \rho \cdot V$ verwendet.
 \flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
 \input{RF_I_Kugel.tex}
 
-\subsection{Puppe (Position 1)}\justifying
+\subsection{Puppe (Position 1)}\justifying % Puppe 1 ---------------------------------------------------------------------------------------------------------
+
+Die Massen der einzelnen Zylinder sind wie folgt:
+\begin{subequations}
+\begin{align}
+\text{Kopf: \input{m_Kopf.tex}}\label{eq:Kopf}\\
+\text{Torso: \input{m_Torso.tex}}\label{eq:Torso}\\
+\text{Arm: \input{m_Arm.tex}}\label{eq:Arm}\\
+\text{Bein: \input{m_Bein.tex}}\label{eq:Bein}
+\end{align}
+\end{subequations}
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment der Puppe in Position 1 ist:
 \input{I_Puppe_an_exp_mean.tex}
@@ -200,7 +221,7 @@ und die Formel $m = \rho \cdot V$ verwendet.
 \flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
 \input{RF_I_Puppe_an.tex}
 
-\subsection{Puppe (Position 2)}\justifying
+\subsection{Puppe (Position 2)}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment der Puppe in Position 2 ist:
 \input{I_Puppe_aus_exp_mean.tex}

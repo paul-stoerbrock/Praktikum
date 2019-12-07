@@ -64,7 +64,7 @@ I_D = intercept * (4*np.pi)/D_mittelw *1e-05
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
 I_Zylinder = I(T_Zylinder[0:5], D_mittelw, I_D, 0, 0)*1e-05
-I_Zylinder_mean = np.mean(I_Zylinder)
+I_Zylinder_mean = np.mean(I_Zylinder)*1e+06
 
 # theoretischer Wert des Trägheitsmoments des Zylinders
 
@@ -157,7 +157,7 @@ with open('build/intercept.tex', 'w') as f:
 # tex file of I_D
 
 with open ('build/I_D.tex', 'w') as f:
-  f.write(make_SI(I_D, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_D*1e03, r'\kilo\gram\meter\square',  exp='1e-03', figures=2))
 
 # tex file of I_Zylinder_mean
 
@@ -207,7 +207,7 @@ with open ('build/I_Puppe_an_theo.tex', 'w') as f:
 # tex file of I_Puppe_an_exp_mean
 
 with open ('build/I_Puppe_an_exp_mean.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_an_exp_mean, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Puppe_an_exp_mean*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=2))
 
 # tex file of I_Puppe_aus_theo
 
@@ -222,22 +222,22 @@ with open ('build/I_Puppe_aus_exp_mean.tex', 'w') as f:
 # tex file of RF_I_Zylinder
 
 with open ('build/RF_I_Zylinder.tex', 'w') as f:
-  f.write(make_SI(RF_I_Zylinder, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(RF_I_Zylinder, r'', figures=2))
 
 # tex file of RF_I_Kugel
 
 with open ('build/RF_I_Kugel.tex', 'w') as f:
-  f.write(make_SI(RF_I_Kugel, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(RF_I_Kugel, r'', figures=2))
 
 # tex file of RF_I_Puppe_an
 
 with open ('build/RF_I_Puppe_an.tex', 'w') as f:
-  f.write(make_SI(RF_I_Puppe_an, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(RF_I_Puppe_an, r'', figures=2))
 
 # tex file of RF_I_Puppe_aus
 
 with open ('build/RF_I_Puppe_aus.tex', 'w') as f:
-  f.write(make_SI(RF_I_Puppe_aus, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(RF_I_Puppe_aus, r'', figures=2))
 
 
 # Tabellen #############################################################################################################
@@ -307,7 +307,7 @@ table_header = r'''
     {$T_{\text{Kugel}} \:/\: \si{\second}$} & {$T_{\text{Zylinder}} \:/\: \si{\second}$} &
     {$T_{\text{Puppe,an}} \:/\: \si{\second}$} & {$T_{\text{Puppe,aus}} \:/\: \si{\second}$} \\
 
-    \cmidrule(lr{0,5em}){1-4}
+    \cmidrule(lr{0,5em}){1-1} \cmidrule(lr{0,5em}){2-2} \cmidrule(lr{0,5em}){3-3} \cmidrule(lr{0,5em}){4-4}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
@@ -326,6 +326,7 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
+print(I_D)
 print(I_Zylinder_Theorie)
 print(I_Zylinder_mean)
 print(I_Kugel_mean)
