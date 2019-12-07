@@ -47,9 +47,12 @@ D = (F*30)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
 D_mittelw = np.mean(D) # Bestimmung der Federkonstante
 
+
+
 # Lineare Regression zur Bestimmung des Trägheitsmoments der Drehachse
 
 slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_I_Stab[0:10]**2)
+
 
 
 # Berechnung der Trägheitsmomente #####################################################################
