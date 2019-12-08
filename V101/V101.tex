@@ -22,9 +22,6 @@
 \tableofcontents
 \newpage
 
-% Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\textbf{Ziel}}
-
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theorie}\justifying
 \begin{align}
@@ -56,12 +53,14 @@
     \intertext{Bei komplexeren Körper wird versucht den Schwerpunkt durch eine Zusammensetzung einfacher Körper zu beschreiben.
     Verläuft die Drillachse parallel zu einer Achse durch den Schwerpunkt, wird das Trägheitsmoment
     mithilfe des Steinerschen Satzes berechnet \cite{V101}:
+    \newline
     }
     I &= I_s+m \cdot a^2 \label{eq:6}
     \intertext{$I_s$ beschreibt dabei das Trägheitsmoment bezüglich der parallelen Drillachse durch den Schwerpunkt.
     Die skalare Größe $a$ stellt dabei den Abstand der beiden parallelen Achsen dar.
     Das Drehmoment ist definiert als die Kraft, welche an einen drehenden Körper ansetzt.
     Beschreiben lässt sich dieser durch \cite{V101}:
+    \newline
     }
     \vec{M} &= \vec{F} \times \vec{r} \label{eq:7}
     \intertext{Liegt nun ein oszillierendes System vor, welches um einen Winkel $\varphi$
@@ -91,7 +90,7 @@ Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler 
     \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:10c}
 \intertext{Zur Berechnung von Ausgleichsgeraden werden dabei}
         y &= m \cdot x + b \label{eq:10d} \\ 
-        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10e} \qquad \qquad\\
+        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10e}\\
         b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10f}
 \end{align}
 \end{subequations}
@@ -163,29 +162,28 @@ Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr,
 
 \subsection{Die Drillachse}\justifying % Drillachse ---------------------------------------------------------------------------------------------------------
 
-\flushleft{Um\;}\justifying das Trägheitsmoment der Drillachse zu bestimmen wird die Formel \eqref{eq:8} nach I umgestellt und mit Formel % Trägheitsmoment I_D ---------------------------------------------------------------------------------------------------------
+\begin{align}
+\intertext{\flushleft{Um\;}\justifying das Trägheitsmoment der Drillachse zu bestimmen wird die Formel \eqref{eq:8} nach I umgestellt und mit Formel % Trägheitsmoment I_D ---------------------------------------------------------------------------------------------------------
 \eqref{eq:6} gleichgesetzt. Die resultierende Gleichung sieht aus wie folgt:
-\begin{equation}
-T^2 = I_S \cdot \frac{4\pi^2}{D} + \frac{m_k \cdot 4\pi^2}{D} \cdot a^2\label{eq:11}
-\end{equation} 
-Hierbei wird festgestellt, dass
-\begin{align}
-    b=I_S \cdot \frac{4\pi^2}{D} \label{eq:12}
-\end{align}
-entspricht.\\
+}
+T^2 = I_S \cdot \frac{4\pi^2}{D} &+ \frac{m_k \cdot 4\pi^2}{D} \cdot a^2 \label{eq:11}
+\intertext{Hierbei wird festgestellt, dass
+}
+b &= I_S \cdot \frac{4\pi^2}{D} \label{eq:12}
+\intertext{entspricht.
 Daraus folgt für das Trägheitsmoment der Drillachse:
-\begin{align}
-    I_D = \frac{b \cdot D}{4 \pi^2} \label{eq:13}
+}
+I_D &= \frac{b \cdot D}{4 \pi^2} \label{eq:13}
 \end{align}
 
 \begin{table}[H]
     \centering
     \input{table_IStab.tex}
     \caption{Tabelle der Messwerte für das Trägheitsmoment der Stabachse $I_D$}
-    \label{tab:IStab}
+    \label{tab:1}
 \end{table}
 
-\flushleft{Für} die Berechnung wurden zwei Werte der Periodendauer für einen Abstand gemessen und in der Tabelle \ref{tab:IStab}
+\flushleft{Für} die Berechnung wurden zwei Werte der Periodendauer für einen Abstand gemessen und in der Tabelle \ref{tab:1}
 zusammengetragen. Diese zwei Werte wurden gemittelt und auf eine Periode normiert.
 
 \flushleft{Mithilfe\;}\justifying der Formel \eqref{eq:12} und dem Pyton Befehl linregress() \cite{numpy} lässt sich die Geradengleichung
@@ -224,12 +222,12 @@ D = \frac{F\cdot r}{\varphi}\label{eq:16}
     \centering
     \input{table_D.tex}
     \caption{Tabelle der Messwerte für die Winkelrichtgröße $D$}
-    \label{tab:D}
+    \label{tab:2}
 \end{table}
 
 
 \flushleft{Die\;}\justifying Winkelrichtgröße der Spiralfeder berechnet sich aus dem Mittelwert \eqref{eq:10a} der einzelnen Winkelrichtgrößen aus 
-Formel \eqref{eq:12} mit den Werten aus Tabelle \ref{tab:D} und ergibt:
+Formel \eqref{eq:12} mit den Werten aus Tabelle \ref{tab:2} und ergibt:
 
 \begin{equation}
 \overline{D} = \text{\input{D_mean.tex}} \label{eq:17} % Federkonstante der Spiralfeder
@@ -240,7 +238,7 @@ berechnen zu können, muss bedacht werden, dass sich das Trägheitsmoment im Sch
 aus $I_D$ und dem Trägheitsmoment des Körpers $I_K$ zusammensetzt. Dadurch ergibt sich 
 für $I_K$:
 \begin{align}
-    I_K = \frac{T^2 \cdot D}{4 \pi^2}-ma^2-I_D
+    I_K = \frac{T^2 \cdot D}{4 \pi^2}-ma^2-I_D\label{eq:18}
 \end{align}
 
 \subsection{Der Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
@@ -249,39 +247,45 @@ für $I_K$:
     \centering
     \input{table_I.tex}
     \caption{Tabelle der Messwerte für die Perioden $T$ der einzelnen Körper}
-    \label{tab:I}
+    \label{tab:3}
 \end{table}
 
-
-\flushleft{Für\;}\justifying den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:11} nach $I_S$ umgestellt.
-Die Werte für die Periodendauer aus der Tabelle \ref{tab:I} wurden auf für die folgenden Berechnungen auf eine Nachkommastelle gerundet.
-Daraus folgt das errechnete Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:I} und einer Masse von $\SI{1525.5}{\gram}$:
-\begin{equation}
-I_{Zy, exp.} = \input{I_Zylinder_mean.tex}\label{eq:18}
-\end{equation}
-
-\flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders wurde mit der Formel \eqref{eq:5} und den Werten für $T$ aus Tabelle 
-\ref{tab:I} bestimmt und lautet:
-\begin{equation}
-I_{Zy, lit.} = \input{I_Zylinder_Theorie.tex}\label{eq:19}
-\end{equation}
-
-\flushleft{Der\;}\justifying daraus resultierende relative Fehler des Trägheitsmoments vom Zylinder beträgt:
-\begin{equation}
-\frac{I_{Zy, exp.} - I_{Zy, lit.}}{I_{Zy, lit.}} = \input{RF_I_Zylinder.tex}\label{eq:20}
-\end{equation}
-\newpage
+\begin{subequations}
+\begin{align}
+\intertext{\flushleft{Für\;}\justifying den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:11} nach $I_S$ umgestellt.
+Die Werte für die Periodendauer aus der Tabelle \ref{tab:3} wurden für alle folgenden Berechnungen auf eine Nachkommastelle gerundet.
+Daraus folgt das errechnete Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:3} und einer Masse von $\SI{1525.5}{\gram}$:
+}
+I_{Zy, exp.} &= \input{I_Zylinder_mean.tex}\label{eq:19a}
+\intertext{\flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders wurde mit der Formel \eqref{eq:5} und den Werten für $T$ aus Tabelle 
+\ref{tab:3} bestimmt und lautet:
+\newline
+}
+I_{Zy, lit.} &= \input{I_Zylinder_Theorie.tex}\label{eq:19b}
+\intertext{\flushleft{Der\;}\justifying daraus resultierende relative Fehler des Trägheitsmoments vom Zylinder beträgt:
+\newline
+}
+\frac{I_{Zy, exp.} - I_{Zy, lit.}}{I_{Zy, lit.}} &= \input{RF_I_Zylinder.tex}\label{eq:19c}
+\end{align}
+\end{subequations}
 
 \subsection{Die Kugel}\justifying % Kugel ---------------------------------------------------------------------------------------------------------
 
-\flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Kugel ist:
-\input{I_Kugel_mean.tex}
-
-\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Kugel ist:
-\input{I_Kugel_Theorie.tex}
-
-\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
-\input{RF_I_Kugel.tex}
+\flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Kugel wurde mit der selben Formel \eqref{eq:11} bestimmt, wie das des Zylinders.
+Die Werte für $T$ werden der Tabelle \ref{tab:3} entnommen. 
+Demnach lautet der experimentelle Wert des Trägheitsmoments:
+\begin{subequations}
+\begin{align}
+I_{Ku, exp.} &= \input{I_Kugel_mean.tex} \label{eq:20a}
+\intertext{\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Kugel wurde mit der Formel \eqref{eq:3} und den Werten 
+aus Tabelle \ref{tab:3} bestimmt:
+}
+I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
+\intertext{\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
+}
+\frac{I_{Ku, exp.} - I_{Ku, lit.}}{I_{Ku, lit.}} &= \input{RF_I_Kugel.tex} \label{eq:20c}
+\end{align}
+\end{subequations}
 
 \subsection{Puppe}\justifying % Puppe ---------------------------------------------------------------------------------------------------------
 \begin{figure}[H]
@@ -313,28 +317,38 @@ I_{Zy, lit.} = \input{I_Zylinder_Theorie.tex}\label{eq:19}
 
 \begin{subequations}
 \begin{align}
- V_{\text{Kopf\hphantom{o}}} &= \input{V_Kopf.tex}\\
+ V_{\text{Kopf}} &= \input{V_Kopf.tex}\\
  V_{\text{Torso}} &= \input{V_Torso.tex}\\
- V_{\text{Arm\hphantom{o}}} &= \input{V_Arm.tex}\\
- V_{\text{Bein\hphantom{o}}} &= \input{V_Bein.tex},
+ V_{\text{Arm1,2}} &= \input{V_Arm.tex}\\
+ V_{\text{Bein1,2}} &= \input{V_Bein.tex},
 \end{align}
 \end{subequations}
 
-\flushleft{während\;}\justifying $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}
+\flushleft{während\;}\justifying $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}:
 \begin{align}
     \rho = \SI{760}{\kilo\gram\meter\tothe{-3}}.
 \end{align}
 
-\subsubsection{Puppe Position 1}% Puppe 1 ---------------------------------------------------------------------------------------------------------
+\subsubsection{Puppe Position 1} % Puppe 1 ---------------------------------------------------------------------------------------------------------
 
-\flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Puppe in Position 1 ist:
-\input{I_Puppe_an_exp_mean.tex}
-
-\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Puppe in Position 1 ist:
-\input{I_Puppe_an_theo.tex}
-
-\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
-\input{RF_I_Puppe_an.tex}
+\flushleft{Um\;}\justifying das experimentelle Trägheitsmoment der Puppe in Position 1 berechnen zu können, werden die die Trägheitsmomente der
+einzelnen Zylinder mit der Formel \eqref{eq:18} und den Werten aus Tabelle \ref{tab:3} bestimmt. Die individuellen Trägheitsmomente werden
+aufsummiert um das Trägheitsmoment der Puppe für die einzelnen Periodendauern zu erhalten. Abschließend werden die Trägheitsmomente
+mit der Mittelwertsformel \eqref{eq:10a} gemittelt um auf das Gesamtträgheitsmoment zu kommen: 
+\begin{align}
+\intertext{Demnach folgt aus der Summe der einzelnen $I_K$'s}
+I_{K,sum.} &= \sum_{i=1}^{6} I_K
+\intertext{und dem gebildeten Mittel der $I_{K,sum.}$'s das Trägheitsmoment der Puppe in Position 1:
+}
+\overline{I_{K,exp.}} &= \input{I_Puppe_an_exp_mean.tex}
+\intertext{Bei dem theoretischen Trägheitsmoment der Puppe in Position 1 wird ähnlich verfahren. Die Trägheitsmomente der einzelnen Zylinder werden 
+mit der Formel \eqref{eq:4} bestimmt und aufsummiert. Daraus folgt der theoretische Wert:
+}
+I_{K,lit.} &= \input{I_Puppe_an_theo.tex}
+\intertext{Der relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
+}
+\frac{\overline{I_{K, exp.}} - I_{K, lit.}}{I_{K, lit.}} &= \input{RF_I_Puppe_an.tex}
+\end{align}
 
 \subsubsection{Puppe Position 2}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
