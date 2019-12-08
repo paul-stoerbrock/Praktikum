@@ -59,11 +59,11 @@ slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_
 
 # experimenteller Wert des Trägheitsmoment der Drillachse
 
-I_D = intercept * (4*np.pi)/D_mittelw *1e-05 
+I_D = intercept * (4*np.pi**2)/D_mittelw *1e-05 
 
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
-I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D, 0, 0)*1e-05
+I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D, 0, 0)
 I_Zylinder_mean = np.mean(I_Zylinder)
 
 # theoretischer Wert des Trägheitsmoments des Zylinders
@@ -182,42 +182,42 @@ with open ('build/I_Kugel_Theorie.tex', 'w') as f:
 #texfile of m_Torso
 
 with open ('build/m_Torso.tex', 'w') as f:
-  f.write(make_SI(m_Torso, r'\kilo\gram', figures=2))
+  f.write(make_SI(m_Torso, r'\gram', figures=2))
 
 # tex file of m_Arm
 
 with open ('build/m_Arm.tex', 'w') as f:
-  f.write(make_SI(m_Arm, r'\kilo\gram', figures=2))
+  f.write(make_SI(m_Arm, r'\gram', figures=2))
 
 # tex file of m_Kopf
 
 with open ('build/m_Kopf.tex', 'w') as f:
-  f.write(make_SI(m_Kopf, r'\kilo\gram', figures=2))
+  f.write(make_SI(m_Kopf, r'\gram', figures=2))
 
 # tex file of m_Bein
 
 with open ('build/m_Bein.tex', 'w') as f:
-  f.write(make_SI(m_Bein, r'\kilo\gram', figures=2))
+  f.write(make_SI(m_Bein, r'\gram', figures=2))
 
 # tex file of I_Puppe_an_theo
 
 with open ('build/I_Puppe_an_theo.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_an_theo, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Puppe_an_theo*1e03, r'\kilo\gram\meter\square', exp='1e-03', figures=1))
 
 # tex file of I_Puppe_an_exp_mean
 
 with open ('build/I_Puppe_an_exp_mean.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_an_exp_mean*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=2))
+  f.write(make_SI(I_Puppe_an_exp_mean*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=1))
 
 # tex file of I_Puppe_aus_theo
 
 with open ('build/I_Puppe_aus_theo.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_aus_theo, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Puppe_aus_theo*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=1))
 
 # tex file of I_Puppe_aus_exp_mean
 
 with open ('build/I_Puppe_aus_exp_mean.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_aus_exp_mean, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Puppe_aus_exp_mean*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=1))
 
 # tex file of RF_I_Zylinder
 
@@ -328,8 +328,9 @@ with open('build/table_I.tex', 'w') as g:
 # Testprints ##########################################################################################
 
 print(I_Kugel_mean)
+print(I_Kugel_Theorie)
 print(I_Zylinder_mean)
-print(I_Puppe_an_exp_mean)
-print(I_Puppe_aus_exp_mean)
+print(I_Zylinder_Theorie)
+
 
 
