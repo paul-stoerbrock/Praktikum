@@ -57,7 +57,7 @@
     Verläuft die Drehachse parallel zu einer Achse durch den Schwerpunkt, wird das Trägheitsmoment
     mithilfe des Steinerschen Satzes berechnet \cite{V101}:
     }
-    I &= I_s+m \cdot a^2 \label{eq.6}
+    I &= I_s+m \cdot a^2 \label{eq:6}
     \intertext{$I_s$ beschreibt dabei das Trägheitsmoment bezüglich der parallelen Drehachse durch den Schwerpunkt.
     Die skalare Größe $a$ stellt dabei den Abstand der beiden parallelen Achsen dar.
     Das Drehmoment ist definiert als die Kraft, welche an einen drehenden Körper ansetzt.
@@ -133,21 +133,20 @@ Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr,
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Auswertung}\justifying
 
-\subsection{Drehachse}\justifying % Drehachse ---------------------------------------------------------------------------------------------------------
+\subsection{Die Drehachse}\justifying % Drehachse ---------------------------------------------------------------------------------------------------------
+
+\flushleft{Um\;}\justifying das Trägheitsmoment der Drehachse zu bestimmen wird die Formel \eqref{eq:8} nach I umgestellt und mit Formel % Trägheitsmoment I_D ---------------------------------------------------------------------------------------------------------
+\eqref{eq:6} gleichgesetzt. Die resultierende Gleichung sieht aus wie folgt:
+\begin{equation}
+T^2 = I_k \cdot \frac{4\pi^2}{D} + \frac{m \cdot 4\pi^2}{D} \cdot a^2\label{placeholder}
+\end{equation} 
 
 \begin{table}[H]
     \centering
-    \input{table_D.tex}
-    \caption{Tabelle der Messwerte für die Federkonstante $D$}
-    \label{tab:D}
+    \input{table_IStab.tex}
+    \caption{Tabelle der Messwerte für das Trägheitsmoment der Stabachse $I_D$}
+    \label{tab:IStab}
 \end{table}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{plot.pdf}
-    \caption{Lineare Regression für $I_{Stab}$}
-    \label{fig:1}
-\end{figure}
 
 \flushleft{Die\;}\justifying Steigung $m$ und der Schnittpunkt der y-Achse $b$ sehen folgendermaßen aus:
 
@@ -158,20 +157,38 @@ b &= \text{\input{intercept.tex}}\label{eq:11b}
 \end{align}
 \end{subequations}
 
-\flushleft{Die\;}\justifying Federkonstante der Spiralfeder ist:
-\input{D_mean.tex} % Federkonstante der Spiralfeder
-
-\begin{table}[H]
+\begin{figure}[H]
     \centering
-    \input{table_IStab.tex}
-    \caption{Tabelle der Messwerte für das Trägheitsmoment der Stabachse $I_D$}
-    \label{tab:IStab}
-\end{table}
+    \includegraphics[width=\textwidth]{plot.pdf}
+    \caption{Lineare Regression für $I_{Stab}$}
+    \label{fig:1}
+\end{figure}
 
 \flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist:
 \input{I_D.tex} % Trägheitsmoment Drehachse
 
-\subsection{Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
+\begin{table}[H] % Federkonstante ---------------------------------------------------------------------------------------------------------
+    \centering
+    \input{table_D.tex}
+    \caption{Tabelle der Messwerte für die Federkonstante $D$}
+    \label{tab:D}
+\end{table}
+
+\flushleft{Für\;}\justifying die Federkonstante wurde die Formel \eqref{eq:7} mit der Formel \eqref{eq:9} gleichgesetzt. Formel \eqref{eq:7} kann durch $M = \vec{F} \cdot \vec{r}$
+dargestellt werden, da die Kraft der rücktreibenden Kraft senkrecht zum Radius steht. Wird die gewonnene Gleichung nach $D$ umgestellt, folgt:
+
+\begin{equation}
+D = \frac{F\cdot r}{\varphi}\label{eq:12}
+\end{equation}
+
+\flushleft{Die\;}\justifying Federkonstante der Spiralfeder berechnet sich aus dem Mittelwert \eqref{eq:10a} der einzelnen $D$'s aus 
+Formel \eqref{eq:12} und ergibt:
+
+\begin{equation}
+\overline{D} = \text{\input{D_mean.tex}} \label{eq:13} % Federkonstante der Spiralfeder
+\end{equation}
+
+\subsection{Der Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
 
 \begin{table}[H]
     \centering
@@ -189,7 +206,7 @@ b &= \text{\input{intercept.tex}}\label{eq:11b}
 \flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments vom Zylinder ist:
 \input{RF_I_Zylinder.tex}
 
-\subsection{Kugel}\justifying % Kugel ---------------------------------------------------------------------------------------------------------
+\subsection{Die Kugel}\justifying % Kugel ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment der Kugel ist:
 \input{I_Kugel_mean.tex}
@@ -202,7 +219,21 @@ b &= \text{\input{intercept.tex}}\label{eq:11b}
 
 \subsection{Puppe (Position 1)}\justifying % Puppe 1 ---------------------------------------------------------------------------------------------------------
 
-Die Massen der einzelnen Zylinder sind wie folgt:
+\begin{figure}
+\caption{Positionen der Puppe}
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=\textwidth]{images/puppe_aus.jpg}
+\caption{Puppe mit ausgestreckten Armen}
+\end{subfigure}
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=\textwidth]{images/puppe_an.jpg}
+\caption{Puppe mit angezogenen Armen}
+\end{subfigure}
+\end{figure}
+
+Die Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ bestimmt und lauten wie folgt:
 \begin{subequations}
 \begin{align}
 \text{Kopf: \input{m_Kopf.tex}}\label{eq:Kopf}\\

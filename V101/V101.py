@@ -277,8 +277,8 @@ with open('build/table_D.tex', 'w') as g:
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    {$a \:/\: \si{\centi\meter}$} & {$T_{Stab1} \:/\: \si{\second}$} & {$T_{Stab2} \:/\: \si{\second}$} &
-    {$a \:/\: \si{\centi\meter}$} & {$T_{Stab1} \:/\: \si{\second}$} & {$T_{Stab2} \:/\: \si{\second}$} \\
+    {$a \:/\: \si{\centi\meter}$} & {$T_{Wert1} \:/\: \si{\second}$} & {$T_{Wert2} \:/\: \si{\second}$} &
+    {$a \:/\: \si{\centi\meter}$} & {$T_{Wert1} \:/\: \si{\second}$} & {$T_{Wert2} \:/\: \si{\second}$} \\
    
 
     \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6}
