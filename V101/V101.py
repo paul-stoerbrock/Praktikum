@@ -157,27 +157,27 @@ with open('build/intercept.tex', 'w') as f:
 # tex file of I_D
 
 with open ('build/I_D.tex', 'w') as f:
-  f.write(make_SI(I_D*1e03, r'\kilo\gram\meter\square',  exp='1e-03', figures=2))
+  f.write(make_SI(I_D*1e03, r'\kilo\gram\square\meter',  exp='1e-03', figures=2))
 
 # tex file of I_Zylinder_mean
 
 with open ('build/I_Zylinder_mean.tex', 'w') as f:
-  f.write(make_SI(I_Zylinder_mean, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Zylinder_mean, r'\kilo\gram\square\meter', figures=2))
 
 # tex file of I_zylinder_Theorie
 
 with open ('build/I_Zylinder_Theorie.tex', 'w') as f:
-  f.write(make_SI(I_Zylinder_Theorie, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Zylinder_Theorie, r'\kilo\gram\square\meter', figures=2))
 
 # tex file of I_Kugel_mean
 
 with open ('build/I_Kugel_mean.tex', 'w') as f:
-  f.write(make_SI(I_Kugel_mean, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Kugel_mean, r'\kilo\gram\square\meter', figures=2))
 
 # tex file of I_Kugel_Theorie
 
 with open ('build/I_Kugel_Theorie.tex', 'w') as f:
-  f.write(make_SI(I_Kugel_Theorie, r'\kilo\gram\meter\square', figures=2))
+  f.write(make_SI(I_Kugel_Theorie, r'\kilo\gram\square\meter', figures=2))
 
 #texfile of m_Torso
 
@@ -202,22 +202,22 @@ with open ('build/m_Bein.tex', 'w') as f:
 # tex file of I_Puppe_an_theo
 
 with open ('build/I_Puppe_an_theo.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_an_theo*1e03, r'\kilo\gram\meter\square', exp='1e-03', figures=1))
+  f.write(make_SI(I_Puppe_an_theo*1e03, r'\kilo\gram\square\meter', exp='1e-03', figures=1))
 
 # tex file of I_Puppe_an_exp_mean
 
 with open ('build/I_Puppe_an_exp_mean.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_an_exp_mean*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=1))
+  f.write(make_SI(I_Puppe_an_exp_mean*1e03, r'\kilo\gram\square\meter', exp='1e-03',figures=1))
 
 # tex file of I_Puppe_aus_theo
 
 with open ('build/I_Puppe_aus_theo.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_aus_theo*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=1))
+  f.write(make_SI(I_Puppe_aus_theo*1e03, r'\kilo\gram\square\meter', exp='1e-03',figures=1))
 
 # tex file of I_Puppe_aus_exp_mean
 
 with open ('build/I_Puppe_aus_exp_mean.tex', 'w') as f:
-  f.write(make_SI(I_Puppe_aus_exp_mean*1e03, r'\kilo\gram\meter\square', exp='1e-03',figures=1))
+  f.write(make_SI(I_Puppe_aus_exp_mean*1e03, r'\kilo\gram\square\meter', exp='1e-03',figures=1))
 
 # tex file of RF_I_Zylinder
 
