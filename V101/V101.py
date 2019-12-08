@@ -39,6 +39,8 @@ F, phi_Grad, a, T_I_Stab1, T_I_Stab2, T_Kugel, T_Zylinder, T_Puppe_fast, T_Puppe
 
 # Berechnungen ##########################################################################################################
 
+F += 0.05
+
 phi_Bogen = phi_Grad/180 * np.pi # Umrechnung von Gradmaß in Bogenmaß
 
 T_I_Stab = (np.round(T_I_Stab1,1) + np.round(T_I_Stab2))/6
