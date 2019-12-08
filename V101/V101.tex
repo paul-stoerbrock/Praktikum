@@ -129,11 +129,11 @@ Für den Zylinder werden ebenfalls fünf Messwerte für eine Periode aufgenommen
 Zuletzt werden die Schwingperioden der Puppe in Position 1 (Arme angelegt) und Position 2 (Arme ausgestreckt) gemessen. Dafür wurde der Auslenkwinkel
 bei $\SI{10}{\degree}$ konstant gehalten. Um bei einer kurzen Schwingdauer verlässliche Messwerte zu erhalten, wurde die Zeitlupenfunktion einer 
 Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr, welche den zeitlichen Verlauf der Schwingung verdeutlicht.\\
-
+\newpage
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Auswertung}\justifying
-
 \subsection{Maße der einzelnen Körper}
+\label{sec:6.1}
 \flushleft
 \begin{align*}
 \intertext{Zylinder:}
@@ -185,7 +185,7 @@ Daraus folgt für das Trägheitsmoment der Drillachse:
     \label{tab:1}
 \end{table}
 
-\flushleft{Für} die Berechnung wurden zwei Werte der Periodendauer für einen Abstand gemessen und in der Tabelle \ref{tab:IStab}
+\flushleft{Für} die Berechnung wurden zwei Werte der Periodendauer für einen Abstand gemessen und in der Tabelle \ref{tab:1}
 zusammengetragen. Diese zwei Werte wurden gemittelt und auf eine Periode normiert.
 
 \flushleft{Mithilfe\;}\justifying der Formel \eqref{eq:12} und dem Pyton Befehl linregress() \cite{numpy} lässt sich die Geradengleichung
@@ -262,7 +262,7 @@ I_{Zy, exp.} = \input{I_Zylinder_mean.tex}\label{eq:18}
 \end{equation}
 
 \flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders wurde mit der Formel \eqref{eq:5} und den Werten für $T$ aus Tabelle 
-\ref{tab:I} bestimmt und lautet:
+\ref{tab:3} bestimmt und lautet:
 \begin{equation}
 I_{Zy, lit.} = \input{I_Zylinder_Theorie.tex}\label{eq:19}
 \end{equation}
@@ -343,9 +343,46 @@ während $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}
 
 \flushleft{Das\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 2 ist:
 \input{RF_I_Puppe_aus.tex}
-
+\newpage
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Diskussion}\justifying
+Nach der Auswertung folgt nun eine kurze Diskussion der berechneten Werte.\\
+Die Winkelrichtgröße D \eqref{eq:17} scheint in einer passenden
+Größenordnung vorzuliegen, allerdings lässt sich anhand der Formel \eqref{eq:16}
+und der Tabelle \ref{tab:2} ein Fehler in der Messung in der Messung erkennen.
+Da die Winkelrichtgröße grundsätzlich konstant sein sollte, ergibt sich bei einem
+doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht unbedingt der Fall
+wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messungenauigkeit
+ergibt sich aus dem Problem des Nullpunkts beim Newtonmeter. In der Messung wurde das
+Newtonmeter an die audgelenkte Stange gehalten, welche danach losgelassen wurde und die Kraft
+anzeigte. Dabei kann es passieren, dass das Newtonmeter sich nicht perfekt am Stab
+ansetzt und dann zu viel oder zu wenig ausgelenkt wird. Zudem ergibt sich eine gewisse
+Ungenauigkeit beim Einstellen des Winkels. \\
+
+\flushleft{Für}\justifying \;das Trägheitsmoment des Stabs wurde der Wert aus Formel \eqref{eq:15} bestimmt.
+Bei dem Versuch wurde der Stab, auf dem sich die beiden Zylinder befanden, als masselos angenommen  und
+die Zylinder als Punktmassen angenähert. Dabei wurde für die Auswertung bei der Periodendauer
+nur die erste Nachkommastelle verwendet, da aufgrund der menschlichen Reaktionszeit sich
+automatisch eine Ungenauigkeit für niedrigere Nachkommastellen ergibt.
+Der Wert für das Trägheitsmoment $I_D$ wirkt dabei erstmal ziemlich klein, allerdings kann
+dies täuschen, da eine theoretische Berechnung aufgrund der fehlenden Masse für den 
+Drillstab nicht durcheführt werden konnte. Allerdings führen die Annäherungen in der 
+Regel zu einer bestimmten Ungenauigkeit.
+Der Graph \ref{fig:1} mit seinen Messwerten aus Tabelle \ref{tab:1} liegt dabei ohne große 
+Abweichungen vor und spiegelt die in Formel \eqref{eq:11} gegebene Relation gut wieder.\\
+
+\flushleft{Durch}\justifying \;die beiden Messungenauigkeiten in $D$ und $I_D$ ergeben
+sich auch automatisch ein Fehler für die Trägheitsmomente der verschiedenen Körper.\\
+
+\flushleft{Für\;} den Zylinder ergibt sich ein relaiver Fehler von $37\%$ und lässt sich
+durch die bereits genannten Fehler erklären. \\
+Für die Kugel ergibt sich ein relativer Fehler von $-34\%$ und kann wie beim Zylinder durch
+die Messungenauigkeit in $D$ und $I_D$ begründet werden.
+Allerdings zeigt sich, dass das Trägheitsmoment der Kugel kleiner als das Trägheitsmoment
+des Zylinders ist. Dies erscheint aufgrund der gemessenen und berechneten Größen in Abschnitt \ref{sec:6.1}
+sinnvoll. Beim Zylinder ist zu einen die Masse größer. Zum  anderen sind die Massepunkte weiter 
+von der Rotationsachse entfernt als bei der Kugel.
+
 
 \newpage
 
