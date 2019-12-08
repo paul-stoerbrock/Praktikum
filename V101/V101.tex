@@ -138,9 +138,17 @@ Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr,
 \flushleft{Um\;}\justifying das Trägheitsmoment der Drehachse zu bestimmen wird die Formel \eqref{eq:8} nach I umgestellt und mit Formel % Trägheitsmoment I_D ---------------------------------------------------------------------------------------------------------
 \eqref{eq:6} gleichgesetzt. Die resultierende Gleichung sieht aus wie folgt:
 \begin{equation}
-T^2 = I_k \cdot \frac{4\pi^2}{D} + \frac{m \cdot 4\pi^2}{D} \cdot a^2\label{placeholder}
+T^2 = I_S \cdot \frac{4\pi^2}{D} + \frac{m_k \cdot 4\pi^2}{D} \cdot a^2\label{eq:11}
 \end{equation} 
-
+Hierbei wird festgestellt, dass
+\begin{align}
+    b=I_S \cdot \frac{4\pi^2}{D} \label{eq:12}
+\end{align}
+entspricht.\\
+Daraus folgt für das Trägheitsmoment der Drillachse:
+\begin{align}
+    I_D = \frac{b \cdot D}{4 \pi^2} \label{eq:13}
+\end{align}
 \begin{table}[H]
     \centering
     \input{table_IStab.tex}
@@ -148,12 +156,14 @@ T^2 = I_k \cdot \frac{4\pi^2}{D} + \frac{m \cdot 4\pi^2}{D} \cdot a^2\label{plac
     \label{tab:IStab}
 \end{table}
 
+\flushleft{Für} die Berechnung wurde die Periodendauer gemittelt und auf eine Periode normiert.
+
 \flushleft{Die\;}\justifying Steigung $m$ und der Schnittpunkt der y-Achse $b$ sehen folgendermaßen aus:
 
 \begin{subequations}
 \begin{align}
-m &= \text{\input{slope.tex}}\label{eq:11a}\\
-b &= \text{\input{intercept.tex}}\label{eq:11b}
+m &= \text{\input{slope.tex}}\label{eq:14a}\\
+b &= \text{\input{intercept.tex}}\label{eq:14b}
 \end{align}
 \end{subequations}
 
@@ -164,7 +174,7 @@ b &= \text{\input{intercept.tex}}\label{eq:11b}
     \label{fig:1}
 \end{figure}
 
-\flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist:
+\flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist nach Formel \eqref{eq:13}:
 \input{I_D.tex} % Trägheitsmoment Drehachse
 
 \begin{table}[H] % Federkonstante ---------------------------------------------------------------------------------------------------------
@@ -174,18 +184,18 @@ b &= \text{\input{intercept.tex}}\label{eq:11b}
     \label{tab:D}
 \end{table}
 
-\flushleft{Für\;}\justifying die Federkonstante wurde die Formel \eqref{eq:7} mit der Formel \eqref{eq:9} gleichgesetzt. Formel \eqref{eq:7} kann durch $M = \vec{F} \cdot \vec{r}$
+\flushleft{Für\;}\justifying die Federkonstante wurde die Formel \eqref{eq:7} mit der Formel \eqref{eq:9} gleichgesetzt. Formel \eqref{eq:7} kann durch $M = \abs{\vec{F}} \cdot \abs{\vec{r}}$
 dargestellt werden, da die Kraft der rücktreibenden Kraft senkrecht zum Radius steht. Wird die gewonnene Gleichung nach $D$ umgestellt, folgt:
 
 \begin{equation}
-D = \frac{F\cdot r}{\varphi}\label{eq:12}
+D = \frac{F\cdot r}{\varphi}\label{eq:15}
 \end{equation}
 
 \flushleft{Die\;}\justifying Federkonstante der Spiralfeder berechnet sich aus dem Mittelwert \eqref{eq:10a} der einzelnen $D$'s aus 
 Formel \eqref{eq:12} und ergibt:
 
 \begin{equation}
-\overline{D} = \text{\input{D_mean.tex}} \label{eq:13} % Federkonstante der Spiralfeder
+\overline{D} = \text{\input{D_mean.tex}} \label{eq:16} % Federkonstante der Spiralfeder
 \end{equation}
 
 \subsection{Der Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
@@ -196,6 +206,7 @@ Formel \eqref{eq:12} und ergibt:
     \caption{Tabelle der Messwerte für die Perioden $T$ der einzelnen Körper}
     \label{tab:I}
 \end{table}
+
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment des Zylinders ist:
 \input{I_Zylinder_mean.tex}
@@ -219,7 +230,7 @@ Formel \eqref{eq:12} und ergibt:
 
 \subsection{Puppe (Position 1)}\justifying % Puppe 1 ---------------------------------------------------------------------------------------------------------
 
-\begin{figure}
+\begin{figure}[H]
 \caption{Positionen der Puppe}
 \begin{subfigure}{0.495\linewidth}
 \centering
@@ -242,6 +253,20 @@ Die Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ 
 \text{Bein: \input{m_Bein.tex}}\label{eq:Bein}
 \end{align}
 \end{subequations}
+
+V stellt dabei die verschiedenen Zylindervolumen dar
+\begin{subequations}
+\begin{align}
+ V_{\text{Kopf\hphantom{o}}} &= \\
+ V_{\text{Torso}} &= \\
+ V_{\text{Arm\hphantom{o}}} &= \\
+ V_{\text{Bein\hphantom{o}}} &= ,
+\end{align}
+\end{subequations}
+während $\rho$ die Dichte von Buchenholz wiedergibt \cite{Holzdichte}
+\begin{align}
+    \rho = \SI{760}{\kilo\gram\meter\tothe{-3}}
+\end{align}
 
 \flushleft{Das\;}\justifying errechnete Trägheitsmoment der Puppe in Position 1 ist:
 \input{I_Puppe_an_exp_mean.tex}
