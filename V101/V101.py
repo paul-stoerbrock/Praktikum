@@ -144,7 +144,7 @@ plt.close()
 # tex file of D_mittelw
 
 with open('build/D_mean.tex', 'w') as f:
-  f.write(make_SI(D_mittelw , r'\newton\meter', figures=2))
+  f.write(make_SI(D_mittelw , r'\newton\meter', exp='1e-02', figures=2))
 
 # tex file of slope
 
