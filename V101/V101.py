@@ -179,7 +179,26 @@ with open ('build/I_Kugel_mean.tex', 'w') as f:
 with open ('build/I_Kugel_Theorie.tex', 'w') as f:
   f.write(make_SI(I_Kugel_Theorie, r'\kilo\gram\square\meter', figures=2))
 
-#texfile of m_Torso
+# tex file of V_Torso
+with open ('build/V_Torso.tex', 'w') as f:
+  f.write(make_SI(m_Torso/0.78, r'\cubic\centi\meter', figures=2))
+
+# tex file of V_Arm
+
+with open ('build/V_Arm.tex', 'w') as f:
+  f.write(make_SI(m_Arm/0.78, r'\cubic\centi\meter', figures=2))
+
+# tex file of V_Kopf
+
+with open ('build/V_Kopf.tex', 'w') as f:
+  f.write(make_SI(m_Kopf/0.78, r'\cubic\centi\meter', figures=2))
+
+# tex file of V_Bein
+
+with open ('build/V_Bein.tex', 'w') as f:
+  f.write(make_SI(m_Bein/0.78, r'\cubic\centi\meter', figures=2))
+
+# tex file of m_Torso
 
 with open ('build/m_Torso.tex', 'w') as f:
   f.write(make_SI(m_Torso, r'\gram', figures=2))
