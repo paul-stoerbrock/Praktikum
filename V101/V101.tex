@@ -198,11 +198,10 @@ m &= \text{\input{slope.tex}}\label{eq:14a}\\
 b &= \text{\input{intercept.tex}}\label{eq:14b}
 \end{align}
 \end{subequations}
-\newpage
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{plot.pdf}
+    \includegraphics[width=0.75\textwidth]{plot.pdf}
     \caption{Lineare Regression für $I_{Stab}$}
     \label{fig:1}
 \end{figure}
@@ -276,8 +275,7 @@ I_{Zy, lit.} = \input{I_Zylinder_Theorie.tex}\label{eq:19}
 \flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
 \input{RF_I_Kugel.tex}
 
-\subsection{Puppe (Position 1)}\justifying % Puppe 1 ---------------------------------------------------------------------------------------------------------
-
+\subsection{Puppe}\justifying % Puppe ---------------------------------------------------------------------------------------------------------
 \begin{figure}[H]
 \caption{Positionen der Puppe}
 \begin{subfigure}{0.495\linewidth}
@@ -292,7 +290,8 @@ I_{Zy, lit.} = \input{I_Zylinder_Theorie.tex}\label{eq:19}
 \end{subfigure}
 \end{figure}
 
-Die Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ bestimmt und lauten wie folgt:
+\flushleft{Die\;}\justifying Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ bestimmt und lauten wie folgt:
+
 \begin{subequations}
 \begin{align}
 \text{Kopf: \input{m_Kopf.tex}}\label{eq:Kopf}\\
@@ -302,7 +301,8 @@ Die Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ 
 \end{align}
 \end{subequations}
 
-V stellt dabei die verschiedenen Zylindervolumen dar
+\flushleft{$V$\;}\justifying stellt dabei die verschiedenen Zylindervolumen dar
+
 \begin{subequations}
 \begin{align}
  V_{\text{Kopf\hphantom{o}}} &= \\
@@ -311,10 +311,13 @@ V stellt dabei die verschiedenen Zylindervolumen dar
  V_{\text{Bein\hphantom{o}}} &= ,
 \end{align}
 \end{subequations}
-während $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}
+
+\flushleft{während\;}\justifying $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}
 \begin{align}
     \rho = \SI{760}{\kilo\gram\meter\tothe{-3}}.
 \end{align}
+
+\subsubsection{Puppe Position 1}% Puppe 1 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Puppe in Position 1 ist:
 \input{I_Puppe_an_exp_mean.tex}
@@ -325,7 +328,7 @@ während $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}
 \flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
 \input{RF_I_Puppe_an.tex}
 
-\subsection{Puppe (Position 2)}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
+\subsubsection{Puppe Position 2}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Puppe in Position 2 ist:
 \input{I_Puppe_aus_exp_mean.tex}
