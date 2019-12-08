@@ -149,6 +149,7 @@ Daraus folgt für das Trägheitsmoment der Drillachse:
 \begin{align}
     I_D = \frac{b \cdot D}{4 \pi^2} \label{eq:13}
 \end{align}
+
 \begin{table}[H]
     \centering
     \input{table_IStab.tex}
@@ -156,9 +157,12 @@ Daraus folgt für das Trägheitsmoment der Drillachse:
     \label{tab:IStab}
 \end{table}
 
-\flushleft{Für} die Berechnung wurde die Periodendauer gemittelt und auf eine Periode normiert.
+\flushleft{Für} die Berechnung wurden zwei Werte der Periodendauer für einen Abstand gemessen und in der Tabelle \ref{tab:IStab}
+zusammengetragen. Diese zwei Werte wurden gemittelt und auf eine Periode normiert.
 
-\flushleft{Die\;}\justifying Steigung $m$ und der Schnittpunkt der y-Achse $b$ sehen folgendermaßen aus:
+\flushleft{Mithilfe\;}\justifying der Formel \eqref{eq:12} und dem Pyton Befehl linregress() \cite{numpy} lässt sich die Geradengleichung
+des folgenden Graphen \ref{fig:1} bestimmen. 
+\flushleft{Dabei\;}\justifying sehen die Steigung $m$ und der Schnittpunkt der y-Achse $b$ des Graphen \ref{fig:1} folgendermaßen aus:
 
 \begin{subequations}
 \begin{align}
@@ -166,6 +170,7 @@ m &= \text{\input{slope.tex}}\label{eq:14a}\\
 b &= \text{\input{intercept.tex}}\label{eq:14b}
 \end{align}
 \end{subequations}
+\newpage
 
 \begin{figure}[H]
     \centering
@@ -174,28 +179,33 @@ b &= \text{\input{intercept.tex}}\label{eq:14b}
     \label{fig:1}
 \end{figure}
 
-\flushleft{Das\;}\justifying Trägheitsmoment der Drehachse ist nach Formel \eqref{eq:13}:
-\input{I_D.tex} % Trägheitsmoment Drehachse
 
-\begin{table}[H] % Federkonstante ---------------------------------------------------------------------------------------------------------
+\flushleft{Aus\;}\justifying der linearen Regression lässt sich das Trägheitsmoment der Drehachse mit Formel \eqref{eq:13} bestimmten:
+\begin{equation}
+I_D = \input{I_D.tex}\label{eq:15} % Trägheitsmoment Drehachse
+\end{equation}
+
+% Federkonstante --------------------------------------------------------------------------------------------------------------------------
+
+\flushleft{Für\;}\justifying die Federkonstante wurde die Formel \eqref{eq:7} mit der Formel \eqref{eq:9} gleichgesetzt. Formel \eqref{eq:7} kann durch $M = \abs{\vec{F}} \cdot \abs{\vec{r}}$
+dargestellt werden, da die Kraft der rücktreibenden Kraft senkrecht zum Radius steht. Wird die gewonnene Gleichung nach $D$ umgestellt, folgt:
+\begin{equation}
+D = \frac{F\cdot r}{\varphi}\label{eq:16}
+\end{equation}
+
+\begin{table}[H]
     \centering
     \input{table_D.tex}
     \caption{Tabelle der Messwerte für die Federkonstante $D$}
     \label{tab:D}
 \end{table}
 
-\flushleft{Für\;}\justifying die Federkonstante wurde die Formel \eqref{eq:7} mit der Formel \eqref{eq:9} gleichgesetzt. Formel \eqref{eq:7} kann durch $M = \abs{\vec{F}} \cdot \abs{\vec{r}}$
-dargestellt werden, da die Kraft der rücktreibenden Kraft senkrecht zum Radius steht. Wird die gewonnene Gleichung nach $D$ umgestellt, folgt:
-
-\begin{equation}
-D = \frac{F\cdot r}{\varphi}\label{eq:15}
-\end{equation}
 
 \flushleft{Die\;}\justifying Federkonstante der Spiralfeder berechnet sich aus dem Mittelwert \eqref{eq:10a} der einzelnen $D$'s aus 
-Formel \eqref{eq:12} und ergibt:
+Formel \eqref{eq:12} mit den Werten aus Tabelle \ref{tab:D} und ergibt:
 
 \begin{equation}
-\overline{D} = \text{\input{D_mean.tex}} \label{eq:16} % Federkonstante der Spiralfeder
+\overline{D} = \text{\input{D_mean.tex}} \label{eq:17} % Federkonstante der Spiralfeder
 \end{equation}
 
 \subsection{Der Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
@@ -208,14 +218,24 @@ Formel \eqref{eq:12} und ergibt:
 \end{table}
 
 
-\flushleft{Das\;}\justifying errechnete Trägheitsmoment des Zylinders ist:
-\input{I_Zylinder_mean.tex}
+\flushleft{Für\;}\justifying den errechneten Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:11} nach $I_S$ umgestellt.
+Die Werte für die Periodendauer aus der Tabelle \ref{tab:I} wurden auf für die folglenden Berechnungen auf eine Nachkommastelle gerundet.
+Daraus folgt das errechnete Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:I} und einer Masse von $\SI{1525.5}{\gram}$:
+\begin{equation}
+I_{Zy, exp.} = \input{I_Zylinder_mean.tex}\label{eq:18}
+\end{equation}
 
-\flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders ist:
-\input{I_Zylinder_Theorie.tex}
+\flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders wurde mit der Formel \eqref{eq:5} und den Werten für $T$ aus Tabelle 
+\ref{tab:I} bestimmt und lautet:
+\begin{equation}
+I_{Zy, lit.} = \input{I_Zylinder_Theorie.tex}\label{eq:19}
+\end{equation}
 
-\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments vom Zylinder ist:
-\input{RF_I_Zylinder.tex}
+\flushleft{Der\;}\justifying daraus resultierende relative Fehler des Trägheitsmoments vom Zylinder beträgt:
+\begin{equation}
+\frac{I_{Zy, exp.} - I_{Zy, lit.}}{I_{Zy, lit.}} = \input{RF_I_Zylinder.tex}\label{eq:20}
+\end{equation}
+\newpage
 
 \subsection{Die Kugel}\justifying % Kugel ---------------------------------------------------------------------------------------------------------
 
@@ -234,13 +254,13 @@ Formel \eqref{eq:12} und ergibt:
 \caption{Positionen der Puppe}
 \begin{subfigure}{0.495\linewidth}
 \centering
-\includegraphics[width=\textwidth]{images/puppe_aus.jpg}
-\caption{Puppe mit ausgestreckten Armen}
+\includegraphics[width=\textwidth]{images/puppe_an.jpg}
+\caption{Puppe mit angezogenen Armen (Pos. 1)}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
 \centering
-\includegraphics[width=\textwidth]{images/puppe_an.jpg}
-\caption{Puppe mit angezogenen Armen}
+\includegraphics[width=\textwidth]{images/puppe_aus.jpg}
+\caption{Puppe mit ausgestreckten Armen (Pos. 2)}
 \end{subfigure}
 \end{figure}
 
