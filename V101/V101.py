@@ -306,7 +306,7 @@ table_header = r'''
   \begin{tabular}{c c c c}
     \toprule
     {$T_{\text{Kugel}} \:/\: \si{\second}$} & {$T_{\text{Zylinder}} \:/\: \si{\second}$} &
-    {$T_{\text{Puppe,an}} \:/\: \si{\second}$} & {$T_{\text{Puppe,aus}} \:/\: \si{\second}$} \\
+    {$T_{\text{Puppe,1}} \:/\: \si{\second}$} & {$T_{\text{Puppe,2}} \:/\: \si{\second}$} \\
 
     \cmidrule(lr{0,5em}){1-1} \cmidrule(lr{0,5em}){2-2} \cmidrule(lr{0,5em}){3-3} \cmidrule(lr{0,5em}){4-4}
 '''
