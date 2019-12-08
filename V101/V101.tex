@@ -353,7 +353,7 @@ I_{K,lit.} &= \input{I_Puppe_an_theo.tex}
 \subsubsection{Puppe Position 2}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Puppe in Position 2 ist:
-\input{I_Puppe_aus_exp_mean.tex}
+\input{I_Puppe_aus_exp_mean.tex} \label{}
 
 \flushleft{Das\;}\justifying theoretische Trägheitsmoment der Puppe in Position 2 ist:
 \input{I_Puppe_aus_theo.tex}
@@ -366,15 +366,18 @@ I_{K,lit.} &= \input{I_Puppe_an_theo.tex}
 Nach der Auswertung folgt nun eine kurze Diskussion der berechneten Werte.\\
 Die Winkelrichtgröße D \eqref{eq:17} scheint in einer passenden
 Größenordnung vorzuliegen, allerdings lässt sich anhand der Formel \eqref{eq:16}
-und der Tabelle \ref{tab:2} ein Fehler in der Messung in der Messung erkennen.
+und der Tabelle \ref{tab:2} ein Fehler in der Messung erkennen.
 Da die Winkelrichtgröße grundsätzlich konstant sein sollte, ergibt sich bei einem
-doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht unbedingt der Fall
-wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messungenauigkeit
+doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht immmer zu
+erkennen wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messungenauigkeit
 ergibt sich aus dem Problem des Nullpunkts beim Newtonmeter. In der Messung wurde das
-Newtonmeter an die audgelenkte Stange gehalten, welche danach losgelassen wurde und die Kraft
-anzeigte. Dabei kann es passieren, dass das Newtonmeter sich nicht perfekt am Stab
-ansetzt und dann zu viel oder zu wenig ausgelenkt wird. Zudem ergibt sich eine gewisse
-Ungenauigkeit beim Einstellen des Winkels. \\
+Newtonmeter senkrecht an die ausgelenkte Stange gehalten, um die Federkraft zu ermitteln. Dabei kann es
+beim Loslassen der Stange passieren, dass die Feder des empfindlichen Newtonmeters bereits ausgelenkt wurde oder 
+erst nach kurzer Zeit ausgelenkt wurde, sodass sich eine kleine Abwweichung in der Messung ergibt.
+Dabei musste für die Werte berücksichtigt werden, dass das Newtonmeter auf Messungen im 
+Schwerefeld der Erde geeicht wurde und dementsprechend auf alle Werte für F in Tabelle 
+\ref{tab:2} noch $\SI{0.05}{\newton} $ addiert werden muss.
+Zudem ergibt sich eine gewisse Ungenauigkeit beim Einstellen des Winkels. \\
 
 \flushleft{Für}\justifying \;das Trägheitsmoment des Stabs wurde der Wert aus Formel \eqref{eq:15} bestimmt.
 Bei dem Versuch wurde der Stab, auf dem sich die beiden Zylinder befanden, als masselos angenommen  und
@@ -383,7 +386,7 @@ nur die erste Nachkommastelle verwendet, da aufgrund der menschlichen Reaktionsz
 automatisch eine Ungenauigkeit für niedrigere Nachkommastellen ergibt.
 Der Wert für das Trägheitsmoment $I_D$ wirkt dabei erstmal ziemlich klein, allerdings kann
 dies täuschen, da eine theoretische Berechnung aufgrund der fehlenden Masse für den 
-Drillstab nicht durcheführt werden konnte. Allerdings führen die Annäherungen in der 
+Drillachse nicht durchgeführt werden konnte. Allerdings führen die Annäherungen in der 
 Regel zu einer bestimmten Ungenauigkeit.
 Der Graph \ref{fig:1} mit seinen Messwerten aus Tabelle \ref{tab:1} liegt dabei ohne große 
 Abweichungen vor und spiegelt die in Formel \eqref{eq:11} gegebene Relation gut wieder.\\
@@ -391,7 +394,7 @@ Abweichungen vor und spiegelt die in Formel \eqref{eq:11} gegebene Relation gut 
 \flushleft{Durch}\justifying \;die beiden Messungenauigkeiten in $D$ und $I_D$ ergeben
 sich auch automatisch ein Fehler für die Trägheitsmomente der verschiedenen Körper.\\
 
-\flushleft{Für\;} den Zylinder ergibt sich ein relaiver Fehler von $37\%$ und lässt sich
+\flushleft{Für\;} den Zylinder ergibt sich ein relaiver Fehler von $37\%$ und ließe sich
 durch die bereits genannten Fehler erklären. \\
 Für die Kugel ergibt sich ein relativer Fehler von $-34\%$ und kann wie beim Zylinder durch
 die Messungenauigkeit in $D$ und $I_D$ begründet werden.
@@ -400,6 +403,16 @@ des Zylinders ist. Dies erscheint aufgrund der gemessenen und berechneten Größ
 sinnvoll. Beim Zylinder ist zu einen die Masse größer. Zum  anderen sind die Massepunkte weiter 
 von der Rotationsachse entfernt als bei der Kugel.
 
+\flushleft{Bei\;} der Berechnung des experimentellen Trägheitsmoment der Puppe ergibt
+sich, im Gegensatz zur Kugel und dem Zylinder, bei beiden Positionen
+ ein negatives Trägheitsmoment. Dies kann nicht stimmen, da das Trägheitsmoment
+ nach der Definition in der Physik positiv definiert sein müsste. Dieser Fehler ließe
+ sich nicht nur durch die bereis bekannten Fehler erklären. Zu diesen Fehlern kommt
+ noch hinzu, dass die Körperform der Puppe bei der theoretischen Berechnung
+ der Formel \eqref{eq:18} nur angenähert wurde und dementsprechend nicht
+ realitätsgetreu ist. Außerdem war das genaue Material der Puppe nicht bekannt.
+ Daher wurde angenommen, dass es sich bei dem Material um Buchenholz handele.
+Dadurch entseht auch der große relative Fehler bei den Formeln \eqref{eq:27} und \eqref{eq:2}
 
 \newpage
 
