@@ -288,6 +288,10 @@ I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
 \end{subequations}
 
 \subsection{Puppe}\justifying % Puppe ---------------------------------------------------------------------------------------------------------
+
+\flushleft{Die\;}\justifying folgenden zwei Bilder \ref{fig:2} approximieren die Gliedmaßen der Puppe als Zylinder für die folgenden 
+Berechnungen. Bild \ref{fig:2a} stellt die Puppe in Position 1 mit angezogenen Armen und Bild \ref{fig:2b} in Position 2 mit 
+ausgestreckten Armen dar.
 \begin{figure}[H]
 \caption{Positionen der Puppe}
 \begin{subfigure}{0.495\linewidth}
@@ -306,10 +310,10 @@ I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
 
 \begin{subequations}
 \begin{align}
-\text{Kopf: \input{m_Kopf.tex}}\label{eq:Kopf}\\
-\text{Torso: \input{m_Torso.tex}}\label{eq:Torso}\\
-\text{Arm: \input{m_Arm.tex}}\label{eq:Arm}\\
-\text{Bein: \input{m_Bein.tex}}\label{eq:Bein}
+\text{Kopf: \input{m_Kopf.tex}}\label{eq:21a}\\
+\text{Torso: \input{m_Torso.tex}}\label{eq:21b}\\
+\text{Arm: \input{m_Arm.tex}}\label{eq:21c}\\
+\text{Bein: \input{m_Bein.tex}}\label{eq:21d}
 \end{align}
 \end{subequations}
 
@@ -317,39 +321,42 @@ I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
 
 \begin{subequations}
 \begin{align}
- V_{\text{Kopf}} &= \input{V_Kopf.tex}\\
- V_{\text{Torso}} &= \input{V_Torso.tex}\\
- V_{\text{Arm1,2}} &= \input{V_Arm.tex}\\
- V_{\text{Bein1,2}} &= \input{V_Bein.tex},
+ V_{\text{Kopf}} &= \input{V_Kopf.tex}\label{eq:22a}\\
+ V_{\text{Torso}} &= \input{V_Torso.tex}\label{eq:22b}\\
+ V_{\text{Arm1,2}} &= \input{V_Arm.tex}\label{eq:22c}\\
+ V_{\text{Bein1,2}} &= \input{V_Bein.tex}\label{eq:22d},
 \end{align}
 \end{subequations}
 
 \flushleft{während\;}\justifying $\rho$ die Dichte von Buchenholz darstellt \cite{Holzdichte}:
 \begin{align}
-    \rho = \SI{760}{\kilo\gram\meter\tothe{-3}}.
+    \rho = \SI{760}{\kilo\gram\meter\tothe{-3}}\label{eq:23}.
 \end{align}
 
-\subsubsection{Puppe Position 1} % Puppe 1 ---------------------------------------------------------------------------------------------------------
+\subsubsection{Puppe Position 1}\label{sec:Puppe1} % Puppe 1 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Um\;}\justifying das experimentelle Trägheitsmoment der Puppe in Position 1 berechnen zu können, werden die die Trägheitsmomente der
 einzelnen Zylinder mit der Formel \eqref{eq:18} und den Werten aus Tabelle \ref{tab:3} bestimmt. Die individuellen Trägheitsmomente werden
 aufsummiert um das Trägheitsmoment der Puppe für die einzelnen Periodendauern zu erhalten. Abschließend werden die Trägheitsmomente
 mit der Mittelwertsformel \eqref{eq:10a} gemittelt um auf das Gesamtträgheitsmoment zu kommen: 
+\begin{subequations}
 \begin{align}
 \intertext{Demnach folgt aus der Summe der einzelnen $I_K$'s}
-I_{K,sum.} &= \sum_{i=1}^{6} I_K
-\intertext{und dem gebildeten Mittel der $I_{K,sum.}$'s das Trägheitsmoment der Puppe in Position 1:
+I_{P1,sum.} &= \sum_{i=1}^{6} I_{P1} \qquad \text{mit\;} I_K = I_{P1,2}\label{eq:24a}
+\intertext{und dem gebildeten Mittel der $I_{K,sum.}$'s das experimentelle Trägheitsmoment der Puppe in Position 1:
 }
-\overline{I_{K,exp.}} &= \input{I_Puppe_an_exp_mean.tex}
+\overline{I_{P1,exp.}} &= \input{I_Puppe_an_exp_mean.tex}\label{eq:24b}
 \intertext{Bei dem theoretischen Trägheitsmoment der Puppe in Position 1 wird ähnlich verfahren. Die Trägheitsmomente der einzelnen Zylinder werden 
 mit der Formel \eqref{eq:4} bestimmt und aufsummiert. Daraus folgt der theoretische Wert:
 }
-I_{K,lit.} &= \input{I_Puppe_an_theo.tex}
+I_{P1,lit.} &= \input{I_Puppe_an_theo.tex}\label{eq:24c}
 \intertext{Der relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
 }
-\frac{\overline{I_{K, exp.}} - I_{K, lit.}}{I_{K, lit.}} &= \input{RF_I_Puppe_an.tex}
+\frac{\overline{I_{P1, exp.}} - I_{P1, lit.}}{I_{P1, lit.}} &= \input{RF_I_Puppe_an.tex}\label{eq:24d}
 \end{align}
+\end{subequations}
 
+<<<<<<< HEAD
 \subsubsection{Puppe Position 2}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Puppe in Position 2 ist:
@@ -357,19 +364,44 @@ I_{K,lit.} &= \input{I_Puppe_an_theo.tex}
 
 \flushleft{Das\;}\justifying theoretische Trägheitsmoment der Puppe in Position 2 ist:
 \input{I_Puppe_aus_theo.tex}
+||||||| merged common ancestors
+\subsubsection{Puppe Position 2}\justifying % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
-\flushleft{Das\;}\justifying relative Fehler des Trägheitsmoments der Puppe in Position 2 ist:
-\input{RF_I_Puppe_aus.tex}
+\flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Puppe in Position 2 ist:
+\input{I_Puppe_aus_exp_mean.tex}
+
+\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Puppe in Position 2 ist:
+\input{I_Puppe_aus_theo.tex}
+=======
+\subsubsection{Puppe Position 2}\justifying \label{sec:Puppe2} % Puppe 2 ---------------------------------------------------------------------------------------------------------
+>>>>>>> 7d289c20cb891d4a38056552087240e4e89c5718
+
+\flushleft{Für\;}\justifying das Gesamtträgheitsmoment der Puppe in Position 2 wird identisch verfahren wie für das Trägheitsmoment der 
+Puppe in Position 1. Der einzige Unterschied liegt in der Periodendauer aus Tabelle \ref{tab:3}. Werden die einzelnen Trägheitsmomente
+aufsummiert und der Mittelwert \eqref{eq:10a} berechnet wie in Abschnitt \ref{sec:Puppe1} beschreiben, folgt:
+\begin{subequations}
+\begin{align}
+\overline{I_{P2,exp.}} &= \text{\input{I_Puppe_aus_exp_mean.tex}}\label{eq:25a}
+\intertext{Das theoretische Trägheitsmoment der Puppe in Position 2 wird wieder mit Formel \eqref{eq:4} bestimmt:
+}
+I_{P2,lit.} &= \input{I_Puppe_aus_theo.tex}\label{eq:25b}
+\intertext{Demnach folgt ein relativer Fehler des Trägheitsmoments der Puppe in Position 2 von:
+}
+\frac{\overline{I_{P2, exp.}} - I_{P2, lit.}}{I_{P2, lit.}} &= \input{RF_I_Puppe_aus.tex}\label{eq:25c}
+\end{align}
+\end{subequations}
 \newpage
+
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Diskussion}\justifying
 Nach der Auswertung folgt nun eine kurze Diskussion der berechneten Werte.\\
 Die Winkelrichtgröße D \eqref{eq:17} scheint in einer passenden
 Größenordnung vorzuliegen, allerdings lässt sich anhand der Formel \eqref{eq:16}
 und der Tabelle \ref{tab:2} ein Fehler in der Messung erkennen.
 Da die Winkelrichtgröße grundsätzlich konstant sein sollte, ergibt sich bei einem
-doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht immmer zu
-erkennen wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messungenauigkeit
+doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht direkt der Fall
+wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messungenauigkeit
 ergibt sich aus dem Problem des Nullpunkts beim Newtonmeter. In der Messung wurde das
 Newtonmeter senkrecht an die ausgelenkte Stange gehalten, um die Federkraft zu ermitteln. Dabei kann es
 beim Loslassen der Stange passieren, dass die Feder des empfindlichen Newtonmeters bereits ausgelenkt wurde oder 
@@ -391,16 +423,16 @@ Regel zu einer bestimmten Ungenauigkeit.
 Der Graph \ref{fig:1} mit seinen Messwerten aus Tabelle \ref{tab:1} liegt dabei ohne große 
 Abweichungen vor und spiegelt die in Formel \eqref{eq:11} gegebene Relation gut wieder.\\
 
-\flushleft{Durch}\justifying \;die beiden Messungenauigkeiten in $D$ und $I_D$ ergeben
+\flushleft{Durch}\justifying \;die beiden Messungenauigkeiten in $D$ und $I_D$ ergibt
 sich auch automatisch ein Fehler für die Trägheitsmomente der verschiedenen Körper.\\
 
-\flushleft{Für\;} den Zylinder ergibt sich ein relaiver Fehler von $37\%$ und ließe sich
-durch die bereits genannten Fehler erklären. \\
-Für die Kugel ergibt sich ein relativer Fehler von $-34\%$ und kann wie beim Zylinder durch
-die Messungenauigkeit in $D$ und $I_D$ begründet werden.
+\flushleft{Für\;} den Zylinder ergibt sich ein relaiver Fehler von $37\%$, welcher  sich
+durch die bereits genannten Fehler erklären ließe. \\
+Für die Kugel ergibt sich ein relativer Fehler von $-34\%$, welcher wie beim Zylinder durch
+die Messungenauigkeit in $D$ und $I_D$ begründet werden könnte.
 Allerdings zeigt sich, dass das Trägheitsmoment der Kugel kleiner als das Trägheitsmoment
 des Zylinders ist. Dies erscheint aufgrund der gemessenen und berechneten Größen in Abschnitt \ref{sec:6.1}
-sinnvoll. Beim Zylinder ist zu einen die Masse größer. Zum  anderen sind die Massepunkte weiter 
+sinnvoll. Beim Zylinder ist Zum einen die Masse größer, zum  anderen sind die Massepunkte weiter 
 von der Rotationsachse entfernt als bei der Kugel.
 
 \flushleft{Bei\;} der Berechnung des experimentellen Trägheitsmoment der Puppe ergibt
