@@ -64,7 +64,7 @@ slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_
 
 # experimenteller Wert des Trägheitsmoment der Drillachse
 
-I_D = intercept * (4*np.pi**2)/D_mittelw 
+I_D = intercept * D_mittelw/(4*np.pi**2)
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
 I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D, 0, 0)
@@ -131,7 +131,7 @@ RF_I_Puppe_aus = (I_Puppe_aus_exp_mean-I_Puppe_aus_theo)/I_Puppe_aus_theo
 # Plot zur Bestimmung des Trägheitsmoment I_Stab
 
 plt.plot(a[0:10]**2 , T_I_Stab[0:10]**2, 'bx', label="Messdaten")
-x_plot = np.linspace(0, 700, 1000)
+x_plot = np.linspace(0, 0.1, 1000)
 plt.plot(x_plot,intercept+slope*x_plot, 'k-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel(r'$a^2$/${cm}^2$')
@@ -300,8 +300,8 @@ with open('build/table_D.tex', 'w') as g:
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    {$a \:/\: \si{\centi\meter}$} & {$T_{Wert1} \:/\: \si{\second}$} & {$T_{Wert2} \:/\: \si{\second}$} &
-    {$a \:/\: \si{\centi\meter}$} & {$T_{Wert1} \:/\: \si{\second}$} & {$T_{Wert2} \:/\: \si{\second}$} \\
+    {$a \:/\: \si{\meter}$} & {$T_{Wert1} \:/\: \si{\second}$} & {$T_{Wert2} \:/\: \si{\second}$} &
+    {$a \:/\: \si{\meter}$} & {$T_{Wert1} \:/\: \si{\second}$} & {$T_{Wert2} \:/\: \si{\second}$} \\
    
 
     \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6}
@@ -354,6 +354,6 @@ print(I_Kugel_mean)
 print(I_Kugel_Theorie)
 print(I_Zylinder_mean)
 print(I_Zylinder_Theorie)
-print(intercept)
+print(I_D)
 
 
