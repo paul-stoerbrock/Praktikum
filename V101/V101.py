@@ -45,7 +45,7 @@ phi_Bogen = phi_Grad/180 * np.pi # Umrechnung von Gradmaß in Bogenmaß
 
 T_I_Stab = (np.round(T_I_Stab1,1) + np.round(T_I_Stab2))/6
 
-D = (F*30)/phi_Bogen # Bestimmung der Winkelrichtgröße
+D = (F*0.3)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
 D_mittelw = np.mean(D) # Bestimmung der Federkonstante
 
@@ -144,7 +144,7 @@ plt.close()
 # tex file of D_mittelw
 
 with open('build/D_mean.tex', 'w') as f:
-  f.write(make_SI(D_mittelw , r'\newton\meter', exp='1e-02', figures=2))
+  f.write(make_SI(D_mittelw , r'\newton\meter', figures=5))
 
 # tex file of slope
 
