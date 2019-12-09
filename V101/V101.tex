@@ -245,7 +245,7 @@ I_D = \input{I_D.tex}\label{eq:18} % Trägheitsmoment Drillachse
 \end{equation}
 
 \subsection{Der Zylinder}\justifying % Zylinder ---------------------------------------------------------------------------------------------------------
-
+\label{sec:5.5}
 \begin{table}[H]
     \centering
     \input{table_I.tex}
@@ -255,11 +255,13 @@ I_D = \input{I_D.tex}\label{eq:18} % Trägheitsmoment Drillachse
 
 \begin{subequations}
 \begin{align}
-\intertext{\flushleft{Für\;}\justifying den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:14} nach $I_S$ umgestellt.
-Die Werte für die Periodendauer aus der Tabelle \ref{tab:3} wurden für alle folgenden Berechnungen auf eine Nachkommastelle gerundet.
-Daraus folgt das errechnete Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:3} und einer Masse von $\SI{1525.5}{\gram}$:
+\intertext{\flushleft{Die\;}\justifying Werte für die Periodendauer aus der Tabelle \ref{tab:3} wurden für alle folgenden Berechnungen auf eine Nachkommastelle gerundet.
+Für den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:14} nach $I_S$ umgestellt. Die resultierenden $I_S$'s wurden
+anschließend gemittelt. Daraus folgt das experimentelle Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:3}, der Formel \eqref{eq:10a} 
+und einer Masse von $\SI{1525.5}{\gram}$:
+\newline
 }
-I_{Zy, exp.} &= \input{I_Zylinder_mean.tex}\label{eq:19a}
+\overline{I_{Zy, exp.}} &= \input{I_Zylinder_mean.tex}\label{eq:19a}
 \intertext{\flushleft{Das\;}\justifying theoretische Trägheitsmoment des Zylinders wurde mit der Formel \eqref{eq:5} und den Werten für $T$ aus Tabelle 
 \ref{tab:3} bestimmt und lautet:
 \newline
@@ -268,7 +270,7 @@ I_{Zy, lit.} &= \input{I_Zylinder_Theorie.tex}\label{eq:19b}
 \intertext{\flushleft{Der\;}\justifying daraus resultierende relative Fehler des Trägheitsmoments vom Zylinder beträgt:
 \newline
 }
-\frac{I_{Zy, exp.} - I_{Zy, lit.}}{I_{Zy, lit.}} &= \input{RF_I_Zylinder.tex}\label{eq:19c}
+\frac{\overline{I_{Zy, exp.}} - I_{Zy, lit.}}{I_{Zy, lit.}} &= \input{RF_I_Zylinder.tex}\label{eq:19c}
 \end{align}
 \end{subequations}
 
@@ -276,17 +278,17 @@ I_{Zy, lit.} &= \input{I_Zylinder_Theorie.tex}\label{eq:19b}
 
 \flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Kugel wurde mit der selben Formel \eqref{eq:14} bestimmt, wie das des Zylinders.
 Die Werte für $T$ werden der Tabelle \ref{tab:3} entnommen und ebenfalls auf eine Nachkommastelle gerundet. 
-Demnach lautet der experimentelle Wert des Trägheitsmoments:
+Demnach lautet der experimentelle Wert des Trägheitsmoments analog zu Abschnitt \ref{sec:5.5}:
 \begin{subequations}
 \begin{align}
-I_{Ku, exp.} &= \input{I_Kugel_mean.tex} \label{eq:20a}
+\overline{I_{Ku, exp.}} &= \input{I_Kugel_mean.tex} \label{eq:20a}
 \intertext{\flushleft{Das\;}\justifying theoretische Trägheitsmoment der Kugel wurde mit der Formel \eqref{eq:3} und den Werten 
 aus Tabelle \ref{tab:3} bestimmt:
 }
 I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
 \intertext{\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
 }
-\frac{I_{Ku, exp.} - I_{Ku, lit.}}{I_{Ku, lit.}} &= \input{RF_I_Kugel.tex} \label{eq:20c}
+\frac{\overline{I_{Ku, exp.}} - I_{Ku, lit.}}{I_{Ku, lit.}} &= \input{RF_I_Kugel.tex} \label{eq:20c}
 \end{align}
 \end{subequations}
 
