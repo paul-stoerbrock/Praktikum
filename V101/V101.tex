@@ -88,10 +88,11 @@ Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler 
 \intertext{Und die Gaußsche Fehlerfortpflanzung wird mit der folgenden Formel berechnet:
 }
     \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:10c}
-\intertext{Zur Berechnung von Ausgleichsgeraden werden dabei}
-        y &= m \cdot x + b \label{eq:10d} \\ 
-        m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10e}\\
-        b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10f}
+\intertext{Zur Berechnung von Ausgleichsgeraden werden dabei
+}
+    y &= m \cdot x + b \label{eq:10d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:10f}
 \end{align}
 \end{subequations}
 
@@ -162,6 +163,8 @@ Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr,
 
 % Federkonstante --------------------------------------------------------------------------------------------------------------------------
 
+\subsection{Die Federkonstante}
+
 \flushleft{Für\;}\justifying die Winkelrichtgröße wurde die Formel \eqref{eq:7} mit der Formel \eqref{eq:9} gleichgesetzt. Formel \eqref{eq:7} kann durch $M = \abs{\vec{F}} \cdot \abs{\vec{r}}$
 dargestellt werden, da die Kraft der rücktreibenden Kraft senkrecht zum Radius steht. Wird die gewonnene Gleichung nach $D$ umgestellt, folgt:
 \begin{equation}
@@ -215,10 +218,10 @@ I_D &= \frac{b \cdot D}{4 \pi^2} \label{eq:16}
     \label{tab:1}
 \end{table}
 
-\flushleft{Für} die Berechnung wurde  für einen Abstand die Periodendauer zweimal gemessen (Wert1, Wert2) und in der Tabelle \ref{tab:1}
+\flushleft{Für} die Berechnung wurde für einen Abstand die Periodendauer zweimal gemessen (Wert1, Wert2) und in der Tabelle \ref{tab:1}
 zusammengetragen. Diese zwei Werte wurden gemittelt und auf eine Periode normiert.
 
-\flushleft{Mithilfe\;}\justifying der Formel \eqref{eq:12} und dem Pyton Befehl linregress() \cite{numpy} lässt sich die Geradengleichung
+\flushleft{Mithilfe\;}\justifying des Pyton Befehls linregress() \cite{numpy} lässt sich die Geradengleichung
 des folgenden Graphen \ref{fig:1} bestimmen. 
 \flushleft{Dabei\;}\justifying sehen die Steigung $m$ und der Schnittpunkt der y-Achse $b$ des Graphen \ref{fig:1} folgendermaßen aus:
 
@@ -236,7 +239,7 @@ b &= \text{\input{intercept.tex}}\label{eq:17b}
     \label{fig:1}
 \end{figure}
 
-\flushleft{Aus\;}\justifying der linearen Regression lässt sich das Trägheitsmoment der Drillachse mit Formel \eqref{eq:13} bestimmten:
+\flushleft{Aus\;}\justifying der linearen Regression lässt sich das Trägheitsmoment der Drillachse mit Formel \eqref{eq:16} bestimmten:
 \begin{equation}
 I_D = \input{I_D.tex}\label{eq:18} % Trägheitsmoment Drillachse
 \end{equation}
@@ -252,7 +255,7 @@ I_D = \input{I_D.tex}\label{eq:18} % Trägheitsmoment Drillachse
 
 \begin{subequations}
 \begin{align}
-\intertext{\flushleft{Für\;}\justifying den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:11} nach $I_S$ umgestellt.
+\intertext{\flushleft{Für\;}\justifying den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:14} nach $I_S$ umgestellt.
 Die Werte für die Periodendauer aus der Tabelle \ref{tab:3} wurden für alle folgenden Berechnungen auf eine Nachkommastelle gerundet.
 Daraus folgt das errechnete Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:3} und einer Masse von $\SI{1525.5}{\gram}$:
 }
@@ -271,7 +274,7 @@ I_{Zy, lit.} &= \input{I_Zylinder_Theorie.tex}\label{eq:19b}
 
 \subsection{Die Kugel}\justifying % Kugel ---------------------------------------------------------------------------------------------------------
 
-\flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Kugel wurde mit der selben Formel \eqref{eq:11} bestimmt, wie das des Zylinders.
+\flushleft{Das\;}\justifying experimentelle Trägheitsmoment der Kugel wurde mit der selben Formel \eqref{eq:14} bestimmt, wie das des Zylinders.
 Die Werte für $T$ werden der Tabelle \ref{tab:3} entnommen. 
 Demnach lautet der experimentelle Wert des Trägheitsmoments:
 \begin{subequations}
@@ -287,25 +290,28 @@ I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
 \end{align}
 \end{subequations}
 
-\subsection{Puppe}\justifying % Puppe ---------------------------------------------------------------------------------------------------------
+\subsection{Die Puppe}\justifying % Puppe ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Die\;}\justifying folgenden zwei Bilder \ref{fig:2} approximieren die Gliedmaßen der Puppe als Zylinder für die folgenden 
-Berechnungen. Bild \ref{fig:2a} stellt die Puppe in Position 1 mit angezogenen Armen und Bild \ref{fig:2b} in Position 2 mit 
+Berechnungen. Bild \subref{fig:2a} stellt die Puppe in Position 1 mit angezogenen Armen und Bild \subref{fig:2b} in Position 2 mit 
 ausgestreckten Armen dar.
+
 \begin{figure}[H]
 \caption{Positionen der Puppe}
-\begin{subfigure}{0.495\linewidth}
+\label{fig:2}
+\begin{subfigure}{0.495\linewidth} 
 \centering
 \includegraphics[width=\textwidth]{images/puppe_an.jpg}
 \caption{Puppe mit angezogenen Armen (Pos. 1)}
+\label{fig:2a}
 \end{subfigure}
-\begin{subfigure}{0.495\linewidth}
+\begin{subfigure}{0.495\linewidth} 
 \centering
 \includegraphics[width=\textwidth]{images/puppe_aus.jpg}
 \caption{Puppe mit ausgestreckten Armen (Pos. 2)}
+\label{fig:2b}
 \end{subfigure}
 \end{figure}
-
 \flushleft{Die\;}\justifying Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ bestimmt und lauten wie folgt:
 
 \begin{subequations}
@@ -333,10 +339,10 @@ ausgestreckten Armen dar.
     \rho = \SI{760}{\kilo\gram\meter\tothe{-3}}\label{eq:23}.
 \end{align}
 
-\subsubsection{Puppe Position 1}\label{sec:Puppe1} % Puppe 1 ---------------------------------------------------------------------------------------------------------
+\subsubsection{Puppe in Position 1}\label{sec:Puppe1} % Puppe 1 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Um\;}\justifying das experimentelle Trägheitsmoment der Puppe in Position 1 berechnen zu können, werden die die Trägheitsmomente der
-einzelnen Zylinder mit der Formel \eqref{eq:18} und den Werten aus Tabelle \ref{tab:3} bestimmt. Die individuellen Trägheitsmomente werden
+einzelnen Zylinder mit der Formel \eqref{eq:13} und den Werten aus Tabelle \ref{tab:3} bestimmt. Die individuellen Trägheitsmomente werden
 aufsummiert um das Trägheitsmoment der Puppe für die einzelnen Periodendauern zu erhalten. Abschließend werden die Trägheitsmomente
 mit der Mittelwertsformel \eqref{eq:10a} gemittelt um auf das Gesamtträgheitsmoment zu kommen: 
 \begin{subequations}
@@ -356,7 +362,7 @@ I_{P1,lit.} &= \input{I_Puppe_an_theo.tex}\label{eq:24c}
 \end{align}
 \end{subequations}
 
-\subsubsection{Puppe Position 2}\justifying \label{sec:Puppe2} % Puppe 2 ---------------------------------------------------------------------------------------------------------
+\subsubsection{Puppe in Position 2}\justifying \label{sec:Puppe2} % Puppe 2 ---------------------------------------------------------------------------------------------------------
 
 \flushleft{Für\;}\justifying das Gesamtträgheitsmoment der Puppe in Position 2 wird identisch verfahren wie für das Trägheitsmoment der 
 Puppe in Position 1. Der einzige Unterschied liegt in der Periodendauer aus Tabelle \ref{tab:3}. Werden die einzelnen Trägheitsmomente
@@ -378,8 +384,8 @@ I_{P2,lit.} &= \input{I_Puppe_aus_theo.tex}\label{eq:25b}
 
 \section{Diskussion}\justifying
 Nach der Auswertung folgt nun eine kurze Diskussion der berechneten Werte.\\
-Die Winkelrichtgröße D \eqref{eq:17} scheint in einer passenden
-Größenordnung vorzuliegen, allerdings lässt sich anhand der Formel \eqref{eq:16}
+Die Winkelrichtgröße D \eqref{eq:12} scheint in einer passenden
+Größenordnung vorzuliegen, allerdings lässt sich anhand der Formel \eqref{eq:11}
 und der Tabelle \ref{tab:2} ein Fehler in der Messung erkennen.
 Da die Winkelrichtgröße grundsätzlich konstant sein sollte, ergibt sich bei einem
 doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht direkt der Fall
@@ -387,13 +393,13 @@ wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messunge
 ergibt sich aus dem Problem des Nullpunkts beim Newtonmeter. In der Messung wurde das
 Newtonmeter senkrecht an die ausgelenkte Stange gehalten, um die Federkraft zu ermitteln. Dabei kann es
 beim Loslassen der Stange passieren, dass die Feder des empfindlichen Newtonmeters bereits ausgelenkt wurde oder 
-erst nach kurzer Zeit ausgelenkt wurde, sodass sich eine kleine Abwweichung in der Messung ergibt.
+erst nach kurzer Zeit ausgelenkt wurde, sodass sich eine kleine Abweichung in der Messung ergibt.
 Dabei musste für die Werte berücksichtigt werden, dass das Newtonmeter auf Messungen im 
 Schwerefeld der Erde geeicht wurde und dementsprechend auf alle Werte für F in Tabelle 
 \ref{tab:2} noch $\SI{0.05}{\newton} $ addiert werden muss.
-Zudem ergibt sich eine gewisse Ungenauigkeit beim Einstellen des Winkels. \\
+Zudem ergibt sich eine gewisse Ungenauigkeit beim Einstellen des Winkels. 
 
-\flushleft{Für}\justifying \;das Trägheitsmoment des Stabs wurde der Wert aus Formel \eqref{eq:15} bestimmt.
+\flushleft{Für\;}\justifying das Trägheitsmoment des Stabs wurde der Wert aus Formel \eqref{eq:16} bestimmt.
 Bei dem Versuch wurde der Stab, auf dem sich die beiden Zylinder befanden, als masselos angenommen  und
 die Zylinder als Punktmassen angenähert. Dabei wurde für die Auswertung bei der Periodendauer
 nur die erste Nachkommastelle verwendet, da aufgrund der menschlichen Reaktionszeit sich
@@ -403,19 +409,21 @@ dies täuschen, da eine theoretische Berechnung aufgrund der fehlenden Masse fü
 Drillachse nicht durchgeführt werden konnte. Allerdings führen die Annäherungen in der 
 Regel zu einer bestimmten Ungenauigkeit.
 Der Graph \ref{fig:1} mit seinen Messwerten aus Tabelle \ref{tab:1} liegt dabei ohne große 
-Abweichungen vor und spiegelt die in Formel \eqref{eq:11} gegebene Relation gut wieder.\\
+Abweichungen vor und spiegelt die in Formel \eqref{eq:14} gegebene Relation gut wieder.
 
-\flushleft{Durch}\justifying \;die beiden Messungenauigkeiten in $D$ und $I_D$ ergibt
-sich auch automatisch ein Fehler für die Trägheitsmomente der verschiedenen Körper.\\
+\flushleft{Durch\;}\justifying die beiden Messungenauigkeiten in $D$ und $I_D$ ergibt
+sich auch automatisch ein Fehler für die Trägheitsmomente der verschiedenen Körper.
 
 \flushleft{Für\;}\justifying den Zylinder ergibt sich ein relaiver Fehler von $37\%$, welcher  sich
-durch die bereits genannten Fehler erklären ließe. \\
-Für die Kugel ergibt sich ein relativer Fehler von $-34\%$, welcher wie beim Zylinder durch
+durch die bereits genannten Fehler erklären ließe. 
+
+\flushleft{Für\;}\justifying die Kugel ergibt sich ein relativer Fehler von $-34\%$, welcher wie beim Zylinder durch
 die Messungenauigkeit in $D$ und $I_D$ begründet werden könnte.
 Allerdings zeigt sich, dass das Trägheitsmoment der Kugel kleiner als das Trägheitsmoment
 des Zylinders ist. Dies erscheint aufgrund der gemessenen und berechneten Größen in Abschnitt \ref{sec:6.1}
 sinnvoll. Beim Zylinder ist Zum einen die Masse größer, zum  anderen sind die Massepunkte weiter 
 von der Rotationsachse entfernt als bei der Kugel.
+\newpage
 
 \flushleft{Bei\;}\justifying der Berechnung des experimentellen Trägheitsmoment der Puppe ergibt
 sich, im Gegensatz zur Kugel und dem Zylinder, bei beiden Positionen
@@ -423,7 +431,7 @@ sich, im Gegensatz zur Kugel und dem Zylinder, bei beiden Positionen
  nach der Definition in der Physik positiv definiert sein müsste. Dieser Fehler ließe
  sich nicht nur durch die bereis bekannten Fehler erklären. Zu diesen Fehlern kommt
  noch hinzu, dass die Körperform der Puppe bei der theoretischen Berechnung
- der Formel \eqref{eq:18} nur angenähert wurde und dementsprechend nicht
+ der Formel \eqref{eq:13} nur angenähert wurde und dementsprechend nicht
  realitätsgetreu ist. Außerdem war das genaue Material der Puppe nicht bekannt.
  Daher wurde angenommen, dass es sich bei dem Material um Buchenholz handele.
  Dadurch entsteht auch der große relative Fehler bei den Formeln \eqref{eq:24d} und \eqref{eq:25a}.
@@ -431,6 +439,9 @@ sich, im Gegensatz zur Kugel und dem Zylinder, bei beiden Positionen
  sich die Puppe in Position 2 langsamer bewegt hat, als in Position 1, da das
  Trägheitsmoment in Formel \eqref{eq:24b} geringer ist als das Trägheitsmoment in
  Formel \eqref{eq:25a}.
+
+ \flushleft{Anhand\;}\justifying der vorliegenden Fehler und angenäherten Körperformen lässt sich der Satz von Steiner nicht 
+ nachweisen, da die vorgenommenen Approximationen zu teilweise negativen Trägheitsmomenten führen.
 
 \newpage
 
