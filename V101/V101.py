@@ -350,15 +350,11 @@ with open('build/table_I.tex', 'w') as g:
 
 # Testprints ##########################################################################################
 
-print(I_Kugel_mean)
-print(I_Kugel_Theorie)
-print(I_Zylinder_mean)
-print(I_Zylinder_Theorie)
+
 print(I_Puppe_an_exp_mean)
 print(I_Puppe_an_theo)
 print(I_Puppe_aus_exp_mean)
 print(I_Puppe_aus_theo)
 print(I_Kugel)
-print(np.round(T_Zylinder,1))
-
+print(I_Puppe_an_exp)
 
