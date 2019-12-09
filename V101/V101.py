@@ -14,8 +14,8 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 
 # Funktionsdefinitionen
 
-def I(T, D, I_D, m, a):
-  return ((T**2*(2*np.pi))**2)/D - I_D - m * a**2
+def I(T, D, I_D):
+  return (T/(2*np.pi))**2 * D - I_D 
 
 def make_SI(num, unit, exp='', figures=None):
     ''' Format an uncertainties ufloat as a \SI quantity '''
@@ -67,7 +67,7 @@ slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_
 I_D = intercept * D_mittelw/(4*np.pi**2)
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
-I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D, 0, 0)
+I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D)
 I_Zylinder_mean = np.mean(I_Zylinder)
 
 # theoretischer Wert des Trägheitsmoments des Zylinders
@@ -76,7 +76,7 @@ I_Zylinder_Theorie = 1.5255*((0.04**2)/4+(0.1395**2)/12)
 
 # experimenteller Wert des Trägheitsmoment der Kugel
 
-I_Kugel = I(np.round(T_Kugel[0:5],1), D_mittelw, I_D, 0, 0)
+I_Kugel = I(np.round(T_Kugel[0:5],1), D_mittelw, I_D)
 I_Kugel_mean = np.mean(I_Kugel)
 
 # theoretischer Wert des Trägheitsmoments der Kugel
@@ -85,25 +85,25 @@ I_Kugel_Theorie = 2/5 * 1.1685 * (0.146/2)**2
 
 # theoretischer Wert des Trägheitsmoment der Puppe Arme angelegt
 
-m_Torso = np.pi * (0.0389/2)**2 * 0.09625 * 0.78
-m_Arm  = np.pi * (0.0165/2)**2 * 0.1325 * 0.78
-m_Kopf = np.pi * (0.03265/2)**2 * 0.04380 * 0.78
-m_Bein = np.pi * (0.0218/2)**2 * 0.14475 * 0.78
+m_Torso = np.pi * (0.0389/2)**2 * 0.09625 * 780
+m_Arm  = np.pi * (0.0165/2)**2 * 0.1325 * 780
+m_Kopf = np.pi * (0.03265/2)**2 * 0.04380 * 780
+m_Bein = np.pi * (0.0218/2)**2 * 0.14475 * 780
 
 I_Puppe_an_theo = (m_Torso * (0.0389/2)**2/2 + m_Kopf * (0.03265/2)**2/2 + 2 * m_Bein * (0.0218/2)**2/2 + 2 * ( m_Arm * (0.0165/2)**2/2 + m_Arm * (0.0165/2 +0.0389/2)**2))
 
 # experimenteller Wert des Trägheitsmoment der Puppe Arme angelegt
 
-I_Puppe_an_exp = (2 * I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Arm, 0.0165/2 + 0.0389/2) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_fast[0:5], D_mittelw, I_D, m_Torso, 0) + 2* I(T_Puppe_fast[0:5], D_mittelw, I_D,2 * m_Bein, 0.0218/2))
+I_Puppe_an_exp = I(T_Puppe_fast[0:5], D_mittelw, I_D)
 I_Puppe_an_exp_mean = np.mean(I_Puppe_an_exp)
 
 # theoretischer Wert des Trägheitsmoment der Puppe Arme ausgestreckt
 
-I_Puppe_aus_theo = (m_Torso * (0.0389/2)**2/2 + m_Kopf * (0.03265/2)**2/2 + 2 * m_Bein * (0.0218/2)**2/2 + 2 * ( m_Arm * ((0.0165/2)**2/4+(0.1325)**2/12) + m_Arm * (0.1325/2 + 0.0389/2)**2))
+I_Puppe_aus_theo = m_Torso * (0.0389/2)**2/2 + m_Kopf * (0.03265/2)**2/2 + 2 * m_Bein * (0.0218/2)**2/2 + 2 * ( m_Arm * ((0.0165/2)**2/4+(0.1325)**2/12) + m_Arm * (0.1325/2 + 0.0389/2)**2)
 
 # experimanteller Wert des Trägheitsmoment der Puppe Arme ausgestreckt
 
-I_Puppe_aus_exp =(2 * I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Arm, 0.1325/2 + 0.0389/2) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Kopf, 0) + I(T_Puppe_slow[0:5], D_mittelw, I_D, m_Torso, 0) + 2* (I(T_Puppe_slow[0:5], D_mittelw, I_D,2 * m_Bein, 0.0218/2)))
+I_Puppe_aus_exp = I(T_Puppe_slow[0:5], D_mittelw, I_D)
 I_Puppe_aus_exp_mean = np.mean(I_Puppe_aus_exp)
 
 
@@ -354,6 +354,9 @@ print(I_Kugel_mean)
 print(I_Kugel_Theorie)
 print(I_Zylinder_mean)
 print(I_Zylinder_Theorie)
-print(I_D)
+print(I_Puppe_an_exp_mean)
+print(I_Puppe_an_theo)
+print(I_Puppe_aus_exp_mean)
+print(I_Puppe_aus_theo)
 
 
