@@ -15,7 +15,7 @@ import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], 
 # Funktionsdefinitionen
 
 def I(T, D, I_D, m, a):
-  return (T/(2*np.pi))**2 * D - I_D - m * a**2
+  return ((T**2(2*np.pi))**2)/D - I_D - m * a**2
 
 def make_SI(num, unit, exp='', figures=None):
     ''' Format an uncertainties ufloat as a \SI quantity '''
