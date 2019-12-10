@@ -39,13 +39,19 @@ beschrieben werden \cite{V354}:}
 \tilde{\omega} _{1,2} &= i\frac{R}{2L} \pm \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \label{eq:omega}\\
 \intertext{Aus diesem Zusammenhang ergeben sich drei verschiedene Fälle.
 Der erste Fall beschreibt, dass \cite{V354}}
-\frac{1}{LC} & > \frac{R^2}{4L^2} \label{eq:Fall1}
+\frac{1}{LC} & < \frac{R^2}{4L^2} \label{eq:Fall1}
 \intertext{ist und damit der Wurzelterm von $\tilde{\omega}$ \eqref{eq:omega} komplex wird.
 Die zugehörige Schwingungsgleichung entspricht damit \cite{V354}}
     I(t)&=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}
 \end{align}
 \justifying
-Diese Gleichung beschreibt eine ungedämpfte Schwingung. Die Amlitude $A_0$ läuft dabei
+Dabei beschreiben die Terme $2 \pi \nu$ und $2 \pi \mu$ jeweils
+\begin{align}
+  2 \pi \nu = \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \text{und}\\
+  2 \pi \mu = \frac{R}{2L},
+\end{align}
+wobei $\nu$ die Frequenz ist.
+Diese Gleichung beschreibt eine gedämpfte Schwingung. Die Amplitude $A_0$ läuft dabei
 exponentiell gegen null.
 Die Schwingungsdauer lässt sich dabei für diesen Fall schreiben als \cite{V354}:
 \begin{align}
@@ -58,7 +64,7 @@ $T_{ex}$ wird daher auch Ablinkdauer genannt.
 \justify
 Der zweite Fall \cite{V354}
 \begin{align}
-    \frac{1}{LC} <\frac{R^2}{4L^2} \label{eq:Fall2}
+    \frac{1}{LC} >\frac{R^2}{4L^2} \label{eq:Fall2}
 \end{align}
 stellt den Kriechfall dar. Bei diesem verschwindet der oszillatorische Teil und
 die Wurzel aus Gleichung \eqref{eq:omega} wird positiv.
@@ -87,7 +93,7 @@ Diese Frequenz wird im Allgemeinen als Resonanzfrequenz $\omega_{res}$ \cite{V35
     \omega_{res} = \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}} \label{eq:omegares}
 \end{align}
 bezeichnet.\\
-Aus dieser Formel können zwei Fälle betrachtet werden.
+Aus dieser Formel können zwei Spezialfälle betrachtet werden.
 Für den ersten Fall wird die schwache Dämpfung betrachtet \cite{V354}:
 \begin{align}
     \frac{1}{LC} \gg \frac{R^2}{4L^2} \label{eq:Fall1b}
@@ -114,7 +120,7 @@ approximiert werden.
     \frac{1}{LC} \ll \frac{R^2}{4L^2} \label{eq:Fall2b}
 \end{align}
 existiert keine Resonanzüberhöhung mehr. 
-Die frenquenzabhängige Phasenverschiebung \cite{V353}
+Die frequenzabhängige Phasenverschiebung \cite{V353}
 \begin{align}
     \varphi(\nu) &= \frac{\Delta T}{T} \cdot 2 \pi \quad &\text{mit} \; T &= \frac{1}{\nu} \label{eq:nu}\\
     \intertext{oder auch}
@@ -137,11 +143,12 @@ herleiten.
 Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell anfallenden Fehler benötigt:
 \begin{subequations}    
 \begin{align}
-    \intertext{Der Mittelwert}
+    \intertext{Der Mittelwert wird berechnet mit folgender Formel:}
         \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:mittelw}
-    \intertext{Der Fehler des Mittelwerts}
+    \intertext{Um den Fehler des Mittelwerts wird  }
         \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:fmittelw}
-    \intertext{Die gaußsche Fehlerfortpflanzung}
+    \intertext{verwendet.}
+    \intertext{Für die gaußsche Fehlerfortpflanzung wird diese Gleichung verwendet:}
         \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:ffort}
     \intertext{In der Auswertung selbst wird die Fehlerrechnung mithilfe von Pyhtonbefehlen \cite{uncertainties} durchgeführt.
     Für die lineare und nichtlineare Ausgleichsrechnung werden folgende Funktionen benötigt:}
@@ -150,28 +157,6 @@ Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell an
         b = \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2}
 \end{align}
 \end{subequations}
-
-% Aufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Aufgaben}\justifying
-
- \begin{enumerate}
-
-    \item[a)] \justifying Zuerst wird mittels der Tabelle \ref{tab:data_a} eine lineare
-                          Ausgleichsrechnung durchgeführt und aus dem Ergebnis der effektive
-                          Dämpfungswiderstand bestimmt.
-
-    \item[b)] \justifying Anschließend wird über einen variablen Widerstand bestimmt,
-                          wo sich der aperiodische Grenzfall befindet. 
-  
-    \item[c)] \justifying Daraufhin wird die Frequenzabhängigkeit
-                          der Kondensatorspanung über einen Plot der Messwertpaare
-                          betrachtet.
-  
-    \item[d)] \justifying Schließlich wird der Zusammenhang zwischen Phase und Frequenz
-                          durch eine Messung an einem Serienresonanzkreis bestimmt.
-    
-  \end{enumerate}
 
 % Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -203,7 +188,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     an den maximal eingestellten variablen Widerstand angeschlossen. Anschließend wird 
     der variable Widerstand reduziert, bis am Oszilloskop eine Überschwingung erkennbar 
     wird. Daraufhin wird der Widerstand stetig erhöht bis die Überschwingung verschwindet 
-    und der bestimmte Widerstand notiert.
+    und der Wert des Widerstandes notiert.
   
     \item[c/d)] \justifying Dann wird für die Messung der Frequenzabhängigkeit
                           der größere Widerstand von $\SI{271.6\pm 0.2}{\ohm}$ angeschlossen.
@@ -234,6 +219,10 @@ mit dem ersten Eingang des Oszilloskops verbunden.
      \caption{Widerstand R2}
      \label{fig:R2}
     \end{subfigure}
+
+
+
+
     \caption{Dämpfungsverhalten der Widerstände R1 und R2}
   \end{figure} 
   \begin{figure}[H]
@@ -257,7 +246,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
   \flushleft{Mithilfe }\justifying der Messwertpaare lässt sich der folgende Graph \ref{fig:5ajpg} beschreiben, welcher die Einhüllende 
   Funktion $e^{-2\pi\mu t}$ des Schwingverhaltens als lineare Regression darstellt.\\
-  Die Formel ergibt sich dabei aus Formel \eqref{eq:I}.\\
+  Dabei ergibt sich die einhüllende Funktion aus Formel \eqref{eq:I}.\\
   Die ausgerechnten Werte von der Steigung $m$ und dem Schnittpunkt mit der y-Achse $b$ aus der Ausgleichsrechnung sehen dabei folgendermaßen aus:
   \begin{align}
       &m=\text{\input{m.tex}}
@@ -421,7 +410,7 @@ Vermutung auf, dass die Skalierung $\SI{0.5}{\kilo\ohm}$ pro Einheit betrug, ans
 würde der Widerstand $R_{\text{ap}} = \SI{1.45}{\kilo\ohm}$ entsprechen, was deutlich näher am Theoriewert läge.
 
 \flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder.
-Dabei entspricht die gefittete Kurve in keinester Weise den Messwerten. Auch der theoretisch erwarteten Kurve entspricht sie nicht, da die Breite ihrer der Resonanzkurve zu
+Dabei entspricht die gefittete Kurve in keinester Weise den Messwerten. Auch der theoretisch erwarteten Kurve2*np.pi* entspricht sie nicht, da die Breite der Resonanzkurve zu
 schmal ist nach Gleichung \eqref{eq:29}. Eine Möglichkeit für den misslungenen Plot können
 systematische Fehler sein oder aber, dass die Gleichung \eqref{eq:9} nicht als Fitkurve
 geeignet ist.
