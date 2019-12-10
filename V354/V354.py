@@ -39,7 +39,7 @@ phi = f * t * 2 * np.pi # Umrechnung von t in phi
 
 R= 2.9 * 1e03      # Widerstand für aperiodischen Grenzfall
 
-nuGraph = 14.9 *1e03 # nu+ - nu- Breite der Resonanzkurve
+nuGraph = 14.9 *1e03 *2*np.pi # nu+ - nu- Breite der Resonanzkurve
 
 nu1 = 3.2 * 1e04
 
@@ -64,7 +64,7 @@ RF_R = (R-R_ap_lit.n)/R_ap_lit.n # RF= relativer Fehler
 
 # Berechnung von nu+ - nu-
 
-nuRech= (R2+2.5)/(2*np.pi*L)
+nuRech= (R2+2.5)/(L)
 
 # Relativer Fehler nu+ - nu-
 
@@ -147,7 +147,7 @@ x_plot = np.linspace(0, 2e-04, 10)
 plt.plot(x_plot*1e04,intercept+slope*x_plot, 'k-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel('t / $\mu$s')
-plt.ylabel(r'$\log (A) \:/\: $V')
+plt.ylabel(r'$\log (A) \:/\: $')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plota.pdf')
