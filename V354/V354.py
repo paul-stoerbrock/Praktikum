@@ -147,7 +147,7 @@ x_plot = np.linspace(0, 2e-04, 10)
 plt.plot(x_plot*1e04,intercept+slope*x_plot, 'k-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel('t / $\mu$s')
-plt.ylabel(r'$\log (A) \:/\: $')
+plt.ylabel(r'$\log (A)  $')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plota.pdf')
@@ -158,20 +158,21 @@ plt.close()
 popU, pcovU = curve_fit(
     U,
     f[0:18],
-    A[0:18],
+    A0[0:18],
     sigma=None,
     absolute_sigma=True,
-    p0=[320, 3.5*1e-03, 5*1e-09]
+    p0=[1000, 3.5*1e-03, 5*1e-09]
     )
 
 # Erstellung des Plots c) in ln-Darstellung
 
 plt.plot(f, A0, 'rx', label="Messdaten")
 x_plot = np.linspace(10*1e03,60*1e03,10000)
-plt.plot(x_plot, U(x_plot,*popU)/U0,linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot, U(x_plot,R2.n,L.n, C ),linestyle='--',label='Theoriekurve')
 plt.xscale('log')
 plt.xlabel(r'$\nu \:/\: $Hz')
-plt.ylabel(r'$U_C/U_0 \:/\: $V')
+plt.ylabel(r'$U_C/U_0  $')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotcln.pdf')
@@ -181,7 +182,8 @@ plt.close()
 
 plt.plot(f, A0, 'rx', label="Messdaten")
 x_plot = np.linspace(26*1e03,45*1e03,10000)
-plt.plot(x_plot, U(x_plot,*popU)/U0,linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot, U(x_plot,*popU),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot, U(x_plot,R2.n,L.n, C ),linestyle='--',label='Theoriekurve')
 plt.xticks( [27500 ,30000,32500, 35000, 37500, 40000, 42500, 45000 ],
             [27.5, 30.0, 32.5, 35.0, 37.5, 40.0, 42.5, 45.0]
 )
@@ -190,7 +192,7 @@ plt.axhline(Umax/(U0*np.sqrt(2)), linestyle='--')
 plt.axvline(27.8*1e03,linestyle='--', label=r'$\nu_r$') # nu-
 plt.axvline(42.7*1e03,linestyle='--') # nu+
 plt.xlabel(r'$\nu \:/\: $kHz')
-plt.ylabel(r'$U_C/U_0 \:/\: $V')
+plt.ylabel(r'$U_C/U_0  $')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotclin.pdf')
@@ -338,7 +340,7 @@ with open('build/R_ap_lit.tex', 'w') as RC:
 
 with open('build/RF_R.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_R:.2f}')
+    RC.write(f'{RF_R:.4f}')
     RC.write('}$')
 
 # Tex file of nuRech
@@ -366,14 +368,14 @@ with open('build/q_lit.tex', 'w') as RC:
 
 with open('build/RF_q.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_q:.2f}')
+    RC.write(f'{RF_q:.4f}')
     RC.write('}$')
 
 # Tex file of RF_nu    
 
 with open('build/RF_nu.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_nu:.2f}')
+    RC.write(f'{RF_nu:.4f}')
     RC.write('}$')
 
 # Tex file of nu1_lit
@@ -387,7 +389,7 @@ with open('build/nu1_lit.tex', 'w') as RC:
 
 with open('build/RF_nu1.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_nu1:.2f}')
+    RC.write(f'{RF_nu1:.4f}')
     RC.write('}$')
 
 # Tex file of nu2_lit
@@ -401,7 +403,7 @@ with open('build/nu2_lit.tex', 'w') as RC:
 
 with open('build/RF_nu2.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_nu2:.2f}')
+    RC.write(f'{RF_nu2:.4f}')
     RC.write('}$')
 
 # Tex file of nu_res_lit
@@ -415,7 +417,7 @@ with open('build/nu_res_lit.tex', 'w') as RC:
 
 with open('build/RF_nu_res.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_nu_res:.2f}')
+    RC.write(f'{RF_nu_res:.4f}')
     RC.write('}$')
 
 # Tex file of T_ex
@@ -442,7 +444,7 @@ with open('build/T_ex_lit.tex', 'w') as RC:
 
 with open('build/RF_T_ex.tex', 'w') as RC:
     RC.write('$\\num{')
-    RC.write(f'{RF_T_ex.n:.2f}')
+    RC.write(f'{RF_T_ex.n:.4f}')
     RC.write('}$')
 
 # Erstellung Tabelle a) ###################################################################################
@@ -509,4 +511,5 @@ with open('build/table_c.tex', 'w') as h:
 print(T_ex_lit)
 print(1/slope)
 print(popU)
+print(popphi)
 
