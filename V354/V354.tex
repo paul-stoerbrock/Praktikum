@@ -29,14 +29,14 @@
 \intertext{Ein Schwingkreis beschreibt einen Schaltkreis bestehend aus einem
 Kondensator und einer Spule. Die Spule besitzt dabei die Induktivität $L$ und der
 Kondensator die Kapazität $C$. Wird auf diese Schaltung nun eine Spannung $U_0$ 
-gegeben, so oszilliert der Schwingkreis und führt eine ungedämpfte Schwingung aus. 
+gegeben, so oszilliert die Spannung beim Schwingkreis ungedämpft. 
 Wird nun ein Widerstand in die Schaltung eingebaut, so verliert das System mit der
 Zeit Energie, die in Form von Joulscher Wärme an den Widerstand irreversibel
-übertragen wird. Dadurch führt das System eine gedämpfte Schwingung aus.
+übertragen wird. Dadurch verläuft die Amplitude der Spannung mit der Zeit gegen 0.
 Die zeitliche Veränderung der Stromstärke kann dabei durch folgende Formel
 beschrieben werden \cite{V354}:}
 \symbffrak{I}(t) &= \symbffrak{U}_1e^ {i\tilde{\omega}_1 t}+\symbffrak{U}_2 e^{i \tilde{\omega}_2 t} \text{, wobei}\\
-\tilde{\omega} _{1,2} &= i\frac{R}{2L} \pm \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \label{eq:omega}\\
+\tilde{\omega} _{1,2} &= i\frac{R}{2L} \pm \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \text{ist.} \label{eq:omega}\\
 \intertext{Aus diesem Zusammenhang ergeben sich drei verschiedene Fälle.
 Der erste Fall beschreibt, dass \cite{V354}}
 \frac{1}{LC} & < \frac{R^2}{4L^2} \label{eq:Fall1}
@@ -290,13 +290,8 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \end{equation}
   Aus den Literaturwerten $L = \text{\input{L.tex}}$ und $C =\text{\input{C.tex}}$ ergibt sich der Widerstand 
   \begin{equation}
-  R_{\text{ap, Lit.}} = \text{\input{R_ap_lit.tex}} \label{eq:RapLit}
+  R_{\text{ap, Lit.}} = \text{\input{R_ap_lit.tex}} \label{eq:RapLit}.
   \end{equation}
-  Wird nun der Literaturwert mit dem errechneten Wert verglichen fällt ein relativer Fehler von
-  \begin{equation}
-  \frac{R_{\text{ap}} - R_{\text{ap,Lit.}}}{R_{\text{ap,Lit.}}} = \text{\input{RF_R.tex}} \label{eq:RapAbw}
-  \end{equation}
-  an.
 
 %Auswertung 5c ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -329,7 +324,14 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Resonanzkurve aus Aufg. c)}
   \end{figure} 
 
-  \flushleft{Die }\justifying Ausgleichskurve wurde dabei mit $\sfrac{U_C}{U_0}$ bestimmt.
+  \flushleft{Die }\justifying Ausgleichskurve wurde dabei mit der Formel \eqref{eq:9} erstellt,
+  wobei $U_0$ vorher noch auf die linke Seite der Gleichung multipliziert wurde.
+  Die Fitparameter sehen dabei folgendermaßen aus:
+  \begin{align}
+    R &= \SI{1.23}{\kilo\ohm}\\
+    L &= \SI{3.97}{\milli\henry}\\
+    C &= \SI{2.76}{\nano\farad}.
+  \end{align}
 
   \flushleft{Bestimmt }\justifying wurde die Breite der Resonanzkurve $\omega_+ - \omega_-$ mit $\omega = 2\cdot\pi\cdot\nu$ 
   und der Formel \eqref{eq:om+-}. Der errechneten Werte für $\omega_+ - \omega_-$ und $\omega_{+-,\text{Lit.}}$ sehen aus wie folgt:
@@ -345,11 +347,9 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
   \flushleft{Aus }\justifying dem Graphen \ref{fig:5clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
   \begin{align}
-  q &= \text{\input{q.tex}}
+  q &= \text{\input{q.tex}} \label{eq:33}
   \intertext{mit dem Literaturwert}
-  q_{\text{Lit.}} &= \text{\input{q_lit.tex}}.
-  \intertext{Der relative Fehler der Güte des Schwingkreises ergibt:}
-  \frac{q - q_{\text{Lit.}}}{q_{\text{Lit.}}} &= \text{\input{RF_q.tex}}
+  q_{\text{Lit.}} &= \text{\input{q_lit.tex}}. \label{eq:34}
   \end{align}
 
 %Auswertung 5d ----------------------------------------------------------------------------------------------------------------------------------------
@@ -371,6 +371,14 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \end{subfigure}
     \caption{Resonanzkurve aus Aufg. 4d)}
   \end{figure} 
+
+  \flushleft{Die\;} gefittete Kurve wurde hier mit der Formel \eqref{eq:phi} erstellt. Die Fitparameter
+  sehen dabei folgendermaßen aus:
+  \begin{align}
+    R&= \SI{4.71}{\kilo\ohm}\\
+    L&= \SI{-136}{\milli\henry}\\
+    C&= \SI{-99.7}{\pico\farad}
+  \end{align}
 
   \flushleft{Mithilfe }\justifying der Formel \eqref{eq:omegares} wird der Wert für $\nu_{\text{res.}}$ berechnet. Anhand $\nu_{\text{res.}}$
   können die Werte für $\nu_{1,2}$ bestimmt werden, indem die Funktionswerte bei $\sfrac{\pi}{2}$ und 
@@ -398,24 +406,24 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 \section{Diskussion}\justifying
 
 \flushleft{Die }\justifying Kurve der gemessen Werte für a) liegt nahe der erwarteten Kurve aus der Theorie. Bei einer angelegten 
-Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = \SI{2.3}{\volt} $ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
+Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = \num{2.3} $ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
 welche kleiner als 2.3V ist, ließe sich durch einen weiteren Peak mit einer negativen Amplitude erklären, der nicht auf dem Bild 
 \ref{fig:5a} aufgeführt ist. Die Werte für die Abklingdauer und den effektiven Widerstand haben allerdings einen relativ hohen Fehler, 
 welcher sich eventuell auf systematische Fehler zurückführen ließe. 
 
-\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler \eqref{eq:RapLit}. 
+\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler von $73.48\%$. 
 Dieser könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
 des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $\SI{5.0}{\kilo\ohm} $ lag. Dieser Umstand wirft die 
 Vermutung auf, dass die Skalierung $\SI{0.5}{\kilo\ohm}$ pro Einheit betrug, anstelle der hier verwendeten $\SI{1}{\kilo\ohm} $ pro Einheit. Demnach 
 würde der Widerstand $R_{\text{ap}} = \SI{1.45}{\kilo\ohm}$ entsprechen, was deutlich näher am Theoriewert läge.
 
 \flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder.
-Dabei entspricht die gefittete Kurve in keinester Weise den Messwerten. Auch der theoretisch erwarteten Kurve2*np.pi* entspricht sie nicht, da die Breite der Resonanzkurve zu
+Dabei entspricht die gefittete Kurve in keinester Weise den Messwerten. Auch der theoretisch erwarteten Kurve entspricht sie nicht, da die Breite der Resonanzkurve zu
 schmal ist nach Gleichung \eqref{eq:29}. Eine Möglichkeit für den misslungenen Plot können
 systematische Fehler sein oder aber, dass die Gleichung \eqref{eq:9} nicht als Fitkurve
 geeignet ist.
 Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Beim Vergleich der 
-Resonanzüberhöhung mit dessen Literaturwert entsteht ein relativer Fehler von 22$\%$. Dieser Fehler könnte auf einen systematischen 
+Resonanzüberhöhung \eqref{eq:33} mit dessen Literaturwert \eqref{eq:34} entsteht ein relativer Fehler von -22.31$\%$. Dieser Fehler könnte auf einen systematischen 
 Fehler zurückgeführt werden.
 
 \flushleft{Die} im Graphen \ref{fig:4dln} gefittete Kurve entspricht nicht den Messwerten.
@@ -423,7 +431,14 @@ Die Ursache hierbei liegt höchstwahrscheinlich daran, dass die Gleichung \eqref
 beschreiben kann. Dies sieht man daran, dass der Wertebereich der Funktion sich nur von $\sfrac{-\pi}{2} $ bis
 $\sfrac{\pi}{2} $ erstreckt. Folglich müsste die Funktion der Theorie zufolge auch in $\sfrac{3\pi}{2} $ definiert sein.
 
-\flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,\text{res.}}$ \eqref{eq:36} und deren relativen Fehlern \eqref{eq:37}
+\flushleft{Aus }\justifying den für d) berechneten Werten für $\nu_{1,2,\text{res.}}$ \eqref{eq:36} und deren relativen Fehlern von
+  \begin{subequations}\label{eq:37}
+  \begin{align}
+    \frac{\nu_1 - \nu_{1,\text{Lit.}}}{\nu_{1,\text{Lit.}}} &= \text{\input{RF_nu1.tex}}, \\
+    \frac{\nu_2 - \nu_{2,\text{Lit.}}}{\nu_{2,\text{Lit.}}} &= \text{\input{RF_nu2.tex}} \text{und} \\
+    \frac{\nu_{\text{res.}} - \nu_{\text{res.,Lit.}}}{\nu_{\text{res.,Lit.}}} &= \text{\input{RF_nu_res.tex}}
+  \end{align} 
+  \end{subequations}
 lässt sich entnehmen, dass die errechneten Werte jeweils sehr nahe an den Literaturwerten liegen. Demnach folgt aus den geringen Abweichungen, in 
 Verbindung mit den Formeln \eqref{eq:omega0} und \eqref{eq:om12}, dass es sich hier um eine starke Dämpfung handeln könnte.
 
