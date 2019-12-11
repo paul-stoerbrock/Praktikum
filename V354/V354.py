@@ -214,9 +214,10 @@ popphi, pcovphi = curve_fit(
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 x_plot = np.linspace(2*1e04,4.5*1e04,10000)
 plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
+plt.plot(x_plot*1e-04, phi1(x_plot,R2.n, L.n, C),linestyle='-',label='Theoriekurve')
 plt.xscale('log')
-plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
-            [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
+plt.yticks( [-np.pi/2,-np.pi/4,0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
+            [r'$-\pi/2$',r'$-\pi/4$',r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
 plt.xticks( [3, 4],
             [3, 4]
@@ -234,8 +235,9 @@ plt.close()
 plt.plot(f*1e-04, phi, 'rx', label="Messdaten")
 x_plot = np.linspace(2*1e04,4.5*1e04,10000)
 plt.plot(x_plot*1e-04, phi1(x_plot,*popphi),linestyle='-',label='Nichtlineare Regression')
-plt.yticks( [0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
-            [r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
+plt.plot(x_plot*1e-04, phi1(x_plot,R2.n, L.n, C),linestyle='-',label='Theoriekurve')
+plt.yticks( [-np.pi/2,-np.pi/4,0,np.pi/4 ,np.pi/2,3 * np.pi/4 ,np.pi],
+            [r'$-\pi/2$',r'$-\pi/4$',r'$0$' ,r'$+\pi/4$' ,r'$+\pi/2$' ,r'$+3\pi/4$'  ,r'$+\pi$']
     )
 
 plt.legend(loc="best")
