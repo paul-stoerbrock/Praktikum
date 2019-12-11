@@ -190,10 +190,12 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     wird. Daraufhin wird der Widerstand stetig erhöht bis die Überschwingung verschwindet 
     und der Wert des Widerstandes notiert.
   
-    \item[c/d)] \justifying Dann wird für die Messung der Frequenzabhängigkeit
+    \item[c)] \justifying Dann wird für die Messung der Frequenzabhängigkeit
                           der größere Widerstand von $\SI{271.6\pm 0.2}{\ohm}$ angeschlossen.
-                          Daraufhin werden die Werte für Phase und Frequenz um die 
-                          Resonanzfrequenz gemessen und datiert.
+                          Daraufhin werden ungefähr 20 Werte für die Verschiebung der Nulldurchgänge 
+                          und Frequenz in gleichmäßigem Abstand um die 
+                          Resonanzfrequenz gemessen und datiert. Dafür wird das Oszilloskop so eingestellt, 
+                          dass die Kurve für Generatorspannung und Spannung des Schwingkreises zu sehen sind.
  \end{enumerate}
  \newpage
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -266,8 +268,6 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     T_{\text{ex}} &=\text{\input{T_ex.tex}}
     \intertext{Die aus den Theoriewerten erechnete Abklingdauer lautet:}
     T_{\text{ex,Lit.}}&=\text{\input{T_ex_lit.tex}}
-    \intertext{\flushleft{Daraus }\justifying folgt dann ein relativer Fehler von}
-    \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}}
   \end{align}
   Die Werte für den effektiven Widerstand lauten nach Gleichung \eqref{eq:Abkling} wie folgt:
 
@@ -276,11 +276,6 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   &R_{\text{eff,Lit.}}=\text{\input{R1.tex} }
 \end{align}
 
-\flushleft{Daraus }\justifying folgt ein relativer Fehler von
-
-\begin{align}
-  \frac{R_{\text{eff}}-R_{\text{eff,Lit.}}}{R_{\text{eff,Lit.}}}= \text{\input{RF_R_eff.tex} }
-\end{align}
 
 %Auswertung 5b ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -324,7 +319,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Resonanzkurve aus Aufg. c)}
   \end{figure} 
 
-  \flushleft{Die }\justifying Ausgleichskurve wurde dabei mit der Formel \eqref{eq:9} erstellt,
+  \flushleft{Die }\justifying Theorie- und Ausgleichskurve wurden dabei mit der Formel \eqref{eq:9} erstellt,
   wobei $U_0$ vorher noch auf die linke Seite der Gleichung multipliziert wurde.
   Die Fitparameter sehen dabei folgendermaßen aus:
   \begin{align}
@@ -340,10 +335,6 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \omega_+ - \omega_- &= \text{\input{nuGraph.tex}}\\
   \omega_{+-,\text{Lit.}} &= \text{\input{nuRech.tex}} \label{eq:29}
   \end{align}
-  \flushleft{Wird }\justifying $\omega_+ - \omega_-$ mit dem Literaturwert verglichen, folgt ein relativer Fehler von:
-  \begin{equation}
-  \frac{\omega_{+-} - \omega_{+-,\text{Lit.}}}{\omega_{+-,\text{Lit.}}} = \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
-  \end{equation}
 
   \flushleft{Aus }\justifying dem Graphen \ref{fig:5clin} und der Formel \eqref{eq:guete} ergibt sich die errechnete Resonanzüberhöhung von
   \begin{align}
@@ -372,7 +363,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     \caption{Resonanzkurve aus Aufg. 4d)}
   \end{figure} 
 
-  \flushleft{Die\;} gefittete Kurve wurde hier mit der Formel \eqref{eq:phi} erstellt. Die Fitparameter
+  \flushleft{Die\;}Theoriekurve und die gefittete Kurve wurden hier mit der Formel \eqref{eq:phi} erstellt. Die Fitparameter
   sehen dabei folgendermaßen aus:
   \begin{align}
     R&= \SI{4.71}{\kilo\ohm}\\
@@ -391,14 +382,6 @@ mit dem ersten Eingang des Oszilloskops verbunden.
     &\nu_{\text{res.}} = \text{\input{nu_res.tex}} &\qquad \nu_{\text{res.,Lit.}} &= \text{\input{nu_res_lit.tex}}
   \end{align}
   \end{subequations}
-  \flushleft{Der }\justifying relative Fehler von $\nu_{1,2,res.}$ sieht folgendermaßen aus:
-  \begin{subequations}\label{eq:37}
-  \begin{align}
-    \frac{\nu_1 - \nu_{1,\text{Lit.}}}{\nu_{1,\text{Lit.}}} &= \text{\input{RF_nu1.tex}} \\
-    \frac{\nu_2 - \nu_{2,\text{Lit.}}}{\nu_{2,\text{Lit.}}} &= \text{\input{RF_nu2.tex}} \\
-    \frac{\nu_{\text{res.}} - \nu_{\text{res.,Lit.}}}{\nu_{\text{res.,Lit.}}} &= \text{\input{RF_nu_res.tex}}
-  \end{align} 
-  \end{subequations}
   \newpage
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -408,25 +391,40 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 \flushleft{Die }\justifying Kurve der gemessen Werte für a) liegt nahe der erwarteten Kurve aus der Theorie. Bei einer angelegten 
 Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = \num{2.3} $ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
 welche kleiner als 2.3V ist, ließe sich durch einen weiteren Peak mit einer negativen Amplitude erklären, der nicht auf dem Bild 
-\ref{fig:5a} aufgeführt ist. Die Werte für die Abklingdauer und den effektiven Widerstand haben allerdings einen relativ hohen Fehler, 
+\ref{fig:5a} aufgeführt ist. Die Werte für die Abklingdauer und den effektiven Widerstand haben allerdings einen relativ hohen Fehler,
+\begin{align}
+  \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}},\\
+  \frac{R_{\text{eff}}-R_{\text{eff,Lit.}}}{R_{\text{eff,Lit.}}}&= \text{\input{RF_R_eff.tex} },
+\end{align}
 welcher sich eventuell auf systematische Fehler zurückführen ließe. 
 
-\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler von $73.48\%$. 
-Dieser könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
+\flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler von 
+\begin{align}
+  \frac{R_{\text{ap}}-R_{\text{pap,Lit.}}}{R_{\text{ap,Lit.}}}= \text{\input{RF_R.tex} }
+\end{align}
+
+\flushleft{Dieser\;} könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
 des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $\SI{5.0}{\kilo\ohm} $ lag. Dieser Umstand wirft die 
 Vermutung auf, dass die Skalierung $\SI{0.5}{\kilo\ohm}$ pro Einheit betrug, anstelle der hier verwendeten $\SI{1}{\kilo\ohm} $ pro Einheit. Demnach 
 würde der Widerstand $R_{\text{ap}} = \SI{1.45}{\kilo\ohm}$ entsprechen, was deutlich näher am Theoriewert läge.
 
 \flushleft{Die }\justifying für c) erhobenen Messwerte geben im Graphen \ref{fig:5clin} die Resonanzkurve eines Bandpasses wieder.
-Dabei entspricht die gefittete Kurve in keinester Weise den Messwerten. Auch der theoretisch erwarteten Kurve entspricht sie nicht, da die Breite der Resonanzkurve zu
+Dabei entspricht die gefittete Kurve überhaupt nicht den Messwerten. Auch der theoretisch erwarteten Kurve entspricht sie nicht, da die Breite der Resonanzkurve zu
 schmal ist nach Gleichung \eqref{eq:29}. Eine Möglichkeit für den misslungenen Plot können
-systematische Fehler sein oder aber, dass die Gleichung \eqref{eq:9} nicht als Fitkurve
+systematische Fehler sein oder aber, dass die Gleichung \eqref{eq:9} nicht als Fitfunktion
 geeignet ist.
-Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Beim Vergleich der 
-Resonanzüberhöhung \eqref{eq:33} mit dessen Literaturwert \eqref{eq:34} entsteht ein relativer Fehler von -22.31$\%$. Dieser Fehler könnte auf einen systematischen 
+Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Bei der Betrachtung der relativen
+Fehler von der Resonanzüberhöhung $q$ \eqref{eq:} 
+\begin{align}
+\frac{q - q_{\text{lit}}}{q_{\text{lit}}}&= \text{\input{RF_q.tex}}
+\intertext{und $\omega _+ - \omega_-$ \eqref{eq:}}
+\frac{\omega_{+-} - \omega_{+-,\text{Lit.}}}{\omega_{+-,\text{Lit.}}} &= \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
+\end{align}
+zeigen sich signifikante Fehler von $-22\%$ und $19\%$.
+Diese Fehler könnten auf einen systematischen 
 Fehler zurückgeführt werden.
 
-\flushleft{Die} im Graphen \ref{fig:4dln} gefittete Kurve entspricht nicht den Messwerten.
+\flushleft{Die\;}\justifying im Graphen \ref{fig:4dln} gefittete Kurve entspricht nicht den Messwerten.
 Die Ursache hierbei liegt höchstwahrscheinlich daran, dass die Gleichung \eqref{eq:phi} unsere Kurve nicht
 beschreiben kann. Dies sieht man daran, dass der Wertebereich der Funktion sich nur von $\sfrac{-\pi}{2} $ bis
 $\sfrac{\pi}{2} $ erstreckt. Folglich müsste die Funktion der Theorie zufolge auch in $\sfrac{3\pi}{2} $ definiert sein.
