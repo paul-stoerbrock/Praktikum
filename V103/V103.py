@@ -32,7 +32,7 @@ xCu_dopohne, DCu_dopohne,xCu_dopmit, DCu_dopmit = np.genfromtxt('dataCudop.txt',
 xAl_einohne, DAL_einohne,xAl_einmit, DAl_einmit = np.genfromtxt('dataAlein.txt', unpack=True) # Messwerte für Aluminium einseitig belastet
 xAl_dopohne, DAl_dopohne,xAl_dopmit, DAl_dopmit = np.genfromtxt('dataAldop.txt', unpack=True) # Messwerte für Aluminium doppelseitig belastet
 
-#Maße der Stäbe
+# Maße der Stäbe
 l_CU = 0.600
 l_Al = 0.592
 r_Al =np.array([10.00, 10.00, 10.10, 10.00, 10.10, 10.10, 10.10, 10.00, 10.25, 10.00])/2*1e-03
