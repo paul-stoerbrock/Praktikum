@@ -1,0 +1,19 @@
+# Messwerte von Versuch V103
+# Doppelseitige Biegung Kupfer eckig
+# Massen: Gewicht:m1=1170.5g m2=1159.7g m3=1162.3g ,Aufhängung: m=19g, Schraube=22.1g, Stange: m=528.8g
+# Maße Kupferstange: Länge: l=59.2cm
+# ohne Gewicht: x[cm]      D(x)[mm]     mit Gewicht:  x[cm]     D(x)[mm]
+                48.5        09.77                      48.5     9.08                       
+                45.5        09.89                      45.5     8.88
+                42.5        09.96                      42.5     8.68
+                39.5        09.99                      39.5     8.45
+                36.5        10.02                      36.5     8.29
+                33.5        10.03                      33.5     8.16
+                30.5        10.05                      30.5     8.08
+                24.5        08.77                      24.5     6.81
+                21.5        08.76                      21.5     6.89
+                18.5        08.71                      18.5     6.98
+                15.5        08.64                      15.5     7.10
+                12.5        08.59                      12.5     7.29
+                09.5        08.51                      09.5     7.50
+                06.5        08.43                      06.5     7.72
