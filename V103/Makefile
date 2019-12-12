@@ -1,6 +1,6 @@
 all: build/V103.pdf
 
-build/V103.pdf: FORCE V103.tex build/plotCuein.pdf |build
+build/V103.pdf: FORCE V103.tex build/plotCuein.pdf build/Cu_ein.tex |build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS=build:\
 	max_print_line=1048576 \

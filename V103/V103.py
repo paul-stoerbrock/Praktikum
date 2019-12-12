@@ -169,13 +169,12 @@ plt.close()
 slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stats.linregress(4*xCu_dopohne[8:14]**3 - 12 * l_Cu * xCu_dopohne[8:14]**2 +9* l_Cu**2* xCu_dopohne[8:14] - l_Cu**3 , D_Cu_dopDiff[8:14])
 
 plt.plot(4*xCu_dopohne[8:14]**3 - 12 * l_Cu * xCu_dopohne[8:14]**2 + 9 * l_Cu**2 * xCu_dopohne[8:14] - l_Cu**3 ,D_Cu_einDiff[8:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
-x_plotr = np.linspace(l_Cu/2, l_Cu , 1000)
+x_plotr = np.linspace(l_Cu/2, 0 , 1000)
 plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
 
-
-plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
-            [0, 1, 2, 3, 4, 5]
-)
+#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
+#            [0, 1, 2, 3, 4, 5]
+#)
 plt.legend(loc="best")
 plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
@@ -184,7 +183,34 @@ plt.tight_layout
 plt.savefig('build/plotCudopr.pdf')
 plt.close()
 
+# Tabellen ###############################################################################################################################
 
+xCu_einohne1, xCu_einohne2 = np.array_split(xCu_einohne,2)
+DCu_einohne1, DCu_einohne2 = np.array_split(DCu_einohne,2)
+DCu_einmit1, DCu_einmit2 = np.array_split(DCu_einmit,2)
+D_Cu_einDiff1, D_Cu_einDiff = np.array_split(D_Cu_einDiff,2)
+
+table_header = r'''
+  \begin{tabular}{c c c c c c c c}
+    \toprule
+     & \multicolumn{1}{c}{$D_0$} & \multicolumn{1}{c}{$D_m$} & \multicolumn{1}{c}{Differenz} & & \multicolumn{1}{c}{$D_m$} & \multicolumn{1}{c}{$D_0$} & \multicolumn{1}{c}{Differenz}\\
+    \cmidrule(lr{0,5em}){1-4} \cmidrule(lr{0,5em}){5-8}
+    {$x \:/\: \si{\centi\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} &
+    {$x \:/\: \si{\centi\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} \\
+
+    \cmidrule(lr{0,5em}){1-4} \cmidrule(lr{0,5em}){5-8}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
+
+with open('build/Cu_ein.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(xCu_einohne1, DCu_einohne1, DCu_einmit1, D_Cu_einDiff1*1e+03, xCu_einohne2, DCu_einohne2, DCu_einmit2, D_Cu_einDiff*1e+03):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
 
 
 
@@ -201,4 +227,5 @@ plt.close()
 print(I_Cu)
 print(E_Alein)
 print(m_Al_stange/(np.pi*(np.mean(d_Al/2)**2)*l_Al))
-print(interceptCudopr)
+print(slopeCudopr*l_Cu**3)
+print(D_Al_dopDiff)
