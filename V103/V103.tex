@@ -29,16 +29,46 @@
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Fehlerrechnung}\justifying
+Für eventuell anfallende Fehler in der Auswertung werden folgende Formeln verwendet:
+\begin{subequations}
+\begin{align}
+\intertext{Für den Mittelwert wird die Formel
+}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:a}.
+\intertext{verwendet. Der Fehler des Mittelwerts wird mit der Formel:
+}
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:b},
+\intertext{berechnet, und die Gaußsche Fehlerfortpflanzung wird berechnet wie folgt:
+}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:c}
+\intertext{Die für eine lineare Regression benötigte Ausgleichsgerade wird mit den folgenden Parametern berechnet:
+}
+    y &= m \cdot x + b \label{eq:d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:f}
+\end{align}
+\end{subequations}
+\newpage
 
-% Versuchsaufbau %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Versuchsaufbau/Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Versuchsaufbau}\justifying
+\section{Versuchsaufbau/Durchführung}\justifying
 
-% Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft{Benötigt\;}\justifying werden: \textit{ Eine ca. $\SI{60}{\centi\meter}$ lange, $\SI{530}{\gram}$ schwere, rechtreckige Kupfterstange, eine ca. $\SI{60}{\centi\meter}$ lange, runde
+Aluminiumstange, eine Aperatur zur Biegung der Stäbe mit zwei Fixpunkten, zwei schiebbare Messuhren im $\SI{}{\micro\meter}$-Bereich, eine
+$\SI{55}{\centi\meter}$ lange Skala für die Messuhren, eine Aufhängung ($\SI{19}{\gram}$), acht Gewichte (4$\cdot$ ca. $\SI{1160}{\gram}$, 
+2x ca. $\SI{500}{\gram}$, 1x ca. $\SI{225}{\gram}$), ein Maßband, eine Waage.
+}
+\flushleft{Zuerst\;}\justifying wird die Kupferstange an einem der Fixpunkte eingespannt. Die Messuhren werden über der Stange auf der Skala platziert. Nun werden mit 
+einer Messuhr 19 Messwerte der Durchbiegung in einem Abstand von $\SI{2.5}{\centi\meter}$ (von $\SI{2.5}{\centi\meter}$ bis $\SI{47.5}{\centi\meter}$) 
+bestimmt. Nach den Messungen ohne Gewicht, werden zwei $\SI{500}{\gram}$ Gewichte an das lose Ende gehangen und die Messungen wiederholt. Anschließend
+werden die Gewichte abgenommen und die Kupferstange an beiden Enden fixiert. Nun wird die Durchbiegung an 14 Stellen mit einem Abstand von 
+$\SI{3}{\centi\meter}$ gemessen. Danach werden vier $\SI{1160}{\gram}$ Gewichte mittig an die Stange gehangen und die Messungen wiederholt. 
 
-\section{Versuchsdurchführung}\justifying
-
-% Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft{Der\;}\justifying obige Prozess wird für die Runde Aluminiumstange wiederholt. Zu Beginn wird die Aluminiumstange einseitig eingespannt. Die Durchbiegung
+wird ohne Gewichte 19-mal in einem Abstand von $\SI{2.5}{\centi\meter}$ gemessen. Dann wird ein $\SI{500}{\gram}$ Gewicht an das lose Ende 
+gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen und die Stange an beiden Seiten fixiert. Abschließend werden 
+14 Messungen ohne Gewichte und 14 Messungen mit zwei $\SI{500}{\gram}$ Gewichten und einem $\SI{230}{\gram}$ Gewicht durchgeführt.
 
 \section{Auswertung}\justifying
 
