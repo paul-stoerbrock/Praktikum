@@ -183,7 +183,34 @@ plt.tight_layout
 plt.savefig('build/plotCudop.pdf')
 plt.close()
 
+# Tabellen ###############################################################################################################################
 
+xCu_einohne1, xCu_einohne2 = np.array_split(xCu_einohne,2)
+DCu_einohne1, DCu_einohne2 = np.array_split(DCu_einohne,2)
+DCu_einmit1, DCu_einmit2 = np.array_split(DCu_einmit,2)
+D_Cu_einDiff1, D_Cu_einDiff = np.array_split(D_Cu_einDiff,2)
+
+table_header = r'''
+  \begin{tabular}{c c c c c c c c}
+    \toprule
+     & \multicolumn{1}{c}{$D_0$} & \multicolumn{1}{c}{$D_m$} & \multicolumn{1}{c}{Differenz} & & \multicolumn{1}{c}{$D_m$} & \multicolumn{1}{c}{$D_0$} & \multicolumn{1}{c}{Differenz}\\
+    \cmidrule(lr{0,5em}){1-4} \cmidrule(lr{0,5em}){5-8}
+    {$x \:/\: \si{\centi\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} &
+    {$x \:/\: \si{\centi\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} & {$D(x) \:/\: \si{\micro\meter}$} \\
+
+    \cmidrule(lr{0,5em}){1-4} \cmidrule(lr{0,5em}){5-8}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
+
+with open('build/Cu_ein.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(xCu_einohne1, DCu_einohne1, DCu_einmit1, D_Cu_einDiff1*1e+03, xCu_einohne2, DCu_einohne2, DCu_einmit2, D_Cu_einDiff*1e+03):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
 
 
 
