@@ -66,6 +66,10 @@ m_Aldop3 = 226.7*1e-03
 
 # Berechnung des Flächenträgheitsmoment
 
+# Für Alein
+
+
+
 
 # Erstellung der Plots ###############################################################################################################
 
