@@ -29,15 +29,20 @@ def make_SI(num, unit, exp='', figures=None):
 
 xCu_einohne, DCu_einohne,xCu_einmit, DCu_einmit = np.genfromtxt('dataCuein.txt', unpack=True) # Messwette für Kupfer einseitig belastet 
 xCu_dopohne, DCu_dopohne,xCu_dopmit, DCu_dopmit = np.genfromtxt('dataCudop.txt', unpack=True) # Messwerte für Kupfer doppelseitig belastet
-xAl_einohne, DAL_einohne,xAl_einmit, DAl_einmit = np.genfromtxt('dataAlein.txt', unpack=True) # Messwerte für Aluminium einseitig belastet
+xAl_einohne, DAl_einohne,xAl_einmit, DAl_einmit = np.genfromtxt('dataAlein.txt', unpack=True) # Messwerte für Aluminium einseitig belastet
 xAl_dopohne, DAl_dopohne,xAl_dopmit, DAl_dopmit = np.genfromtxt('dataAldop.txt', unpack=True) # Messwerte für Aluminium doppelseitig belastet
 
+xCu_einohne *= 1e-02
+xCu_dopohne *= 1e-02
+xAl_einohne *= 1e-02
+xAl_dopohne *= 1e-02
+
 #Maße der Stäbe
-l_CU = 0.600
+l_Cu = 0.600
 l_Al = 0.592
-r_Al =np.array([10.00, 10.00, 10.10, 10.00, 10.10, 10.10, 10.10, 10.00, 10.25, 10.00])/2*1e-03
-d_CU =np.array([10.02, 10.05, 10.06, 10.03, 10.04, 10.09, 10.04, 10.05, 10.08, 10.05])*1e-03
-b_CU =np.array([10.06, 10.02, 10.05, 10.01, 10.03, 10.03, 10.04, 10.02, 10.04, 10.03])*1e-03
+d_Al =np.array([10.00, 10.00, 10.10, 10.00, 10.10, 10.10, 10.10, 10.00, 10.25, 10.00])*1e-03
+d_Cu =np.array([10.02, 10.05, 10.06, 10.03, 10.04, 10.09, 10.04, 10.05, 10.08, 10.05])*1e-03
+b_Cu =np.array([10.06, 10.02, 10.05, 10.01, 10.03, 10.03, 10.04, 10.02, 10.04, 10.03])*1e-03
 
 # Massen der Körper
 m_aufhaeng = 19 *1e-03
@@ -53,6 +58,7 @@ m_Cuein2 = 503.3*1e-03
 m_Cudop1 = 1170.5*1e-03
 m_Cudop2 = 1159.7*1e-03
 m_Cudop3 = 1162.3*1e-03
+m_Cudop4 = 1170.8*1e-03
 
 # Gewichte Alein
 m_Alein1 = 500.1*1e-03
@@ -64,13 +70,133 @@ m_Aldop3 = 226.7*1e-03
 
 # Berechnungen ###########################################################################################################
 
+# Berechnung der Differenz von DCu_einmit - DCu_einohne
+
+D_Cu_einDiff = (DCu_einohne - DCu_einmit ) *1e-03
+
+# Berechnung der Differenz von DCu_dopmit - DCu_dopohne
+
+D_Cu_dopDiff = (DCu_dopohne - DCu_dopmit ) *1e-03
+
+# Berechnung der Differenz von DAl_einmit - DAl_einohne
+
+D_Al_einDiff = (DAl_einohne - DAl_einmit ) *1e-03
+
+# Berechnung der Differenz von DAl_dopmit - DAl_einohne
+
+D_Al_dopDiff = (DAl_dopohne - DAl_dopmit ) *1e-03
+
 # Berechnung des Flächenträgheitsmoment
+
+# Für Cu
+
+I_Cu = (np.mean(b_Cu)**3*np.mean(d_Cu) )/12
+
+# Für Al
+
+I_Al = (np.mean(d_Al)**4*np.pi)/64
+
+# Lineare Ausgleichechnungen 
+
+# Für Cuein
+
+slopeCuein, interceptCuein, r_valueCuein, p_valueCuein, std_errCuein = stats.linregress(l_Cu * xCu_einohne**2 -xCu_einohne**3/3 , D_Cu_einDiff)
 
 # Für Alein
 
+slopeAlein, interceptAlein, r_valueAlein, p_valueAlein, std_errAlein = stats.linregress(l_Al * xAl_einohne**2 -xAl_einohne**3/3 , D_Al_einDiff)
+
+# Für Cudop
 
 
+
+# Für Aldop
+
+
+# Berechnung des Elastizitätsmodul
+
+# Für Cuein
+
+E_Cuein = ((m_aufhaeng+m_schraube+m_Cuein1+m_Cuein2)*9.81)/(2*I_Cu*slopeCuein)
+
+# Für Alein
+
+E_Alein = ((m_schraube+m_aufhaeng+m_Alein1)*9.81)/(2*I_Al*slopeAlein)
 
 # Erstellung der Plots ###############################################################################################################
 
+# Plot für Kupfer einseitig belastet
 
+plt.plot(l_Cu * xCu_einohne**2 -xCu_einohne**3/3 ,D_Cu_einDiff , 'bx', label="Messdaten")
+x_plot = np.linspace(0, 0.1, 1000)
+plt.plot(x_plot,interceptCuein+slopeCuein*x_plot, 'k-', label="Lineare Regression")
+plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
+            [0, 1, 2, 3, 4, 5]
+)
+plt.legend(loc="best")
+plt.xlabel(r'$L-x^2-x^3/3$')
+plt.ylabel(r'Durchbiegung D/m')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotCuein.pdf')
+plt.close()
+
+# Plot für Aluminium einseitig belastet
+
+plt.plot(l_Al * xAl_einohne**2 -xAl_einohne**3/3 ,D_Al_einDiff , 'bx', label="Messdaten")
+x_plot = np.linspace(0, 0.1, 1000)
+plt.plot(x_plot,interceptAlein+slopeAlein*x_plot, 'k-', label="Lineare Regression")
+plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
+            [0, 1, 2, 3, 4, 5]
+)
+plt.legend(loc="best")
+plt.xlabel(r'$L-x^2-x^3/3$')
+plt.ylabel(r'Durchbiegung D/m')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotAlein.pdf')
+plt.close()
+
+# Plot für Kupfer doppelseitig belastet 
+slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stats.linregress(3*l_Cu**2*xCu_dopohne[0:7]-4*xCu_dopohne[0:7]**3 , D_Cu_dopDiff[0:7])
+#slopeCudopr, interceptCslopeCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stats.linregress(4*xCu_dopohne[8:14]**3 - 12 * l_Cu * xCu_dopohne[8:14]**2 +9* l_Cu**2 xCu_dopohne[8:14] - l_Cu**3 , D_Cu_dopDiff[8:14])
+
+#linke Seite
+
+plt.plot(3*l_Cu**2*xCu_dopohne[0:7]-4*xCu_dopohne[0:7]**3 ,D_Cu_einDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
+x_plotl = np.linspace(0, l_Cu**3, 1000)
+plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression$0 \leq x \leq \frac{L}{2} $")
+
+#rechte Seite
+
+#plt.plot(4*xCu_dopohne[8:14]**3 - 12 * l_Cu * xCu_dopohne[8:14]**2 +9 l_Cu**2 xCu_dopohne[8:14] - l_Cu**3 ,D_Cu_einDiff[8:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
+#x_plotr = np.linspace(l_Cu**3, , 1000)
+
+plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
+            [0, 1, 2, 3, 4, 5]
+)
+plt.legend(loc="best")
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
+plt.ylabel(r'Durchbiegung D/m')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotCudop.pdf')
+plt.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Testprints ###############################################################################################################################
+
+print(I_Cu)
+print(E_Alein)
+print(m_Al_stange/(np.pi*(np.mean(d_Al/2)**2)*l_Al))
