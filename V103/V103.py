@@ -242,6 +242,129 @@ plt.close()
 
 E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopr)
 
+# Tex-Dateien ######################################################################################################
+
+# tex file for Länge des Kupferstabes
+
+with open('build/l_Cu.tex', 'w') as f:
+  f.write(make_SI(l_Cu,r'\meter', figures=1))
+
+# tex file for Länge des Aluminiumstabes
+
+with open('build/l_Al.tex', 'w') as f:
+  f.write(make_SI(l_Al,r'\meter', figures=1))
+
+# tex file for Durchmesser des Aluminiumstabes
+
+with open('build/d_Al.tex', 'w') as f:
+  f.write(make_SI(np.mean(d_Al),r'\meter', figures=1))
+
+# tex file for Breite des Kupferstabes
+
+with open('build/b_Cu.tex', 'w') as f:
+  f.write(make_SI(np.mean(b_Cu),r'\meter', figures=1))
+
+# tex file for Dicke des Kupferstabes
+
+with open('build/d_Cu.tex', 'w') as f:
+  f.write(make_SI(np.mean(d_Cu),r'\meter', figures=1))
+
+# tex file for m_aufhaeng
+
+with open('build/m_aufhaeng.tex', 'w') as f:
+  f.write(make_SI(m_aufhaeng,r'\kilo\gramm', figures=1))
+
+# tex file for m_schraube
+with open('build/m_schraube.tex', 'w') as f:
+  f.write(make_SI(m_schraube,r'\kilo\gramm', figures=1))
+
+# tex file for m_Cuein1
+
+with open('build/m_Cuein1.tex', 'w') as f:
+  f.write(make_SI(m_Cuein1,r'\kilo\gramm', figures=1))
+
+# tex file for m_Cuein2
+
+with open('build/m_Cuein2.tex', 'w') as f:
+  f.write(make_SI(m_Cuein2,r'\kilo\gramm', figures=1))
+
+# tex file for m_Cudop1
+
+with open('build/m_Cudop1.tex', 'w') as f:
+  f.write(make_SI(m_Cudop1,r'\kilo\gramm', figures=1))
+
+# tex file for m_Cudop2
+
+with open('build/m_Cudop2.tex', 'w') as f:
+  f.write(make_SI(m_Cudop2,r'\kilo\gramm', figures=1))
+
+# tex file for m_Cudop3
+
+with open('build/m_Cudop3.tex', 'w') as f:
+  f.write(make_SI(m_Cudop3,r'\kilo\gramm', figures=1))
+
+# tex file for m_Cudop4
+
+with open('build/m_Cudop4.tex', 'w') as f:
+  f.write(make_SI(m_Cudop4,r'\kilo\gramm', figures=1))
+
+# tex file for m_Aldop1
+
+with open('build/m_Aldop1.tex', 'w') as f:
+  f.write(make_SI(m_Aldop1,r'\kilo\gramm', figures=1))
+
+# tex file for m_Aldop2
+
+with open('build/m_Aldop2.tex', 'w') as f:
+  f.write(make_SI(m_Aldop2,r'\kilo\gramm', figures=1))
+
+# tex file for m_Aldop3
+
+with open('build/m_Aldop3.tex', 'w') as f:
+  f.write(make_SI(m_Aldop3,r'\kilo\gramm', figures=1))
+
+# tex file for I_Cu
+
+with open('build/I_Cu.tex', 'w') as f:
+  f.write(make_SI(I_Cu,r'\meter\tothe{4}', figures=1))
+
+# tex file for I_Al
+
+with open('build/I_Al.tex', 'w') as f:
+  f.write(make_SI(I_Al,r'\meter\tothe{4}', figures=1))
+
+# tex file for E_Cuein
+
+with open('build/E_Cuein.tex', 'w') as f:
+  f.write(make_SI(E_Cuein,r'\pascal', figures=1))
+
+# tex file for E_Cudopl
+
+with open('build/E_Cudopl.tex', 'w') as f:
+  f.write(make_SI(E_Cudopl,r'\pascal', figures=1))
+
+# tex file for E_Cudopr
+
+with open('build/E_Cudopr.tex', 'w') as f:
+  f.write(make_SI(E_Cudopr,r'\pascal', figures=1))
+
+# tex file for E_Alein
+
+with open('build/E_Alein.tex', 'w') as f:
+  f.write(make_SI(E_Alein,r'\pascal', figures=1))
+
+# tex file for E_Aldopl
+
+with open('build/E_Aldopl.tex', 'w') as f:
+  f.write(make_SI(E_Aldopl,r'\pascal', figures=1))
+
+# tex file for E_Aldopr
+
+with open('build/E_Aldopr.tex', 'w') as f:
+  f.write(make_SI(E_Aldopr,r'\pascal', figures=1))
+
+
+
 # Tabellen ###############################################################################################################################
 
 # Cu_ein --------------------------------------------------------------------------------------------------------------------------------
