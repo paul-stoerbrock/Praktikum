@@ -205,11 +205,11 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.1f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
 
 with open('build/Cu_ein.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(xCu_einohne1, DCu_einohne1, DCu_einmit1, D_Cu_einDiff1*1e+03, xCu_einohne2, DCu_einohne2, DCu_einmit2, D_Cu_einDiff2*1e+03):
+    for row in zip(xCu_einohne1*1e+02, DCu_einohne1, DCu_einmit1, D_Cu_einDiff1*1e+03, xCu_einohne2*1e+02, DCu_einohne2, DCu_einmit2, D_Cu_einDiff2*1e+03):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -234,11 +234,11 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.1f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
 
 with open('build/Cu_dop.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(xCu_dopohne1, DCu_dopohne1, DCu_dopmit1, D_Cu_dopDiff1*1e+03, xCu_dopohne2, DCu_dopohne2, DCu_dopmit2, D_Cu_dopDiff2*1e+03):
+    for row in zip(xCu_dopohne1*1e+02, DCu_dopohne1, DCu_dopmit1, D_Cu_dopDiff1*1e+03, xCu_dopohne2*1e+02, DCu_dopohne2, DCu_dopmit2, D_Cu_dopDiff2*1e+03):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -263,11 +263,11 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.1f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
 
 with open('build/Al_ein.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(xAl_einohne1, DAl_einohne1, DAl_einmit1, D_Al_einDiff1*1e+03, xAl_einohne2, DAl_einohne2, DAl_einmit2, D_Al_einDiff2*1e+03):
+    for row in zip(xAl_einohne1*1e+02, DAl_einohne1, DAl_einmit1, D_Al_einDiff1*1e+03, xAl_einohne2*1e+02, DAl_einohne2, DAl_einmit2, D_Al_einDiff2*1e+03):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -292,11 +292,11 @@ table_header = r'''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.1f} & {5:1.2f} & {6:1.2f} & {7:1.2f} \\'
 
 with open('build/Al_dop.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(xAl_dopohne1, DAl_dopohne1, DAl_dopmit1, D_Al_dopDiff1*1e+03, xAl_dopohne2, DAl_dopohne2, DAl_dopmit2, D_Al_dopDiff2*1e+03):
+    for row in zip(xAl_dopohne1*1e+02, DAl_dopohne1, DAl_dopmit1, D_Al_dopDiff1*1e+03, xAl_dopohne2*1e+02, DAl_dopohne2, DAl_dopmit2, D_Al_dopDiff2*1e+03):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
