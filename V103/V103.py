@@ -170,7 +170,9 @@ plt.tight_layout
 plt.savefig('build/plotCudopl.pdf')
 plt.close()
 
-# Elastizitätsmodul für Cudop
+# Elastizitätsmodul für Cudopl
+
+E_Cudopl = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))/(48*I_Cu*slopeCudopl)
 
 #rechte Seite
 
@@ -191,6 +193,10 @@ plt.tight_layout
 plt.savefig('build/plotCudopr.pdf')
 plt.close()
 
+# Elastizitätsmodul für Cudopr
+
+E_Cudopr = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))/(48*I_Cu*slopeCudopr)
+
 # Plot für Aluminium doppelseitig belastet ##########################################################################################################################################
 
 slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stats.linregress(x_dopl(xAl_dopohne[0:7], l_Al), D_Al_dopDiff[0:7])
@@ -208,6 +214,9 @@ plt.tight_layout
 plt.savefig('build/plotAldopl.pdf')
 plt.close()
 
+# Elastizitätsmodul für Aldopl
+
+E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopl)
 
 
 #rechte Seite
@@ -228,6 +237,10 @@ plt.grid()
 plt.tight_layout
 plt.savefig('build/plotAldopr.pdf')
 plt.close()
+
+# Elastizitätsmodul für Aldopr
+
+E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopr)
 
 # Tabellen ###############################################################################################################################
 
@@ -353,6 +366,6 @@ with open('build/Al_dop.tex', 'w') as g:
 print(I_Cu)
 print(E_Alein)
 print(m_Al_stange/(np.pi*(np.mean(d_Al/2)**2)*l_Al))
-print(x_dopr(xCu_dopohne[7:14],l_Cu))
-print(D_Al_dopDiff[7:14])
-print(D_Al_dopDiff[0:7])
+print(E_Alein)
+print(E_Aldopl)
+print(E_Aldopr)
