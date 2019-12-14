@@ -42,7 +42,7 @@ Diese Kraft wird auch das Hooksche Gesetz genannt. Der Faktor E in der Formel wi
 der Elastizitätmodul genannt und stellt eine Materialkonstate dar.
 Das durch die Biegung beschriebene Drehmoment führt zu folgender Momentengleichung
 \begin{align}
-    E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) \label{eq:2}
+    E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) .\label{eq:2}
 \end{align}
 Dabei ist D die Durchbiegung des Stabes und 
 \begin{align}
@@ -118,11 +118,8 @@ gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen u
 % Cu_ein --------------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Kupfer einfach fixiert}
-
-\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupfterstabs beträgt:
-\input{I_Cu.tex}
-
 \begin{align}
+Die Maße der Kupferstange sowie die Masse der angehängten Gewichte betragen:
     \text{Länge des Kupfterstabs:}
     \text{\input{l_Cu.tex}}\\
     \text{Breite des Kupfterstabs:}
@@ -134,6 +131,20 @@ gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen u
     \text{Masse der Schraube:}
     \text{\input{m_schraube.tex}}
 \end{align}
+
+Um das Flächenträgheitsmoment eines Kupferstabes mit der Breite d und der
+Dicke d zu berechnen, wird die Formel \eqref{eq:3} auf folgende Art
+geschrieben:
+\begin{align}
+    I_{\text{Cu}}=\int_{-\frac{b}{2}}^{\frac{b}{2}} \int_{-\frac{d}{2}}^{\frac{d}{2}} y^2 \, \symup{d}x \, \symup{d}y \label{eq:8}.
+\end{align}
+Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
+\begin{align}
+     I_{\text{Cu}}=\frac{1}{12} b^3d. \label{eq:9}
+\end{align}
+
+\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupfterstabs beträgt:
+\input{I_Cu.tex}
 
 \begin{align}
     \text{Angehängte Massen der einfachen Biegung:}\\
@@ -271,18 +282,18 @@ b(b) = \input{b_PlotAldopr.tex}
 
 
 \begin{figure}[H]
-\caption{Graph für Doppelbiegung, $Cu_{links}$ und $Cu_{rechts}$}
+\caption{Graph für Doppelbiegung, $Al_{links}$ und $Al_{rechts}$}
 \label{fig:4}
 \begin{subfigure}{0.495\linewidth}
     \centering
     \includegraphics[width=\linewidth]{plotAldopl.pdf}
-    \caption{$Cu_{links}$}
+    \caption{$Al_{links}$}
     \label{fig:4a}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
     \centering
     \includegraphics[width=\linewidth]{plotAldopr.pdf}
-    \caption{$Cu_{rechts}$}
+    \caption{$Al_{rechts}$}
     \label{fig:4b}
 \end{subfigure}
 \end{figure}
