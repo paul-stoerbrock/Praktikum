@@ -44,8 +44,8 @@ xAl_einohne *= 1e-02
 xAl_dopohne *= 1e-02
 
 #Maße der Stäbe
-l_Cu = 0.600
-l_Al = 0.592
+l_Al = 0.600
+l_Cu = 0.592
 d_Al =np.array([10.00, 10.00, 10.10, 10.00, 10.10, 10.10, 10.10, 10.00, 10.25, 10.00])*1e-03
 d_Cu =np.array([10.02, 10.05, 10.06, 10.03, 10.04, 10.09, 10.04, 10.05, 10.08, 10.05])*1e-03
 b_Cu =np.array([10.06, 10.02, 10.05, 10.01, 10.03, 10.03, 10.04, 10.02, 10.04, 10.03])*1e-03
@@ -118,7 +118,7 @@ plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
 plt.legend(loc="best")
-plt.xlabel(r'$Lx^2-x^3/3 \;/\;m^3$')
+plt.xlabel(r'$L-x^2-x^3/3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -140,7 +140,7 @@ plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
 plt.legend(loc="best")
-plt.xlabel(r'$Lx^2-x^3/3 \;/\;m^3$')
+plt.xlabel(r'$L-x^2-x^3/3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -158,13 +158,11 @@ slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stat
 #linke Seite
 
 plt.plot(x_dopl( xCu_dopohne[0:7], l_Cu), D_Cu_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
-x_plotl = np.linspace(0, 0.25, 1000)
+x_plotl = np.linspace(0, 0.3, 1000)
 plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
-plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
-           [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$3L^2x-4x^3\;/\;m^3$')
-plt.ylabel(r'Durchbiegung D/mm')
+plt.xlabel(r'$3L^2x-4x^3$')
+plt.ylabel(r'Durchbiegung D/m')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotCudopl.pdf')
@@ -181,10 +179,12 @@ slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stat
 plt.plot(x_dopr(xCu_dopohne[7:14], l_Cu) ,D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-plt.yticks([8.0e-04, 1e-3, 1.2e-03, 1.4e-3, 1.6e-3, 1.8e-03, 2.0e-3, 2.2e-3],
-           [0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2])
+
+#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
+#            [0, 1, 2, 3, 4, 5]
+#)
 plt.legend(loc="best")
-plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3 \;/\;m^3$')
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -202,13 +202,11 @@ slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stat
 #linke Seite
 
 plt.plot(x_dopl( xAl_dopohne[0:7], l_Al), D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
-x_plotl = np.linspace(0, 0.25, 1000)
+x_plotl = np.linspace(0, 0.3, 1000)
 plt.plot(x_plotl,interceptAldopl+slopeAldopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
-plt.yticks([0, 2.5e-4, 5.0e-04, 7.5e-4, 1e-03, 1.25e-03, 1.5e-3, 1.75e-3, 2e-03],
-           [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$3L^2x-4x^3\;/\;m^3$')
-plt.ylabel(r'Durchbiegung D/mm')
+plt.xlabel(r'$3L^2x-4x^3$')
+plt.ylabel(r'Durchbiegung D/m')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotAldopl.pdf')
@@ -216,7 +214,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop links
 
-E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopl)
+E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopl)
 
 
 #rechte Seite
@@ -226,10 +224,12 @@ slopeAldopr, interceptAldopr, r_valueAldopr, p_valueAldopr, std_errAldopr = stat
 plt.plot(x_dopr(xAl_dopohne[7:14], l_Al) ,D_Al_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotr,interceptAldopr+slopeAldopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-plt.yticks([6e-4, 8.0e-04, 1e-3, 1.2e-03, 1.4e-3, 1.6e-3, 1.8e-03],
-           [0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8])
+
+#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
+#            [0, 1, 2, 3, 4, 5]
+#)
 plt.legend(loc="best")
-plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3\;/\;m^3$')
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -238,7 +238,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop rechts
 
-E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopr)
+E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopr)
 
 # Tex-Dateien ######################################################################################################
 
@@ -467,10 +467,10 @@ with open('build/Cu_ein.tex', 'w') as g:
 
 # Cu_dop --------------------------------------------------------------------------------------------------------------------------------
 
-xCu_dopohne1, xCu_dopohne2 = np.array_split(xCu_dopohne,2)
-DCu_dopohne1, DCu_dopohne2 = np.array_split(DCu_dopohne,2)
-DCu_dopmit1, DCu_dopmit2 = np.array_split(DCu_dopmit,2)
-D_Cu_dopDiff1, D_Cu_dopDiff2 = np.array_split(D_Cu_dopDiff,2)
+xCu_dopohne1, xCu_dopohne2 = np.array_split(xCu_dopohne[0:19],2)
+DCu_dopohne1, DCu_dopohne2 = np.array_split(DCu_dopohne[0:19],2)
+DCu_dopmit1, DCu_dopmit2 = np.array_split(DCu_dopmit[0:19],2)
+D_Cu_dopDiff1, D_Cu_dopDiff2 = np.array_split(D_Cu_dopDiff[0:19],2)
 
 table_header = r'''
   \begin{tabular}{c c c c c c c c}
