@@ -153,12 +153,12 @@ E_Alein = ((m_schraube+m_aufhaeng+m_Alein1)*const.g)/(2*I_Al*slopeAlein)
 
 # Plot für Kupfer doppelseitig belastet ##########################################################################################################################################
 
-slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stats.linregress(x_dopl(xCu_dopohne[0:7], l_Cu), D_Cu_dopDiff[0:7])
+slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stats.linregress(x_dopl(xCu_dopohne[7:14], l_Cu), D_Cu_dopDiff[7:14])
 
 #linke Seite
 
-plt.plot(x_dopl( xCu_dopohne[0:7], l_Cu), D_Cu_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
-x_plotl = np.linspace(0, 0.3, 1000)
+plt.plot(x_dopl( xCu_dopohne[7:14], l_Cu), D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte linke Seite
+x_plotl = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
 plt.legend(loc="best")
 plt.xlabel(r'$3L^2x-4x^3$')
@@ -174,15 +174,13 @@ E_Cudopl = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))
 
 #rechte Seite
 
-slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stats.linregress(x_dopr(xCu_dopohne[7:14],l_Cu) , D_Cu_dopDiff[7:14])
+slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stats.linregress(x_dopr(xCu_dopohne[0:7],l_Cu) , D_Cu_dopDiff[0:7])
 
-plt.plot(x_dopr(xCu_dopohne[7:14], l_Cu) ,D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
+plt.plot(x_dopr(xCu_dopohne[0:7], l_Cu) ,D_Cu_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-
-#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
-#            [0, 1, 2, 3, 4, 5]
-#)
+plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
+           [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
 plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
@@ -197,13 +195,15 @@ E_Cudopr = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))
 
 # Plot für Aluminium doppelseitig belastet ##########################################################################################################################################
 
-slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stats.linregress(x_dopl(xAl_dopohne[0:7], l_Al), D_Al_dopDiff[0:7])
+slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stats.linregress(x_dopl(xAl_dopohne[7:14], l_Al), D_Al_dopDiff[7:14])
 
 #linke Seite
 
-plt.plot(x_dopl( xAl_dopohne[0:7], l_Al), D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
-x_plotl = np.linspace(0, 0.3, 1000)
+plt.plot(x_dopl( xAl_dopohne[7:14], l_Al), D_Al_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte linke Seite
+x_plotl = np.linspace(0.05, 0.22, 1000)
 plt.plot(x_plotl,interceptAldopl+slopeAldopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
+plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
+           [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
 plt.xlabel(r'$3L^2x-4x^3$')
 plt.ylabel(r'Durchbiegung D/m')
@@ -219,15 +219,13 @@ E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al
 
 #rechte Seite
 
-slopeAldopr, interceptAldopr, r_valueAldopr, p_valueAldopr, std_errAldopr = stats.linregress(x_dopr(xAl_dopohne[7:14],l_Al) , D_Al_dopDiff[7:14])
+slopeAldopr, interceptAldopr, r_valueAldopr, p_valueAldopr, std_errAldopr = stats.linregress(x_dopr(xAl_dopohne[0:7],l_Al) , D_Al_dopDiff[0:7])
 
-plt.plot(x_dopr(xAl_dopohne[7:14], l_Al) ,D_Al_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
-x_plotr = np.linspace(0, 0.25, 1000)
+plt.plot(x_dopr(xAl_dopohne[0:7], l_Al) ,D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte rechte Seite
+x_plotr = np.linspace(0.1, 0.22, 1000)
 plt.plot(x_plotr,interceptAldopr+slopeAldopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-
-#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
-#            [0, 1, 2, 3, 4, 5]
-#)
+plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
+           [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
 plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
@@ -558,8 +556,13 @@ with open('build/Al_dop.tex', 'w') as g:
 print(interceptAlein)
 print(I_Cu)
 print(I_Al)
-print(E_Alein)
-print(m_Al_stange/(np.pi*(np.mean(d_Al/2)**2)*l_Al))
+print(x_dopr(xCu_dopohne[0:7], l_Al))
 print(E_Alein)
 print(E_Aldopl)
 print(E_Aldopr)
+print(E_Cuein)
+print(E_Cudopl)
+print(E_Cudopr)
+print(D_Cu_dopDiff)
+print(x_dopl( xCu_dopohne[7:14], l_Cu))
+print(x_dopr(xCu_dopohne[0:7], l_Cu))
