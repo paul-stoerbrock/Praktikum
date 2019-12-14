@@ -201,7 +201,7 @@ slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stat
 
 #linke Seite
 
-plt.plot(x_dopl( xAl_dopohne[0:7], l_Cu), D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
+plt.plot(x_dopl( xAl_dopohne[0:7], l_Al), D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
 x_plotl = np.linspace(0, 0.3, 1000)
 plt.plot(x_plotl,interceptAldopl+slopeAldopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
 plt.legend(loc="best")
