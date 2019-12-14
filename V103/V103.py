@@ -118,7 +118,7 @@ plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
 plt.legend(loc="best")
-plt.xlabel(r'$L-x^2-x^3/3$')
+plt.xlabel(r'$Lx^2-x^3/3 \;/\;m^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -140,7 +140,7 @@ plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
 plt.legend(loc="best")
-plt.xlabel(r'$L-x^2-x^3/3$')
+plt.xlabel(r'$Lx^2-x^3/3 \;/\;m^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -158,11 +158,13 @@ slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stat
 #linke Seite
 
 plt.plot(x_dopl( xCu_dopohne[0:7], l_Cu), D_Cu_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
-x_plotl = np.linspace(0, 0.3, 1000)
+x_plotl = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
+plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
+           [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$3L^2x-4x^3$')
-plt.ylabel(r'Durchbiegung D/m')
+plt.xlabel(r'$3L^2x-4x^3\;/\;m^3$')
+plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotCudopl.pdf')
@@ -179,12 +181,10 @@ slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stat
 plt.plot(x_dopr(xCu_dopohne[7:14], l_Cu) ,D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-
-#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
-#            [0, 1, 2, 3, 4, 5]
-#)
+plt.yticks([8.0e-04, 1e-3, 1.2e-03, 1.4e-3, 1.6e-3, 1.8e-03, 2.0e-3, 2.2e-3],
+           [0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2])
 plt.legend(loc="best")
-plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3 \;/\;m^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -202,11 +202,13 @@ slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stat
 #linke Seite
 
 plt.plot(x_dopl( xAl_dopohne[0:7], l_Al), D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte linke Seite
-x_plotl = np.linspace(0, 0.3, 1000)
+x_plotl = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotl,interceptAldopl+slopeAldopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
+plt.yticks([0, 2.5e-4, 5.0e-04, 7.5e-4, 1e-03, 1.25e-03, 1.5e-3, 1.75e-3, 2e-03],
+           [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$3L^2x-4x^3$')
-plt.ylabel(r'Durchbiegung D/m')
+plt.xlabel(r'$3L^2x-4x^3\;/\;m^3$')
+plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotAldopl.pdf')
@@ -214,7 +216,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop links
 
-E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopl)
+E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopl)
 
 
 #rechte Seite
@@ -224,12 +226,10 @@ slopeAldopr, interceptAldopr, r_valueAldopr, p_valueAldopr, std_errAldopr = stat
 plt.plot(x_dopr(xAl_dopohne[7:14], l_Al) ,D_Al_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotr,interceptAldopr+slopeAldopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-
-#plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
-#            [0, 1, 2, 3, 4, 5]
-#)
+plt.yticks([6e-4, 8.0e-04, 1e-3, 1.2e-03, 1.4e-3, 1.6e-3, 1.8e-03],
+           [0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8])
 plt.legend(loc="best")
-plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3\;/\;m^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -238,7 +238,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop rechts
 
-E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopr)
+E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopr)
 
 # Tex-Dateien ######################################################################################################
 
