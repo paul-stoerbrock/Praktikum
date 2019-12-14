@@ -42,7 +42,7 @@ Diese Kraft wird auch das Hooksche Gesetz genannt. Der Faktor E in der Formel wi
 der Elastizitätmodul genannt und stellt eine Materialkonstate dar.
 Das durch die Biegung beschriebene Drehmoment führt zu folgender Momentengleichung
 \begin{align}
-    E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) \label{eq:2}
+    E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) .\label{eq:2}
 \end{align}
 Dabei ist D die Durchbiegung des Stabes und 
 \begin{align}
@@ -119,20 +119,29 @@ gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen u
 
 \subsection{Kupfer einfach fixiert}
 
-\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupfterstabs beträgt:
-\begin{equation}
-I_{Cu} = \text{\input{I_Cu.tex}} \label{eq:}
-\end{equation}
-
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:8}
 \begin{align}
-    &\text{Länge des Kupfterstabs:} \qquad &\text{\input{l_Cu.tex}} \label{eq:a}\\
-    &\text{Mittelwert der Breite des Kupfterstabs:} \qquad &\text{\input{d_Cu.tex}} \label{eq:b}\\
-    &\text{Dicke des Kupfterstabs:} \qquad &\text{\input{b_Cu.tex}} \label{eq:c}\\
-    &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:d}\\
-    &\text{Masse der Schraube:} \qquad &\text{\input{m_schraube.tex}} \label{eq:e}
+    &\text{Länge des Kupfterstabs:} \qquad &\text{\input{l_Cu.tex}} \label{eq:8a}\\
+    &\text{Mittelwert der Breite des Kupfterstabs:} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
+    &\text{Dicke des Kupfterstabs:} \qquad &\text{\input{b_Cu.tex}} \label{eq:8c}\\
+    &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:8d}\\
+    &\text{Masse der Schraube:} \qquad &\text{\input{m_schraube.tex}} \label{eq:8e}
 \end{align}
 \end{subequations}
+
+\flushleft{Um\;}\justifying das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite d und der
+Dicke d zu berechnen, wird die Formel \eqref{eq:3} auf folgende Art
+geschrieben:
+\begin{align}
+    I_{\text{Cu}}=\int_{-\frac{b}{2}}^{\frac{b}{2}} \int_{-\frac{d}{2}}^{\frac{d}{2}} y^2 \, \symup{d}x \, \symup{d}y \label{eq:9}.
+\end{align}
+Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
+\begin{align}
+     I_{\text{Cu}}=\frac{1}{12} b^3d. \label{eq:10}
+\end{align}
+
+\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupferstabs beträgt dann:
+\input{I_Cu.tex}
 
 \flushleft{Angehängte\;}\justifying Massen der einfachen Biegung lauten:
 \begin{subequations}\label{eq:}
