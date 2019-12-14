@@ -339,32 +339,32 @@ with open('build/I_Al.tex', 'w') as f:
 # tex file for E_Cuein
 
 with open('build/E_Cuein.tex', 'w') as f:
-  f.write(make_SI(E_Cuein,r'\pascal', figures=1))
+  f.write(make_SI(E_Cuein*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Cudopl
 
 with open('build/E_Cudopl.tex', 'w') as f:
-  f.write(make_SI(E_Cudopl,r'\pascal', figures=1))
+  f.write(make_SI(E_Cudopl*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Cudopr
 
 with open('build/E_Cudopr.tex', 'w') as f:
-  f.write(make_SI(E_Cudopr,r'\pascal', figures=1))
+  f.write(make_SI(E_Cudopr*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Alein
 
 with open('build/E_Alein.tex', 'w') as f:
-  f.write(make_SI(E_Alein,r'\pascal', figures=1))
+  f.write(make_SI(E_Alein*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Aldopl
 
 with open('build/E_Aldopl.tex', 'w') as f:
-  f.write(make_SI(E_Aldopl,r'\pascal', figures=1))
+  f.write(make_SI(E_Aldopl*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Aldopr
 
 with open('build/E_Aldopr.tex', 'w') as f:
-  f.write(make_SI(E_Aldopr,r'\pascal', figures=1))
+  f.write(make_SI(E_Aldopr*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # Parameter der linearen Regressionen ###############################################################################################################################
 
