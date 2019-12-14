@@ -272,56 +272,56 @@ with open('build/d_Cu.tex', 'w') as f:
 # tex file for m_aufhaeng
 
 with open('build/m_aufhaeng.tex', 'w') as f:
-  f.write(make_SI(m_aufhaeng,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_aufhaeng,r'\kilo\gram', figures=1))
 
 # tex file for m_schraube
 with open('build/m_schraube.tex', 'w') as f:
-  f.write(make_SI(m_schraube,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_schraube,r'\kilo\gram', figures=1))
 
 # tex file for m_Cuein1
 
 with open('build/m_Cuein1.tex', 'w') as f:
-  f.write(make_SI(m_Cuein1,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Cuein1,r'\kilo\gram', figures=1))
 
 # tex file for m_Cuein2
 
 with open('build/m_Cuein2.tex', 'w') as f:
-  f.write(make_SI(m_Cuein2,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Cuein2,r'\kilo\gram', figures=1))
 
 # tex file for m_Cudop1
 
 with open('build/m_Cudop1.tex', 'w') as f:
-  f.write(make_SI(m_Cudop1,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Cudop1,r'\kilo\gram', figures=1))
 
 # tex file for m_Cudop2
 
 with open('build/m_Cudop2.tex', 'w') as f:
-  f.write(make_SI(m_Cudop2,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Cudop2,r'\kilo\gram', figures=1))
 
 # tex file for m_Cudop3
 
 with open('build/m_Cudop3.tex', 'w') as f:
-  f.write(make_SI(m_Cudop3,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Cudop3,r'\kilo\gram', figures=1))
 
 # tex file for m_Cudop4
 
 with open('build/m_Cudop4.tex', 'w') as f:
-  f.write(make_SI(m_Cudop4,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Cudop4,r'\kilo\gram', figures=1))
 
 # tex file for m_Aldop1
 
 with open('build/m_Aldop1.tex', 'w') as f:
-  f.write(make_SI(m_Aldop1,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Aldop1,r'\kilo\gram', figures=1))
 
 # tex file for m_Aldop2
 
 with open('build/m_Aldop2.tex', 'w') as f:
-  f.write(make_SI(m_Aldop2,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Aldop2,r'\kilo\gram', figures=1))
 
 # tex file for m_Aldop3
 
 with open('build/m_Aldop3.tex', 'w') as f:
-  f.write(make_SI(m_Aldop3,r'\kilo\gramm', figures=1))
+  f.write(make_SI(m_Aldop3,r'\kilo\gram', figures=1))
 
 # tex file for I_Cu
 
