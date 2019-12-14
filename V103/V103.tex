@@ -75,8 +75,8 @@ Für eventuell anfallende Fehler in der Auswertung werden folgende Formeln verwe
 \begin{align}
 \intertext{Für den Mittelwert wird die Formel
 }
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7a}.
-\intertext{verwendet. Der Fehler des Mittelwerts wird mit der Formel:
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7a}
+\intertext{verwendet. Der Fehler des Mittelwerts wird mit der Formel
 }
     \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:7b},
 \intertext{berechnet, und die Gaußsche Fehlerfortpflanzung wird wie folgt bestimmt:
@@ -97,8 +97,8 @@ Für eventuell anfallende Fehler in der Auswertung werden folgende Formeln verwe
 
 \flushleft{Benötigt\;}\justifying werden: \textit{ Eine ca. $\SI{60}{\centi\meter}$ lange, $\SI{530}{\gram}$ schwere, rechtreckige Kupfterstange, eine ca. $\SI{60}{\centi\meter}$ lange, runde
 Aluminiumstange, eine Aperatur zur Biegung der Stäbe mit zwei Fixpunkten, zwei schiebbare Messuhren im $\SI{}{\micro\meter}$-Bereich, eine
-$\SI{55}{\centi\meter}$ lange Skala für die Messuhren, eine Aufhängung ($\SI{19}{\gram}$), acht Gewichte ($4x$ ca. $\SI{1160}{\gram}$, 
-$2x$ ca. $\SI{500}{\gram}$, $1x$ ca. $\SI{225}{\gram}$), ein Maßband, eine Waage.
+$\SI{55}{\centi\meter}$ lange Skala für die Messuhren, eine Aufhängung ($\SI{19}{\gram}$), acht Gewichte ($4\times$ ca. $\SI{1160}{\gram}$, 
+$2\times$ ca. $\SI{500}{\gram}$, $1\times$ ca. $\SI{225}{\gram}$), ein Maßband, eine Waage.
 }
 \flushleft{Zuerst\;}\justifying wird die Kupferstange an einem der Fixpunkte eingespannt. Die Messuhren werden über der Stange auf der Skala platziert. Nun werden mit 
 einer Messuhr 19 Messwerte der Durchbiegung in einem Abstand von $\SI{2.5}{\centi\meter}$ (von $\SI{2.5}{\centi\meter}$ bis $\SI{47.5}{\centi\meter}$) 
@@ -118,39 +118,38 @@ gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen u
 % Cu_ein --------------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Kupfer einfach fixiert}
-\begin{align}
-Die Maße der Kupferstange sowie die Masse der angehängten Gewichte betragen:
-    \text{Länge des Kupfterstabs:}
-    \text{\input{l_Cu.tex}}\\
-    \text{Breite des Kupfterstabs:}
-    \text{\input{d_Cu.tex}}\\
-    \text{Dicke des Kupfterstabs:}
-    \text{\input{b_Cu.tex}}\\
-    \text{Masse der Aufhängung:}
-    \text{\input{m_aufhaeng.tex}}\\
-    \text{Masse der Schraube:}
-    \text{\input{m_schraube.tex}}
-\end{align}
 
-Um das Flächenträgheitsmoment eines Kupferstabes mit der Breite d und der
+\begin{subequations}\label{eq:8}
+\begin{align}
+    &\text{Länge des Kupfterstabs:} \qquad &\text{\input{l_Cu.tex}} \label{eq:8a}\\
+    &\text{Mittelwert der Breite des Kupfterstabs:} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
+    &\text{Dicke des Kupfterstabs:} \qquad &\text{\input{b_Cu.tex}} \label{eq:8c}\\
+    &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:8d}\\
+    &\text{Masse der Schraube:} \qquad &\text{\input{m_schraube.tex}} \label{eq:8e}
+\end{align}
+\end{subequations}
+
+\flushleft{Um\;}\justifying das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite d und der
 Dicke d zu berechnen, wird die Formel \eqref{eq:3} auf folgende Art
 geschrieben:
 \begin{align}
-    I_{\text{Cu}}=\int_{-\frac{b}{2}}^{\frac{b}{2}} \int_{-\frac{d}{2}}^{\frac{d}{2}} y^2 \, \symup{d}x \, \symup{d}y \label{eq:8}.
+    I_{\text{Cu}}=\int_{-\frac{b}{2}}^{\frac{b}{2}} \int_{-\frac{d}{2}}^{\frac{d}{2}} y^2 \, \symup{d}x \, \symup{d}y \label{eq:9}.
 \end{align}
 Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
 \begin{align}
-     I_{\text{Cu}}=\frac{1}{12} b^3d. \label{eq:9}
+     I_{\text{Cu}}=\frac{1}{12} b^3d. \label{eq:10}
 \end{align}
 
-\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupfterstabs beträgt:
+\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupferstabs beträgt dann:
 \input{I_Cu.tex}
 
+\flushleft{Angehängte\;}\justifying Massen der einfachen Biegung lauten:
+\begin{subequations}\label{eq:}
 \begin{align}
-    \text{Angehängte Massen der einfachen Biegung:}\\
-    \text{\input{m_Cuein1.tex}}\\
-    \text{\input{m_Cuein2.tex}}
+    m_1 &= \text{\input{m_Cuein1.tex}} \label{eq:a}\\
+    m_2 &= \text{\input{m_Cuein2.tex}} \label{eq:b}
 \end{align}
+\end{subequations}
 
 \begin{table}[H]
     \centering
@@ -160,9 +159,10 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
 \end{table}
 
 \flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:1} lauten:
-
-m = \input{m_PlotCuein.tex}
-b = \input{b_PlotCuein.tex}
+\begin{align}
+    m &= \text{\input{m_PlotCuein.tex}} \label{eq:}\\
+    b &= \text{\input{b_PlotCuein.tex}} \label{eq:}
+\end{align}
 
 \begin{figure}[H]
     \centering
@@ -171,18 +171,25 @@ b = \input{b_PlotCuein.tex}
     \label{fig:1}
 \end{figure}
 
+\flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Kupferstabs beträgt:
+\begin{equation}
+E_{Cu} = \input{E_Cuein.tex} \label{eq:}
+\end{equation}
+
 % Cu_dop --------------------------------------------------------------------------------------------------------------------------------
 \subsection{Kupfer doppelt fixiert}
 
-\flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt bei 
-$\SI{27.5}{\centi\meter}$. Dieser wird nicht in den dazugehörigen Tabellen aufgeführt.
+\flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt hier bei 
+$\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:2} aufgeführt.
 
+\flushleft{Angehängte\;}\justifying Massen der Doppelbiegung:
+\begin{subequations}\label{eq:}
 \begin{align}
-    \text{Angehängte Massen der Doppelbiegung:}\\
-    \text{\input{m_Cudop1.tex}}\\
-    \text{\input{m_Cudop2.tex}}\\
-    \text{\input{m_Cudop3.tex}}
+    m_1 &= \text{\input{m_Cudop1.tex}} \label{eq:a}\\
+    m_2 &= \text{\input{m_Cudop2.tex}} \label{eq:b}\\
+    m_3 &= \text{\input{m_Cudop3.tex}} \label{eq:c}
 \end{align}
+\end{subequations}
 
 \begin{table}[H]
     \centering
@@ -192,12 +199,14 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in den dazugehörigen Tabellen aufg
 \end{table}
 
 \flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:2a} und \ref{fig:2b} lauten:
-
-m(a) = \input{m_PlotCudopl.tex}
-b(a) = \input{b_PlotCudopl.tex}
-
-m(b) = \input{m_PlotCudopr.tex}
-b(b) = \input{b_PlotCudopr.tex}
+\begin{subequations}\label{eq:}
+\begin{align}
+    m(a) &= \text{\input{m_PlotCudopl.tex}} \qquad
+    b(a) = \text{\input{b_PlotCudopl.tex}}\label{eq:a}\\
+    m(b) &= \text{\input{m_PlotCudopr.tex}} \qquad
+    b(b) = \text{\input{b_PlotCudopr.tex}}\label{eq:b}
+\end{align}
+\end{subequations}
 
 \begin{figure}[H]
 \caption{Graph für Doppelbiegung, $Cu_{links}$ und $Cu_{rechts}$}
@@ -216,24 +225,32 @@ b(b) = \input{b_PlotCudopr.tex}
 \end{subfigure}
 \end{figure}
 
+\flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
+\begin{align}
+    &E_{Cu(links)} = \text{\input{E_Cudopl.tex}} \label{eq:}\\
+    &E_{Cu(rechts)} = \text{\input{E_Cudopr.tex}} \label{eq:}
+\end{align}
+
 % Al_ein --------------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Aluminium einfach fixiert}
 
 \flushleft{Das\;}\justifying Flächenträgheitsmoment des Aluminiumstabs beträgt:
-\input{I_Al.tex}
+\begin{equation}
+I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
+\end{equation}
 
+\begin{subequations}\label{eq:}
 \begin{align}
-    \text{Länge des Kupfterstabs:}\\
-    \text{\input{l_Al.tex}}\\
-    \text{Durchmesser des Aluminiumstabs:}\\
-    \text{\input{d_Al.tex}}\\
+    &\text{Länge des Aluminiumstabs:} \qquad &\text{\input{l_Al.tex}} \label{eq:a}\\
+    &\text{Mittelwert des Durchmessers des Aluminiumstabs:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}\\
 \end{align}
+\end{subequations}
 
-\begin{align}
-    \text{Angehängte Masse der Einzelbiegung:}\\
-    \text{\input{m_Alein1.tex}}
-\end{align}
+\flushleft{Angehängte\;}\justifying Masse der Einzelbiegung:
+\begin{equation}
+    m_1 = \text{\input{m_Alein1.tex}} \label{eq:}
+\end{equation}
 
 \begin{table}[H]
     \centering
@@ -243,9 +260,12 @@ b(b) = \input{b_PlotCudopr.tex}
 \end{table}
 
 \flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:3} lauten:
-
-m = \input{m_PlotAlein.tex}
-b = \input{b_PlotAlein.tex}
+\begin{subequations}\label{eq:}
+\begin{align}
+    m &= \text{\input{m_PlotAlein.tex}} \label{eq:a}\\
+    b &= \text{\input{b_PlotAlein.tex}} \label{eq:b}
+\end{align}
+\end{subequations}
 
 \begin{figure}[H]
     \centering
@@ -254,9 +274,17 @@ b = \input{b_PlotAlein.tex}
     \label{fig:3}
 \end{figure}
 
+\flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Aluminiumstabs beträgt:
+
+$E_{Al}$ = \input{E_Alein.tex}
+
 % Al_dop --------------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Aluminium doppelt fixiert}
+
+\flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt hier ebenfalls bei 
+$\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4} aufgeführt.
+
 
 \begin{align}
     \text{Angehängte Massen der Doppelbiegung:}\\
@@ -297,6 +325,12 @@ b(b) = \input{b_PlotAldopr.tex}
     \label{fig:4b}
 \end{subfigure}
 \end{figure}
+
+\flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Aluminiumstabs betragen:
+
+$E_{Al(links)}$ = \input{E_Aldopl.tex}
+
+$E_{Al(rechts)}$ = \input{E_Aldopr.tex}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
