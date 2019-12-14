@@ -51,7 +51,7 @@ Dabei ist D die Durchbiegung des Stabes und
 das Flächenträgheitsmoment. \\
 Aus Gleichung \eqref{eq:2} folgt für die Durchbiegung D 
 \begin{align}
-    D(x)=\frac{F}{2E\,I}\left(L \, x^2-\frac{x^3}{3}\right) \label{eq:4} (\text{für} \, 0\leq x \leq L).
+    D(x)=\frac{F}{2E\,I}\left(L \, - \, x^2-\frac{x^3}{3}\right) \label{eq:4} (\text{für} \, 0\leq x \leq L).
 \end{align}
 Eine weitere mögliche Biegungsart stellt die Doppelbiegung dar. Bei dieser wird
 der Stab an beiden Enden aufgelegt und lässt die Gewichtskraft auf die Stabmitte 
@@ -105,11 +105,13 @@ einer Messuhr 19 Messwerte der Durchbiegung in einem Abstand von $\SI{2.5}{\cent
 bestimmt. Nach den Messungen ohne Gewicht, werden zwei $\SI{500}{\gram}$ Gewichte an das lose Ende gehangen und die Messungen wiederholt. Anschließend
 werden die Gewichte abgenommen und die Kupferstange an beiden Enden fixiert. Nun wird die Durchbiegung an 14 Stellen mit einem Abstand von 
 $\SI{3}{\centi\meter}$ gemessen. Danach werden vier $\SI{1160}{\gram}$ Gewichte mittig an die Stange gehangen und die Messungen wiederholt. 
+Anschließend werden die Länge und Breite des Stabs an zehn verschiedenen Stellen gemessen.
 
 \flushleft{Der\;}\justifying obige Prozess wird für die Runde Aluminiumstange wiederholt. Zu Beginn wird die Aluminiumstange einseitig eingespannt. Die Durchbiegung
 wird ohne Gewichte 19-mal in einem Abstand von $\SI{2.5}{\centi\meter}$ gemessen. Dann wird ein $\SI{500}{\gram}$ Gewicht an das lose Ende 
 gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen und die Stange an beiden Seiten fixiert. Abschließend werden 
-14 Messungen ohne Gewichte und 14 Messungen mit zwei $\SI{500}{\gram}$ Gewichten und einem $\SI{230}{\gram}$ Gewicht durchgeführt.
+14 Messungen ohne Gewichte und 14 Messungen mit zwei $\SI{500}{\gram}$ Gewichten und einem $\SI{230}{\gram}$ Gewicht durchgeführt. Wie beim Kupfterstab
+wird hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -119,10 +121,12 @@ gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen u
 
 \subsection{Kupfer einfach fixiert}
 
+\flushleft{Die\;}\justifying Maße und das Gewicht des Kupferstabs, sowie die Gewichte der Aufhängung und Schraube, an welche die Gewichte gehangen 
+werden, sind im Folgenden aufgelistet: 
 \begin{subequations}\label{eq:8}
 \begin{align}
     &\text{Länge des Kupfterstabs:} \qquad &\text{\input{l_Cu.tex}} \label{eq:8a}\\
-    &\text{Mittelwert der Breite des Kupfterstabs:} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
+    &\text{Mittelwert der Breite des Kupfterstabs ($\overline{b}$):} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
     &\text{Dicke des Kupfterstabs:} \qquad &\text{\input{b_Cu.tex}} \label{eq:8c}\\
     &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:8d}\\
     &\text{Masse der Schraube:} \qquad &\text{\input{m_schraube.tex}} \label{eq:8e}
@@ -143,7 +147,7 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
 \flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupferstabs beträgt dann:
 \input{I_Cu.tex}
 
-\flushleft{Angehängte\;}\justifying Massen der einfachen Biegung lauten:
+\flushleft{Die\;}\justifying Massen der Gewichte, welche für die einfache Biegung verwendet werden, lauten:
 \begin{subequations}\label{eq:}
 \begin{align}
     m_1 &= \text{\input{m_Cuein1.tex}} \label{eq:a}\\
@@ -151,6 +155,9 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
 \end{align}
 \end{subequations}
 
+\flushleft{Die\;}\justifying folgende Tabelle \ref{tab:1} gibt die Biegung des Kupferstabs mit und ohne Gewicht wieder. $x$ beschreibt den Abstand zum Fixpunkt, $D_0$
+die Biegung ohne Gewicht, $D_m$ die Biegung mit Gewicht. Die Differenz steht für die Differenz von ($D_0-D_m$). Für die folgenden Rechnungen
+wird der Betrag der Differenz verwendet.
 \begin{table}[H]
     \centering
     \input{Cu_ein.tex}
@@ -158,7 +165,9 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
     \label{tab:1}
 \end{table}
 
-\flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:1} lauten:
+\flushleft{Im\;}\justifying folgenden Graph \ref{fig:1} wird die lineare Regression mithilfe der Werte aus Tabelle \ref{tab:1} und der Formel \eqref{eq:4} dargestellt.
+Die Parameter $m$ und $b$ wurden mit den Formeln \eqref{eq:7e} und \eqref{eq:7f} bestimmt.
+Damit lauten die für lineare Regression relevanten Parameter aus Graph \ref{fig:1}:
 \begin{align}
     m &= \text{\input{m_PlotCuein.tex}} \label{eq:}\\
     b &= \text{\input{b_PlotCuein.tex}} \label{eq:}
@@ -170,6 +179,7 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
     \caption{Graph Einzelbiegung}
     \label{fig:1}
 \end{figure}
+
 
 \flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Kupferstabs beträgt:
 \begin{equation}
@@ -246,6 +256,19 @@ I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
     &\text{Mittelwert des Durchmessers des Aluminiumstabs:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}\\
 \end{align}
 \end{subequations}
+
+\flushleft{Für\;}\justifying das Flächenträgheitsmoment eines runden Stabes mit dem Durchmessers d, wird die Formel \eqref{eq:3} 
+wie folgt geschrieben:
+\begin{align}
+    I_{\text{Al}}=\int_{0}^{2\pi} \int_{0}^{R} r^2 \sin^2(\varphi) r \, \symup{d}r \, \symup{d}\varphi \label{eq:}.
+\end{align}
+Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
+\begin{align}
+     I_{\text{Al}}=\frac{\pi}{64} d^4. \label{eq:}
+\end{align}
+
+\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupferstabs beträgt dann:
+\input{I_Cu.tex}
 
 \flushleft{Angehängte\;}\justifying Masse der Einzelbiegung:
 \begin{equation}
