@@ -266,8 +266,9 @@ I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
 \end{figure}
 
 \flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Aluminiumstabs beträgt:
-
-$E_{Al}$ = \input{E_Alein.tex}
+\begin{equation}
+E_{Al} = \input{E_Alein.tex} \label{eq:}
+\end{equation}
 
 % Al_dop --------------------------------------------------------------------------------------------------------------------------------
 
@@ -276,13 +277,13 @@ $E_{Al}$ = \input{E_Alein.tex}
 \flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt hier ebenfalls bei 
 $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4} aufgeführt.
 
-
+\begin{subequations}\label{eq:}
 \begin{align}
-    \text{Angehängte Massen der Doppelbiegung:}\\
-    \text{\input{m_Aldop1.tex}}\\
-    \text{\input{m_Aldop2.tex}}\\
-    \text{\input{m_Aldop3.tex}}
+    m_1 &= \text{\input{m_Aldop1.tex}} \label{eq:a}\\
+    m_2 &= \text{\input{m_Aldop2.tex}} \label{eq:b}\\
+    m_3 &= \text{\input{m_Aldop3.tex}} \label{eq:c}
 \end{align}
+\end{subequations}
 
 \begin{table}[H]
     \centering
@@ -292,13 +293,14 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4
 \end{table}
 
 \flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:4a} und \ref{fig:4b} lauten:
-
-m(a) = \input{m_PlotAldopl.tex}
-b(a) = \input{b_PlotAldopl.tex}
-
-m(b) = \input{m_PlotAldopr.tex}
-b(b) = \input{b_PlotAldopr.tex}
-
+\begin{subequations}\label{eq:}
+\begin{align}
+    m(a) &= \text{\input{m_PlotAldopl.tex}} \qquad
+    b(a) = \text{\input{b_PlotAldopl.tex}}\label{eq:a}\\
+    m(b) &= \text{\input{m_PlotAldopr.tex}} \qquad
+    b(b) = \text{\input{b_PlotAldopr.tex}}\label{eq:b}
+\end{align}
+\end{subequations}
 
 \begin{figure}[H]
 \caption{Graph für Doppelbiegung, $Al_{links}$ und $Al_{rechts}$}
@@ -318,10 +320,10 @@ b(b) = \input{b_PlotAldopr.tex}
 \end{figure}
 
 \flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Aluminiumstabs betragen:
-
-$E_{Al(links)}$ = \input{E_Aldopl.tex}
-
-$E_{Al(rechts)}$ = \input{E_Aldopr.tex}
+\begin{align}
+    &E_{Al(links)} = \text{\input{E_Aldopl.tex}} \label{eq:}\\
+    &E_{Al(rechts)} = \text{\input{E_Aldopr.tex}} \label{eq:}
+\end{align}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
