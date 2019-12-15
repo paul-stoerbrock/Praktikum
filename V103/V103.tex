@@ -119,22 +119,40 @@ wird hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
 
 % Cu_ein --------------------------------------------------------------------------------------------------------------------------------
 
-\subsection{Kupfer einfach fixiert}
+\subsection{Kupfer einfach fixiert}\label{sec:4.1}
 
 \flushleft{Die\;}\justifying Maße und das Gewicht des Kupferstabs, sowie die Gewichte der Aufhängung und Schraube, an welche die Gewichte gehangen 
 werden, sind im Folgenden aufgelistet: 
 \begin{subequations}\label{eq:8}
 \begin{align}
     &\text{Länge des Kupferstabs L:} \qquad &\text{\input{l_Cu.tex}} \label{eq:8a}\\
-    &\text{Mittelwert der Breite des Kupferstabs b:} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
-    &\text{Mittelwert der Dicke des Kupferstabs d:} \qquad &\text{\input{b_Cu.tex}} \label{eq:8c}\\
+    &\text{Mittelwert der Breite des Kupferstabs $\overline{b}$:} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
+    &\text{Mittelwert der Dicke des Kupferstabs $\overline{d}$:} \qquad &\text{\input{b_Cu.tex}} \label{eq:8c}\\
     &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:8d}\\
     &\text{Masse der Schraube:} \qquad &\text{\input{m_schraube.tex}} \label{eq:8e}
 \end{align}
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{c c c c}
+    \toprule
+        {$b \:/\: \si{\milli\meter}$} & {$d \:/\: \si{\milli\meter}$} & {$b \:/\: \si{\milli\meter}$} & {$d \:/\: \si{\milli\meter}$}\\
+        \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+        10.06 & 10.02 & 10.03 & 10.09\\
+        10.02 & 10.05 & 10.04 & 10.04\\
+        10.05 & 10.06 & 10.02 & 10.05\\
+        10.01 & 10.03 & 10.04 & 10.08\\
+        10.03 & 10.04 & 10.03 & 10.05\\
+    \bottomrule
+    \end{tabular}
+\caption{Messwerte der Breite und Dicke des Kupferstabs}
+\label{tab:1}
+\end{table}
+
 \end{subequations}
-Die Mittelwerte für die Dicke d und die Breite b wurden dabei mit Tabelle berechnet.
-\flushleft{Um\;}\justifying das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite b und der
-Dicke d zu berechnen,welcher in z-Richtung gebogen wird, wird die Formel \eqref{eq:3} auf folgende Art
+\flushleft{Die\;}\justifying Mittelwerte für die Dicke $\overline{d}$ und die Breite $\overline{b}$ wurden im Folgenden mit Tabelle \ref{tab:1} 
+berechnet. Um das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite b und der
+Dicke d zu berechnen, welcher in z-Richtung gebogen wird, wird die Formel \eqref{eq:3} auf folgende Art
 geschrieben:
 \begin{align}
     I=\int_{-\frac{b}{2}}^{\frac{b}{2}} \int_{-\frac{d}{2}}^{\frac{d}{2}} y^2 \, \symup{d}x \, \symup{d}y \label{eq:9}.
@@ -155,14 +173,14 @@ Nach dem Lösen des Integrals hat das Flächenträgheitsmoment die Form
 \end{align}
 \end{subequations}
 
-\flushleft{Die\;}\justifying folgende Tabelle \ref{tab:1} gibt die Biegung des Kupferstabs mit und ohne Gewicht wieder. $x$ beschreibt den Abstand zum Fixpunkt, $D_0$
-die Biegung ohne Gewicht, $D_m$ die Biegung mit Gewicht. Die Differenz steht für die Differenz von ($D_0-D_m$). Für die folgenden Rechnungen
+\flushleft{Die\;}\justifying folgende Tabelle \ref{tab:2} gibt die Biegung des Kupferstabs mit und ohne Gewicht wieder. $x$ beschreibt den Abstand zum Fixpunkt, $D_0$
+die Biegung ohne Gewicht und $D_m$ die Biegung mit Gewicht. Die Differenz steht für die Differenz von ($D_0-D_m$). Für die folgenden Rechnungen
 wird der Betrag der Differenz verwendet.
 \begin{table}[H]
     \centering
     \input{Cu_ein.tex}
     \caption{Messwerte der Kupferstange einfach fixiert}
-    \label{tab:1}
+    \label{tab:2}
 \end{table}
 
 \flushleft{Im\;}\justifying folgenden Graph \ref{fig:1} wird die lineare Regression mithilfe der Werte aus Tabelle \ref{tab:1} und der Formel \eqref{eq:4} dargestellt.
@@ -180,35 +198,43 @@ Damit lauten die für lineare Regression relevanten Parameter aus Graph \ref{fig
     \label{fig:1}
 \end{figure}
 
-
-\flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Kupferstabs beträgt:
+\flushleft{Der\;}\justifying Elastizitätmodul lässt sich mit der Steigung \eqref{eq:} aus Graph \ref{fig:1} und dem Vorfaktor 
+$\sfrac{m \cdot m_g}{2 \cdot I_{Cu} \cdot m}$ aus Formel \eqref{eq:4} mit $m_g$ = $m_1 + m_2 + m_{Schraube} + m_{Aufhängung}$ bestimmen. 
+Demnach beträgt der Elastizitätmodul der einfachen Biegung des Kupferstabs:
 \begin{equation}
 E_{Cu} = \input{E_Cuein.tex} \label{eq:}
 \end{equation}
 
 % Cu_dop --------------------------------------------------------------------------------------------------------------------------------
-\subsection{Kupfer doppelt fixiert}
+
+\subsection{Kupfer doppelt fixiert}\label{sec:4.2}
 
 \flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt hier bei 
 $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:2} aufgeführt.
 
-\flushleft{Angehängte\;}\justifying Massen der Doppelbiegung:
+\flushleft{Die\;}\justifying Massen, die für die Doppelbiegung verwendet werden, lauten:
 \begin{subequations}\label{eq:}
 \begin{align}
     m_1 &= \text{\input{m_Cudop1.tex}} \label{eq:a}\\
     m_2 &= \text{\input{m_Cudop2.tex}} \label{eq:b}\\
-    m_3 &= \text{\input{m_Cudop3.tex}} \label{eq:c}
+    m_3 &= \text{\input{m_Cudop3.tex}} \label{eq:c}\\
+    m_4 &= \text{\input{m_Cudop4.tex}} \label{eq:d}
 \end{align}
 \end{subequations}
 
+\flushleft{Bei\;}\justifying der Doppelbiegung haben $D_0$, $D_m$ und Differenz aus Tabelle \ref{tab:3} die selbe Bedeutung wie in \ref{sec:4.1}.
+$x$ wird hier in zwei Seiten aufgeteilt. Da der Kupferstab nun auf beiden Seiten fixiert ist, wird vom Mittelpunkt nach außen gemessen. Demnach
+gibt $x$ in der linken Spalte die Messungen der linken Seite des Stabs, und in der rechten Spalte die Messungen der rechten Seite des Stabs wieder.
 \begin{table}[H]
     \centering
     \input{Cu_dop.tex}
     \caption{Messwerte der Kupferstange doppelt fixiert}
-    \label{tab:2}
+    \label{tab:3}
 \end{table}
 
-\flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:2a} und \ref{fig:2b} lauten:
+\flushleft{Ähnlich\;}\justifying wie in \ref{sec:4.1} werden hier für die beiden Seiten der Doppelbiegung mithilfe der Formeln \eqref{eq:5} für
+links und \eqref{eq:6} für rechts, den Werten aus Tabelle \ref{tab:2} und den Formeln für die Parameter \eqref{eq:7e} und \eqref{eq:7f} eine 
+lineare Regression bestimmt. Die für die lineare Regression relevanten Parameter aus Graph \ref{fig:2a} und \ref{fig:2b} lauten:
 \begin{subequations}\label{eq:}
 \begin{align}
     m(a) &= \text{\input{m_PlotCudopl.tex}} \qquad
@@ -235,6 +261,9 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:2
 \end{subfigure}
 \end{figure}
 
+Die Elastizitätmodule der Doppelbiegung lassen sich wie aus \ref{sec:4.1} mit den Vorfaktoren der Formeln \eqref{eq:5} und \eqref{eq:6}
+berechnen. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$, wobei $F = m_g\cdot g$ ist, mit $m_g = m_1 + m_2 + m_3 + m_4 + m_{Schraube}
++ m_{Aufhängung}$.
 \flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
 \begin{align}
     &E_{Cu(links)} = \text{\input{E_Cudopl.tex}} \label{eq:}\\
@@ -243,7 +272,7 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:2
 
 % Al_ein --------------------------------------------------------------------------------------------------------------------------------
 
-\subsection{Aluminium einfach fixiert}
+\subsection{Aluminium einfach fixiert}\label{sec:4.3}
 
 \flushleft{Das\;}\justifying Flächenträgheitsmoment des Aluminiumstabs beträgt:
 \begin{equation}
@@ -253,9 +282,26 @@ I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
 \begin{subequations}\label{eq:}
 \begin{align}
     &\text{Länge des Aluminiumstabs:} \qquad &\text{\input{l_Al.tex}} \label{eq:a}\\
-    &\text{Mittelwert des Durchmessers des Aluminiumstabs:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}\\
+    &\text{Mittelwert des Durchmessers des Aluminiumstabs $\overline{d}$:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}\\
 \end{align}
 \end{subequations}
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{c c}
+    \toprule
+        \multicolumn{2}{c}{$d \:/\: \si{\milli\meter}$}\\
+        \cmidrule(lr{0,5em}){1-2}
+        10.00 & 10.10\\
+        10.00 & 10.10\\
+        10.10 & 10.00\\
+        10.00 & 10.25\\
+        10.10 & 10.00\\
+        \bottomrule
+    \end{tabular}
+\caption{Messwerte des Durchmessers des Aluminiumstabs}
+\label{tab:4}
+\end{table}
 
 \flushleft{Für\;}\justifying das Flächenträgheitsmoment eines runden Stabes mit dem Durchmessers d, wird die Formel \eqref{eq:3} 
 wie folgt geschrieben:
@@ -279,7 +325,7 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
     \centering
     \input{Al_ein.tex}
     \caption{Messwerte der Aluminiumstange einfach fixiert}
-    \label{tab:3}
+    \label{tab:5}
 \end{table}
 
 \flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:3} lauten:
@@ -304,7 +350,7 @@ E_{Al} = \input{E_Alein.tex} \label{eq:}
 
 % Al_dop --------------------------------------------------------------------------------------------------------------------------------
 
-\subsection{Aluminium doppelt fixiert}
+\subsection{Aluminium doppelt fixiert}\label{4.4}
 
 \flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt hier ebenfalls bei 
 $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4} aufgeführt.
@@ -321,7 +367,7 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4
     \centering
     \input{Al_dop.tex}
     \caption{Messwerte der Aluminiumstange doppelt fixiert}
-    \label{tab:4}
+    \label{tab:6}
 \end{table}
 
 \flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:4a} und \ref{fig:4b} lauten:
