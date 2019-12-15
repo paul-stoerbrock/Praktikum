@@ -104,15 +104,15 @@ $2\times$ ca. $\SI{500}{\gram}$, $1\times$ ca. $\SI{225}{\gram}$), ein Maßband,
 \flushleft{Zuerst\;}\justifying wird die Kupferstange an einem der Fixpunkte eingespannt. Die Messuhren werden über der Stange auf der Skala platziert. Nun werden mit 
 einer Messuhr 19 Messwerte der Durchbiegung in einem Abstand von $\SI{2.5}{\centi\meter}$ (von $\SI{2.5}{\centi\meter}$ bis $\SI{47.5}{\centi\meter}$) 
 bestimmt. Nach den Messungen ohne Gewicht, werden zwei $\SI{500}{\gram}$ Gewichte an das lose Ende gehangen und die Messungen wiederholt. Anschließend
-werden die Gewichte abgenommen und die Kupferstange an beiden Enden fixiert. Nun wird die Durchbiegung an 14 Stellen mit einem Abstand von 
-$\SI{3}{\centi\meter}$ gemessen. Danach werden vier $\SI{1160}{\gram}$ Gewichte mittig an die Stange gehangen und die Messungen wiederholt. 
-Anschließend werden die Länge und Breite des Stabs an zehn verschiedenen Stellen gemessen.
+werden die Gewichte abgenommen und die Kupferstange an beiden Enden fixiert. Dabei ist zu beachten, dass keines der beiden Enden fest eingespannt wird. 
+Nun wird die Durchbiegung an 14 Stellen mit einem Abstand von $\SI{3}{\centi\meter}$ gemessen. Danach werden vier $\SI{1160}{\gram}$ Gewichte mittig an 
+die Stange gehangen und die Messungen wiederholt. Anschließend werden die Länge und Breite des Stabs an zehn verschiedenen Stellen gemessen.
 
 \flushleft{Der\;}\justifying obige Prozess wird für die runde Aluminiumstange wiederholt. Zu Beginn wird die Aluminiumstange einseitig eingespannt. Die Durchbiegung
 wird ohne Gewichte 19-mal in einem Abstand von $\SI{2.5}{\centi\meter}$ gemessen. Dann wird ein $\SI{500}{\gram}$ Gewicht an das lose Ende 
-gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen und die Stange an beiden Seiten fixiert. Abschließend werden 
-14 Messungen ohne Gewichte und 14 Messungen mit zwei $\SI{500}{\gram}$ Gewichten und einem $\SI{230}{\gram}$ Gewicht durchgeführt. Wie beim Kupferstab
-wird hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
+gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen und die Stange an beiden Seiten fixiert. Auch hier dürfen die beiden Enden
+nicht fest eingespannt werden. Abschließend werden 14 Messungen ohne Gewichte und 14 Messungen mit zwei $\SI{500}{\gram}$ Gewichten und einem $\SI{230}{\gram}$ 
+Gewicht durchgeführt. Wie beim Kupferstab wird hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -412,7 +412,7 @@ aus den Formeln \eqref{eq:5} und \eqref{eq:6}. Dieser lautet $\sfrac{F}{48 \cdot
 $m_g = m_1 + m_2 + m_3 + m_{\text{Schraube}} + m_{\text{Aufhängung}}$. Die daraus folgenden Elastizitätmodule lauten:
 \begin{align}
     &E_{Al(links)} = \text{\input{E_Aldopl.tex}} \label{eq:28}\\
-    &E_{Al(rechts)} = \text{\input{E_Aldopr.tex}} \label{eq:28}
+    &E_{Al(rechts)} = \text{\input{E_Aldopr.tex}} \label{eq:29}
 \end{align}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -447,8 +447,8 @@ mit der Dichte bestimmt. Dafür wird die Formel $\rho = \sfrac{m}{V}$ verwendet.
 Dieser Wert gleicht dem Literaturwert der Dichte von Aluminium $\rho = \SI{2.7}{\gram\per\milli\meter\tothe{3}}$ \cite{Aluminiumdichte}. Folglich liegt
 die Vermutung nahe, dass es sich beim zweiten Material um Aluminium handelt. 
 
-\flushleft{Wie\;}\justifying beim Kupferstab wird der Durchmesser des Aluminiumstabes an zehn verschiedenen Stellen gemessen, wie in Tabelle \ref{tab:4}
-gezeigt. Die Tabelle \ref{tab:5} gibt die Einzelbiegung des Aluminiumstabes wieder. Diesmal fällt kein negativer Wert bei der Differenz für 
+\flushleft{Wie\;}\justifying beim Kupferstab wird der Durchmesser des Aluminiumstabes an zehn verschiedenen Stellen gemessen, die in Tabelle \ref{tab:4}
+aufgeführt werden. Die Tabelle \ref{tab:5} gibt die Einzelbiegung des Aluminiumstabes wieder. Diesmal fällt kein negativer Wert bei der Differenz für 
 $\SI{2.5}{\centi\meter}$ an. Die Länge $L$ des Aluminiumstabes wird identisch zu der Länge des Kupferstabes behandelt. $L$ ist hier dementsprechend
 $\SI{50}{\centi\meter}$. Der auf Tabelle \ref{tab:5} basierenden Graph weist eine größere Fluktuation der Werte an als bei der Einzelbiegung 
 des Kupferstabes. Im Graphen gibt es einige Werte, die über, bzw. unter der Ausgleichsgeraden liegen. Dies kann durch statistische Fehler erklärt werden,
@@ -463,8 +463,10 @@ Folglich lässt sich vermuten, dass der Aluminiumstab auf der rechten Seite stä
 
 \flushleft{Werden\;}\justifying nun der Elastizitätmodul \eqref{eq:25} der Einzelbiegung mit den Elastizitätmodulen der Doppelbiegung \eqref{eq:28}
 und \eqref{eq:29} verglichen fällt eine signifikante Diskrepanz des Verhältnisses auf. Der Elastizitätmodul der Einzelbiegung ist deutlich größer
-als die Elastizitätmodulen der Doppelbiegung. Obwohl sich die Elastizitätmodule \eqref{28} und \eqref{29} sehr ähnlich sind, 
-
+als die Elastizitätmodulen der Doppelbiegung. Eine Ursache könnte die Länge $L$ sein, da $L$ nicht explizit während der Messung bestimmt, sondern 
+nachträglich festgelegt wurde. Demnach könnte $L$ eine einen andere Wert haben. Ein weiterer Grund könnte die Verformung der rechten Seite des Stabes
+sein, wie aus dem Graphen \ref{fig:4b} entnommen. Da die Formeln \eqref{eq:4} und \eqref{eq:6} von einer gleichmäßigen Form des Stabes ausgehen, 
+könnte eine Inhomogenität das Ergebnis beeinflussen.
 \newpage
 
 \printbibliography
