@@ -238,16 +238,13 @@ links und \eqref{eq:6} für rechts, den Werten aus Tabelle \ref{tab:2} und den F
 lineare Regression bestimmt. Die für die lineare Regression relevanten Parameter aus Graph \ref{fig:2a} und \ref{fig:2b} lauten:
 \begin{subequations}\label{eq:}
 \begin{align}
-    m(a) &= \text{\input{m_PlotCudopl.tex}} \qquad
-    b(a) = \text{\input{b_PlotCudopl.tex}}\label{eq:a}\\
-    m(b) &= \text{\input{m_PlotCudopr.tex}} \qquad
-    b(b) = \text{\input{b_PlotCudopr.tex}}\label{eq:b}
+    m &= \text{\input{m_PlotCudopl.tex}} \qquad \text{und} \qquad
+    b = \text{\input{b_PlotCudopl.tex}}\label{eq:a} \text{\;für 2(a)}\\
+    m &= \text{\input{m_PlotCudopr.tex}} \qquad \text{und} \qquad
+    b = \text{\input{b_PlotCudopr.tex}}\label{eq:b} \text{\;für 2(b)}
 \end{align}
 \end{subequations}
-
 \begin{figure}[H]
-\caption{Graph für Doppelbiegung, $Cu_{links}$ und $Cu_{rechts}$}
-\label{fig:2}
 \begin{subfigure}{0.495\linewidth}
     \centering
     \includegraphics[width=\linewidth]{plotCudopl.pdf}
@@ -260,15 +257,17 @@ lineare Regression bestimmt. Die für die lineare Regression relevanten Paramete
     \caption{$Cu_{rechts}$}
     \label{fig:2b}
 \end{subfigure}
+\caption{Graph für Doppelbiegung, $Cu_{links}$ und $Cu_{rechts}$}
+\label{fig:2}
 \end{figure}
 
-\flushleft{Die\;}\justifying Elastizitätmodule der Doppelbiegung lassen sich wie aus \ref{sec:4.1} mit den Vorfaktoren der Formeln \eqref{eq:5} und \eqref{eq:6}
-berechnen. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$, wobei $F = m_g\cdot g$ ist, mit $m_g = m_1 + m_2 + m_3 + m_4 + m_{Schraube}
-+ m_{Aufhängung}$.
-\flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
+\flushleft{Die\;}\justifying Elastizitätmodule der Doppelbiegung lassen sich ähnlich wie \ref{sec:4.1} mit den Vorfaktoren der Formeln \eqref{eq:5} und \eqref{eq:6}
+berechnen. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$, wobei $F = m_g\cdot g$ ist, mit $m_g = m_1 + m_2 + m_3 + m_4 + m_{\text{Schraube}}
++ m_{\text{Aufhängung}}$.
+Die Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
 \begin{align}
-    &E_{Cu(links)} = \text{\input{E_Cudopl.tex}} \label{eq:}\\
-    &E_{Cu(rechts)} = \text{\input{E_Cudopr.tex}} \label{eq:}
+    &E_{\text{Cu(links)}} = \text{\input{E_Cudopl.tex}} \label{eq:}\\
+    &E_{\text{Cu(rechts)}} = \text{\input{E_Cudopr.tex}} \label{eq:}
 \end{align}
 
 % Al_ein --------------------------------------------------------------------------------------------------------------------------------
@@ -361,6 +360,7 @@ E_{Al} = \input{E_Alein.tex} \label{eq:}
 \flushleft{Der\;}\justifying Mittelpunkt, an dem die Gewichte bei der doppelt fixierten Biegung aufgehängt werden, liegt hier ebenfalls bei 
 $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4} aufgeführt.
 
+Die für die Doppelbiegung des Aluminiumstabs verwendeten Gewichte lauten:
 \begin{subequations}\label{eq:}
 \begin{align}
     m_1 &= \text{\input{m_Aldop1.tex}} \label{eq:a}\\
@@ -369,6 +369,9 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4
 \end{align}
 \end{subequations}
 
+\flushleft{Wie\;}\justifying in \ref{sec:4.2} beschreibt die folgenden Tabelle \ref{tab:6} die Biegung der jeweiligen Seite. Die linke Spalte
+beinhaltet die Biegungen der linken Seite relativ zum Mittelpunkt bei $\SI{27.5}{\centi\meter}$. Die rechte Seite gibt dementsprechend die Biegungen
+der rechten Seite relativ zum Mittelpunkt wieder. 
 \begin{table}[H]
     \centering
     \input{Al_dop.tex}
@@ -376,34 +379,36 @@ $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4
     \label{tab:6}
 \end{table}
 
-\flushleft{Die\;}\justifying für die lineare Regression relevanten Parameter aus Graph \ref{fig:4a} und \ref{fig:4b} lauten:
+\flushleft{Für\;}\justifying die linearen Regressionen der jeweiligen Seiten wird hier wie in \ref{sec:4.2} verfahren. Die Parameter der Regressionen
+werden mit den Formeln \eqref{eq:7d} für $m$ und \eqref{eq:7e} für $b$ bestimmt. Dafür werden die Werte aus Tabelle \ref{tab:6} und die Formeln
+\eqref{eq:5} und \eqref{eq:6} für die jeweils linke und rechte Seite verwendet.
+Die für die lineare Regression relevanten Parameter aus Abbildung \ref{fig:4a} und \ref{fig:4b} lauten dementsprechend:
 \begin{subequations}\label{eq:}
 \begin{align}
-    m(a) &= \text{\input{m_PlotAldopl.tex}} \qquad
-    b(a) = \text{\input{b_PlotAldopl.tex}}\label{eq:a}\\
-    m(b) &= \text{\input{m_PlotAldopr.tex}} \qquad
-    b(b) = \text{\input{b_PlotAldopr.tex}}\label{eq:b}
+    m = \text{\input{m_PlotAldopl.tex}} \qquad \text{und} \qquad
+    b = \text{\input{b_PlotAldopl.tex}} \text{\;für 4(a)}\label{eq:a}\\
+    m = \text{\input{m_PlotAldopr.tex}} \qquad \text{und} \qquad
+    b = \text{\input{b_PlotAldopr.tex}} \text{\;für 4(a)}\label{eq:b}
 \end{align}
 \end{subequations}
 
 \begin{figure}[H]
-\caption{Graph für Doppelbiegung, $Al_{links}$ und $Al_{rechts}$}
-\label{fig:4}
 \begin{subfigure}{0.495\linewidth}
     \centering
     \includegraphics[width=\linewidth]{plotAldopl.pdf}
-    \caption{$Al_{links}$}
-    \label{fig:4a}
+    \caption{$Al_{links}$\label{fig:4a}}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
     \centering
     \includegraphics[width=\linewidth]{plotAldopr.pdf}
-    \caption{$Al_{rechts}$}
-    \label{fig:4b}
+    \caption{$Al_{rechts}$\label{fig:4b}}    
 \end{subfigure}
+\caption{Graphen für die Doppelbiegung, $Al_{links}$ und $Al_{rechts}$\label{fig:4}}
 \end{figure}
 
-\flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Aluminiumstabs betragen:
+\flushleft{Die\;}\justifying Elastizitätmodule der doppelten Biegung des Aluminiumstabs berechnen sich wie in \ref{sec:4.2} mit den Vorfaktor
+aus den Formeln \eqref{eq:5} und \eqref{eq:6}. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$. Hier ist $F = m_g\cdot g$, mit 
+$m_g = m_1 + m_2 + m_3 + m_{\text{Schraube}} + m_{\text{Aufhängung}}$. Die daraus folgenden Elastizitätmodule lauten:
 \begin{align}
     &E_{Al(links)} = \text{\input{E_Aldopl.tex}} \label{eq:}\\
     &E_{Al(rechts)} = \text{\input{E_Aldopr.tex}} \label{eq:}
