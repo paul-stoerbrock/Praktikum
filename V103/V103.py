@@ -118,7 +118,7 @@ plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
 plt.legend(loc="best")
-plt.xlabel(r'$Lx^2-x^3/3 \;/\;m^3$')
+plt.xlabel(r'$L-x^2-x^3/3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -140,7 +140,7 @@ plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
 plt.legend(loc="best")
-plt.xlabel(r'$Lx^2-x^3/3 \;/\;m^3$')
+plt.xlabel(r'$L-x^2-x^3/3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -160,11 +160,9 @@ slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stat
 plt.plot(x_dopl( xCu_dopohne[7:14], 0.55), D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte linke Seite
 x_plotl = np.linspace(0, 0.25, 1000)
 plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
-plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
-           [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$3L^2x-4x^3\;/\;m^3$')
-plt.ylabel(r'Durchbiegung D/mm')
+plt.xlabel(r'$3L^2x-4x^3$')
+plt.ylabel(r'Durchbiegung D/m')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotCudopl.pdf')
@@ -184,7 +182,7 @@ plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regr
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
            [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3 \;/\;m^3$')
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -207,8 +205,8 @@ plt.plot(x_plotl,interceptAldopl+slopeAldopl*x_plotl, 'k-', label=r"Lineare Regr
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
            [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$3L^2x-4x^3\;/\;m^3$')
-plt.ylabel(r'Durchbiegung D/mm')
+plt.xlabel(r'$3L^2x-4x^3$')
+plt.ylabel(r'Durchbiegung D/m')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotAldopl.pdf')
@@ -216,7 +214,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop links
 
-E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopl)
+E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopl)
 
 
 #rechte Seite
@@ -229,7 +227,7 @@ plt.plot(x_plotr,interceptAldopr+slopeAldopr*x_plotr, 'k-', label=r"Lineare Regr
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
            [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
-plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3\;/\;m^3$')
+plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3$')
 plt.ylabel(r'Durchbiegung D/mm')
 plt.grid()
 plt.tight_layout
@@ -238,7 +236,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop rechts
 
-E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopr)
+E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopr)
 
 # Tex-Dateien ######################################################################################################
 
@@ -339,32 +337,32 @@ with open('build/I_Al.tex', 'w') as f:
 # tex file for E_Cuein
 
 with open('build/E_Cuein.tex', 'w') as f:
-  f.write(make_SI(E_Cuein,r'\pascal', figures=1))
+  f.write(make_SI(E_Cuein*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Cudopl
 
 with open('build/E_Cudopl.tex', 'w') as f:
-  f.write(make_SI(E_Cudopl,r'\pascal', figures=1))
+  f.write(make_SI(E_Cudopl*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Cudopr
 
 with open('build/E_Cudopr.tex', 'w') as f:
-  f.write(make_SI(E_Cudopr,r'\pascal', figures=1))
+  f.write(make_SI(E_Cudopr*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Alein
 
 with open('build/E_Alein.tex', 'w') as f:
-  f.write(make_SI(E_Alein,r'\pascal', figures=1))
+  f.write(make_SI(E_Alein*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Aldopl
 
 with open('build/E_Aldopl.tex', 'w') as f:
-  f.write(make_SI(E_Aldopl,r'\pascal', figures=1))
+  f.write(make_SI(E_Aldopl*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # tex file for E_Aldopr
 
 with open('build/E_Aldopr.tex', 'w') as f:
-  f.write(make_SI(E_Aldopr,r'\pascal', figures=1))
+  f.write(make_SI(E_Aldopr*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
 
 # Parameter der linearen Regressionen ###############################################################################################################################
 
@@ -467,10 +465,10 @@ with open('build/Cu_ein.tex', 'w') as g:
 
 # Cu_dop --------------------------------------------------------------------------------------------------------------------------------
 
-xCu_dopohne1, xCu_dopohne2 = np.array_split(xCu_dopohne,2)
-DCu_dopohne1, DCu_dopohne2 = np.array_split(DCu_dopohne,2)
-DCu_dopmit1, DCu_dopmit2 = np.array_split(DCu_dopmit,2)
-D_Cu_dopDiff1, D_Cu_dopDiff2 = np.array_split(D_Cu_dopDiff,2)
+xCu_dopohne1, xCu_dopohne2 = np.array_split(xCu_dopohne[0:19],2)
+DCu_dopohne1, DCu_dopohne2 = np.array_split(DCu_dopohne[0:19],2)
+DCu_dopmit1, DCu_dopmit2 = np.array_split(DCu_dopmit[0:19],2)
+D_Cu_dopDiff1, D_Cu_dopDiff2 = np.array_split(D_Cu_dopDiff[0:19],2)
 
 table_header = r'''
   \begin{tabular}{c c c c c c c c}
