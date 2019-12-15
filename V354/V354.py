@@ -503,7 +503,7 @@ row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:
 with open('build/table_c.tex', 'w') as h:
     h.write(table_header)
     for row in zip(f1, A1, t1, f2, A2, t2, f3, A3, t3):
-        h.write(row_template.format(*row))
+        h.write(row_template.format(*row).replace('nan', ''))
         h.write('\n')
     h.write(table_footer)
 
