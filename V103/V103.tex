@@ -57,7 +57,7 @@ Eine weitere mögliche Biegungsart stellt die Doppelbiegung dar. Bei dieser wird
 der Stab an beiden Enden aufgelegt und lässt die Gewichtskraft auf die Stabmitte 
 wirken. \\
 Für die Beschreibung der Durchbiegung wird in diesem Fall zwischen den Bereichen
-$ 0\leq x\leq \sfrac{L}{2} $ und $v\sfrac{L}{2} \leq x \leq L $ unterschieden.\\
+$ 0\leq x\leq \sfrac{L}{2} $ und $\sfrac{L}{2} \leq x \leq L $ unterschieden.\\
 Für den Bereich $0\leq x\leq \sfrac{L}{2}$ ergibt sich für D
 \begin{align}
     D(x)=\frac{F}{48\, E\, I}(3L^2x-4x^3) \label{eq:5}
@@ -151,7 +151,7 @@ werden, sind im Folgenden aufgelistet:
 
 \end{subequations}
 \flushleft{Die\;}\justifying Mittelwerte für die Dicke $\overline{d}$ und die Breite $\overline{b}$ wurden im Folgenden mit Tabelle \ref{tab:1} 
-berechnet. Um das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite b und der
+ und Formel \eqref{eq:7a} berechnet. Um das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite b und der
 Dicke d zu berechnen, welcher in z-Richtung gebogen wird, wird die Formel \eqref{eq:3} auf folgende Art
 geschrieben:
 \begin{align}
@@ -274,15 +274,10 @@ berechnen. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$, wobei $
 
 \subsection{Aluminium einfach fixiert}\label{sec:4.3}
 
-\flushleft{Das\;}\justifying Flächenträgheitsmoment des Aluminiumstabs beträgt:
-\begin{equation}
-I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
-\end{equation}
-
 \begin{subequations}\label{eq:}
 \begin{align}
     &\text{Länge des Aluminiumstabs:} \qquad &\text{\input{l_Al.tex}} \label{eq:a}\\
-    &\text{Mittelwert des Durchmessers des Aluminiumstabs $\overline{d}$:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}\\
+    &\text{Mittelwert des Durchmessers des Aluminiumstabs $\overline{d}$:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}
 \end{align}
 \end{subequations}
 
@@ -313,8 +308,10 @@ Nach dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
      I_{\text{Al}}=\frac{\pi}{64} d^4. \label{eq:}
 \end{align}
 
-\flushleft{Das\;}\justifying Flächenträgheitsmoment des Kupferstabs beträgt dann:
-\input{I_Cu.tex}
+\flushleft{Das\;}\justifying Flächenträgheitsmoment des Aluminiumstabs beträgt:
+\begin{equation}
+I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
+\end{equation}
 
 \flushleft{Angehängte\;}\justifying Masse der Einzelbiegung:
 \begin{equation}
