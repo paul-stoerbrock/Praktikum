@@ -214,7 +214,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop links
 
-E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopl)
+E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopl)
 
 
 #rechte Seite
@@ -236,7 +236,7 @@ plt.close()
 
 # Elastizitätsmodul für Aldop rechts
 
-E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeCudopr)
+E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopr)
 
 # Tex-Dateien ######################################################################################################
 
