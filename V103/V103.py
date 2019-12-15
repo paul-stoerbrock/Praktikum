@@ -160,6 +160,8 @@ slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stat
 plt.plot(x_dopl( xCu_dopohne[7:14], 0.55), D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte linke Seite
 x_plotl = np.linspace(0, 0.21, 1000)
 plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
+plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03, 2.5e-03],
+           [0, 0.5, 1, 1.5, 2, 2.5])
 plt.legend(loc="best")
 plt.xlabel(r'$3L^2x-4x^3 \;/\; m^3$')
 plt.ylabel(r'Durchbiegung D/m')
@@ -179,8 +181,8 @@ slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stat
 plt.plot(x_dopr(xCu_dopohne[0:7], 0.55) ,D_Cu_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.21, 1000)
 plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
-plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
-           [0, 0.5, 1, 1.5, 2])
+plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03, 2.5e-03],
+           [0, 0.5, 1, 1.5, 2, 2.5])
 plt.legend(loc="best")
 plt.xlabel(r'$4x^3-12Lx^2+9L^2x-L^3 \;/\; m^3$')
 plt.ylabel(r'Durchbiegung D/mm')
