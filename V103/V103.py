@@ -38,10 +38,10 @@ xCu_dopohne, DCu_dopohne,xCu_dopmit, DCu_dopmit = np.genfromtxt('dataCudop.txt',
 xAl_einohne, DAl_einohne,xAl_einmit, DAl_einmit = np.genfromtxt('dataAlein.txt', unpack=True) # Messwerte für Aluminium einseitig belastet
 xAl_dopohne, DAl_dopohne,xAl_dopmit, DAl_dopmit = np.genfromtxt('dataAldop.txt', unpack=True) # Messwerte für Aluminium doppelseitig belastet
 
-xCu_einohne *= 1e-02
-xCu_dopohne *= 1e-02
-xAl_einohne *= 1e-02
-xAl_dopohne *= 1e-02
+xCu_einohne[0:19] *= 1e-02
+xCu_dopohne[0:19] *= 1e-02
+xAl_einohne[0:19] *= 1e-02
+xAl_dopohne[0:19] *= 1e-02
 
 #Maße der Stäbe
 l_Al = 0.600
@@ -109,9 +109,9 @@ I_Al = (np.mean(d_Al)**4*np.pi)/64
 
 # Für Cuein
 
-slopeCuein, interceptCuein, r_valueCuein, p_valueCuein, std_errCuein = stats.linregress(0.5 * xCu_einohne**2 -xCu_einohne**3/3 , D_Cu_einDiff)
+slopeCuein, interceptCuein, r_valueCuein, p_valueCuein, std_errCuein = stats.linregress(0.5 * xCu_einohne[:19]**2 -xCu_einohne[:19]**3/3 , D_Cu_einDiff[:19])
 
-plt.plot(0.5 * xCu_einohne**2 -xCu_einohne**3/3 ,D_Cu_einDiff , 'bx', label="Messdaten")
+plt.plot(0.5 * xCu_einohne[0:19]**2 -xCu_einohne[0:19]**3/3 ,D_Cu_einDiff[:19] , 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
 plt.plot(x_plot,interceptCuein+slopeCuein*x_plot, 'k-', label="Lineare Regression")
 plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
@@ -131,9 +131,9 @@ E_Cuein = ((m_aufhaeng+m_schraube+m_Cuein1+m_Cuein2)*const.g)/(2*I_Cu*slopeCuein
 
 # Plot für Aluminium einseitig belastet ####################################################################################################################
 
-slopeAlein, interceptAlein, r_valueAlein, p_valueAlein, std_errAlein = stats.linregress(0.5 * xAl_einohne**2 -xAl_einohne**3/3 , D_Al_einDiff)
+slopeAlein, interceptAlein, r_valueAlein, p_valueAlein, std_errAlein = stats.linregress(0.5 * xAl_einohne[:19]**2 -xAl_einohne[:19]**3/3 , D_Al_einDiff[:19])
 
-plt.plot(0.5 * xAl_einohne**2 -xAl_einohne**3/3 ,D_Al_einDiff , 'bx', label="Messdaten")
+plt.plot(0.5 * xAl_einohne[:19]**2 -xAl_einohne[:19]**3/3 ,D_Al_einDiff[:19] , 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
 plt.plot(x_plot,interceptAlein+slopeAlein*x_plot, 'k-', label="Lineare Regression")
 plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
@@ -439,7 +439,6 @@ with open('build/b_PlotAldopr.tex', 'w') as f:
 # Tabellen ###############################################################################################################################
 
 # Cu_ein --------------------------------------------------------------------------------------------------------------------------------
-
 xCu_einohne1, xCu_einohne2 = np.array_split(xCu_einohne,2)
 DCu_einohne1, DCu_einohne2 = np.array_split(DCu_einohne,2)
 DCu_einmit1, DCu_einmit2 = np.array_split(DCu_einmit,2)
@@ -463,7 +462,7 @@ row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.1f} & {5:
 with open('build/Cu_ein.tex', 'w') as g:
     g.write(table_header)
     for row in zip(xCu_einohne1*1e+02, DCu_einohne1, DCu_einmit1, D_Cu_einDiff1*1e+03, xCu_einohne2*1e+02, DCu_einohne2, DCu_einmit2, D_Cu_einDiff2*1e+03):
-        g.write(row_template.format(*row))
+        g.write(row_template.format(*row).replace('nan', ''))
         g.write('\n')
     g.write(table_footer)
 
@@ -521,7 +520,7 @@ row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.1f} & {5:
 with open('build/Al_ein.tex', 'w') as g:
     g.write(table_header)
     for row in zip(xAl_einohne1*1e+02, DAl_einohne1, DAl_einmit1, D_Al_einDiff1*1e+03, xAl_einohne2*1e+02, DAl_einohne2, DAl_einmit2, D_Al_einDiff2*1e+03):
-        g.write(row_template.format(*row))
+        g.write(row_template.format(*row).replace('nan', ''))
         g.write('\n')
     g.write(table_footer)
 
