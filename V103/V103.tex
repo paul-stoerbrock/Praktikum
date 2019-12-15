@@ -167,16 +167,15 @@ Nach dem Lösen des Integrals hat das Flächenträgheitsmoment die Form
 \input{I_Cu.tex}
 
 \flushleft{Die\;}\justifying Massen der Gewichte, welche für die einfache Biegung verwendet werden, lauten:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:11}
 \begin{align}
-    m_1 &= \text{\input{m_Cuein1.tex}} \label{eq:a}\\
-    m_2 &= \text{\input{m_Cuein2.tex}} \label{eq:b}
+    m_1 &= \text{\input{m_Cuein1.tex}} \label{eq:11a}\\
+    m_2 &= \text{\input{m_Cuein2.tex}} \label{eq:11b}
 \end{align}
 \end{subequations}
 
 \flushleft{Die\;}\justifying folgende Tabelle \ref{tab:2} gibt die Biegung des Kupferstabs mit und ohne Gewicht wieder. $x$ beschreibt den Abstand zum Fixpunkt, $D_0$
-die Biegung ohne Gewicht und $D_m$ die Biegung mit Gewicht. Die Differenz steht für die Differenz von ($D_0-D_m$). Für die folgenden Rechnungen
-wird der Betrag der Differenz verwendet.
+die Biegung ohne Gewicht und $D_m$ die Biegung mit Gewicht. Die Differenz steht für die Differenz von ($D_0-D_m$).
 \begin{table}[H]
     \centering
     \input{Cu_ein.tex}
@@ -188,8 +187,8 @@ wird der Betrag der Differenz verwendet.
 Die Parameter $m$ und $b$ wurden mit den Formeln \eqref{eq:7e} und \eqref{eq:7f} bestimmt.
 Damit lauten die für lineare Regression relevanten Parameter aus Graph \ref{fig:1}:
 \begin{align}
-    m &= \text{\input{m_PlotCuein.tex}} \label{eq:}\\
-    b &= \text{\input{b_PlotCuein.tex}} \label{eq:}
+    m &= \text{\input{m_PlotCuein.tex}} \label{eq:12}\\
+    b &= \text{\input{b_PlotCuein.tex}} \label{eq:13}
 \end{align}
 
 \begin{figure}[H]
@@ -199,11 +198,11 @@ Damit lauten die für lineare Regression relevanten Parameter aus Graph \ref{fig
     \label{fig:1}
 \end{figure}
 
-\flushleft{Der\;}\justifying Elastizitätmodul lässt sich mit der Steigung \eqref{eq:} aus Graph \ref{fig:1} und dem Vorfaktor 
+\flushleft{Der\;}\justifying Elastizitätmodul lässt sich mit der Steigung \eqref{eq:12} aus Graph \ref{fig:1} und dem Vorfaktor 
 $\sfrac{m_g \cdot g}{2 \cdot I_{Cu} \cdot m}$ aus Formel \eqref{eq:4} mit $m_g$ = $m_1 + m_2 + m_{\text{Schraube}} + m_{\text{Aufhängung}}$ 
 bestimmen. Demnach beträgt der Elastizitätmodul der einfachen Biegung des Kupferstabs:
 \begin{equation}
-E_{Cu} = \input{E_Cuein.tex} \label{eq:}
+E_{Cu} = \input{E_Cuein.tex} \label{eq:14}
 \end{equation}
 
 % Cu_dop --------------------------------------------------------------------------------------------------------------------------------
@@ -214,12 +213,12 @@ E_{Cu} = \input{E_Cuein.tex} \label{eq:}
 $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:2} aufgeführt.
 
 \flushleft{Die\;}\justifying Massen, die für die Doppelbiegung verwendet werden, lauten:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:15}
 \begin{align}
-    m_1 &= \text{\input{m_Cudop1.tex}} \label{eq:a}\\
-    m_2 &= \text{\input{m_Cudop2.tex}} \label{eq:b}\\
-    m_3 &= \text{\input{m_Cudop3.tex}} \label{eq:c}\\
-    m_4 &= \text{\input{m_Cudop4.tex}} \label{eq:d}
+    m_1 &= \text{\input{m_Cudop1.tex}} \label{eq:15a}\\
+    m_2 &= \text{\input{m_Cudop2.tex}} \label{eq:15b}\\
+    m_3 &= \text{\input{m_Cudop3.tex}} \label{eq:15c}\\
+    m_4 &= \text{\input{m_Cudop4.tex}} \label{eq:15d}
 \end{align}
 \end{subequations}
 
@@ -236,12 +235,12 @@ gibt $x$ in der linken Spalte die Messungen der linken Seite des Stabs, und in d
 \flushleft{Ähnlich\;}\justifying wie in \ref{sec:4.1} werden hier für die beiden Seiten der Doppelbiegung mithilfe der Formeln \eqref{eq:5} für
 links und \eqref{eq:6} für rechts, den Werten aus Tabelle \ref{tab:2} und den Formeln für die Parameter \eqref{eq:7e} und \eqref{eq:7f} eine 
 lineare Regression bestimmt. Die für die lineare Regression relevanten Parameter aus Graph \ref{fig:2a} und \ref{fig:2b} lauten:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:16}
 \begin{align}
     m &= \text{\input{m_PlotCudopl.tex}} \qquad \text{und} \qquad
-    b = \text{\input{b_PlotCudopl.tex}}\label{eq:a} \text{\;für 2(a)}\\
+    b = \text{\input{b_PlotCudopl.tex}}\label{eq:16a} \text{\;für 2(a)}\\
     m &= \text{\input{m_PlotCudopr.tex}} \qquad \text{und} \qquad
-    b = \text{\input{b_PlotCudopr.tex}}\label{eq:b} \text{\;für 2(b)}
+    b = \text{\input{b_PlotCudopr.tex}}\label{eq:16b} \text{\;für 2(b)}
 \end{align}
 \end{subequations}
 \begin{figure}[H]
@@ -266,8 +265,8 @@ berechnen. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$, wobei $
 + m_{\text{Aufhängung}}$.
 Die Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
 \begin{align}
-    &E_{\text{Cu(links)}} = \text{\input{E_Cudopl.tex}} \label{eq:}\\
-    &E_{\text{Cu(rechts)}} = \text{\input{E_Cudopr.tex}} \label{eq:}
+    &E_{\text{Cu(links)}} = \text{\input{E_Cudopl.tex}} \label{eq:17}\\
+    &E_{\text{Cu(rechts)}} = \text{\input{E_Cudopr.tex}} \label{eq:18}
 \end{align}
 
 % Al_ein --------------------------------------------------------------------------------------------------------------------------------
@@ -275,10 +274,10 @@ Die Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
 \subsection{Aluminium einfach fixiert}\label{sec:4.3}
 
 \flushleft{Die\;}\justifying Länge des Aluminiumstabs, sowie der Mittelwert des Durchmessers sind im folgenden aufgelistet:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:19}
 \begin{align}
-    &\text{Länge des Aluminiumstabs:} \qquad &\text{\input{l_Al.tex}} \label{eq:a}\\
-    &\text{Mittelwert des Durchmessers des Aluminiumstabs $\overline{d}$:} \qquad &\text{\input{d_Al.tex}} \label{eq:b}
+    &\text{Länge des Aluminiumstabs:} \qquad &\text{\input{l_Al.tex}} \label{eq:19a}\\
+    &\text{Mittelwert des Durchmessers des Aluminiumstabs $\overline{d}$:} \qquad &\text{\input{d_Al.tex}} \label{eq:19b}
 \end{align}
 \end{subequations}
 
@@ -303,21 +302,21 @@ Die Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
 \ref{tab:4} und der Formel \eqref{eq:7a}, benötigt. Außerdem lässt sich die Formel \eqref{eq:3} 
 wie folgt schreiben:
 \begin{align}
-    I_{\text{Al}}=\int_{0}^{2\pi} \int_{0}^{R} r^2 \sin^2(\varphi) r \, \symup{d}r \, \symup{d}\varphi \label{eq:}.
+    I_{\text{Al}}=\int_{0}^{2\pi} \int_{0}^{R} r^2 \sin^2(\varphi) r \, \symup{d}r \, \symup{d}\varphi \label{eq:20}.
 \end{align}
 \flushleft{Nach\;}\justifying  dem Lösen des Intergals hat das Flächenträgheitsmoment die Form
 \begin{align}
-     I_{\text{Al}}=\frac{\pi}{64} d^4. \label{eq:}
+     I_{\text{Al}}=\frac{\pi}{64} d^4. \label{eq:21}
 \end{align}
 
-\flushleft{Wird\;}\justifying für $\overline{d}$ der Wert aus \eqref{eq:} eingesetzt, beträgt das Flächenträgheitsmoment des Aluminiumstabs:
+\flushleft{Wird\;}\justifying für $\overline{d}$ der Wert aus \eqref{eq:19b} eingesetzt, beträgt das Flächenträgheitsmoment des Aluminiumstabs:
 \begin{equation}
-I_{Cu} = \text{\input{I_Al.tex}} \label{eq:}
+I_{Cu} = \text{\input{I_Al.tex}} \label{eq:22}
 \end{equation}
 
 \flushleft{Die\;}\justifying angehängte Masse der Einzelbiegung zur Bestimmug des Elastizitätmoduls beträgt:
 \begin{equation}
-    m_1 = \text{\input{m_Alein1.tex}} \label{eq:}
+    m_1 = \text{\input{m_Alein1.tex}} \label{eq:23}
 \end{equation}
 
 \flushleft{Wie\;}\justifying auch in \ref{sec:4.1} gibt die folgende Tabelle \ref{tab:5} die einzelnen Messwerte der Einzelbiegung des Aluminiumstabs mit und ohne Gewicht
@@ -332,10 +331,10 @@ wieder.
 \flushleft{Der\;}\justifying  folgende Graph \ref{fig:3} wird mit den Werten aus Tabelle \ref{tab:5} und der Formel \eqref{eq:4} erstellt. 
 Die für die lineare Regression relevanten Parameter für Graph \ref{fig:3}, welche mit den Formeln \eqref{eq:7d} und \eqref{eq:7e} berechnet wurden,
 lauten:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:24}
 \begin{align}
-    m &= \text{\input{m_PlotAlein.tex}} \label{eq:a}\\
-    b &= \text{\input{b_PlotAlein.tex}} \label{eq:b}
+    m &= \text{\input{m_PlotAlein.tex}} \label{eq:24a}\\
+    b &= \text{\input{b_PlotAlein.tex}} \label{eq:24b}
 \end{align}
 \end{subequations}
 
@@ -346,11 +345,11 @@ lauten:
     \label{fig:3}
 \end{figure}
 
-\flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Aluminiumstabs lässt sich mit dem Parameter $m$ \eqref{eq:} aus dem
+\flushleft{Der\;}\justifying Elastizitätmodul der einfachen Biegung des Aluminiumstabs lässt sich mit dem Parameter $m$ \eqref{eq:24a} aus dem
 vorherigen Graphen \ref{fig:3} und dem Vorfaktor $\sfrac{m_g \cdot g}{2 \cdot I_{Cu} \cdot m}$ aus Formel \eqref{eq:4} mit $m_g$ = $m_1 + 
 m_{\text{Schraube}} + m_{\text{Aufhängung}}$ bestimmen. Daraus lässt sich der folgende Elastizitätmodul herleiten:
 \begin{equation}
-E_{Al} = \input{E_Alein.tex} \label{eq:}
+E_{Al} = \input{E_Alein.tex} \label{eq:25}
 \end{equation}
 
 % Al_dop --------------------------------------------------------------------------------------------------------------------------------
@@ -361,11 +360,11 @@ E_{Al} = \input{E_Alein.tex} \label{eq:}
 $\SI{27.5}{\centi\meter}$. Dieser wird nicht in der folgenden Tabelle \ref{tab:4} aufgeführt.
 
 Die für die Doppelbiegung des Aluminiumstabs verwendeten Gewichte lauten:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:26}
 \begin{align}
-    m_1 &= \text{\input{m_Aldop1.tex}} \label{eq:a}\\
-    m_2 &= \text{\input{m_Aldop2.tex}} \label{eq:b}\\
-    m_3 &= \text{\input{m_Aldop3.tex}} \label{eq:c}
+    m_1 &= \text{\input{m_Aldop1.tex}} \label{eq:26a}\\
+    m_2 &= \text{\input{m_Aldop2.tex}} \label{eq:26b}\\
+    m_3 &= \text{\input{m_Aldop3.tex}} \label{eq:26c}
 \end{align}
 \end{subequations}
 
@@ -383,12 +382,12 @@ der rechten Seite relativ zum Mittelpunkt wieder.
 werden mit den Formeln \eqref{eq:7d} für $m$ und \eqref{eq:7e} für $b$ bestimmt. Dafür werden die Werte aus Tabelle \ref{tab:6} und die Formeln
 \eqref{eq:5} und \eqref{eq:6} für die jeweils linke und rechte Seite verwendet.
 Die für die lineare Regression relevanten Parameter aus Abbildung \ref{fig:4a} und \ref{fig:4b} lauten dementsprechend:
-\begin{subequations}\label{eq:}
+\begin{subequations}\label{eq:27}
 \begin{align}
     m = \text{\input{m_PlotAldopl.tex}} \qquad \text{und} \qquad
-    b = \text{\input{b_PlotAldopl.tex}} \text{\;für 4(a)}\label{eq:a}\\
+    b = \text{\input{b_PlotAldopl.tex}} \text{\;für 4(a)}\label{eq:27a}\\
     m = \text{\input{m_PlotAldopr.tex}} \qquad \text{und} \qquad
-    b = \text{\input{b_PlotAldopr.tex}} \text{\;für 4(a)}\label{eq:b}
+    b = \text{\input{b_PlotAldopr.tex}} \text{\;für 4(a)}\label{eq:27b}
 \end{align}
 \end{subequations}
 
@@ -410,8 +409,8 @@ Die für die lineare Regression relevanten Parameter aus Abbildung \ref{fig:4a} 
 aus den Formeln \eqref{eq:5} und \eqref{eq:6}. Dieser lautet $\sfrac{F}{48 \cdot I_{Cu} \cdot m_{(a),(b)}}$. Hier ist $F = m_g\cdot g$, mit 
 $m_g = m_1 + m_2 + m_3 + m_{\text{Schraube}} + m_{\text{Aufhängung}}$. Die daraus folgenden Elastizitätmodule lauten:
 \begin{align}
-    &E_{Al(links)} = \text{\input{E_Aldopl.tex}} \label{eq:}\\
-    &E_{Al(rechts)} = \text{\input{E_Aldopr.tex}} \label{eq:}
+    &E_{Al(links)} = \text{\input{E_Aldopl.tex}} \label{eq:28}\\
+    &E_{Al(rechts)} = \text{\input{E_Aldopr.tex}} \label{eq:28}
 \end{align}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
