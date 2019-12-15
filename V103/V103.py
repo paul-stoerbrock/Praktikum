@@ -109,9 +109,9 @@ I_Al = (np.mean(d_Al)**4*np.pi)/64
 
 # Für Cuein
 
-slopeCuein, interceptCuein, r_valueCuein, p_valueCuein, std_errCuein = stats.linregress(0.55 * xCu_einohne**2 -xCu_einohne**3/3 , D_Cu_einDiff)
+slopeCuein, interceptCuein, r_valueCuein, p_valueCuein, std_errCuein = stats.linregress(0.5 * xCu_einohne**2 -xCu_einohne**3/3 , D_Cu_einDiff)
 
-plt.plot(0.55 * xCu_einohne**2 -xCu_einohne**3/3 ,D_Cu_einDiff , 'bx', label="Messdaten")
+plt.plot(0.5 * xCu_einohne**2 -xCu_einohne**3/3 ,D_Cu_einDiff , 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
 plt.plot(x_plot,interceptCuein+slopeCuein*x_plot, 'k-', label="Lineare Regression")
 plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
@@ -131,9 +131,9 @@ E_Cuein = ((m_aufhaeng+m_schraube+m_Cuein1+m_Cuein2)*const.g)/(2*I_Cu*slopeCuein
 
 # Plot für Aluminium einseitig belastet ####################################################################################################################
 
-slopeAlein, interceptAlein, r_valueAlein, p_valueAlein, std_errAlein = stats.linregress(0.55 * xAl_einohne**2 -xAl_einohne**3/3 , D_Al_einDiff)
+slopeAlein, interceptAlein, r_valueAlein, p_valueAlein, std_errAlein = stats.linregress(0.5 * xAl_einohne**2 -xAl_einohne**3/3 , D_Al_einDiff)
 
-plt.plot(0.55 * xAl_einohne**2 -xAl_einohne**3/3 ,D_Al_einDiff , 'bx', label="Messdaten")
+plt.plot(0.5 * xAl_einohne**2 -xAl_einohne**3/3 ,D_Al_einDiff , 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
 plt.plot(x_plot,interceptAlein+slopeAlein*x_plot, 'k-', label="Lineare Regression")
 plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
@@ -324,45 +324,49 @@ with open('build/m_Aldop2.tex', 'w') as f:
 with open('build/m_Aldop3.tex', 'w') as f:
   f.write(make_SI(m_Aldop3*1e+03,r'\gram', figures=1))
 
+# Flächenträgheitsmomente der Körper
+
 # tex file for I_Cu
 
 with open('build/I_Cu.tex', 'w') as f:
-  f.write(make_SI(I_Cu*1e+10,r'\meter\tothe{4}', exp='1e-10', figures=1))
+  f.write(make_SI(I_Cu*1e+10,r'\meter\tothe{4}', exp='e-10', figures=2))
 
 # tex file for I_Al
 
 with open('build/I_Al.tex', 'w') as f:
-  f.write(make_SI(I_Al*1e+10,r'\meter\tothe{4}', exp='1e-10', figures=1))
+  f.write(make_SI(I_Al*1e+10,r'\meter\tothe{4}', exp='e-10', figures=2))
+
+# Elastizitätsmodule #####################################################################################################
 
 # tex file for E_Cuein
 
 with open('build/E_Cuein.tex', 'w') as f:
-  f.write(make_SI(E_Cuein*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
+  f.write(make_SI(E_Cuein*1e-09,r'\giga\pascal', exp='e+09', figures=2))
 
 # tex file for E_Cudopl
 
 with open('build/E_Cudopl.tex', 'w') as f:
-  f.write(make_SI(E_Cudopl*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
+  f.write(make_SI(E_Cudopl*1e-09,r'\giga\pascal', exp='e+09', figures=2))
 
 # tex file for E_Cudopr
 
 with open('build/E_Cudopr.tex', 'w') as f:
-  f.write(make_SI(E_Cudopr*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
+  f.write(make_SI(E_Cudopr*1e-09,r'\giga\pascal', exp='e+09', figures=2))
 
 # tex file for E_Alein
 
 with open('build/E_Alein.tex', 'w') as f:
-  f.write(make_SI(E_Alein*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
+  f.write(make_SI(E_Alein*1e-09,r'\giga\pascal', exp='e+09', figures=2))
 
 # tex file for E_Aldopl
 
 with open('build/E_Aldopl.tex', 'w') as f:
-  f.write(make_SI(E_Aldopl*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
+  f.write(make_SI(E_Aldopl*1e-09,r'\giga\pascal', exp='e+09', figures=2))
 
 # tex file for E_Aldopr
 
 with open('build/E_Aldopr.tex', 'w') as f:
-  f.write(make_SI(E_Aldopr*1e-09,r'\giga\pascal', exp='1e+09', figures=1))
+  f.write(make_SI(E_Aldopr*1e-09,r'\giga\pascal', exp='e+09', figures=2))
 
 # Parameter der linearen Regressionen ###############################################################################################################################
 
@@ -371,66 +375,66 @@ with open('build/E_Aldopr.tex', 'w') as f:
 # tex file for m from linear regression Cuein
 
 with open('build/m_PlotCuein.tex', 'w') as f:
-  f.write(make_SI(slopeCuein,r'', figures=3))
+  f.write(make_SI(slopeCuein*1e02,r'', exp='e-02',figures=2))
 
 # tex file for b from linear regression Cuein
 
 with open('build/b_PlotCuein.tex', 'w') as f:
-  f.write(make_SI(interceptCuein,r'', figures=4))
+  f.write(make_SI(interceptCuein*1e05,r'', exp='e-05',figures=2))
 
 # Alein ---------------------------------------------------------------------------------------------------------------------------------------
 
 # tex file for m from linear regression Alein
 
 with open('build/m_PlotAlein.tex', 'w') as f:
-  f.write(make_SI(slopeAlein,r'', figures=3))
+  f.write(make_SI(slopeAlein*1e02,r'', exp='e-02',figures=2))
 
 # tex file for b from linear regression Alein
 
 with open('build/b_PlotAlein.tex', 'w') as f:
-  f.write(make_SI(interceptAlein,r'', figures=4))
+  f.write(make_SI(interceptAlein*1e04,r'', exp='e-04',figures=2))
 
 # Cudop ---------------------------------------------------------------------------------------------------------------------------------------
 
 with open('build/m_PlotCudopl.tex', 'w') as f:
-  f.write(make_SI(slopeCudopl,r'', figures=3))
+  f.write(make_SI(slopeCudopl*1e02,r'', exp='e-02',figures=2))
 
 # tex file for b from linear regression Aldopl
 
 with open('build/b_PlotCudopl.tex', 'w') as f:
-  f.write(make_SI(interceptCudopl,r'', figures=4))
+  f.write(make_SI(interceptCudopl*1e05,r'', exp='e-05',figures=2))
 
 # tex file for m from linear regression Aldopr
 
 with open('build/m_PlotCudopr.tex', 'w') as f:
-  f.write(make_SI(slopeCudopr,r'', figures=3))
+  f.write(make_SI(slopeCudopr*1e02,r'', exp='e-02',figures=2))
 
 # tex file for b from linear regression Aldopr
 
 with open('build/b_PlotCudopr.tex', 'w') as f:
-  f.write(make_SI(interceptCudopr,r'', figures=4))
+  f.write(make_SI(interceptCudopr*1e05,r'', exp='e-05',figures=2))
 
 # Aldop ---------------------------------------------------------------------------------------------------------------------------------------
 
 # tex file for m from linear regression Aldopl
 
 with open('build/m_PlotAldopl.tex', 'w') as f:
-  f.write(make_SI(slopeAldopl,r'', figures=3))
+  f.write(make_SI(slopeAldopl*1e03,r'', exp='e-03',figures=3))
 
 # tex file for b from linear regression Aldopl
 
 with open('build/b_PlotAldopl.tex', 'w') as f:
-  f.write(make_SI(interceptAldopl,r'', figures=4))
+  f.write(make_SI(interceptAldopl*1e05,r'', exp='e-05',figures=2))
 
 # tex file for m from linear regression Aldopr
 
 with open('build/m_PlotAldopr.tex', 'w') as f:
-  f.write(make_SI(slopeAldopr,r'', figures=3))
+  f.write(make_SI(slopeAldopr*1e03,r'',exp='e-03' ,figures=2))
 
 # tex file for b from linear regression Aldopr
 
 with open('build/b_PlotAldopr.tex', 'w') as f:
-  f.write(make_SI(interceptAldopr,r'', figures=4))
+  f.write(make_SI(interceptAldopr*1e05,r'', exp='e-05',figures=2))
 
 # Tabellen ###############################################################################################################################
 
@@ -553,17 +557,6 @@ with open('build/Al_dop.tex', 'w') as g:
 
 # Testprints ###############################################################################################################################
 
-print(interceptAlein)
-print(I_Cu)
-print(I_Al)
-print(x_dopr(xCu_dopohne[0:7], l_Al))
-print(E_Alein)
-print(E_Aldopl)
-print(E_Aldopr)
-print(E_Cuein)
-print(E_Cudopl)
-print(E_Cudopr)
-print(D_Cu_dopDiff)
-print(x_dopl( 0.245, 55))
-print(x_dopr(0.305, 55))
-print(slopeAlein)
+print(interceptAldopl)
+print(interceptAldopr)
+

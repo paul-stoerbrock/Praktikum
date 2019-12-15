@@ -15,7 +15,7 @@
     
     \begin{abstract}
     \centering
-        \textbf{Ziel:} 
+        \textbf{Ziel: Bestimmug des Elastizitätsmoduls zweier Stäbe durch eine Einzel- und eine Doppelbiegung} 
     \end{abstract}
 
 \newpage
@@ -28,44 +28,45 @@
 Ein Körper kann eine Volumenänderung, wenn an dessen Oberfläche eine Kraft angelegt
 wird. Diese Kraft hat einen engen Bezug zur Fläche des Körpers und wird in der Physik
 als Spannung $\sigma$ bezeichnet.\\
-Ein Beispiel für eine Volumenveränderung stellt eine Einzelbiegung eines Stabes der Länge L dar.
+Ein Beispiel für eine Volumenveränderung stellt eine Einzelbiegung eines Stabes dar.
 Dabei wird ein Ende des Stabes fixiert, während auf dem anderen Ende des Stabes eine
 Gewichtskraft über eine zusätzliche Masse wirkt. Dabei wird ein Teil des Stabes gestreckt,
 ein zweiter gestaucht und ein dritter Teil bleibt gleich. Der Stab stellt dabei aufgrund der inneren
 Kräfte und der elastische Eigenschaften eine konstante Auslenkung ein.
 Bei kleinen Veränderungen
-besteht ein linearer Zusammenhang zwischen der Spannung $\sigma$  und der Deformation $\sfrac{\delta x}{\Delta x} $
+besteht ein linearer Zusammenhang zwischen der Spannung $\sigma$  und der Deformation $\sfrac{\delta x}{\Delta x} $ \cite{V103}
 \begin{align}
     \sigma (y)=E \frac{\delta x}{\Delta x} \label{eq:1}.
 \end{align}
 Diese Kraft wird auch das Hooksche Gesetz genannt. Der Faktor E in der Formel wird
-der Elastizitätmodul genannt und stellt eine Materialkonstate dar.
-Das durch die Biegung beschriebene Drehmoment führt zu folgender Momentengleichung
+der Elastizitätmodul genannt und stellt eine Materialkonstante dar.
+Das durch die Biegung beschriebene Drehmoment führt zu folgender Momentengleichung \cite{V103}
 \begin{align}
     E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) .\label{eq:2}
 \end{align}
-Dabei ist D die Durchbiegung des Stabes und 
+Dabei ist D die Durchbiegung des Stabes, L die Länge des Stabes ab dem Ende der Fixierung und \cite{V103}
 \begin{align}
     I := \int_Q y^2 \, \symup{d}q(y) \label{eq:3}
 \end{align}
 das Flächenträgheitsmoment. \\
-Aus Gleichung \eqref{eq:2} folgt für die Durchbiegung D 
+Aus Gleichung \eqref{eq:2} folgt für die Durchbiegung D \cite{V103}
 \begin{align}
     D(x)=\frac{F}{2E\,I}\left(L \, - \, x^2-\frac{x^3}{3}\right) \label{eq:4} (\text{für} \, 0\leq x \leq L).
 \end{align}
 Eine weitere mögliche Biegungsart stellt die Doppelbiegung dar. Bei dieser wird
-der Stab an beiden Enden aufgelegt und lässt die Gewichtskraft auf die Stabmitte 
-wirken. \\
+der Stab an beiden Enden aufgelegt und die Gewichte werden auf die Stabmitte 
+gehangen. \\
 Für die Beschreibung der Durchbiegung wird in diesem Fall zwischen den Bereichen
 $ 0\leq x\leq \sfrac{L}{2} $ und $\sfrac{L}{2} \leq x \leq L $ unterschieden.\\
-Für den Bereich $0\leq x\leq \sfrac{L}{2}$ ergibt sich für D
+Für den Bereich $0\leq x\leq \sfrac{L}{2}$ ergibt sich für D \cite{V103}
 \begin{align}
     D(x)=\frac{F}{48\, E\, I}(3L^2x-4x^3) \label{eq:5}
 \end{align}
-und für den anderen Bereich $\sfrac{L}{2} \leq x \leq L $ ergibt sich entsprechend
+und für den anderen Bereich $\sfrac{L}{2} \leq x \leq L $ ergibt sich entsprechend \cite{V103}
 \begin{align}
     D(x)=\frac{F}{48\, E\, I}(4x^3 - 12Lx^2 +9L^2x-L^3) \label{eq:6}.
 \end{align}
+Bei der Doppelbiegung stellt L den Abstand der Auflagepunkte voneinander dar.
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -125,7 +126,7 @@ wird hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
 werden, sind im Folgenden aufgelistet: 
 \begin{subequations}\label{eq:8}
 \begin{align}
-    &\text{Länge des Kupferstabs L:} \qquad &\text{\input{l_Cu.tex}} \label{eq:8a}\\
+    &\text{Länge des Kupferstabs:} \qquad &\text{\input{l_Cu.tex}} \label{eq:8a}\\
     &\text{Mittelwert der Breite des Kupferstabs $\overline{b}$:} \qquad &\text{\input{d_Cu.tex}} \label{eq:8b}\\
     &\text{Mittelwert der Dicke des Kupferstabs $\overline{d}$:} \qquad &\text{\input{b_Cu.tex}} \label{eq:8c}\\
     &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:8d}\\
