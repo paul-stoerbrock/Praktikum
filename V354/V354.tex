@@ -31,7 +31,7 @@ Kondensator und einer Spule. Die Spule besitzt dabei die Induktivität $L$ und d
 Kondensator die Kapazität $C$. Wird auf diese Schaltung nun eine Spannung $U_0$ 
 gegeben, so oszilliert die Spannung beim Schwingkreis ungedämpft. 
 Wird nun ein Widerstand in die Schaltung eingebaut, so verliert das System mit der
-Zeit Energie, die in Form von Joulscher Wärme an den Widerstand irreversibel
+Zeit Energie, die in Form von joulscher Wärme an den Widerstand irreversibel
 übertragen wird. Dadurch verläuft die Amplitude der Spannung mit der Zeit gegen 0.
 Die zeitliche Veränderung der Stromstärke kann dabei durch folgende Formel
 beschrieben werden \cite{V354}:}
@@ -42,13 +42,13 @@ Der erste Fall beschreibt, dass \cite{V354}}
 \frac{1}{LC} & < \frac{R^2}{4L^2} \label{eq:Fall1}
 \intertext{ist und damit der Wurzelterm von $\tilde{\omega}$ \eqref{eq:omega} komplex wird.
 Die zugehörige Schwingungsgleichung entspricht damit \cite{V354}}
-    I(t)&=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}
+    I(t)&=A_0 e^{-2 \pi \mu t} \cos (2 \pi \nu t + \eta) \label{eq:I}.
 \end{align}
 \justifying
 Dabei beschreiben die Terme $2 \pi \nu$ und $2 \pi \mu$ jeweils
 \begin{align}
-  2 \pi \nu = \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \text{und}\\
-  2 \pi \mu = \frac{R}{2L},
+  2 \pi \nu &= \sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}} \; \text{und}\\
+  2 \pi \mu &= \frac{R}{2L},
 \end{align}
 wobei $\nu$ die Frequenz ist.
 Diese Gleichung beschreibt eine gedämpfte Schwingung. Die Amplitude $A_0$ läuft dabei
@@ -73,7 +73,7 @@ Ob ein Nulldurchgang sattfindet hängt dabei von den Anfangsbedingungen ab.
 \newpage
 \justify
 Der dritte Fall stellt einen Spezialfall des zweiten dar.
-Bei diesem ist die Bedingung \cite{V354}:
+Bei diesem lautet die Bedingung \cite{V354} wie folgt:
 \begin{align}
     \frac{1}{LC} = \frac{R^2}{4L^2} \label{eq:Fall3}
 \end{align}
@@ -145,10 +145,9 @@ Für die Auswertung werden die folgenden Formeln zur Bestimmung der eventuell an
 \begin{align}
     \intertext{Der Mittelwert wird berechnet mit folgender Formel:}
         \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:mittelw}
-    \intertext{Um den Fehler des Mittelwerts wird  }
+    \intertext{Um den Fehler des Mittelwerts zu bestimmen, wird}
         \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:fmittelw}
-    \intertext{verwendet.}
-    \intertext{Für die gaußsche Fehlerfortpflanzung wird diese Gleichung verwendet:}
+    \intertext{verwendet. Für die gaußsche Fehlerfortpflanzung wird die folgende Gleichung benutzt:}
         \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:ffort}
     \intertext{In der Auswertung selbst wird die Fehlerrechnung mithilfe von Pyhtonbefehlen \cite{uncertainties} durchgeführt.
     Für die lineare und nichtlineare Ausgleichsrechnung werden folgende Funktionen benötigt:}
@@ -237,7 +236,7 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 
   \flushleft{Die }\justifying in Abbildung \ref{fig:5a} zu sehende Kurve beschreibt das Dämpfungsverhalten des LRC-Kreises bei einer angelegten Spannung von 
   10V, einem Widerstand von $\SI{271.6\pm0.2}{\ohm}$ und einer Frequenz von 100Hz. Aus Abbildung \ref{fig:5a} wurden die Amplituden der positiven Peaks
-  abgelesen und in Tabelle \ref{tab:data_a} mit der zugehörigen Phasenverschiebung zusammengetragen.
+  abgelesen und in Tabelle \ref{tab:data_a} mit der zugehörigen Phasenverschiebung $t$ zusammengetragen.
 
   \begin{table}[H]
         \centering
@@ -322,17 +321,19 @@ mit dem ersten Eingang des Oszilloskops verbunden.
   \flushleft{Die }\justifying Theorie- und Ausgleichskurve wurden dabei mit der Formel \eqref{eq:9} erstellt,
   wobei $U_0$ vorher noch auf die linke Seite der Gleichung multipliziert wurde.
   Die Fitparameter sehen dabei folgendermaßen aus:
+  \begin{subequations}
   \begin{align}
     R &= \SI{1.23}{\kilo\ohm}\\
     L &= \SI{3.97}{\milli\henry}\\
     C &= \SI{2.76}{\nano\farad}.
   \end{align}
+  \end{subequations}
 
   \flushleft{Bestimmt }\justifying wurde die Breite der Resonanzkurve $\omega_+ - \omega_-$ mit $\omega = 2\cdot\pi\cdot\nu$ 
   und der Formel \eqref{eq:om+-}. Der errechneten Werte für $\omega_+ - \omega_-$ und $\omega_{+-,\text{Lit.}}$ sehen aus wie folgt:
    
   \begin{align}
-  \omega_+ - \omega_- &= \text{\input{nuGraph.tex}}\\
+  \omega_+ - \omega_- &= \text{\input{nuGraph.tex}} \label{eq:28}\\
   \omega_{+-,\text{Lit.}} &= \text{\input{nuRech.tex}} \label{eq:29}
   \end{align}
 
@@ -389,21 +390,21 @@ mit dem ersten Eingang des Oszilloskops verbunden.
 \section{Diskussion}\justifying
 
 \flushleft{Die }\justifying Kurve der gemessen Werte für a) liegt nahe der erwarteten Kurve aus der Theorie. Bei einer angelegten 
-Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = \num{2.3} $ erwartet. Die Maximalamplitude aus \ref{tab:data_a}, 
+Spannung von 10V wird der Logarithmus der Maximalamplitude $\log{U_{max}} = \num{2.3} $ erwartet. Die Maximalamplitude aus Tabelle \ref{tab:data_a}, 
 welche kleiner als 2.3V ist, ließe sich durch einen weiteren Peak mit einer negativen Amplitude erklären, der nicht auf dem Bild 
 \ref{fig:5a} aufgeführt ist. Die Werte für die Abklingdauer und den effektiven Widerstand haben allerdings einen relativ hohen Fehler,
 \begin{align}
   \frac{T_{\text{ex}}-T_{\text{ex,Lit.}}}{T_{\text{ex,Lit.}}}&=\text{\input{RF_T_ex.tex}},\\
-  \frac{R_{\text{eff}}-R_{\text{eff,Lit.}}}{R_{\text{eff,Lit.}}}&= \text{\input{RF_R_eff.tex} },
+  \frac{R_{\text{eff}}-R_{\text{eff,Lit.}}}{R_{\text{eff,Lit.}}}&= \text{\input{RF_R_eff.tex}},
 \end{align}
 welcher sich eventuell auf systematische Fehler zurückführen ließe. 
 
 \flushleft{Der }\justifying für b) berechnete Widerstand \eqref{eq:Rap} zeigt einen hohen relativen Fehler von 
 \begin{align}
-  \frac{R_{\text{ap}}-R_{\text{pap,Lit.}}}{R_{\text{ap,Lit.}}}= \text{\input{RF_R.tex} }
+  \frac{R_{\text{ap}}-R_{\text{pap,Lit.}}}{R_{\text{ap,Lit.}}}= \text{\input{RF_R.tex}}.
 \end{align}
 
-\flushleft{Dieser\;} könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
+\flushleft{Dieser\;}\justifying könnte durch die fehlerhafte Interpretation der Skalierung des variablen Widerstandes erklärt werden. Denn die Skalaierung 
 des Widerstandes verlief von null bis zehn, wohingegen der maximale Widerstand bei $\SI{5.0}{\kilo\ohm} $ lag. Dieser Umstand wirft die 
 Vermutung auf, dass die Skalierung $\SI{0.5}{\kilo\ohm}$ pro Einheit betrug, anstelle der hier verwendeten $\SI{1}{\kilo\ohm} $ pro Einheit. Demnach 
 würde der Widerstand $R_{\text{ap}} = \SI{1.45}{\kilo\ohm}$ entsprechen, was deutlich näher am Theoriewert läge.
@@ -414,10 +415,10 @@ schmal ist nach Gleichung \eqref{eq:29}. Eine Möglichkeit für den misslungenen
 systematische Fehler sein oder aber, dass die Gleichung \eqref{eq:9} nicht als Fitfunktion
 geeignet ist.
 Es lässt sich eindeutig eine schwache Dämpfung erkennen, da das Amplitudenmaximum die 1V überschreitet. Bei der Betrachtung der relativen
-Fehler von der Resonanzüberhöhung $q$ \eqref{eq:} 
+Fehler von der Resonanzüberhöhung $q$ \eqref{eq:33} 
 \begin{align}
 \frac{q - q_{\text{lit}}}{q_{\text{lit}}}&= \text{\input{RF_q.tex}}
-\intertext{und $\omega _+ - \omega_-$ \eqref{eq:}}
+\intertext{und $\omega _+ - \omega_-$ \eqref{eq:28}}
 \frac{\omega_{+-} - \omega_{+-,\text{Lit.}}}{\omega_{+-,\text{Lit.}}} &= \text{\input{RF_nu.tex}} \qquad \qquad \text{mit} \; \omega_{+-} = \omega_+ - \omega_-
 \end{align}
 zeigen sich signifikante Fehler von $-22\%$ und $19\%$.
