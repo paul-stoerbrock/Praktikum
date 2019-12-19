@@ -11,7 +11,7 @@ build/V103.pdf: FORCE V203.tex |build
 	  --halt-on-error \
 	V203.tex
 
-build/plotCuein.pdf: V203.py data.txt |build
+build/plotCuein.pdf: V203.py datak1b.txt datag1b.txt |build
 
 	TEXINPUTS=$$(pwd): python V203.py
 
