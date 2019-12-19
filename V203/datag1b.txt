@@ -1,4 +1,4 @@
-# Druck > 1bar
+# Druck > 1bar - 30 Messwerte - datag1b = data größer als 1bar
 # p in bar, T in °C
 0.50 96
 1.00 110
