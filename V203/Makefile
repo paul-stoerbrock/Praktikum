@@ -1,6 +1,6 @@
 all: build/V203.pdf
 
-build/V103.pdf: FORCE V203.tex |build
+build/V203.pdf: FORCE V203.tex |build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS=build:\
 	max_print_line=1048576 \
