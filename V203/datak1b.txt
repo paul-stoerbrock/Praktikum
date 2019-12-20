@@ -77,3 +77,6 @@
 9.35e-01 99
 9.67e-01 100
 1.00e-00 101
+nan nan
+nan nan
+nan nan
