@@ -38,11 +38,11 @@ p_k1bar1, p_k1bar2, p_k1bar3 = np.array_split(p_k1bar, 3)
 C_k1bar1, C_k1bar2, C_k1bar3 = np.array_split(C_k1bar, 3)
 
 table_header = r'''
-  \begin{tabular}{c c c c c c c c c c}
+  \begin{tabular}{c c c c c c}
     \toprule
-    {$a \:/\: \si{\bar}$} & {$b \:/\: \si{\kelvin}$} &
-    {$a \:/\: \si{\bar}$} & {$b \:/\: \si{\kelvin}$} &
-    {$a \:/\: \si{\bar}$} & {$b \:/\: \si{\kelvin}$} \\
+    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
+    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
+    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} \\
 
     \cmidrule(lr){1-2} \cmidrule(lr){3-4} \cmidrule(lr){5-6}
 '''
@@ -55,7 +55,7 @@ row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:
 with open('build/table_k1bar.tex', 'w') as g:
     g.write(table_header)
     for row in zip(p_k1bar1, C_k1bar1, p_k1bar2, C_k1bar2, p_k1bar3, C_k1bar3):
-        g.write(row_template.format(*row))
+        g.write(row_template.format(*row).replace('nan', ''))
         g.write('\n')
     g.write(table_footer)
 
@@ -67,11 +67,11 @@ C_g1bar1, C_g1bar2, C_g1bar3 = np.array_split(C_g1bar, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\kelvin}$} &
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\kelvin}$} &
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\kelvin}$} \\
+    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
+    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
+    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} \\
 
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4} \cmidrule(lr{0,5em}){5-6}
+    \cmidrule(lr){1-2} \cmidrule(lr{0,5em}){3-4} \cmidrule(lr{0,5em}){5-6}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
