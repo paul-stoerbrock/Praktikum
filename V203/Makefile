@@ -1,6 +1,6 @@
 all: build/V203.pdf
 
-build/V203.pdf: FORCE V203.tex |build
+build/V203.pdf: FORCE V203.tex V203.py |build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS=build:\
 	max_print_line=1048576 \
@@ -11,7 +11,7 @@ build/V203.pdf: FORCE V203.tex |build
 	  --halt-on-error \
 	V203.tex
 
-build/plotCuein.pdf: V203.py datak1b.txt datag1b.txt |build
+build/plotCuein.pdf: FORCE V203.py datak1b.txt datag1b.txt |build
 
 	TEXINPUTS=$$(pwd): python V203.py
 
