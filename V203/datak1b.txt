@@ -1,5 +1,5 @@
 # Druck < 1bar - 77 Messwerte - datak1b = data kleiner als 1bar
-# p in mbar, T in °C
+# p in bar, T in °C
 5.90e-02 21
 5.90e-02 22
 6.00e-02 23
