@@ -36,15 +36,15 @@ K_k1bar = const.convert_temperature(C_k1bar[:77], 'c', 'K')
 
 K_g1bar = const.convert_temperature(C_g1bar[:77], 'c', 'K') 
 
-pinP_k1bar = p_k1bar * 1e05
-pinP_g1bar = p_g1bar * 1e05 
+pinP_k1bar = p_k1bar[:77] * 1e05
+pinP_g1bar = p_g1bar[:77] * 1e05 
 
 # Erstellung der Plots #################################################################################################################################################################
 
 # Plot für kleiner 1 bar
 
 park1b, covmk1b = np.polyfit(1/(const.R * K_k1bar), np.log(pinP_k1bar[:77]), deg=1, cov=True)
-err = np.sqrt(np.diag(covmk1b))
+errk1b = np.sqrt(np.diag(covmk1b))
 
 plt.plot(1/(const.R * K_k1bar), np.log(pinP_k1bar[:77]), 'kx', label='Messwerte')
 x_plot = np.linspace(0.0003, 0.00042, 1000)
@@ -58,6 +58,17 @@ plt.grid()
 plt.tight_layout
 plt.savefig('build/plotk1b.pdf')
 plt.close()
+
+park1b=unp.uarray(park1b, errk1b)
+
+# Plot für größer 1 bar
+
+parg1b, covmg1b = np.polyfit(K_g1bar, pinP_g1bar, deg=3, cov=True)
+err = np.sqrt(np.diag(covmg1b))
+print(parg1b)
+
+VD = (const.R * K_g1bar)/(2*pinP_g1bar) - np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
+print(VD)
 
 # Parameter werden ins tex-Format geschrieben ########################################################################################################################################################
 
