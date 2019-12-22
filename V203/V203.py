@@ -30,6 +30,36 @@ def make_SI(num, unit, exp='', figures=None):
 p_k1bar, C_k1bar = np.genfromtxt('datak1b.txt', unpack=True)
 p_g1bar, C_g1bar = np.genfromtxt('datag1b.txt', unpack=True)
 
+T = 373 # Temperatur für größer 1 bar
+
+K_k1bar = const.convert_temperature(C_k1bar[:77], 'c', 'K')
+
+K_g1bar = const.convert_temperature(C_g1bar[:77], 'c', 'K') 
+
+pinP_k1bar = p_k1bar * 1e05
+pinP_g1bar = p_g1bar * 1e05 
+
+# Erstellung der Plots #################################################################################################################################################################
+
+# Plot für kleiner 1 bar
+
+park1b, covmk1b = np.polyfit(1/(const.R * K_k1bar), np.log(pinP_k1bar[:77]), deg=1, cov=True)
+err = np.sqrt(np.diag(covmk1b))
+
+plt.plot(1/(const.R * K_k1bar), np.log(pinP_k1bar[:77]), 'kx', label='Messwerte')
+x_plot = np.linspace(0.0003, 0.00042, 1000)
+plt.plot(x_plot,park1b[1] +park1b[0]*x_plot, 'r-', label="Lineare Regression")
+plt.xticks([3*1e-04, 3.25*1e-04, 3.5*1e-04, 3.75*1e-04,4 *1e-04],
+           [3, 3.25, 3.5, 3.75, 4])
+plt.legend(loc="best")
+plt.xlabel(r'$1/(R \cdot T)/(mol\, s^2/(kg \,m^2) $')
+plt.ylabel(r'Druck logarithmisch $ln(p)$')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotk1b.pdf')
+plt.close()
+
+
 # Tabellen ########################################################################################################################################################
 
 # Tabelle für datak1b.tex -------------------------------------------------------------------------------------------------------------------------------------------------
