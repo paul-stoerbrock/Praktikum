@@ -59,27 +59,35 @@ plt.tight_layout
 plt.savefig('build/plotk1b.pdf')
 plt.close()
 
+# Parameter werden ins tex-Format geschrieben ########################################################################################################################################################
+
+with open('build/m_plotk1b.tex', 'w') as f: # es fehlen hier noch die Fehler
+  f.write(make_SI(park1b[0]*1e-04,r'', figures=3)) # passt hier die Größenordnung?
+
+with open('build/b_plotk1b.tex', 'w') as f: # es fehlen hier noch die Fehler
+  f.write(make_SI(park1b[1],r'', figures=3))
 
 # Tabellen ########################################################################################################################################################
 
 # Tabelle für datak1b.tex -------------------------------------------------------------------------------------------------------------------------------------------------
 
-p_k1bar1, p_k1bar2, p_k1bar3 = np.array_split(p_k1bar, 3)
+p_k1bar1, p_k1bar2, p_k1bar3 = np.array_split(p_k1bar*1e+03, 3)
 C_k1bar1, C_k1bar2, C_k1bar3 = np.array_split(C_k1bar, 3)
 
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} \\
+    \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur}\\
+    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
+    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
+    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} \\
 
     \cmidrule(lr){1-2} \cmidrule(lr){3-4} \cmidrule(lr){5-6}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.2f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f} \\'
+row_template = r'     {0:1.0f} & {1:1.0f} & {2:1.0f} & {3:1.0f} & {4:1.0f} & {5:1.0f} \\'
 
 
 with open('build/table_k1bar.tex', 'w') as g:
