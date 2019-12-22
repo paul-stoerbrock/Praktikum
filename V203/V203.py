@@ -52,8 +52,8 @@ plt.plot(x_plot,park1b[1] +park1b[0]*x_plot, 'r-', label="Lineare Regression")
 plt.xticks([3*1e-04, 3.25*1e-04, 3.5*1e-04, 3.75*1e-04,4 *1e-04],
            [3, 3.25, 3.5, 3.75, 4])
 plt.legend(loc="best")
-plt.xlabel(r'$1/(R \cdot T)/(mol\, s^2/(kg \,m^2) $')
-plt.ylabel(r'Druck logarithmisch $ln(p)$')
+plt.xlabel(r'$1/(R \cdot T)*10^{-4}/(mol\, s^2/(kg \,m^2) $')
+plt.ylabel(r' logarithmischer Dampfdruck $ln(p)$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotk1b.pdf')
