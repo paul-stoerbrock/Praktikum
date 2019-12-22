@@ -105,9 +105,10 @@ C_g1bar1, C_g1bar2, C_g1bar3 = np.array_split(C_g1bar, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} &
-    {$Druck \:/\: \si{\bar}$} & {$Temperatur \:/\: \si{\celsius}$} \\
+    \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur}\\
+    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
+    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
+    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} \\
 
     \cmidrule(lr){1-2} \cmidrule(lr{0,5em}){3-4} \cmidrule(lr{0,5em}){5-6}
 '''
