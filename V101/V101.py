@@ -56,8 +56,6 @@ D_mittelw = ufloat(np.mean(D),np.std(D))# Bestimmung der Federkonstante
 
 # Lineare Regression zur Bestimmung des Trägheitsmoments der Drehachse
 
-slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_I_Stab[0:10]**2)
-
 par, cov= np.polyfit((a[0:10])**2 , T_I_Stab[0:10]**2, deg=1, cov=True)
 err = np.sqrt(np.diag(cov))
 par_I_D= unp.uarray(par, err)
@@ -135,7 +133,7 @@ RF_I_Puppe_aus = (I_Puppe_aus_exp_mean-I_Puppe_aus_theo)/I_Puppe_aus_theo
 
 plt.plot(a[0:10]**2 , T_I_Stab[0:10]**2, 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
-plt.plot(x_plot,intercept+slope*x_plot, 'k-', label="Lineare Regression")
+plt.plot(x_plot,par_I_D[1].n+par_I_D[0].n*x_plot, 'k-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel(r'quadratischer Abstand zur Rotationsachse $\,a^2$/${cm}^2$')
 plt.ylabel(r'Quadrat der Peridendauer $\,T^2$/$s^2$')
