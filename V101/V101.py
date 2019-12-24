@@ -50,7 +50,7 @@ T_I_Stab = (np.round(T_I_Stab1,1) + np.round(T_I_Stab2))/6
 
 D = (F*0.30)/phi_Bogen # Bestimmung der Winkelrichtgröße
 
-D_mittelw = np.mean(D) # Bestimmung der Federkonstante
+D_mittelw = ufloat(np.mean(D),np.std(D))# Bestimmung der Federkonstante
 
 
 
@@ -58,13 +58,16 @@ D_mittelw = np.mean(D) # Bestimmung der Federkonstante
 
 slope, intercept, r_value, p_value, std_err = stats.linregress((a[0:10])**2 , T_I_Stab[0:10]**2)
 
+par, cov= np.polyfit((a[0:10])**2 , T_I_Stab[0:10]**2, deg=1, cov=True)
+err = np.sqrt(np.diag(cov))
+par_I_D= unp.uarray(par, err)
 
 
 # Berechnung der Trägheitsmomente #####################################################################
 
 # experimenteller Wert des Trägheitsmoment der Drillachse
 
-I_D = intercept * D_mittelw/(4*np.pi**2)
+I_D = par_I_D[1] * D_mittelw/(4*np.pi**2)
 # experimenteller Wert des Trägheitsmoment des Zylinders
 
 I_Zylinder = I(np.round(T_Zylinder[0:5],1), D_mittelw, I_D)
@@ -151,12 +154,12 @@ with open('build/D_mean.tex', 'w') as f:
 # tex file of slope
 
 with open ('build/slope.tex', 'w') as f:
-  f.write(make_SI(slope, '', figures=1))
+  f.write(make_SI(par_I_D[0], '', figures=2))
 
 # tex file of intercept
 
 with open('build/intercept.tex', 'w') as f:
-  f.write(make_SI(intercept, '', figures=1))
+  f.write(make_SI(par_I_D[1], '', figures=2))
 
 # tex file of I_D
 
@@ -245,22 +248,22 @@ with open ('build/I_Puppe_aus_exp_mean.tex', 'w') as f:
 # tex file of RF_I_Zylinder
 
 with open ('build/RF_I_Zylinder.tex', 'w') as f:
-  f.write(make_SI(RF_I_Zylinder, r'', figures=1))
+  f.write(make_SI(abs(RF_I_Zylinder.n), r'', figures=1))
 
 # tex file of RF_I_Kugel
 
 with open ('build/RF_I_Kugel.tex', 'w') as f:
-  f.write(make_SI(RF_I_Kugel, r'', figures=1))
+  f.write(make_SI(abs(RF_I_Kugel.n), r'', figures=1))
 
 # tex file of RF_I_Puppe_an
 
 with open ('build/RF_I_Puppe_an.tex', 'w') as f:
-  f.write(make_SI(RF_I_Puppe_an, r'', figures=1))
+  f.write(make_SI(abs(RF_I_Puppe_an.n), r'', figures=1))
 
 # tex file of RF_I_Puppe_aus
 
 with open ('build/RF_I_Puppe_aus.tex', 'w') as f:
-  f.write(make_SI(RF_I_Puppe_aus, r'', figures=1))
+  f.write(make_SI(abs(RF_I_Puppe_aus.n), r'', figures=1))
 
 
 # Tabellen #############################################################################################################
@@ -349,12 +352,4 @@ with open('build/table_I.tex', 'w') as g:
     g.write(table_footer)
 
 # Testprints ##########################################################################################
-
-
-print(I_Puppe_an_exp_mean)
-print(I_Puppe_an_theo)
-print(I_Puppe_aus_exp_mean)
-print(I_Puppe_aus_theo)
-print(I_Kugel)
-print(I_Puppe_an_exp)
 
