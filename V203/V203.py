@@ -43,16 +43,16 @@ pinP_g1bar = p_g1bar[:77] * 1e05
 
 # Plot für kleiner 1 bar
 
-park1b, covmk1b = np.polyfit(1/(const.R * K_k1bar), np.log(pinP_k1bar[:77]), deg=1, cov=True)
+park1b, covmk1b = np.polyfit(1/(K_k1bar), np.log(pinP_k1bar[:77]), deg=1, cov=True)
 errk1b = np.sqrt(np.diag(covmk1b))
 
-plt.plot(1/(const.R * K_k1bar), np.log(pinP_k1bar[:77]), 'kx', label='Messwerte')
-x_plot = np.linspace(0.0003, 0.00042, 1000)
+plt.plot(1/K_k1bar, np.log(pinP_k1bar[:77]), 'kx', label='Messwerte')
+x_plot = np.linspace(0.0025, 0.0035, 1000)
 plt.plot(x_plot,park1b[1] +park1b[0]*x_plot, 'r-', label="Lineare Regression")
-plt.xticks([3*1e-04, 3.25*1e-04, 3.5*1e-04, 3.75*1e-04,4 *1e-04],
-           [3, 3.25, 3.5, 3.75, 4])
+#plt.xticks([2.6*1e-03, 2.8*1e-03, 3*1e-03, 3.2*1e-03,3.4 *1e-03],
+#           [2.6, 2.8, 3, 3.2, 3.4])
 plt.legend(loc="best")
-plt.xlabel(r'$1/(R \cdot T)*10^{-4}/(mol\, s^2/(kg \,m^2) $')
+plt.xlabel(r'$1/T*10^{-3}/(mol\, s^2/(kg \,m^2) $')
 plt.ylabel(r' logarithmischer Dampfdruck $ln(p)$')
 plt.grid()
 plt.tight_layout
@@ -60,6 +60,7 @@ plt.savefig('build/plotk1b.pdf')
 plt.close()
 
 park1b=unp.uarray(park1b, errk1b)
+Lk1b= -park1b[0]* const.R
 
 # Plot für größer 1 bar
 
@@ -67,16 +68,26 @@ parg1b, covmg1b = np.polyfit(K_g1bar, pinP_g1bar, deg=3, cov=True)
 err = np.sqrt(np.diag(covmg1b))
 print(parg1b)
 
-VD = (const.R * K_g1bar)/(2*pinP_g1bar) - np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
+# Berechnung des Dampfvolumens
+
+VD = (const.R * K_g1bar)/(2*pinP_g1bar) + np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
 print(VD)
 
+# Berechnung des Wertes dpdT
+
+dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
+
+# Berechnung der Verdampfungswärme
+
+Lg1b= dpdT*VD*K_g1bar
+print(Lg1b)
 # Parameter werden ins tex-Format geschrieben ########################################################################################################################################################
 
 with open('build/m_plotk1b.tex', 'w') as f: # es fehlen hier noch die Fehler
-  f.write(make_SI(park1b[0]*1e-04,r'', figures=3)) # passt hier die Größenordnung?
+  f.write(make_SI(park1b[0]*1e-03,r'\kilo\joule', figures=2)) # passt hier die Größenordnung?
 
 with open('build/b_plotk1b.tex', 'w') as f: # es fehlen hier noch die Fehler
-  f.write(make_SI(park1b[1],r'', figures=3))
+  f.write(make_SI(park1b[1],r'', figures=2))
 
 # Tabellen ########################################################################################################################################################
 
