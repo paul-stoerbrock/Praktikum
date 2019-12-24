@@ -102,7 +102,7 @@ Für die Auswertung werden im folgenden diese Formeln zur Bestimmung der Fehler 
 
 Benötigt werden: \textit{Eine Drillachse die durch eine Spiralfeder mit einem festen Rahmen verbunden ist, eine Stabachse der Länge $\SI{62}{\centi\meter}$, 
 zwei identische zylindrische Gewichte ($\SI{261.5}{\gram}$), eine Kugel mit Aufsatz (m=$\SI{1168.5}{\gram}$, r=$\SI{7.3}{\centi\meter}$), einen Zylinder mit 
-Aufsatz (m=$\SI{1525.5}{\gram}$, h=$\SI{13,95}{\centi\meter}$, d=$\SI{8}{\centi\meter}$), eine Holzpuppe mit Aufsatz ($\rho=\SI{780}{\kilo\gram\per\cubic\meter}$), 
+Aufsatz (m=$\SI{1525.5}{\gram}$, h=$\SI{13,95}{\centi\meter}$, d=$\SI{8}{\centi\meter}$), eine Holzpuppe mit Aufsatz ($\rho=\SI{780}{\kilo\gram\per\cubic\meter}$ \cite{Holzdichte}), 
 ein Newtonmeter (von $\SI{0.1}{\newton}$ bis $\SI{1}{\newton}$), eine Drehwinkel-Messscheibe, ein Ma\ss band, eine Schieblehre, eine Stopuhr.}\\
 Zu Beginn wird die Stabachse horizontal auf der Drillachse befestigt. An beiden Enden der Stabachse werden die beiden zylindrischen Gewichte angebracht.
 Anschließend wird die Kugel auf die Drillachse gesteckt.
@@ -113,10 +113,10 @@ Armen, auf der Drillachse befestigt.
 % Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Versuchsdurchführung}\justifying
 
-Um die Trägheitsmomente der einzelnen Körper zu berechnen, soll zuerst das Trägheitsmoment der Drillachse bestimmt werden. Infolgedessen wird die
+Um die Trägheitsmomente der einzelnen Körper zu berechnen, wird zuerst das Trägheitsmoment der Drillachse bestimmt. Infolgedessen wird die
 Stabachse auf der Drillachse befestigt. Die beiden zylindrischen Gewichte werden mit einem Abstand von $\SI{25}{\centi\meter}$ zur Mitte an beiden 
 Enden der Stabachse angebracht. Daraufhin wird die Stabachse um einen konstanten Winkel $\varphi = \SI{20}{\degree}$ ausgelenkt und die Periodendauer mithilfe
-einer Stoppuhr über drei Perioden genau zweimal gemessen. Dies wird für jede Reduzierung des Abstandes um $\SI{2.5}{\centi\meter}$ wiederholt, bis beide 
+einer Stoppuhr über drei Perioden zweimal gemessen. Dies wird für jede Reduzierung des Abstandes um $\SI{2.5}{\centi\meter}$ wiederholt, bis beide 
 Massen bei einem Abstand von $\SI{2.5}{\centi\meter}$ zur Mitte angekommen sind.\\
 Neben dem Trägheitsmoment der Drillachse ist die Federkonstante der Spiralfeder für die folgenden Trägheitsmomente wichtig. Um diese zu bestimmen 
 werden die Massen von der Stabachse genommen und diese um einen Winkel von $\SI{90}{\degree}$  ausgelenkt. Nun wird das Newtonmeter an einem konstanten Abstand von 
@@ -126,8 +126,8 @@ bis der ein Wert von $\SI{260}{\degree}$ erreicht wird.\\
 Nachdem Federkonstante und Trägheitsmoment der Drillachse bestimmt wurden, können die Trägheitsmomente des Zylinders, der Kugel und der Puppe
 errechnet werden. Für die Kugel werden fünf Werte für die Schwingdauer einer Periode $T$ bei einem konstanten Winkel von $\SI{20}{\degree}$ erfasst.
 Für den Zylinder werden ebenfalls fünf Messwerte für eine Periode aufgenommen, bei einem konstanten Winkel von $\SI{10}{\degree}$. 
-Zuletzt werden die Schwingperioden der Puppe in Position 1 (Arme angelegt) und Position 2 (Arme ausgestreckt) gemessen. Dafür wurde der Auslenkwinkel
-bei $\SI{10}{\degree}$ konstant gehalten. Um bei einer kurzen Schwingdauer verlässliche Messwerte zu erhalten, wurde die Zeitlupenfunktion einer 
+Zuletzt werden die Schwingperioden der Puppe in Position 1 (Arme angelegt) und Position 2 (Arme ausgestreckt) gemessen. Dafür wird der Auslenkwinkel
+bei $\SI{10}{\degree}$ konstant gehalten. Um bei einer kurzen Schwingdauer verlässliche Messwerte zu erhalten, wird die Zeitlupenfunktion einer 
 Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr, welche den zeitlichen Verlauf der Schwingung verdeutlicht.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,7 +160,11 @@ Handykamera verwendet. Das Video zeigt die Schwingung der Puppe und die Stopuhr,
     &\text{Höhe:}  &\SI{14.475}{\centi\meter}\\
     &\text{Gewicht:} &\text{\input{m_Bein.tex}}
 \end{align*}
-
+Das Gewicht der einzelnen Puppenteile wurde dabei über das Volumen und die recherchierte Holzdichte 
+berechnet:
+\begin{align*}
+    m = \rho \cdot V
+\end{align*}
 % Federkonstante --------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Die Federkonstante}
@@ -180,7 +184,7 @@ D = \frac{F\cdot r}{\varphi}\label{eq:11}
 
 \flushleft{Die\;}\justifying Messwerte für die rücktreibende Kraft aus Tabelle \ref{tab:2} wurden auf Grund der waagerechten Haltung des Newtonmeters
 um eine Eichung von $\SI{0.05}{\newton}$ in der folgenden Rechnung ergänzt.
-Werden die Werte aus \ref{tab:1} in die Formel \eqref{eq:11} eingesetzt, 
+Werden die Werte aus Tabelle \ref{tab:1} in die Formel \eqref{eq:11} eingesetzt, 
 lässt sich die Winkelrichtgröße der Spiralfeder dem Mittelwert \eqref{eq:10a} der einzelnen Winkelrichtgrößen berechnen
 und ergibt:
 
@@ -200,13 +204,15 @@ für $I_K$:
 
 \begin{align}
 \intertext{\flushleft{Um\;}\justifying das Trägheitsmoment der Drillachse zu bestimmen wird die Formel \eqref{eq:8} nach I umgestellt und mit Formel % Trägheitsmoment I_D ---------------------------------------------------------------------------------------------------------
-\eqref{eq:6} gleichgesetzt. Die resultierende Gleichung sieht aus wie folgt:
+\eqref{eq:6} gleichgesetzt. Die resultierende Gleichung sieht, nach dem Quadrat der 
+Periodendauer umgestellt, aus wie folgt:
 }
-T^2 = I_S \cdot \frac{4\pi^2}{D} &+ \frac{m_k \cdot 4\pi^2}{D} \cdot a^2 \label{eq:14}
+T^2 = I_D \cdot \frac{4\pi^2}{D} &+ \frac{m_k \cdot 8\pi^2}{D} \cdot a^2 \label{eq:14}
 \intertext{Hierbei wird festgestellt, dass
 }
-b &= I_S \cdot \frac{4\pi^2}{D} \label{eq:15}
+b &= I_D \cdot \frac{4\pi^2}{D} \label{eq:15}
 \intertext{entspricht.
+Dabei ist $I_S$ aus Formel \eqref{eq:6} null, da die Zylinder als Punkmassen betrachtet werden.
 Daraus folgt für das Trägheitsmoment der Drillachse:
 \newline
 }
@@ -223,9 +229,9 @@ I_D &= \frac{b \cdot D}{4 \pi^2} \label{eq:16}
 \flushleft{Für} die Berechnung wurde für einen Abstand die Periodendauer zweimal gemessen (Wert1, Wert2) und in der Tabelle \ref{tab:1}
 zusammengetragen. Diese zwei Werte wurden gemittelt und auf eine Periode normiert.
 
-\flushleft{Mithilfe\;}\justifying des Pyton Befehls linregress() \cite{numpy} lässt sich die Geradengleichung
+\flushleft{Mithilfe\;}\justifying des Phyton Befehls linregress() \cite{numpy} wird die Geradengleichung
 des folgenden Graphen \ref{fig:1} bestimmen. 
-\flushleft{Dabei\;}\justifying sehen die Steigung $m$ und der Schnittpunkt der y-Achse $b$ des Graphen \ref{fig:1} folgendermaßen aus:
+\flushleft{Dabei\;}\justifying habe die Steigung $m$ und der Schnittpunkt der y-Achse $b$ des Graphen \ref{fig:1} folgende Werte:
 
 \begin{subequations}
 \begin{align}
@@ -257,8 +263,8 @@ I_D = \input{I_D.tex}\label{eq:18} % Trägheitsmoment Drillachse
 
 \begin{subequations}
 \begin{align}
-\intertext{\flushleft{Die\;}\justifying Werte für die Periodendauer aus der Tabelle \ref{tab:3} wurden für alle folgenden Berechnungen auf eine Nachkommastelle gerundet.
-Für den experimentellen Wert des Trägheitsmoments des Zylinders wurde die Formel \eqref{eq:14} nach $I_S$ umgestellt. Die resultierenden $I_S$'s wurden
+\intertext{\flushleft{Die\;}\justifying Werte für die Periodendauer aus der Tabelle \ref{tab:3} werden für alle folgenden Berechnungen auf eine Nachkommastelle gerundet.
+Für den experimentellen Wert des Trägheitsmoments des Zylinders wird die Formel \eqref{eq:14} nach $I_S$ umgestellt. Die resultierenden $I_S$'s werden
 anschließend gemittelt. Daraus folgt das experimentelle Trägheitsmoment des Zylinders mit den Werten aus Tabelle \ref{tab:3}, der Formel \eqref{eq:10a} 
 und einer Masse von $\SI{1525.5}{\gram}$:
 \newline
@@ -272,7 +278,7 @@ I_{Zy, lit.} &= \input{I_Zylinder_Theorie.tex}\label{eq:19b}
 \intertext{\flushleft{Der\;}\justifying daraus resultierende relative Fehler des Trägheitsmoments vom Zylinder beträgt:
 \newline
 }
-\frac{\overline{I_{Zy, exp.}} - I_{Zy, lit.}}{I_{Zy, lit.}} &= \input{RF_I_Zylinder.tex}\label{eq:19c}
+\frac{\abs{\overline{I_{Zy, exp.}} - I_{Zy, lit.}}}{I_{Zy, lit.}} &= \input{RF_I_Zylinder.tex}\label{eq:19c}
 \end{align}
 \end{subequations}
 
@@ -290,7 +296,7 @@ aus Tabelle \ref{tab:3} bestimmt:
 I_{Ku, lit.} &= \input{I_Kugel_Theorie.tex} \label{eq:20b}
 \intertext{\flushleft{Der\;}\justifying relative Fehler des Trägheitsmoments der Kugel ist:
 }
-\frac{\overline{I_{Ku, exp.}} - I_{Ku, lit.}}{I_{Ku, lit.}} &= \input{RF_I_Kugel.tex} \label{eq:20c}
+\frac{\abs{\overline{I_{Ku, exp.}} - I_{Ku, lit.}}}{I_{Ku, lit.}} &= \input{RF_I_Kugel.tex} \label{eq:20c}
 \end{align}
 \end{subequations}
 
@@ -316,7 +322,7 @@ ausgestreckten Armen dar.
         \label{fig:2b}
     \end{subfigure}
 \end{figure}
-\flushleft{Die\;}\justifying Massen der einzelnen Zylinder wurden mithilfer der Formel $m= \rho \cdot V$ bestimmt und lauten wie folgt:
+\flushleft{Die\;}\justifying Massen der einzelnen Zylinder werden mithilfe der Formel $m= \rho \cdot V$ bestimmt und lauten wie folgt:
 
 \begin{subequations}
 \begin{align}
@@ -362,7 +368,7 @@ mit der Formel \eqref{eq:4} bestimmt und aufsummiert. Daraus folgt der theoretis
 I_{P1,lit.} &= \input{I_Puppe_an_theo.tex}\label{eq:24c}
 \intertext{Der relative Fehler des Trägheitsmoments der Puppe in Position 1 ist:
 }
-\frac{\overline{I_{P1, exp.}} - I_{P1, lit.}}{I_{P1, lit.}} &= \input{RF_I_Puppe_an.tex}\label{eq:24d}
+\frac{\abs{\overline{I_{P1, exp.}} - I_{P1, lit.}}}{I_{P1, lit.}} &= \input{RF_I_Puppe_an.tex}\label{eq:24d}
 \end{align}
 \end{subequations}
 
@@ -379,7 +385,7 @@ aufsummiert und der Mittelwert \eqref{eq:10a} berechnet wie in Abschnitt \ref{se
 I_{P2,lit.} &= \input{I_Puppe_aus_theo.tex}\label{eq:25b}
 \intertext{Demnach folgt ein relativer Fehler des Trägheitsmoments der Puppe in Position 2 von:
 }
-\frac{\overline{I_{P2, exp.}} - I_{P2, lit.}}{I_{P2, lit.}} &= \input{RF_I_Puppe_aus.tex}\label{eq:25c}
+\frac{\abs{\overline{I_{P2, exp.}} - I_{P2, lit.}}}{I_{P2, lit.}} &= \input{RF_I_Puppe_aus.tex}\label{eq:25c}
 \end{align}
 \end{subequations}
 \newpage
@@ -394,18 +400,18 @@ und der Tabelle \ref{tab:2} ein Fehler in der Messung erkennen.
 Da die Winkelrichtgröße grundsätzlich konstant sein sollte, ergibt sich bei einem
 doppelt so großen Winkel eine doppelt so große Kraft. Dies ist hier nicht direkt der Fall
 wie die Werte für \SI{90}{\degree} und \SI{180}{\degree} zeigen. Diese Messungenauigkeit
-ergibt sich aus dem Problem des Nullpunkts beim Newtonmeter. In der Messung wurde das
+könnte sich aus dem Problem des Nullpunkts beim Newtonmeter ergeben. In der Messung wurde das
 Newtonmeter senkrecht an die ausgelenkte Stange gehalten, um die Federkraft zu ermitteln. 
 Dabei kann es passieren , dass die Feder des Newtonmeters nicht aus der Gleichgewichtslage
 heraus ausgelenkt wurde. Dieser Fehler führt zu einem leicht veränderten Messergebnis, welcher
 sich vor allem bei Abmessungen in kleinen Abständen bemerkbar macht.
 Dabei musste für die Werte berücksichtigt werden, dass das Newtonmeter auf Messungen im 
-Schwerefeld der Erde geeicht wurde. Diese wurde 
+Schwerefeld der Erde geeicht wurde. 
 Zudem ergibt sich eine gewisse Ungenauigkeit beim Einstellen des Winkels. 
 
 \flushleft{Für\;}\justifying das Trägheitsmoment des Stabs wurde der Wert aus Formel \eqref{eq:16} bestimmt.
 Bei dem Versuch wurde der Stab, auf dem sich die beiden Zylinder befanden, als masselos angenommen  und
-die Zylinder als Punktmassen angenähert. Dabei wurde für die Auswertung bei der Periodendauer
+die Zylinder als Punktmassen angenähert. Dabei wird für die Auswertung bei der Periodendauer
 nur die erste Nachkommastelle verwendet, da aufgrund der menschlichen Reaktionszeit sich
 automatisch eine Ungenauigkeit für niedrigere Nachkommastellen ergibt.
 Der Wert für das Trägheitsmoment $I_D$ wirkt dabei erstmal ziemlich klein, allerdings kann
@@ -423,7 +429,9 @@ Der Literaturwert des Zylinders \eqref{eq:19b} beschreibt ein größeres Träghe
 da der Zylinder eine größere Masse und Breite besitzt. 
 
 \flushleft{Die\;}\justifying experimentellen Werte, auf der anderen Seite, geben das Gegenteil der erwarteten Werte wieder. Beide Trägheitsmomente, 
-das der Kugel \eqref{eq:20a} und das des Zylinders \eqref{eq:19a}, sind negativ, was pyhsikalisch nicht möglich ist. Dennoch ist das Trägheitsmoment 
+das der Kugel \eqref{eq:20a} und das des Zylinders \eqref{eq:19a}, sind negativ, was pyhsikalisch unrealistisch erscheint, da 
+das Trägheitsmoment ein äquivalent zur Masse bei Translationsbewegungen bildet und dementsprechend positiv definiert ist.
+ Dennoch ist das Trägheitsmoment 
 des Zylinders größer, welches den Verdacht schöpft, dass das Trägheitsmoment der Drillachse \eqref{eq:18} nach Formel \eqref{eq:13} zu groß 
 sein könnte. Ist dies nicht der Fall, könnte die Negativität auf einen oder mehrere systematische Fehler zurückgeführt werden. Diese würden 
 in der Form von Messungenauigkeiten auftreten. Einige Beispiele für Messungenauigkeiten wären die menschliche Reaktionszeit beim Stoppen der Zeit
