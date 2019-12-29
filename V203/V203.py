@@ -62,6 +62,10 @@ plt.close()
 park1b=unp.uarray(park1b, errk1b)
 Lk1b= -park1b[0]* const.R
 
+L_a = const.R * T
+L_i = Lk1b-L_a
+print(L_i/const.e)
+
 # Plot für größer 1 bar
 
 parg1b, covmg1b = np.polyfit(K_g1bar, pinP_g1bar, deg=3, cov=True)
