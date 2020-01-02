@@ -15,7 +15,7 @@
     
     \begin{abstract}
     \centering
-        \textbf{Ziel:} 
+        \textbf{Ziel:Bestimmung der Verdampfungswärme von Wasser im Niedrig- und Hochdruckbereich} 
     \end{abstract}
 
 \newpage
@@ -24,7 +24,87 @@
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Theorie}
+\section{Theorie}\justifying
+Bei der Beischreibung von Stoffen wird ihr Aggregatszustand häufig in drei 
+Phasen unterteilt: fest, flüssig und gasförmig. 
+Für die Zuordnung eines Stoffes in einen bestimmten Aggregatszustand spielen
+Druck und Temperatur sowie Stoffeigenschaften eine wichtige Rolle.
+Durch ein Zustandsdiagramm lässt sich dies verdeutlichen:
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{./images/zustand.jpg}
+    \caption{Zustandsdiagramm von Wasser \cite{V203}}
+    \label{fig:1}
+\end{figure}
+An dem Beispiel für ein Zustandsdiagramm von Wasser lassen sich die drei
+charakteristischen Phasen an den drei abgegrenzten gut unterscheiden.
+Der Punkt TP. stellt dabei den Tripelpunkt von Wasser dar, an dem alle drei Aggregatszustände
+koexistieren können. Der Punkt K.P. hingegen beschreibt den kritischen Punkt, an dem sich
+die Zustände gasförmig und flüssig nicht mehr unterscheiden lassen. Die Verbindungskurve
+des Tripelpunktes mit dem kritischen Punkt wird dabei als Dampfdruckkurve bezeichnet und
+stellt den Zustand dar, in dem zwei Phasen koexistieren können.
+Für den Fall von Wasser sind das flüssig und gasförmig.
+Bei einer Änderung der Temperatur oder des Druckes kann sich der Aggregatszustand eines
+Stoffes ändern. \\
+Dabei wird im folgenden die Phasenänderung von flüssig zu gasförmig betrachtet.
+Bei der Verdampfung wird im Allgemeinen eine neue Größe eingeführt, die Verdampfungswärme $L$.
+Sie beschreibt die benötigte Energiemenge, um eine gewisses Volumen Flüssigkeit vollständig
+verdampfen zu lassen. Mit der Verdampfungswärme wird ebenfalls der Verlauf der Dampfdruckkurve beschrieben.
+Die Verdampfungswärme bildet damit eine charakteristische Eigenschaft von verschiedenen Stoffen,
+welche von der Temperatur abhängt.\\
+Zur Berechnung der Verdampfungswärme werden mikroskopische Vorgänge betrachtet. Bei diesen
+wird festgestellt, dass der Druck des Dampfes nicht durch die allgemeine Gasgleichung
+\begin{align}
+    pV=RT \label{eq:1}
+\end{align}
+beschrieben werden kann. \\
+Daher wird die molare Verdampfungswärme, welche die Verdampfung von einem Mol des Stoffes
+beschreibt, durch die Verdampfungswärme durch folgende Differentialgleichung beschrieben:
+\begin{align}
+    \left(V_D - V_F\right)dp=\frac{L}{T}dT \label{eq:2}.
+\end{align}
+$V_D$ und $V_F$ sind dabei das Vollumen des Dampfes und der Flüssigkeit, T die Temperatur und p der Dampfdruck,
+wobei $V_D$ mit der Gleichung
+\begin{align}
+    \left(p+\frac{a}{V^2}\right)V=RT \qquad \text{mit} \qquad a=0,9 \;\frac{Joule\,m^3}{Mol^2} 
+\end{align}
+bestimmt werden kann.
+Die Gleichung \eqref{eq:2} wird auch als Clausius-Clapeyronsche Gleichung bezeichnet.
+Die Bestimmung der allgemeinen Lösung der Differentialgleichung ist schwierig. \\
+Daher werden einige Näherungen für den Temperaturbereich $T \ll K.K.$ gemacht.
+Zum einen ist $V_F$ gegnüber $V_D$ vernachlässigbar.
+Zum anderen kann $V_D$ durch die ideale Gasgleichung beschrieben werden:
+\begin{align}
+    V_D(p,T)=R \frac{T}{p} \label{eq:3}.
+\end{align}
+Außerdem ist L konstant, wodurch sich für den Druck p die Formel
+\begin{align}
+    \ln(p)=- \frac{L}{R}\frac{1}{T}+const \label{eq:4}
+\end{align}
+ergibt.
+% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fehlerrechnung}\justifying
+Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
+verwendet:
+\begin{subequations} 
+\begin{align}
+\intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
+}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7a}
+\intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
+}
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:7b},
+\intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
+}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:7c}
+\intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
+}
+    y &= m \cdot x + b \label{eq:7d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:7e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:7f}
+\end{align}
+\end{subequations}
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -66,7 +146,7 @@ von $\SI{1}{\bar}$ ($\SI{1000}{\milli\bar}$) herrscht. Abschließend wird die He
 \flushleft{Für\;}\justifying die Temperatur- und Druckermittelung über $\SI{1}{\bar}$, wird der Versuch ähnlich zur Abbildung \ref{fig:2} aufgebaut. 
 Hier wird allerdings die Kühlschale weggelassen und die Heizwicklung durch einen, unter den Zylinder befindlichen, Heizkörper ersetzt. 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/g1bar.jpg}
     \caption{Versuchsaufbau für Druckbereich $\geq \SI{1}{\bar}$ \cite{V203}}
