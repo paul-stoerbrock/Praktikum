@@ -49,8 +49,8 @@ errk1b = np.sqrt(np.diag(covmk1b))
 plt.plot(1/K_k1bar, np.log(pinP_k1bar[:77]), 'kx', label='Messwerte')
 x_plot = np.linspace(0.0025, 0.0035, 1000)
 plt.plot(x_plot,park1b[1] +park1b[0]*x_plot, 'r-', label="Lineare Regression")
-#plt.xticks([2.6*1e-03, 2.8*1e-03, 3*1e-03, 3.2*1e-03,3.4 *1e-03],
-#           [2.6, 2.8, 3, 3.2, 3.4])
+plt.xticks([2.6*1e-03, 2.8*1e-03, 3*1e-03, 3.2*1e-03,3.4 *1e-03],
+           [2.6, 2.8, 3, 3.2, 3.4])
 plt.legend(loc="best")
 plt.xlabel(r'$1/T*10^{-3}/(mol\, s^2/(kg \,m^2) $')
 plt.ylabel(r' logarithmischer Dampfdruck $ln(p)$')
@@ -63,19 +63,19 @@ park1b=unp.uarray(park1b, errk1b)
 Lk1b= -park1b[0]* const.R
 
 L_a = const.R * T
-L_i = Lk1b-L_a
-print(L_i/const.e)
+L_i = Lk1b-L_a/const.e
+print(L_i)
 
-# Plot für größer 1 bar
+# Plot für größer 1 bar ############################################################################################
 
 parg1b, covmg1b = np.polyfit(K_g1bar, pinP_g1bar, deg=3, cov=True)
 err = np.sqrt(np.diag(covmg1b))
-print(parg1b)
+
+parg1b = unp.uarray(parg1b ,err)
 
 # Berechnung des Dampfvolumens
 
 VD = (const.R * K_g1bar)/(2*pinP_g1bar) + np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
-print(VD)
 
 # Berechnung des Wertes dpdT
 
@@ -84,7 +84,25 @@ dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
 # Berechnung der Verdampfungswärme
 
 Lg1b= dpdT*VD*K_g1bar
-print(Lg1b)
+
+
+parg1bL, covmg1b = np.polyfit(K_g1bar, noms(Lg1b), deg=1, cov=True)
+err = np.sqrt(np.diag(covmg1b))
+
+plt.legend(loc="best")
+plt.plot(K_g1bar, noms(Lg1b), 'kx', label='Messwerte')
+x_plot = np.linspace(360, 480, 1000)
+plt.plot(x_plot,parg1bL[0]*x_plot+parg1bL[1], 'r-', label="Lineare Regression")
+plt.yticks([35*1e03, 40*1e03, 45*1e03, 50*1e03, 55*1e03, 60*1e03],
+           [35, 40, 45, 50, 45, 50, 55, 60])
+plt.xlabel(r'$Temperatur T\:/\:K$')
+plt.ylabel(r'$Verdampfungswärme L\:/\:kJ$')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotg1b.pdf')
+plt.close()
+
+print(K_g1bar)
 # Parameter werden ins tex-Format geschrieben ########################################################################################################################################################
 
 with open('build/m_plotk1b.tex', 'w') as f: # es fehlen hier noch die Fehler
@@ -103,10 +121,7 @@ C_k1bar1, C_k1bar2, C_k1bar3 = np.array_split(C_k1bar, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur}\\
-    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
-    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
-    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} \\
+    \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$}\\
 
     \cmidrule(lr){1-2} \cmidrule(lr){3-4} \cmidrule(lr){5-6}
 '''
@@ -131,10 +146,7 @@ C_g1bar1, C_g1bar2, C_g1bar3 = np.array_split(C_g1bar, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur}\\
-    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
-    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} &
-    {in $\si{\milli\bar}$} & {in $\si{\celsius}$} \\
+    \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$}\\
 
     \cmidrule(lr){1-2} \cmidrule(lr{0,5em}){3-4} \cmidrule(lr{0,5em}){5-6}
 '''
