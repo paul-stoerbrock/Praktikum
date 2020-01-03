@@ -71,7 +71,7 @@ wobei $V_D$ mit der Gleichung
 bestimmt werden kann.
 Die Gleichung \eqref{eq:2} wird auch als Clausius-Clapeyronsche Gleichung bezeichnet.
 Die Bestimmung der allgemeinen Lösung der Differentialgleichung ist schwierig. \\
-Daher werden einige Näherungen für den Temperaturbereich $T \ll K.K.$ gemacht.
+Daher werden einige Näherungen für den Temperaturbereich $T \ll T_{kr}$ gemacht.
 Zum einen ist $V_F$ gegnüber $V_D$ vernachlässigbar.
 Zum anderen kann $V_D$ durch die ideale Gasgleichung beschrieben werden:
 \begin{align}
@@ -124,7 +124,7 @@ aufgebaut.
     \centering
     \includegraphics[width=0.75\linewidth]{./images/k1bar.jpg}
     \caption{Versuchsaufbau für Druckbereich $\leq \SI{1}{\bar}$ \cite{V203}}
-    \label{fig:1}
+    \label{fig:2}
 \end{figure}
 \newpage
 
@@ -150,7 +150,7 @@ Hier wird allerdings die Kühlschale weggelassen und die Heizwicklung durch eine
     \centering
     \includegraphics[width=\linewidth]{./images/g1bar.jpg}
     \caption{Versuchsaufbau für Druckbereich $\geq \SI{1}{\bar}$ \cite{V203}}
-    \label{fig:2}
+    \label{fig:3}
 \end{figure}
 
 \flushleft{Zuerst\;}\justifying wird der Heizkörper eingeschaltet. Anschließend wird die Temperatur für jeden halben $\SI{}{\bar}$ vom Thermometer
@@ -160,6 +160,7 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
 
 \section{Auswertung}
 
+\subsection{Druckbereich $p < \SI{1}{bar}$}
 \begin{table}
     \centering
     \input{table_k1bar.tex}
@@ -167,17 +168,20 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
     \label{tab:1}
 \end{table}
 
-\begin{align}
-    m = \text{\input{m_plotk1b.tex}} \label{eq:}\\
-    b = \text{\input{b_plotk1b.tex}} \label{eq:}
-\end{align}
-
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{./build/plotk1b.pdf}
     \caption{Plot für Druckbereich $\leq \SI{1}{\bar}$}
-    \label{fig:3}
+    \label{fig:4}
 \end{figure}
+
+\begin{align}
+    m &= \text{\input{m_plotk1b.tex}} \label{eq:}\\
+    b &= \text{\input{b_plotk1b.tex}} \label{eq:}\\
+    L &= \text{\input{Lk1b.tex}}
+\end{align}
+
+\subsection{Druckbereich $p > \SI{1}{bar}$}
 
 \begin{table}
     \centering
@@ -185,6 +189,18 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
     \caption{Temperatur für den Druckbereich $\geq \SI{1}{\bar}$}
     \label{tab:2}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./build/plotg1b.pdf}
+    \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme}
+    \label{fig:5}
+\end{figure}
+
+\begin{align}
+    m &= \text{\input{Lg1b_m.tex}}\\
+    b &= \text{\input{Lg1b_b.tex}}
+\end{align}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
