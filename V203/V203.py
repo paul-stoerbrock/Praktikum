@@ -183,7 +183,8 @@ C_k1bar1, C_k1bar2, C_k1bar3 = np.array_split(C_k1bar, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$}\\
+    \multicolumn{1}{c}{Druck\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:}\\
+    \multicolumn{1}{c}{$\si{\milli\bar}$} & \multicolumn{1}{c}{$\si{\celsius}$} & \multicolumn{1}{c}{$\si{\milli\bar}$} & \multicolumn{1}{c}{$\si{\celsius}$} & \multicolumn{1}{c}{$\si{\milli\bar}$} & \multicolumn{1}{c}{$\si{\celsius}$}\\
 
     \cmidrule(lr){1-2} \cmidrule(lr){3-4} \cmidrule(lr){5-6}
 '''
@@ -208,8 +209,8 @@ C_g1bar1, C_g1bar2, C_g1bar3 = np.array_split(C_g1bar, 3)
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$} & \multicolumn{1}{c}{Druck\:/\:$\si{\milli\bar}$} & \multicolumn{1}{c}{Temperatur\:/\:$\si{\celsius}$}\\
-
+    \multicolumn{1}{c}{Druck\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:} & \multicolumn{1}{c}{Druck\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:} & \multicolumn{1}{c}{Druck\:/\:} & \multicolumn{1}{c}{Temperatur\:/\:}\\
+    \multicolumn{1}{c}{$\si{\milli\bar}$} & \multicolumn{1}{c}{$\si{\celsius}$} & \multicolumn{1}{c}{$\si{\milli\bar}$} & \multicolumn{1}{c}{$\si{\celsius}$} & \multicolumn{1}{c}{$\si{\milli\bar}$} & \multicolumn{1}{c}{$\si{\celsius}$}\\
     \cmidrule(lr){1-2} \cmidrule(lr{0,5em}){3-4} \cmidrule(lr{0,5em}){5-6}
 '''
 table_footer = r'''    \bottomrule
