@@ -15,7 +15,7 @@
     
     \begin{abstract}
     \centering
-        \textbf{Ziel:Bestimmung der Verdampfungswärme von Wasser im Niedrig- und Hochdruckbereich} 
+        \textbf{Ziel:} Bestimmung der Verdampfungswärme von Wasser im Niedrig- und Hochdruckbereich
     \end{abstract}
 
 \newpage
@@ -61,12 +61,12 @@ beschrieben werden kann. \\
 Daher wird die molare Verdampfungswärme, welche die Verdampfung von einem Mol des Stoffes
 beschreibt, durch die Verdampfungswärme durch folgende Differentialgleichung beschrieben:
 \begin{align}
-    \left(V_D - V_F\right)dp=\frac{L}{T}dT \label{eq:2}.
+    \left(V_D - V_F\right)dp=\frac{L}{T} \; dT \label{eq:2}.
 \end{align}
 $V_D$ und $V_F$ sind dabei das Vollumen des Dampfes und der Flüssigkeit, T die Temperatur und p der Dampfdruck,
 wobei $V_D$ mit der Gleichung
 \begin{align}
-    \left(p+\frac{a}{V^2}\right)V=RT \qquad \text{mit} \qquad a=0,9 \;\frac{Joule\,m^3}{Mol^2} 
+    \left(p+\frac{a}{V^2}\right)V=RT \qquad \text{mit} \qquad a=0,9 \;\frac{Joule\,m^3}{Mol^2} \label{eq:3}
 \end{align}
 bestimmt werden kann.
 Die Gleichung \eqref{eq:2} wird auch als Clausius-Clapeyronsche Gleichung bezeichnet.
@@ -75,36 +75,39 @@ Daher werden einige Näherungen für den Temperaturbereich $T \ll T_{kr}$ gemach
 Zum einen ist $V_F$ gegnüber $V_D$ vernachlässigbar.
 Zum anderen kann $V_D$ durch die ideale Gasgleichung beschrieben werden:
 \begin{align}
-    V_D(p,T)=R \frac{T}{p} \label{eq:3}.
+    V_D(p,T)=R \; \frac{T}{p} \label{eq:4}.
 \end{align}
 Außerdem ist L konstant, wodurch sich für den Druck p die Formel
 \begin{align}
-    \ln(p)=- \frac{L}{R}\frac{1}{T}+const \label{eq:4}
+    \ln(p)=- \frac{L}{R} \frac{1}{T}+const \label{eq:5}
 \end{align}
 ergibt.
-% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Fehlerrechnung}\justifying
 Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
 verwendet:
-\begin{subequations} 
-\begin{align}
+\begin{subequations} \label{eq:6}
+\begin{align} 
 \intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
 }
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7a}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:6a}
 \intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
 }
-    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:7b},
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:6b},
 \intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
 }
-    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:7c}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:6c}
 \intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
 }
-    y &= m \cdot x + b \label{eq:7d} \\ 
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:7e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:7f}
+    y &= m \cdot x + b \label{eq:6d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:6e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:6f}
 \end{align}
 \end{subequations}
+\newpage
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -160,7 +163,10 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
 
 \section{Auswertung}
 
-\subsection{Druckbereich $p < \SI{1}{bar}$}
+\subsection{Druckbereich für $p < \SI{1}{bar}$}
+
+\flushleft{Für\;}\justifying den Bereich kleiner als ein Bar wurden Messwerte aufgenommen und in der folgenden Tabelle \ref{tab:1} aufgetragen:
+
 \begin{table}
     \centering
     \input{table_k1bar.tex}
@@ -168,20 +174,31 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
     \label{tab:1}
 \end{table}
 
+\flushleft{Mithlife\;}\justifying der Messwerte aus Tabelle \ref{tab:1} wird der folgende Graph \ref{fig:4} des logarithmischen Dampfdruckes und
+der reziproken absoluten Temperatur erstellt. Die logarithmische Temperatur $\log{T}$ und die reziproke absolute $\sfrac{1}{T}$ Temperatur werden 
+der Tabelle \ref{tab:1} entnommen.
+
+\flushleft{Die\;}\justifying dafür relevanten Parameter lauten wie folgt:
+
+\begin{subequations} \label{eq:7}
+\begin{align}
+    m &= \text{\input{m_plotk1b.tex}} \label{eq:7a}\\
+    b &= \text{\input{b_plotk1b.tex}} \label{eq:7b}\\
+    L &= \text{\input{Lk1b.tex}} \label{eq:7c}
+\end{align}
+\end{subequations}
+
+\flushleft{Die\;}\justifying Steigung der Ausgleichsgeraden wird dabei mit Formel \eqref{eq:6e} und die Verdampfungswärme mit Formel \eqref{eq:}
+bestimmt. 
+
+\subsection{Druckbereich für $p > \SI{1}{bar}$}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{./build/plotk1b.pdf}
     \caption{Plot für Druckbereich $\leq \SI{1}{\bar}$}
     \label{fig:4}
 \end{figure}
-
-\begin{align}
-    m &= \text{\input{m_plotk1b.tex}} \label{eq:}\\
-    b &= \text{\input{b_plotk1b.tex}} \label{eq:}\\
-    L &= \text{\input{Lk1b.tex}}
-\end{align}
-
-\subsection{Druckbereich $p > \SI{1}{bar}$}
 
 \begin{table}
     \centering
