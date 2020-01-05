@@ -53,7 +53,7 @@ plt.xticks([2.6*1e-03, 2.8*1e-03, 3*1e-03, 3.2*1e-03,3.4 *1e-03],
            [2.6, 2.8, 3, 3.2, 3.4])
 plt.legend(loc="best")
 plt.xlabel(r'$1/T*10^{-3}\:/\:(1/K) $')
-plt.ylabel(r' logarithmischer Dampfdruck $ln(p)$')
+plt.ylabel(r' logarithmischer Dampfdruck $\ln(p/(1\; Pa))$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotk1b.pdf')
