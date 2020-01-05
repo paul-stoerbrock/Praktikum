@@ -15,7 +15,7 @@
     
     \begin{abstract}
     \centering
-        \textbf{Ziel:Bestimmung der Verdampfungswärme von Wasser im Niedrig- und Hochdruckbereich} 
+        \textbf{Ziel:} Bestimmung der Verdampfungswärme von Wasser im Niedrig- und Hochdruckbereich
     \end{abstract}
 
 \newpage
@@ -61,12 +61,12 @@ beschrieben werden kann. \\
 Daher wird die molare Verdampfungswärme, welche die Verdampfung von einem Mol des Stoffes
 beschreibt, durch die Verdampfungswärme durch folgende Differentialgleichung beschrieben \cite{V203}:
 \begin{align}
-    \left(V_D - V_F\right)dp=\frac{L}{T}dT \label{eq:2}.
+    \left(V_D - V_F\right)dp=\frac{L}{T} \; dT \label{eq:2}.
 \end{align}
 $V_D$ und $V_F$ sind dabei das Vollumen des Dampfes und der Flüssigkeit, T die Temperatur und p der Dampfdruck,
 wobei $V_D$ mit der Gleichung \cite{V203}
 \begin{align}
-    \left(p+\frac{a}{V^2}\right)V=RT \qquad \text{mit} \qquad a=0,9 \;\frac{Joule\,m^3}{Mol^2} 
+    \left(p+\frac{a}{V^2}\right)V=RT \qquad \text{mit} \qquad a=0,9 \;\frac{Joule\,m^3}{Mol^2} \label{eq:3}
 \end{align}
 bestimmt werden kann.
 Die Gleichung \eqref{eq:2} wird auch als Clausius-Clapeyronsche Gleichung bezeichnet.
@@ -75,36 +75,39 @@ Daher werden einige Näherungen für den Temperaturbereich $T \ll T_{kr}$ gemach
 Zum einen ist $V_F$ gegnüber $V_D$ vernachlässigbar.
 Zum anderen kann $V_D$ durch die ideale Gasgleichung beschrieben werden \cite{V203}:
 \begin{align}
-    V_D(p,T)=R \frac{T}{p} \label{eq:3}.
+    V_D(p,T)=R \; \frac{T}{p} \label{eq:4}.
 \end{align}
 Außerdem ist L konstant, wodurch sich für den Druck p die Formel \cite{V203}
 \begin{align}
-    \ln(p)=- \frac{L}{R}\frac{1}{T}+const \label{eq:4}
+    \ln(p)=- \frac{L}{R} \frac{1}{T}+const \label{eq:5}
 \end{align}
 ergibt.
-% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Fehlerrechnung}\justifying
 Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
 verwendet:
-\begin{subequations} 
-\begin{align}
+\begin{subequations} \label{eq:6}
+\begin{align} 
 \intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
 }
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:7a}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:6a}
 \intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
 }
-    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:7b},
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:6b},
 \intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
 }
-    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:7c}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:6c}
 \intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
 }
-    y &= m \cdot x + b \label{eq:7d} \\ 
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:7e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:7f}
+    y &= m \cdot x + b \label{eq:6d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:6e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:6f}
 \end{align}
 \end{subequations}
+\newpage
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -117,7 +120,7 @@ verwendet:
 \flushleft{Benötigt\;}\justifying werden: \textit{Eine Wasserstrahlpumpe, ein Absperrhahn, eine Woulffsche Flasche, ein Belüftungsventil, ein Drosselventil, ein Manometer, 
 einen Rückflußkühler, zwei Flüssigkeitsthermometer, einen Mehrhalskolben, eine regelbare Heizhaube und destilliertes und entgastes Wasser.}
 
-\flushleft{Für\;}\justifying die Temperatur- und Druckermittelung unter $\SI{1}{\bar}$ wird der Versuch, wie in Abbildung \ref{fig:1} dargestellt,
+\flushleft{Für\;}\justifying die Temperatur- und Druckermittelung unter $\SI{1}{\bar}$ wird der Versuch, wie in Abbildung \ref{fig:2} dargestellt,
 aufgebaut.
 
 \begin{figure}
@@ -143,7 +146,7 @@ von $\SI{1}{\bar}$ ($\SI{1000}{\milli\bar}$) herrscht. Abschließend wird die He
 \flushleft{Benötigt\;}\justifying werden: \textit{Ein Flüssigkeitsthermometer, ein Drucksensor, ein analoges Manometer, ein U-Rohr, ein Metallzylinder, eine Heizwicklung 
 (hier ein elektrischer Heizkörper).}
 
-\flushleft{Für\;}\justifying die Temperatur- und Druckermittelung über $\SI{1}{\bar}$, wird der Versuch ähnlich zur Abbildung \ref{fig:2} aufgebaut. 
+\flushleft{Für\;}\justifying die Temperatur- und Druckermittelung über $\SI{1}{\bar}$, wird der Versuch ähnlich zur Abbildung \ref{fig:3} aufgebaut. 
 Hier wird allerdings die Kühlschale weggelassen und die Heizwicklung durch einen, unter den Zylinder befindlichen, Heizkörper ersetzt. 
 
 \begin{figure}[H]
@@ -160,13 +163,36 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
 
 \section{Auswertung}
 
-\subsection{Druckbereich $p < \SI{1}{bar}$}
-\begin{table}[H]
+\subsection{Druckbereich für $p < \SI{1}{bar}$}
+
+\flushleft{Die\;}\justifying für den Bereich kleiner als ein Bar aufgenommenen Messwerte sind in der folgenden Tabelle \ref{tab:1} aufgetragen:
+
+\begin{table}
     \centering
     \input{table_k1bar.tex}
     \caption{Temperatur für den Druckbereich $\leq \SI{1}{\bar}$}
     \label{tab:1}
 \end{table}
+
+\flushleft{Mithlife\;}\justifying der Messwerte aus Tabelle \ref{tab:1} wird der folgende Graph \ref{fig:4} des logarithmischen Dampfdruckes und
+der reziproken absoluten Temperatur erstellt. Die logarithmische Temperatur $\log{T}$ und die reziproke absolute $\sfrac{1}{T} \cdot 10^{-3}$ 
+Temperatur werden der Tabelle \ref{tab:1} entnommen.
+\newpage
+
+\flushleft{Die\;}\justifying für den Graphen \ref{fig:4} relevanten Parameter lauten wie folgt:
+
+\begin{subequations} \label{eq:7}
+\begin{align}
+    m &= \text{\input{m_plotk1b.tex}} \label{eq:7a}\\
+    b &= \text{\input{b_plotk1b.tex}} \label{eq:7b}\\
+    L &= \text{\input{Lk1b.tex}} \label{eq:7c}
+\end{align}
+\end{subequations}
+
+\flushleft{Die\;}\justifying Steigung der Ausgleichsgeraden wird dabei mit Formel \eqref{eq:6e} bestimmt und die Verdampfungswärme $L$ wird dem 
+folgenden Graphen \ref{fig:4} entnommen. Die Ausgleichsgerade wird hier mit dem Python Befehl polyfit() \cite{uncertainties} berechnet. Aus dem
+Befehl polyfit wird gemäß der Formel \eqref{eq:1} der negative Parameter mit der Gaskonstante $R$ multipliziert um auf die Verdampfungswärme $L$ 
+zu schließen.
 
 \begin{figure}[H]
     \centering
@@ -175,15 +201,9 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
     \label{fig:4}
 \end{figure}
 
-\begin{align}
-    m &= \text{\input{m_plotk1b.tex}} \label{eq:}\\
-    b &= \text{\input{b_plotk1b.tex}} \label{eq:}\\
-    L &= \text{\input{Lk1b.tex}}
-\end{align}
+\subsection{Druckbereich für $p > \SI{1}{bar}$}
 
-\subsection{Druckbereich $p > \SI{1}{bar}$}\justifying
- 
-Die Tabelle für den Versuch im Druckbereich $p> 1 bar$ sieht wie folgt aus:
+Die Tabelle für den Versuch im Druckbereich $p> \SI{1}{\bar} $ sieht wie folgt aus:
 
 \begin{table}[H]
     \centering
@@ -205,7 +225,7 @@ mit den Fitparametern
     c &= \text{\input{parg1b_c.tex}} \quad \text{und}\\
     d &= \text{\input{parg1b_d.tex}} .
 \end{align}
-Die Fitparameter werden mit der Funktion Polyfit von Numpy \cite{Numpy} berechnet.
+Die Fitparameter werden mit der Funktion Polyfit von Numpy \cite{numpy} berechnet.
 Mit diesem Polynom wird durch Ableiten und einsetzen der Mittelwert Quotient $\sfrac{dp}{dT}$ bestimmt:
 \begin{align} 
     \frac{dp}{dT}&= 3\cdot a T^2+2\cdot b T+c\\
@@ -235,6 +255,9 @@ und gemittelt:
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}
+
+\flushleft{Der\;}\justifying Graph \ref{fig:4} stellt ein lineares Verhältniss zwischen dem Logarithmus des Drucks $\left( \log{p} \right)$ und 
+der absoluten Temperatur $\left( \sfrac{1}{T} \cdot 10^{-3} \right)$.
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
