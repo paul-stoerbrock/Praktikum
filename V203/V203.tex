@@ -231,7 +231,7 @@ Mit diesem Polynom wird durch Ableiten und einsetzen der Mittelwert Quotient $\s
     \frac{dp}{dT}&= 3\cdot a T^2+2\cdot b T+c\\
     \overline{\frac{dp}{dT}}&= \text{\input{dpdT.tex}}
 \end{align}
-Für die Berechnung des Dampfvolumens wird die Gleichung \eqref{3} in eine 
+Für die Berechnung des Dampfvolumens wird die Gleichung \eqref{eq:3} in eine 
 quadratische Gleichung für das Volumen V umgeschrieben, mittels pq-Gleichung gelöst
 und gemittelt:
 \begin{align}
@@ -240,12 +240,22 @@ und gemittelt:
     V_{D,+}&= \text{\input{VD.tex}} 
 \end{align}
 
+\flushleft{Anschließend\;}\justifying wird die Verdampfungswärme gegen die Temperatur in einem Graphen aufgetragen:
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{./build/plotg1b.pdf}
     \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme}
     \label{fig:5}
 \end{figure}
+
+\flushleft{Die\;}\justifying Werte für die Dampfungswärme werden über die Formel \eqref{eq:2}  
+\begin{align}
+    L= V_D \cdot \frac{dp}{dT}\cdot T \qquad (V_F = 0)
+\end{align}
+sowie den berechneten Parametern \eqref{eq:}, \eqref{eq:} und den Temperaturwerten aus Tabelle \ref{tab:2}.
+
+\flushleft{Die\;}\justifying, mit polyfit \cite{numpy} berechneten,  Parameter der Ausgleichsgeraden lauten wie folgt:
 
 \begin{align}
     m &= \text{\input{Lg1b_m.tex}}\\
