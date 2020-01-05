@@ -175,14 +175,12 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
 \end{table}
 
 \flushleft{Mithlife\;}\justifying der Messwerte aus Tabelle \ref{tab:1} wird der folgende Graph \ref{fig:4} des logarithmischen Dampfdruckes und
-der reziproken absoluten Temperatur erstellt. Die logarithmische Temperatur $\log{T}$ und die reziproke absolute $\sfrac{1}{T} \cdot 10^{-3}$ 
+der reziproken absoluten Temperatur erstellt. Der logarithmische Druck $\log{p}$ und die reziproke absolute $\sfrac{1}{T}$ 
 Temperatur werden mit den entsprechenden Werten aus Tabelle \ref{tab:1} bestimmt.
 \newpage
 
-\flushleft{Die\;}\justifying Steigung der Ausgleichsgeraden wird dabei mit Formel \eqref{eq:6e} bestimmt und die Verdampfungswärme $L$ wird dem 
-folgenden Graphen \ref{fig:4} entnommen. Die Ausgleichsgerade wird hier mit dem Python Befehl polyfit() \cite{uncertainties} berechnet. Aus dem
-Befehl polyfit wird gemäß der Formel \eqref{eq:1} der negative Parameter mit der Gaskonstante $R$ multipliziert um auf die Verdampfungswärme $L$ 
-zu schließen.
+\flushleft{Die\;}\justifying Parameter $m$ und $b$ werden mit dem Python Befehl polyfit bestimmt. Die Verdampfungswärme $L$ lässt sich mit dem 
+negativen Parameter $m$ und der Gaskonstante $R$ berechnen. Demnach ergibt sich $L = -m \cdot R$.
 
 \flushleft{Die\;}\justifying für den Graphen \ref{fig:4} relevanten Parameter lauten wie folgt:
 
