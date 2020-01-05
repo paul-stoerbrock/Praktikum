@@ -226,29 +226,33 @@ Die Tabelle für den Versuch im Druckbereich $p> \SI{1}{\bar} $ sieht wie folgt 
 3.Grades für den Druck in Abhängigkeit der Temperatur bestimmt
 
 \begin{align}
-    p(T)= aT^3 +bT^2 +cT +d
+    p(T)= aT^3 +bT^2 +cT +d \label{eq:9}
 \end{align}
 mit den Fitparametern
+\begin{subequations} \label{eq:10}
 \begin{align}
-    a &= \text{\input{parg1b_a.tex}},\\
-    b &= \text{\input{parg1b_b.tex}},\\
-    c &= \text{\input{parg1b_c.tex}} \quad \text{und}\\
-    d &= \text{\input{parg1b_d.tex}} .
+    a &= \text{\input{parg1b_a.tex}}, \label{eq:10a}\\
+    b &= \text{\input{parg1b_b.tex}}, \label{eq:10b}\\
+    c &= \text{\input{parg1b_c.tex}} \quad \text{und} \label{eq:10c}\\
+    d &= \text{\input{parg1b_d.tex}}. \label{eq:10d}
 \end{align}
+\end{subequations}
 Die Fitparameter werden mit der Funktion polyfit() von Numpy \cite{numpy} berechnet.
 Mit diesem Polynom wird durch Ableiten und einsetzen der Mittelwert Quotient $\sfrac{dp}{dT}$ bestimmt:
 \begin{align} 
-    \frac{dp}{dT}&= 3\cdot a T^2+2\cdot b T+c\\
-    \overline{\frac{dp}{dT}}&= \text{\input{dpdT.tex}}
+    \frac{dp}{dT}&= 3\cdot a T^2+2\cdot b T+c \label{eq:11}\\
+    \overline{\frac{dp}{dT}}&= \text{\input{dpdT.tex}} \label{eq:12}
 \end{align}
 Für die Berechnung des Dampfvolumens wird die Gleichung \eqref{eq:3} in eine 
 quadratische Gleichung für das Volumen V umgeschrieben, mittels pq-Gleichung gelöst
 und gemittelt:
+\begin{subequations} \label{eq:13}
 \begin{align}
-    V_D&^2-\frac{RT}{p}\cdot V_D+\frac{a}{p}=0\\
-    V_D&= \frac{RT}{2p} \pm \sqrt{\frac{R^2T^2}{4p^2} -\frac{a}{p} }\\
-    V_{D,+}&= \text{\input{VD.tex}} 
+    V_D&^2-\frac{RT}{p}\cdot V_D+\frac{a}{p}=0 \label{eq:13a}\\
+    V_D&= \frac{RT}{2p} \pm \sqrt{\frac{R^2T^2}{4p^2} -\frac{a}{p} } \label{eq:13b}\\
+    V_{D,+}&= \text{\input{VD.tex}} \label{eq:13c}
 \end{align}
+\end{subequations}
 
 \flushleft{Anschließend\;}\justifying wird die Verdampfungswärme gegen die Temperatur in einem Graphen aufgetragen:
 
@@ -261,16 +265,18 @@ und gemittelt:
 
 \flushleft{Die\;}\justifying Werte für die Dampfungswärme werden über die Formel \eqref{eq:2}  
 \begin{align}
-    L= V_D \cdot \frac{dp}{dT}\cdot T \qquad (V_F = 0)
+    L= V_D \cdot \frac{dp}{dT}\cdot T \qquad (V_F = 0) \label{eq:14}
 \end{align}
-sowie den berechneten Parametern \eqref{eq:}, \eqref{eq:} und den Temperaturwerten aus Tabelle \ref{tab:2}.
+sowie den berechneten Parametern \eqref{eq:12}, \eqref{eq:13c} und den Temperaturwerten aus Tabelle \ref{tab:2}.
 
 \flushleft{Die\;}\justifying, mit polyfit \cite{numpy} berechneten,  Parameter der Ausgleichsgeraden lauten wie folgt:
 
+\begin{subequations} \label{eq:15}
 \begin{align}
-    m &= \text{\input{Lg1b_m.tex}}\\
-    b &= \text{\input{Lg1b_b.tex}}
+    m &= \text{\input{Lg1b_m.tex}} \label{eq:15a}\\
+    b &= \text{\input{Lg1b_b.tex}} \label{eq:15b}
 \end{align}
+\end{subequations}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
