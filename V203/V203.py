@@ -71,8 +71,16 @@ L_i = (Lk1b-L_a)*0.01036
 parg1b, covmg1b = np.polyfit(K_g1bar, pinP_g1bar, deg=3, cov=True)
 err = np.sqrt(np.diag(covmg1b))
 
-parg1b = unp.uarray(parg1b ,err)
+# Testplot, um zu sehen ob Kurve gut ist
 
+plt.plot(K_g1bar, pinP_g1bar, 'kx', label='Messwerte')
+x_plot = np.linspace(90, 400, 1000)
+plt.plot(x_plot ,parg1b[0]*x_plot**3+parg1b[1]*x_plot**2+parg1b[2]*x_plot*x_plot+parg1b[3] ,'r-' , label="Lineare Regression")
+plt.savefig('build/test.pdf')
+plt.close()
+
+
+parg1b = unp.uarray(parg1b ,err)
 # Berechnung des Wertes dpdT
 
 dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
