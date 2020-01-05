@@ -53,18 +53,18 @@ verdampfen zu lassen. Mit der Verdampfungswärme wird ebenfalls der Verlauf der 
 Die Verdampfungswärme bildet damit eine charakteristische Eigenschaft von verschiedenen Stoffen,
 welche von der Temperatur abhängt.\\
 Zur Berechnung der Verdampfungswärme werden mikroskopische Vorgänge betrachtet. Bei diesen
-wird festgestellt, dass der Druck des Dampfes nicht durch die allgemeine Gasgleichung
+wird festgestellt, dass der Druck des Dampfes nicht durch die allgemeine Gasgleichung \cite{V203}
 \begin{align}
     pV=RT \label{eq:1}
 \end{align}
 beschrieben werden kann. \\
 Daher wird die molare Verdampfungswärme, welche die Verdampfung von einem Mol des Stoffes
-beschreibt, durch die Verdampfungswärme durch folgende Differentialgleichung beschrieben:
+beschreibt, durch die Verdampfungswärme durch folgende Differentialgleichung beschrieben \cite{V203}:
 \begin{align}
     \left(V_D - V_F\right)dp=\frac{L}{T}dT \label{eq:2}.
 \end{align}
 $V_D$ und $V_F$ sind dabei das Vollumen des Dampfes und der Flüssigkeit, T die Temperatur und p der Dampfdruck,
-wobei $V_D$ mit der Gleichung
+wobei $V_D$ mit der Gleichung \cite{V203}
 \begin{align}
     \left(p+\frac{a}{V^2}\right)V=RT \qquad \text{mit} \qquad a=0,9 \;\frac{Joule\,m^3}{Mol^2} 
 \end{align}
@@ -73,11 +73,11 @@ Die Gleichung \eqref{eq:2} wird auch als Clausius-Clapeyronsche Gleichung bezeic
 Die Bestimmung der allgemeinen Lösung der Differentialgleichung ist schwierig. \\
 Daher werden einige Näherungen für den Temperaturbereich $T \ll T_{kr}$ gemacht.
 Zum einen ist $V_F$ gegnüber $V_D$ vernachlässigbar.
-Zum anderen kann $V_D$ durch die ideale Gasgleichung beschrieben werden:
+Zum anderen kann $V_D$ durch die ideale Gasgleichung beschrieben werden \cite{V203}:
 \begin{align}
     V_D(p,T)=R \frac{T}{p} \label{eq:3}.
 \end{align}
-Außerdem ist L konstant, wodurch sich für den Druck p die Formel
+Außerdem ist L konstant, wodurch sich für den Druck p die Formel \cite{V203}
 \begin{align}
     \ln(p)=- \frac{L}{R}\frac{1}{T}+const \label{eq:4}
 \end{align}
@@ -161,7 +161,7 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
 \section{Auswertung}
 
 \subsection{Druckbereich $p < \SI{1}{bar}$}
-\begin{table}
+\begin{table}[H]
     \centering
     \input{table_k1bar.tex}
     \caption{Temperatur für den Druckbereich $\leq \SI{1}{\bar}$}
@@ -181,14 +181,44 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
     L &= \text{\input{Lk1b.tex}}
 \end{align}
 
-\subsection{Druckbereich $p > \SI{1}{bar}$}
+\subsection{Druckbereich $p > \SI{1}{bar}$}\justifying
+ 
+Die Tabelle für den Versuch im Druckbereich $p> 1 bar$ sieht wie folgt aus:
 
-\begin{table}
+\begin{table}[H]
     \centering
     \input{table_g1bar.tex}
     \caption{Temperatur für den Druckbereich $\geq \SI{1}{\bar}$}
     \label{tab:2}
 \end{table}
+
+\flushleft{Mithilfe\;}\justifying der Messwerte aus der Tabelle \ref{tab:2} wird ein Polynom
+3.Grades für den Druck in Abhängigkeit der Temperatur bestimmt
+
+\begin{align}
+    p(T)= aT^3 +bT^2 +cT +d
+\end{align}
+mit den Fitparametern
+\begin{align}
+    a &= \text{\input{parg1b_a.tex}},\\
+    b &= \text{\input{parg1b_b.tex}},\\
+    c &= \text{\input{parg1b_c.tex}} \quad \text{und}\\
+    d &= \text{\input{parg1b_d.tex}} .
+\end{align}
+Die Fitparameter werden mit der Funktion Polyfit von Numpy \cite{Numpy} berechnet.
+Mit diesem Polynom wird durch Ableiten und einsetzen der Mittelwert Quotient $\sfrac{dp}{dT}$ bestimmt:
+\begin{align} 
+    \frac{dp}{dT}&= 3\cdot a T^2+2\cdot b T+c\\
+    \overline{\frac{dp}{dT}}&= \text{\input{dpdT.tex}}
+\end{align}
+Für die Berechnung des Dampfvolumens wird die Gleichung \eqref{3} in eine 
+quadratische Gleichung für das Volumen V umgeschrieben, mittels pq-Gleichung gelöst
+und gemittelt:
+\begin{align}
+    V_D&^2-\frac{RT}{p}\cdot V_D+\frac{a}{p}=0\\
+    V_D&= \frac{RT}{2p} \pm \sqrt{\frac{R^2T^2}{4p^2} -\frac{a}{p} }\\
+    V_{D,+}&= \text{\input{VD.tex}} 
+\end{align}
 
 \begin{figure}[H]
     \centering
