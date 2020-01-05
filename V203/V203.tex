@@ -175,11 +175,11 @@ abgelesen. Dies wird wiederholt, bis das Manometer $\SI{15}{\bar}$ anzeigt. Absc
 \end{table}
 
 \flushleft{Mithlife\;}\justifying der Messwerte aus Tabelle \ref{tab:1} wird der folgende Graph \ref{fig:4} des logarithmischen Dampfdruckes und
-der reziproken absoluten Temperatur erstellt. Die logarithmische Temperatur $\log{T}$ und die reziproke absolute $\sfrac{1}{T}$ Temperatur werden 
-der Tabelle \ref{tab:1} entnommen.
+der reziproken absoluten Temperatur erstellt. Die logarithmische Temperatur $\log{T}$ und die reziproke absolute $\sfrac{1}{T} \cdot 10^{-3}$ 
+Temperatur werden der Tabelle \ref{tab:1} entnommen.
 \newpage
 
-\flushleft{Die\;}\justifying dafür relevanten Parameter lauten wie folgt:
+\flushleft{Die\;}\justifying für den Graphen \ref{fig:4} relevanten Parameter lauten wie folgt:
 
 \begin{subequations} \label{eq:7}
 \begin{align}
@@ -189,8 +189,10 @@ der Tabelle \ref{tab:1} entnommen.
 \end{align}
 \end{subequations}
 
-\flushleft{Die\;}\justifying Steigung der Ausgleichsgeraden wird dabei mit Formel \eqref{eq:6e} und die Verdampfungswärme mit Formel \eqref{eq:2}
-bestimmt. 
+\flushleft{Die\;}\justifying Steigung der Ausgleichsgeraden wird dabei mit Formel \eqref{eq:6e} bestimmt und die Verdampfungswärme $L$ wird dem 
+folgenden Graphen \ref{fig:4} entnommen. Die Ausgleichsgerade wird hier mit dem Python Befehl polyfit() \cite{uncertainties} berechnet. Aus dem
+Befehl polyfit wird gemäß der Formel \eqref{eq:1} der negative Parameter mit der Gaskonstante $R$ multipliziert um auf die Verdampfungswärme $L$ 
+zu schließen.
 
 \begin{figure}[H]
     \centering
@@ -224,7 +226,8 @@ bestimmt.
 
 \section{Diskussion}
 
-\flushleft{Der\;}\justifying Graph \ref{fig:4}
+\flushleft{Der\;}\justifying Graph \ref{fig:4} stellt ein lineares Verhältniss zwischen dem Logarithmus des Drucks $\left( \log{p} \right)$ und 
+der absoluten Temperatur $\left( \sfrac{1}{T} \cdot 10^{-3} \right)$.
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
