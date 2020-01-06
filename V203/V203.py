@@ -62,7 +62,7 @@ plt.close()
 park1b=unp.uarray(park1b, errk1b)
 Lk1b= -park1b[0]* const.R
 
-Fehler_Lk1b = (Lk1b.n - 40.7)/40.7
+Fehler_Lk1b = abs((Lk1b.n*1e-03 - 40.7)/40.7)
 
 L_a = const.R * T
 L_i = (Lk1b-L_a)*0.01036
@@ -157,10 +157,10 @@ with open('build/b_plotk1b.tex', 'w') as f:
 with open('build/Lk1b.tex', 'w') as f: 
   f.write(make_SI(Lk1b*1e-03 ,r'\kilo\joule\mol\tothe{-1}', figures=1))
 
-#tex file of Lk1b ##################################################################
+#tex file of Fehler_Lk1b ##################################################################
 
 with open('build/Fehler_Lk1b.tex', 'w') as f: 
-  f.write(make_SI(Fehler_Lk1b*1e-03 ,r'', figures=1))
+  f.write(make_SI(Fehler_Lk1b ,r'', figures=2))
 
 #tex file of L_a ###########################################################################
 
