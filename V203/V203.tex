@@ -133,7 +133,7 @@ aufgebaut.
 
 \flushleft{Zu\;}\justifying Beginn muss der Mehrhalskolben evakuiert werden. Dazu wird das Belüftungsventil geschlossen und der Absperrhahn und
 das Drosselventil geöffnet. Anschließend wird die Wasserstrahlpumpe eingeschaltet. Nun wird der interne Druck des Aufbaus mit dem Manometer
-beobachtet bis der Druck auf ca. $\SI{60}{\milli\bar}$ gesunken ist. Ist dies eingetreten, wird das Drosselventil geschlossen, die Heizhaube
+beobachtet bis der Druck auf ca. $\SI{60}{\milli\bar}$ gesunken ist. Ist dies eingetreten, werden Drosselventil und Absperrhahn geschlossen, die Heizhaube
 eingeschaltet und Wasser durch den Rückflußkühler geleitet. Gleichzeitig wird außerdem die Wasserstrahlpumpe abgeschaltet. Mit dem rechten
 Thermometer wird nun die Temperatur des Gases gemessen. Hier misst das Gas eine Zimmertemperatur von $\SI{21}{\celsius}$. Es wird für jeden 
 weiteren ganzzahligen Grad der entsprechende Druck dem Manometer entnommen. Dieser Prozess wird wiederholt, bis in dem Mehrhalskolben der Druck 
@@ -250,8 +250,8 @@ und gemittelt:
 \begin{align}
     V_D&^2-\frac{RT}{p}\cdot V_D+\frac{a}{p}=0 \label{eq:13a}\\
     V_D&= \frac{RT}{2p} \pm \sqrt{\frac{R^2T^2}{4p^2} -\frac{a}{p} } \label{eq:13b}\\
-    V_{D,+}&= \text{\input{VDplus.tex}} \label{eq:13c}\\
-    V_{D,-}&= \text{\input{VDminus.tex}} \label{eq:13d}
+    \overline{V_{D,+}}&= \text{\input{VDplus.tex}} \label{eq:13c}\\
+    \overline{V_{D,-}}&= \text{\input{VDminus.tex}} \label{eq:13d}
 \end{align}
 \end{subequations}
 
@@ -279,12 +279,12 @@ und gemittelt:
 \end{align}
 sowie den berechneten Parametern \eqref{eq:12}, \eqref{eq:13c}, \eqref{eq:13d} und den Temperaturwerten aus Tabelle \ref{tab:2}.
 
-\flushleft{Die\;}\justifying, mit polyfit \cite{numpy} berechneten,  Parameter der Ausgleichsgeraden lauten wie folgt:
+\flushleft{Die\;}\justifying Parameter der Ausgleichsgeraden, welche mit polyfit \cite{numpy} berechneten werden, lauten wie folgt:
 
 \begin{subequations} \label{eq:15}
 \begin{align}
     m_{+} &= \text{\input{Lg1b_mplus.tex}}  &m_{-} &=\text{\input{Lg1b_mminus.tex}}  \label{eq:15a}\\
-    b_{+} &= \text{\input{Lg1b_bplus.tex}} &b_{+} &= \text{\input{Lg1b_bminus.tex}}  \label{eq:15b}
+    b_{+} &= \text{\input{Lg1b_bplus.tex}} &b_{-} &= \text{\input{Lg1b_bminus.tex}}  \label{eq:15b}
 \end{align}
 \end{subequations}
 \newpage
@@ -296,10 +296,20 @@ sowie den berechneten Parametern \eqref{eq:12}, \eqref{eq:13c}, \eqref{eq:13d} u
 \flushleft{Der\;}\justifying Graph \ref{fig:4} stellt ein lineares Verhältniss zwischen dem Logarithmus des Drucks $\left( \log{p} \right)$ und 
 der absoluten Temperatur $\left( \sfrac{1}{T} \cdot 10^{-3} \right)$. Die Messwerte liegen zum Großteil auf der Ausgleichsgeraden, wobei die letzten 
 zehn Werte nach oben abweichen. Der Literaturwert der Verdampfungswärme liegt bei $\SI{40.7}{\kilo\joule\per\mole}$ \cite{Verdampfungswärme}, welcher
-für die experimentell bestimmte Verdampfungswärme des Graphen \ref{fig:4} einen relativer Fehler von
+für die experimentell bestimmte Verdampfungswärme des Graphen \ref{fig:4} einen relativen Fehler von
 \begin{equation}
-    \frac{L_{Exp.} - L_{Lit.}}{L_{Lit.}} = \text{\input{Fehler_Lk1b.tex}} \label{eq:16}
+    \frac{\abs{L_{Exp.} - L_{Lit.}}}{L_{Lit.}} = \text{\input{Fehler_Lk1b.tex}} \label{eq:16}
 \end{equation}
+ergibt. Der relative Fehler \eqref{eq:16} ist gering, was einen systematischen Fehler vermuten ließe. Die Ungenauigkeit beim Ablesen des Thermometers
+könnte die Abweichung erklären, besonders, da beide Messungen für Temperatur und Druck von einer Person aufgenommen wurden. Da für den Druckbereich
+$< \SI{1}{\bar}$ jedem $°C$ ein Druck zugeordnet wird, könnten beim Ablesen Abweichungen entstehen.
+
+\flushleft{Mithilfe\;}\justifying der Verdampfungswärme $L$ \eqref{eq:7c} und der vorgegebenen äußeren Verdampfungswärme $L_a$ \eqref{eq:8a} lässt
+sich die innere Verdampfungswärme $L_i$ \eqref{eq:8b} bestimmen. Der Wert für $L_i$ von \input{L_i.tex} macht durchaus Sinn, da $L_i$ die Energie ist,
+die die molekulare Anziehungskraft der einzelnen Wassermoleküle überwindet. 
+
+
+
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
