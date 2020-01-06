@@ -83,6 +83,7 @@ plt.close()
 
 
 parg1b = unp.uarray(parg1b ,err)
+
 # Berechnung des Wertes dpdT
 
 dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
@@ -91,7 +92,7 @@ dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
 
 VDplus = (const.R * K_g1bar)/(2*pinP_g1bar) + np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
 VDminus = (const.R * K_g1bar)/(2*pinP_g1bar) - np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
-
+print(VDminus)
 # Berechnung der Verdampfungswärme
 
 # Für VDplus
@@ -128,8 +129,8 @@ err = np.sqrt(np.diag(covmg1b))
 plt.plot(K_g1bar, noms(Lg1b), 'kx', label='Messwerte')
 x_plot = np.linspace(360, 480, 1000)
 plt.plot(x_plot ,parg1bL[0]*x_plot+parg1bL[1] ,'r-' , label="Lineare Regression")
-#plt.yticks([35*1e03, 40*1e03, 45*1e03, 50*1e03, 55*1e03, 60*1e03],
-#           [35, 40, 45, 50, 45, 50, 55, 60])
+plt.yticks([4*1e03, 3*1e03, 2*1e03, 1*1e03,0],
+           [4, 3, 2, 1,0])
 plt.legend(loc="best")
 plt.xlabel(r'Temperatur $T\:/\:K$')
 plt.ylabel(r'Verdampfungswärme $L\:/\:kJ$')
@@ -170,7 +171,7 @@ with open('build/L_a.tex', 'w') as f:
 #tex file of L_i #####################################################################
 
 with open('build/L_i.tex', 'w') as f: 
-  f.write(make_SI(L_i*1e-03 ,r'\electronvolt', figures=2))
+  f.write(make_SI(L_i ,r'\electronvolt', figures=2))
 
 #tex file of factor a ###########################################################################
 
@@ -205,7 +206,7 @@ with open('build/VDplus.tex', 'w') as f:
 #tex file of VDminus ###########################################################################
 
 with open('build/VDminus.tex', 'w') as f: 
-  f.write(make_SI(np.mean(VDminus) ,r'\meter\tothe{3}', figures=2))
+  f.write(make_SI(np.mean(VDminus)*1e03 ,r'\meter\tothe{3}',exp='e-03' ,figures=2))
 
 #tex file of m L_g1bplus ###########################################################################
 
