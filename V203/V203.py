@@ -52,7 +52,7 @@ plt.plot(x_plot,park1b[1] +park1b[0]*x_plot, 'r-', label="Lineare Regression")
 plt.xticks([2.6*1e-03, 2.8*1e-03, 3*1e-03, 3.2*1e-03,3.4 *1e-03],
            [2.6, 2.8, 3, 3.2, 3.4])
 plt.legend(loc="best")
-plt.xlabel(r'$1/T*10^{-3}\:/\:(1/K) $')
+plt.xlabel(r'$1/T\cdot 10^{-3}\:/\:(1/K) $')
 plt.ylabel(r' logarithmischer Dampfdruck $\ln(p/(1\; Pa))$')
 plt.grid()
 plt.tight_layout
@@ -87,12 +87,13 @@ dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
 
 # Berechnung des Dampfvolumens
 
-VD = (const.R * K_g1bar)/(2*pinP_g1bar) + np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
-
+VDplus = (const.R * K_g1bar)/(2*pinP_g1bar) + np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
+VDminus = (const.R * K_g1bar)/(2*pinP_g1bar) - np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
 
 # Berechnung der Verdampfungswärme
 
-Lg1b = dpdT*VD*K_g1bar
+# Für VDplus
+Lg1b = dpdT*VDplus*K_g1bar
 
 
 parg1bL, covmg1b = np.polyfit(K_g1bar, noms(Lg1b), deg=1, cov=True)
@@ -109,10 +110,33 @@ plt.xlabel(r'Temperatur $T\:/\:K$')
 plt.ylabel(r'Verdampfungswärme $L\:/\:kJ$')
 plt.grid()
 plt.tight_layout
-plt.savefig('build/plotg1b.pdf')
+plt.savefig('build/plotg1bplus.pdf')
 plt.close()
 
-parg1bL = unp.uarray(parg1bL ,err)
+parg1bLplus = unp.uarray(parg1bL ,err)
+
+# Für VDminus
+Lg1b = dpdT*VDminus*K_g1bar
+
+
+parg1bL, covmg1bL = np.polyfit(K_g1bar, noms(Lg1b), deg=1, cov=True)
+err = np.sqrt(np.diag(covmg1b))
+
+
+plt.plot(K_g1bar, noms(Lg1b), 'kx', label='Messwerte')
+x_plot = np.linspace(360, 480, 1000)
+plt.plot(x_plot ,parg1bL[0]*x_plot+parg1bL[1] ,'r-' , label="Lineare Regression")
+#plt.yticks([35*1e03, 40*1e03, 45*1e03, 50*1e03, 55*1e03, 60*1e03],
+#           [35, 40, 45, 50, 45, 50, 55, 60])
+plt.legend(loc="best")
+plt.xlabel(r'Temperatur $T\:/\:K$')
+plt.ylabel(r'Verdampfungswärme $L\:/\:kJ$')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotg1bminus.pdf')
+plt.close()
+
+parg1bLminus = unp.uarray(parg1bL ,err)
 
 # Parameter werden ins tex-Format geschrieben ########################################################################################################################################################
 
@@ -166,20 +190,35 @@ with open('build/parg1b_d.tex', 'w') as f:
 with open('build/dpdT.tex', 'w') as f: 
   f.write(make_SI(np.mean(dpdT) ,r'', figures=2))
 
-#tex file of VD ###########################################################################
+#tex file of VDplus ###########################################################################
 
-with open('build/VD.tex', 'w') as f: 
-  f.write(make_SI(np.mean(VD) ,r'\meter\tothe{3}', figures=2))
+with open('build/VDplus.tex', 'w') as f: 
+  f.write(make_SI(np.mean(VDplus) ,r'\meter\tothe{3}', figures=2))
 
-#tex file of m L_g1b  ###########################################################################
+#tex file of VDminus ###########################################################################
 
-with open('build/Lg1b_m.tex', 'w') as f: 
-  f.write(make_SI(parg1bL[0] ,r'', figures=2))
+with open('build/VDminus.tex', 'w') as f: 
+  f.write(make_SI(np.mean(VDminus) ,r'\meter\tothe{3}', figures=2))
 
-#tex file of b L_g1b  ###########################################################################
+#tex file of m L_g1bplus ###########################################################################
 
-with open('build/Lg1b_b.tex', 'w') as f: 
-  f.write(make_SI(parg1bL[1]*1e-05 ,r'',exp='e05' ,figures=1))
+with open('build/Lg1b_mplus.tex', 'w') as f: 
+  f.write(make_SI(parg1bLplus[0] ,r'', figures=2))
+
+#tex file of b L_g1bplus  ###########################################################################
+
+with open('build/Lg1b_bplus.tex', 'w') as f: 
+  f.write(make_SI(parg1bLplus[1]*1e-05 ,r'',exp='e05' ,figures=1))
+
+#tex file of m L_g1bminus ###########################################################################
+
+with open('build/Lg1b_mminus.tex', 'w') as f: 
+  f.write(make_SI(parg1bLminus[0] ,r'', figures=2))
+
+#tex file of b L_g1bminus  ###########################################################################
+
+with open('build/Lg1b_bminus.tex', 'w') as f: 
+  f.write(make_SI(parg1bLminus[1]*1e-05 ,r'',exp='e05' ,figures=1))
 
 # Tabellen ########################################################################################################################################################
 
