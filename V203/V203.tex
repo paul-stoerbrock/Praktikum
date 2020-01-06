@@ -250,17 +250,27 @@ und gemittelt:
 \begin{align}
     V_D&^2-\frac{RT}{p}\cdot V_D+\frac{a}{p}=0 \label{eq:13a}\\
     V_D&= \frac{RT}{2p} \pm \sqrt{\frac{R^2T^2}{4p^2} -\frac{a}{p} } \label{eq:13b}\\
-    V_{D,+}&= \text{\input{VD.tex}} \label{eq:13c}
+    V_{D,+}&= \text{\input{VDplus.tex}} \label{eq:13c}\\
+    V_{D,-}&= \text{\input{VDminus.tex}} \label{eq:13d}
 \end{align}
 \end{subequations}
 
 \flushleft{Anschließend\;}\justifying wird die Verdampfungswärme gegen die Temperatur in einem Graphen aufgetragen:
 
 \begin{figure}[H]
+\begin{subfigure}{0.495\linewidth}
     \centering
-    \includegraphics[width=\textwidth]{./build/plotg1b.pdf}
-    \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme}
-    \label{fig:5}
+    \includegraphics[width=\textwidth]{./build/plotg1bplus.pdf}
+    \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme mit $V_{D,+}$}
+    \label{fig:5a}
+\end{subfigure}
+\begin{subfigure}{0.495\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{./build/plotg1bminus.pdf}
+    \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme mit $V_{D,-}$}
+    \label{fig:5b}
+\end{subfigure}
+\caption{Plots für die Temperaturabhängigkeit\label{fig:5}}
 \end{figure}
 
 \flushleft{Die\;}\justifying Werte für die Dampfungswärme werden über die Formel \eqref{eq:2}  
@@ -273,8 +283,8 @@ sowie den berechneten Parametern \eqref{eq:12}, \eqref{eq:13c} und den Temperatu
 
 \begin{subequations} \label{eq:15}
 \begin{align}
-    m &= \text{\input{Lg1b_m.tex}} \label{eq:15a}\\
-    b &= \text{\input{Lg1b_b.tex}} \label{eq:15b}
+    m_{+} &= \text{\input{Lg1b_mplus.tex}}  &m_{-} &=\text{\input{Lg1b_mminus.tex}}  \label{eq:15a}\\
+    b_{+} &= \text{\input{Lg1b_bplus.tex}} &b_{+} &= \text{\input{Lg1b_bminus.tex}}  \label{eq:15b}
 \end{align}
 \end{subequations}
 
