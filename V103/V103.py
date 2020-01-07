@@ -47,9 +47,11 @@ xAl_dopohne[0:19] *= 1e-02
 l_Al = 0.600
 l_Cu = 0.592
 d_Al =np.array([10.00, 10.00, 10.10, 10.00, 10.10, 10.10, 10.10, 10.00, 10.25, 10.00])*1e-03
+d_Al = ufloat(np.mean(d_Al),stats.sem(d_Al))
 d_Cu =np.array([10.02, 10.05, 10.06, 10.03, 10.04, 10.09, 10.04, 10.05, 10.08, 10.05])*1e-03
+d_Cu = ufloat(np.mean(d_Cu),stats.sem(d_Cu))
 b_Cu =np.array([10.06, 10.02, 10.05, 10.01, 10.03, 10.03, 10.04, 10.02, 10.04, 10.03])*1e-03
-
+b_Cu = ufloat(np.mean(b_Cu),stats.sem(b_Cu))
 # Massen der Körper
 m_aufhaeng = 19 *1e-03
 m_schraube = 22.1*1e-03
@@ -96,11 +98,11 @@ D_Al_dopDiff = (DAl_dopohne - DAl_dopmit ) *1e-03
 
 # Für Cu
 
-I_Cu = (np.mean(b_Cu)**3*np.mean(d_Cu) )/12
+I_Cu = (b_Cu**3*d_Cu )/12
 
 # Für Al
 
-I_Al = (np.mean(d_Al)**4*np.pi)/64
+I_Al = (d_Al**4*np.pi)/64
 
 
 # Erstellung der Plots ###############################################################################################################
@@ -109,11 +111,12 @@ I_Al = (np.mean(d_Al)**4*np.pi)/64
 
 # Für Cuein
 
-slopeCuein, interceptCuein, r_valueCuein, p_valueCuein, std_errCuein = stats.linregress(0.5 * xCu_einohne[:19]**2 -xCu_einohne[:19]**3/3 , D_Cu_einDiff[:19])
+par, covm = np.polyfit(0.5 * xCu_einohne[:19]**2 -xCu_einohne[:19]**3/3 , D_Cu_einDiff[:19], deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
 
 plt.plot(0.5 * xCu_einohne[0:19]**2 -xCu_einohne[0:19]**3/3 ,D_Cu_einDiff[:19] , 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
-plt.plot(x_plot,interceptCuein+slopeCuein*x_plot, 'k-', label="Lineare Regression")
+plt.plot(x_plot,par[1] +par[0] *x_plot, 'k-', label="Lineare Regression")
 plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
@@ -125,17 +128,19 @@ plt.tight_layout
 plt.savefig('build/plotCuein.pdf')
 plt.close()
 
+parCuein=unp.uarray(par, err)
+
 #Elastizitätsmodul für Cuein
 
-E_Cuein = ((m_aufhaeng+m_schraube+m_Cuein1+m_Cuein2)*const.g)/(2*I_Cu*slopeCuein)
+E_Cuein = ((m_aufhaeng+m_schraube+m_Cuein1+m_Cuein2)*const.g)/(2*I_Cu*parCuein[0])
 
 # Plot für Aluminium einseitig belastet ####################################################################################################################
-
-slopeAlein, interceptAlein, r_valueAlein, p_valueAlein, std_errAlein = stats.linregress(0.5 * xAl_einohne[:19]**2 -xAl_einohne[:19]**3/3 , D_Al_einDiff[:19])
+par, covm = np.polyfit(0.5 * xAl_einohne[:19]**2 -xAl_einohne[:19]**3/3 , D_Al_einDiff[:19], deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
 
 plt.plot(0.5 * xAl_einohne[:19]**2 -xAl_einohne[:19]**3/3 ,D_Al_einDiff[:19] , 'bx', label="Messdaten")
 x_plot = np.linspace(0, 0.1, 1000)
-plt.plot(x_plot,interceptAlein+slopeAlein*x_plot, 'k-', label="Lineare Regression")
+plt.plot(x_plot,par[1] +par[0] *x_plot, 'k-', label="Lineare Regression")
 plt.yticks( [0 ,1e-03,2e-03, 3e-03, 4e-03, 5e-03],
             [0, 1, 2, 3, 4, 5]
 )
@@ -147,19 +152,22 @@ plt.tight_layout
 plt.savefig('build/plotAlein.pdf')
 plt.close()
 
+parAlein=unp.uarray(par, err)
+
 #Elastizitätsmodul für Alein
 
-E_Alein = ((m_schraube+m_aufhaeng+m_Alein1)*const.g)/(2*I_Al*slopeAlein)
+E_Alein = ((m_schraube+m_aufhaeng+m_Alein1)*const.g)/(2*I_Al* parAlein[0] )
 
 # Plot für Kupfer doppelseitig belastet ##########################################################################################################################################
-
-slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stats.linregress(x_dopl(xCu_dopohne[7:14], 0.55), D_Cu_dopDiff[7:14])
+par, covm = np.polyfit(x_dopl(xCu_dopohne[7:14], 0.55), D_Cu_dopDiff[7:14], deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
+#slopeCudopl, interceptCudopl, r_valueCudopl, p_valueCudopl, std_errCudopl = stats.linregress(x_dopl(xCu_dopohne[7:14], 0.55), D_Cu_dopDiff[7:14])
 
 #linke Seite
 
 plt.plot(x_dopl( xCu_dopohne[7:14], 0.55), D_Cu_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte linke Seite
 x_plotl = np.linspace(0, 0.21, 1000)
-plt.plot(x_plotl,interceptCudopl+slopeCudopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
+plt.plot(x_plotl,par[1]+par[0]*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03, 2.5e-03],
            [0, 0.5, 1, 1.5, 2, 2.5])
 plt.legend(loc="best")
@@ -170,17 +178,19 @@ plt.tight_layout
 plt.savefig('build/plotCudopl.pdf')
 plt.close()
 
+parCudopl=unp.uarray(par, err)
+
 # Elastizitätsmodul für Cudop links
 
-E_Cudopl = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))/(48*I_Cu*slopeCudopl)
+E_Cudopl = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))/(48*I_Cu*parCudopl[0] )
 
 #rechte Seite
-
-slopeCudopr, interceptCudopr, r_valueCudopr, p_valueCudopr, std_errCudopr = stats.linregress(x_dopr(xCu_dopohne[0:7],0.55) , D_Cu_dopDiff[0:7])
+par, covm = np.polyfit(x_dopr(xCu_dopohne[0:7],0.55) , D_Cu_dopDiff[0:7], deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
 
 plt.plot(x_dopr(xCu_dopohne[0:7], 0.55) ,D_Cu_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.21, 1000)
-plt.plot(x_plotr,interceptCudopr+slopeCudopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
+plt.plot(x_plotr,par[1]+par[0]*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03, 2.5e-03],
            [0, 0.5, 1, 1.5, 2, 2.5])
 plt.legend(loc="best")
@@ -191,19 +201,21 @@ plt.tight_layout
 plt.savefig('build/plotCudopr.pdf')
 plt.close()
 
+parCudopr=unp.uarray(par, err)
+
 # Elastizitätsmodul für Cudop rechts
 
-E_Cudopr = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))/(48*I_Cu*slopeCudopr)
+E_Cudopr = (const.g*(m_schraube+m_aufhaeng+m_Cudop1+m_Cudop2+m_Cudop3+m_Cudop4))/(48*I_Cu*parCudopr[0])
 
 # Plot für Aluminium doppelseitig belastet ##########################################################################################################################################
-
-slopeAldopl, interceptAldopl, r_valueAldopl, p_valueAldopl, std_errAldopl = stats.linregress(x_dopl(xAl_dopohne[7:14], 0.55), D_Al_dopDiff[7:14])
+par, covm = np.polyfit(x_dopl(xAl_dopohne[7:14], 0.55), D_Al_dopDiff[7:14], deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
 
 #linke Seite
 
 plt.plot(x_dopl( xAl_dopohne[7:14], 0.55), D_Al_dopDiff[7:14] , 'bx', label="Messdaten") # Messpunkte linke Seite
 x_plotl = np.linspace(0, 0.22, 1000)
-plt.plot(x_plotl,interceptAldopl+slopeAldopl*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
+plt.plot(x_plotl,par[1]+par[0]*x_plotl, 'k-', label=r"Lineare Regression $0 \leq x \leq \frac{L}{2} $")
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
            [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
@@ -214,18 +226,21 @@ plt.tight_layout
 plt.savefig('build/plotAldopl.pdf')
 plt.close()
 
+parAldopl=unp.uarray(par, err)
+
 # Elastizitätsmodul für Aldop links
 
-E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopl)
+E_Aldopl = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*parAldopl[0] )
 
 
 #rechte Seite
-
-slopeAldopr, interceptAldopr, r_valueAldopr, p_valueAldopr, std_errAldopr = stats.linregress(x_dopr(xAl_dopohne[0:7],0.55) , D_Al_dopDiff[0:7])
+par, covm = np.polyfit(x_dopr(xAl_dopohne[0:7],0.55) , D_Al_dopDiff[0:7], deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
+#slopeAldopr, interceptAldopr, r_valueAldopr, p_valueAldopr, std_errAldopr = stats.linregress(x_dopr(xAl_dopohne[0:7],0.55) , D_Al_dopDiff[0:7])
 
 plt.plot(x_dopr(xAl_dopohne[0:7], 0.55) ,D_Al_dopDiff[0:7] , 'bx', label="Messdaten") # Messpunkte rechte Seite
 x_plotr = np.linspace(0, 0.22, 1000)
-plt.plot(x_plotr,interceptAldopr+slopeAldopr*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
+plt.plot(x_plotr,par[1]+par[0]*x_plotr, 'k-', label=r"Lineare Regression $\frac{L}{2} \leq x \leq L $")
 plt.yticks([0, 5*1e-4, 1e-03, 1.5e-03, 2e-03],
            [0, 0.5, 1, 1.5, 2])
 plt.legend(loc="best")
@@ -236,9 +251,11 @@ plt.tight_layout
 plt.savefig('build/plotAldopr.pdf')
 plt.close()
 
+parAldopr=unp.uarray(par, err)
+
 # Elastizitätsmodul für Aldop rechts
 
-E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*slopeAldopr)
+E_Aldopr = (const.g*(m_schraube+m_aufhaeng+m_Aldop1+m_Aldop2+m_Aldop3))/(48*I_Al*parAldopr[0] )
 
 # Tex-Dateien ######################################################################################################
 
@@ -255,17 +272,17 @@ with open('build/l_Al.tex', 'w') as f:
 # tex file for Durchmesser des Aluminiumstabes
 
 with open('build/d_Al.tex', 'w') as f:
-  f.write(make_SI(np.mean(d_Al)*1e+03,r'\centi\meter', figures=1))
+  f.write(make_SI(d_Al*1e+03,r'\centi\meter', figures=1))
 
 # tex file for Breite des Kupferstabes
 
 with open('build/b_Cu.tex', 'w') as f:
-  f.write(make_SI(np.mean(b_Cu)*1e+03,r'\centi\meter', figures=1))
+  f.write(make_SI(b_Cu*1e+03,r'\centi\meter', figures=1))
 
 # tex file for Dicke des Kupferstabes
 
 with open('build/d_Cu.tex', 'w') as f:
-  f.write(make_SI(np.mean(d_Cu)*1e+03,r'\centi\meter', figures=1))
+  f.write(make_SI(d_Cu*1e+03,r'\centi\meter', figures=1))
 
 # tex file for m_aufhaeng
 
@@ -377,66 +394,66 @@ with open('build/E_Aldopr.tex', 'w') as f:
 # tex file for m from linear regression Cuein
 
 with open('build/m_PlotCuein.tex', 'w') as f:
-  f.write(make_SI(slopeCuein*1e02,r'', exp='e-02',figures=2))
+  f.write(make_SI(parCuein[0]*1e02,r'', exp='e-02',figures=2))
 
 # tex file for b from linear regression Cuein
 
 with open('build/b_PlotCuein.tex', 'w') as f:
-  f.write(make_SI(interceptCuein*1e05,r'', exp='e-05',figures=2))
+  f.write(make_SI(parCuein[1]*1e05,r'', exp='e-05',figures=2))
 
 # Alein ---------------------------------------------------------------------------------------------------------------------------------------
 
 # tex file for m from linear regression Alein
 
 with open('build/m_PlotAlein.tex', 'w') as f:
-  f.write(make_SI(slopeAlein*1e02,r'', exp='e-02',figures=2))
+  f.write(make_SI(parAlein[0]*1e02,r'', exp='e-02',figures=2))
 
 # tex file for b from linear regression Alein
 
 with open('build/b_PlotAlein.tex', 'w') as f:
-  f.write(make_SI(interceptAlein*1e04,r'', exp='e-04',figures=2))
+  f.write(make_SI(parAlein[1]*1e04,r'', exp='e-04',figures=2))
 
 # Cudop ---------------------------------------------------------------------------------------------------------------------------------------
 
 with open('build/m_PlotCudopl.tex', 'w') as f:
-  f.write(make_SI(slopeCudopl*1e02,r'', exp='e-02',figures=2))
+  f.write(make_SI(parCudopl[0]*1e02,r'', exp='e-02',figures=2))
 
-# tex file for b from linear regression Aldopl
+# tex file for b from linear regression Cudopl
 
 with open('build/b_PlotCudopl.tex', 'w') as f:
-  f.write(make_SI(interceptCudopl*1e05,r'', exp='e-05',figures=2))
+  f.write(make_SI(parCudopl[1]*1e05,r'', exp='e-05',figures=2))
 
-# tex file for m from linear regression Aldopr
+# tex file for m from linear regression Cudopr
 
 with open('build/m_PlotCudopr.tex', 'w') as f:
-  f.write(make_SI(slopeCudopr*1e02,r'', exp='e-02',figures=2))
+  f.write(make_SI(parCudopr[0] *1e02,r'', exp='e-02',figures=2))
 
-# tex file for b from linear regression Aldopr
+# tex file for b from linear regression Cudopr
 
 with open('build/b_PlotCudopr.tex', 'w') as f:
-  f.write(make_SI(interceptCudopr*1e05,r'', exp='e-05',figures=2))
+  f.write(make_SI(parCudopr[1] *1e05,r'', exp='e-05',figures=2))
 
 # Aldop ---------------------------------------------------------------------------------------------------------------------------------------
 
 # tex file for m from linear regression Aldopl
 
 with open('build/m_PlotAldopl.tex', 'w') as f:
-  f.write(make_SI(slopeAldopl*1e03,r'', exp='e-03',figures=3))
+  f.write(make_SI(parAldopl[0] *1e03,r'', exp='e-03',figures=3))
 
 # tex file for b from linear regression Aldopl
 
 with open('build/b_PlotAldopl.tex', 'w') as f:
-  f.write(make_SI(interceptAldopl*1e05,r'', exp='e-05',figures=2))
+  f.write(make_SI(parAldopl[1] *1e05,r'', exp='e-05',figures=2))
 
 # tex file for m from linear regression Aldopr
 
 with open('build/m_PlotAldopr.tex', 'w') as f:
-  f.write(make_SI(slopeAldopr*1e03,r'',exp='e-03' ,figures=2))
+  f.write(make_SI(parAldopr[0] *1e03,r'',exp='e-03' ,figures=2))
 
 # tex file for b from linear regression Aldopr
 
 with open('build/b_PlotAldopr.tex', 'w') as f:
-  f.write(make_SI(interceptAldopr*1e05,r'', exp='e-05',figures=2))
+  f.write(make_SI(parAldopr[1] *1e05,r'', exp='e-05',figures=2))
 
 # Tabellen ###############################################################################################################################
 
@@ -557,7 +574,4 @@ with open('build/Al_dop.tex', 'w') as g:
 
 
 # Testprints ###############################################################################################################################
-
-print(interceptAldopl)
-print(interceptAldopr)
 
