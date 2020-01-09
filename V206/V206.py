@@ -25,8 +25,7 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
-def T(t, A, B, C):
-    return (A*t**2+B*t+C) 
+
 
 
 # Definition der Messdaten ##############################################################################################
@@ -59,20 +58,14 @@ plt.close()
 
 parT1=unp.uarray(par, err)
 
-
+print(T2_K)
 # Plot für T2(t) #############################################################################################
-par, popcov = curve_fit(
-    T,
-    t_s,
-    T2_K,
-    sigma=None,
-    absolute_sigma=True,
-    p0=[]   
-)
+par, covm = np.polyfit(t_s, T2_K, deg=2, cov=True)
+err = np.sqrt(np.diag(covm))
 
 plt.plot(t_s, T2_K,'kx', label='Messwerte')
 x_plot = np.linspace(0, 1800, 5000)
-plt.plot(x_plot, T(x_plot, *par), 'r-', label="Lineare Regression")
+plt.plot(x_plot, par[0]*x_plot**2+par[1]*x_plot+par[2], 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel(r'Zeit $t/s$')
 plt.ylabel(r'Temperatur $T/K$')
