@@ -25,18 +25,24 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
-
+def N(kappa, pb, pa, rho, dmdt):
+    return 1/(kappa-1)*(pb*(pa/pb)**(1/kappa)-pa)*1/rho * dmdt
 
 
 # Definition der Messdaten ##############################################################################################
 
 t, pa, T2, pb, T1, P = np.genfromtxt('data.txt', unpack=True)
 
-t_s =t*60
-pa_Pa =pa*1e05+1e05
+t_s = t*60
+pa_Pa = pa*1e05+1e05
 pb_Pa = pb*1e05+1e05
 T2_K = const.convert_temperature(T2, 'c', 'K')
 T1_K = const.convert_temperature(T1, 'c', 'K')
+
+P_mean= ufloat(np.mean(P), stats.sem(P))
+
+kappa = 1.14
+rho = 5.51 
 
 
 # Erstellung der Plots ######################################################################################################
@@ -58,7 +64,13 @@ plt.close()
 
 parT1=unp.uarray(par, err)
 
-print(T2_K)
+dT1dt = np.array([ 2*parT1[0]*29+parT1[1], 2*parT1[0]*25+parT1[1], 2*parT1[0]*15+parT1[1],  2*parT1[0]*4+parT1[1]])
+
+# Berechnung der aufgenommenen Wärmemenge von T2
+
+dQ1dt=dT1dt * 750*2
+
+
 # Plot für T2(t) #############################################################################################
 par, covm = np.polyfit(t_s, T2_K, deg=2, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -76,3 +88,57 @@ plt.close()
 
 parT2=unp.uarray(par, err)
 
+# Berechnung dT2/dt anhand von 4 Werten
+
+dT2dt = np.array([ 2*parT2[0]*29+parT2[1], 2*parT2[0]*25+parT2[1],2*parT2[0]*15+parT2[1],  2*parT2[0]*4+parT2[1]])
+
+# Berechnung der abgegebenen Wärmemenge von T2
+
+dQ2dt=dT2dt * 750*2
+
+
+# Plot zur Berechnung von L #####################################################################################
+
+par, covm = np.polyfit(1/(T2_K), np.log(pa_Pa), deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
+
+plt.plot(1/T2_K, np.log(pa_Pa), 'kx', label='Messwerte')
+x_plot = np.linspace(0.0033, 0.0037, 1000)
+plt.plot(x_plot ,par[0]*x_plot+par[1], 'r-', label="Lineare Regression")
+plt.xticks([3.3 *1e-03, 3.4e-03, 3.5e-03, 3.6e-03, 3.7e-03],
+           [ 3.3, 3.4, 3.5, 3.6, 3.7])
+plt.legend(loc="best")
+plt.xlabel(r'$1/T\cdot 10^{-3}\:/\:(1/K) $')
+plt.ylabel(r' logarithmischer Dampfdruck $\ln(p/(1\; Pa))$')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotL.pdf')
+plt.close()
+
+parL=unp.uarray(par, err)
+L= -parL[0]* const.R
+
+# weiter Berechnungen ############################################################################################
+
+# Berechnung der reellen Güteziffer
+
+nu_real = dQ1dt/P_mean
+
+print(nu_real)
+
+# Berecnung der idealen Güteziffer
+
+nu_id = np.array([T1_K[29]/(T1_K[29] -T2_K[29] ), T1_K[25]/(T1_K[25] -T2_K[25] ), T1_K[15]/(T1_K[15] -T2_K[15] ), T1_K[4]/(T1_K[4] -T2_K[4] )])
+
+print(nu_id)
+
+# Berechnung des Massendurchsatzes
+
+dmdt = 1/L * dQ2dt
+
+
+# Berechnung der mechanischen Leistung des Kompressors
+
+N = np.array([N(kappa, pb_Pa[29], pa_Pa[29], rho, dmdt[0]) ,N(kappa, pb_Pa[25], pa_Pa[25], rho, dmdt[1]) ,N(kappa, pb_Pa[15], pa_Pa[15], rho, dmdt[2]) ,N(kappa, pb_Pa[4], pa_Pa[4], rho, dmdt[3]) ])
+
+print(N)
