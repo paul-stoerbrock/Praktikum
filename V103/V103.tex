@@ -12,17 +12,14 @@
     \date{Durchführung: 10.12.2019, Abgabe: 17.12.2019\vspace{-4ex}}
 \maketitle
 \center{\Large Versuchsgruppe: \textbf{42}}
-    
-    \begin{abstract}
-    \centering
-        \textbf{Ziel:} Bestimmug des Elastizitätsmoduls zweier Stäbe durch eine Einzel- und Doppelbiegung
-    \end{abstract}
 
 \newpage
 \tableofcontents
 \newpage
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ziel}
+
 
 \section{Theorie}\label{sec:1}\justifying
 Ein Körper kann eine Volumenänderung erfahren, wenn an dessen Oberfläche eine Kraft angelegt
@@ -34,17 +31,19 @@ Gewichtskraft über eine zusätzliche Masse wirkt. Dabei wird ein Teil des Stabe
 ein zweiter gestaucht und ein dritter Teil bleibt gleich. Der Stab stellt dabei aufgrund der inneren
 Kräfte und der elastischen Eigenschaften eine konstante Auslenkung ein.
 Bei kleinen Veränderungen
-besteht ein linearer Zusammenhang zwischen der Spannung $\sigma$  und der Deformation $\sfrac{\delta x}{\Delta x} $ \cite{V103}
+besteht ein linearer Zusammenhang zwischen der Spannung $\sigma$  und der Deformation $\sfrac{\delta x}{\Delta x} $.
+Dabei stimmen die Drehmomente der äußeren Kraft mit dem Drehmoment der inneren Zug- und Druckspannungen
+überein. Dadurch wird die Spannung $\sigma(y)$ zu \cite{V103}
 \begin{align}
     \sigma (y)=E \frac{\delta x}{\Delta x} \label{eq:1}.
 \end{align}
 Diese Kraft wird auch das Hooksche Gesetz genannt. Der Faktor E in der Formel wird
 der Elastizitätmodul genannt und stellt eine Materialkonstante dar.
-Das durch die Biegung beschriebene Drehmoment führt zu folgender Momentengleichung \cite{V103}
+Das durch die Biegung beschriebene Drehmoment führt nach einer Kleinwinkelnäherung zu folgender Momentengleichung \cite{V103}
 \begin{align}
     E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) .\label{eq:2}
 \end{align}
-Dabei ist D die Durchbiegung des Stabes, L die Länge des Stabes ab dem Ende der Fixierung und \cite{V103}
+Dabei ist D die Durchbiegung des Stabes, L die Länge des Stabes ab dem Ende der Fixierung, $F(L-x)$ der Betrag des Drehmoments und \cite{V103}
 \begin{align}
     I := \int_Q y^2 \, \symup{d}q(y) \label{eq:3}
 \end{align}
@@ -53,7 +52,7 @@ Aus Gleichung \eqref{eq:2} folgt für die Durchbiegung D \cite{V103}
 \begin{align}
     D(x)=\frac{F}{2E\,I}\left(L  x^2-\frac{x^3}{3}\right) \label{eq:4} (\text{für} \, 0\leq x \leq L).
 \end{align}
-Eine weitere mögliche Biegungsart stellt die Doppelbiegung dar. Bei dieser wird
+Eine weitere mögliche Biegungsart stellt die doppelt fixierte Biegung dar. Bei dieser wird
 der Stab an beiden Enden aufgelegt und die Gewichte werden an die Stabmitte 
 gehangen. \\
 Für die Beschreibung der Durchbiegung wird in diesem Fall zwischen den Bereichen
@@ -314,7 +313,7 @@ wie folgt schreiben:
 
 \flushleft{Wird\;}\justifying für $\overline{d}$ der Wert aus \eqref{eq:19b} eingesetzt, beträgt das Flächenträgheitsmoment des Aluminiumstabs:
 \begin{equation}
-I_{Cu} = \text{\input{I_Al.tex}} \label{eq:22}
+I_{Al} = \text{\input{I_Al.tex}} \label{eq:22}
 \end{equation}
 
 \flushleft{Die\;}\justifying angehängte Masse der Einzelbiegung zur Bestimmug des Elastizitätmoduls beträgt:
@@ -388,10 +387,10 @@ werden mit den Formeln \eqref{eq:7d} für $m$ und \eqref{eq:7e} für $b$ bestimm
 Die für die lineare Regression relevanten Parameter aus Abbildung \ref{fig:4a} und \ref{fig:4b} lauten dementsprechend:
 \begin{subequations}\label{eq:27}
 \begin{align}
-    m = \text{\input{m_PlotAldopl.tex}} \qquad \text{und} \qquad
-    b = \text{\input{b_PlotAldopl.tex}} \text{\;für 4(a)}\label{eq:27a}\\
-    m = \text{\input{m_PlotAldopr.tex}} \qquad \text{und} \qquad
-    b = \text{\input{b_PlotAldopr.tex}} \text{\;für 4(a)}\label{eq:27b}
+    m &= \text{\input{m_PlotAldopl.tex}} \qquad &\text{und} \qquad
+    &b = \text{\input{b_PlotAldopl.tex}} \text{\;für 4(a)}\label{eq:27a}\\
+    m &= \text{\input{m_PlotAldopr.tex}} \qquad &\text{und} \qquad
+    &b = \text{\input{b_PlotAldopr.tex}} \text{\;für 4(b)}\label{eq:27b}
 \end{align}
 \end{subequations}
 
