@@ -124,13 +124,11 @@ L= -parL[0]* const.R
 
 nu_real = dQ1dt/P_mean
 
-print(nu_real)
 
 # Berecnung der idealen Güteziffer
 
 nu_id = np.array([T1_K[29]/(T1_K[29] -T2_K[29] ), T1_K[25]/(T1_K[25] -T2_K[25] ), T1_K[15]/(T1_K[15] -T2_K[15] ), T1_K[4]/(T1_K[4] -T2_K[4] )])
 
-print(nu_id)
 
 # Berechnung des Massendurchsatzes
 
@@ -141,4 +139,45 @@ dmdt = 1/L * dQ2dt
 
 N = np.array([N(kappa, pb_Pa[29], pa_Pa[29], rho, dmdt[0]) ,N(kappa, pb_Pa[25], pa_Pa[25], rho, dmdt[1]) ,N(kappa, pb_Pa[15], pa_Pa[15], rho, dmdt[2]) ,N(kappa, pb_Pa[4], pa_Pa[4], rho, dmdt[3]) ])
 
-print(N)
+
+# Tex-Dateien ###################################################################################################################
+
+# tex file of parT1_m
+
+with open('build/parT1_m.tex', 'w') as f: 
+  f.write(make_SI(parT1[0],r'' ,figures=1))
+
+# tex file of parT1_b
+
+with open('build/parT1_b.tex', 'w') as f: 
+  f.write(make_SI(parT1[1],r'' ,figures=1))
+
+# tex file of parT2_m
+
+with open('build/parT2_m.tex', 'w') as f: 
+  f.write(make_SI(parT1[0],r'' ,figures=1))
+
+# tex file of parT1_b
+
+with open('build/parT2_b.tex', 'w') as f: 
+  f.write(make_SI(parT1[1],r'' ,figures=1))
+
+
+# tex file of parL_m
+
+with open('build/parL_m.tex', 'w') as f: 
+  f.write(make_SI(parL[0],r'' ,figures=1))
+
+# tex file of L ########################################################################################
+
+with open('build/parL_b.tex', 'w') as f: 
+  f.write(make_SI(parL[1],r'' ,figures=1))
+
+
+# tex file of L ########################################################################################
+
+with open('build/L.tex', 'w') as f: 
+  f.write(make_SI(L,r'\kilo\joule\mol\tothe{-1}' ,figures=1))
+
+
+
