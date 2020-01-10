@@ -21,10 +21,78 @@
 % Zielsetzung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ziel}\justifying
+Der effiziente Transport von Wärme von einem kälteren  zu einem wärmeren Reservoir wird in der alltäglichen Welt immer wieder
+zum Beispiel in Form eines Kühlschranks eingesetzt. Eine bedonders günstige Variante des Wärmetransports
+stellt dabei die Wärmepumpe dar. Daher wird die Funktionsweise einer Wärmepumpe als Beispiel
+für einen Wärmetransport in einem Experiment näher betrachtet.
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Theorie}\justifying
+Im Normalfall wird Wärmeenergie in einem abgeschlossenen System vom wärmeren zum kälteren Reservoir transportiert. Um diesen Prozess 
+umzukehren, muss von außen Energie in Form von zum Beispiel mechanischer Arbeit zugeführt werden.
+Die Wärmepumpe stellt ein Experiment dar, welches diese Leistung erbringt. \\
+Zur Beschreibung der Wärmepumpe wird eine neue Größe eingeführt, die Güteziffer $\nu$.
+Sie beschreibt den Quotienten von transportierter Wärmemenge $Q_1$ und aufgewendeter
+Arbeit A. Unter der Forderung, dass die Wärmeübertragung reversibel sei, lässt
+sich die Güteziffer $\nu$ beschreiben als \cite{V206}
+\begin{align}
+    \nu _{id} = \frac{Q_1}{A}=\frac{T_1}{T_1-T_2}.
+\end{align}
+Diese Güteziffer beschreibt allerdings nur eine ideale Wärmepumpe. Die
+Güteziffer einer realen Wärmepumpe ist begrenzt durch \cite{V206}
+\begin{align}
+    \nu _{real} < \frac{T_1}{T_1-T_2}.
+\end{align}
+Aus diesen Formeln  lässt sich erkennen, dass der Arbeitsaufwand mit geringer 
+Temperaturdifferenz kleiner wird.\\
+Bei einer realen Wärmepumpe wird ein reales Gas als Transportmedium verwndet, welches
+beim Verdampfen eine endotherme Reaktion und beim Kondensieren eine exotherme Reaktion
+ausführt. Das Gas, welches eine möglichst große Kondensationswärme haben soll, transportiert
+damit die Energie. \\
+Ein schematischer Aufbau einer Wärmepumpe sieht dabei folgendermaßen aus: \cite{V206}
+\begin{figure}
+\end{figure}
+Durch den Kompressor K entsteht ein Meiumkreislauf, während das Gas
+durch das Drosselventil vom Reservoir 1 ins Reservoir 2 strömt.
+Bei der Temperatur $T_1$ und dem Druck $p_b$ ist das Gas flüssig, während
+es bei $T_2$ und $p_a$ gasförmig ist.\\
+Eine Kenngröße zur Beschreibung der realen Wärmepumpe bildet die reale Güteziffer.
+Um diese zu berechnen wird vorher die pro Zeiteinheit gewonnene Wärmemenge \cite{V206}
+\begin{align}
+    \frac{\Delta Q_1}{\Delta t}=(m_1 c_w+m_k c_k)\frac{\Delta T_1}{\Delta t}
+\end{align}
+berechnet. Dabei ist $m_1 c_w$ die Wärmekapazität des Wassers, $m_k c_k$ die
+Wärmekapazität der Kupferschlange und des Eimers in der Abbildung und
+$\sfrac{\Delta T_1}{Delta t} $ die zeitliche Änderung der Temperatur.
+Damit wird Die Güteziffer $\nu$ berechnet:\cite{V206}
+\begin{align}
+    \nu_{ideal}= \frac{\Delta Q_1}{\Delta t N}
+\end{align}
+Dabei ist N die über dem Zeitintervall gemittelte Leistungsaufnahme des Kompressors.\\
+Eine weitere wichtige Größe bildet der Massendurchsatz.\cite{V206}
+\begin{align}
+    L\frac{\Delta m}{\Delta t}=\frac{\Delta Q_2}{\Delta t}
+    \intertext{mit}
+    \frac{\Delta Q_2}{\Delta t}=(m_2 c_w+m_k c_k)\frac{\Delta T_2}{\Delta t}
+\end{align}
+Die Verdampfungswärme L wird dabei mit der Formel \cite{V203}
+\begin{align}
+    \ln(p)=- \frac{L}{R} \frac{1}{T}+const 
+\end{align}
+unter der Annahme bestimmt, dass die Temperaturen weit unter der kritischen Temperatur liegen, 
+das Volumen der Flüssigkeit gegenüber dem Volumen des Gases vernachlässigbar ist und das
+Gasvolumen durch die ideale Gasgleichung \cite{V203}
+\begin{align}
+    V_D(p,T)=R \; \frac{T}{p}
+\end{align}
+beschrieben werden kann.\\
+Die letze relevante Größe ist die mechanische Krompessorleistung $N_{mech} $, welche die
+theoretische Größe der Leisung darstellt:
+\begin{align}
+    N_{mech}=\frac{1}{\kappa-1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b} -p_a}\right) \frac{1}{\rho} \frac{\Delta m}{\Delta t}
+\end{align}
+\rho bezeichnet die Dichte des Mediums und \kappa das Verhältnis der Molwärmen $C_p$ und $C_V$.
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
