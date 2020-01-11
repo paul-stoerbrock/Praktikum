@@ -51,6 +51,7 @@ rho = 5.51
 par, covm = np.polyfit(t_s, T1_K, deg=2, cov=True)
 err = np.sqrt(np.diag(covm))
 
+
 plt.plot(t_s, T1_K,'kx', label='Messwerte')
 x_plot = np.linspace(0, 1800, 5000)
 plt.plot(x_plot, par[0]*x_plot**2 + par[1]*x_plot + par[2], 'r-', label="Lineare Regression")
@@ -172,7 +173,6 @@ with open('build/parT2_b.tex', 'w') as f:
 with open('build/parT2_c.tex', 'w') as f: 
   f.write(make_SI(parT1[2],r'' ,figures=1))
 
-
 # tex file of parL_m
 
 with open('build/parL_m.tex', 'w') as f: 
@@ -199,8 +199,8 @@ t_rech = np.array([29, 25, 15, 4])
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-     \multicolumn{1}{c}{Zeit $\:/\: \si{\second}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
-
+     \multicolumn{1}{c}{Zeit t$\:/\: \si{\second}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
+      
     \cmidrule(lr){1-6}
 '''
 table_footer = r'''    \bottomrule
@@ -221,7 +221,8 @@ with open('build/table_calc.tex', 'w') as g:
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-     \multicolumn{1}{c}{Zeit\;$t\:/\: \si{\second}$} &\multicolumn{1}{c}{Druck\;$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{Temperatur\;$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$ $} & \multicolumn{1}{c}{Druck\;$p_b\:/\: \si{\bar} $ } & \multicolumn{1}{c}{Leistung\;$P\:/\: \si{\watt} $ }\\
+     \multicolumn{1}{c}{Zeit} &\multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Leistung }\\
+     \multicolumn{1}{c}{$t\:/\: \si{\second}$} &\multicolumn{1}{c}{$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$T_1 \:/\; \si{\celsius} $} & \multicolumn{1}{c}{$p_b\:/\: \si{\bar} $ } & \multicolumn{1}{c}{$P\:/\: \si{\watt} $ }\\
 
     \cmidrule(lr){1-6}
 '''
