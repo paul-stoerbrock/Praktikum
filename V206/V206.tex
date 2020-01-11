@@ -193,13 +193,17 @@ berechnet und lauten wie folgt:
 \end{align}
 benötigt. Mit der gaußschen Fehlerfortpflanzung \eqref{eq:10c} folgt:
 \begin{align}
-    \sigma_T = \sqrt{4t^2 \cdot \sigma A^2 + t^2 \cdot \sigma B^2} \label{eq:13}
+    \sigma_{T_i} = \sqrt{4t^2 \cdot \sigma _{A_i}^2 + t^2 \cdot \sigma _{B_i}^2} \label{eq:13}\quad \text{mit}\; i = 1,2
 \end{align}
 Um mit der Fehlerfortpflanzung \eqref{eq:13} auf die Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu schließen werden die 
 Temperaturen $\SI{26.6}{\celsius}$, $\SI{39.9}{\celsius}$, $\SI{46.7}{\celsius}$ und $\SI{49.6}{\celsius}$ für $T_1$ verwendet. Für $T_2$ 
 werden die Temperaturen $\SI{17.4}{\celsius}$, $\SI{7.8}{\celsius}$, $\SI{1.4}{\celsius}$ und $\SI{-0.4}{\celsius}$ benutzt.
 Die daraus folgenden Differentialquotienten lauten:
-
+\begin{table}
+    \centering
+    \input{build/tabledTdt.tex}
+    \caption{zeitliche Veränderung der Temperatur} \label{tab:2}
+\end{table}
 
 
 \flushleft{Für\;}\justifying die Güteziffer wird die gemittelte Leistung $N$ des Kompressors benötigt. Diese wird mit den Messwerten aus Tabelle
@@ -212,7 +216,7 @@ Die daraus folgenden Differentialquotienten lauten:
     \centering
     \input{table_calc.tex}
     \caption{Tabelle der Rechnungsergebnisse}
-    \label{tab:2}
+    \label{tab:3}
 \end{table}
 
 \begin{figure}[H]
