@@ -170,9 +170,9 @@ with open('build/parT2_a.tex', 'w') as f:
 with open('build/parT2_b.tex', 'w') as f: 
   f.write(make_SI(parT1[1],r'' ,figures=1))
 
-# tex file of parT1_c
+# tex file of parT2_c
 
-with open('build/parT1_c.tex', 'w') as f: 
+with open('build/parT2_c.tex', 'w') as f: 
   f.write(make_SI(parT1[2],r'' ,figures=1))
 
 # tex file of parL_m

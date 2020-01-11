@@ -46,7 +46,7 @@ Güteziffer einer realen Wärmepumpe ist begrenzt durch \cite{V206}
 \end{align}
 Aus diesen Formeln  lässt sich erkennen, dass der Arbeitsaufwand mit geringer 
 Temperaturdifferenz kleiner wird.\\
-Bei einer realen Wärmepumpe wird ein reales Gas als Transportmedium verwndet, welches
+Bei einer realen Wärmepumpe wird ein reales Gas als Transportmedium verwendet, welches
 beim Verdampfen eine endotherme Reaktion und beim Kondensieren eine exotherme Reaktion
 ausführt. Das Gas, welches eine möglichst große Kondensationswärme haben soll, transportiert
 damit die Energie. \\
@@ -97,7 +97,6 @@ theoretische Größe der Leisung darstellt:\cite{V206}
     N_{mech}=\frac{1}{\kappa-1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b} -p_a}\right) \frac{1}{\rho} \frac{\Delta m}{\Delta t} \label{eq:9}
 \end{align}
 $\rho$ bezeichnet die Dichte des Mediums und $\kappa$ das Verhältnis der Molwärmen $C_p$ und $C_V$.
-\newpage
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -115,7 +114,13 @@ verwendet:
     \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:10b},
 \intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
 }
+<<<<<<< HEAD
     \sigma _f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\sigma x_i)^2} \label{eq:10c}
+||||||| merged common ancestors
+    \sigma f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\sigma x_i)^2} \label{eq:10c}
+=======
+    \sigma_f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\partial f}{\partial x_i} \right)^2 \cdot (\sigma x_i)^2} \label{eq:10c}
+>>>>>>> 637a0ec6d0dc93734b61c85c10d43268b7aa7314
 \intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
 }
     y &= m \cdot x + b \label{eq:10d} \\ 
@@ -160,13 +165,14 @@ Abschließend werden Wattmeter und Kompressor abgeschaltet und beide Reservoire 
 \end{table}
 \newpage
 
-\flushleft{Die\;}\justifying Temperatur der einzelnen Reservoire werden mithilfe der Messwerte in Tabelle \ref{tab:1} erstellt. Die für
-die Graphen \ref{fig:3a} und \ref{fig:3b} relevanten Parameter $m$ und $b$, wovon $m$ mit der Formel \eqref{eq:10e} berechnet wird, lauten 
-wie folgt:
+\flushleft{Der\;}\justifying Temperaturverlauf der einzelnen Reservoire werden mithilfe der Messwerte in Tabelle \ref{tab:1} erstellt. Die für
+die Graphen \ref{fig:3a} und \ref{fig:3b} relevanten Parameter $a$, $b$ und $c$ wurden mit dem Python Befehl np.ployfit() \cite{numpy}
+berechnet und lauten wie folgt:
 \begin{subequations}
 \begin{align}
-    m_{T1} &= \text{\input{parT1_a.tex}} \qquad \text{und} \qquad &b_{T1} = \text{\input{parT1_b.tex}} \label{eq:11a}\\
-    m_{T2} &= \text{\input{parT2_a.tex}} \qquad \text{und} \qquad &b_{T2} = \text{\input{parT2_b.tex}} \label{eq:11b}
+    a_{T1} &= \text{\input{parT1_a.tex}} \qquad &a_{T2} &= \text{\input{parT2_a.tex}} \label{eq:11a}\\
+    b_{T1} &= \text{\input{parT1_b.tex}} \qquad &b_{T2} &= \text{\input{parT2_b.tex}} \label{eq:11b}\\
+    c_{T1} &= \text{\input{parT1_c.tex}} \qquad &c_{T2} &= \text{\input{parT2_c.tex}} \label{eq:11c}
 \end{align}
 \end{subequations}
 
@@ -187,12 +193,22 @@ wie folgt:
     \label{fig:3}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{./build/plotL.pdf}
-    \caption{Lineare Regression der Verdampfungswärme $L$}
-    \label{fig:4}
-\end{figure}
+\flushleft{Um\;}\justifying die zwei Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu berechnen, wird die Formel
+\begin{align}
+    \frac{dT(t)}{dt} = 2At + B \label{eq:12}
+\end{align}
+benötigt. Mit der gaußschen Fehlerfortpflanzung \eqref{eq:10c} folgt:
+\begin{align}
+    \sigma_T = \sqrt{4t^2 \cdot \sigma A^2 + t^2 \cdot \sigma B^2} \label{eq:13}
+\end{align}
+Um mit der Fehlerfortpflanzung \eqref{eq:13} auf die Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu schließen werden die 
+Temperaturen $\SI{26.6}{\celsius}$, $\SI{39.9}{\celsius}$, $\SI{46.7}{\celsius}$ und $\SI{49.6}{\celsius}$ für $T_1$ verwendet. Für $T_2$ 
+werden die Temperaturen $\SI{17.4}{\celsius}$, $\SI{7.8}{\celsius}$, $\SI{1.4}{\celsius}$ und $\SI{-0.4}{\celsius}$ benutzt.
+Die daraus folgenden Differentialquotienten lauten:
+
+
+
+\flushleft{Die\;}\justifying
 
 \begin{table}[H]
     \centering
@@ -201,17 +217,15 @@ wie folgt:
     \label{tab:2}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{./build/plotL.pdf}
+    \caption{Lineare Regression der Verdampfungswärme $L$}
+    \label{fig:4}
+\end{figure}
 
 
-\flushleft{Um\;}\justifying die zwei Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu berechnen werden die Formel
-\begin{align}
-    \frac{dT}{dt} = 2 \cdot A \cdot t + t \label{eq:12}
-\end{align}
-verwendet mit den vier Temperaturen $t$ $\SI{29}{\celsius}$, $\SI{25}{\celsius}$, $\SI{15}{\celsius}$ und $\SI{4}{\celsius}$ verwendet. 
-Der daraus folgende Differentialquotient lautet:
-\begin{align}
-    \frac{dT1}{dt} &= \text{} \label{eq:13}
-\end{align}
+
 
 \flushleft{Um\;}\justifying
 
