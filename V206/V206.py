@@ -223,7 +223,7 @@ with open('build/table_calc.tex', 'w') as g:
 # Tabelle der Messwerte
 
 table_header = r'''
-  \begin{tabular}{c c c c c c}
+  \begin{tabular}{r r r r r r }
     \toprule
      \multicolumn{1}{c}{Zeit} &\multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Leistung }\\
      \multicolumn{1}{c}{$t\:/\: \si{\second}$} &\multicolumn{1}{c}{$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$T_1 \:/\; \si{\celsius} $} & \multicolumn{1}{c}{$p_b\:/\: \si{\bar} $ } & \multicolumn{1}{c}{$P\:/\: \si{\watt} $ }\\
