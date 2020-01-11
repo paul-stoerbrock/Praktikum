@@ -46,18 +46,18 @@ Güteziffer einer realen Wärmepumpe ist begrenzt durch \cite{V206}
 \end{align}
 Aus diesen Formeln  lässt sich erkennen, dass der Arbeitsaufwand mit geringer 
 Temperaturdifferenz kleiner wird.\\
-Bei einer realen Wärmepumpe wird ein reales Gas als Transportmedium verwndet, welches
+Bei einer realen Wärmepumpe wird ein reales Gas als Transportmedium verwendet, welches
 beim Verdampfen eine endotherme Reaktion und beim Kondensieren eine exotherme Reaktion
 ausführt. Das Gas, welches eine möglichst große Kondensationswärme haben soll, transportiert
 damit die Energie. \\
-Ein schematischer Aufbau einer Wärmepumpe sieht dabei folgendermaßen aus: \cite{V206}
-\begin{figure}
+Ein schematischer Aufbau einer Wärmepumpe sieht dabei folgendermaßen aus: 
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{./images/theo_Aufbau.jpg}
-    \caption{prinzipieller Aufbau der Wärmepumpe($p_a>p_b$;$T_1>T_2$)} 
+    \caption{prinzipieller Aufbau der Wärmepumpe \cite{V206} ($p_a>p_b$;$T_1>T_2$)} 
     \label{fig:1}
 \end{figure}
-Durch den Kompressor K entsteht ein Meiumkreislauf, während das Gas
+Durch den Kompressor K entsteht ein Mediumkreislauf, während das Gas
 durch das Drosselventil vom Reservoir 1 ins Reservoir 2 strömt.
 Bei der Temperatur $T_1$ und dem Druck $p_b$ ist das Gas flüssig, während
 es bei $T_2$ und $p_a$ gasförmig ist.\\
@@ -71,7 +71,7 @@ Wärmekapazität der Kupferschlange und des Eimers in der Abbildung und
 $\sfrac{\Delta T_1}{Delta t} $ die zeitliche Änderung der Temperatur.
 Damit wird Die Güteziffer $\nu$ berechnet:\cite{V206}
 \begin{align}
-    \nu_{ideal}= \frac{\Delta Q_1}{\Delta t N} \label{eq:4}
+    \nu_{real}= \frac{\Delta Q_1}{\Delta t N} \label{eq:4}
 \end{align}
 Dabei ist N die über dem Zeitintervall gemittelte Leistungsaufnahme des Kompressors.\\
 Eine weitere wichtige Größe bildet der Massendurchsatz.\cite{V206}
@@ -193,13 +193,16 @@ berechnet und lauten wie folgt:
 \end{align}
 benötigt. Mit der gaußschen Fehlerfortpflanzung \eqref{eq:10c} folgt:
 \begin{align}
-    \sigma_T = \sqrt{4t^2 \cdot \sigma A^2 + t^2 \cdot \sigma B^2}
+    \sigma_T = \sqrt{4t^2 \cdot \sigma A^2 + t^2 \cdot \sigma B^2} \label{eq:13}
 \end{align}
-verwendet mit den vier Temperaturen $t$ $\SI{29}{\celsius}$, $\SI{25}{\celsius}$, $\SI{15}{\celsius}$ und $\SI{4}{\celsius}$ verwendet. 
-Der daraus folgende Differentialquotient lautet:
-\begin{align}
-    \frac{dT1}{dt} &= \text{} \label{eq:13}
-\end{align}
+Um mit der Fehlerfortpflanzung \eqref{eq:13} auf die Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu schließen werden die 
+Temperaturen $\SI{26.6}{\celsius}$, $\SI{39.9}{\celsius}$, $\SI{46.7}{\celsius}$ und $\SI{49.6}{\celsius}$ für $T_1$ verwendet. Für $T_2$ 
+werden die Temperaturen $\SI{17.4}{\celsius}$, $\SI{7.8}{\celsius}$, $\SI{1.4}{\celsius}$ und $\SI{-0.4}{\celsius}$ benutzt.
+Die daraus folgenden Differentialquotienten lauten:
+
+
+
+\flushleft{Die\;}\justifying
 
 \begin{table}[H]
     \centering
