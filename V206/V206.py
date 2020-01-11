@@ -185,11 +185,15 @@ with open('build/parL_m.tex', 'w') as f:
 with open('build/parL_b.tex', 'w') as f: 
   f.write(make_SI(parL[1],r'' ,figures=1))
 
-
 # tex file of L 
 
 with open('build/L.tex', 'w') as f: 
   f.write(make_SI(L,r'\kilo\joule\kilo\gramm\tothe{-1}' ,figures=1))
+
+# tex file of P_mean
+
+with open('build/P_mean.tex', 'w') as f: 
+  f.write(make_SI(P_mean,r'\watt' ,figures=1))
 
 
 # Tabellen ########################################################################################################################################################

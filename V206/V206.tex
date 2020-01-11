@@ -76,9 +76,9 @@ Damit wird Die Güteziffer $\nu$ berechnet:\cite{V206}
 Dabei ist N die über dem Zeitintervall gemittelte Leistungsaufnahme des Kompressors.\\
 Eine weitere wichtige Größe bildet der Massendurchsatz.\cite{V206}
 \begin{align}
-    L\frac{\Delta m}{\Delta t}=\frac{\Delta Q_2}{\Delta t} \label{eq:5}
+    L\frac{\Delta m}{\Delta t}&=\frac{\Delta Q_2}{\Delta t} \label{eq:5}
     \intertext{mit}
-    \frac{\Delta Q_2}{\Delta t}=(m_2 c_w+m_k c_k)\frac{\Delta T_2}{\Delta t} \label{eq:6}
+    \frac{\Delta Q_2}{\Delta t}&=(m_2 c_w+m_k c_k)\frac{\Delta T_2}{\Delta t} \label{eq:6}
 \end{align}
 Die Verdampfungswärme L wird dabei mit der Formel \cite{V203}
 \begin{align}
@@ -202,7 +202,11 @@ Die daraus folgenden Differentialquotienten lauten:
 
 
 
-\flushleft{Die\;}\justifying
+\flushleft{Für\;}\justifying die Güteziffer wird die gemittelte Leistung $N$ des Kompressors benötigt. Diese wird mit den Messwerten aus Tabelle
+\ref{tab:1} und der Mittelwertsformel \eqref{eq:10a} bestimmt. Die gemittelte Leistung lautet wie folgt:
+\begin{align}
+    N = \text{\input{P_mean.tex}} \label{eq:14}
+\end{align}
 
 \begin{table}[H]
     \centering
