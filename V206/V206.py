@@ -142,9 +142,9 @@ N = np.array([N(kappa, pb_Pa[29], pa_Pa[29], rho, dmdt[0]) ,N(kappa, pb_Pa[25], 
 
 # Tex-Dateien ###################################################################################################################
 
-# tex file of parT1_m
+# tex file of parT1_a
 
-with open('build/parT1_m.tex', 'w') as f: 
+with open('build/parT1_a.tex', 'w') as f: 
   f.write(make_SI(parT1[0],r'' ,figures=1))
 
 # tex file of parT1_b
@@ -152,15 +152,25 @@ with open('build/parT1_m.tex', 'w') as f:
 with open('build/parT1_b.tex', 'w') as f: 
   f.write(make_SI(parT1[1],r'' ,figures=1))
 
-# tex file of parT2_m
+# tex file of parT1_c
 
-with open('build/parT2_m.tex', 'w') as f: 
+with open('build/parT1_c.tex', 'w') as f: 
+  f.write(make_SI(parT1[2],r'' ,figures=1))
+
+# tex file of parT2_a
+
+with open('build/parT2_a.tex', 'w') as f: 
   f.write(make_SI(parT1[0],r'' ,figures=1))
 
 # tex file of parT1_b
 
 with open('build/parT2_b.tex', 'w') as f: 
   f.write(make_SI(parT1[1],r'' ,figures=1))
+
+# tex file of parT1_c
+
+with open('build/parT1_c.tex', 'w') as f: 
+  f.write(make_SI(parT1[2],r'' ,figures=1))
 
 
 # tex file of parL_m
