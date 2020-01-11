@@ -52,6 +52,10 @@ ausführt. Das Gas, welches eine möglichst große Kondensationswärme haben sol
 damit die Energie. \\
 Ein schematischer Aufbau einer Wärmepumpe sieht dabei folgendermaßen aus: \cite{V206}
 \begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{./images/theo_Aufbau.jpg}
+    \caption{prinzipieller Aufbau der Wärmepumpe($p_a>p_b$;$T_1>T_2$)} 
+    \label{fig:1}
 \end{figure}
 Durch den Kompressor K entsteht ein Meiumkreislauf, während das Gas
 durch das Drosselventil vom Reservoir 1 ins Reservoir 2 strömt.
@@ -88,11 +92,11 @@ Gasvolumen durch die ideale Gasgleichung \cite{V203}
 \end{align}
 beschrieben werden kann.\\
 Die letze relevante Größe ist die mechanische Krompessorleistung $N_{mech} $, welche die
-theoretische Größe der Leisung darstellt:
+theoretische Größe der Leisung darstellt:\cite{V206}
 \begin{align}
     N_{mech}=\frac{1}{\kappa-1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b} -p_a}\right) \frac{1}{\rho} \frac{\Delta m}{\Delta t}
 \end{align}
-\rho bezeichnet die Dichte des Mediums und \kappa das Verhältnis der Molwärmen $C_p$ und $C_V$.
+$\rho$ bezeichnet die Dichte des Mediums und $\kappa$ das Verhältnis der Molwärmen $C_p$ und $C_V$.
 \newpage
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,13 +132,13 @@ verwendet:
 Benötigt werden: \textit{Zwei Manometer, zwei Thermometer, zwei Rührmotoren, zwei thermisch isolierte Wasserbehälter, ein Kompressor, 
 ein Drosselventil, ein Reiniger, ein Wattmeter, eine Stoppuhr, ein Messkolben und $\SI{6}{\liter}$ Wasser.}
 
-\flushleft{Das\;}\justifying Experiment wird wie in Abbildung \ref{fig:1} aufgebaut:
+\flushleft{Das\;}\justifying Experiment wird wie in Abbildung \ref{fig:2} aufgebaut:
 
 \begin{figure}
     \centering
     \includegraphics[width=0.75\linewidth]{./images/Aufbau.jpg}
     \caption{Versuchsaufbau der Wärmepumpe}
-    \label{fig:1}
+    \label{fig:2}
 \end{figure}
 
 \flushleft{Außerdem\;}\justifying soll zwischen dem Manometer $P_b$ und dem Drosselventil ein Reiniger geschaltet werden. 
@@ -148,6 +152,42 @@ Abschließend werden Wattmeter und Kompressor abgeschaltet und beide Reservoire 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
+\begin{table}[H]
+    \centering
+    \input{table.tex}
+    \caption{Messwerte der Wärmepumpe}
+    \label{tab:1}
+\end{table}
+Die Graphen \ref{fig:3a} und \ref{fig:3b} werden mit den Messwerten aus Tablle \ref{tab:} erstellt
+\begin{figure}[H]
+\begin{subfigure}{0.495\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{./build/plotT1.pdf}
+    \caption{Lineare Regression der Temperatur $T_1$}
+    \label{fig:3a}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{./build/plotT2.pdf}
+    \caption{Lineare Regression der Temperatur $T_2$}
+    \label{fig:3b}
+    \end{subfigure}
+    \caption{Lineare Regressionen der Temperaturen}  \label{fig:3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{./build/plotL.pdf}
+    \caption{Lineare Regression der Verdampfungswärme $L$}
+    \label{fig:5}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \input{table_calc.tex}
+    \caption{Tabelle der Rechnungsergebnisse}
+    \label{tab:2}
+\end{table}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
