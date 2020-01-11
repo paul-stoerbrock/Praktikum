@@ -198,6 +198,32 @@ with open('build/P_mean.tex', 'w') as f:
 
 # Tabellen ########################################################################################################################################################
 
+t1_rech = np.array([28, 24, 14, 3])
+t2_rech = np.array([28, 24, 14, 3])
+
+# Tabelle für dT1/dt und dT2/dt -------------------------------------------------------------------------------------------------------
+
+table_header = r'''
+  \begin{tabular}{r r}
+    \toprule
+     \multicolumn{1}{c}{Temperatur pro Zeit}&\multicolumn{1}{c}{Temperatur pro Zeit} \\
+     \multicolumn{1}{c}{$\frac{dT_1}{dt} \:/\: \si{\celsius\second\tothe{-1}}$}&\multicolumn{1}{c}{$\frac{dT_2}{dt}\:/\: \si{\celsius\second\tothe{-1}}$} \\
+
+    \cmidrule(lr){1-2}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.1f}& {1:1.1f} \\'
+
+
+with open('build/tabledTdt.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(2*t1_rech*parT1[0]+parT1[0],2*t2_rech*parT2[0]+parT2[1] ):
+        g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
+        g.write('\n')
+    g.write(table_footer)
+
 # Tabelle für calc.tex -------------------------------------------------------------------------------------------------------------------------------------------------
 
 t1_rech = np.array([T1[28], T1[24], T1[14], T1[3]])
@@ -207,7 +233,7 @@ table_header = r'''
   \begin{tabular}{r r r r r r r}
     \toprule
      \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} &\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
-     \multicolumn{1}{c}{T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
+     \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
 
     \cmidrule(lr){1-7}
 '''
@@ -224,7 +250,7 @@ with open('build/table_calc.tex', 'w') as g:
         g.write('\n')
     g.write(table_footer)
 
-# Tabelle der Messwerte
+# Tabelle der Messwerte -----------------------------------------------------------------------------------------------------------------------------
 
 table_header = r'''
   \begin{tabular}{r r r r r r }
