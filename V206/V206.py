@@ -117,7 +117,9 @@ plt.savefig('build/plotL.pdf')
 plt.close()
 
 parL=unp.uarray(par, err)
-L= -parL[0]* const.R
+L= -parL[0]* const.R/0.12091
+print(L)
+print(L*0.12091)
 
 # weiter Berechnungen ############################################################################################
 
@@ -187,31 +189,33 @@ with open('build/parL_b.tex', 'w') as f:
 # tex file of L 
 
 with open('build/L.tex', 'w') as f: 
-  f.write(make_SI(L,r'\kilo\joule\mol\tothe{-1}' ,figures=1))
+  f.write(make_SI(L,r'\kilo\joule\kilo\gramm\tothe{-1}' ,figures=1))
 
 
 # Tabellen ########################################################################################################################################################
 
 # Tabelle für calc.tex -------------------------------------------------------------------------------------------------------------------------------------------------
 
-t_rech = np.array([29, 25, 15, 4])
+t1_rech = np.array([T1[29], T1[25], T1[15], T1[4]])
+t2_rech = np.array([T2[29], T2[25], T2[15], T2[4]])
 
 table_header = r'''
-  \begin{tabular}{c c c c c c}
+  \begin{tabular}{c c c c c c c}
     \toprule
-     \multicolumn{1}{c}{Zeit t$\:/\: \si{\second}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
-      
-    \cmidrule(lr){1-6}
+     \multicolumn{1}{c}{Temperatur T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{Temperatur T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
+     \multicolumn{1}{c}{T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
+
+    \cmidrule(lr){1-7}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.0f} & {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.2f} \\'
+row_template = r'     {0:1.1f}& {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.1f} & {6:1.2f} \\'
 
 
 with open('build/table_calc.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(t_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
+    for row in zip(t1_rech, t2_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
         g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
         g.write('\n')
     g.write(table_footer)
