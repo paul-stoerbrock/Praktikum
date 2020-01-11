@@ -56,7 +56,7 @@ x_plot = np.linspace(0, 1800, 5000)
 plt.plot(x_plot, par[0]*x_plot**2 + par[1]*x_plot + par[2], 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel(r'Zeit $t/s$')
-plt.ylabel(r'Temperatur $T/K$')
+plt.ylabel(r'Temperatur $T_1/K$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotT1.pdf')
@@ -80,7 +80,7 @@ x_plot = np.linspace(0, 1800, 5000)
 plt.plot(x_plot, par[0]*x_plot**2+par[1]*x_plot+par[2], 'r-', label="Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel(r'Zeit $t/s$')
-plt.ylabel(r'Temperatur $T/K$')
+plt.ylabel(r'Temperatur $T_2/K$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotT2.pdf')
@@ -133,7 +133,7 @@ nu_id = np.array([T1_K[29]/(T1_K[29] -T2_K[29] ), T1_K[25]/(T1_K[25] -T2_K[25] )
 # Berechnung des Massendurchsatzes
 
 dmdt = 1/L * dQ2dt
-
+print(dmdt)
 
 # Berechnung der mechanischen Leistung des Kompressors
 
@@ -179,4 +179,52 @@ with open('build/parL_b.tex', 'w') as f:
 with open('build/L.tex', 'w') as f: 
   f.write(make_SI(L,r'\kilo\joule\mol\tothe{-1}' ,figures=1))
 
+
+# Tabellen ########################################################################################################################################################
+
+# Tabelle für calc.tex -------------------------------------------------------------------------------------------------------------------------------------------------
+
+t_rech = np.array([29, 25, 15, 4])
+
+table_header = r'''
+  \begin{tabular}{c c c c c c}
+    \toprule
+     \multicolumn{1}{c}{Zeit $\:/\: \si{\second}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
+
+    \cmidrule(lr){1-6}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.0f} & {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.2f} \\'
+
+
+with open('build/table_calc.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(t_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
+        g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
+        g.write('\n')
+    g.write(table_footer)
+
+# Tabelle der Messwerte
+
+table_header = r'''
+  \begin{tabular}{c c c c c c}
+    \toprule
+     \multicolumn{1}{c}{Zeit\;$t\:/\: \si{\second}$} &\multicolumn{1}{c}{Druck\;$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{Temperatur\;$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$ $} & \multicolumn{1}{c}{Druck\;$p_b\:/\: \si{\bar} $ } & \multicolumn{1}{c}{Leistung\;$P\:/\: \si{\watt} $ }\\
+
+    \cmidrule(lr){1-6}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.0f} & {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.2f} \\'
+
+
+with open('build/table.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(t, pa, T2, pb, T1, P):
+        g.write(row_template.format(*row).replace('nan', ''))
+        g.write('\n')
+    g.write(table_footer)
 
