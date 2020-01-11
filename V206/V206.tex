@@ -158,23 +158,33 @@ Abschließend werden Wattmeter und Kompressor abgeschaltet und beide Reservoire 
     \caption{Messwerte der Wärmepumpe}
     \label{tab:1}
 \end{table}
+\newpage
 
-Die Graphen \ref{fig:3a} und \ref{fig:3b} werden mit den Messwerten aus Tablle \ref{tab:} erstellt
+\flushleft{Die\;}\justifying Temperatur der einzelnen Reservoire werden mithilfe der Messwerte in Tabelle \ref{tab:1} erstellt. Die für
+die Graphen \ref{fig:3a} und \ref{fig:3b} relevanten Parameter $m$ und $b$, wovon $m$ mit der Formel \eqref{eq:10e} berechnet wird, lauten 
+wie folgt:
+\begin{subequations}
+\begin{align}
+    m_{T1} &= \text{\input{parT1_m.tex}} \qquad \text{und} \qquad &b_{T1} = \text{\input{parT1_b.tex}} \label{eq:11a}\\
+    m_{T2} &= \text{\input{parT2_m.tex}} \qquad \text{und} \qquad &b_{T2} = \text{\input{parT2_b.tex}} \label{eq:11b}
+\end{align}
+\end{subequations}
 
 \begin{figure}[H]
-\begin{subfigure}{0.495\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{./build/plotT1.pdf}
-    \caption{Lineare Regression der Temperatur $T_1$}
-    \label{fig:3a}
+    \begin{subfigure}{0.495\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{./build/plotT1.pdf}
+        \caption{Lineare Regression der Temperatur $T_1$}
+        \label{fig:3a}
     \end{subfigure}
     \begin{subfigure}{0.495\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{./build/plotT2.pdf}
-    \caption{Lineare Regression der Temperatur $T_2$}
-    \label{fig:3b}
+        \centering
+        \includegraphics[width=\textwidth]{./build/plotT2.pdf}
+        \caption{Lineare Regression der Temperatur $T_2$}
+        \label{fig:3b}
     \end{subfigure}
-    \caption{Lineare Regressionen der Temperaturen}  \label{fig:3}
+    \caption{Lineare Regressionen der Temperaturen}
+    \label{fig:3}
 \end{figure}
 
 \begin{figure}[H]
@@ -191,14 +201,7 @@ Die Graphen \ref{fig:3a} und \ref{fig:3b} werden mit den Messwerten aus Tablle \
     \label{tab:2}
 \end{table}
 
-\flushleft{Die\;}\justifying Temperatur der einzelnen Reservoire werden mithilfe der Messwerte im Anhang \ref{sec:7} erstellt. Die relevanten
-Parameter $m$ und $b$, wovon $m$ mit der Formel \eqref{eq:10e} berechnet wird, lauten wie folgt:
-\begin{subequations}
-\begin{align}
-    m_{T1} &= \text{\input{parT1_m.tex}} \qquad \text{und} \qquad &b_{T1} = \text{\input{parT1_b.tex}} \label{eq:11a}\\
-    m_{T2} &= \text{\input{parT2_m.tex}} \qquad \text{und} \qquad &b_{T2} = \text{\input{parT2_b.tex}} \label{eq:11b}
-\end{align}
-\end{subequations}S
+
 
 \flushleft{Um\;}\justifying die zwei Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu berechnen werden die Formel
 \begin{align}
