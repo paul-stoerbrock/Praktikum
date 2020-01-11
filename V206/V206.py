@@ -96,7 +96,6 @@ dT2dt = np.array([ 2*parT2[0]*29*60+parT2[1], 2*parT2[0]*25*60+parT2[1],2*parT2[
 # Berechnung der abgegebenen Wärmemenge von T2
 
 dQ2dt=dT2dt * 750*2
-print(dQ2dt)
 
 # Plot zur Berechnung von L #####################################################################################
 
@@ -118,8 +117,6 @@ plt.close()
 
 parL=unp.uarray(par, err)
 L= -parL[0]* const.R/0.12091
-print(L)
-print(L*0.12091)
 
 # weiter Berechnungen ############################################################################################
 
@@ -136,7 +133,6 @@ nu_id = np.array([T1_K[28]/(T1_K[28] -T2_K[28] ), T1_K[24]/(T1_K[24] -T2_K[24] )
 # Berechnung des Massendurchsatzes
 
 dmdt = 1/L * dQ2dt
-print(dmdt)
 
 # Berechnung der mechanischen Leistung des Kompressors
 
@@ -204,10 +200,10 @@ t2_rech = np.array([28, 24, 14, 3])
 # Tabelle für dT1/dt und dT2/dt -------------------------------------------------------------------------------------------------------
 
 table_header = r'''
-  \begin{tabular}{r r}
+  \begin{tabular}{c c}
     \toprule
      \multicolumn{1}{c}{Temperatur pro Zeit}&\multicolumn{1}{c}{Temperatur pro Zeit} \\
-     \multicolumn{1}{c}{$\frac{dT_1}{dt} \:/\: \si{\celsius\second\tothe{-1}}$}&\multicolumn{1}{c}{$\frac{dT_2}{dt}\:/\: \si{\celsius\second\tothe{-1}}$} \\
+     \multicolumn{1}{c}{$\frac{dT_1}{dt}\cdot 10^{-5} \:/\: \si{\celsius\second\tothe{-1}}$}&\multicolumn{1}{c}{$\frac{dT_2}{dt}\cdot 10^{-3}\:/\: \si{\celsius\second\tothe{-1}}$} \\
 
     \cmidrule(lr){1-2}
 '''
@@ -219,7 +215,7 @@ row_template = r'     {0:1.1f}& {1:1.1f} \\'
 
 with open('build/tabledTdt.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(2*t1_rech*parT1[0]+parT1[0],2*t2_rech*parT2[0]+parT2[1] ):
+    for row in zip((2*t1_rech*parT1[0]+parT1[0])*1e05,(2*t2_rech*parT2[0]+parT2[1])*1e03):
         g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
         g.write('\n')
     g.write(table_footer)
@@ -230,7 +226,7 @@ t1_rech = np.array([T1[28], T1[24], T1[14], T1[3]])
 t2_rech = np.array([T2[28], T2[24], T2[14], T2[3]])
 
 table_header = r'''
-  \begin{tabular}{r r r r r r r}
+  \begin{tabular}{c c c c c c c}
     \toprule
      \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} &\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
      \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
@@ -254,7 +250,7 @@ with open('build/table_calc.tex', 'w') as g:
 # Tabelle der Messwerte -----------------------------------------------------------------------------------------------------------------------------
 
 table_header = r'''
-  \begin{tabular}{r r r r r r }
+  \begin{tabular}{c c c c c c }
     \toprule
      \multicolumn{1}{c}{Zeit} &\multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Leistung }\\
      \multicolumn{1}{c}{$t\:/\: \si{\second}$} &\multicolumn{1}{c}{$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$T_1 \:/\; \si{\celsius} $} & \multicolumn{1}{c}{$p_b\:/\: \si{\bar} $ } & \multicolumn{1}{c}{$P\:/\: \si{\watt} $ }\\
