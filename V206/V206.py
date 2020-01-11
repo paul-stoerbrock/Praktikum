@@ -168,16 +168,15 @@ with open('build/parT2_b.tex', 'w') as f:
 with open('build/parL_m.tex', 'w') as f: 
   f.write(make_SI(parL[0],r'' ,figures=1))
 
-# tex file of L ########################################################################################
+# tex file of L 
 
 with open('build/parL_b.tex', 'w') as f: 
   f.write(make_SI(parL[1],r'' ,figures=1))
 
 
-# tex file of L ########################################################################################
+# tex file of L 
 
 with open('build/L.tex', 'w') as f: 
   f.write(make_SI(L,r'\kilo\joule\mol\tothe{-1}' ,figures=1))
-
 
 
