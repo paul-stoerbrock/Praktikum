@@ -236,6 +236,7 @@ table_header = r'''
      \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
 
     \cmidrule(lr){1-7}
+
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
