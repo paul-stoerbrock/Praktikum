@@ -209,7 +209,7 @@ Die daraus folgenden Differentialquotienten lauten:
 \end{align}
 Mithilfe der Formel \eqref{eq:4}, der gemittelten Leistung $N$ \eqref{eq:14} und der Fehlerfortpflanzung \eqref{eq:10c}
 \begin{align}
-    \sigma_{\nu_{real}} = \sqrt{\frac{1}{N^2} \cdot \sigma_{\frac{\delta Q_i}{\delta t}}^2 + \left( \frac{-\delta Q_i}{\delta t N^2} \right)^2 \cdot \sigma_{\frac{1}{N}}^2} \label{eq:15}
+    \sigma_{\nu_{real}} = \sqrt{\frac{1}{N^2} \cdot \sigma_{\frac{\partial Q_i}{\partial t}}^2 + \left( \frac{-\partial Q_i}{\partial t N^2} \right)^2 \cdot \sigma_{N}^2} \label{eq:15}
 \end{align}
 ergeben sich die in der Tabelle \ref{tab:2} aufgeführten Werte für $\nu_{real}$.
 
@@ -220,6 +220,15 @@ ergeben sich die in der Tabelle \ref{tab:2} aufgeführten Werte für $\nu_{real}
     \label{tab:2}
 \end{table}
 
+\flushleft{Für\;}\justifying den folgenden Graphen \ref{fig:4} der Verdampfungswärme von Dichlordifluormethan werden die Parameter $m$ und $b$ verwendet, wobei $m$ mit der
+Formel \eqref{eq:10e} berechnet wird. Die Werte des Druckes und der Temperatur werden der Tabelle \ref{tab:1} entnommen. 
+\begin{subequations}\label{eq:16}
+\begin{align}
+    m_L &= \text{\input{parL_m.tex}}\label{eq:16a}\\
+    b_L &= \text{\input{parL_b.tex}}\label{eq:16b}
+\end{align}
+\end{subequations}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{./build/plotL.pdf}
@@ -227,10 +236,12 @@ ergeben sich die in der Tabelle \ref{tab:2} aufgeführten Werte für $\nu_{real}
     \label{fig:4}
 \end{figure}
 
+\flushleft{Die\;}\justifying Verdampfungswärme von Dichlordifluormethan lässt sich somit mit der Ausgleichsgeraden des Graphen \ref{fig:4}, 
+der idealen Gasgleichung \eqref{eq:8} und der molaren Masse von Dichlordifluormethan $\SI{0.12091}{\kilo\gram\per\mole}$ \cite{Molmasse} bestimmen:
+\begin{align}
+    L = \text{\input{L.tex}}\label{eq:17}
+\end{align}
 
-
-
-\flushleft{Um\;}\justifying
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
