@@ -65,7 +65,7 @@ plt.close()
 
 parT1=unp.uarray(par, err)
 
-dT1dt = np.array([ 2*parT1[0]*29+parT1[1], 2*parT1[0]*25+parT1[1], 2*parT1[0]*15+parT1[1],  2*parT1[0]*4+parT1[1]])
+dT1dt = np.array([ 2*parT1[0]*29*60+parT1[1], 2*parT1[0]*25*60+parT1[1], 2*parT1[0]*15*60+parT1[1],  2*parT1[0]*4*60+parT1[1]])
 
 # Berechnung der aufgenommenen Wärmemenge von T2
 
@@ -91,12 +91,12 @@ parT2=unp.uarray(par, err)
 
 # Berechnung dT2/dt anhand von 4 Werten
 
-dT2dt = np.array([ 2*parT2[0]*29+parT2[1], 2*parT2[0]*25+parT2[1],2*parT2[0]*15+parT2[1],  2*parT2[0]*4+parT2[1]])
+dT2dt = np.array([ 2*parT2[0]*29*60+parT2[1], 2*parT2[0]*25*60+parT2[1],2*parT2[0]*15*60+parT2[1],  2*parT2[0]*4*60+parT2[1]])
 
 # Berechnung der abgegebenen Wärmemenge von T2
 
 dQ2dt=dT2dt * 750*2
-
+print(dQ2dt)
 
 # Plot zur Berechnung von L #####################################################################################
 
@@ -117,7 +117,9 @@ plt.savefig('build/plotL.pdf')
 plt.close()
 
 parL=unp.uarray(par, err)
-L= -parL[0]* const.R
+L= -parL[0]* const.R/0.12091
+print(L)
+print(L*0.12091)
 
 # weiter Berechnungen ############################################################################################
 
@@ -128,7 +130,7 @@ nu_real = dQ1dt/P_mean
 
 # Berecnung der idealen Güteziffer
 
-nu_id = np.array([T1_K[29]/(T1_K[29] -T2_K[29] ), T1_K[25]/(T1_K[25] -T2_K[25] ), T1_K[15]/(T1_K[15] -T2_K[15] ), T1_K[4]/(T1_K[4] -T2_K[4] )])
+nu_id = np.array([T1_K[28]/(T1_K[28] -T2_K[28] ), T1_K[24]/(T1_K[24] -T2_K[24] ), T1_K[14]/(T1_K[14] -T2_K[14] ), T1_K[3]/(T1_K[3] -T2_K[3] )])
 
 
 # Berechnung des Massendurchsatzes
@@ -138,7 +140,7 @@ print(dmdt)
 
 # Berechnung der mechanischen Leistung des Kompressors
 
-N = np.array([N(kappa, pb_Pa[29], pa_Pa[29], rho, dmdt[0]) ,N(kappa, pb_Pa[25], pa_Pa[25], rho, dmdt[1]) ,N(kappa, pb_Pa[15], pa_Pa[15], rho, dmdt[2]) ,N(kappa, pb_Pa[4], pa_Pa[4], rho, dmdt[3]) ])
+N = np.array([N(kappa, pb_Pa[28], pa_Pa[28], rho, dmdt[0]) ,N(kappa, pb_Pa[24], pa_Pa[24], rho, dmdt[1]) ,N(kappa, pb_Pa[14], pa_Pa[14], rho, dmdt[2]) ,N(kappa, pb_Pa[3], pa_Pa[3], rho, dmdt[3]) ])
 
 
 # Tex-Dateien ###################################################################################################################
@@ -186,7 +188,7 @@ with open('build/parL_b.tex', 'w') as f:
 # tex file of L 
 
 with open('build/L.tex', 'w') as f: 
-  f.write(make_SI(L,r'\kilo\joule\mol\tothe{-1}' ,figures=1))
+  f.write(make_SI(L,r'\kilo\joule\kilo\gramm\tothe{-1}' ,figures=1))
 
 # tex file of P_mean
 
@@ -198,24 +200,26 @@ with open('build/P_mean.tex', 'w') as f:
 
 # Tabelle für calc.tex -------------------------------------------------------------------------------------------------------------------------------------------------
 
-t_rech = np.array([29, 25, 15, 4])
+t1_rech = np.array([T1[28], T1[24], T1[14], T1[3]])
+t2_rech = np.array([T2[28], T2[24], T2[14], T2[3]])
 
 table_header = r'''
-  \begin{tabular}{c c c c c c}
+  \begin{tabular}{r r r r r r r}
     \toprule
-     \multicolumn{1}{c}{Zeit t$\:/\: \si{\second}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
-      
-    \cmidrule(lr){1-6}
+     \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} &\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
+     \multicolumn{1}{c}{T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
+
+    \cmidrule(lr){1-7}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.0f} & {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.2f} \\'
+row_template = r'     {0:1.1f}& {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.1f} & {6:1.2f} \\'
 
 
 with open('build/table_calc.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(t_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
+    for row in zip(t1_rech, t2_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
         g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
         g.write('\n')
     g.write(table_footer)
