@@ -65,7 +65,7 @@ plt.close()
 
 parT1=unp.uarray(par, err)
 
-dT1dt = np.array([ 2*parT1[0]*29+parT1[1], 2*parT1[0]*25+parT1[1], 2*parT1[0]*15+parT1[1],  2*parT1[0]*4+parT1[1]])
+dT1dt = np.array([ 2*parT1[0]*29*60+parT1[1], 2*parT1[0]*25*60+parT1[1], 2*parT1[0]*15*60+parT1[1],  2*parT1[0]*4*60+parT1[1]])
 
 # Berechnung der aufgenommenen Wärmemenge von T2
 
@@ -91,12 +91,12 @@ parT2=unp.uarray(par, err)
 
 # Berechnung dT2/dt anhand von 4 Werten
 
-dT2dt = np.array([ 2*parT2[0]*29+parT2[1], 2*parT2[0]*25+parT2[1],2*parT2[0]*15+parT2[1],  2*parT2[0]*4+parT2[1]])
+dT2dt = np.array([ 2*parT2[0]*29*60+parT2[1], 2*parT2[0]*25*60+parT2[1],2*parT2[0]*15*60+parT2[1],  2*parT2[0]*4*60+parT2[1]])
 
 # Berechnung der abgegebenen Wärmemenge von T2
 
 dQ2dt=dT2dt * 750*2
-
+print(dQ2dt)
 
 # Plot zur Berechnung von L #####################################################################################
 
@@ -130,7 +130,7 @@ nu_real = dQ1dt/P_mean
 
 # Berecnung der idealen Güteziffer
 
-nu_id = np.array([T1_K[29]/(T1_K[29] -T2_K[29] ), T1_K[25]/(T1_K[25] -T2_K[25] ), T1_K[15]/(T1_K[15] -T2_K[15] ), T1_K[4]/(T1_K[4] -T2_K[4] )])
+nu_id = np.array([T1_K[28]/(T1_K[28] -T2_K[28] ), T1_K[24]/(T1_K[24] -T2_K[24] ), T1_K[14]/(T1_K[14] -T2_K[14] ), T1_K[3]/(T1_K[3] -T2_K[3] )])
 
 
 # Berechnung des Massendurchsatzes
@@ -140,7 +140,7 @@ print(dmdt)
 
 # Berechnung der mechanischen Leistung des Kompressors
 
-N = np.array([N(kappa, pb_Pa[29], pa_Pa[29], rho, dmdt[0]) ,N(kappa, pb_Pa[25], pa_Pa[25], rho, dmdt[1]) ,N(kappa, pb_Pa[15], pa_Pa[15], rho, dmdt[2]) ,N(kappa, pb_Pa[4], pa_Pa[4], rho, dmdt[3]) ])
+N = np.array([N(kappa, pb_Pa[28], pa_Pa[28], rho, dmdt[0]) ,N(kappa, pb_Pa[24], pa_Pa[24], rho, dmdt[1]) ,N(kappa, pb_Pa[14], pa_Pa[14], rho, dmdt[2]) ,N(kappa, pb_Pa[3], pa_Pa[3], rho, dmdt[3]) ])
 
 
 # Tex-Dateien ###################################################################################################################
@@ -196,14 +196,14 @@ with open('build/L.tex', 'w') as f:
 
 # Tabelle für calc.tex -------------------------------------------------------------------------------------------------------------------------------------------------
 
-t1_rech = np.array([T1[29], T1[25], T1[15], T1[4]])
-t2_rech = np.array([T2[29], T2[25], T2[15], T2[4]])
+t1_rech = np.array([T1[28], T1[24], T1[14], T1[3]])
+t2_rech = np.array([T2[28], T2[24], T2[14], T2[3]])
 
 table_header = r'''
-  \begin{tabular}{c c c c c c c}
+  \begin{tabular}{r r r r r r r}
     \toprule
-     \multicolumn{1}{c}{Temperatur T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{Temperatur T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
-     \multicolumn{1}{c}{T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}$} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}$ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}$ }\\
+     \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} &\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
+     \multicolumn{1}{c}{T1$\:/\: \si{\celsius}$}&\multicolumn{1}{c}{T2$\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
 
     \cmidrule(lr){1-7}
 '''
