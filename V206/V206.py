@@ -314,10 +314,12 @@ t2_rech = np.array([T2[28], T2[24], T2[14], T2[3]])
 table_header = r'''
   \begin{tabular}{c c c c c c c}
     \toprule
-     \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} &\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
+     \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
      \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
 
     \cmidrule(lr){1-7}
+    \toprule
+
 
 '''
 table_footer = r'''    \bottomrule
