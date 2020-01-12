@@ -222,7 +222,13 @@ ergeben sich die in der Tabelle \ref{tab:3} aufgeführten Werte für $\nu_{real}
     \input{table_calc.tex}
     \caption{Tabelle der Rechnungsergebnisse}
     \label{tab:3}
-\end{table}
+\end{table} 
+\flushleft{Die\;}\justifying Werte für die Wärmemengen werden dabei mit den Formeln \eqref{eq:3} und \eqref{eq:6}
+sowie den Werten aus Tabelle \ref{tab:2} berechnet. Die spezifische Wärmekapazität für Wasser
+beträgt $c_W=\SI{4.182}{\kilo\joule\kilo\gram\tothe{-1}\kelvin\tothe{-1}} $ \cite{demtroder2018warmelehre} und
+die Wärmekapazität für die Kupferschlange und den Eimer betragen jeweils $C_k=\SI{750}{\joule\kelvin\tothe{-1}} $.
+Der Massendurchsatz wird mit Formel \eqref{eq:5}, der Verdampfungswärme L \eqref{eq:17c} sowie
+den vier Werten für $\sfrac{\Delta Q_2}{\Delta t} $ aus Tabelle \ref{tab:3}.
 
 \flushleft{Für\;}\justifying den folgenden Graphen \ref{fig:4} der Verdampfungswärme von Dichlordifluormethan werden die Parameter $m$ und $b$ verwendet, wobei $m$ mit der
 Formel \eqref{eq:10e} berechnet wird. Die Werte des Druckes und der Temperatur werden der Tabelle \ref{tab:1} entnommen. 
@@ -241,21 +247,25 @@ Formel \eqref{eq:10e} berechnet wird. Die Werte des Druckes und der Temperatur w
 \end{figure}
 
 \flushleft{Die\;}\justifying Verdampfungswärme von Dichlordifluormethan lässt sich somit mit der Ausgleichsgeraden des Graphen \ref{fig:4}, 
-der idealen Gasgleichung \eqref{eq:8} und der molaren Masse von Dichlordifluormethan $\SI{0.12091}{\kilo\gram\per\mole}$ \cite{Molmasse} bestimmen:
-\begin{align}
-    L = \text{\input{L.tex}}\label{eq:17}
-\end{align}
-
-\flushleft{Für\;}\justifying die mechanische Leistung $N_{mech}$ des Kompressors wird die Formel \eqref{eq:6} und die Dichlordifluormethan spezifischen Werte 
-\cite{V206} $\rho_0 = \SI{5.51}{\gram\liter\tothe{-1}}\; \text{bei}\; T = \SI{0}{\celsius}\; \text{und}\; p = \SI{1}{\bar}, \kappa = 1.14$ verwendet. Es werden die Drücke für die vorherig
-verwendeten vier Zeiten ($\SI{4}{\second}, \SI{15}{\second}, \SI{25}{\second}, \SI{29}{\second}$) aus Tabelle \ref{tab:1} verwendet. Die daraus
-folgenden mechanischen Leistungen betragen:
+der Gleichung \eqref{eq:7} und der molaren Masse von Dichlordifluormethan $\SI{0.12091}{\kilo\gram\per\mole}$ \cite{Molmasse} bestimmen:
 \begin{subequations}
 \begin{align}
-    N_{mech1} = \text{\input{N0.tex}} \label{eq:18a}\\
-    N_{mech2} = \text{\input{N1.tex}} \label{eq:18b}\\
-    N_{mech3} = \text{\input{N2.tex}} \label{eq:18c}\\
-    N_{mech4} = \text{\input{N3.tex}} \label{eq:18d}
+    m &= -\frac{L}{R} \label{eq:17a} \\
+    L &= -R \cdot m \label{eq:17b}\\
+    L &= \text{\input{L.tex}}\label{eq:17c}
+\end{align}
+\end{subequations}
+
+\flushleft{Für\;}\justifying die mechanische Leistung $N_{mech}$ des Kompressors wird die Formel \eqref{eq:5} und die Dichlordifluormethan spezifischen Werte 
+\cite{V206} $\rho_0 = \SI{5.51}{\gram\liter\tothe{-1}}\; \text{bei}\; T = \SI{0}{\celsius}\; \text{und}\; p = \SI{1}{\bar}, \kappa = 1.14$ zusammen mit den
+Drücken, für die vorherig verwendeten vier Zeiten, in Formel \eqref{eq:9} eingesetzt. \\
+Die daraus folgenden mechanischen Leistungen betragen:
+\begin{subequations}
+\begin{align}
+    N_{mech1} &= \text{\input{N0.tex}} \label{eq:18a}\\
+    N_{mech2} &= \text{\input{N1.tex}} \label{eq:18b}\\
+    N_{mech3} &= \text{\input{N2.tex}} \label{eq:18c}\\
+    N_{mech4} &= \text{\input{N3.tex}} \label{eq:18d}
 \end{align}
 \end{subequations}
 
