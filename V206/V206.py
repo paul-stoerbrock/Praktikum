@@ -191,6 +191,25 @@ with open('build/L.tex', 'w') as f:
 with open('build/P_mean.tex', 'w') as f: 
   f.write(make_SI(P_mean,r'\watt' ,figures=1))
 
+# tex file of N[0]
+
+with open('build/N0.tex', 'w') as f: 
+  f.write(make_SI(P[0],r'\watt' ,figures=1))
+
+# tex file of N[1]
+
+with open('build/N1.tex', 'w') as f: 
+  f.write(make_SI(P[1],r'\watt' ,figures=1))
+
+# tex file of N[2]
+
+with open('build/N2.tex', 'w') as f: 
+  f.write(make_SI(P[2],r'\watt' ,figures=1))
+
+# tex file of N[3]
+
+with open('build/N3.tex', 'w') as f: 
+  f.write(make_SI(P[3],r'\watt' ,figures=1))
 
 # Tabellen ########################################################################################################################################################
 
