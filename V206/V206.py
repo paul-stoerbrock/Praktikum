@@ -315,7 +315,7 @@ table_header = r'''
   \begin{tabular}{c c c c c c c}
     \toprule
      \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} &\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
-     \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
+     \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
 
     \cmidrule(lr){1-7}
 
@@ -328,7 +328,7 @@ row_template = r'     {0:1.1f}& {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1
 
 with open('build/table_calc.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(t1_rech, t2_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
+    for row in zip(t1_rech, t2_rech, dQ1dt, nu_real, nu_id, dQ2dt, dmdt*1e04):
         g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
         g.write('\n')
     g.write(table_footer)
