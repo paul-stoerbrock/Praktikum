@@ -197,7 +197,7 @@ benötigt. Mit der gaußschen Fehlerfortpflanzung \eqref{eq:10c} folgt:
     \sigma_{T_i} = \sqrt{4t^2 \cdot \sigma _{A_i}^2 + t^2 \cdot \sigma _{B_i}^2} \label{eq:13}\quad \text{mit}\; i = 1,2
 \end{align}
 Um mit der Fehlerfortpflanzung \eqref{eq:13} auf die Differentialquotienten $\sfrac{d_{T1}}{dt}$ und $\sfrac{d_{T2}}{dt}$ zu schließen werden die 
-Temperaturen $\SI{26.6}{\celsius}$, $\SI{39.9}{\celsius}$, $\SI{46.7}{\celsius}$ und $\SI{49.6}{\celsius}$ für $T_1$ verwendet. Für $T_2$ 
+Temperaturen $\SI{26.6}{\celsius}$, $\SI{39.9}{\celsius}$, $\SI{47.4}{\celsius}$ und $\SI{49.6}{\celsius}$ für $T_1$ verwendet. Für $T_2$ 
 werden die Temperaturen $\SI{17.4}{\celsius}$, $\SI{7.8}{\celsius}$, $\SI{1.4}{\celsius}$ und $\SI{-0.4}{\celsius}$ benutzt.
 Die daraus folgenden Differentialquotienten lauten:
 \begin{table}[H]
@@ -261,12 +261,12 @@ der Gleichung \eqref{eq:7} und der molaren Masse von Dichlordifluormethan $\SI{0
 \cite{V206} $\rho_0 = \SI{5.51}{\gram\liter\tothe{-1}}\; \text{bei}\; T = \SI{0}{\celsius}\; \text{und}\; p = \SI{1}{\bar}, \;\kappa = 1.14$ zusammen mit den
 Drücken, für die vorherig verwendeten vier Zeiten, in Formel \eqref{eq:9} eingesetzt. \\
 Die daraus folgenden mechanischen Leistungen betragen:
-\begin{subequations}
+\begin{subequations} \label{eq:18}
 \begin{align}
-    N_{mech1} &= \text{\input{N0.tex}} \label{eq:18a}\\
-    N_{mech2} &= \text{\input{N1.tex}} \label{eq:18b}\\
-    N_{mech3} &= \text{\input{N2.tex}} \label{eq:18c}\\
-    N_{mech4} &= \text{\input{N3.tex}} \label{eq:18d}
+    N_{mech1} &= \text{\input{N0.tex}} \qquad \text{mit} \qquad t = \SI{29}{\minute} \label{eq:18a}\\
+    N_{mech2} &= \text{\input{N1.tex}} \qquad \text{mit} \qquad t = \SI{25}{\minute} \label{eq:18b}\\
+    N_{mech3} &= \text{\input{N2.tex}} \qquad \text{mit} \qquad t = \SI{15}{\minute} \label{eq:18c}\\
+    N_{mech4} &= \text{\input{N3.tex}} \qquad \text{mit} \qquad t = \SI{4}{\minute} \label{eq:18d}
 \end{align}
 \end{subequations}
 
@@ -298,9 +298,16 @@ dadurch erklären, dass beim notieren der Messwerte nicht rechtzeitig der Wert a
 
 \flushleft{Der\;}\justifying Graph der Verdampfungswärme \ref{fig:4} erscheint ebenso physikalisch sinnvoll, da die Verdampfungswärme von Dichlordifluormethan mit 
 steigender Temperatur sinkt. Die Messwerte aus Graph \ref{fig:4} befinden sich, abgesehen von dem ersten Wert, nahe der Ausgleichsgeraden.
-Dieser könnte sich auch durch Messungenauigkeit erklären lassen.
+Dieser könnte sich auch durch eine Messungenauigkeit beim Ablesen während des Versuchs erklären lassen.
 
-\flushleft{Die\;}\justifying Größenordnung der realen Güteziffern $\nu_{real}$ aus \ref{tab:3} ist deutlich kleiner als die der der idealen. 
+\flushleft{Bei\;}\justifying der mechanischen Leistung $N_{mech}$ \eqref{eq:18} wird deutlich, dass die Arbeit bei vorranschreitender Zeit abnimmt. 
+Dies lässt sich mit dem Energieniveau des Gases zum jeweiligen Zeitpunkt erklären. Das Gas befindet sich bei $t = \SI{0}{\minute}$ auf Raumtemperatur
+(ca. $\SI{22}{\celsius}$). Da die mechanische Arbeit den Energieabzug aus Reservoire $T2$ beschreibt, soll die Arbeit sinken, sobald das Gas 
+Energie verliert. Da $T2$ Wärme entzogen wird, muss der Kompressor weniger Arbeit verrichten, um das Gas zu kompremieren. Dennoch sticht der Wert 
+\eqref{eq:18c} heraus, da dieser deutlich höher liegt als die anderen Werte. Erwartet wird ein stetiger Verlauf der Leistung, weshalb der Wert 
+\eqref{eq:18c} zwischen den Werten \eqref{eq:18b} und \eqref{eq:18d} liegen sollte. [...]
+
+\flushleft{Die\;}\justifying Größenordnung der realen Güteziffern $\nu_{real}$ aus \ref{tab:3} ist deutlich kleiner als die der idealen. 
 Dies hat mehrere Gründe. Zum einen handelt es sich bei der realen Wärmepumpe nicht um ein geschlossenes System, da Wärme über mehere Wege 
 verloren gehen kann. Die Reservoire sind keine perfekten Isolatoren und strahlen Wärme ab. Wie oben schon erwähnt, wandelt der Kompressor einen
 Teil der erhaltenen Leistung in Wärmeenergie um.
