@@ -20,24 +20,24 @@
 
 % Zielsetzung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Ziel}\justifying
-Der effiziente Transport von Wärme von einem kälteren  zu einem wärmeren Reservoir wird in der alltäglichen Welt immer wieder
-zum Beispiel in Form eines Kühlschranks eingesetzt. Eine bedonders günstige Variante des Wärmetransports
+\section{Ziel} \label{sec:1}\justifying
+Der effiziente Wärmetransport von einem kälteren zu einem wärmeren Reservoir wird in der alltäglichen Welt immer wieder eingesetzt, zum Beispiel
+in Form eines Kühlschranks. Eine besonders günstige Variante des Wärmetransports
 stellt dabei die Wärmepumpe dar. Daher wird die Funktionsweise einer Wärmepumpe als Beispiel
-für einen Wärmetransport in einem Experiment näher betrachtet.
+für einen Wärmetransport in diesem Experiment näher betrachtet.
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Theorie}\justifying
+\section{Theorie} \label{sec:2}\justifying
 Im Normalfall wird Wärmeenergie in einem abgeschlossenen System vom wärmeren zum kälteren Reservoir transportiert. Um diesen Prozess 
-umzukehren, muss von außen Energie in Form von zum Beispiel mechanischer Arbeit zugeführt werden.
+umzukehren, muss von außen Energie zugeführt werden, hier als mechanischer Arbeit.
 Die Wärmepumpe stellt ein Experiment dar, welches diese Leistung erbringt. \\
 Zur Beschreibung der Wärmepumpe wird eine neue Größe eingeführt, die Güteziffer $\nu$.
 Sie beschreibt den Quotienten von transportierter Wärmemenge $Q_1$ und aufgewendeter
 Arbeit A. Unter der Forderung, dass die Wärmeübertragung reversibel sei, lässt
 sich die Güteziffer $\nu$ beschreiben als \cite{V206}
 \begin{align}
-    \nu _{id} = \frac{Q_1}{A}=\frac{T_1}{T_1-T_2}. \label{eq:1}
+    \nu _{ideal} = \frac{Q_1}{A}=\frac{T_1}{T_1-T_2}. \label{eq:1}
 \end{align}
 Diese Güteziffer beschreibt allerdings nur eine ideale Wärmepumpe. Die
 Güteziffer einer realen Wärmepumpe ist begrenzt durch \cite{V206}
@@ -49,15 +49,15 @@ Temperaturdifferenz kleiner wird.\\
 Bei einer realen Wärmepumpe wird ein reales Gas als Transportmedium verwendet, welches
 beim Verdampfen eine endotherme Reaktion und beim Kondensieren eine exotherme Reaktion
 ausführt. Das Gas, welches eine möglichst große Kondensationswärme haben soll, transportiert
-damit die Energie. \\
+damit die Energie.\\
 Ein schematischer Aufbau einer Wärmepumpe sieht dabei folgendermaßen aus:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{./images/theo_Aufbau.jpg}
-    \caption{prinzipieller Aufbau der Wärmepumpe ($p_a>p_b$;$T_1>T_2$) \cite{V206}} 
+    \caption{Prinzipieller Aufbau der Wärmepumpe ($p_a>p_b$;$T_1>T_2$) \cite{V206}} 
     \label{fig:1}
 \end{figure}
-Durch den Kompressor K entsteht ein Mediumkreislauf, während das Gas
+\flushleft{Durch\;}\justifying den Kompressor K entsteht ein Mediumkreislauf, während das Gas
 durch das Drosselventil vom Reservoir 1 ins Reservoir 2 strömt.
 Bei der Temperatur $T_1$ und dem Druck $p_b$ ist das Gas flüssig, während
 es bei $T_2$ und $p_a$ gasförmig ist.\\
@@ -69,12 +69,12 @@ Um diese zu berechnen wird vorher die pro Zeiteinheit gewonnene Wärmemenge \cit
 berechnet. Dabei ist $m_1 c_w$ die Wärmekapazität des Wassers, $m_k c_k$ die
 Wärmekapazität der Kupferschlange und des Eimers in der Abbildung und
 $\sfrac{\Delta T_1}{Delta t} $ die zeitliche Änderung der Temperatur.
-Damit wird Die Güteziffer $\nu$ berechnet:\cite{V206}
+Damit wird Die Güteziffer $\nu$ berechnet \cite{V206}:
 \begin{align}
     \nu_{real}= \frac{\Delta Q_1}{\Delta t N} \label{eq:4}
 \end{align}
 Dabei ist N die über dem Zeitintervall gemittelte Leistungsaufnahme des Kompressors.\\
-Eine weitere wichtige Größe bildet der Massendurchsatz.\cite{V206}
+Eine weitere wichtige Größe bildet der Massendurchsatz \cite{V206}:
 \begin{align}
     L\frac{\Delta m}{\Delta t}&=\frac{\Delta Q_2}{\Delta t} \label{eq:5}
     \intertext{mit}
@@ -100,7 +100,7 @@ $\rho$ bezeichnet die Dichte des Mediums und $\kappa$ das Verhältnis der Molwä
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Fehlerrechnung}\justifying
+\section{Fehlerrechnung} \label{sec:3}\justifying
 
 Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
 verwendet:
@@ -126,7 +126,7 @@ verwendet:
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Versuchsaufbau und Versuchsdurchführung}\justifying
+\section{Versuchsaufbau und Versuchsdurchführung} \label{sec:4}\justifying
 
 Benötigt werden: \textit{Zwei Manometer, zwei Thermometer, zwei Rührmotoren, zwei thermisch isolierte Wasserbehälter, ein Kompressor, 
 ein Drosselventil, ein Reiniger, ein Wattmeter, eine Stoppuhr, ein Messkolben und $\SI{6}{\liter}$ Wasser.}
@@ -150,7 +150,8 @@ Abschließend werden Wattmeter und Kompressor abgeschaltet und beide Reservoire 
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Auswertung}
+\section{Auswertung} \label{sec:5}
+
 \begin{table}[H]
     \centering
     \input{table.tex}
@@ -202,7 +203,7 @@ Die daraus folgenden Differentialquotienten lauten:
 \begin{table}[H]
     \centering
     \input{build/tabledTdt.tex}
-    \caption{zeitliche Veränderung der Temperatur} \label{tab:2}
+    \caption{Zeitliche Veränderung der Temperatur} \label{tab:2}
 \end{table}
 
 
@@ -213,7 +214,7 @@ Die daraus folgenden Differentialquotienten lauten:
 \end{align}
 Mithilfe der Formel \eqref{eq:4}, der gemittelten Leistung $N$ \eqref{eq:14} und der Fehlerfortpflanzung \eqref{eq:10c}
 \begin{align}
-    \sigma_{\nu_{real}} = \sqrt{\frac{1}{N^2} \cdot \sigma_{\frac{\Delta Q_i}{\Delta t}}^2 + \left( \frac{-\Delta Q_i}{\Delta t N^2} \right)^2 \cdot \sigma_{N}^2} \label{eq:15}
+    \sigma_{\nu_{real}} = \sqrt{\frac{1}{N^2} \cdot \sigma_{\frac{\Delta Q_i}{\Delta t}}^2 + \left( \frac{-\Delta Q_i}{\Delta t N^2} \right)^2 \cdot \sigma_{N}^2} \qquad \text{mit} \qquad i = 1,2 \label{eq:15}
 \end{align}
 ergeben sich die in der Tabelle \ref{tab:3} aufgeführten Werte für $\nu_{real}$.
 
@@ -268,12 +269,31 @@ Die daraus folgenden mechanischen Leistungen betragen:
     N_{mech4} &= \text{\input{N3.tex}} \label{eq:18d}
 \end{align}
 \end{subequations}
+\newpage
 
 
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Diskussion}
+\section{Diskussion} \label{sec:6}
+
+\flushleft{Die\;}\justifying Graphen \ref{fig:3a} und \ref{fig:3b} geben einen physikalisch sinnvollen Temperaturverlauf der einzelnen Reservoire 
+wieder. Dies lässt sich anhand der in Tabelle \ref{tab:3} angegebenen Wärmemengen für beide Reservoire erkennen. Werden die Differenzen der 
+Wärmemengen betrachtet, ergibt sich folgendes Verhältnis:
+
+\begin{subequations} \label{eq:19}
+\begin{align}
+    &\abs{\text{\input{dQ1dt0.tex}}} &- &\abs{\text{\input{dQ2dt0.tex}}} &= &\text{\input{diff0.tex}} \label{eq:19a}\\
+    &\abs{\text{\input{dQ1dt1.tex}}} &- &\abs{\text{\input{dQ2dt1.tex}}} &= &\text{\input{diff1.tex}} \label{eq:19b}\\
+    &\abs{\text{\input{dQ1dt2.tex}}} &- &\abs{\text{\input{dQ2dt2.tex}}} &= &\text{\input{diff2.tex}} \label{eq:19c}\\
+    &\abs{\text{\input{dQ1dt3.tex}}} &- &\abs{\text{\input{dQ2dt3.tex}}} &= &\text{\input{diff3.tex}} \label{eq:19d}
+\end{align}
+\end{subequations}
+
+\flushleft{Die\;}\justifying Differenzen \eqref{eq:19} vergrößern sich, was sich den physikalischen Erwartungen gleicht. Da es sich hier um 
+eine reale Wärmepumpe handelt, ist ein Energieverlust zu erwarten, da der Kompressor Wärmeenergie absondert. Demnach sind die Graphen \ref{fig:3}
+nicht deckungsgleich. Der neunte Wert im Graphen \ref{fig:3a} weicht von ein wenig von der nicht-linearen Regressionslinie ab. Dies ließe sich
+dadurch erklären, dass beim notieren der Messwerte nicht rechtzeitig der Wert abgelesen wurde. 
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
