@@ -22,13 +22,13 @@
 
 
 \section{Theorie}\label{sec:1}\justifying
-Ein Körper kann eine Volumenänderung erfahren, wenn an dessen Oberfläche eine Kraft angelegt
+Ein Körper erfährt eine Volumenänderung, wenn an dessen Oberfläche eine Kraft angelegt
 wird. Diese Kraft hat einen engen Bezug zur Fläche des Körpers und wird in der Physik
 als Spannung $\sigma$ bezeichnet.\\
-Ein Beispiel für eine Volumenveränderung stellt die Einzelbiegung eines Stabes dar.
+Ein Beispiel für eine Volumenveränderung stellt die einseitige Biegung eines Stabes dar.
 Dabei wird ein Ende des Stabes fixiert, während auf dem anderen Ende des Stabes eine
-Gewichtskraft über eine zusätzliche Masse wirkt. Dabei wird ein Teil des Stabes gestreckt,
-ein zweiter gestaucht und ein dritter Teil bleibt gleich. Der Stab stellt dabei aufgrund der inneren
+Gewichtskraft über eine zusätzliche Masse wirkt. Dadurch wird das fixierte Ende des Stabes gestreckt,
+das Mittelstück des Stabes gestaucht und das Ende mit der Masse bleibt gleich. Der Stab stellt dabei aufgrund der inneren
 Kräfte und der elastischen Eigenschaften eine konstante Auslenkung ein.
 Bei kleinen Veränderungen
 besteht ein linearer Zusammenhang zwischen der Spannung $\sigma$  und der Deformation $\sfrac{\delta x}{\Delta x} $.
@@ -43,7 +43,7 @@ Das durch die Biegung beschriebene Drehmoment führt nach einer Kleinwinkelnähe
 \begin{align}
     E \frac{\symup{d}^2 \, D}{\symup{d}x^2}\int_Q y^2 \, \symup{d}q = F(L-x) .\label{eq:2}
 \end{align}
-Dabei ist D die Durchbiegung des Stabes, L die Länge des Stabes ab dem Ende der Fixierung, $F(L-x)$ der Betrag des Drehmoments und \cite{V103}
+Dabei ist D die Durchbiegung des Stabes, L die Länge des Stabes beginnend an dem Fixpunkt, $F(L-x)$ der Betrag des Drehmoments und \cite{V103}
 \begin{align}
     I := \int_Q y^2 \, \symup{d}q(y) \label{eq:3}
 \end{align}
@@ -52,7 +52,7 @@ Aus Gleichung \eqref{eq:2} folgt für die Durchbiegung D \cite{V103}
 \begin{align}
     D(x)=\frac{F}{2E\,I}\left(L  x^2-\frac{x^3}{3}\right) \label{eq:4} (\text{für} \, 0\leq x \leq L).
 \end{align}
-Eine weitere mögliche Biegungsart stellt die doppelt fixierte Biegung dar. Bei dieser wird
+Eine weitere mögliche Biegungsart stellt die beidseitig fixierte Biegung dar. Bei dieser wird
 der Stab an beiden Enden aufgelegt und die Gewichte werden an die Stabmitte 
 gehangen. \\
 Für die Beschreibung der Durchbiegung wird in diesem Fall zwischen den Bereichen
@@ -95,25 +95,35 @@ Für eventuell anfallende Fehler in der Auswertung werden folgende Formeln verwe
 
 \section{Versuchsaufbau/Durchführung}\justifying
 
-\flushleft{Benötigt\;}\justifying werden: \textit{ Eine ca. $\SI{60}{\centi\meter}$ lange, $\SI{530}{\gram}$ schwere, rechtreckige Kupfterstange, eine ca. $\SI{60}{\centi\meter}$ lange, runde
-Aluminiumstange, eine Apperatur zur Biegung der Stäbe mit zwei Fixpunkten, zwei schiebbare Messuhren im $\SI{}{\micro\meter}$-Bereich, eine
+\flushleft{Benötigt\;}\justifying werden: \textit{ Eine ca. $\SI{60}{\centi\meter}$ lange, $\SI{530}{\gram}$ schwere, rechtreckige Metallstange, eine ca. $\SI{60}{\centi\meter}$ lange, runde
+Metallstange, eine Apperatur zur Biegung der Stäbe mit zwei Fixpunkten, zwei schiebbare Messuhren im $\SI{}{\micro\meter}$-Bereich, eine
 $\SI{55}{\centi\meter}$ lange Skala für die Messuhren, eine Aufhängung ($\SI{19}{\gram}$), acht Gewichte ($4\times$ ca. $\SI{1160}{\gram}$, 
 $2\times$ ca. $\SI{500}{\gram}$, $1\times$ ca. $\SI{225}{\gram}$), eine Bindung für die Gewichte (hier eine Schraube ($\SI{22.1}{\gram}$))
 ein Maßband, eine Waage.
 }
-\flushleft{Zuerst\;}\justifying wird die Kupferstange an dem Skalennullpunkt eingespannt. Die Messuhren werden über der Stange auf der Skala platziert. Nun werden mit 
+
+\flushleft{Zuerst\;}\justifying wird die Aperatur wie in der folgenden Abbildung \ref{fig:aufb} aufgebaut. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{./images/Aufbau_V103.jpg}
+    \caption{Aufbau der einseitigen Biegung \cite{V103}}
+    \label{fig:aufb}
+\end{figure}
+
+\flushleft{Anschließend\;}\justifying wird die eckige Stange an dem Skalennullpunkt eingespannt. Die Messuhren werden über der Stange auf der Skala platziert. Nun werden mit 
 einer Messuhr 19 Messwerte der Durchbiegung in einem Abstand von $\SI{2.5}{\centi\meter}$ (von $\SI{2.5}{\centi\meter}$ bis $\SI{47.5}{\centi\meter}$) 
-bestimmt. Nach den Messungen ohne Gewicht, werden zwei $\SI{500}{\gram}$ Gewichte an das lose Ende gehangen und die Messungen wiederholt. Anschließend
-werden die Gewichte abgenommen und die Kupferstange an beiden Enden fixiert. Dabei ist zu beachten, dass beide Enden lose eingespannt werden, sodass die
+bestimmt. Nach den Messungen ohne Gewicht, werden zwei Gewichte an das lose Ende gehangen und die Messungen wiederholt. Anschließend
+werden die Gewichte abgenommen und die eckige Stange an beiden Enden fixiert. Dabei ist zu beachten, dass beide Enden lose eingespannt werden, sodass die
 Stange nur auf den Fixpunkten aufliegt. Nun wird die Durchbiegung an 14 Stellen mit einem Abstand von $\SI{3}{\centi\meter}$ gemessen. Danach werden vier 
-$\SI{1160}{\gram}$ Gewichte mittig an die Stange gehangen und die Messungen wiederholt. Anschließend werden die Länge und Breite des Stabs an zehn 
+Gewichte mittig an die Stange gehangen und die Messungen wiederholt. Anschließend werden die Länge und Breite des Stabs an zehn 
 verschiedenen Stellen gemessen.
 
-\flushleft{Der\;}\justifying obige Prozess wird für die runde Aluminiumstange wiederholt. Zu Beginn wird die Aluminiumstange einseitig eingespannt. Die Durchbiegung
-wird ohne Gewichte 19-mal in einem Abstand von $\SI{2.5}{\centi\meter}$ gemessen. Dann wird ein $\SI{500}{\gram}$ Gewicht an das lose Ende 
+\flushleft{Der\;}\justifying obige Prozess wird für die runde Stange wiederholt. Zu Beginn wird die Stange einseitig eingespannt. Die Durchbiegung
+wird ohne Gewichte 19-mal in einem Abstand von $\SI{2.5}{\centi\meter}$ gemessen. Dann wird ein Gewicht an das lose Ende 
 gehangen und die Messung wiederholt. Anschließend wird das Gewicht abgenommen und die Stange an beiden Seiten fixiert. Auch hier dürfen die beiden Enden
-nicht fest eingespannt werden. Abschließend werden 14 Messungen ohne Gewichte und 14 Messungen mit zwei $\SI{500}{\gram}$ Gewichten und einem $\SI{230}{\gram}$ 
-Gewicht durchgeführt. Wie beim Kupferstab wird auch hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
+nicht fest eingespannt werden. Abschließend werden 14 Messungen ohne Gewichte und 14 Messungen mit drei Gewichten durchgeführt. Wie bei der eckigen Stange
+wird auch hier der Durchmesser an zehn verschiedenen Stellen des Stabs abgenommen.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -123,7 +133,12 @@ Gewicht durchgeführt. Wie beim Kupferstab wird auch hier der Durchmesser an zeh
 
 \subsection{Kupfer einfach fixiert}\label{sec:4.1}
 
-\flushleft{Die\;}\justifying Maße und das Gewicht des Kupferstabs, sowie die Gewichte der Aufhängung und Schraube, an welche die Gewichte gehangen 
+\flushleft{Es\;}\justifying handelt sich bei der Eckigen Stange um Kupfer, da das Material auf den Stab geschrieben wurde. 
+Wird die Dichte mit den folgenden Werten \eqref{eq:8a}, \eqref{eq:8b} und \eqref{eq:8c} und der Formel $\rho = \sfrac{m}{V}$
+berechnet, ergibt sich $\rho = \SI{8.864}{\kilo\gram\per\cubic\deci\meter}$. Wird dieser Wert mit dem Literaturwert der Kupferdichte
+$\rho = \SI{8.9}{\kilo\gram\per\cubic\deci\meter}$ \cite{Kupferdichte} verglichen, wird die Stabaufschrift bestätigt und es handelt sich 
+hierbei wahrscheinlich um Kupfer.
+Die Maße und das Gewicht des Kupferstabs, sowie die Gewichte der Aufhängung und Schraube, an welche die Gewichte gehangen 
 werden, sind im Folgenden aufgelistet: 
 \begin{subequations}\label{eq:8}
 \begin{align}
@@ -133,6 +148,7 @@ werden, sind im Folgenden aufgelistet:
     &\text{Masse der Aufhängung:} \qquad &\text{\input{m_aufhaeng.tex}} \label{eq:8d}\\
     &\text{Masse der Schraube:} \qquad &\text{\input{m_schraube.tex}} \label{eq:8e}
 \end{align}
+\end{subequations}
 
 \begin{table}[H]
 \centering
@@ -151,7 +167,6 @@ werden, sind im Folgenden aufgelistet:
 \label{tab:1}
 \end{table}
 
-\end{subequations}
 \flushleft{Die\;}\justifying Mittelwerte für die Dicke $\overline{d}$ und die Breite $\overline{b}$ wurden im Folgenden mit Tabelle \ref{tab:1} 
  und Formel \eqref{eq:7a} berechnet. Um das Flächenträgheitsmoment eines rechteckigen Stabes mit der Breite b und der
 Dicke d zu berechnen, welcher in z-Richtung gebogen wird, wird die Formel \eqref{eq:3} auf folgende Art
@@ -275,7 +290,10 @@ Die Elastizitätmodule der doppelten Biegung des Kupferstabs betragen:
 
 \subsection{Aluminium einfach fixiert}\label{sec:4.3}
 
-\flushleft{Die\;}\justifying Länge des Aluminiumstabs, sowie der Mittelwert des Durchmessers sind im folgenden aufgelistet:
+\flushleft{Auch\;}\justifying hier wird mithilfe der Formel $\rho = \sfrac{m}{V}$ die Dichte mithilfe der folgenden Werte \eqref{eq:19} 
+bestimmt. Damit ergibt sich die Dichte $\rho = \SI{2.7}{\gram\per\milli\meter\tothe{3}}$. Wird diese mit dem Literaturwert von Aluminium
+$\rho = \SI{2.7}{\gram\per\milli\meter\tothe{3}}$ \cite{Aluminiumdichte} verglichen, handelt es sich hier wahrscheinlich um Aluminium.
+Die Länge des Aluminiumstabs, sowie der Mittelwert des Durchmessers sind im folgenden aufgelistet:
 \begin{subequations}\label{eq:19}
 \begin{align}
     &\text{Länge des Aluminiumstabs:} \qquad &\text{\input{l_Al.tex}} \label{eq:19a}\\
@@ -372,8 +390,8 @@ Die für die Doppelbiegung des Aluminiumstabs verwendeten Gewichte lauten:
 \end{subequations}
 
 \flushleft{Wie\;}\justifying in \ref{sec:4.2} beschreibt die folgenden Tabelle \ref{tab:6} die Biegung der jeweiligen Seite. Die linke Spalte
-beinhaltet die Biegungen der linken Seite relativ zum Mittelpunkt bei $\SI{27.5}{\centi\meter}$. Die rechte Seite gibt dementsprechend die Biegungen
-der rechten Seite relativ zum Mittelpunkt wieder. 
+beinhaltet die Biegungen der linken Seite ausgehend vom Mittelpunkt bei $\SI{27.5}{\centi\meter}$. Die rechte Seite gibt dementsprechend die Biegungen
+der rechten Seite ausgehend vom Mittelpunkt wieder. 
 \begin{table}[H]
     \centering
     \input{Al_dop.tex}
@@ -430,30 +448,18 @@ sein, da die Messuhr nicht genau auf $\SI{2.5}{\centi\meter}$ gestellt werden ko
 Stabs blockiert. Wahrscheinlicher ist hingegen, dass der Stab an der Stelle um $\SI{2.5}{\centi\meter}$ verformt war. Die Länge $L$, welche für den 
 Graphen \ref{fig:1} und die dazugehörige lineare Regression benötigt wurde, wurde gewählt gemäß des in Abschnitt \ref{sec:1} beschriebenen Umstands des 
 Fixpunktes. Demnach betrug die Länge für die Einzelbiegung $\SI{50}{\centi\meter}$. Abgesehen von dem negativen Wert aus Tabelle \ref{tab:1}, sieht 
-der Graph \ref{fig:1} gut aus. Die Werte liegen auf, oder nahe der Geraden. 
-
-\flushleft{Für\;}\justifying die Doppelbiegung wurde der Mittelpunkt von $\SI{27.5}{\centi\meter}$ gewählt, gemäß der in Abschnitt \ref{sec:1} definierten Länge.
-Demnach beträgt die Länge für die Doppelbiegung $\SI{55}{\centi\meter}$. Die Messwerte der Doppelbiegung aus Tabelle \ref{tab:3} weisen für beide Seiten 
-in der Differenzspalte eine große Ähnlichkeit auf. Die Graphen \ref{fig:2a} und \ref{fig:2b} verdeutlichen diese Ähnlichkeit, da die Steigungen der beiden
-Geraden \eqref{eq:16a} und \eqref{eq:16b} nahezu identisch sind. 
+der Graph \ref{fig:1} physikalisch sinnvoll aus, da die Werte auf, oder nahe der Geraden liegen. 
 
 \flushleft{Wird\;}\justifying nun der Wert des Elastizitätmoduls der Einzelbiegung \eqref{eq:14} mit den Werten der Elastizitätmodule der Doppelbiegung \eqref{eq:17}
-und \eqref{eq:18} verglichen, fällt eine deutliche Ähnlichkeit an. Daraus lässt sich schließen, dass der systematische Fehler gering ist und es
-sich hierbei wahrscheinlich um Kupfer handelt, da der Name des Materials auf dem Stab stand.
+und \eqref{eq:18} verglichen, fällt eine deutliche Ähnlichkeit auf. Daraus lässt sich schließen, dass der systematische Fehler gering ist.
 
 % Aluminium --------------------------------------------------------------------------------------------------------------------------------
 
-\flushleft{Es\;}\justifying wird für den runden Stab identisch verfahren, wie für den Kupferstab. Zu Beginn wird die Beschaffenheiten des Materials
-mit der Dichte bestimmt. Dafür wird die Formel $\rho = \sfrac{m}{V}$ verwendet. Für den runden Stab ergibt die Dichte $\rho = \SI{2.7}{\gram\per\milli\meter\tothe{3}}$.
-Dieser Wert gleicht dem Literaturwert der Dichte von Aluminium $\rho = \SI{2.7}{\gram\per\milli\meter\tothe{3}}$ \cite{Aluminiumdichte}. Folglich liegt
-die Vermutung nahe, dass es sich beim zweiten Material um Aluminium handelt. 
-
-\flushleft{Wie\;}\justifying beim Kupferstab wird der Durchmesser des Aluminiumstabes an zehn verschiedenen Stellen gemessen, welche in Tabelle \ref{tab:4}
-aufgeführt werden. Die Tabelle \ref{tab:5} gibt die Einzelbiegung des Aluminiumstabes wieder. Diesmal fällt kein negativer Wert bei der Differenz für 
+\flushleft{Es\;}\justifying wird für den Aluminiumstab identisch verfahren, wie für den Kupferstab. 
+Diesmal fällt kein negativer Wert bei der Differenz für 
 $\SI{2.5}{\centi\meter}$ an. Die Länge $L$ des Aluminiumstabes wird identisch zu der Länge des Kupferstabes behandelt. $L$ ist hier dementsprechend
 $\SI{50}{\centi\meter}$. Der auf Tabelle \ref{tab:5} basierenden Graph weist eine größere Fluktuation der Werte an als bei der Einzelbiegung 
-des Kupferstabes. Im Graphen gibt es einige Werte, die über, bzw. unter der Ausgleichsgeraden liegen. Dies kann durch statistische Fehler erklärt werden,
-da die Abweichung recht homogen aussieht.
+des Kupferstabes. Dies kann durch statistische Fehler erklärt werden, da die Abweichung recht homogen aussieht.
 
 \flushleft{Für\;}\justifying die Doppelbiegung des Aluminiumstabes gelten identische Vorraussetzungen wie bei der Doppelbiegung des Kupferstabes.
 Die Länge $L$ beträgt hier ebenfalls $\SI{55}{\centi\meter}$. Die Messwerte aus Tabelle \ref{tab:6} zeigen eine gewisse Ähnlichkeit. Doch liegen 
