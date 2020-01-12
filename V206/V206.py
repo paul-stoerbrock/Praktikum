@@ -312,26 +312,38 @@ t1_rech = np.array([T1[28], T1[24], T1[14], T1[3]])
 t2_rech = np.array([T2[28], T2[24], T2[14], T2[3]])
 
 table_header = r'''
-  \begin{tabular}{c c c c c c c}
+  \begin{tabular}{c c c c}
     \toprule
-     \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Massendurchsatz }\\
-     \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real}\cdot 10^ {-3} $} & \multicolumn{1}{c}{$\nu_{ideal}$} & \multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } & \multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
+     \multicolumn{1}{c}{Temperatur}&\multicolumn{1}{c}{Wärmemenge} & \multicolumn{1}{c}{Güteziffer} & \multicolumn{1}{c}{Güteziffer}  \\
+     \multicolumn{1}{c}{$T_1\:/\: \si{\celsius}$}&\multicolumn{1}{c}{$\frac{dQ_1}{dt}\:/\:\si{\joule\second\tothe{-1}} $} & \multicolumn{1}{c}{$\nu_{real} $} & \multicolumn{1}{c}{$\nu_{ideal}$}   \\
 
-    \cmidrule(lr){1-7}
+    \cmidrule(lr){1-4}
+
+
+'''
+table_half = r'''   
     \toprule
-
-
+    \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Wärmemenge}& \multicolumn{1}{c}{Massendurchsatz }\\
+    \multicolumn{1}{c}{$T_2\:/\: \si{\celsius}$} &\multicolumn{1}{c}{$\frac{dQ_2}{dt}\:/\:\si{\joule\second\tothe{-1}} $ } &\multicolumn{1}{c}{$\frac{dm}{dt}\cdot 10^{-4}\:/\:\si{\kilo\gram\second\tothe{-1}} $}\\
+    \cmidrule(lr){1-3}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
+
 '''
-row_template = r'     {0:1.1f}& {1:1.1f} & {2:1.1f} & {3:1.1f} & {4:1.1f} & {5:1.1f} & {6:1.2f} \\'
+
+row_template_top = r'     {0:1.1f}& {1:1.1f} & {2:1.1f} & {3:1.1f}  \\'
+row_template_bottom = r'     {0:1.1f}& {1:1.1f} & {2:1.1f}   \\'
 
 
 with open('build/table_calc.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(t1_rech, t2_rech, dQ1dt, nu_real*1e03, nu_id, dQ2dt, dmdt*1e04):
-        g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
+    for row in zip(t1_rech,  dQ1dt, nu_real, nu_id):
+        g.write(row_template_top.format(*row).replace('nan', '').replace('+/-','\pm'))
+        g.write('\n')
+    g.write(table_half)
+    for row in zip(t2_rech,  dQ2dt, dmdt*1e04):
+        g.write(row_template_bottom.format(*row).replace('nan', '').replace('+/-','\pm'))
         g.write('\n')
     g.write(table_footer)
 
@@ -340,8 +352,8 @@ with open('build/table_calc.tex', 'w') as g:
 table_header = r'''
   \begin{tabular}{c c c c c c }
     \toprule
-     \multicolumn{1}{c}{Zeit} &\multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Leistung }\\
-     \multicolumn{1}{c}{$t\:/\: \si{\second}$} &\multicolumn{1}{c}{$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$T_1 \:/\; \si{\celsius} $} & \multicolumn{1}{c}{$p_b\:/\: \si{\bar} $ } & \multicolumn{1}{c}{$P\:/\: \si{\watt} $ }\\
+     \multicolumn{1}{c}{Zeit} &\multicolumn{1}{c}{Druck} & \multicolumn{1}{c}{Temperatur}  & \multicolumn{1}{c}{Druck}& \multicolumn{1}{c}{Temperatur} & \multicolumn{1}{c}{Leistung }\\
+     \multicolumn{1}{c}{$t\:/\: \si{\second}$} &\multicolumn{1}{c}{$p_a \:/\: \si{\bar} $} & \multicolumn{1}{c}{$ T_2 \:/\: \si{\celsius} $} & \multicolumn{1}{c}{$p_b\:/\: \si{\bar} $ }& \multicolumn{1}{c}{$T_1 \:/\; \si{\celsius} $}  & \multicolumn{1}{c}{$P\:/\: \si{\watt} $ }\\
 
     \cmidrule(lr){1-6}
 '''
@@ -357,4 +369,5 @@ with open('build/table.tex', 'w') as g:
         g.write(row_template.format(*row).replace('nan', ''))
         g.write('\n')
     g.write(table_footer)
+
 
