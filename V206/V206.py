@@ -213,6 +213,71 @@ with open('build/N2.tex', 'w') as f:
 with open('build/N3.tex', 'w') as f: 
   f.write(make_SI(N[3],r'\watt' ,figures=1))
 
+# tex file of dQ1dt[0]
+
+with open('build/dQ1dt0.tex', 'w') as f: 
+  f.write(make_SI(dQ1dt[0],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ1dt[1]
+
+with open('build/dQ1dt1.tex', 'w') as f: 
+  f.write(make_SI(dQ1dt[1],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ1dt[2]
+
+with open('build/dQ1dt2.tex', 'w') as f: 
+  f.write(make_SI(dQ1dt[2],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ1dt[3]
+
+with open('build/dQ1dt3.tex', 'w') as f: 
+  f.write(make_SI(dQ1dt[3],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ2dt[0]
+
+with open('build/dQ2dt0.tex', 'w') as f: 
+  f.write(make_SI(dQ2dt[0],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ2dt[1]
+
+with open('build/dQ2dt1.tex', 'w') as f: 
+  f.write(make_SI(dQ2dt[1],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ2dt[2]
+
+with open('build/dQ2dt2.tex', 'w') as f: 
+  f.write(make_SI(dQ2dt[2],r'\joule\per\second' ,figures=1))
+
+# tex file of dQ2dt[3]
+
+with open('build/dQ2dt3.tex', 'w') as f: 
+  f.write(make_SI(dQ2dt[3],r'\joule\per\second' ,figures=1))
+
+diff0 = dQ1dt[0]+dQ2dt[0]
+diff1 = dQ1dt[1]+dQ2dt[1]
+diff2 = dQ1dt[2]+dQ2dt[2]
+diff3 = dQ1dt[3]+dQ2dt[3]
+
+# tex file of diff[0]
+
+with open('build/diff0.tex', 'w') as f: 
+  f.write(make_SI(diff0,r'\joule\per\second' ,figures=1))
+
+# tex file of diff[1]
+
+with open('build/diff1.tex', 'w') as f: 
+  f.write(make_SI(diff1,r'\joule\per\second' ,figures=1))
+
+# tex file of diff[2]
+
+with open('build/diff2.tex', 'w') as f: 
+  f.write(make_SI(diff2,r'\joule\per\second' ,figures=1))
+
+# tex file of diff[3]
+
+with open('build/diff3.tex', 'w') as f: 
+  f.write(make_SI(diff3,r'\joule\per\second' ,figures=1))
+
 # Tabellen ########################################################################################################################################################
 
 t1_rech = np.array([28, 24, 14, 3])
