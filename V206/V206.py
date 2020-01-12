@@ -71,7 +71,7 @@ dT1dt = np.array([ 2*parT1[0]*29*60+parT1[1], 2*parT1[0]*25*60+parT1[1], 2*parT1
 
 # Berechnung der aufgenommenen Wärmemenge von T2
 
-dQ1dt=dT1dt * 750*2
+dQ1dt=dT1dt * (750*2+3*4.812*1e03)
 
 
 # Plot für T2(t) #############################################################################################
@@ -97,7 +97,7 @@ dT2dt = np.array([ 2*parT2[0]*29*60+parT2[1], 2*parT2[0]*25*60+parT2[1],2*parT2[
 
 # Berechnung der abgegebenen Wärmemenge von T2
 
-dQ2dt=dT2dt * 750*2
+dQ2dt=dT2dt * (750*2+3*4.812*1e03)
 
 # Plot zur Berechnung von L #####################################################################################
 
@@ -151,7 +151,7 @@ with open('build/parT1_a.tex', 'w') as f:
 # tex file of parT1_b
 
 with open('build/parT1_b.tex', 'w') as f: 
-  f.write(make_SI(parT1[1],r'' ,figures=1))
+  f.write(make_SI(parT1[1]*1e03 ,r'' ,exp='1e-03' ,figures=1))
 
 # tex file of parT1_c
 
