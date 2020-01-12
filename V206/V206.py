@@ -65,6 +65,8 @@ plt.close()
 
 parT1=unp.uarray(par, err)
 
+print(parT1[0]*60*25*2+parT1[1])
+
 dT1dt = np.array([ 2*parT1[0]*29*60+parT1[1], 2*parT1[0]*25*60+parT1[1], 2*parT1[0]*15*60+parT1[1],  2*parT1[0]*4*60+parT1[1]])
 
 # Berechnung der aufgenommenen Wärmemenge von T2
@@ -144,7 +146,7 @@ N = np.array([N(kappa, pb_Pa[28], pa_Pa[28], rho, dmdt[0]) ,N(kappa, pb_Pa[24], 
 # tex file of parT1_a
 
 with open('build/parT1_a.tex', 'w') as f: 
-  f.write(make_SI(parT1[0],r'' ,figures=1))
+  f.write(make_SI(parT1[0]*1e06,r'' ,exp='1e-06' ,figures=1))
 
 # tex file of parT1_b
 
@@ -159,17 +161,17 @@ with open('build/parT1_c.tex', 'w') as f:
 # tex file of parT2_a
 
 with open('build/parT2_a.tex', 'w') as f: 
-  f.write(make_SI(parT1[0],r'' ,figures=1))
+  f.write(make_SI(parT2[0]*1e06,r'',exp='1e-06' ,figures=1))
 
 # tex file of parT1_b
 
 with open('build/parT2_b.tex', 'w') as f: 
-  f.write(make_SI(parT1[1],r'' ,figures=1))
+  f.write(make_SI(parT2[1],r'' ,figures=1))
 
 # tex file of parT2_c
 
 with open('build/parT2_c.tex', 'w') as f: 
-  f.write(make_SI(parT1[2],r'' ,figures=1))
+  f.write(make_SI(parT2[2],r'' ,figures=1))
 
 # tex file of parL_m
 
@@ -203,7 +205,7 @@ table_header = r'''
   \begin{tabular}{c c}
     \toprule
      \multicolumn{1}{c}{Temperatur pro Zeit}&\multicolumn{1}{c}{Temperatur pro Zeit} \\
-     \multicolumn{1}{c}{$\frac{dT_1}{dt}\cdot 10^{-5} \:/\: \si{\celsius\second\tothe{-1}}$}&\multicolumn{1}{c}{$\frac{dT_2}{dt}\cdot 10^{-3}\:/\: \si{\celsius\second\tothe{-1}}$} \\
+     \multicolumn{1}{c}{$\frac{dT_1}{dt}\cdot 10^{-3} \:/\: \si{\celsius\second\tothe{-1}}$}&\multicolumn{1}{c}{$\frac{dT_2}{dt}\cdot 10^{-3}\:/\: \si{\celsius\second\tothe{-1}}$} \\
 
     \cmidrule(lr){1-2}
 '''
@@ -215,7 +217,7 @@ row_template = r'     {0:1.1f}& {1:1.1f} \\'
 
 with open('build/tabledTdt.tex', 'w') as g:
     g.write(table_header)
-    for row in zip((2*t1_rech*parT1[0]+parT1[0])*1e05,(2*t2_rech*parT2[0]+parT2[1])*1e03):
+    for row in zip(dT1dt*1e03, dT2dt*1e03):
         g.write(row_template.format(*row).replace('nan', '').replace('+/-','\pm'))
         g.write('\n')
     g.write(table_footer)
