@@ -289,7 +289,7 @@ table_header = r'''
   \begin{tabular}{c c}
     \toprule
      \multicolumn{1}{c}{Temperatur pro Zeit}&\multicolumn{1}{c}{Temperatur pro Zeit} \\
-     \multicolumn{1}{c}{$\frac{dT_1}{dt}\cdot 10^{-3} \:/\: \si{\celsius\second\tothe{-1}}$}&\multicolumn{1}{c}{$\frac{dT_2}{dt}\cdot 10^{-3}\:/\: \si{\celsius\second\tothe{-1}}$} \\
+     \multicolumn{1}{c}{$\frac{\Delta T_1}{\Delta t}\cdot 10^{-3} \:/\: \si{\celsius\second\tothe{-1}}$} & \multicolumn{1}{c}{$\frac{\Delta T_2}{\Delta t}\cdot 10^{-3}\:/\: \si{\celsius\second\tothe{-1}}$} \\
 
     \cmidrule(lr){1-2}
 '''
