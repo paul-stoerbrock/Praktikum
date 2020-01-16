@@ -65,7 +65,7 @@ Lk1b= -park1b[0]* const.R
 Fehler_Lk1b = abs((Lk1b.n*1e-03 - 40.7)/40.7)
 
 L_a = const.R * T
-L_i = (Lk1b-L_a)*0.01036
+L_i = (Lk1b-L_a)*0.01036*1e-03
 
 
 # Plot für größer 1 bar ############################################################################################
@@ -76,13 +76,17 @@ err = np.sqrt(np.diag(covmg1b))
 # Testplot, um zu sehen ob Kurve gut ist
 
 plt.plot(K_g1bar, pinP_g1bar, 'kx', label='Messwerte')
-x_plot = np.linspace(90, 400, 1000)
-plt.plot(x_plot ,parg1b[0]*x_plot**3+parg1b[1]*x_plot**2+parg1b[2]*x_plot*x_plot+parg1b[3] ,'r-' , label="Lineare Regression")
+x_plot = np.linspace(300, 500, 1000)
+plt.plot(x_plot ,parg1b[0]*x_plot**3+parg1b[1]*x_plot**2+parg1b[2]*x_plot+parg1b[3] ,'r-' , label="Lineare Regression")
+plt.xlabel(r'Temperatur $T\:/\:K$')
+plt.ylabel(r'Druck $p \:/\: Pa$')
 plt.savefig('build/test.pdf')
 plt.close()
 
 
 parg1b = unp.uarray(parg1b ,err)
+
+p = parg1b[0].n*K_g1bar**3+parg1b[1].n*K_g1bar**2+parg1b[2].n*K_g1bar+parg1b[3].n
 
 # Berechnung des Wertes dpdT
 
@@ -90,9 +94,9 @@ dpdT=3*parg1b[0] * K_g1bar**2 + 2*parg1b[1]*K_g1bar+parg1b[2]
 
 # Berechnung des Dampfvolumens
 
-VDplus = (const.R * K_g1bar)/(2*pinP_g1bar) + np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
-VDminus = (const.R * K_g1bar)/(2*pinP_g1bar) - np.sqrt((const.R**2*K_g1bar**2)/(4*pinP_g1bar**2)-0.9/pinP_g1bar)
-print(VDminus)
+VDplus = (const.R * K_g1bar)/(2*p) + np.sqrt((const.R**2*K_g1bar**2)/(4*p**2)-0.9/p)
+VDminus = (const.R * K_g1bar)/(2*p) - np.sqrt((const.R**2*K_g1bar**2)/(4*p**2)-0.9/p)
+
 # Berechnung der Verdampfungswärme
 
 # Für VDplus
@@ -105,7 +109,6 @@ err = np.sqrt(np.diag(covmg1b))
 
 plt.plot(K_g1bar, noms(Lg1b), 'kx', label='Messwerte')
 x_plot = np.linspace(360, 480, 1000)
-plt.plot(x_plot ,parg1bL[0]*x_plot+parg1bL[1] ,'r-' , label="Lineare Regression")
 plt.yticks([35*1e03, 40*1e03, 45*1e03, 50*1e03, 55*1e03, 60*1e03],
            [35, 40, 45, 50, 45, 50, 55, 60])
 plt.legend(loc="best")
@@ -128,7 +131,6 @@ err = np.sqrt(np.diag(covmg1b))
 
 plt.plot(K_g1bar, noms(Lg1b), 'kx', label='Messwerte')
 x_plot = np.linspace(360, 480, 1000)
-plt.plot(x_plot ,parg1bL[0]*x_plot+parg1bL[1] ,'r-' , label="Lineare Regression")
 plt.yticks([4*1e03, 3*1e03, 2*1e03, 1*1e03,0],
            [4, 3, 2, 1,0])
 plt.legend(loc="best")

@@ -239,6 +239,12 @@ mit den Fitparametern
 \end{align}
 \end{subequations}
 Die Fitparameter werden mit der Funktion polyfit() von Numpy \cite{numpy} berechnet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./build/test.pdf}
+    \caption{Plot für das Druck-Temperatur Verhältnis }
+    \label{fig:5}
+\end{figure}
 Mit diesem Polynom wird durch Ableiten, einsetzen und mitteln der Quotient $\overline{\frac{dp}{dT}}$ bestimmt:
 \begin{align} 
     \frac{dp}{dT}&= 3\cdot a T^2+2\cdot b T+c \label{eq:11}\\
@@ -263,15 +269,15 @@ und gemittelt:
     \centering
     \includegraphics[width=\textwidth]{./build/plotg1bplus.pdf}
     \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme mit $V_{D,+}$}
-    \label{fig:5a}
+    \label{fig:6a}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
     \centering
     \includegraphics[width=\textwidth]{./build/plotg1bminus.pdf}
     \caption{Plot für die Temperaturabhängigkeit der Verdampfungswärme mit $V_{D,-}$}
-    \label{fig:5b}
+    \label{fig:6b}
 \end{subfigure}
-\caption{Plots für die Temperaturabhängigkeit\label{fig:5}}
+\caption{Plots für die Temperaturabhängigkeit\label{fig:6}}
 \end{figure}
 
 \flushleft{Die\;}\justifying Werte für die Dampfungswärme werden über die Formel \eqref{eq:2}  
@@ -280,14 +286,6 @@ und gemittelt:
 \end{align}
 sowie den berechneten Parametern \eqref{eq:12}, \eqref{eq:13c}, \eqref{eq:13d} und den Temperaturwerten aus Tabelle \ref{tab:2}.
 
-\flushleft{Die\;}\justifying Parameter der Ausgleichsgeraden, welche mit polyfit \cite{numpy} berechneten werden, lauten wie folgt:
-
-\begin{subequations} \label{eq:15}
-\begin{align}
-    m_{+} &= \text{\input{Lg1b_mplus.tex}}  &m_{-} &=\text{\input{Lg1b_mminus.tex}}  \label{eq:15a}\\
-    b_{+} &= \text{\input{Lg1b_bplus.tex}} &b_{-} &= \text{\input{Lg1b_bminus.tex}}  \label{eq:15b}
-\end{align}
-\end{subequations}
 \newpage
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,9 +297,9 @@ der absoluten Temperatur $\left( \sfrac{1}{T} \cdot 10^{-3} \right)$. Die Messwe
 zehn Werte nach oben abweichen. Der Literaturwert der Verdampfungswärme liegt bei $\SI{40.7}{\kilo\joule\per\mole}$ \cite{Verdampfungswärme}, welcher
 für die experimentell bestimmte Verdampfungswärme des Graphen \ref{fig:4} einen relativen Fehler von
 \begin{equation}
-    \frac{\abs{L_{Exp.} - L_{Lit.}}}{L_{Lit.}} = \text{\input{Fehler_Lk1b.tex}} \label{eq:16}
+    \frac{\abs{L_{Exp.} - L_{Lit.}}}{L_{Lit.}} = \text{\input{Fehler_Lk1b.tex}} \label{eq:15}
 \end{equation}
-ergibt. Der relative Fehler \eqref{eq:16} ist gering, was einen systematischen Fehler vermuten ließe. Die Ungenauigkeit beim Ablesen des Thermometers
+ergibt. Der relative Fehler \eqref{eq:15} ist gering, was einen systematischen Fehler vermuten ließe. Die Ungenauigkeit beim Ablesen des Thermometers
 könnte die Abweichung erklären, besonders, da beide Messungen für Temperatur und Druck von einer Person aufgenommen wurden. Da für den Druckbereich
 $< \SI{1}{\bar}$ jedem $\SI{}{\celsius}$ ein Druck zugeordnet wird, könnten beim Ablesen Abweichungen entstehen.
 
@@ -316,9 +314,9 @@ mit diesem Fehler zu sinnvollen Ergbnissen kommen.
 
 \flushleft{Durch\;}\justifying die pq-Formel werden die Werte des Volumens für $V_D$ bestimmt. Daraus ergeben sich zwei Lösungen,
 von denen eine das gesuchte Dampfvolumen darstelle. 
-Es wird erst in den darauf folgenden Graphen \ref{fig:5a} und \ref{fig:5b} deutlich, dass $V_{D,+}$ ein 
-besseres Ergebnis als Dampfvolumen liefert. Die Messwerte im Graphen \ref{fig:5a} verlaufen deutlicher entlang der Ausgleichsgeraden, wohingegen die Werte im Graphen
-\ref{fig:5b} einer Kurve ähneln. Zudem erscheint der Graph \ref{fig:5a} von $V_{D,+}$ physikalisch sinnvoller, da mit steigender
+Es wird erst in den darauf folgenden Graphen \ref{fig:6a} und \ref{fig:6b} deutlich, dass $V_{D,+}$ ein 
+besseres Ergebnis als Dampfvolumen liefert. Die Messwerte im Graphen \ref{fig:6a} verlaufen deutlicher entlang der Ausgleichsgeraden, wohingegen die Werte im Graphen
+\ref{fig:6b} einer Kurve ähneln. Zudem erscheint der Graph \ref{fig:6a} von $V_{D,+}$ physikalisch sinnvoller, da mit steigender
 Temperatur die Verdampfungswärme sinkt. Die Wassermoleküle haben durch die höheren Temperaturwerte
 eine größere kinetische Energie, dementsprechend benötigen sie weniger Energie zum überwinden
 der molekularen Kräfte. Zudem besteht in dem Graphen ein linearer Zusammenhang zwischen der 
