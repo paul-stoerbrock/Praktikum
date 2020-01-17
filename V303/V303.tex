@@ -19,12 +19,25 @@
 \newpage
 % Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Ziel}
-
+\section{Ziel}\justifying
+Bei Messungen von Signalen sind diese häufig durch die Hintergrundstrahlung stark verrauscht. 
+Der Lock-In-Verstärker löst dieses Problem und filtert das Messsignal aus dem rauschen
+heraus. Daher wird sich die Funktionsweise dieses Verstärkers näher betrachtet.
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Theorie}\justifying
-
+Bei einem Lock-In-Verstärker wird ein verrauschtes Signal durc einen Bannpass geleitet.
+Ein Bannpass stellt eine elektrische Schaltung dar, welches einen bestimmten 
+Frequenzbereich aus einem Signal herausfiltert. Das, vom Phasenschieber variierte, 
+Referenzsignal mit der Frequenz $\omega _0$ wird vom Mischer mit dem Signal multipliziert.
+Dannach wird das daraus entstehende durch einen Tiefpassfilter geleitet. der Tiefpassfilter
+integriert dabei für $\tau =RC \gg \sfrac{1}{\omega _0} $ das Mischsignal.
+Durch den Tiefpass wird bei großem $\tau$ die Bandbreite des Rauschens beliebig klein.
+Durch den Tiefpassfilter ergibt sich für ein um $phi$ phasenverschobenes 
+Referenzsignal eine Ausgangnsspannung in der Forms
+\begin{align}
+    U_{\text{out}}= \frac{2}{\pi} U_0 \cos{\Phi}
+\end{align}
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Fehlerrechnung}\justifying
