@@ -132,8 +132,27 @@ parI=unp.uarray(par, err)
 
 print(par)
 
-# .tex ################################################################################################################
+# .tex ####################################################################################################################
 
+# tex file for A_os
+
+with open('build/A_os.tex', 'w') as f:
+  f.write(make_SI(parphi_oS[0],r'', figures=2))
+
+# tex file for B_os
+
+with open('build/B_os.tex', 'w') as f:
+  f.write(make_SI(parphi_oS[1],r'', figures=2))
+
+# tex file for A_ms
+
+with open('build/A_ms.tex', 'w') as f:
+  f.write(make_SI(parphi_mS[0],r'', figures=2))
+
+# tex file for B_ms
+
+with open('build/B_ms.tex', 'w') as f:
+  f.write(make_SI(parphi_mS[1],r'', figures=2))
 
 
 
