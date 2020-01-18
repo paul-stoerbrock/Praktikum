@@ -122,7 +122,7 @@ err = np.sqrt(np.diag(covm))
 
 plt.plot(r[1:], I[1:],'kx', label='Messwerte')
 x_plot = np.linspace(0.01, 0.5, 100)
-plt.plot(x_plot, y(x_plot, *par))
+plt.plot(x_plot, y(x_plot, *par), 'r-', label="Nicht-Lineare Regression")
 plt.legend(loc="best")
 plt.xlabel(r'Radius$\:r\:/\:m$')
 plt.ylabel(r'Intensität$\:U\:/\:V$')
