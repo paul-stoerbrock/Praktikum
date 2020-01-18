@@ -131,3 +131,86 @@ plt.close()
 parI=unp.uarray(par, err)
 
 print(par)
+
+# Tabellen ################################################################################################################
+
+# Ohne Störung =================================================================================================================
+
+U_oS1, U_oS2 = np.array_split(U_oS,2)
+phi_oS1, phi_oS2 = np.array_split(phi_oS,2)
+
+table_header = r'''
+  \begin{tabular}{c c c c}
+    \toprule
+    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$} & 
+    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$}\\
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+    {$\si{\volt}$} & {$\si{\degree}$} & {$\si{\volt}$} & {$\si{\degree}$}\\
+
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f}\\'
+
+with open('build/table_oS.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(U_oS1, phi_oS1, U_oS2, phi_oS2):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
+
+# Mit Störung =================================================================================================================
+
+U_mS1, U_mS2 = np.array_split(U_mS,2)
+phi_mS1, phi_mS2 = np.array_split(phi_mS,2)
+
+table_header = r'''
+  \begin{tabular}{c c c c}
+    \toprule
+    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$} & 
+    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$}\\
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+    {$\si{\volt}$} & {$\si{\degree}$} & {$\si{\volt}$} & {$\si{\degree}$}\\
+
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f}\\'
+
+with open('build/table_mS.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(U_mS1, phi_mS1, U_mS2, phi_mS2):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
+
+# Intensität =================================================================================================================
+
+r1, r2 = np.array_split(r,2)
+I1, I2 = np.array_split(I,2)
+
+table_header = r'''
+  \begin{tabular}{c c c c}
+    \toprule
+    \multicolumn{1}{c}{$\text{Radius} \; U$} & \multicolumn{1}{c}{$\text{Intensität} \; \varphi$} & 
+    \multicolumn{1}{c}{$\text{Radius} \; U$} & \multicolumn{1}{c}{$\text{Intensität} \; \varphi$}\\
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+    {$\si{\centi\meter}$} & {$\si{\volt}$} & {$\si{\centi\meter}$} & {$\si{\volt}$}\\
+
+    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f}\\'
+
+with open('build/table_I.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(r1, I1, r2, I2):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
