@@ -29,7 +29,7 @@ def U(phi, U0, B):
     return 2/np.pi* U0 * np.cos(phi+B)
 
 def y(r, A, B):
-    return A*1/r**2+B
+    return A*1/r+B
 
 # Definition der Messdaten ##############################################################################################
 
