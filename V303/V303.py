@@ -116,7 +116,7 @@ par, covm = curve_fit(
     I[1:],
     sigma=None,
     absolute_sigma=True,
-    p0=[1,0]
+    p0=[100,30]
     )
 err = np.sqrt(np.diag(covm))
 
@@ -156,6 +156,16 @@ with open('build/A_ms.tex', 'w') as f:
 
 with open('build/B_ms.tex', 'w') as f:
   f.write(make_SI(parphi_mS[1],r'', figures=2))
+
+# tex file for I_A
+
+with open('build/I_A.tex', 'w') as f:
+  f.write(make_SI(parI[0]*1e03,r'',exp='e-03' ,figures=2))
+
+# tex file for I_B
+
+with open('build/I_B.tex', 'w') as f:
+  f.write(make_SI(parI[1],r'', figures=2))
 
 
 
