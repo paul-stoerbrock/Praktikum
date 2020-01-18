@@ -28,8 +28,8 @@ def make_SI(num, unit, exp='', figures=None):
 def U(phi, U0, B):
     return 2/np.pi* U0 * np.cos(phi+B)
 
-def y(r, A):
-    return A*1/r**2
+def y(r, A, B):
+    return A*1/r**2+B
 
 # Definition der Messdaten ##############################################################################################
 
@@ -113,7 +113,7 @@ par, covm = curve_fit(
     I[1:],
     sigma=None,
     absolute_sigma=True,
-    p0=[1]
+    p0=[1,0]
     )
 err = np.sqrt(np.diag(covm))
 
@@ -147,12 +147,10 @@ phi_oS1, phi_oS2 = np.array_split(phi_oS,2)
 table_header = r'''
   \begin{tabular}{c c c c}
     \toprule
-    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$} & 
-    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$}\\
+    \multicolumn{1}{c}{$\text{Spannung} \; U\:/\:\si{\volt}$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi\:/\:\si{\degree}$} & 
+    \multicolumn{1}{c}{$\text{Spannung} \; U\:/\:\si{\volt}$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi\:/\:\si{\degree}$}\\
     \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
-    {$\si{\volt}$} & {$\si{\degree}$} & {$\si{\volt}$} & {$\si{\degree}$}\\
 
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
@@ -174,11 +172,8 @@ phi_mS1, phi_mS2 = np.array_split(phi_mS,2)
 table_header = r'''
   \begin{tabular}{c c c c}
     \toprule
-    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$} & 
-    \multicolumn{1}{c}{$\text{Spannung} \; U$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
-    {$\si{\volt}$} & {$\si{\degree}$} & {$\si{\volt}$} & {$\si{\degree}$}\\
-
+    \multicolumn{1}{c}{$\text{Spannung} \; U\:/\:\si{\volt}$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi\:/\:\si{\degree}$} & 
+    \multicolumn{1}{c}{$\text{Spannung} \; U\:/\:\si{\volt}$} & \multicolumn{1}{c}{$\text{Phase} \; \varphi\:/\:\si{\degree}$}\\
     \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
 '''
 table_footer = r'''    \bottomrule
@@ -201,11 +196,8 @@ I1, I2 = np.array_split(I,2)
 table_header = r'''
   \begin{tabular}{c c c c}
     \toprule
-    \multicolumn{1}{c}{$\text{Radius} \; U$} & \multicolumn{1}{c}{$\text{Intensität} \; \varphi$} & 
-    \multicolumn{1}{c}{$\text{Radius} \; U$} & \multicolumn{1}{c}{$\text{Intensität} \; \varphi$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
-    {$\si{\centi\meter}$} & {$\si{\volt}$} & {$\si{\centi\meter}$} & {$\si{\volt}$}\\
-
+    \multicolumn{1}{c}{$\text{Radius} \; r\:/\si{\centi\meter}$} & \multicolumn{1}{c}{$\text{Intensität} \; I\:/\:\si{\volt} $} & 
+    \multicolumn{1}{c}{$\text{Radius} \; r\:/\si{\centi\meter}$} & \multicolumn{1}{c}{$\text{Intensität} \; I\:/\:\si{\volt}$}\\
     \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
 '''
 table_footer = r'''    \bottomrule
@@ -215,7 +207,7 @@ row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f}\\'
 
 with open('build/table_I.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(r1, I1, r2, I2):
+    for row in zip(r1*1e02, I1, r2*1e02, I2):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)

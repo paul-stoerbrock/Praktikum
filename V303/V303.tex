@@ -37,10 +37,14 @@ Referenzsignal mit der Frequenz $\omega _0$ wird vom Mischer mit dem Signal mult
 Dannach wird das daraus entstehende durch einen Tiefpassfilter geleitet. der Tiefpassfilter
 integriert dabei für $\tau =RC \gg \sfrac{1}{\omega _0} $ das Mischsignal.
 Durch den Tiefpass wird bei großem $\tau$ die Bandbreite des Rauschens beliebig klein.
-Durch den Tiefpassfilter ergibt sich für ein um $phi$ phasenverschobenes 
-Referenzsignal eine Ausgangnsspannung in der Forms
+Zudem unterdrückt der Tiefpass die geraden Oberwellen der Grundfrequenz:
 \begin{align}
-    U_{\text{out}}= \frac{2}{\pi} U_0 \cos{\Phi}
+    U_{\text{sig}} \times U_{\text{ref}}=\frac{2}{\pi}(1-\frac{2}{3}\cos{2 \omega t}-\frac{2}{15} \cos{4 \omega t}-\frac{2}{35} \cdot \cos{6\omega t}+... ) \label{eq:1}
+\end{align}
+Durch den Tiefpassfilter ergibt sich für ein um $\Phi$ phasenverschobenes 
+Referenzsignal eine Ausgangsspannung in der Form \cite{V303}
+\begin{align}
+    U_{\text{out}}= \frac{2}{\pi} U_0 \cos{\Phi}. \label{eq:2}
 \end{align}
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -186,26 +190,12 @@ von dem Photodetektor wegbewegt, hier um $\SI{2}{\centi\meter}$. Für jede neue 
     \label{tab:1}
 \end{table}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{plotphi_oS.pdf}
-    \caption{Nicht-lineare Regression des Signals ohne Störung}
-    \label{fig:4}
-\end{figure}
-
 \begin{table}[H]
     \centering
     \input{table_mS.tex}
     \caption{Messwerte mit Störung}
     \label{tab:2}
 \end{table}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{plotphi_mS.pdf}
-    \caption{Nicht-lineare Regression des Signals mit Störung}
-    \label{fig:5}
-\end{figure}
 
 \begin{table}[H]
     \centering
