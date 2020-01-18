@@ -22,29 +22,29 @@
 % Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{page}{1}
-\section{Ziel}\justifying
+\section{Ziel}\justifying \label{sec:1}
 Bei Messungen von Signalen sind diese häufig durch die Hintergrundstrahlung stark verrauscht. 
-Der Lock-In-Verstärker löst dieses Problem und filtert das Messsignal aus dem rauschen
-heraus. Daher wird sich die Funktionsweise dieses Verstärkers näher betrachtet.
+Der Lock-In-Verstärker löst dieses Problem, indem er das Messsignal aus dem rauschen
+herausfiltert. Daher wird die Funktionsweise des Lock-In-Verstärkers in diesem Versuch näher betrachtet.
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Theorie}\justifying
+\section{Theorie}\justifying \label{sec:2}
 Bei einem Lock-In-Verstärker wird ein verrauschtes Signal durch einen Bandpass geleitet.
 Ein Bandpass stellt eine elektrische Schaltung dar, welches einen bestimmten 
-Frequenzbereich aus einem Signal herausfiltert. Das, vom Phasenschieber variierte, 
-Referenzsignal mit der Frequenz $\omega _0$ wird vom Mischer mit dem Signal multipliziert.
-Dannach wird das daraus entstehende durch einen Tiefpassfilter geleitet. der Tiefpassfilter
+Frequenzbereich aus einem Signal herausfiltert. Das vom Phasenschieber variierte 
+Referenzsignal, mit der Frequenz $\omega _0$, wird vom Mischer mit dem Signal multipliziert.
+Dannach wird das daraus entstehende Signal durch einen Tiefpassfilter geleitet. der Tiefpassfilter
 integriert dabei für $\tau =RC \gg \sfrac{1}{\omega _0} $ das Mischsignal.
 Durch den Tiefpass wird bei großem $\tau$ die Bandbreite des Rauschens beliebig klein.
 Durch den Tiefpassfilter ergibt sich für ein um $phi$ phasenverschobenes 
-Referenzsignal eine Ausgangsspannung in der Form
+Referenzsignal eine Ausgangnsspannung der Form \cite{V303}:
 \begin{align}
-    U_{\text{out}}= \frac{2}{\pi} U_0 \cos{\Phi}
+    U_{\text{out}}= \frac{2}{\pi} U_0 \cos{\Phi} \label{eq:1}
 \end{align}
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Fehlerrechnung}\justifying
+\section{Fehlerrechnung}\justifying \label{sec:3}
 
 Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
 verwendet:
@@ -69,7 +69,7 @@ verwendet:
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Versuchsaufbau und Versuchsdurchführung}\justifying
+\section{Versuchsaufbau und Versuchsdurchführung}\justifying \label{sec:4}
 
 \flushleft{Benötigt\;}\justifying werden: \textit{Ein Lock-In-Verstärker, ein Digitales Oszilloskop, acht BNC Verbindungskabel, eine BNC 
 Steckverbindung, ein USB Stick, eine Leuchtdiode (LED), ein Photodetektor und eine Skala (ca. $\SI{50}{\centi\meter}$).}
@@ -88,11 +88,12 @@ des konstanten Signals entnommen.
 \end{figure}
 
 \flushleft{Zunächst\;}\justifying wird der Noise Generator überbrückt, damit das ungestörte Signal $U_{sig}$ mit dem Referenzsignal $U_{ref}$
-im Detector gemischt werden kann. Anschließend wird der USB Stick am Oszilloskop angeschlossen und es werden für zehn Phasen das Phasendiagramm 
-der gemischten Signale gespeichert.
+im Detector multipliziert werden kann. Anschließend wird der USB Stick am Oszilloskop angeschlossen und es werden für fünf Phasen das Phasendiagramm 
+der multiplizierten Signale gespeichert. Danach soll die Ausgangsspannung in Abhängigkeit der Phase am Tiefpass gemessen werden. Dafür werden 
+20 unterschiedliche Phasen am Phase Shifter eingestellt. 
 
-\flushleft{Nun\;}\justifying wird der Noise Generator dazu geschaltet. Für das nun gestörte Signal $U_{sig}$ werden erneut Messungen für zehn Phasen 
-durchgeführt. 
+\flushleft{Nun\;}\justifying wird der Noise Generator dazu geschaltet. Für das nun gestörte Signal $U_{sig}$ werden erneut fünf Phasendiagramme
+erstellt. Außerdem werden für die selben 20 Phasen wie bei den Messungen ohne Störung die Ausgangsspannung vom Tiefpass abgelesen. 
 
 \flushleft{Anschließend\;}\justifying wird der Aufbau wie in Abbildung \ref{fig:2} abgeändert, sodass nun eine LED und ein Photodetektor den 
 Noise Generator ersetzen:
@@ -111,8 +112,12 @@ von dem Photodetektor wegbewegt, hier um $\SI{2}{\centi\meter}$. Für jede neue 
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Auswertung}
-\newpage
+\section{Auswertung} \label{sec:5}
+
+\flushleft{Die\;}\justifying Phasendiagramme der multiplizierten Signale sind in der Abbildung \ref{fig:3} dargestellt. Die linke Seite beinhaltet
+das multiplizierte Signal ohne Störung und die linke Seite das mit Störung. Die Phase von $U_{ref}$ wird mit dem Phase Shifter aus Abbildung 
+\ref{fig:1} variiert. Die Phasen, die fünf Phasen, an welchen das Phasendiagramm aufgenommen wird, betragen $\SI{0}{\degree}, \SI{90}{\degree}, 
+\SI{135}{\degree}, \SI{180}{\degree}$ und $\SI{270}{\degree}$.
 
 \begin{figure}[H]
 \caption{Phasendiagramme}
@@ -179,12 +184,24 @@ von dem Photodetektor wegbewegt, hier um $\SI{2}{\centi\meter}$. Für jede neue 
     \end{subfigure}
 \end{figure}
 
+\flushleft{Die\;}\justifying Messwerte für das Integrierte Signal und die dazugehörigen Phasen, sind in der folgenden Tabelle \ref{tab:1} 
+aufgetragen:
+
 \begin{table}[H]
     \centering
     \input{table_oS.tex}
     \caption{Messwerte ohne Störung}
     \label{tab:1}
 \end{table}
+
+\flushleft{Der\;}\justifying folgenden Graph \ref{fig:4} wird mit der Formel \eqref{eq:1} und den dazugehörigen Parametern
+
+\begin{align}
+    A &= \text{\input{A_os.tex}} \label{eq:}\\
+    B &= \text{\input{B_os.tex}} \label{eq:}
+\end{align}
+
+\flushleft{erstellt.\;}\justifying
 
 \begin{figure}[H]
     \centering
@@ -216,7 +233,7 @@ von dem Photodetektor wegbewegt, hier um $\SI{2}{\centi\meter}$. Für jede neue 
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Diskussion}
+\section{Diskussion} \label{sec:6}
 
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
