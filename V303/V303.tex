@@ -80,18 +80,103 @@ Steckverbindung, einen USB Stick, eine Leuchtdiode (LED), ein Photodetektor und 
     \label{fig:1}
 \end{figure}
 
-
-
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{./images/lock-in_led.jpg}
     \caption{Versuchsaufbau des Lock-In-Verstärkers mit LED \cite{V303}}
-    \label{fig:1}
+    \label{fig:2}
 \end{figure}
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
+\newpage
+
+\begin{figure}[H]
+\caption{Phasendiagramme}
+\label{fig:3}
+    \begin{subfigure}{0.495\linewidth} % Phi = 0 --------------------------------------------------------------------------
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg2_phi0.jpg}
+        \caption{Phase = $\SI{0}{\degree}$}
+        \label{fig:3a}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg3_phi0.jpg}
+        \caption{Phase = $\SI{0}{\degree}$}
+        \label{fig:3b}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth} % Phi = 90 --------------------------------------------------------------------------
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg2_phi90.jpg}
+        \caption{Phase = $\SI{90}{\degree}$ ohne Störung}
+        \label{fig:3c}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg3_phi90.jpg}
+        \caption{Phase = $\SI{90}{\degree}$ mit Störung}
+        \label{fig:3d}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth} % Phi = 135 --------------------------------------------------------------------------
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg2_phi135.jpg}
+        \caption{Phase = $\SI{135}{\degree}$ ohne Störung}
+        \label{fig:3e}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg3_phi135.jpg}
+        \caption{Phase = $\SI{135}{\degree}$ mit Störung}
+        \label{fig:3f}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth} % Phi = 180 --------------------------------------------------------------------------
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg2_phi180.jpg}
+        \caption{Phase = $\SI{180}{\degree}$ ohne Störung}
+        \label{fig:3g}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg3_phi180.jpg}
+        \caption{Phase = $\SI{180}{\degree}$ mit Störung}
+        \label{fig:3h}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth} % Phi = 270 --------------------------------------------------------------------------
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg2_phi270.jpg}
+        \caption{Phase = $\SI{270}{\degree}$ ohne Störung}
+        \label{fig:3i}
+    \end{subfigure}
+    \begin{subfigure}{0.495\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/aufg3_phi270.jpg}
+        \caption{Phase = $\SI{270}{\degree}$ mit Störung}
+        \label{fig:3j}
+    \end{subfigure}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \input{table_oS.tex}
+    \caption{Messwerte ohne Störung}
+    \label{tab:1}
+\end{table}
+
+\begin{table}
+    \centering
+    \input{table_mS.tex}
+    \caption{Messwerte mit Störung}
+    \label{tab:2}
+\end{table}
+
+\begin{table}
+    \centering
+    \input{table_I.tex}
+    \caption{Messwerte der Intensität}
+    \label{tab:3}
+\end{table}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
