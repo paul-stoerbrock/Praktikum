@@ -37,8 +37,12 @@ Referenzsignal, mit der Frequenz $\omega _0$, wird vom Mischer mit dem Signal mu
 Dannach wird das daraus entstehende Signal durch einen Tiefpassfilter geleitet. der Tiefpassfilter
 integriert dabei für $\tau =RC \gg \sfrac{1}{\omega _0} $ das Mischsignal.
 Durch den Tiefpass wird bei großem $\tau$ die Bandbreite des Rauschens beliebig klein.
-Durch den Tiefpassfilter ergibt sich für ein um $phi$ phasenverschobenes 
-Referenzsignal eine Ausgangnsspannung der Form \cite{V303}:
+Zudem unterdrückt der Tiefpass die geraden Oberwellen der Grundfrequenz $\omega$ \cite{V303}
+\begin{align*}
+    U_{\text{sig}}\times U_{\text{ref}}=\frac{2}{\pi} U_0 \left(1-\frac{3}{2}\cos(2\; \omega t)-\frac{2}{15}\cos(4\; \omega t)-\frac{2}{35}\cos(6\; \omega t)+... \right)
+\end{align*}
+Durch den Tiefpassfilter ergibt sich für ein um $\phi$ phasenverschobenes 
+Referenzsignal eine Ausgangsspannung der Form \cite{V303}:
 \begin{align}
     U_{\text{out}}= \frac{2}{\pi} U_0 \cos{\Phi} \label{eq:1}
 \end{align}
@@ -88,7 +92,7 @@ des konstanten Signals entnommen.
 \end{figure}
 
 \flushleft{Zunächst\;}\justifying wird der Noise Generator überbrückt, damit das ungestörte Signal $U_{sig}$ mit dem Referenzsignal $U_{ref}$
-im Detector multipliziert werden kann. Anschließend wird der USB Stick am Oszilloskop angeschlossen und es werden für fünf Phasen das Phasendiagramm 
+im Detektor multipliziert werden kann. Anschließend wird der USB Stick am Oszilloskop angeschlossen und es werden für fünf Phasen das Phasendiagramm 
 der multiplizierten Signale gespeichert. Danach soll die Ausgangsspannung in Abhängigkeit der Phase am Tiefpass gemessen werden. Dafür werden 
 20 unterschiedliche Phasen am Phase Shifter eingestellt. 
 
@@ -253,6 +257,15 @@ Abstands wieder:
     \label{fig:6}
 \end{figure}
 
+Die Kurve wurde mit der Funktion
+\begin{subequations}
+\begin{align}
+    I&=A \frac{1}{r^2}+B 
+    \intertext{mit den Fitparametern}
+    A&=\text{\input{I_A.tex} \quad \text{und} }\\
+    B&=\text{\input{I_B.tex}}.
+\end{align}
+\end{subequations}
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion} \label{sec:6}
