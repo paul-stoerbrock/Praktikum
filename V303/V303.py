@@ -125,7 +125,7 @@ x_plot = np.linspace(0.01, 0.5, 100)
 plt.plot(x_plot, y(x_plot, *par))
 plt.legend(loc="best")
 plt.xlabel(r'Radius$\:r\:/\:m$')
-plt.ylabel(r'Intensität\:$U\:/\:V$')
+plt.ylabel(r'Intensität$\:U\:/\:V$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotI.pdf')
