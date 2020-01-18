@@ -114,9 +114,9 @@ von dem Photodetektor wegbewegt, hier um $\SI{2}{\centi\meter}$. Für jede neue 
 
 \section{Auswertung} \label{sec:5}
 
-\flushleft{Die\;}\justifying Phasendiagramme der multiplizierten Signale sind in der Abbildung \ref{fig:3} dargestellt. Die linke Seite beinhaltet
-das multiplizierte Signal ohne Störung und die linke Seite das mit Störung. Die Phase von $U_{ref}$ wird mit dem Phase Shifter aus Abbildung 
-\ref{fig:1} variiert. Die Phasen, die fünf Phasen, an welchen das Phasendiagramm aufgenommen wird, betragen $\SI{0}{\degree}, \SI{90}{\degree}, 
+\flushleft{Die\;}\justifying Phasendiagramme der multiplizierten Signale sind in Abbildung \ref{fig:3} dargestellt. Die linke Seite beinhaltet
+das multiplizierte Signal ohne Störung und die rechte Seite das mit Störung. Die Phase von $U_{ref}$ wird mit dem Phase Shifter aus Abbildung 
+\ref{fig:1} variiert. Die fünf Phasen, mit welchen die Phasendiagramme aufgenommen werden, betragen $\SI{0}{\degree}, \SI{90}{\degree}, 
 \SI{135}{\degree}, \SI{180}{\degree}$ und $\SI{270}{\degree}$.
 
 \begin{figure}[H]
@@ -184,8 +184,8 @@ das multiplizierte Signal ohne Störung und die linke Seite das mit Störung. Di
     \end{subfigure}
 \end{figure}
 
-\flushleft{Die\;}\justifying Messwerte für das Integrierte Signal und die dazugehörigen Phasen, sind in der folgenden Tabelle \ref{tab:1} 
-aufgetragen:
+\flushleft{Die\;}\justifying Messwerte für das Integrierte Signal ohne Störung und die dazugehörigen Phasen, sind in der folgenden Tabelle 
+\ref{tab:1} aufgetragen:
 
 \begin{table}[H]
     \centering
@@ -194,14 +194,14 @@ aufgetragen:
     \label{tab:1}
 \end{table}
 
-\flushleft{Der\;}\justifying folgenden Graph \ref{fig:4} wird mit der Formel \eqref{eq:1} und den dazugehörigen Parametern
-
+\flushleft{Der\;}\justifying folgenden Graph \ref{fig:4} stellt das Amplitudenverhältnis des integrierten Signals ohne Störung bezüglich der 
+Phase dar. Die nicht-lineare Regression wird mit dem Python Befehl np.ployfit() \cite{uncertainties}, der Formel \eqref{eq:1} 
 \begin{align}
+    U_{out} &= \frac{2}{\pi} \cdot A \cdot \cos(\varphi + B) \label{eq:}
+\intertext{und den folgenden Parametern erstellt:}
     A &= \text{\input{A_os.tex}} \label{eq:}\\
     B &= \text{\input{B_os.tex}} \label{eq:}
 \end{align}
-
-\flushleft{erstellt.\;}\justifying
 
 \begin{figure}[H]
     \centering
@@ -210,6 +210,9 @@ aufgetragen:
     \label{fig:4}
 \end{figure}
 
+\flushleft{Die\;}\justifying Messwerte des integrierten Signals mit Störung und die dazugehörigen Phasen sind in der folgenden Tabelle
+\ref{tab:2} aufgelistet:
+
 \begin{table}[H]
     \centering
     \input{table_mS.tex}
@@ -217,12 +220,24 @@ aufgetragen:
     \label{tab:2}
 \end{table}
 
+\flushleft{Der\;}\justifying folgende Graph \ref{fig:4} stellt das Amplitudenverhältnis des integrierten Signals mit Störung bezüglich der 
+Phase dar. Dieser Graph wird ebenso mit dem Python Befehl np.ployfit() \cite{uncertainties}, der Formel \eqref{eq:1} 
+\begin{align}
+    U_{out} &= \frac{2}{\pi} \cdot C \cdot \cos(\varphi + D) \label{eq:}
+\intertext{und den folgenden Parametern erstellt:}
+    C &= \text{\input{A_ms.tex}} \label{eq:}\\
+    D &= \text{\input{B_ms.tex}} \label{eq:}
+\end{align}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{plotphi_mS.pdf}
     \caption{Nicht-lineare Regression des Signals mit Störung}
     \label{fig:5}
 \end{figure}
+
+\flushleft{Die\;}\justifying folgende Tabelle gibt die Messwerte der Intensität der LED aus Abbildung \ref{fig:2} bezüglich des gemessenen 
+Abstands wieder:
 
 \begin{table}[H]
     \centering
