@@ -201,10 +201,10 @@ das multiplizierte Signal ohne Störung und die rechte Seite das mit Störung. D
 \flushleft{Der\;}\justifying folgenden Graph \ref{fig:4} stellt das Amplitudenverhältnis des integrierten Signals ohne Störung bezüglich der 
 Phase dar. Die nicht-lineare Regression wird mit dem Python Befehl np.ployfit() \cite{uncertainties}, der Formel \eqref{eq:1} 
 \begin{align}
-    U_{out} &= \frac{2}{\pi} \cdot A \cdot \cos(\varphi + B) \label{eq:}
+    U_{out} &= \frac{2}{\pi} \cdot A \cdot \cos(\varphi + B) \label{eq:3}
 \intertext{und den folgenden Parametern erstellt:}
-    A &= \text{\input{A_os.tex}} \label{eq:}\\
-    B &= \text{\input{B_os.tex}} \label{eq:}
+    A &= \text{\input{A_os.tex}} \label{eq:4}\\
+    B &= \text{\input{B_os.tex}} \label{eq:5}
 \end{align}
 
 \begin{figure}[H]
@@ -227,10 +227,10 @@ Phase dar. Die nicht-lineare Regression wird mit dem Python Befehl np.ployfit() 
 \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} stellt das Amplitudenverhältnis des integrierten Signals mit Störung bezüglich der 
 Phase dar. Dieser Graph wird ebenso mit dem Python Befehl np.ployfit() \cite{uncertainties}, der Formel \eqref{eq:1} 
 \begin{align}
-    U_{out} &= \frac{2}{\pi} \cdot C \cdot \cos(\varphi + D) \label{eq:}
+    U_{out} &= \frac{2}{\pi} \cdot C \cdot \cos(\varphi + D) \label{eq:6}
 \intertext{und den folgenden Parametern erstellt:}
-    C &= \text{\input{A_ms.tex}} \label{eq:}\\
-    D &= \text{\input{B_ms.tex}} \label{eq:}
+    C &= \text{\input{A_ms.tex}} \label{eq:7}\\
+    D &= \text{\input{B_ms.tex}} \label{eq:8}
 \end{align}
 
 \begin{figure}[H]
@@ -250,6 +250,17 @@ Abstands wieder:
     \label{tab:3}
 \end{table}
 
+\flushleft{Die\;}\justifying Kurve der Intensität mit der Funktion
+\begin{subequations}
+\begin{align}
+    I&=A \frac{1}{r^2}+B 
+    \intertext{und den Fitparametern}
+    A&=\text{\input{I_A.tex} \quad \text{und}}\\
+    B&=\text{\input{I_B.tex}}
+\end{align}
+\end{subequations}
+\flushleft{sieht\;}\justifying aus wie folgt:
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{plotI.pdf}
@@ -257,15 +268,6 @@ Abstands wieder:
     \label{fig:6}
 \end{figure}
 
-Die Kurve wurde mit der Funktion
-\begin{subequations}
-\begin{align}
-    I&=A \frac{1}{r^2}+B 
-    \intertext{mit den Fitparametern}
-    A&=\text{\input{I_A.tex} \quad \text{und} }\\
-    B&=\text{\input{I_B.tex}}.
-\end{align}
-\end{subequations}
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion} \label{sec:6}
@@ -273,6 +275,10 @@ Die Kurve wurde mit der Funktion
 \flushleft{Es\;}\justifying lässt sich in Abbildung \ref{fig:3} erkennen, dass sich das ungestörte Signal und das gestörte Signal ähneln. Unter 
 genauerer Betrachtung lässt sich feststellen, dass der Unterschied zwischen den Graphen in der Phasenverschiebung von ungefähr $\sfrac{\pi}{2}$
 liegt. Abgesehen von den leicht unterschiedlichen Phasenverläufen, sind die Amplituden identisch. 
+
+
+\flushleft{Die\;}\justifying folgenden Abbildungen zeigen die Parameter der Signale $U_{sig}$ (CH2) und $U_{ref}$ (CH1). Hier ist $U_{ref}$ (CH1)
+das variable Signal.
 
 \begin{figure}[H] 
 \caption{Funktionalität des Gleichrichters}
@@ -290,6 +296,15 @@ liegt. Abgesehen von den leicht unterschiedlichen Phasenverläufen, sind die Amp
         \label{fig:7b}
     \end{subfigure}
 \end{figure}
+
+\flushleft{Anhand\;}\justifying des Graphen \ref{fig:5} und dessen Parameter $A$ \eqref{eq:4} lässt sich die angelegte Spannung 
+\begin{align}
+    A = \text{\input{A_os.tex}}
+\end{align}
+bestimmen. Wird diese Spannung mit der Amplitude aus Abbildung \ref{fig:7b} von $U = \SI{3.25}{\volt}$ verglichen, lässt sich ein Verstärkungsfakor
+von $\sfrac{U_0}{U} = [missing\;value]$ berechnen. Der Graph $[reference]$ gibt einen erwarteten Amplitudenverlauf des Signals $U_{sig}$ ohne Störung
+wieder. 
+
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
