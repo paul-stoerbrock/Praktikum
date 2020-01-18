@@ -66,30 +66,48 @@ verwendet:
     b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:f}
 \end{align}
 \end{subequations}
-\newpage
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
 
 \flushleft{Benötigt\;}\justifying werden: \textit{Ein Lock-In-Verstärker, ein Digitales Oszilloskop, acht BNC Verbindungskabel, eine BNC 
-Steckverbindung, einen USB Stick, eine Leuchtdiode (LED), ein Photodetektor und eine Skala.}
+Steckverbindung, ein USB Stick, eine Leuchtdiode (LED), ein Photodetektor und eine Skala (ca. $\SI{50}{\centi\meter}$).}
 
-\flushleft{Zuerst\;}\justifying wird der Versuch wie in der folgenden Abbildung \ref{fig:1} dargestellt aufgebaut. 
+\flushleft{Zuerst\;}\justifying wird das ungestörte Signal $U_{sig}$ und das Referenzsignal $U_{ref}$, welche vom Reference/Oscillator ausgegeben werden, 
+vom Oszilloskop abgebildet. Damit wird das variable Signal bestimmt. Nachdem das variable Signal gefunden wurde, wird dem Oszilloskop die Amplitude 
+des konstanten Signals entnommen. 
 
-\begin{figure}
+\flushleft{Anschließend\;}\justifying wird der Versuch, wie in der folgenden Abbildung \ref{fig:1} dargestellt, aufgebaut: 
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/lock-in.jpg}
     \caption{Versuchsaufbau des Lock-In-Verstärkers \cite{V303}}
     \label{fig:1}
 \end{figure}
 
-\begin{figure}
+\flushleft{Zunächst\;}\justifying wird der Noise Generator überbrückt, damit das ungestörte Signal $U_{sig}$ mit dem Referenzsignal $U_{ref}$
+im Detector gemischt werden kann. Anschließend wird der USB Stick am Oszilloskop angeschlossen und es werden für zehn Phasen das Phasendiagramm 
+der gemischten Signale gespeichert.
+
+\flushleft{Nun\;}\justifying wird der Noise Generator dazu geschaltet. Für das nun gestörte Signal $U_{sig}$ werden erneut Messungen für zehn Phasen 
+durchgeführt. 
+
+\flushleft{Anschließend\;}\justifying wird der Aufbau wie in Abbildung \ref{fig:2} abgeändert, sodass nun eine LED und ein Photodetektor den 
+Noise Generator ersetzen:
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/lock-in_led.jpg}
     \caption{Versuchsaufbau des Lock-In-Verstärkers mit LED \cite{V303}}
     \label{fig:2}
 \end{figure}
+
+\flushleft{Die\;}\justifying LED  und der Photodetektor werden auf einer Skala montiert, dabei soll die LED beweglich bleiben und der Detector stationär.
+Die LED soll einer Leuchtfrequenz zwischen $\SI{50}{\hertz}$ und $\SI{500}{\hertz}$ zugewiesen werden. Nun wird die LED um gleichmäßige Distanzen
+von dem Photodetektor wegbewegt, hier um $\SI{2}{\centi\meter}$. Für jede neue Distanz wird die Intensität am Oszilloskop abgelesen. Sobald sich keine
+Änderung der Intensität am Oszilloskop erkennen lässt, werden keine weiteren Messwerte mehr aufgenommen.  
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
