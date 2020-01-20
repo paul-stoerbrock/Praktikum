@@ -144,7 +144,7 @@ with open('build/A_os.tex', 'w') as f:
 
 # tex file for U0_os/3.25
 
-faktor_os = parphi_oS[0]/3.25
+faktor_os = parphi_oS[0]/6.57
 
 with open('build/faktor_os.tex', 'w') as f:
   f.write(make_SI(faktor_os,r'', figures=2))
@@ -161,7 +161,7 @@ with open('build/A_ms.tex', 'w') as f:
 
 # tex file for U0_ms/3.25
 
-faktor_ms = parphi_mS[0]/3.25
+faktor_ms = parphi_mS[0]/6.57
 
 with open('build/faktor_ms.tex', 'w') as f:
   f.write(make_SI(faktor_ms,r'', figures=2))
