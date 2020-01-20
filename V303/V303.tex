@@ -292,29 +292,32 @@ das variable Signal.
     \begin{subfigure}{0.495\linewidth}
         \centering
         \includegraphics[width=\textwidth]{images/Aconst_ungestört_param.jpg}
-        \caption{Parameter des Signals $U_{ref}$}
+        \caption{Parameter des Signals $U_{sig}$}
         \label{fig:7b}
     \end{subfigure}
 \end{figure}
 
-\flushleft{Anhand\;}\justifying des Graphen \ref{fig:4} ohne Störung und dessen Parameter $A$ \eqref{eq:4} lässt sich die angelegte Spannung 
+\flushleft{Da\;}\justifying das angelegte Signal $U_{sig}$ das zu störende Signal ist, wird der Verstärkungsfakor relevant.
+Anhand des Graphen \ref{fig:4} ohne Störung und dessen Parameter $A$ \eqref{eq:4}, welcher laut Formel \eqref{eq:1} die angelegte Spannung $U_0$ 
+beschreibt, lässt sich $U_0$ bestimmen als:
 \begin{align}
-    A = \text{\input{A_os.tex}}
+    U_0 = A = \text{\input{A_os.tex}}
 \end{align}
-bestimmen. Wird diese Spannung mit der Amplitude $U = \SI{6.57}{\volt}$ aus Abbildung \ref{fig:7b} verglichen, lässt sich ein Verstärkungsfakor
-von $\sfrac{A}{U} = \text{\input{faktor_os.tex}}$ berechnen. Der Graph \ref{fig:4} gibt einen erwarteten Amplitudenverlauf des Signals 
-$U_{sig}$ ohne Störung wieder. 
+Wird diese Spannung mit der Amplitude $U = \SI{6.57}{\volt}$ aus Abbildung \ref{fig:7b}, welche von Reference/Oscillator ausgegeben wird, verglichen, 
+lässt sich ein Verstärkungsfakor von $\sfrac{U_0}{U} = \text{\input{faktor_os.tex}}$ berechnen. Der Graph \ref{fig:4} gibt einen erwarteten Amplitudenverlauf 
+des Signals $U_{sig}$ ohne Störung wieder. 
 
 \flushleft{Aus\;}\justifying dem Graphen \ref{fig:5} des Signals mit Störung und dessen Parameter $C$ lässt sich die angelegte Spannung 
 \begin{align}
-    C = \text{\input{A_ms.tex}}
+    U_0 = C = \text{\input{A_ms.tex}}
 \end{align}
-bestimmen. Um den Verstärkungsfakor zu berechnen, wird hier ebenfalls die Amplitude $U = \SI{6.57}{\volt}$ aus Abbildung \ref{fig:7b} verwendet.
-Daraus folgt der Verstärkungsfakor des Signals von $\sfrac{C}{U} = \text{\input{faktor_ms.tex}}$ mit Störung.
+analog zum Graphen ohne Störung bestimmen. Um den Verstärkungsfakor zu berechnen, wird hier ebenfalls die Amplitude $U = \SI{6.57}{\volt}$ aus 
+Abbildung \ref{fig:7b} verwendet. Daraus folgt der Verstärkungsfakor des Signals von $\sfrac{U_0}{U} = \text{\input{faktor_ms.tex}}$ mit Störung.
 
 \flushleft{Der\;}\justifying Graph \ref{fig:6} gibt die abklingende Genauigkeit des empfangenen Signals der LED wieder. Die Intensität aus Tabelle
-\ref{tab:3} sollte mit einem Faktor von $\sfrac{1}{r^2}$ abfallen. Dies ist jedoch nicht der Fall. Die nicht-lineare Regression aus \ref{fig:6} 
-zeigt das eigentliche Verhalten der Intensität. Die Messwerte verhalten sich jedoch anders.
+\ref{tab:3} sollte mit einem Faktor von $\sfrac{1}{r^2}$ abfallen. Dies ist hier jedoch nicht der Fall. Die nicht-lineare Regression aus \ref{fig:6} 
+zeigt das eigentliche Verhalten der Intensität. Die Messwerte verhalten sich jedoch anders. Dies könnte mit dem wackeligen Aufbau des Photodetektors
+zusammenhängen, oder einer hochen Intensität der Hintergrundstrahlung.
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
