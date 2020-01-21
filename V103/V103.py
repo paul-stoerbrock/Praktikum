@@ -362,7 +362,7 @@ with open('build/I_Al.tex', 'w') as f:
 with open('build/E_Cuein.tex', 'w') as f:
   f.write(make_SI(E_Cuein*1e-09,r'\giga\pascal', figures=2))
 
-E_Cueinerr = abs(E_Cuein*1e-09 - 120)/120
+E_Cueinerr = abs(E_Cuein.n*1e-09 - 120)/120
 
 # tex file for E_Cueinerr
 
@@ -374,7 +374,7 @@ with open('build/E_Cueinerr.tex', 'w') as f:
 with open('build/E_Cudopl.tex', 'w') as f:
   f.write(make_SI(E_Cudopl*1e-09,r'\giga\pascal', figures=2))
 
-E_Cudoplerr = abs(E_Cudopl*1e-09 - 120)/120
+E_Cudoplerr = abs(E_Cudopl.n*1e-09 - 120)/120
 
 # tex file for E_Cudoplerr
 
@@ -386,7 +386,7 @@ with open('build/E_Cudoplerr.tex', 'w') as f:
 with open('build/E_Cudopr.tex', 'w') as f:
   f.write(make_SI(E_Cudopr*1e-09,r'\giga\pascal', figures=2))
 
-E_Cudoprerr = abs(E_Cudopr*1e-09 - 120)/120
+E_Cudoprerr = abs(E_Cudopr.n*1e-09 - 120)/120
 
 # tex file for E_Cudoprerr
 
@@ -398,7 +398,7 @@ with open('build/E_Cudoprerr.tex', 'w') as f:
 with open('build/E_Alein.tex', 'w') as f:
   f.write(make_SI(E_Alein*1e-09,r'\giga\pascal', figures=2))
 
-E_Aleinerr = abs(E_Alein*1e-09 - 70)/70
+E_Aleinerr = abs(E_Alein.n*1e-09 - 70)/70
 
 # tex file for E_Aleinerr
 
@@ -410,7 +410,7 @@ with open('build/E_Aleinerr.tex', 'w') as f:
 with open('build/E_Aldopl.tex', 'w') as f:
   f.write(make_SI(E_Aldopl*1e-09,r'\giga\pascal', figures=2))
 
-E_Aldoplerr = abs(E_Aldopl*1e-09 - 70)/70
+E_Aldoplerr = abs(E_Aldopl.n*1e-09 - 70)/70
 
 # tex file for E_Aldoplerr
 
@@ -422,7 +422,7 @@ with open('build/E_Aldoplerr.tex', 'w') as f:
 with open('build/E_Aldopr.tex', 'w') as f:
   f.write(make_SI(E_Aldopr*1e-09,r'\giga\pascal', figures=2))
 
-E_Aldoprerr = abs(E_Aldopr*1e-09 - 70)/70
+E_Aldoprerr = abs(E_Aldopr.n*1e-09 - 70)/70
 
 # tex file for E_Aldoprerr
 
