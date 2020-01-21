@@ -1,0 +1,114 @@
+\input{../header.tex}
+
+\begin{document}
+    \title{V311 Der Hall-Effekt}
+    \author{  
+    Tobias Rücker\\
+    \texorpdfstring{\href{mailto:tobias.ruecker@tu-dortmund.de}{tobias.ruecker@tu-dortmund.de}
+    \and}{,} 
+    Paul Störbrock\\
+    \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
+    }
+    \date{Durchführung: 21.01.20, Abgabe: 28.01.20 \vspace{-4ex}}
+\maketitle
+\center{\Large Versuchsgruppe: \textbf{42}}
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+% Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{page}{1}
+\section{Ziel}\justifying
+
+% Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Theorie}\justifying
+
+% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fehlerrechnung}\justifying
+
+Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
+verwendet:
+\begin{subequations} \label{eq:}
+\begin{align} 
+\intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
+}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:a}
+\intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
+}
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:b},
+\intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
+}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:c}
+\intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
+}
+    y &= m \cdot x + b \label{eq:6d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:f}
+\end{align}
+\end{subequations}
+\newpage
+
+% Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Versuchsaufbau und Versuchsdurchführung}\justifying
+Benötigt werden: \textit{Ein Eisenjoch, zwei Spulen, zwei Magnetschuhe, drei Leiterplatten, drei Materialproben (hier Cu, Zn und Ag), 
+ein digitales Multimeter, zwei Generatoren, eine Hall-Sonde, eine digitale Mikrometerschraube, einen Kupferwiderstand, einen Silberwiderstand 
+und sieben Experimentierkabel.}
+% Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Auswertung}
+
+% Kupfer ===============================================================================================================================================================================================================
+
+\begin{table}
+    \centering
+    \input{Cu_table.tex}
+    \caption{Hallspannung $U_H$ von Kupfer}
+    \label{tab:1}
+\end{table}
+
+% Zink ===============================================================================================================================================================================================================
+
+\begin{table}
+    \centering
+    \input{Zn_table.tex}
+    \caption{Hallspannung $U_H$ von Zink}
+    \label{tab:2}
+\end{table}
+
+
+% Silber ===============================================================================================================================================================================================================
+
+\begin{table}
+    \centering
+    \input{Ag_table.tex}
+    \caption{Hallspannung $U_H$ von Silber}
+    \label{tab:3}
+\end{table}
+
+% Hysterese ===============================================================================================================================================================================================================
+
+\begin{table}
+    \centering
+    \input{Hysterese_table.tex}
+    \caption{Hysterese der Magnetschuhe}
+    \label{tab:4}
+\end{table}
+
+% Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Diskussion}
+
+
+% Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\printbibliography
+
+\end{document}

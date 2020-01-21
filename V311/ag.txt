@@ -1,0 +1,14 @@
+# Messwerte für die Hallspannung von Silber
+# Querstrom = const = 10A, B-Feld = const = 5A
+# I_B in Ampere   U_H in V     I_Q in Ampere     U_H in V 
+
+0.5 -1.72e-04     1 -0.19e-04
+1.0 -1.76e-04     2 -0.39e-04
+1.5 -1.78e-04     3 -0.59e-04
+2.0 -1.81e-04     4 -0.79e-04
+2.5 -1.83e-04     5 -0.98e-04
+3.0 -1.85e-04     6 -1.17e-04
+3.5 -1.87e-04     7 -1.38e-04
+4.0 -1.89e-04     8 -1.56e-04
+4.5 -1.91e-04     9 -1.76e-04
+5.0 -1.93e-04    10 -1.96e-04
