@@ -1,0 +1,14 @@
+# Messwerte für die Hallspannung von Kupfer
+# Querstrom = const = 10A, B-Feld = const = 5A
+# I_B in Ampere   U_H in V     I_Q in Ampere     U_H in V 
+
+0.5 -0.01e-04     1 0.00e-04
+1.0  0.05e-04     2 0.03e-04
+1.5  0.06e-04     3 0.06e-04
+2.0  0.08e-04     4 0.08e-04
+2.5  0.10e-04     5 0.10e-04
+3.0  0.12e-04     6 0.13e-04
+3.5  0.14e-04     7 0.15e-04
+4.0  0.16e-04     8 0.17e-04
+4.5  0.17e-04     9 0.19e-04
+5.0  0.19e-04    10 0.21e-04
