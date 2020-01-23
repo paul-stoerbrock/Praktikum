@@ -58,8 +58,30 @@ verwendet:
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
 Benötigt werden: \textit{Ein Eisenjoch, zwei Spulen, zwei Magnetschuhe, drei Leiterplatten, drei Materialproben (hier Cu, Zn und Ag), 
-ein digitales Multimeter, zwei Generatoren, eine Hall-Sonde, eine digitale Mikrometerschraube, einen Kupferwiderstand, einen Silberwiderstand 
+ein digitales Multimeter, zwei Generatoren (max. $\SI{40}{\volt}/\SI{10}{\ampere}$ und max. $\SI{20}{\volt}/\SI{5}{\ampere}$), 
+eine Hall-Sonde, eine digitale Mikrometerschraube, einen Kupferwiderstand (Drahtlänge: $\SI{137}{\centi\meter}$, Drahtdurchmesser: 
+$\SI{0.1}{\milli\meter}$), einen Silberwiderstand (Drahtlänge: $\SI{173}{\centi\meter}$, Drahtdurchmesser: $\SI{0.205}{\milli\meter}$) 
 und sieben Experimentierkabel.}
+
+\flushleft{Zu\;}\justifying Beginn wird das Eisenjoch durch beide Spulen geführt. An beiden Enden des Eisenjochs werden nun die Magnetschuhe
+angebracht. Sobald der Elektromagnet aufgebaut ist, werden die beiden Spulen in Reihe geschaltet und an den Generator mit maximal 
+$\SI{5}{\ampere}$ angeschlossen. Mit diesem Aufbau und der Hall-Sonde wird die Hysterese des Magnetfelds bestimmt. Dafür wird der Strom sukzessiv 
+um $\SI{0.5}{\ampere}$ erhöht, bis $\SI{5}{\ampere}$ an den Spulen anliegen. Für jede Erhöhung des Stroms um $\SI{0.5}{\ampere}$ wird die Stärke
+des Magnetfelds mit der Hall-Sonde abgelesen. Sind die $\SI{5}{\ampere}$ erreicht, wird der selbe Prozess wiederholt während der Strom in reduziert
+wird. 
+
+\flushleft{Sind\;}\justifying die Messwerte der Hysterese bestimmt, wird die Hall-Sonde entfernt und die erste Materialprobe auf der Leiterplatte
+zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie folgt an dem Multimeter angeschlossen:
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{./images/leiterplatte.jpg}
+    \caption{Aufbau der Leiterplatte \cite{V311}}
+    \label{fig:1}
+\end{figure}
+
+
+
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
@@ -97,7 +119,7 @@ und sieben Experimentierkabel.}
 \begin{table}
     \centering
     \input{Hysterese_table.tex}
-    \caption{Hysterese der Magnetschuhe}
+    \caption{Hysterese des Magnetfelds}
     \label{tab:4}
 \end{table}
 
