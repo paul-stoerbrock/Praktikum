@@ -27,6 +27,7 @@
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Theorie}\justifying
+In
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,19 +64,46 @@ und sieben Experimentierkabel.}
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
+% Hysterese ===============================================================================================================================================================================================================
+
+\begin{table}[H]
+    \centering
+    \input{Hysterese_table.tex}
+    \caption{Hysterese der Magnetschuhe}
+    \label{tab:4}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plothy.pdf}
+\caption{Hysteresekurve}
+\end{figure}
 
 % Kupfer ===============================================================================================================================================================================================================
 
-\begin{table}
+\begin{table}[H]
     \centering
     \input{Cu_table.tex}
     \caption{Hallspannung $U_H$ von Kupfer}
     \label{tab:1}
 \end{table}
 
+\begin{figure}[H]
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plotCu_IB.pdf}
+\caption{Hallspannung bei konstantem Quellstrom}
+\end{subfigure}
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plotCu_IQ.pdf}
+\caption{Hallspannung bei konstantem B-Feld}
+\end{subfigure}
+\end{figure}
+
 % Zink ===============================================================================================================================================================================================================
 
-\begin{table}
+\begin{table}[H]
     \centering
     \input{Zn_table.tex}
     \caption{Hallspannung $U_H$ von Zink}
@@ -85,21 +113,16 @@ und sieben Experimentierkabel.}
 
 % Silber ===============================================================================================================================================================================================================
 
-\begin{table}
+\begin{table}[H]
     \centering
     \input{Ag_table.tex}
     \caption{Hallspannung $U_H$ von Silber}
     \label{tab:3}
 \end{table}
 
-% Hysterese ===============================================================================================================================================================================================================
 
-\begin{table}
-    \centering
-    \input{Hysterese_table.tex}
-    \caption{Hysterese der Magnetschuhe}
-    \label{tab:4}
-\end{table}
+
+
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
