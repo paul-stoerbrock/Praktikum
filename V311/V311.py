@@ -25,6 +25,7 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
+<<<<<<< HEAD
 # Funktion zur Berechnung des spezifischen Widerstands
 
 def rho(R, l, A):
@@ -72,6 +73,23 @@ def mu(v_d, n, tau):
 
 
 
+||||||| merged common ancestors
+=======
+# Konstanten ########################################################################################################################################################
+
+  # Hall- Konstanten [Einheit: 10^(-11) m^3 * C^(-1)]:
+
+    Hconst_cu_lit = -5.2
+    Hconst_zn_lit = +6.4
+    Hconst_ag_lit = -8.9
+
+  # Spezifischer Widerstand [Einheit: Ohm * m]:
+
+    SpWi_cu_lit = 0.018
+    SpWi_zn_lit = 0.06
+    SpWi_ag_lit = 0.016
+
+>>>>>>> 95fa45019e0cadc0db95330506ffd3ac89630efb
 # Variablen ########################################################################################################################################################
 
 Cu_IB, Cu_UHB, Cu_IQ, Cu_UHQ = np.genfromtxt('cu.txt', unpack=True)
