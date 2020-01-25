@@ -88,11 +88,11 @@ zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie fo
 \section{Auswertung}
 % Hysterese ===============================================================================================================================================================================================================
 
-\begin{table}[H]
+\begin{table}
     \centering
     \input{Hysterese_table.tex}
-    \caption{Hysterese der Magnetschuhe}
-    \label{tab:4}
+    \caption{Hysterese des Magnetfelds}
+    \label{tab:1}
 \end{table}
 
 \begin{figure}[H]
@@ -107,20 +107,21 @@ zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie fo
     \centering
     \input{Cu_table.tex}
     \caption{Hallspannung $U_H$ von Kupfer}
-    \label{tab:1}
+    \label{tab:2}
 \end{table}
 
 \begin{figure}[H]
 \begin{subfigure}{0.495\linewidth}
 \centering
 \includegraphics[width=0.75\linewidth]{./build/plotCu_IB.pdf}
-\caption{Hallspannung bei konstantem Quellstrom}
+\caption{Hallspannung bei konstantem Querstrom}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
 \centering
 \includegraphics[width=0.75\linewidth]{./build/plotCu_IQ.pdf}
 \caption{Hallspannung bei konstantem B-Feld}
 \end{subfigure}
+\caption{Hallspannungen für Kupfer}
 \end{figure}
 
 % Zink ===============================================================================================================================================================================================================
@@ -129,8 +130,22 @@ zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie fo
     \centering
     \input{Zn_table.tex}
     \caption{Hallspannung $U_H$ von Zink}
-    \label{tab:2}
+    \label{tab:3}
 \end{table}
+
+\begin{figure}[H]
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plotZn_IB.pdf}
+\caption{Hallspannung bei konstantem Querstrom}
+\end{subfigure}
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plotZn_IQ.pdf}
+\caption{Hallspannung bei konstantem B-Feld}
+\end{subfigure}
+\caption{Hallspannungen für Zink}
+\end{figure}
 
 
 % Silber ===============================================================================================================================================================================================================
@@ -139,16 +154,23 @@ zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie fo
     \centering
     \input{Ag_table.tex}
     \caption{Hallspannung $U_H$ von Silber}
-    \label{tab:3}
-\end{table}
-
-
-\begin{table}
-    \centering
-    \input{Hysterese_table.tex}
-    \caption{Hysterese des Magnetfelds}
     \label{tab:4}
 \end{table}
+
+\begin{figure}[H]
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plotAg_IB.pdf}
+\caption{Hallspannung bei konstantem Querstrom}
+\end{subfigure}
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=0.75\linewidth]{./build/plotAg_IQ.pdf}
+\caption{Hallspannung bei konstantem B-Feld}
+\end{subfigure}
+\caption{Hallspannungen für Silber}
+\end{figure}
+
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

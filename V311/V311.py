@@ -25,6 +25,53 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
+# Funktion zur Berechnung des spezifischen Widerstands
+
+def rho(R, l, A):
+  return R*A/l
+
+# Funktion zur Berechnung der Ladungsträgerzahl pro Volumen
+
+def n(m, d, c):
+  return  c/(const.e*d*m)
+
+# Funktion zur Berechnung der Hall-Konstante
+
+def AH(n):
+  return 1/(n*const.e)
+
+# Funktion zur Berechnung der Ladungsträgerzahl pro Atom
+
+def z(n, varrho, atom_mass):
+  return n/(varrho/(atom_mass*const.u))
+
+# Funktion zur Berechnung der mittleren Flugzeit
+
+def tau(n, rho):
+  return 2*const.m_e/(const.e**2*n*rho)
+
+# Funktion zur Berechnung der mittleren Driftgeschwindigkeit
+
+def v_d(n):
+  return -1*e06/(n+const.e)
+
+# Funktion zur Berechnung der Totalgeschwindigkeit
+
+def v(n):
+  return np.sqrt((2*const.h**2/(2*const.m_e)*((3/(8 *np.pi)*n)**2)**(1/3))/const.m_e)
+
+# Funktion zur Berechnung der mittleren freien Weglänge
+
+def l(tau, v):
+  return tau*v
+
+# Funktion zur Berechnung der Beweglichkeit
+
+def mu(v_d, n, tau):
+  return 1/2*v_d*(const.e**2*n*tau)/(1*10**6*const.m_e)#
+
+
+
 # Konstanten ########################################################################################################################################################
 
   # Hall- Konstanten [Einheit: 10^(-11) m^3 * C^(-1)]:
@@ -49,10 +96,30 @@ Ag_IB, Ag_UHB, Ag_IQ, Ag_UHQ = np.genfromtxt('ag.txt', unpack=True)
 
 hy_Iauf, hy_Bauf, hy_Iab, hy_Bab = np.genfromtxt('hysterese.txt', unpack=True)
 
+# Werte für Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+d_Ag_Folie = 0.205e-03 # Dicke der Silber Folie in m
+
+d_Ag_Draht = 0.205 *1e-03 # Durchmesser des Silberdrahts in m
+
+R_Ag = 0.703 # Widerstand von Aluminiumspule in Ohm
+
+l_Ag = 173 *1e-02 # Länge der Drahtspule in m
+
+# Werte für Kupfer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+d_Cu_Folie = 18e-06 # Dicke der Kupfer Folie in m
+
+d_Cu_Draht = 0.1e-03 # Durchhmesser des Kupferdrahts in m
+
+R_Cu = 2.903 # Widerstand der Kupferspule in Ohm
+
+l_Cu = 137e-02 # Länge des Kupferdrahtes in m
 
 # Plots ########################################################################################################################################################
 
-#Plot von Hysteresekurve von der Spule
+#Plot der Hysteresekurve von der Spule %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 par1, covm1 = np.polyfit(hy_Iauf, hy_Bauf, deg=1, cov=True)
 err1 = np.sqrt(np.diag(covm1))
 
@@ -60,8 +127,8 @@ par2, covm2 = np.polyfit(hy_Iab[1:9], hy_Bab[1:9], deg=1, cov=True)
 err2 = np.sqrt(np.diag(covm2))
 
 
-plt.plot(hy_Iauf, hy_Bauf,'kx', label='Messwerte')
-plt.plot(hy_Iab, hy_Bab,'bx', label='Messwerte')
+plt.plot(hy_Iauf, hy_Bauf,'kx', label='Messwerte auf')
+plt.plot(hy_Iab, hy_Bab,'bx', label='Messwerte ab')
 x_plot = np.linspace(0, 5, 1000)
 plt.plot(x_plot, x_plot*par1[0]+par1[1], 'r-', label="Lineare Regression Hysteresekurve auf")
 plt.plot(x_plot, x_plot*par2[0]+par2[1], 'g-', label="Lineare Regression Hysteresekurve ab")
@@ -77,7 +144,8 @@ plt.close()
 parhyauf=unp.uarray(par1, err1)
 parhyab=unp.uarray(par2, err2)
 
-#Plot von Kupfer mit konstantem Querstrom
+#Plot von Kupfer mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 B= (parhyauf[0].n + parhyab[0].n)/2*Cu_IB
 
 par, covm = np.polyfit(B, Cu_UHB, deg=1, cov=True)
@@ -98,7 +166,8 @@ plt.close()
 
 parCu_IB=unp.uarray(par, err)
 
-#Plot von Kupfer mit konstantem B-Feld
+#Plot von Kupfer mit konstantem B-Feld %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 par, covm = np.polyfit(Cu_IQ, Cu_UHQ, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
@@ -117,7 +186,8 @@ plt.close()
 
 parCu_IQ=unp.uarray(par, err)
 
-#Plot von Silber mit konstantem Querstrom
+#Plot von Silber mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 B= (parhyauf[0].n + parhyab[0].n)/2*Ag_IB
 
 par, covm = np.polyfit(B, Ag_UHB, deg=1, cov=True)
@@ -126,8 +196,8 @@ err = np.sqrt(np.diag(covm))
 plt.plot(B, Ag_UHB,'kx', label='Messwerte')
 x_plot = np.linspace(0, 1.3, 1000)
 plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
-#plt.yticks([0, 5*1e-06, 10*1e-06, 15*1e-06, 20*1e-06],
-#           [0, 5, 10, 15, 20])
+plt.yticks([-170*1e-06, -175*1e-06, -180*1e-06, -185*1e-06, -190*1e-06, -195*1e-06],
+           [-170, -175, -180, -185, -190, -195])
 plt.legend(loc="best")
 plt.xlabel(r'magnetische Feldstärke $B\:/\:T$')
 plt.ylabel(r'Hallspannung $U_H\:/\:\mu V$')
@@ -138,15 +208,16 @@ plt.close()
 
 parAg_IB=unp.uarray(par, err)
 
-#Plot von Silber mit konstantem B-Feld
+#Plot von Silber mit konstantem B-Feld   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 par, covm = np.polyfit(Ag_IQ, Ag_UHQ, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
 plt.plot(Ag_IQ, Ag_UHQ,'kx', label='Messwerte')
 x_plot = np.linspace(0, 10, 1000)
 plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
-#plt.yticks([0, 5*1e-06, 10*1e-06, 15*1e-06, 20*1e-06],
-#           [0, 5, 10, 15, 20])
+plt.yticks([0, -25*1e-06, -50*1e-06, -75*1e-06, -100*1e-06, -125*1e-06, -150*1e-06, -175*1e-06, -200*1e-06],
+           [0, -25, -50, -75, -100, -125, -150, -175, -200])
 plt.legend(loc="best")
 plt.xlabel(r'Quellstrom $I_Q\:/\:A$')
 plt.ylabel(r'Hallspannung $U_H\:/\:\mu V$')
@@ -156,6 +227,180 @@ plt.savefig('build/plotAg_IQ.pdf')
 plt.close()
 
 parAg_IQ=unp.uarray(par, err)
+
+#Plot von Zink mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+B= (parhyauf[0].n + parhyab[0].n)/2*Zn_IB
+
+par, covm = np.polyfit(B, Zn_UHB, deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
+
+plt.plot(B, Zn_UHB,'kx', label='Messwerte')
+x_plot = np.linspace(0, 1.3, 1000)
+plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
+plt.yticks([ -313*1e-06, -315*1e-06, -317*1e-06, -319*1e-06],
+           [ -313, -315, -317, -319])
+plt.legend(loc="best")
+plt.xlabel(r'magnetische Feldstärke $B\:/\:T$')
+plt.ylabel(r'Hallspannung $U_H\:/\:\mu V$')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotZn_IB.pdf')
+plt.close()
+
+parZn_IB=unp.uarray(par, err)
+
+#Plot von Zink mit konstantem B-Feld %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+
+par, covm = np.polyfit(Zn_IQ, Zn_UHQ, deg=1, cov=True)
+err = np.sqrt(np.diag(covm))
+
+plt.plot(Zn_IQ, Zn_UHQ,'kx', label='Messwerte')
+x_plot = np.linspace(0, 9, 1000)
+plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
+plt.yticks([0, -50*1e-06, -100*1e-06, -150*1e-06, -200*1e-06, -250*1e-06, -300*1e-06, -350*1e-06],
+           [0, -50, -100, -150, -200, -250, -300, -350])
+plt.legend(loc="best")
+plt.xlabel(r'Quellstrom $I_Q\:/\:A$')
+plt.ylabel(r'Hallspannung $U_H\:/\:\mu V$')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotZn_IQ.pdf')
+plt.close()
+
+parZn_IQ=unp.uarray(par, err)
+
+# Berechnungen relevanter Größen ################################################################################################
+
+# Für Kupfer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# spezifischer Widerstand 
+
+
+
+# Methode bei konstanten Querstrom
+
+# Ladungsträger pro Volumen
+
+# Hallkonstante
+
+# Zahl der Ladungsträger pro Atom 
+
+# mittlere Flugzeit
+
+# mittlere Driftgeschwindigkeit
+
+# Beweglichkeit
+
+# Totalgeschwindigkeit
+
+# mittlere freie Weglänge
+
+
+# Methode bei konstantem B-Feld
+
+# Ladungsträger pro Volumen
+
+# Hallkonstante
+
+# Zahl der Ladungsträger pro Atom 
+
+# mittlere Flugzeit
+
+# mittlere Driftgeschwindigkeit
+
+# Beweglichkeit
+
+# Totalgeschwindigkeit
+
+# mittlere freie Weglänge
+
+
+
+# Für Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# spezifischer Widerstand 
+
+
+
+# Methode bei konstanten Querstrom ///////////////////////////////////////////////////////////////////////////////////////
+
+# Ladungsträger pro Volumen
+
+# Hallkonstante
+
+# Zahl der Ladungsträger pro Atom 
+
+# mittlere Flugzeit
+
+# mittlere Driftgeschwindigkeit
+
+# Beweglichkeit
+
+# Totalgeschwindigkeit
+
+# mittlere freie Weglänge
+
+# Methode bei konstantem B-Feld //////////////////////////////////////////////////////////////////////////////////////
+
+# Ladungsträger pro Volumen
+
+# Hallkonstante
+
+# Zahl der Ladungsträger pro Atom 
+
+# mittlere Flugzeit
+
+# mittlere Driftgeschwindigkeit
+
+# Beweglichkeit
+
+# Totalgeschwindigkeit
+
+# mittlere freie Weglänge
+
+
+# Für Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# Methode bei konstanten Querstrom ///////////////////////////////////////////////////////////////////////
+
+# Ladungsträger pro Volumen
+
+# Hallkonstante
+
+# Zahl der Ladungsträger pro Atom 
+
+# mittlere Flugzeit
+
+# mittlere Driftgeschwindigkeit
+
+# Beweglichkeit
+
+# Totalgeschwindigkeit
+
+# mittlere freie Weglänge
+
+
+# Methode bei konstantem B-Feld //////////////////////////////////////////////////////////////////////////////////////
+
+# Ladungsträger pro Volumen
+
+# Hallkonstante
+
+# Zahl der Ladungsträger pro Atom 
+
+# mittlere Flugzeit
+
+# mittlere Driftgeschwindigkeit
+
+# Beweglichkeit
+
+# Totalgeschwindigkeit
+
+# mittlere freie Weglänge
+
+
 
 
 # Tabellen ########################################################################################################################################################
