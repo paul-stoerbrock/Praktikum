@@ -33,7 +33,7 @@ def rho(R, l, A):
 # Funktion zur Berechnung der Ladungsträgerzahl pro Volumen
 
 def n(m, d, c):
-  return  c/(const.e*d*m)
+  return  -c/(const.e*d*m)
 
 # Funktion zur Berechnung der Hall-Konstante
 
@@ -53,12 +53,12 @@ def tau(n, rho):
 # Funktion zur Berechnung der mittleren Driftgeschwindigkeit
 
 def v_d(n):
-  return -1*e06/(n+const.e)
+  return -1e06/(n+const.e)
 
 # Funktion zur Berechnung der Totalgeschwindigkeit
 
 def v(n):
-  return np.sqrt((2*const.h**2/(2*const.m_e)*((3/(8 *np.pi)*n)**2)**(1/3))/const.m_e)
+  return unp.sqrt((2*const.h**2/(2*const.m_e)*((3/(8 *np.pi)*n)**2)**(1/3))/const.m_e)
 
 # Funktion zur Berechnung der mittleren freien Weglänge
 
@@ -68,23 +68,26 @@ def l(tau, v):
 # Funktion zur Berechnung der Beweglichkeit
 
 def mu(v_d, n, tau):
-  return 1/2*v_d*(const.e**2*n*tau)/(1*10**6*const.m_e)#
+  return 1/2*v_d*(const.e**2*n*tau)/(1*10**6*const.m_e)
 
+# Funktion zur Berechnung des B-Feldes
 
+def B1(auf, ab, I):
+  return (auf+ab)/2 *I
 
 # Konstanten ########################################################################################################################################################
 
-  # Hall- Konstanten [Einheit: 10^(-11) m^3 * C^(-1)]:
+# Hall- Konstanten [Einheit: m^3 * C^(-1)]:
 
-    Hconst_cu_lit = -5.2
-    Hconst_zn_lit = +6.4
-    Hconst_ag_lit = -8.9
+Hconst_cu_lit = -5.2e-11
+Hconst_zn_lit = +6.4e-11
+Hconst_ag_lit = -8.9e-11
 
-  # Spezifischer Widerstand [Einheit: Ohm * m]:
+# Spezifischer Widerstand [Einheit: Ohm * m]:
 
-    SpWi_cu_lit = 0.018
-    SpWi_zn_lit = 0.06
-    SpWi_ag_lit = 0.016
+SpWi_cu_lit = 0.018*1e-06
+SpWi_zn_lit = 0.06*1e-06
+SpWi_ag_lit = 0.016*1e-06
 
 # Variablen ########################################################################################################################################################
 
@@ -106,6 +109,10 @@ R_Ag = 0.703 # Widerstand von Aluminiumspule in Ohm
 
 l_Ag = 173 *1e-02 # Länge der Drahtspule in m
 
+atom_mass_Ag = 107.8682 # Atommasse von Silber
+
+varrho_Ag = 10500 # Dichte von Silber in kg/m^3
+
 # Werte für Kupfer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 d_Cu_Folie = 18e-06 # Dicke der Kupfer Folie in m
@@ -115,6 +122,18 @@ d_Cu_Draht = 0.1e-03 # Durchhmesser des Kupferdrahts in m
 R_Cu = 2.903 # Widerstand der Kupferspule in Ohm
 
 l_Cu = 137e-02 # Länge des Kupferdrahtes in m
+
+varrho_Cu = 8960 # Literaturwert für Dichte von Kupfer in kg/m^3
+
+atom_mass_Cu = 63.546 # Atommase von Kupfer in u
+
+# Werte für Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+d_Zn_Folie = 0.027e-03 # Dicke der Zink Folie in m
+
+atom_mass_Zn = 65.39 # Atommasse von Zink in u
+
+varrho_Zn = 7130     # Dichte von Zink in kg/m^3 
 
 # Plots ########################################################################################################################################################
 
@@ -277,89 +296,149 @@ parZn_IQ=unp.uarray(par, err)
 
 # spezifischer Widerstand 
 
+rho_Cu = rho(R_Cu, l_Cu, np.pi*(d_Cu_Draht/2)**2)
 
-
-# Methode bei konstanten Querstrom
-
-# Ladungsträger pro Volumen
-
-# Hallkonstante
-
-# Zahl der Ladungsträger pro Atom 
-
-# mittlere Flugzeit
-
-# mittlere Driftgeschwindigkeit
-
-# Beweglichkeit
-
-# Totalgeschwindigkeit
-
-# mittlere freie Weglänge
-
-
-# Methode bei konstantem B-Feld
+# Methode bei konstanten Querstrom /////////////////////////////////////////////////////////////////////////////
 
 # Ladungsträger pro Volumen
 
+n_Cu_IB = n(parCu_IB[0], d_Cu_Folie, 10)
+
 # Hallkonstante
 
+AH_Cu_IB = AH(n_Cu_IB)
+print(AH_Cu_IB)
 # Zahl der Ladungsträger pro Atom 
 
+z_Cu_IB = z(n_Cu_IB, varrho_Cu, atom_mass_Cu)
+print(z_Cu_IB)
 # mittlere Flugzeit
+
+tau_Cu_IB = tau(n_Cu_IB, varrho_Cu)
 
 # mittlere Driftgeschwindigkeit
 
+v_d_Cu_IB = v_d(n_Cu_IB)
+
 # Beweglichkeit
+
+mu_Cu_IB = mu(v_d_Cu_IB, n_Cu_IB, tau_Cu_IB)
 
 # Totalgeschwindigkeit
 
+v_Cu_IB = v(n_Cu_IB)
+
 # mittlere freie Weglänge
 
+l_Cu_IB = l(tau_Cu_IB, v_Cu_IB)
 
+# Methode bei konstantem B-Feld //////////////////////////////////////////////////////////////////////////////////
+
+# Ladungsträger pro Volumen
+
+n_Cu_IQ = n(parCu_IQ[0], d_Cu_Folie, B1(parhyauf[0], parhyab[0],  5))
+
+# Hallkonstante
+
+AH_Cu_IQ = AH(n_Cu_IQ)
+print(AH_Cu_IQ)
+# Zahl der Ladungsträger pro Atom 
+
+z_Cu_IQ = z(n_Cu_IQ, varrho_Cu, atom_mass_Cu)
+print(z_Cu_IQ)
+# mittlere Flugzeit
+
+tau_Cu_IQ = tau(n_Cu_IQ, varrho_Cu)
+
+# mittlere Driftgeschwindigkeit
+
+v_d_Cu_IQ = v_d(n_Cu_IQ)
+
+# Beweglichkeit
+
+mu_Cu_IQ = mu(v_d_Cu_IQ, n_Cu_IQ, tau_Cu_IQ)
+
+# Totalgeschwindigkeit
+
+v_Cu_IQ = v(n_Cu_IQ)
+
+# mittlere freie Weglänge
+
+l_Cu_IQ = l(tau_Cu_IQ, v_Cu_IQ)
 
 # Für Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # spezifischer Widerstand 
 
-
+rho_Ag = rho(R_Ag, l_Ag, np.pi*(d_Ag_Draht/2)**2)
 
 # Methode bei konstanten Querstrom ///////////////////////////////////////////////////////////////////////////////////////
 
 # Ladungsträger pro Volumen
 
+n_Ag_IB = n(parAg_IB[0], d_Ag_Folie, 10)
+
 # Hallkonstante
 
+AH_Ag_IB = AH(n_Ag_IB)
+print(AH_Ag_IB)
 # Zahl der Ladungsträger pro Atom 
 
+z_Ag_IB = z(n_Ag_IB, varrho_Ag, atom_mass_Ag)
+print(z_Ag_IB)
 # mittlere Flugzeit
+
+tau_Ag_IB = tau(n_Ag_IB, varrho_Ag)
 
 # mittlere Driftgeschwindigkeit
 
+v_d_Ag_IB = v_d(n_Ag_IB)
+
 # Beweglichkeit
+
+mu_Ag_IB = mu(v_d_Ag_IB, n_Ag_IB, tau_Ag_IB)
 
 # Totalgeschwindigkeit
 
+v_Ag_IB = v(n_Ag_IB)
+
 # mittlere freie Weglänge
+
+l_Ag_IB = l(tau_Ag_IB, v_Ag_IB)
 
 # Methode bei konstantem B-Feld //////////////////////////////////////////////////////////////////////////////////////
 
 # Ladungsträger pro Volumen
 
+n_Ag_IQ = n(parAg_IQ[0], d_Ag_Folie, B1(parhyauf[0], parhyab[0],  5))
+
 # Hallkonstante
 
-# Zahl der Ladungsträger pro Atom 
+AH_Ag_IQ = AH(n_Ag_IQ)
+print(AH_Ag_IQ)
+# Zahl der Ladungsträger pro Atom
 
+z_Ag_IQ = z(n_Ag_IQ, varrho_Ag, atom_mass_Ag)
+print(z_Ag_IQ)
 # mittlere Flugzeit
+
+tau_Ag_IQ = tau(n_Ag_IQ, varrho_Ag)
 
 # mittlere Driftgeschwindigkeit
 
+v_d_Ag_IQ = v_d(n_Ag_IQ)
+
 # Beweglichkeit
+
+mu_Ag_IQ = mu(v_d_Ag_IQ, n_Ag_IQ, tau_Ag_IQ)
 
 # Totalgeschwindigkeit
 
+v_Ag_IQ = v(n_Ag_IQ)
+
 # mittlere freie Weglänge
 
+l_Ag_IQ = l(tau_Ag_IQ, v_Ag_IQ)
 
 # Für Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -367,40 +446,69 @@ parZn_IQ=unp.uarray(par, err)
 
 # Ladungsträger pro Volumen
 
+n_Zn_IB = n(parZn_IB[0], d_Zn_Folie, 8)
+
 # Hallkonstante
 
+AH_Zn_IB = AH(n_Zn_IB)
+print(AH_Zn_IB)
 # Zahl der Ladungsträger pro Atom 
 
+z_Zn_IB = z(n_Zn_IB, varrho_Zn, atom_mass_Zn)
+print(z_Zn_IB)
 # mittlere Flugzeit
+
+tau_Zn_IB = tau(n_Zn_IB, varrho_Zn)
 
 # mittlere Driftgeschwindigkeit
 
+v_d_Zn_IB = v_d(n_Zn_IB)
+
 # Beweglichkeit
+
+mu_Zn_IB = mu(v_d_Zn_IB, n_Zn_IB, tau_Zn_IB)
 
 # Totalgeschwindigkeit
 
+v_Zn_IB = v(n_Zn_IB)
+
 # mittlere freie Weglänge
 
+l_Zn_IB = l(tau_Zn_IB, v_Zn_IB)
 
 # Methode bei konstantem B-Feld //////////////////////////////////////////////////////////////////////////////////////
 
 # Ladungsträger pro Volumen
 
+n_Zn_IQ = n(parZn_IQ[0], d_Zn_Folie, B1(parhyauf[0], parhyab[0],  5)) 
+
 # Hallkonstante
 
+AH_Zn_IQ = AH(n_Zn_IQ)
+print(AH_Zn_IQ)
 # Zahl der Ladungsträger pro Atom 
 
+z_Zn_IQ = z(n_Zn_IQ, varrho_Ag, atom_mass_Ag)
+print(z_Zn_IQ)
 # mittlere Flugzeit
+
+tau_Zn_IQ = tau(n_Zn_IQ, varrho_Zn)
 
 # mittlere Driftgeschwindigkeit
 
+v_d_Zn_IQ = v_d(n_Zn_IB)
+
 # Beweglichkeit
+
+mu_Zn_IQ = mu(v_d_Zn_IQ, n_Zn_IQ, tau_Zn_IQ)
 
 # Totalgeschwindigkeit
 
+v_Zn_IQ = v(n_Zn_IQ)
+
 # mittlere freie Weglänge
 
-
+l_Zn_IQ = l(tau_Zn_IQ, v_Zn_IQ)
 
 
 # Tabellen ########################################################################################################################################################
