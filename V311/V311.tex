@@ -22,7 +22,7 @@
 % Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{page}{1}
-\section{Ziel}\justifying
+\section{Ziel} \label{sec:1}\justifying
 In der heutigen Zeit bilden Kenntnisse zur elektrischen Leitfähigkeit von Metallen eine entscheidende Rolle.
 Die meiste Technick von heute benötigt Kenntnisse über die Leitfähigkeit von verschiedenen
 Materialien wie Metallen. Eine effiziente Möglichkeit zur Untersuchung der verschiedenen
@@ -30,7 +30,7 @@ elektrischen Leitungseigenschaften bildet der Versuch zum Hall-Effekt.
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Theorie}\justifying
+\section{Theorie} \label{sec:2}\justifying
 Kristalline Festkörper haben die Eigenschaft, dass deren Valenzelektronen ein System  bilden.
 Valenzelektronen sind dabei die Elektronen in der äußersten Schale des Atoms. 
 Für diese Elektronen gilt das Pauli-Prinzip, was bedeutet, dass jedes Elektron
@@ -143,33 +143,33 @@ Vorzeichen wechselt. Dies nennt man den anomalen Hall-Effekt.
 
 % Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Fehlerrechnung}\justifying
+\section{Fehlerrechnung} \label{sec:3}\justifying
 
 Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
 verwendet:
-\begin{subequations} \label{eq:}
+\begin{subequations} \label{eq:14}
 \begin{align} 
 \intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
 }
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:a}
+    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:14a}
 \intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
 }
-    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:b},
+    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:14b},
 \intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
 }
-    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:c}
+    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:14c}
 \intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
 }
-    y &= m \cdot x + b \label{eq:6d} \\ 
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:f}
+    y &= m \cdot x + b \label{eq:14d} \\ 
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:14e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:14f}
 \end{align}
 \end{subequations}
 \newpage
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Versuchsaufbau und Versuchsdurchführung}\justifying
+\section{Versuchsaufbau und Versuchsdurchführung} \label{sec:4}\justifying
 Benötigt werden: \textit{Ein Eisenjoch, zwei Spulen, zwei Magnetschuhe, drei Leiterplatten, drei Materialproben (hier Cu, Zn und Ag), 
 ein digitales Multimeter, zwei Generatoren (max. $\SI{40}{\volt}/\SI{10}{\ampere}$ und max. $\SI{20}{\volt}/\SI{5}{\ampere}$), 
 eine Hall-Sonde, eine digitale Mikrometerschraube, einen Kupferwiderstand (Drahtlänge: $\SI{137}{\centi\meter}$, Drahtdurchmesser: 
@@ -186,7 +186,7 @@ wird.
 \flushleft{Sind\;}\justifying die Messwerte der Hysterese bestimmt, wird die Hall-Sonde entfernt und die erste Materialprobe (hier Zink) auf der 
 Leiterplatte zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie folgt an dem Multimeter und Generator angeschlossen:
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/leiterplatte.jpg}
     \caption{Aufbau der Leiterplatte \cite{V311}}
@@ -206,7 +206,7 @@ Falle von Zink recherchiert.
 \flushleft{Für\;}\justifying Silber und Kupfer wird ähnlich verfahren, wie bei Zink. Die jeweiligen Folien werden auf der Leiterplatte wie in
 \ref{fig:1} am Multimeter und Generator angeschlossen und zwischen den Magnetschuhen befestigt. Doch ändern sich die konstant gehaltenen 
 Stromstärken. Für Silber wird $I_Q$ konstant bei $\SI{10}{\ampere}$ gehalten. Es werden wieder zehn Messwerte für einen variierenden Strom $I_B$ in 
-$\SI{0.5}{\ampere}$-Schritten aufgenommen. Die Stromsärke des Magnetfelds wird für Silber konstant bei $I_Q = \SI{5}{\ampere}$ gehalten. Hier
+$\SI{0.5}{\ampere}$-Schritten aufgenommen. Die Stromsärke des Magnetfelds wird für Silber konstant bei $I_B = \SI{5}{\ampere}$ gehalten. Hier
 wird $I_Q$ in $\SI{1}{\ampere}$-Schritten auf $\SI{10}{\ampere}$ hochgedreht. 
 
 \flushleft{Nach\;}\justifying der Messwertaufnahme für Silber wird die Dicke der Folie bestimmt. Außerdem wird der Widerstand von Silber bestimmt.
@@ -218,29 +218,100 @@ Kupfer ebenfalls $\SI{10}{\ampere}$ und $\SI{5}{\ampere}$. Neben den 20 Messwert
 Drahtlänge und der Drahtdurchmesser bestimmt. 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Auswertung}
+\section{Auswertung} \label{sec:5}
+
+\flushleft{Es\;}\justifying werden die drei Materialien Kupfer, Silber und Zink verwendet. Zuerst wird der spezifische Widerstand der einzelnen
+Materialien bestimmt. Dafür wird die Dicke der Folie bestimmt, die sich auf der Leiterplatte befindet. Außerdem wird der Widerstand anhand einer 
+Spule gemessen. Die gemessenen Maße der Folien und Drähte, sowie die Widerstände der Materialien lauten:
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r r r}
+    \toprule
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{Kupfer} & \multicolumn{1}{c}{Silber} & \multicolumn{1}{c}{Zink}\\
+        \cmidrule(lr{0,5em}){1-4}
+        Foliendicke         & \text{\input{d_Cu_Folie.tex}}   & \text{\input{d_Ag_Folie.tex}}   & \text{\input{d_Zn_folie.tex}}\\
+        Drahtdurchmesser    & \text{\input{d_Cu_Draht.tex}}   & \text{\input{d_Ag_Draht.tex}}   & \text{}\\
+        Drahtlänge          & \text{\input{l_Cu.tex}}         & \text{\input{l_Ag.tex}}         & \text{}\\
+        Widerstand          & \text{\input{R_Cu.tex}}         & \text{\input{R_Ag.tex}}         & \text{}\\
+        Dichte              & \text{\input{varrho_Cu.tex}}    & \text{\input{varrho_Ag.tex}}    & \text{\input{varrho_Zn.tex}}\\
+        Atomare Masse       & \text{\input{atom_mass_Cu.tex}} & \text{\input{atom_mass_Ag.tex}} & \text{\input{atom_mass_Zn.tex}}\\
+        \bottomrule
+    \end{tabular}
+\caption{Messwerte für den Spezifischen Widerstand}
+\label{tab:1}
+\end{table}
+
+\flushleft{Mithilfe\;}\justifying der Messwerten aus Tabelle \ref{tab:1} lässt sich der spezifische Widerstand $\varrho = R \cdot \sfrac{A}{l}$
+der einzelnen Materialien bestimmen. Hier wird der Literaturwert des spezifischen Widerstands für Zink \cite{SpWiderstand_Zn} angenommen, da für 
+Zink kein Widerstand zu verfügung stand. Damit lauten die spezifischen Widerstände:
+\begin{subequations} \label{eq:15}
+\begin{align}
+    \rho_{Cu} &= \text{\input{rho_Cu.tex}} \label{eq:15a}\\
+    \rho_{Ag} &= \text{\input{rho_Ag.tex}} \label{eq:15b}\\
+    \rho_{Zn} &= \text{\input{rho_Zn.tex}} \label{eq:15c}
+\end{align}
+\end{subequations}
+
 % Hysterese ===============================================================================================================================================================================================================
 
-\begin{table}
+\flushleft{Die\;}\justifying folgende Tabelle \ref{tab:2} gibt die Messwerte des Magnetfeldes für einen steigenden Strom (links) und einem 
+sinkenden Strom (rechts) wieder. 
+
+\begin{table}[H]
     \centering
     \input{Hysterese_table.tex}
     \caption{Hysterese des Magnetfelds}
-    \label{tab:1}
+    \label{tab:2}
 \end{table}
+
+\flushleft{Mithilfe\;}\justifying der Messwerte aus Tabelle \ref{tab:2} lässt sich der Graph \ref{fig:2} erstellen. Der folgende Graph wird 
+mit dem Phython Befehl np.polyfit() \cite{numpy} und der Formel \eqref{eq:14d} $y = mx + b$ erstellt. Die Parameter $m$ und $b$ werden mit 
+den Formeln \eqref{eq:14e} und \eqref{eq:14f} bestimmt und lauten:
+\begin{subequations}
+\begin{align}
+    m_{auf} &= \text{\input{m_hyauf.tex}} \label{eq:16a}\\
+    m_{ab}  &= \text{\input{m_hyab.tex}}  \label{eq:16b}\\
+    b_{auf} &= \text{\input{b_hyauf.tex}} \label{eq:16c}\\
+    b_{ab}  &= \text{\input{b_hyab.tex}}  \label{eq:16d}
+\end{align}
+\end{subequations}
+
+%\begin{table}[H]
+%\centering
+%    \begin{tabular}{c c c c}
+%    \toprule
+%        \multicolumn{1}{c}{$\text{Material:}$} & \multicolumn{1}{c}{$E_{Exp.}$} & \multicolumn{1}{c}{$E_{Lit.}$} & \multicolumn{1}{c}{Relativer Fehler}\\
+%        \cmidrule(lr{0,5em}){1-4}
+%        $E_{Cu}$            & \text{\input{E_Cuein.tex}}    & 120   & \text{\input{E_Cueinerr.tex}}\\
+%        $E_{Cu(links)}$     & \text{\input{E_Cudopl.tex}}   & 120   & \text{\input{E_Cudoplerr.tex}}\\
+%        $E_{Cu(rechts)}$    & \text{\input{E_Cudopr.tex}}   & 120   & \text{\input{E_Cudoprerr.tex}}\\
+%        $E_{Al}$            & \text{\input{E_Alein.tex}}    & 70    & \text{\input{E_Aleinerr.tex}}\\
+%        $E_{Al(links)}$     & \text{\input{E_Aldopl.tex}}   & 70    & \text{\input{E_Aldoplerr.tex}}\\
+%        $E_{Al(rechts)}$    & \text{\input{E_Aldopr.tex}}   & 70    & \text{\input{E_Aldoprerr.tex}}\\
+%        \bottomrule
+%    \end{tabular}
+%\caption{Zusammenfassung der Elastizitätmodule}
+%\label{tab:7}
+%\end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.75\linewidth]{./build/plothy.pdf}
 \caption{Hysteresekurve}
+\label{fig:2}
 \end{figure}
 
 % Kupfer ===============================================================================================================================================================================================================
+
+\flushleft{Die\;}\justifying folgende Tabelle \ref{tab:3} gibt die Messwerte der Hallspannung $U_H$ bei variierendem Querstrom $I_Q$ oder Magnetfeld
+$I_B$ für Kupfer wieder:
 
 \begin{table}[H]
     \centering
     \input{Cu_table.tex}
     \caption{Hallspannung $U_H$ von Kupfer}
-    \label{tab:2}
+    \label{tab:3}
 \end{table}
 
 \begin{figure}[H]
@@ -263,7 +334,7 @@ Drahtlänge und der Drahtdurchmesser bestimmt.
     \centering
     \input{Zn_table.tex}
     \caption{Hallspannung $U_H$ von Zink}
-    \label{tab:3}
+    \label{tab:}
 \end{table}
 
 \begin{figure}[H]
@@ -287,7 +358,7 @@ Drahtlänge und der Drahtdurchmesser bestimmt.
     \centering
     \input{Ag_table.tex}
     \caption{Hallspannung $U_H$ von Silber}
-    \label{tab:4}
+    \label{tab:}
 \end{table}
 
 \begin{figure}[H]
