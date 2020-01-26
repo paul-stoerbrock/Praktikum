@@ -79,15 +79,15 @@ def B1(auf, ab, I):
 
 # Hall- Konstanten [Einheit: m^3 * C^(-1)]:
 
-Hconst_cu_lit = -5.2e-11
-Hconst_zn_lit = +6.4e-11
-Hconst_ag_lit = -8.9e-11
+AHconst_Cu_lit = -5.2e-11
+AHconst_Zn_lit = +6.4e-11
+AHconst_Ag_lit = -8.9e-11
 
 # Spezifischer Widerstand [Einheit: Ohm * m]:
 
-SpWi_cu_lit = 0.018*1e-06
-SpWi_zn_lit = 0.06*1e-06
-SpWi_ag_lit = 0.016*1e-06
+SpWi_Cu_lit = 0.018*1e-06
+SpWi_Zn_lit = 0.06*1e-06
+SpWi_Ag_lit = 0.016*1e-06
 
 # Variablen ########################################################################################################################################################
 
@@ -101,7 +101,7 @@ hy_Iauf, hy_Bauf, hy_Iab, hy_Bab = np.genfromtxt('hysterese.txt', unpack=True)
 
 # Werte für Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-d_Ag_Folie = 0.205e-03 # Dicke der Silber Folie in m
+d_Ag_Folie = 0.024e-03 # Dicke der Silber Folie in m
 
 d_Ag_Draht = 0.205 *1e-03 # Durchmesser des Silberdrahts in m
 
@@ -510,17 +510,8 @@ v_Zn_IQ = v(n_Zn_IQ)
 
 l_Zn_IQ = l(tau_Zn_IQ, v_Zn_IQ)
 
+
 # Tex ########################################################################################################################################################
-
-
-
-#
-#
-# Es fehlen noch die richtigen Einheiten/Größenordnungen !!!
-#
-#
-
-
 
 # Kupfer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -615,17 +606,55 @@ with open('build/l_Cu_IQ.tex', 'w') as f:
 
 # Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# tex file for rho_Ag.tex
+with open('build/d_Ag_Folie.tex', 'w') as f: 
+  f.write(make_SI(d_Ag_Folie*1e06 ,r'\micro\meter' ,exp='e-03' ,figures=0))
 
-with open('build/rho_Ag.tex', 'w') as f:
-  f.write(make_SI(rho_Ag,r'', figures=2))
+# tex file of d_Ag_Draht
+
+with open('build/d_Ag_Draht.tex', 'w') as f: 
+  f.write(make_SI(d_Ag_Draht*1e06 ,r'\micro\meter' ,figures=0))
+
+# tex file of R_Ag
+
+with open('build/R_Ag.tex', 'w') as f: 
+  f.write(make_SI(R_Ag ,r'\ohm' ,figures=3))
+
+# tex file of l_Ag
+
+with open('build/l_Ag.tex', 'w') as f: 
+  f.write(make_SI(l_Ag ,r'\centi\meter' ,figures=2))
+
+# tex file of varrho_Ag
+
+with open('build/varrho_Ag.tex', 'w') as f: 
+  f.write(make_SI(varrho_Ag ,r'\kilo\gram\meter\tothe{-3}' ,figures=0))
+
+# tex file of atom_mass_Ag
+
+with open('build/atom_mass_Ag.tex', 'w') as f: 
+  f.write(make_SI(atom_mass_Ag ,r'' ,figures=4))
+
+# tex file of SpWi_Ag_lit
+
+with open('build/SpWi_Ag_lit.tex', 'w') as f: 
+  f.write(make_SI(SpWi_Ag_lit*1e09 ,r'\ohm\meter' ,exp='e-09' ,figures=1))
+
+# tex file of AHconst_Ag_lit
+
+with open('build/AHconst_Ag_lit.tex', 'w') as f: 
+  f.write(make_SI(AHconst_Ag_lit*1e11 ,r'\meter\tothe{3}\per\coulomb' ,exp='e-11' ,figures=1))
+
+# tex file of rho_Ag
+
+with open('build/rho_Ag.tex', 'w') as f: 
+  f.write(make_SI(rho_Ag*1e09 ,r'\ohm\meter' ,exp='e-09' ,figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-# tex file for n_Ag_IB.tex
+# tex file of n_Ag_IB
 
-with open('build/n_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(n_Ag_IB,r'', figures=2))
+with open('build/n_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(n_Ag_IB*1e-29 ,r'\meter\tothe{-3}',exp='e29' ,figures=1))
   
 # tex file for AH_Ag_IB.tex
 
@@ -642,20 +671,20 @@ with open('build/z_Ag_IB.tex', 'w') as f:
 with open('build/tau_Ag_IB.tex', 'w') as f:
   f.write(make_SI(tau_Ag_IB,r'', figures=2))
 
-# tex file for v_d_Ag_IB.tex
+# tex file of v_d_Ag_IB
 
-with open('build/v_d_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(v_d_Ag_IB,r'', figures=2))
+with open('build/v_d_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(v_d_Ag_IB ,r'\meter\per\second' ,figures=1))
 
-# tex file for mu_Ag_IB.tex
+# tex file of mu_Ag_IB
 
-with open('build/mu_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(mu_Ag_IB,r'', figures=2))
+with open('build/mu_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(mu_Ag_IB*1e34 ,r'\coulomb\second\per\kilo\gram',exp='e-34' ,figures=1))
 
-# tex file for v_Ag_IB.tex
+# tex file of v_Ag_IB
 
-with open('build/v_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(v_Ag_IB,r'', figures=2))
+with open('build/v_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(v_Ag_IB ,r'\meter\second' ,figures=1))
 
 # tex file for l_Ag_IB.tex
 
@@ -669,10 +698,10 @@ with open('build/l_Ag_IB.tex', 'w') as f:
 with open('build/n_Ag_IQ.tex', 'w') as f:
   f.write(make_SI(n_Ag_IQ,r'', figures=2))
   
-# tex file for AH_Ag_IQ.tex
+# tex file of AH_Ag_IB
 
-with open('build/AH_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(AH_Ag_IQ,r'', figures=2))
+with open('build/AH_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(AH_Ag_IB*1e11 ,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
 
 # tex file for z_Ag_IQ.tex
 
@@ -718,15 +747,15 @@ with open('build/n_Zn_IB.tex', 'w') as f:
 with open('build/AH_Zn_IB.tex', 'w') as f:
   f.write(make_SI(AH_Zn_IB,r'', figures=2))
 
-# tex file for z_Zn_IB.tex
+# tex file of z_Ag_IB
 
-with open('build/z_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(z_Zn_IB,r'', figures=2))
+with open('build/z_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(z_Ag_IB ,r'' ,figures=1))
 
-# tex file for tau_Zn_IB.tex
+# tex file of tau_Ag_IB
 
-with open('build/tau_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(tau_Zn_IB,r'', figures=2))
+with open('build/tau_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(tau_Ag_IB ,r'\second' ,figures=1))
 
 # tex file for v_d_Zn_IB.tex
 
