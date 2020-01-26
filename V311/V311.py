@@ -568,22 +568,22 @@ with open('build/b_hyab.tex', 'w') as f:
 # tex file for m_Cu_IB.tex
 
 with open('build/m_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(m_Cu_IB, r'\micro\volt\per\ampere', figures=2))
+  f.write(make_SI(m_Cu_IB*1e+06, r'\micro\volt\per\ampere', figures=2))
 
 # tex file for b_Cu_IB.tex
 
 with open('build/b_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(b_Cu_IB, r'\micro\volt', figures=2))
+  f.write(make_SI(b_Cu_IB*1e+06, r'\micro\volt', figures=2))
 
 # tex file for m_Cu_IQ.tex
 
 with open('build/m_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(m_Cu_IQ, r'\micro\volt\per\ampere', figures=2))
+  f.write(make_SI(m_Cu_IQ*1e+06, r'\micro\volt\per\ampere', figures=2))
 
 # tex file for b_Cu_IQ.tex
 
 with open('build/b_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(b_Cu_IQ, r'\micro\volt', figures=2))
+  f.write(make_SI(b_Cu_IQ*1e+06, r'\micro\volt', figures=2))
 
 # Spezifischer Widerstand und Maße ==================================================================================================================================================================
 
