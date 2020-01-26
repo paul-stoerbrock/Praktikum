@@ -324,17 +324,35 @@ angefertigt. Außerdem lauten die relevanten Parameter:
 \label{fig:3}
 \end{figure}
 
+\flushleft{Für\;}\justifying die Ladungsträger pro Volumen wird die Formel \eqref{eq:3} nach $n$ umgestellt und für $z$ Gleichung \eqref{eq:4d}
+eingesetzt, nachdem Formel \eqref{eq:4c} in Formel \eqref{eq:3} eingesetzt wurde. Für die Masse eines einzelnen Atoms $A_u$ von Kupfer und der Dichte 
+$\rho$ werden die Werte aus Tabelle \ref{tab:1} verwendet, wohingegen die atomaren Masseneinheit $u$ eine Konstante ist. Werden nun alle Werte 
+in die resultierende Formel
+\begin{subequations}\label{eq:18}
+\begin{align}
+    n &= \frac{z \cdot \rho}{A_u \cdot u} \label{eq:18a}
+    \intertext{eingesetzt, ergibt sich für die Ladungsträger pro Volumen:}
+    n &= \text{\input{n_Cu_IB.tex}} \label{eq:18b}
+\end{align}
+\end{subequations}
+
+\flushleft{Die\;}\justifying Hallkonstante für Kupfer wird mithilfe der Formel \eqref{eq:2} berechnet. Hier wird das zuvor berechnete $n$ 
+\eqref{eq:18b} eingesetzt. Daraus folgt die Hallkonstante:
+\begin{align}
+    R_{H_{Cu}} = \text{\input{AH_Cu_IB.tex}} \label{eq:19}
+\end{align}
+
 Ergebnisse für Querstrom = const:
 
 \begin{align}
-\text{Ladungsträger pro Volumen = \input{n_Cu_IB.tex}}\\
-\text{Hallkonstante = \input{AH_Cu_IB.tex}}\\
-\text{Zahl der Ladungsträger pro Volumen = \input{z_Cu_IB.tex}}\\
-\text{Mittlere Flugzeit = \input{tau_Cu_IB.tex}}\\
-\text{Mittlere Driftgeschwindigkeit = \input{v_d_Cu_IB.tex}}\\
-\text{Beweglichkeit = \input{mu_Cu_IB.tex}}\\
+&\text{Ladungsträger pro Volumen = \input{n_Cu_IB.tex}}\\
+&\text{Hallkonstante = \input{AH_Cu_IB.tex}}\\
+&\text{Zahl der Ladungsträger pro Volumen = \input{z_Cu_IB.tex}}\\
+&\text{Mittlere Flugzeit = \input{tau_Cu_IB.tex}}\\
+&\text{Mittlere Driftgeschwindigkeit = \input{v_d_Cu_IB.tex}}\\
+&\text{Beweglichkeit = \input{mu_Cu_IB.tex}}\\
 %\text{Totalgeschwindigkeit = \input{v_Cu_IB.tex}}\\
-\text{Mittlere freie Weglänge = \input{l_Cu_IB.tex}}
+&\text{Mittlere freie Weglänge = \input{l_Cu_IB.tex}}
 \end{align}
 
 % Zink ===============================================================================================================================================================================================================
