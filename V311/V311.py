@@ -38,7 +38,7 @@ def n(m, d, c):
 # Funktion zur Berechnung der Hall-Konstante
 
 def AH(n):
-  return -1/(n*const.e)
+  return 1/(n*const.e)
 
 # Funktion zur Berechnung der Ladungsträgerzahl pro Atom
 
@@ -53,7 +53,7 @@ def tau(n, rho):
 # Funktion zur Berechnung der mittleren Driftgeschwindigkeit
 
 def v_d(n):
-  return -1e06/(n+const.e)
+  return -1e06/(n*const.e)
 
 # Funktion zur Berechnung der Totalgeschwindigkeit
 
@@ -153,7 +153,7 @@ plt.plot(x_plot, x_plot*par1[0]+par1[1], 'r-', label="Lineare Regression Hystere
 plt.plot(x_plot, x_plot*par2[0]+par2[1], 'g-', label="Lineare Regression Hysteresekurve ab")
 
 plt.legend(loc="best")
-plt.xlabel(r'Stromstärke $I\:/\:V$')
+plt.xlabel(r'Stromstärke $I\:/\:A$')
 plt.ylabel(r'magnetische Feldstärke $B\:/\:T$')
 plt.grid()
 plt.tight_layout
@@ -165,7 +165,7 @@ parhyab=unp.uarray(par2, err2)
 
 #Plot von Kupfer mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-B= (parhyauf[0].n + parhyab[0].n)/2*Cu_IB
+B= parhyauf[0].n*Cu_IB+parhyauf[1].n
 
 par, covm = np.polyfit(B, Cu_UHB, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -207,7 +207,7 @@ parCu_IQ=unp.uarray(par, err)
 
 #Plot von Silber mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-B= (parhyauf[0].n + parhyab[0].n)/2*Ag_IB
+B= parhyauf[0].n*Ag_IB+parhyauf[1].n
 
 par, covm = np.polyfit(B, Ag_UHB, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -249,7 +249,7 @@ parAg_IQ=unp.uarray(par, err)
 
 #Plot von Zink mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-B= (parhyauf[0].n + parhyab[0].n)/2*Zn_IB
+B= parhyauf[0].n*Zn_IB+parhyauf[1].n
 
 par, covm = np.polyfit(B, Zn_UHB, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -488,11 +488,11 @@ AH_Zn_IQ = AH(n_Zn_IQ)
 print(AH_Zn_IQ)
 # Zahl der Ladungsträger pro Atom 
 
-z_Zn_IQ = z(n_Zn_IQ, varrho_Ag, atom_mass_Ag)
+z_Zn_IQ = z(n_Zn_IQ, varrho_Zn, atom_mass_Zn)
 print(z_Zn_IQ)
 # mittlere Flugzeit
 
-tau_Zn_IQ = tau(n_Zn_IQ, varrho_Zn)
+tau_Zn_IQ = tau(n_Zn_IQ, SpWi_Zn_lit)
 
 # mittlere Driftgeschwindigkeit
 
@@ -518,19 +518,19 @@ l_Zn_IQ = l(tau_Zn_IQ, v_Zn_IQ)
 # tex file for rho_Cu.tex
 
 with open('build/rho_Cu.tex', 'w') as f:
-  f.write(make_SI(rho_Cu,r'', figures=2))
+  f.write(make_SI(rho_Cu,r'\ohm\meter', figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file for n_Cu_IB.tex
 
 with open('build/n_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(n_Cu_IB,r'', figures=2))
+  f.write(make_SI(n_Cu_IB,r'\meter\tothe{-3}', figures=2))
   
 # tex file for AH_Cu_IB.tex
 
 with open('build/AH_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(AH_Cu_IB,r'', figures=2))
+  f.write(make_SI(AH_Cu_IB,r'\meter\tothe{3}\per\coulomb', figures=2))
 
 # tex file for z_Cu_IB.tex
 
@@ -540,39 +540,39 @@ with open('build/z_Cu_IB.tex', 'w') as f:
 # tex file for tau_Cu_IB.tex
 
 with open('build/tau_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(tau_Cu_IB,r'', figures=2))
+  f.write(make_SI(tau_Cu_IB,r'\second', figures=2))
 
 # tex file for v_d_Cu_IB.tex
 
 with open('build/v_d_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(v_d_Cu_IB,r'', figures=2))
+  f.write(make_SI(v_d_Cu_IB,r'\meter\per\second', figures=2))
 
 # tex file for mu_Cu_IB.tex
 
 with open('build/mu_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(mu_Cu_IB,r'', figures=2))
+  f.write(make_SI(mu_Cu_IB,r'\coulomb\second\per\kilo\gram', figures=2))
 
 # tex file for v_Cu_IB.tex
 
 with open('build/v_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(v_Cu_IB,r'', figures=2))
+  f.write(make_SI(v_Cu_IB,r'\meter\per\second', figures=2))
 
 # tex file for l_Cu_IB.tex
 
 with open('build/l_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(l_Cu_IB,r'', figures=2))
+  f.write(make_SI(l_Cu_IB,r'\meter', figures=2))
 
 # Konstantes B-Feld ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file for n_Cu_IQ.tex
 
 with open('build/n_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(n_Cu_IQ,r'', figures=2))
+  f.write(make_SI(n_Cu_IQ,r'\meter\tothe{-3}', figures=2))
   
 # tex file for AH_Cu_IQ.tex
 
 with open('build/AH_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(AH_Cu_IQ,r'', figures=2))
+  f.write(make_SI(AH_Cu_IQ,r'\meter\tothe{3}\per\coulomb', figures=2))
 
 # tex file for z_Cu_IQ.tex
 
@@ -582,29 +582,31 @@ with open('build/z_Cu_IQ.tex', 'w') as f:
 # tex file for tau_Cu_IQ.tex
 
 with open('build/tau_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Cu_IQ,r'', figures=2))
+  f.write(make_SI(tau_Cu_IQ,r'\second', figures=2))
 
 # tex file for v_d_Cu_IQ.tex
 
 with open('build/v_d_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(v_d_Cu_IQ,r'', figures=2))
+  f.write(make_SI(v_d_Cu_IQ,r'\meter\per\second', figures=2))
 
 # tex file for mu_Cu_IQ.tex
 
 with open('build/mu_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Cu_IQ,r'', figures=2))
+  f.write(make_SI(mu_Cu_IQ,r'\coulomb\second\per\kilo\gram', figures=2))
 
 # tex file for v_Cu_IQ.tex
 
 with open('build/v_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Cu_IQ,r'', figures=2))
+  f.write(make_SI(v_Cu_IQ,r'\meter\per\second', figures=2))
 
 # tex file for l_Cu_IQ.tex
 
 with open('build/l_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(l_Cu_IQ,r'', figures=2))
+  f.write(make_SI(l_Cu_IQ,r'\meter', figures=2))
 
 # Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# tex file of d_Ag_Folie
 
 with open('build/d_Ag_Folie.tex', 'w') as f: 
   f.write(make_SI(d_Ag_Folie*1e06 ,r'\micro\meter' ,exp='e-03' ,figures=0))
@@ -656,20 +658,20 @@ with open('build/rho_Ag.tex', 'w') as f:
 with open('build/n_Ag_IB.tex', 'w') as f: 
   f.write(make_SI(n_Ag_IB*1e-29 ,r'\meter\tothe{-3}',exp='e29' ,figures=1))
   
-# tex file for AH_Ag_IB.tex
+# tex file of AH_Ag_IB
 
-with open('build/AH_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(AH_Ag_IB,r'', figures=2))
+with open('build/AH_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(AH_Ag_IB*1e11 ,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
 
-# tex file for z_Ag_IB.tex
+# tex file of z_Ag_IB
 
-with open('build/z_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(z_Ag_IB,r'', figures=2))
+with open('build/z_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(z_Ag_IB ,r'' ,figures=1))
 
-# tex file for tau_Ag_IB.tex
+# tex file of tau_Ag_IB
 
-with open('build/tau_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(tau_Ag_IB,r'', figures=2))
+with open('build/tau_Ag_IB.tex', 'w') as f: 
+  f.write(make_SI(tau_Ag_IB*1e26 ,r'\second',exp='e26' ,figures=2))
 
 # tex file of v_d_Ag_IB
 
@@ -689,19 +691,19 @@ with open('build/v_Ag_IB.tex', 'w') as f:
 # tex file for l_Ag_IB.tex
 
 with open('build/l_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(l_Ag_IB,r'', figures=2))
+  f.write(make_SI(l_Ag_IB,r'\meter', figures=2))
 
 # Konstantes B-Feld ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file for n_Ag_IQ.tex
 
 with open('build/n_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(n_Ag_IQ,r'', figures=2))
+  f.write(make_SI(n_Ag_IQ*1e-28,r'\meter\tothe{-3}',exp='e-28' ,figures=2))
   
-# tex file of AH_Ag_IB
+# tex file of AH_Ag_IQ
 
-with open('build/AH_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(AH_Ag_IB*1e11 ,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
+with open('build/AH_Ag_IQ.tex', 'w') as f: 
+  f.write(make_SI(AH_Ag_IQ*1e11 ,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
 
 # tex file for z_Ag_IQ.tex
 
@@ -711,27 +713,27 @@ with open('build/z_Ag_IQ.tex', 'w') as f:
 # tex file for tau_Ag_IQ.tex
 
 with open('build/tau_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Ag_IQ,r'', figures=2))
+  f.write(make_SI(tau_Ag_IQ*1e25,r'\second',exp='e-25' ,figures=2))
 
 # tex file for v_d_Ag_IQ.tex
 
 with open('build/v_d_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(v_d_Ag_IQ,r'', figures=2))
+  f.write(make_SI(v_d_Ag_IQ*1e04,r'\meter\per\second', figures=2))
 
 # tex file for mu_Ag_IQ.tex
 
 with open('build/mu_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Ag_IQ,r'', figures=2))
+  f.write(make_SI(mu_Ag_IQ*1e14,r'\coulomb\second\per\kilo\gram',exp='e14' ,figures=2))
 
 # tex file for v_Ag_IQ.tex
 
 with open('build/v_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Ag_IQ,r'', figures=2))
+  f.write(make_SI(v_Ag_IQ,r'\meter\per\second', figures=2))
 
 # tex file for l_Ag_IQ.tex
 
 with open('build/l_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(l_Ag_IQ,r'', figures=2))
+  f.write(make_SI(l_Ag_IQ,r'\meter', figures=2))
 
 # Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -740,54 +742,54 @@ with open('build/l_Ag_IQ.tex', 'w') as f:
 # tex file for n_Zn_IB.tex
 
 with open('build/n_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(n_Zn_IB,r'', figures=2))
+  f.write(make_SI(n_Zn_IB,r'\meter\tothe{-3}', figures=2))
   
 # tex file for AH_Zn_IB.tex
 
 with open('build/AH_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(AH_Zn_IB,r'', figures=2))
+  f.write(make_SI(AH_Zn_IB,r'\meter\tothe{3}\per\coulomb', figures=2))
 
-# tex file of z_Ag_IB
+# tex file of z_Zn_IB
 
-with open('build/z_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(z_Ag_IB ,r'' ,figures=1))
+with open('build/z_Zn_IB.tex', 'w') as f: 
+  f.write(make_SI(z_Zn_IB ,r'' ,figures=1))
 
-# tex file of tau_Ag_IB
+# tex file of tau_Zn_IB
 
-with open('build/tau_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(tau_Ag_IB ,r'\second' ,figures=1))
+with open('build/tau_Zn_IB.tex', 'w') as f: 
+  f.write(make_SI(tau_Zn_IB ,r'\second' ,figures=1))
 
 # tex file for v_d_Zn_IB.tex
 
 with open('build/v_d_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(v_d_Zn_IB,r'', figures=2))
+  f.write(make_SI(v_d_Zn_IB,r'\meter\per\second', figures=2))
 
 # tex file for mu_Zn_IB.tex
 
 with open('build/mu_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(mu_Zn_IB,r'', figures=2))
+  f.write(make_SI(mu_Zn_IB,r'\coulomb\second\per\kilo\gram', figures=2))
 
 # tex file for v_Ag_IB.tex
 
 with open('build/v_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(v_Ag_IB,r'', figures=2))
+  f.write(make_SI(v_Ag_IB,r'\meter\per\second', figures=2))
 
 # tex file for l_Zn_IB.tex
 
 with open('build/l_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(l_Zn_IB,r'', figures=2))
+  f.write(make_SI(l_Zn_IB,r'\meter', figures=2))
 
 # Konstantes B-Feld ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file for n_Zn_IQ.tex
 
 with open('build/n_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(n_Zn_IQ,r'', figures=2))
+  f.write(make_SI(n_Zn_IQ,r'\meter\tothe{-3}', figures=2))
   
 # tex file for AH_Zn_IQ.tex
 
 with open('build/AH_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(AH_Zn_IQ,r'', figures=2))
+  f.write(make_SI(AH_Zn_IQ,r'\meter\tothe{3}\per\coulomb', figures=2))
 
 # tex file for z_Zn_IQ.tex
 
@@ -797,27 +799,27 @@ with open('build/z_Zn_IQ.tex', 'w') as f:
 # tex file for tau_Zn_IQ.tex
 
 with open('build/tau_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Zn_IQ,r'', figures=2))
+  f.write(make_SI(tau_Zn_IQ,r'\second', figures=2))
 
 # tex file for v_d_Zn_IQ.tex
 
 with open('build/v_d_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(v_d_Zn_IQ,r'', figures=2))
+  f.write(make_SI(v_d_Zn_IQ,r'\meter\per\second', figures=2))
 
 # tex file for mu_Zn_IQ.tex
 
 with open('build/mu_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Zn_IQ,r'', figures=2))
+  f.write(make_SI(mu_Zn_IQ,r'\coulomb\second\per\kilo\gram', figures=2))
 
 # tex file for v_Zn_IQ.tex
 
 with open('build/v_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Zn_IQ,r'', figures=2))
+  f.write(make_SI(v_Zn_IQ,r'\meter\per\second', figures=2))
 
 # tex file for l_Zn_IQ.tex
 
 with open('build/l_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(l_Zn_IQ,r'', figures=2))
+  f.write(make_SI(l_Zn_IQ,r'\meter', figures=2))
 
 # Tabellen ########################################################################################################################################################
 
