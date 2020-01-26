@@ -1054,3 +1054,6 @@ with open('build/Hysterese_table.tex', 'w') as g:
         g.write(row_template.format(*row).replace('nan',' ') )
         g.write('\n')
     g.write(table_footer)
+
+print(1/(AHconst_Cu_lit*const.e))
+print(n_Cu_IB)
