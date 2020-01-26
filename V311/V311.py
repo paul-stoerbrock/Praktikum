@@ -627,12 +627,12 @@ with open('build/rho_Cu.tex', 'w') as f:
 # tex file for n_Cu_IB.tex
 
 with open('build/n_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(n_Cu_IB,r'\meter\tothe{-3}', figures=2))
+  f.write(make_SI(n_Cu_IB*1e-29,r'\meter\tothe{-3}', exp='e29', figures=2))
   
 # tex file for AH_Cu_IB.tex
 
 with open('build/AH_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(AH_Cu_IB,r'\meter\tothe{3}\per\coulomb', figures=2))
+  f.write(make_SI(AH_Cu_IB*1e+11,r'\meter\tothe{3}\per\coulomb', exp='e-11', figures=2))
 
 # tex file for z_Cu_IB.tex
 
@@ -642,7 +642,7 @@ with open('build/z_Cu_IB.tex', 'w') as f:
 # tex file for tau_Cu_IB.tex
 
 with open('build/tau_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(tau_Cu_IB,r'\second', figures=2))
+  f.write(make_SI(tau_Cu_IB*1e+26,r'\second', exp='e26', figures=2))
 
 # tex file for v_d_Cu_IB.tex
 
@@ -652,7 +652,7 @@ with open('build/v_d_Cu_IB.tex', 'w') as f:
 # tex file for mu_Cu_IB.tex
 
 with open('build/mu_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(mu_Cu_IB,r'\coulomb\second\per\kilo\gram', figures=2))
+  f.write(make_SI(mu_Cu_IB*1e+34,r'\coulomb\second\per\kilo\gram', exp='e-34', figures=2))
 
 # tex file for v_Cu_IB.tex
 
@@ -669,12 +669,12 @@ with open('build/l_Cu_IB.tex', 'w') as f:
 # tex file for n_Cu_IQ.tex
 
 with open('build/n_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(n_Cu_IQ,r'\meter\tothe{-3}', figures=2))
+  f.write(make_SI(n_Cu_IQ*1e-29,r'\meter\tothe{-3}', exp='e29', figures=2))
   
 # tex file for AH_Cu_IQ.tex
 
 with open('build/AH_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(AH_Cu_IQ,r'\meter\tothe{3}\per\coulomb', figures=2))
+  f.write(make_SI(AH_Cu_IQ*1e+11,r'\meter\tothe{3}\per\coulomb', exp='e-11', figures=2))
 
 # tex file for z_Cu_IQ.tex
 
@@ -684,7 +684,7 @@ with open('build/z_Cu_IQ.tex', 'w') as f:
 # tex file for tau_Cu_IQ.tex
 
 with open('build/tau_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Cu_IQ,r'\second', figures=2))
+  f.write(make_SI(tau_Cu_IQ*1e+26,r'\second', exp='e26', figures=2))
 
 # tex file for v_d_Cu_IQ.tex
 
@@ -694,7 +694,7 @@ with open('build/v_d_Cu_IQ.tex', 'w') as f:
 # tex file for mu_Cu_IQ.tex
 
 with open('build/mu_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Cu_IQ,r'\coulomb\second\per\kilo\gram', figures=2))
+  f.write(make_SI(mu_Cu_IQ*1e+34,r'\coulomb\second\per\kilo\gram', exp='e-34', figures=2))
 
 # tex file for v_Cu_IQ.tex
 
