@@ -48,12 +48,12 @@ def z(n, varrho, atom_mass):
 # Funktion zur Berechnung der mittleren Flugzeit
 
 def tau(n, rho):
-  return 2*const.m_e/(const.e**2*n*rho)
+  return abs(2*const.m_e/(const.e**2*n*rho))
 
 # Funktion zur Berechnung der mittleren Driftgeschwindigkeit
 
 def v_d(n):
-  return -1e06/(n*const.e)
+  return abs(-1e06/(n*const.e))
 
 # Funktion zur Berechnung der Totalgeschwindigkeit
 
@@ -340,7 +340,7 @@ z_Cu_IB = z(n_Cu_IB, varrho_Cu, atom_mass_Cu)
 print(z_Cu_IB)
 # mittlere Flugzeit
 
-tau_Cu_IB = tau(n_Cu_IB, varrho_Cu)
+tau_Cu_IB = tau(n_Cu_IB, rho_Cu)
 
 # mittlere Driftgeschwindigkeit
 
@@ -374,7 +374,7 @@ z_Cu_IQ = z(n_Cu_IQ, varrho_Cu, atom_mass_Cu)
 print(z_Cu_IQ)
 # mittlere Flugzeit
 
-tau_Cu_IQ = tau(n_Cu_IQ, varrho_Cu)
+tau_Cu_IQ = tau(n_Cu_IQ, rho_Cu)
 
 # mittlere Driftgeschwindigkeit
 
@@ -414,7 +414,7 @@ z_Ag_IB = z(n_Ag_IB, varrho_Ag, atom_mass_Ag)
 print(z_Ag_IB)
 # mittlere Flugzeit
 
-tau_Ag_IB = tau(n_Ag_IB, varrho_Ag)
+tau_Ag_IB = tau(n_Ag_IB, rho_Ag)
 
 # mittlere Driftgeschwindigkeit
 
@@ -448,7 +448,7 @@ z_Ag_IQ = z(n_Ag_IQ, varrho_Ag, atom_mass_Ag)
 print(z_Ag_IQ)
 # mittlere Flugzeit
 
-tau_Ag_IQ = tau(n_Ag_IQ, varrho_Ag)
+tau_Ag_IQ = tau(n_Ag_IQ, rho_Ag)
 
 # mittlere Driftgeschwindigkeit
 
@@ -484,7 +484,7 @@ z_Zn_IB = z(n_Zn_IB, varrho_Zn, atom_mass_Zn)
 print(z_Zn_IB)
 # mittlere Flugzeit
 
-tau_Zn_IB = tau(n_Zn_IB, varrho_Zn)
+tau_Zn_IB = tau(n_Zn_IB, rho_Zn)
 
 # mittlere Driftgeschwindigkeit
 
@@ -642,17 +642,17 @@ with open('build/z_Cu_IB.tex', 'w') as f:
 # tex file for tau_Cu_IB.tex
 
 with open('build/tau_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(tau_Cu_IB*1e+26,r'\second', exp='e26', figures=2))
+  f.write(make_SI(tau_Cu_IB*1e14,r'\second', exp='e-14', figures=2))
 
 # tex file for v_d_Cu_IB.tex
 
 with open('build/v_d_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(v_d_Cu_IB,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_d_Cu_IB*1e05,r'\meter\per\second',exp='e-05' ,figures=2))
 
 # tex file for mu_Cu_IB.tex
 
 with open('build/mu_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(mu_Cu_IB*1e+34,r'\coulomb\second\per\kilo\gram', exp='e-34', figures=2))
+  f.write(make_SI(mu_Cu_IB*1e03,r'\coulomb\second\per\kilo\gram', exp='e-3', figures=2))
 
 # tex file for v_Cu_IB.tex
 
@@ -662,7 +662,7 @@ with open('build/v_Cu_IB.tex', 'w') as f:
 # tex file for l_Cu_IB.tex
 
 with open('build/l_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(l_Cu_IB,r'\meter', figures=2))
+  f.write(make_SI(l_Cu_IB*1e09,r'\nano\meter', figures=2))
 
 # Konstantes B-Feld ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1055,5 +1055,3 @@ with open('build/Hysterese_table.tex', 'w') as g:
         g.write('\n')
     g.write(table_footer)
 
-print(1/(AHconst_Cu_lit*const.e))
-print(n_Cu_IB)
