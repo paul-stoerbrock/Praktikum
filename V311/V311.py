@@ -516,7 +516,7 @@ l_Zn_IQ = l(tau_Zn_IQ, v_Zn_IQ)
 
 #
 #
-# Es fehlen noch die richtigen Größeneinheiten/Exponenten !!!
+# Es fehlen noch die richtigen Einheiten/Größenordnungen !!!
 #
 #
 
