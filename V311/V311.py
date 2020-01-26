@@ -133,7 +133,9 @@ d_Zn_Folie = 0.027e-03 # Dicke der Zink Folie in m
 
 atom_mass_Zn = 65.39 # Atommasse von Zink in u
 
-varrho_Zn = 7130     # Dichte von Zink in kg/m^3 
+varrho_Zn = 7130 # Dichte von Zink in kg/m^3 
+
+rho_Zn = 0.625 # Spezifischer Widerstand in Ohm (bei 1m/1mm^2)
 
 # Plots ########################################################################################################################################################
 
@@ -163,6 +165,12 @@ plt.close()
 parhyauf=unp.uarray(par1, err1)
 parhyab=unp.uarray(par2, err2)
 
+m_hyauf = parhyauf[0]
+b_hyauf = parhyauf[1]
+
+m_hyab = parhyab[0]
+b_hyab = parhyab[1]
+
 #Plot von Kupfer mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 B= parhyauf[0].n*Cu_IB+parhyauf[1].n
@@ -185,6 +193,9 @@ plt.close()
 
 parCu_IB=unp.uarray(par, err)
 
+m_Cu_IB = parCu_IB[0]
+b_Cu_IB = parCu_IB[1]
+
 #Plot von Kupfer mit konstantem B-Feld %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 par, covm = np.polyfit(Cu_IQ, Cu_UHQ, deg=1, cov=True)
@@ -204,6 +215,9 @@ plt.savefig('build/plotCu_IQ.pdf')
 plt.close()
 
 parCu_IQ=unp.uarray(par, err)
+
+m_Cu_IQ = parCu_IQ[0]
+b_Cu_IQ = parCu_IQ[1]
 
 #Plot von Silber mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -227,6 +241,9 @@ plt.close()
 
 parAg_IB=unp.uarray(par, err)
 
+m_Ag_IB = parAg_IB[0]
+b_Ag_IB = parAg_IB[1]
+
 #Plot von Silber mit konstantem B-Feld   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 par, covm = np.polyfit(Ag_IQ, Ag_UHQ, deg=1, cov=True)
@@ -246,6 +263,9 @@ plt.savefig('build/plotAg_IQ.pdf')
 plt.close()
 
 parAg_IQ=unp.uarray(par, err)
+
+m_Ag_IQ = parAg_IQ[0]
+b_Ag_IQ = parAg_IQ[1]
 
 #Plot von Zink mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -269,6 +289,9 @@ plt.close()
 
 parZn_IB=unp.uarray(par, err)
 
+m_Zn_IB = parZn_IB[0]
+b_Zn_IB = parZn_IB[1]
+
 #Plot von Zink mit konstantem B-Feld %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
 
@@ -289,6 +312,9 @@ plt.savefig('build/plotZn_IQ.pdf')
 plt.close()
 
 parZn_IQ=unp.uarray(par, err)
+
+m_Zn_IQ = parZn_IQ[0]
+b_Zn_IQ = parZn_IQ[1]
 
 # Berechnungen relevanter Größen ################################################################################################
 
@@ -513,12 +539,88 @@ l_Zn_IQ = l(tau_Zn_IQ, v_Zn_IQ)
 
 # Tex ########################################################################################################################################################
 
+# Hysterese %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# tex file for m_hyauf.tex
+
+with open('build/m_hyauf.tex', 'w') as f:
+  f.write(make_SI(m_hyauf, r'\tesla\per\ampere', figures=2))
+
+# tex file for m_hyab.tex
+
+with open('build/m_hyab.tex', 'w') as f:
+  f.write(make_SI(m_hyab, r'\tesla\per\ampere', figures=2))
+
+# tex file for b_hyauf.tex
+
+with open('build/b_hyauf.tex', 'w') as f:
+  f.write(make_SI(b_hyauf, r'\tesla', figures=2))
+
+# tex file for b_hyab.tex
+
+with open('build/b_hyab.tex', 'w') as f:
+  f.write(make_SI(b_hyab, r'\tesla', figures=2))
+
 # Kupfer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# Parameter ==================================================================================================================================================================
+
+# tex file for m_Cu_IB.tex
+
+with open('build/m_Cu_IB.tex', 'w') as f:
+  f.write(make_SI(m_Cu_IB, r'\micro\volt\per\ampere', figures=2))
+
+# tex file for b_Cu_IB.tex
+
+with open('build/b_Cu_IB.tex', 'w') as f:
+  f.write(make_SI(b_Cu_IB, r'\micro\volt', figures=2))
+
+# tex file for m_Cu_IQ.tex
+
+with open('build/m_Cu_IQ.tex', 'w') as f:
+  f.write(make_SI(m_Cu_IQ, r'\micro\volt\per\ampere', figures=2))
+
+# tex file for b_Cu_IQ.tex
+
+with open('build/b_Cu_IQ.tex', 'w') as f:
+  f.write(make_SI(b_Cu_IQ, r'\micro\volt', figures=2))
+
+# Spezifischer Widerstand und Maße ==================================================================================================================================================================
+
+# tex file for d_Cu_Folie.tex
+
+with open('build/d_Cu_Folie.tex', 'w') as f:
+  f.write(make_SI(d_Cu_Folie*1e06, r'\micro\meter', exp='e-03', figures=0))
+
+# tex file for d_Cu_Draht.tex
+
+with open('build/d_Cu_Draht.tex', 'w') as f:
+  f.write(make_SI(d_Cu_Draht*1e06, r'\micro\meter', figures=0))
+
+# tex file for R_Cu.tex
+
+with open('build/R_Cu.tex', 'w') as f:
+  f.write(make_SI(R_Cu,r'\ohm', figures=2))
+
+# tex file for l_Cu.tex
+
+with open('build/l_Cu.tex', 'w') as f:
+  f.write(make_SI(l_Cu,r'\meter', figures=2))
+
+# tex file for varrho_Cu.tex
+
+with open('build/varrho_Cu.tex', 'w') as f:
+  f.write(make_SI(varrho_Cu,r'\kilo\gram\per\cubic\meter', figures=0))
+
+# tex file for atom_mass_Cu.tex
+
+with open('build/atom_mass_Cu.tex', 'w') as f:
+  f.write(make_SI(atom_mass_Cu,r'', figures=2))
 
 # tex file for rho_Cu.tex
 
 with open('build/rho_Cu.tex', 'w') as f:
-  f.write(make_SI(rho_Cu,r'\ohm\meter', figures=2))
+  f.write(make_SI(rho_Cu*1e09, r'\ohm\meter', exp='e-09', figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -605,6 +707,14 @@ with open('build/l_Cu_IQ.tex', 'w') as f:
   f.write(make_SI(l_Cu_IQ,r'\meter', figures=2))
 
 # Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+# Parameter ==================================================================================================================================================================
+
+
+
+# Spezifischer Widerstand und Maße ==================================================================================================================================================================
 
 # tex file of d_Ag_Folie
 
@@ -736,6 +846,32 @@ with open('build/l_Ag_IQ.tex', 'w') as f:
   f.write(make_SI(l_Ag_IQ,r'\meter', figures=2))
 
 # Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# Parameter ==================================================================================================================================================================
+
+
+
+# Spezifischer Widerstand und Maße ==================================================================================================================================================================
+
+# tex file for d_Zn_Folie.tex
+
+with open('build/d_Zn_Folie.tex', 'w') as f:
+  f.write(make_SI(d_Zn_Folie*1e06, r'\micro\meter', exp='e-03', figures=0))
+
+# tex file for varrho_Zn.tex
+
+with open('build/varrho_Zn.tex', 'w') as f:
+  f.write(make_SI(varrho_Zn,r'\kilo\gram\per\cubic\meter', figures=0))
+
+# tex file for atom_mass_Zn.tex
+
+with open('build/atom_mass_Zn.tex', 'w') as f:
+  f.write(make_SI(atom_mass_Zn,r'', figures=2))
+
+# tex file of rho_Zn.tex
+
+with open('build/rho_Zn.tex', 'w') as f: 
+  f.write(make_SI(rho_Zn*1e+02 ,r'\ohm\meter', exp='e-09', figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
