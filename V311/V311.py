@@ -38,7 +38,7 @@ def n(m, d, c):
 # Funktion zur Berechnung der Hall-Konstante
 
 def AH(n):
-  return 1/(n*const.e)
+  return -1/(n*const.e)
 
 # Funktion zur Berechnung der Ladungsträgerzahl pro Atom
 
