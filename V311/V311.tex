@@ -300,13 +300,13 @@ angefertigt. Außerdem lauten die relevanten Parameter:
 \begin{figure}[H]
 \begin{subfigure}{0.495\linewidth}
 \centering
-\includegraphics[width=0.75\linewidth]{./build/plotCu_IB.pdf}
+\includegraphics[width=\linewidth]{./build/plotCu_IB.pdf}
 \caption{Hallspannung bei konstantem Querstrom}
 \label{fig:3a}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
 \centering
-\includegraphics[width=0.75\linewidth]{./build/plotCu_IQ.pdf}
+\includegraphics[width=\linewidth]{./build/plotCu_IQ.pdf}
 \caption{Hallspannung bei konstantem B-Feld}
 \label{fig:3b}
 \end{subfigure}
@@ -363,17 +363,17 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
     \intertext{
         Wird $E_F$ nun in Formel \eqref{eq:10} eingesetzt, folgt für die absolute Geschwindigkeit:
     }
-        \abs{v_{Cu}} &\approx \sqrt{\frac{2 E_F}{m_0}} = \text{\input{v_Cu_IB.tex}} \label{eq:25}
+        \abs{v}_{Cu} &\approx \sqrt{\frac{2 E_F}{m_0}} = \text{\input{v_Cu_IB.tex}} \label{eq:25}
     \intertext{
         Mit der absoluten Geschwindigkeit lässt sich $\overline{l}$ approximieren als:   
     }
         \overline{l}_{Cu} &\approx \overline{\tau}\sqrt{\frac{2 E_F}{m_0}} = \text{\input{l_Cu_IB.tex}} \label{eq:26}
 \end{align}
 
-\subsubsection{Konstantes B-Feld} \label{sec:5.3.1}
+\subsubsection{Konstantes B-Feld} \label{sec:5.3.2}
 
 \flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. Die Ergebnisse lauten wie folgt:
-section
+
 \begin{table}[H]
 \centering
     \begin{tabular}{l r l}
@@ -384,7 +384,7 @@ section
         Mittlere Flugzeit                       &$\overline{\tau}_{Cu}$ = & \text{\input{tau_Cu_IQ.tex}}\\
         Mittlere Driftgeschwindigkeit           &$\overline{v}_{d,Cu}$  = & \text{\input{v_d_Cu_IQ.tex}}\\
         Beweglichkeit                           &$\mu_{Cu}$             = & \text{\input{mu_Cu_IQ.tex}} \\
-        Totalgeschwindigkeit                    &$\abs{v_{Cu}}$         = & \text{\input{v_Cu_IQ.tex}}  \\
+        Totalgeschwindigkeit                    &$\abs{v}_{Cu}$         = & \text{\input{v_Cu_IQ.tex}}  \\
         Mittlere freie Weglänge                 &$\overline{l}_{Cu}$    = & \text{\input{l_Cu_IQ.tex}}  \\
         \bottomrule
     \end{tabular}
@@ -392,66 +392,141 @@ section
 \label{tab:4}
 \end{table}
 
-Ergebnisse für Querstrom = const:
-
-\begin{align}
-&\text{Ladungsträger pro Volumen = \input{n_Cu_IB.tex}}\\
-&\text{Hallkonstante = \input{AH_Cu_IB.tex}}\\
-&\text{Zahl der Ladungsträger pro Volumen = \input{z_Cu_IB.tex}}\\
-&\text{Mittlere Flugzeit = \input{tau_Cu_IB.tex}}\\
-&\text{Mittlere Driftgeschwindigkeit = \input{v_d_Cu_IB.tex}}\\
-&\text{Beweglichkeit = \input{mu_Cu_IB.tex}}\\
-&\text{Totalgeschwindigkeit = \input{v_Cu_IB.tex}}\\
-&\text{Mittlere freie Weglänge = \input{l_Cu_IB.tex}}
-\end{align}
-
-% Zink ===============================================================================================================================================================================================================
-
-\begin{table}[H]
-    \centering
-    \input{Zn_table.tex}
-    \caption{Hallspannung $U_H$ von Zink}
-    \label{tab:}
-\end{table}
-
-\begin{figure}[H]
-\begin{subfigure}{0.495\linewidth}
-\centering
-\includegraphics[width=0.75\linewidth]{./build/plotZn_IB.pdf}
-\caption{Hallspannung bei konstantem Querstrom}
-\end{subfigure}
-\begin{subfigure}{0.495\linewidth}
-\centering
-\includegraphics[width=0.75\linewidth]{./build/plotZn_IQ.pdf}
-\caption{Hallspannung bei konstantem B-Feld}
-\end{subfigure}
-\caption{Hallspannungen für Zink}
-\end{figure}
-
-
 % Silber ===============================================================================================================================================================================================================
+\subsection{Silber} \label{sec:5.4}
 
 \begin{table}[H]
     \centering
     \input{Ag_table.tex}
     \caption{Hallspannung $U_H$ von Silber}
-    \label{tab:}
+    \label{tab:5}
 \end{table}
 
 \begin{figure}[H]
 \begin{subfigure}{0.495\linewidth}
 \centering
-\includegraphics[width=0.75\linewidth]{./build/plotAg_IB.pdf}
+\includegraphics[width=\linewidth]{./build/plotAg_IB.pdf}
 \caption{Hallspannung bei konstantem Querstrom}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
 \centering
-\includegraphics[width=0.75\linewidth]{./build/plotAg_IQ.pdf}
+\includegraphics[width=\linewidth]{./build/plotAg_IQ.pdf}
 \caption{Hallspannung bei konstantem B-Feld}
 \end{subfigure}
 \caption{Hallspannungen für Silber}
 \end{figure}
 
+\subsection{Konstanter Querstrom} \label{sec:5.4.1}
+
+\flushleft{Die\;}\justifying Werte für einen konstanten Querstrom werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r l}
+    \toprule
+        Ladungsträger pro Volumen               &$n_{Ag}$               = & \text{\input{n_Ag_IB.tex}}  \\
+        Zahl der Ladungsträger pro Volumen      &$z_{Ag}$               = & \text{\input{z_Ag_IB.tex}}  \\
+        Hallkonstante                           &$R_{H,Ag}$             = & \text{\input{AH_Ag_IB.tex}} \\
+        Mittlere Flugzeit                       &$\overline{\tau}_{Ag}$ = & \text{\input{tau_Ag_IB.tex}}\\
+        Mittlere Driftgeschwindigkeit           &$\overline{v}_{d,Ag}$  = & \text{\input{v_d_Ag_IB.tex}}\\
+        Beweglichkeit                           &$\mu_{Ag}$             = & \text{\input{mu_Ag_IB.tex}} \\
+        Totalgeschwindigkeit                    &$\abs{v}_{Ag}$         = & \text{\input{v_Ag_IB.tex}}  \\
+        Mittlere freie Weglänge                 &$\overline{l}_{Ag}$    = & \text{\input{l_Ag_IB.tex}}  \\
+        \bottomrule
+    \end{tabular}
+\caption{Werte für Kupfer mit konstantem Querstrom}
+\label{tab:6}
+\end{table}
+
+\subsection{Konstantes B-Feld} \label{sec:5.4.2}
+
+\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r l}
+    \toprule
+        Ladungsträger pro Volumen               &$n_{Ag}$               = & \text{\input{n_Ag_IQ.tex}}  \\
+        Zahl der Ladungsträger pro Volumen      &$z_{Ag}$               = & \text{\input{z_Ag_IQ.tex}}  \\
+        Hallkonstante                           &$R_{H,Ag}$             = & \text{\input{AH_Ag_IQ.tex}} \\
+        Mittlere Flugzeit                       &$\overline{\tau}_{Ag}$ = & \text{\input{tau_Ag_IQ.tex}}\\
+        Mittlere Driftgeschwindigkeit           &$\overline{v}_{d,Ag}$  = & \text{\input{v_d_Ag_IQ.tex}}\\
+        Beweglichkeit                           &$\mu_{Ag}$             = & \text{\input{mu_Ag_IQ.tex}} \\
+        Totalgeschwindigkeit                    &$\abs{v}_{Ag}$         = & \text{\input{v_Ag_IQ.tex}}  \\
+        Mittlere freie Weglänge                 &$\overline{l}_{Ag}$    = & \text{\input{l_Ag_IQ.tex}}  \\
+        \bottomrule
+    \end{tabular}
+\caption{Werte für Silber mit konstantem B-Feld}
+\label{tab:7}
+\end{table}
+
+% Zink ===============================================================================================================================================================================================================
+\subsection{Zink} \label{sec:5.5}
+
+\begin{table}[H]
+    \centering
+    \input{Zn_table.tex}
+    \caption{Hallspannung $U_H$ von Zink}
+    \label{tab:8}
+\end{table}
+
+\begin{figure}[H]
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=\linewidth]{./build/plotZn_IB.pdf}
+\caption{Hallspannung bei konstantem Querstrom}
+\end{subfigure}
+\begin{subfigure}{0.495\linewidth}
+\centering
+\includegraphics[width=\linewidth]{./build/plotZn_IQ.pdf}
+\caption{Hallspannung bei konstantem B-Feld}
+\end{subfigure}
+\caption{Hallspannungen für Zink}
+\end{figure}
+
+\subsection{Konstanter Querstrom} \label{sec:5.5.1}
+
+\flushleft{Die\;}\justifying Werte für einen konstanten Querstrom werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r l}
+    \toprule
+        Ladungsträger pro Volumen               &$n_{Zn}$               = & \text{\input{n_Zn_IB.tex}}  \\
+        Zahl der Ladungsträger pro Volumen      &$z_{Zn}$               = & \text{\input{z_Zn_IB.tex}}  \\
+        Hallkonstante                           &$R_{H,Zn}$             = & \text{\input{AH_Zn_IB.tex}} \\
+        Mittlere Flugzeit                       &$\overline{\tau}_{Zn}$ = & \text{\input{tau_Zn_IB.tex}}\\
+        Mittlere Driftgeschwindigkeit           &$\overline{v}_{d,Zn}$  = & \text{\input{v_d_Zn_IB.tex}}\\
+        Beweglichkeit                           &$\mu_{Zn}$             = & \text{\input{mu_Zn_IB.tex}} \\
+        Totalgeschwindigkeit                    &$\abs{v}_{Zn}$         = & \text{\input{v_Zn_IB.tex}}  \\
+        Mittlere freie Weglänge                 &$\overline{l}_{Zn}$    = & \text{\input{l_Zn_IB.tex}}  \\
+        \bottomrule
+    \end{tabular}
+\caption{Werte für Kupfer mit konstantem Querstrom}
+\label{tab:9}
+\end{table}
+
+\subsection{Konstantes B-Feld} \label{sec:5.5.2}
+
+\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r l}
+    \toprule
+        Ladungsträger pro Volumen               &$n_{Zn}$               = & \text{\input{n_Zn_IQ.tex}}  \\
+        Zahl der Ladungsträger pro Volumen      &$z_{Zn}$               = & \text{\input{z_Zn_IQ.tex}}  \\
+        Hallkonstante                           &$R_{H,Zn}$             = & \text{\input{AH_Zn_IQ.tex}} \\
+        Mittlere Flugzeit                       &$\overline{\tau}_{Zn}$ = & \text{\input{tau_Zn_IQ.tex}}\\
+        Mittlere Driftgeschwindigkeit           &$\overline{v}_{d,Zn}$  = & \text{\input{v_d_Zn_IQ.tex}}\\
+        Beweglichkeit                           &$\mu_{Zn}$             = & \text{\input{mu_Zn_IQ.tex}} \\
+        Totalgeschwindigkeit                    &$\abs{v}_{Zn}$         = & \text{\input{v_Zn_IQ.tex}}  \\
+        Mittlere freie Weglänge                 &$\overline{l}_{Zn}$    = & \text{\input{l_Zn_IQ.tex}}  \\
+        \bottomrule
+    \end{tabular}
+\caption{Werte für Silber mit konstantem B-Feld}
+\label{tab:10}
+\end{table}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
