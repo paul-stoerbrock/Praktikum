@@ -831,7 +831,7 @@ with open('build/v_d_Ag_IQ.tex', 'w') as f:
 # tex file for mu_Ag_IQ.tex
 
 with open('build/mu_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Ag_IQ*1e14,r'\coulomb\second\per\kilo\gram',exp='e14' ,figures=2))
+  f.write(make_SI(mu_Ag_IQ*1e2,r'\coulomb\second\per\kilo\gram',exp='e-2' ,figures=2))
 
 # tex file for v_Ag_IQ.tex
 
