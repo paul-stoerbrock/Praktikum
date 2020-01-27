@@ -325,12 +325,12 @@ Tabellen \ref{tab:1} und \ref{tab:2} in Formel \eqref{eq:1} eingesetzt, nachdem 
 \end{align}
 
 \flushleft{Mithilfe\;}\justifying von $n$ lässt sich die Zahl der Ladungsträger pro Volumen $z$ mit der Formel \eqref{eq:4d} bestimmen. 
-Aus den Werten aus Tabelle \ref{tab:1} und $n$ \eqref{eq:18} folgt für $z$:
+Aus den Werten aus Tabelle \ref{tab:1} und $n_{Cu}$ \eqref{eq:18} folgt für $z$:
 \begin{align}   
     z_{Cu} = \frac{n \cdot A_u \cdot u}{\rho} = \text{\input{z_Cu_IB.tex}} \label{eq:19}
 \end{align}
 
-\flushleft{Die\;}\justifying Hallkonstante für Kupfer wird mithilfe der Formel \eqref{eq:2} berechnet. Hier wird das zuvor berechnete $n$ 
+\flushleft{Die\;}\justifying Hallkonstante für Kupfer wird mithilfe der Formel \eqref{eq:2} berechnet. Hier wird das zuvor berechnete $n_{Cu}$ 
 \eqref{eq:18} eingesetzt. Daraus folgt die Hallkonstante:
 \begin{align}
     R_{H,Cu} = \text{\input{AH_Cu_IB.tex}} \label{eq:20}
@@ -343,7 +343,7 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
         \overline{\tau}_{Cu} &= 2\frac{m_0}{e_0^2}\frac{1}{n\varrho} = \text{\input{tau_Cu_IB.tex}} \label{eq:21}
     \intertext{
         Für die mittlere Driftgeschwindigkeit $\overline{v}_d$ wird die Formel \eqref{eq:5} umgestellt. Auch hier wird das zuvor berechnete
-    $n_{Cu}$ \eqref{eq:18b} eingesetzt, woraus folgt:
+    $n_{Cu}$ \eqref{eq:18} eingesetzt, woraus folgt:
     }
         \overline{v}_{d,Cu} &= \frac{-j}{n e_0} = \text{\input{v_d_Cu_IB.tex}} \label{eq:22}
     \intertext{
@@ -573,7 +573,74 @@ Die Ergebnisse lauten wie folgt:
 
 \section{Diskussion}
 
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r r r}
+    \toprule
+        \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{Querstrom $I_q$ = Konstant} & 
+        \multicolumn{1}{c}{Magnetfeld $I_B$ = Konstant} & \multicolumn{1}{c}{Literaturwerte}\\
+    \cmidrule(lr{0,5em}){1-4}
+        Kupfer $R_F$ & \text{\input{AH_Cu_IB.tex}} & \text{\input{AH_Cu_IQ.tex}} & \text{\input{AHconst_Cu_lit.tex}} \\
+        Silber $R_F$ & \text{\input{AH_Ag_IB.tex}} & \text{\input{AH_Ag_IQ.tex}} & \text{\input{AHconst_Ag_lit.tex}} \\
+        Zink $R_F$   & \text{\input{AH_Zn_IB.tex}} & \text{\input{AH_Zn_IQ.tex}} & \text{\input{AHconst_Zn_lit.tex}} \\
+    \toprule
+        \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{Spezifischer Widerstand} & 
+        \multicolumn{1}{c}{Literaturwerte} & \multicolumn{1}{c}{}\\
+    \cmidrule(lr{0,5em}){1-3}
+        Kupfer $\varrho$ & \text{\input{rho_Cu.tex}} & \text{\input{SpWi_Cu_lit.tex}} & \\
+        Silber $\varrho$ & \text{\input{rho_Ag.tex}} & \text{\input{SpWi_Ag_lit.tex}} & \\
+        Zink $\varrho$   & \text{\input{rho_Zn.tex}} &                                & \\
+    \bottomrule
+    \end{tabular}
+\caption{Messwerte für die Hallkonstanten und spezifischen Widerstände}
+\label{tab:1}
+\end{table}
 
+% Kupfer ===============================================================================================================================================================================================================
+
+\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Kupfer für einen konstanten Querstrom lautet wie folgt:
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Cu_err_IB.tex}}
+\end{align}
+
+\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Kupfer für ein konstantes B-Feld lautet wie folgt:
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Cu_err_IQ.tex}}
+\end{align}
+
+\flushleft{Der\;}\justifying relative Fehler des spezifischen Widerstands von Kupfer lautet wie folgt:
+\begin{align}
+    \frac{\varrho - \varrho_{Lit.}}{\varrho_{Lit.}} = \text{\input{rho_Cu_err.tex}}
+\end{align}
+
+% Silber ===============================================================================================================================================================================================================
+
+\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Silber für einen konstanten Querstrom lautet wie folgt:
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Ag_err_IB.tex}}
+\end{align}
+
+\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Silber für ein konstantes B-Feld lautet wie folgt:
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Ag_err_IQ.tex}}
+\end{align}
+
+\flushleft{Der\;}\justifying relative Fehler des spezifischen Widerstands von Silber lautet wie folgt:
+\begin{align}
+    \frac{\varrho - \varrho_{Lit.}}{\varrho_{Lit.}} = \text{\input{rho_Ag_err.tex}}
+\end{align}
+
+% Zink ===============================================================================================================================================================================================================
+
+\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Zink für einen konstanten Querstrom lautet wie folgt:
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Zn_err_IB.tex}}
+\end{align}
+
+\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Zink für ein konstantes B-Feld lautet wie folgt:
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Zn_err_IQ.tex}}
+\end{align}
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
