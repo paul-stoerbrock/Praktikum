@@ -821,7 +821,7 @@ with open('build/z_Ag_IQ.tex', 'w') as f:
 # tex file for tau_Ag_IQ.tex
 
 with open('build/tau_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Ag_IQ*1e25,r'\second',exp='e-25' ,figures=2))
+  f.write(make_SI(tau_Ag_IQ*1e13,r'\second',exp='e-13' ,figures=2))
 
 # tex file for v_d_Ag_IQ.tex
 
