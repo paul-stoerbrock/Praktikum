@@ -101,7 +101,7 @@ Berechnen lässt sich die mittlere Flugzeit dabei über die Formel \cite{V311}
 \varrho = 2 \frac{m_0}{e_0^2}\frac{1}{n \overline{\tau}}. \label{eq:7}
 \end{align}
 Eine weitere wichtige mikroskopische Größe stellt die Totalgeschwindigkeit $\abs{v}$ dar.
-Diese beschreibt die Geschwindigkeit, welche durch die thermische Bewegug der einzelnen
+Diese beschreibt die Geschwindigkeit, welche durch die thermische Bewegung der einzelnen
 Bausteine des Kristalls hervorgerufen wird. Aufgrund des Pauli-Prinzips lässt sich
 die Energieverteilung nicht durch eine Maxwell-Boltzmann-Verteilung darstellen, 
 sondern durch eine Fermi-Dirac-Verteilung \cite{V311}
@@ -318,14 +318,50 @@ in die resultierende Formel
 \begin{align}
     n &= \frac{z \cdot \rho}{A_u \cdot u} \label{eq:18a}
     \intertext{eingesetzt, ergibt sich für die Ladungsträger pro Volumen:}
-    n &= \text{\input{n_Cu_IB.tex}} \label{eq:18b}
+    n_{Cu} &= \text{\input{n_Cu_IB.tex}} \label{eq:18b}
 \end{align}
 \end{subequations}
 
 \flushleft{Die\;}\justifying Hallkonstante für Kupfer wird mithilfe der Formel \eqref{eq:2} berechnet. Hier wird das zuvor berechnete $n$ 
 \eqref{eq:18b} eingesetzt. Daraus folgt die Hallkonstante:
 \begin{align}
-    R_{H_{Cu}} = \text{\input{AH_Cu_IB.tex}} \label{eq:19}
+    R_{H,Cu} = \text{\input{AH_Cu_IB.tex}} \label{eq:19}
+\end{align}
+
+\flushleft{Die\;}\justifying mittlere Flugzeit $\overline{\tau}$ berechnet sich mit der Formel \eqref{eq:7}. Die Konstanten $e_0$ und $m_0$ und 
+der spezifische Widerstand $\varrho_{Cu}$ \eqref{eq:15a} werden in Formel \eqref{eq:7} eingesetzt, nachdem diese nach $\overline{\tau}$ umgestellt 
+wurde. Daraus folgt für $\overline{\tau}\,$:
+\begin{align}
+        \overline{\tau_{Cu}} &= 2\frac{m_0}{e_0^2}\frac{1}{n\varrho} = \text{\input{tau_Cu_IB.tex}}
+    \intertext{
+        Für die mittlere Driftgeschwindigkeit $\overline{v_d}$ wird die Formel \eqref{eq:5} umgestellt. Auch hier wird das zuvor berechnete
+    $n_{Cu}$ \eqref{eq:18b} eingesetzt, woraus folgt:
+    }
+        \overline{v_{d,Cu}} &= \frac{-j}{n e_0} = \text{\input{v_d_Cu_IB.tex}} \label{eq:21}
+    \intertext{
+        Mit $\overline{\tau}$ lässt sich außerdem der Betrag des elektrischen Feldes $E$ mithilfe der Formel \eqref{eq:6} berechnen.
+    Für $E$ folgt:
+    }
+        E &= 2\frac{j}{n \overline{\tau}}\frac{m_0}{e_0^2} \label{eq:22}
+    \intertext{
+        Mit dem Betrag des E-Feldes lässt sich nun die Beweglichkeit der Elektronen $\mu$ bestimmen. Dafür wird die Formel \eqref{eq:13}
+    nach $\mu$ umgestellt und die Werte für $\overline{v_{d,Cu}}$ \eqref{eq:21} und $E$ \eqref{eq:22} eingesetzt:
+    }
+        \mu_{Cu} &= \frac{\overline{v_{d,Cu}}}{E} = \text{\input{mu_Cu_IB.tex}} \label{eq:23}
+    \intertext{
+        Um die mittlere Weglänge $\overline{l}$ zu bestimmen, wird zuerst die Fermi-Energie $E_F$ nach Formel \eqref{eq:9} und die
+        durch $E_F$ bestimmte absolute Geschwindigkeit $\abs{v}$ berechnet.
+        Daraus folgt für $E_F$:
+    }
+        E_F &= \frac{h^2}{2 m_0} \sqrt[3]{\left(\frac{3}{8 \pi}n \right)^2} \label{eq:24}
+    \intertext{
+        Wird $E_F$ nun in Formel \eqref{eq:10} eingesetzt, folgt für die absolute Geschwindigkeit:
+    }
+        \abs{v} &\approx \sqrt{\frac{2 E_F}{m_0}} = %\text{\input{v_Cu_IB.tex}} \label{eq:25}
+    \intertext{
+        Mit der absoluten Geschwindigkeit lässt sich $\overline{l}$ approximieren als:   
+    }
+        \overline{l} &\approx \overline{\tau}\sqrt{\frac{2 E_F}{m_0}} = \text{\input{l_Cu_IB.tex}} \label{eq:26}
 \end{align}
 
 Ergebnisse für Querstrom = const:
@@ -337,7 +373,7 @@ Ergebnisse für Querstrom = const:
 &\text{Mittlere Flugzeit = \input{tau_Cu_IB.tex}}\\
 &\text{Mittlere Driftgeschwindigkeit = \input{v_d_Cu_IB.tex}}\\
 &\text{Beweglichkeit = \input{mu_Cu_IB.tex}}\\
-%\text{Totalgeschwindigkeit = \input{v_Cu_IB.tex}}\\
+%&\text{Totalgeschwindigkeit = \input{v_Cu_IB.tex}}\\
 &\text{Mittlere freie Weglänge = \input{l_Cu_IB.tex}}
 \end{align}
 
