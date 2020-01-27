@@ -482,7 +482,7 @@ z_Zn_IB = z(n_Zn_IB, varrho_Zn, atom_mass_Zn)
 print(z_Zn_IB)
 # mittlere Flugzeit
 
-tau_Zn_IB = tau(n_Zn_IB, varrho_Zn)
+tau_Zn_IB = tau(n_Zn_IB, SpWi_Zn_lit)
 
 # mittlere Driftgeschwindigkeit
 
@@ -520,7 +520,7 @@ tau_Zn_IQ = tau(n_Zn_IQ, SpWi_Zn_lit)
 
 # mittlere Driftgeschwindigkeit
 
-v_d_Zn_IQ = v_d(n_Zn_IB)
+v_d_Zn_IQ = v_d(n_Zn_IQ)
 
 # Beweglichkeit
 
@@ -869,19 +869,19 @@ with open('build/atom_mass_Zn.tex', 'w') as f:
 # tex file of rho_Zn.tex
 
 with open('build/rho_Zn.tex', 'w') as f: 
-  f.write(make_SI(varrho_Zn*1e+02 ,r'\ohm\meter', exp='e-09', figures=2))
+  f.write(make_SI(SpWi_Zn_lit*1e+09 ,r'\ohm\meter', exp='e-09', figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file for n_Zn_IB.tex
 
 with open('build/n_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(n_Zn_IB,r'\meter\tothe{-3}', figures=2))
+  f.write(make_SI(n_Zn_IB*1e-29,r'\meter\tothe{-3}',exp='e29' ,figures=2))
   
 # tex file for AH_Zn_IB.tex
 
 with open('build/AH_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(AH_Zn_IB,r'\meter\tothe{3}\per\coulomb', figures=2))
+  f.write(make_SI(AH_Zn_IB*1e11,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
 
 # tex file of z_Zn_IB
 
@@ -891,69 +891,69 @@ with open('build/z_Zn_IB.tex', 'w') as f:
 # tex file of tau_Zn_IB
 
 with open('build/tau_Zn_IB.tex', 'w') as f: 
-  f.write(make_SI(tau_Zn_IB ,r'\second' ,figures=1))
+  f.write(make_SI(tau_Zn_IB*1e15 ,r'\second',exp='e-15' ,figures=1))
 
 # tex file for v_d_Zn_IB.tex
 
 with open('build/v_d_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(v_d_Zn_IB,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_d_Zn_IB*1e05,r'\meter\per\second',exp='e-05' ,figures=2))
 
 # tex file for mu_Zn_IB.tex
 
 with open('build/mu_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(mu_Zn_IB,r'\coulomb\second\per\kilo\gram', figures=2))
+  f.write(make_SI(mu_Zn_IB*1e04,r'\coulomb\second\per\kilo\gram',exp='e-04' ,figures=2))
 
 # tex file for v_Ag_IB.tex
 
 with open('build/v_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(v_Zn_IB,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_Zn_IB*1e-06,r'\meter\per\second',exp='e06' ,figures=2))
 
 # tex file for l_Zn_IB.tex
 
 with open('build/l_Zn_IB.tex', 'w') as f:
-  f.write(make_SI(l_Zn_IB,r'\meter', figures=2))
+  f.write(make_SI(l_Zn_IB*1e09,r'\meter',exp='e-09' ,figures=2))
 
 # Konstantes B-Feld ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file for n_Zn_IQ.tex
 
 with open('build/n_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(n_Zn_IQ,r'\meter\tothe{-3}', figures=2))
+  f.write(make_SI(n_Zn_IQ*1e-27,r'\meter\tothe{-3}',exp='e27' ,figures=2))
   
 # tex file for AH_Zn_IQ.tex
 
 with open('build/AH_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(AH_Zn_IQ,r'\meter\tothe{3}\per\coulomb', figures=2))
+  f.write(make_SI(AH_Zn_IQ*1e10,r'\meter\tothe{3}\per\coulomb',exp='e-10' ,figures=2))
 
 # tex file for z_Zn_IQ.tex
 
 with open('build/z_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(z_Zn_IQ,r'', figures=2))
+  f.write(make_SI(z_Zn_IQ,r'' ,figures=2))
 
 # tex file for tau_Zn_IQ.tex
 
 with open('build/tau_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Zn_IQ,r'\second', figures=2))
+  f.write(make_SI(tau_Zn_IQ*1e13,r'\second',exp='e-13' ,figures=2))
 
 # tex file for v_d_Zn_IQ.tex
 
 with open('build/v_d_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(v_d_Zn_IQ,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_d_Zn_IQ*1e04,r'\meter\per\second',exp='e-04' ,figures=2))
 
 # tex file for mu_Zn_IQ.tex
 
 with open('build/mu_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Zn_IQ,r'\coulomb\second\per\kilo\gram', figures=2))
+  f.write(make_SI(mu_Zn_IQ*1e02,r'\coulomb\second\per\kilo\gram',exp='e-02' ,figures=2))
 
 # tex file for v_Zn_IQ.tex
 
 with open('build/v_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Zn_IQ,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_Zn_IQ*1e-05,r'\meter\per\second',exp='e05' ,figures=2))
 
 # tex file for l_Zn_IQ.tex
 
 with open('build/l_Zn_IQ.tex', 'w') as f:
-  f.write(make_SI(l_Zn_IQ,r'\meter', figures=2))
+  f.write(make_SI(l_Zn_IQ*1e07,r'\meter',exp='e-07' ,figures=2))
 
 # Tabellen ########################################################################################################################################################
 
