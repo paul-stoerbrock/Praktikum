@@ -617,10 +617,27 @@ with open('build/varrho_Cu.tex', 'w') as f:
 with open('build/atom_mass_Cu.tex', 'w') as f:
   f.write(make_SI(atom_mass_Cu,r'', figures=2))
 
+# tex file of SpWi_Cu_lit
+
+with open('build/SpWi_Cu_lit.tex', 'w') as f: 
+  f.write(make_SI(SpWi_Cu_lit*1e09 ,r'\ohm\meter' ,exp='e-09' ,figures=1))
+
+# tex file of AHconst_Cu_lit
+
+with open('build/AHconst_Cu_lit.tex', 'w') as f: 
+  f.write(make_SI(AHconst_Cu_lit*1e11 ,r'\meter\tothe{3}\per\coulomb' ,exp='e-11' ,figures=1))
+
 # tex file for rho_Cu.tex
 
 with open('build/rho_Cu.tex', 'w') as f:
   f.write(make_SI(rho_Cu*1e09, r'\ohm\meter', exp='e-09', figures=2))
+
+rho_Cu_err = abs((rho_Cu - SpWi_Cu_lit)/SpWi_Cu_lit)
+
+# tex file of rho_Cu_err
+
+with open('build/rho_Cu_err.tex', 'w') as f: 
+  f.write(make_SI(rho_Cu_err,r'' ,figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -633,6 +650,13 @@ with open('build/n_Cu_IB.tex', 'w') as f:
 
 with open('build/AH_Cu_IB.tex', 'w') as f:
   f.write(make_SI(AH_Cu_IB*1e+11,r'\meter\tothe{3}\per\coulomb', exp='e-11', figures=2))
+
+AH_Cu_err_IB = abs((AH_Cu_IB.n - AHconst_Cu_lit)/AHconst_Cu_lit)
+
+# tex file of AH_Cu_err_IB.tex
+
+with open('build/AH_Cu_err_IB.tex', 'w') as f: 
+  f.write(make_SI(AH_Cu_err_IB ,r'' ,figures=2))
 
 # tex file for z_Cu_IB.tex
 
@@ -675,6 +699,13 @@ with open('build/n_Cu_IQ.tex', 'w') as f:
 
 with open('build/AH_Cu_IQ.tex', 'w') as f:
   f.write(make_SI(AH_Cu_IQ*1e+11,r'\meter\tothe{3}\per\coulomb', exp='e-11', figures=2))
+
+AH_Cu_err_IQ = abs((AH_Cu_IQ.n - AHconst_Cu_lit)/AHconst_Cu_lit)
+
+# tex file of AH_Cu_err_IQ.tex
+
+with open('build/AH_Cu_err_IQ.tex', 'w') as f: 
+  f.write(make_SI(AH_Cu_err_IQ ,r'' ,figures=2))
 
 # tex file for z_Cu_IQ.tex
 
@@ -779,6 +810,13 @@ with open('build/AHconst_Ag_lit.tex', 'w') as f:
 with open('build/rho_Ag.tex', 'w') as f: 
   f.write(make_SI(rho_Ag*1e09 ,r'\ohm\meter' ,exp='e-09' ,figures=2))
 
+rho_Ag_err = abs((rho_Ag - SpWi_Ag_lit)/SpWi_Ag_lit)
+
+# tex file of rho_Ag_err
+
+with open('build/rho_Ag_err.tex', 'w') as f: 
+  f.write(make_SI(rho_Ag_err,r'' ,figures=2))
+
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # tex file of n_Ag_IB
@@ -790,6 +828,13 @@ with open('build/n_Ag_IB.tex', 'w') as f:
 
 with open('build/AH_Ag_IB.tex', 'w') as f: 
   f.write(make_SI(AH_Ag_IB*1e11 ,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
+
+AH_Ag_err_IB = abs((AH_Ag_IB.n - AHconst_Ag_lit)/AHconst_Ag_lit)
+
+# tex file of AH_Ag_err_IB.tex
+
+with open('build/AH_Ag_err_IB.tex', 'w') as f: 
+  f.write(make_SI(AH_Ag_err_IB ,r'' ,figures=2))
 
 # tex file of z_Ag_IB
 
@@ -832,6 +877,13 @@ with open('build/n_Ag_IQ.tex', 'w') as f:
 
 with open('build/AH_Ag_IQ.tex', 'w') as f: 
   f.write(make_SI(AH_Ag_IQ*1e11 ,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
+
+AH_Ag_err_IQ = abs((AH_Ag_IQ.n - AHconst_Ag_lit)/AHconst_Ag_lit)
+
+# tex file of AH_Ag_err_IQ.tex
+
+with open('build/AH_Ag_err_IQ.tex', 'w') as f: 
+  f.write(make_SI(AH_Ag_err_IQ ,r'' ,figures=2))
 
 # tex file for z_Ag_IQ.tex
 
@@ -906,6 +958,16 @@ with open('build/varrho_Zn.tex', 'w') as f:
 with open('build/atom_mass_Zn.tex', 'w') as f:
   f.write(make_SI(atom_mass_Zn,r'', figures=2))
 
+# tex file of SpWi_Zn_lit
+
+with open('build/SpWi_Zn_lit.tex', 'w') as f: 
+  f.write(make_SI(SpWi_Zn_lit*1e09 ,r'\ohm\meter' ,exp='e-09' ,figures=1))
+
+# tex file of AHconst_Zn_lit
+
+with open('build/AHconst_Zn_lit.tex', 'w') as f: 
+  f.write(make_SI(AHconst_Zn_lit*1e11 ,r'\meter\tothe{3}\per\coulomb' ,exp='e-11' ,figures=1))
+
 # tex file of rho_Zn.tex
 
 with open('build/rho_Zn.tex', 'w') as f: 
@@ -922,6 +984,13 @@ with open('build/n_Zn_IB.tex', 'w') as f:
 
 with open('build/AH_Zn_IB.tex', 'w') as f:
   f.write(make_SI(AH_Zn_IB*1e11,r'\meter\tothe{3}\per\coulomb',exp='e-11' ,figures=2))
+
+AH_Zn_err_IB = abs((AH_Zn_IB.n - AHconst_Zn_lit)/AHconst_Zn_lit)
+
+# tex file of AH_Zn_err_IB.tex
+
+with open('build/AH_Zn_err_IB.tex', 'w') as f: 
+  f.write(make_SI(AH_Zn_err_IB ,r'' ,figures=2))
 
 # tex file of z_Zn_IB
 
@@ -964,6 +1033,13 @@ with open('build/n_Zn_IQ.tex', 'w') as f:
 
 with open('build/AH_Zn_IQ.tex', 'w') as f:
   f.write(make_SI(AH_Zn_IQ*1e10,r'\meter\tothe{3}\per\coulomb',exp='e-10' ,figures=2))
+
+AH_Zn_err_IQ = abs((AH_Zn_IQ.n - AHconst_Zn_lit)/AHconst_Zn_lit)
+
+# tex file of AH_Zn_err_IQ.tex
+
+with open('build/AH_Zn_err_IQ.tex', 'w') as f: 
+  f.write(make_SI(AH_Zn_err_IQ ,r'' ,figures=2))
 
 # tex file for z_Zn_IQ.tex
 
