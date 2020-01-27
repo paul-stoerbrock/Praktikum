@@ -86,7 +86,7 @@ AHconst_Ag_lit = -8.9e-11
 # Spezifischer Widerstand [Einheit: Ohm * m]:
 
 SpWi_Cu_lit = 0.018*1e-06
-SpWi_Zn_lit = 0.06*1e-06
+SpWi_Zn_lit = 0.059*1e-06
 SpWi_Ag_lit = 0.016*1e-06
 
 # Variablen ########################################################################################################################################################
@@ -134,8 +134,6 @@ d_Zn_Folie = 0.027e-03 # Dicke der Zink Folie in m
 atom_mass_Zn = 65.39 # Atommasse von Zink in u
 
 varrho_Zn = 7130 # Dichte von Zink in kg/m^3 
-
-rho_Zn = 0.625 # Spezifischer Widerstand in Ohm (bei 1m/1mm^2)
 
 # Plots ########################################################################################################################################################
 
@@ -484,7 +482,7 @@ z_Zn_IB = z(n_Zn_IB, varrho_Zn, atom_mass_Zn)
 print(z_Zn_IB)
 # mittlere Flugzeit
 
-tau_Zn_IB = tau(n_Zn_IB, rho_Zn)
+tau_Zn_IB = tau(n_Zn_IB, varrho_Zn)
 
 # mittlere Driftgeschwindigkeit
 
@@ -657,7 +655,7 @@ with open('build/mu_Cu_IB.tex', 'w') as f:
 # tex file for v_Cu_IB.tex
 
 with open('build/v_Cu_IB.tex', 'w') as f:
-  f.write(make_SI(v_Cu_IB,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_Cu_IB*1e-06,r'\meter\per\second',exp='e06' ,figures=2))
 
 # tex file for l_Cu_IB.tex
 
@@ -684,27 +682,27 @@ with open('build/z_Cu_IQ.tex', 'w') as f:
 # tex file for tau_Cu_IQ.tex
 
 with open('build/tau_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(tau_Cu_IQ*1e+26,r'\second', exp='e26', figures=2))
+  f.write(make_SI(tau_Cu_IQ*1e14,r'\second', exp='e-14', figures=2))
 
 # tex file for v_d_Cu_IQ.tex
 
 with open('build/v_d_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(v_d_Cu_IQ,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_d_Cu_IQ*1e05,r'\meter\per\second',exp='e05' ,figures=2))
 
 # tex file for mu_Cu_IQ.tex
 
 with open('build/mu_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(mu_Cu_IQ*1e+34,r'\coulomb\second\per\kilo\gram', exp='e-34', figures=2))
+  f.write(make_SI(mu_Cu_IQ*1e03,r'\coulomb\second\per\kilo\gram', exp='e-3', figures=2))
 
 # tex file for v_Cu_IQ.tex
 
 with open('build/v_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Cu_IQ,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_Cu_IQ*1e-06,r'\meter\per\second',exp='e06' ,figures=2))
 
 # tex file for l_Cu_IQ.tex
 
 with open('build/l_Cu_IQ.tex', 'w') as f:
-  f.write(make_SI(l_Cu_IQ,r'\meter', figures=2))
+  f.write(make_SI(l_Cu_IQ*1e08,r'\meter',exp='e-08' ,figures=2))
 
 # Silber %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -729,12 +727,12 @@ with open('build/d_Ag_Draht.tex', 'w') as f:
 # tex file of R_Ag
 
 with open('build/R_Ag.tex', 'w') as f: 
-  f.write(make_SI(R_Ag ,r'\ohm' ,figures=3))
+  f.write(make_SI(R_Ag*1e03 ,r'\milli\ohm', figures=0))
 
 # tex file of l_Ag
 
 with open('build/l_Ag.tex', 'w') as f: 
-  f.write(make_SI(l_Ag ,r'\centi\meter' ,figures=2))
+  f.write(make_SI(l_Ag*1e02 ,r'\centi\meter' ,figures=0))
 
 # tex file of varrho_Ag
 
@@ -781,27 +779,27 @@ with open('build/z_Ag_IB.tex', 'w') as f:
 # tex file of tau_Ag_IB
 
 with open('build/tau_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(tau_Ag_IB*1e26 ,r'\second',exp='e26' ,figures=2))
+  f.write(make_SI(tau_Ag_IB*1e14 ,r'\second',exp='e-14' ,figures=2))
 
 # tex file of v_d_Ag_IB
 
 with open('build/v_d_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(v_d_Ag_IB ,r'\meter\per\second' ,figures=1))
+  f.write(make_SI(v_d_Ag_IB*1e05 ,r'\meter\per\second',exp='1e-05' ,figures=1))
 
 # tex file of mu_Ag_IB
 
 with open('build/mu_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(mu_Ag_IB*1e34 ,r'\coulomb\second\per\kilo\gram',exp='e-34' ,figures=1))
+  f.write(make_SI(mu_Ag_IB*1e03 ,r'\coulomb\second\per\kilo\gram',exp='e-3' ,figures=1))
 
 # tex file of v_Ag_IB
 
 with open('build/v_Ag_IB.tex', 'w') as f: 
-  f.write(make_SI(v_Ag_IB ,r'\meter\second' ,figures=1))
-
+  f.write(make_SI(v_Ag_IB*1e-06 ,r'\meter\second',exp='e06' ,figures=2))
+print(v_Ag_IB)
 # tex file for l_Ag_IB.tex
 
 with open('build/l_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(l_Ag_IB,r'\meter', figures=2))
+  f.write(make_SI(l_Ag_IB*1e08,r'\meter',exp='e-08' ,figures=2))
 
 # Konstantes B-Feld ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -838,12 +836,12 @@ with open('build/mu_Ag_IQ.tex', 'w') as f:
 # tex file for v_Ag_IQ.tex
 
 with open('build/v_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Ag_IQ,r'\meter\per\second', figures=2))
+  f.write(make_SI(v_Ag_IQ*1e-05,r'\meter\per\second',exp='e-05' ,figures=2))
 
 # tex file for l_Ag_IQ.tex
 
 with open('build/l_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(l_Ag_IQ,r'\meter', figures=2))
+  f.write(make_SI(l_Ag_IQ*1e07,r'\meter',exp='e-07' ,figures=2))
 
 # Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -871,7 +869,7 @@ with open('build/atom_mass_Zn.tex', 'w') as f:
 # tex file of rho_Zn.tex
 
 with open('build/rho_Zn.tex', 'w') as f: 
-  f.write(make_SI(rho_Zn*1e+02 ,r'\ohm\meter', exp='e-09', figures=2))
+  f.write(make_SI(varrho_Zn*1e+02 ,r'\ohm\meter', exp='e-09', figures=2))
 
 # Konstanter Querstrom ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -907,8 +905,8 @@ with open('build/mu_Zn_IB.tex', 'w') as f:
 
 # tex file for v_Ag_IB.tex
 
-with open('build/v_Ag_IB.tex', 'w') as f:
-  f.write(make_SI(v_Ag_IB,r'\meter\per\second', figures=2))
+with open('build/v_Zn_IB.tex', 'w') as f:
+  f.write(make_SI(v_Zn_IB,r'\meter\per\second', figures=2))
 
 # tex file for l_Zn_IB.tex
 
