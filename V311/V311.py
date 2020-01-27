@@ -561,6 +561,8 @@ with open('build/b_hyab.tex', 'w') as f:
 
 # Kupfer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 # Parameter ==================================================================================================================================================================
 
 # tex file for m_Cu_IB.tex
@@ -710,7 +712,25 @@ with open('build/l_Cu_IQ.tex', 'w') as f:
 
 # Parameter ==================================================================================================================================================================
 
+# tex file for m_Ag_IB.tex
 
+with open('build/m_Ag_IB.tex', 'w') as f:
+  f.write(make_SI(m_Ag_IB*1e+06, r'\micro\volt\per\ampere', figures=2))
+
+# tex file for b_Ag_IB.tex
+
+with open('build/b_Ag_IB.tex', 'w') as f:
+  f.write(make_SI(b_Ag_IB*1e+06, r'\micro\volt', figures=2))
+
+# tex file for m_Ag_IQ.tex
+
+with open('build/m_Ag_IQ.tex', 'w') as f:
+  f.write(make_SI(m_Ag_IQ*1e+06, r'\micro\volt\per\ampere', figures=2))
+
+# tex file for b_Ag_IQ.tex
+
+with open('build/b_Ag_IQ.tex', 'w') as f:
+  f.write(make_SI(b_Ag_IQ*1e+06, r'\micro\volt', figures=2))
 
 # Spezifischer Widerstand und Maße ==================================================================================================================================================================
 
@@ -845,9 +865,29 @@ with open('build/l_Ag_IQ.tex', 'w') as f:
 
 # Zink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 # Parameter ==================================================================================================================================================================
 
+# tex file for m_Zn_IB.tex
 
+with open('build/m_Zn_IB.tex', 'w') as f:
+  f.write(make_SI(m_Zn_IB*1e+06, r'\micro\volt\per\ampere', figures=2))
+
+# tex file for b_Zn_IB.tex
+
+with open('build/b_Zn_IB.tex', 'w') as f:
+  f.write(make_SI(b_Zn_IB*1e+06, r'\micro\volt', figures=2))
+
+# tex file for m_Zn_IQ.tex
+
+with open('build/m_Zn_IQ.tex', 'w') as f:
+  f.write(make_SI(m_Zn_IQ*1e+06, r'\micro\volt\per\ampere', figures=2))
+
+# tex file for b_Zn_IQ.tex
+
+with open('build/b_Zn_IQ.tex', 'w') as f:
+  f.write(make_SI(b_Zn_IQ*1e+06, r'\micro\volt', figures=2))
 
 # Spezifischer Widerstand und Maße ==================================================================================================================================================================
 
