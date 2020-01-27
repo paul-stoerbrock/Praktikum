@@ -72,8 +72,7 @@ Der Nenner von z lässt sich dabei über die Dichte bestimmen
     \intertext{wobei sich $m$ mit
     }
     m =N \cdot A_u \cdot u \label{eq:4b} \\
-    \intertext{beschreiben lässt. Dabei stellt $A_u$ die Masse eines einzelnen
-    Atoms des Leiters dar, während u die atomare Masseneinheit darstellt.
+    \intertext{beschreiben lässt. Dabei bildet $A_u$ die relative Atommasse, während u die atomare Masseneinheit darstellt.
     Diese ergibt für $\sfrac{N}{V}$
     }
     \frac{N}{V}= \frac{\rho}{A_u \cdot u}.\label{eq:4c} \\
@@ -170,20 +169,19 @@ verwendet:
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung} \label{sec:4}\justifying
-Benötigt werden: \textit{Ein Eisenjoch, zwei Spulen, zwei Magnetschuhe, drei Leiterplatten, drei Materialproben (hier Cu, Zn und Ag), 
-ein digitales Multimeter, zwei Generatoren (max. $\SI{40}{\volt}/\SI{10}{\ampere}$ und max. $\SI{20}{\volt}/\SI{5}{\ampere}$), 
-eine Hall-Sonde, eine digitale Mikrometerschraube, einen Kupferwiderstand (Drahtlänge: $\SI{137}{\centi\meter}$, Drahtdurchmesser: 
-$\SI{0.1}{\milli\meter}$), einen Silberwiderstand (Drahtlänge: $\SI{173}{\centi\meter}$, Drahtdurchmesser: $\SI{0.205}{\milli\meter}$) 
+Benötigt werden: \textit{Ein Eisenjoch, zwei Spulen, zwei Magnetschuhe, drei Leiterplatten, drei Materialproben , 
+ein digitales Multimeter, zwei Generatoren , jeweils drei Spulen aus dem Material der einzelnen Proben,
+eine Hall-Sonde, eine digitale Mikrometerschraube
 und sieben Experimentierkabel.}
 
 \flushleft{Zu\;}\justifying Beginn wird das Eisenjoch durch beide Spulen geführt. An beiden Enden des Eisenjochs werden nun die Magnetschuhe
-angebracht. Sobald der Elektromagnet aufgebaut ist, werden die beiden Spulen in Reihe geschaltet und an den Generator mit maximal 
-$\SI{5}{\ampere}$ angeschlossen. Mit diesem Aufbau und der Hall-Sonde wird die Hysterese des Magnetfelds bestimmt. Dafür wird der Strom sukzessiv 
-um $\SI{0.5}{\ampere}$ erhöht, bis $\SI{5}{\ampere}$ an den Spulen anliegen. Für jede Erhöhung des Stroms um $\SI{0.5}{\ampere}$ wird die Stärke
-des Magnetfelds mit der Hall-Sonde abgelesen. Sind die $\SI{5}{\ampere}$ erreicht, wird der selbe Prozess wiederholt während der Strom in reduziert
+angebracht. Sobald der Elektromagnet aufgebaut ist, werden die beiden Spulen in Reihe geschaltet und an den einen Generator angeschlossen. Nun wird eine Hall-Sonde an einem Stativ befestigt und zwischen die Magnetschuhe gestellt, um
+die Hysterese des Magnetfelds zu bestimmen. Dafür wird der Strom sukzessiv 
+, bis eine festgelegte Spannung an den Spulen anliegt. Für jede Erhöhung des Stroms wird die Stärke
+des Magnetfelds mit der Hall-Sonde abgelesen. Ist die festgelegte Spannung erreicht, wird der selbe Prozess wiederholt während der Strom reduziert
 wird. 
 
-\flushleft{Sind\;}\justifying die Messwerte der Hysterese bestimmt, wird die Hall-Sonde entfernt und die erste Materialprobe (hier Zink) auf der 
+\flushleft{Sind\;}\justifying die Messwerte der Hysterese bestimmt, wird die Hall-Sonde entfernt und eine Materialprobe auf der 
 Leiterplatte zwischen den Magnetschuhen befestigt. Anschließend wird die Leiterplatte wie folgt an dem Multimeter und Generator angeschlossen:
 
 \begin{figure}[H]
@@ -193,36 +191,24 @@ Leiterplatte zwischen den Magnetschuhen befestigt. Anschließend wird die Leiter
     \label{fig:1}
 \end{figure}
 
-\flushleft{Nun\;}\justifying werden die Messwerte der Hallspannung für Zink aufgenommen. Dafür werden zwei Messreihen angefertigt. Es wird einmal 
-der Querstrom $I_Q$ konstant bei $\SI{8}{\ampere}$ gehalten und einmal der Strom $I_B$, welcher durch die Spulen fließt und das Magnetfelds
-induziert, konstant bei $\SI{5}{\ampere}$ gehalten. Wenn der Querstrom konstant bei $\SI{8}{\ampere}$ gehalten wird, wird der Strom $I_B$ in 
-$\SI{0.5}{\ampere}$-Schritten auf $\SI{5}{\ampere}$ hochgedreht, sodass zehn Messwerte aufgenommen werden können. Ähnlich wird beim konstanten
-Magnetfeld verfahren. Hier wird $I_Q$ in $\SI{1}{\ampere}$-Schritten auf $\SI{8}{\ampere}$ hochgedreht, wobei zwei zusätzliche Messwerte für 
-$I_Q = \SI{3.5}{\ampere}$ und $I_Q = \SI{6.5}{\ampere}$ aufgenommen werden, damit ebenfalls zehn Messwerte aufgenommen werden können. 
+\flushleft{Nun\;}\justifying werden die Messwerte der Hallspannung aufgenommen. Dafür werden zwei Messreihen angefertigt. Es wird einmal 
+der Querstrom $I_Q$ konstant gehalten und einmal der Strom $I_B$, welcher durch die Spulen fließt und das Magnetfeld
+induziert. Wenn der Querstrom konstant gehalten wird, wird der Strom $I_B$ in 
+gleichmäßigen Schritten erhöht, sodass zehn Messwerte aufgenommen werden können. Ähnlich wird beim konstanten
+Magnetfeld verfahren. Hier wird $I_Q$ in gleichmäßigen Schritten hochgedreht. Dabei wird der Strom
+bis zur maximalen Angabe für die Leiterplatte erhöht.
 
-\flushleft{Anschließend\;}\justifying wird die Foliendicke von Zink mit der Mikrometerschraube gemessen. Der spezifische Widerstand wird im 
-Falle von Zink recherchiert. 
+\flushleft{Anschließend\;}\justifying wird die Foliendicke und der Drahtdurchmesser der Probe mit einer Mikrometerschraube gemessen. Der Widerstand wird 
+mit einer Spule des jeweiligen Metalls bestimmt. Dafür wird die Spule mit dem digitalen Multimeter verbunden und
+der Widerstand auf dem Display ausgegeben.
 
-\flushleft{Für\;}\justifying Silber und Kupfer wird ähnlich verfahren, wie bei Zink. Die jeweiligen Folien werden auf der Leiterplatte wie in
-\ref{fig:1} am Multimeter und Generator angeschlossen und zwischen den Magnetschuhen befestigt. Doch ändern sich die konstant gehaltenen 
-Stromstärken. Für Silber wird $I_Q$ konstant bei $\SI{10}{\ampere}$ gehalten. Es werden wieder zehn Messwerte für einen variierenden Strom $I_B$ in 
-$\SI{0.5}{\ampere}$-Schritten aufgenommen. Die Stromsärke des Magnetfelds wird für Silber konstant bei $I_B = \SI{5}{\ampere}$ gehalten. Hier
-wird $I_Q$ in $\SI{1}{\ampere}$-Schritten auf $\SI{10}{\ampere}$ hochgedreht. 
 
-\flushleft{Nach\;}\justifying der Messwertaufnahme für Silber wird die Dicke der Folie bestimmt. Außerdem wird der Widerstand von Silber bestimmt.
-Dafür wird ein Silberwiderstand verwendet, welcher an dem Multimeter angeschlossen wird. Um den spezifischen Widerstand zu messen, wird der 
-Durchmesser des Drahtes und dessen Länge gemessen. 
-
-\flushleft{Mit\;}\justifying Kupfer wird identisch verfahren, wie mit Silber. Die konstantzuhaltenden Stromstärken $I_Q$ und $I_B$ entsprechen für
-Kupfer ebenfalls $\SI{10}{\ampere}$ und $\SI{5}{\ampere}$. Neben den 20 Messwerten wird für Kupfer ebenfalls die Foliendicke, der Widerstand, die 
-Drahtlänge und der Drahtdurchmesser bestimmt. 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung} \label{sec:5}
 
-\flushleft{Es\;}\justifying werden die drei Materialien Kupfer, Silber und Zink verwendet. Zuerst wird der spezifische Widerstand der einzelnen
-Materialien bestimmt. Dafür wird die Dicke der Folie bestimmt, die sich auf der Leiterplatte befindet. Außerdem wird der Widerstand anhand einer 
-Spule gemessen. Die gemessenen Maße der Folien und Drähte, sowie die Widerstände der Materialien lauten:
+\flushleft{Es\;}\justifying werden die drei Materialien Kupfer, Silber und Zink verwendet. 
+ Die gemessenen Maße der Folien und Drähte, sowie der Widerstände der Materialien lauten:
 
 \begin{table}[H]
 \centering
@@ -230,12 +216,12 @@ Spule gemessen. Die gemessenen Maße der Folien und Drähte, sowie die Widerstä
     \toprule
         \multicolumn{1}{c}{} & \multicolumn{1}{c}{Kupfer} & \multicolumn{1}{c}{Silber} & \multicolumn{1}{c}{Zink}\\
         \cmidrule(lr{0,5em}){1-4}
-        Foliendicke         & \text{\input{d_Cu_Folie.tex}}   & \text{\input{d_Ag_Folie.tex}}   & \text{\input{d_Zn_folie.tex}}\\
+        Foliendicke $d$        & \text{\input{d_Cu_Folie.tex}}   & \text{\input{d_Ag_Folie.tex}}   & \text{\input{d_Zn_folie.tex}}\\
         Drahtdurchmesser    & \text{\input{d_Cu_Draht.tex}}   & \text{\input{d_Ag_Draht.tex}}   & \text{}\\
-        Drahtlänge          & \text{\input{l_Cu.tex}}         & \text{\input{l_Ag.tex}}         & \text{}\\
-        Widerstand          & \text{\input{R_Cu.tex}}         & \text{\input{R_Ag.tex}}         & \text{}\\
-        Dichte              & \text{\input{varrho_Cu.tex}}    & \text{\input{varrho_Ag.tex}}    & \text{\input{varrho_Zn.tex}}\\
-        Atomare Masse       & \text{\input{atom_mass_Cu.tex}} & \text{\input{atom_mass_Ag.tex}} & \text{\input{atom_mass_Zn.tex}}\\
+        Drahtlänge $l$         & \text{\input{l_Cu.tex}}         & \text{\input{l_Ag.tex}}         & \text{}\\
+        Widerstand $R$         & \text{\input{R_Cu.tex}}         & \text{\input{R_Ag.tex}}         & \text{}\\
+        Dichte  $\rho$            & \text{\input{varrho_Cu.tex}}    & \text{\input{varrho_Ag.tex}}    & \text{\input{varrho_Zn.tex}}\\
+        Relative Atommasse $A_u$      & \text{\input{atom_mass_Cu.tex}} & \text{\input{atom_mass_Ag.tex}} & \text{\input{atom_mass_Zn.tex}}\\
         \bottomrule
     \end{tabular}
 \caption{Messwerte für den Spezifischen Widerstand}
@@ -243,13 +229,13 @@ Spule gemessen. Die gemessenen Maße der Folien und Drähte, sowie die Widerstä
 \end{table}
 
 \flushleft{Mithilfe\;}\justifying der Messwerten aus Tabelle \ref{tab:1} lässt sich der spezifische Widerstand $\varrho = R \cdot \sfrac{A}{l}$
-der einzelnen Materialien bestimmen. Hier wird der Literaturwert des spezifischen Widerstands für Zink \cite{SpWiderstand_Zn} angenommen, da für 
-Zink kein Widerstand zu verfügung stand. Damit lauten die spezifischen Widerstände:
+der einzelnen Materialien bestimmen. Hier wird der Literaturwert des spezifischen Widerstands für Zink \cite{SpWiderstand_Zn} genommen, da für 
+Zink keine Spule und kein Draht zur Verfügung stand. Damit lauten die spezifischen Widerstände:
 \begin{subequations} \label{eq:15}
 \begin{align}
-    \rho_{Cu} &= \text{\input{rho_Cu.tex}} \label{eq:15a}\\
-    \rho_{Ag} &= \text{\input{rho_Ag.tex}} \label{eq:15b}\\
-    \rho_{Zn} &= \text{\input{rho_Zn.tex}} \label{eq:15c}
+    \varrho_{Cu} &= \text{\input{rho_Cu.tex}} \label{eq:15a}\\
+    \varrho_{Ag} &= \text{\input{rho_Ag.tex}} \label{eq:15b}\\
+    \varrho_{Zn} &= \text{\input{rho_Zn.tex}} \label{eq:15c}
 \end{align}
 \end{subequations}
 
@@ -271,8 +257,8 @@ den Formeln \eqref{eq:14e} und \eqref{eq:14f} bestimmt und lauten:
 \begin{subequations}
 \begin{align}
     m_{auf} &= \text{\input{m_hyauf.tex}} \label{eq:16a}\\
-    b_{auf} &= \text{\input{b_hyauf.tex}}  \label{eq:16b}\\
-    m_{ab}  &= \text{\input{m_hyab.tex}} \label{eq:16c}\\
+    b_{auf} &= \text{\input{b_hyauf.tex}} \label{eq:16b}\\
+    m_{ab}  &= \text{\input{m_hyab.tex}}  \label{eq:16c}\\
     b_{ab}  &= \text{\input{b_hyab.tex}}  \label{eq:16d}
 \end{align}
 \end{subequations}
@@ -324,19 +310,17 @@ angefertigt. Außerdem lauten die relevanten Parameter:
 \label{fig:3}
 \end{figure}
 
-\flushleft{Für\;}\justifying die Ladungsträger pro Volumen wird die Formel \eqref{eq:1} nach $n$ umgestellt. 
-
-%\flushleft{Für\;}\justifying die Ladungsträger pro Volumen wird die Formel \eqref{eq:3} nach $n$ umgestellt und für $z$ Gleichung \eqref{eq:4d}
-%eingesetzt, nachdem Formel \eqref{eq:4c} in Formel \eqref{eq:3} eingesetzt wurde. Für die Masse eines einzelnen Atoms $A_u$ von Kupfer und der Dichte 
-%$\rho$ werden die Werte aus Tabelle \ref{tab:1} verwendet, wohingegen die atomaren Masseneinheit $u$ eine Konstante ist. Werden nun alle Werte 
-%in die resultierende Formel
-%\begin{subequations}\label{eq:18}
-%\begin{align}
-%    n &= \frac{z \cdot \rho}{A_u \cdot u} \label{eq:18a}
-%    \intertext{eingesetzt, ergibt sich für die Ladungsträger pro Volumen:}
-%    n &= \text{\input{n_Cu_IB.tex}} \label{eq:18b}
-%\end{align}
-%\end{subequations}
+\flushleft{Für\;}\justifying die Ladungsträger pro Volumen wird die Formel \eqref{eq:3} nach $n$ umgestellt und für $z$ Gleichung \eqref{eq:4d}
+eingesetzt, nachdem Formel \eqref{eq:4c} in Formel \eqref{eq:3} eingesetzt wurde. Für die relative Masse $A_u$ von Kupfer und der Dichte 
+$\rho$ werden die Werte aus Tabelle \ref{tab:1} verwendet, wohingegen die atomaren Masseneinheit $u$ eine Konstante ist. Werden nun alle Werte 
+in die resultierende Formel
+\begin{subequations}\label{eq:18}
+\begin{align}
+    n &= \frac{z \cdot \rho}{A_u \cdot u} \label{eq:18a}
+    \intertext{eingesetzt, ergibt sich für die Ladungsträger pro Volumen:}
+    n &= \text{\input{n_Cu_IB.tex}} \label{eq:18b}
+\end{align}
+\end{subequations}
 
 \flushleft{Die\;}\justifying Hallkonstante für Kupfer wird mithilfe der Formel \eqref{eq:2} berechnet. Hier wird das zuvor berechnete $n$ 
 \eqref{eq:18b} eingesetzt. Daraus folgt die Hallkonstante:
@@ -344,7 +328,7 @@ angefertigt. Außerdem lauten die relevanten Parameter:
     R_{H_{Cu}} = \text{\input{AH_Cu_IB.tex}} \label{eq:19}
 \end{align}
 
-\flushleft{Die\;}\justifying mittlere Driftgeschwindigkeit
+\flushleft{Die\;}\justifying mittlere Driftgeschwindigkeit berechnet sich mit der Formel 
 
 Ergebnisse für Querstrom = const:
 
@@ -406,7 +390,7 @@ Ergebnisse für Querstrom = const:
 \caption{Hallspannungen für Silber}
 \end{figure}
 
-\input{build/l_Cu_IQ.tex}
+\input{build/tau_Cu_IB.tex}
 
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
