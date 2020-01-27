@@ -72,8 +72,8 @@ def mu(v_d, n, tau):
 
 # Funktion zur Berechnung des B-Feldes
 
-def B1(auf, ab, I):
-  return (auf+ab)/2 *I
+def B1(auf, b, I):
+  return auf*I+b
 
 # Konstanten ########################################################################################################################################################
 
@@ -360,7 +360,7 @@ l_Cu_IB = l(tau_Cu_IB, v_Cu_IB)
 
 # Ladungsträger pro Volumen
 
-n_Cu_IQ = n(parCu_IQ[0], d_Cu_Folie, B1(parhyauf[0], parhyab[0],  5))
+n_Cu_IQ = n(parCu_IQ[0], d_Cu_Folie, B1(parhyauf[0], parhyauf[1],  5))
 
 # Hallkonstante
 
@@ -434,7 +434,7 @@ l_Ag_IB = l(tau_Ag_IB, v_Ag_IB)
 
 # Ladungsträger pro Volumen
 
-n_Ag_IQ = n(parAg_IQ[0], d_Ag_Folie, B1(parhyauf[0], parhyab[0],  5))
+n_Ag_IQ = n(parAg_IQ[0], d_Ag_Folie, B1(parhyauf[0], parhyauf[1],  5))
 
 # Hallkonstante
 
@@ -504,7 +504,7 @@ l_Zn_IB = l(tau_Zn_IB, v_Zn_IB)
 
 # Ladungsträger pro Volumen
 
-n_Zn_IQ = n(parZn_IQ[0], d_Zn_Folie, B1(parhyauf[0], parhyab[0],  5)) 
+n_Zn_IQ = n(parZn_IQ[0], d_Zn_Folie, B1(parhyauf[0], parhyauf[1],  5)) 
 
 # Hallkonstante
 
