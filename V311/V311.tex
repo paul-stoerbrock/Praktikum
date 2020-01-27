@@ -317,15 +317,15 @@ angefertigt. Außerdem lauten die relevanten Parameter:
 \subsubsection{Konstanter Querstrom} \label{sec:5.3.1}
  
 \flushleft{Die\;}\justifying Ladungsträger pro Volumen $n$ lassen sich mit der Formel \eqref{eq:1} bestimmen. Dafür wird das Magnetfeld $B$
-benötigt, welches sich mit den Steigung $m_{auf}$ \eqref{eq:16a} oder $m_{ab}$ \eqref{eq:16c} des Graphen \ref{fig:2} bestimmen lässt. 
-Das B-Feld folgt nämlich aus der Geradengleichung $B = m_{auf/ab} \cdot I + b_{auf/ab}$. Wird der Wert mit dem dazugehörigen Werten aus
-Tabellen \ref{tab:1} und \ref{tab:2} in Formel \eqref{eq:1} eingesetzt, nachdem diese nach $n$ umgestellt wurde, folgt für $n$:
+benötigt, welches sich mit den Steigung $m_{auf}$ \eqref{eq:16a} oder $m_{ab}$ \eqref{eq:16c} des Graphen \ref{fig:2} bestimmen lässt, da 
+Das B-Feld aus der Geradengleichung $B = m_{auf/ab} \cdot I + b_{auf/ab}$ folgt. Wird der Wert mit dem dazugehörigen Werten aus
+Tabellen \ref{tab:1} und \ref{tab:2} in Formel \eqref{eq:1} eingesetzt, folgt für $n$:
 \begin{align}
-    n_{Cu} = - \frac{1}{U_H e_0} \frac{B \cdot I_q}{d} = \text{\input{n_Cu_IB.tex}} \label{eq:18}
+    n_{Cu} = \text{\input{n_Cu_IB.tex}} \label{eq:18}
 \end{align}
 
 \flushleft{Mithilfe\;}\justifying von $n$ lässt sich die Zahl der Ladungsträger pro Volumen $z$ mit der Formel \eqref{eq:4d} bestimmen. 
-Aus den Werten aus Tabelle \ref{tab:1} und $n_{Cu}$ \eqref{eq:18} folgt für $z$:
+Mit den Werten aus Tabelle \ref{tab:1} und $n_{Cu}$ \eqref{eq:18} folgt für $z$:
 \begin{align}   
     z_{Cu} = \frac{n \cdot A_u \cdot u}{\rho} = \text{\input{z_Cu_IB.tex}} \label{eq:19}
 \end{align}
@@ -592,9 +592,13 @@ Die Ergebnisse lauten wie folgt:
         Zink $\varrho$   & \text{\input{rho_Zn.tex}} &                                & \\
     \bottomrule
     \end{tabular}
-\caption{Messwerte für die Hallkonstanten und spezifischen Widerstände}
-\label{tab:1}
+\caption{Messwerte der Hallkonstanten und spezifischen Widerstände}
+\label{tab:11}
 \end{table}
+
+% Hysterese ===============================================================================================================================================================================================================
+
+
 
 % Kupfer ===============================================================================================================================================================================================================
 
