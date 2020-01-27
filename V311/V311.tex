@@ -327,54 +327,55 @@ Tabellen \ref{tab:1} und \ref{tab:2} in Formel \eqref{eq:1} eingesetzt, nachdem 
 \flushleft{Mithilfe\;}\justifying von $n$ lässt sich die Zahl der Ladungsträger pro Volumen $z$ mit der Formel \eqref{eq:4d} bestimmen. 
 Aus den Werten aus Tabelle \ref{tab:1} und $n$ \eqref{eq:18} folgt für $z$:
 \begin{align}   
-    z_{Cu} = \frac{n \cdot A_u \cdot u}{\rho} = \text{\input{z_Cu_IB.tex}}
+    z_{Cu} = \frac{n \cdot A_u \cdot u}{\rho} = \text{\input{z_Cu_IB.tex}} \label{eq:19}
 \end{align}
 
 \flushleft{Die\;}\justifying Hallkonstante für Kupfer wird mithilfe der Formel \eqref{eq:2} berechnet. Hier wird das zuvor berechnete $n$ 
 \eqref{eq:18} eingesetzt. Daraus folgt die Hallkonstante:
 \begin{align}
-    R_{H,Cu} = \text{\input{AH_Cu_IB.tex}} \label{eq:19}
+    R_{H,Cu} = \text{\input{AH_Cu_IB.tex}} \label{eq:20}
 \end{align}
 
 \flushleft{Die\;}\justifying mittlere Flugzeit $\overline{\tau}$ berechnet sich mit der Formel \eqref{eq:7}. Die Konstanten $e_0$ und $m_0$ und 
 der spezifische Widerstand $\varrho_{Cu}$ \eqref{eq:15a} werden in Formel \eqref{eq:7} eingesetzt, nachdem diese nach $\overline{\tau}$ umgestellt 
 wurde. Daraus folgt für $\overline{\tau}\,$:
 \begin{align}
-        \overline{\tau}_{Cu} &= 2\frac{m_0}{e_0^2}\frac{1}{n\varrho} = \text{\input{tau_Cu_IB.tex}}
+        \overline{\tau}_{Cu} &= 2\frac{m_0}{e_0^2}\frac{1}{n\varrho} = \text{\input{tau_Cu_IB.tex}} \label{eq:21}
     \intertext{
         Für die mittlere Driftgeschwindigkeit $\overline{v}_d$ wird die Formel \eqref{eq:5} umgestellt. Auch hier wird das zuvor berechnete
     $n_{Cu}$ \eqref{eq:18b} eingesetzt, woraus folgt:
     }
-        \overline{v}_{d,Cu} &= \frac{-j}{n e_0} = \text{\input{v_d_Cu_IB.tex}} \label{eq:21}
+        \overline{v}_{d,Cu} &= \frac{-j}{n e_0} = \text{\input{v_d_Cu_IB.tex}} \label{eq:22}
     \intertext{
         Mit $\overline{\tau}$ lässt sich außerdem der Betrag des elektrischen Feldes $E$ mithilfe der Formel \eqref{eq:6} berechnen.
     Für $E$ folgt:
     }
-        E &= 2\frac{j}{n \overline{\tau}}\frac{m_0}{e_0^2} \label{eq:22}
+        E &= 2\frac{j}{n \overline{\tau}}\frac{m_0}{e_0^2} \label{eq:23}
     \intertext{
         Mit dem Betrag des E-Feldes lässt sich nun die Beweglichkeit der Elektronen $\mu$ bestimmen. Dafür wird die Formel \eqref{eq:13}
-    nach $\mu$ umgestellt und die Werte für $\overline{v}_{d,Cu}$ \eqref{eq:21} und $E$ \eqref{eq:22} eingesetzt:
+    nach $\mu$ umgestellt und die Werte für $\overline{v}_{d,Cu}$ \eqref{eq:21} und $E$ \eqref{eq:23} eingesetzt:
     }
-        \mu_{Cu} &= \frac{\overline{v}_{d,Cu}}{E} = \text{\input{mu_Cu_IB.tex}} \label{eq:23}
+        \mu_{Cu} &= \frac{\overline{v}_{d,Cu}}{E} = \text{\input{mu_Cu_IB.tex}} \label{eq:24}
     \intertext{
         Um die mittlere Weglänge $\overline{l}$ zu bestimmen, wird zuerst die Fermi-Energie $E_F$ nach Formel \eqref{eq:9} und die
         durch $E_F$ bestimmte absolute Geschwindigkeit $\abs{v}$ berechnet.
         Daraus folgt für $E_F$:
     }
-        E_F &= \frac{h^2}{2 m_0} \sqrt[3]{\left(\frac{3}{8 \pi}n \right)^2} \label{eq:24}
+        E_F &= \frac{h^2}{2 m_0} \sqrt[3]{\left(\frac{3}{8 \pi}n \right)^2} \label{eq:25}
     \intertext{
         Wird $E_F$ nun in Formel \eqref{eq:10} eingesetzt, folgt für die absolute Geschwindigkeit:
     }
-        \abs{v}_{Cu} &\approx \sqrt{\frac{2 E_F}{m_0}} = \text{\input{v_Cu_IB.tex}} \label{eq:25}
+        \abs{v}_{Cu} &\approx \sqrt{\frac{2 E_F}{m_0}} = \text{\input{v_Cu_IB.tex}} \label{eq:26}
     \intertext{
         Mit der absoluten Geschwindigkeit lässt sich $\overline{l}$ approximieren als:   
     }
-        \overline{l}_{Cu} &\approx \overline{\tau}\sqrt{\frac{2 E_F}{m_0}} = \text{\input{l_Cu_IB.tex}} \label{eq:26}
+        \overline{l}_{Cu} &\approx \overline{\tau}\sqrt{\frac{2 E_F}{m_0}} = \text{\input{l_Cu_IB.tex}} \label{eq:27}
 \end{align}
 
 \subsubsection{Konstantes B-Feld} \label{sec:5.3.2}
 
-\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. Die Ergebnisse lauten wie folgt:
+\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. 
+Die Ergebnisse lauten wie folgt:
 
 \begin{table}[H]
 \centering
@@ -397,6 +398,9 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
 % Silber ===============================================================================================================================================================================================================
 \subsection{Silber} \label{sec:5.4}
 
+\flushleft{In\;}\justifying der folgenden Tabelle \ref{tab:5} sind Hallspannung $U_H$ und Strom $I$ für Silber aufgetragen. Auch hier ist auf der
+linken Seite der Querstrom konstant und auf der rechten Seite das Magnetfeld. 
+ 
 \begin{table}[H]
     \centering
     \input{Ag_table.tex}
@@ -404,23 +408,38 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
     \label{tab:5}
 \end{table}
 
+\flushleft{Die\;}\justifying folgenden zwei Graphen \ref{fig:4a} und \ref{fig:4b} werden mit den Messwerten aus Tabelle \ref{tab:5}
+und den relevanten Parameter $m$ und $b$
+\begin{subequations} \label{eq:28}
+\begin{align}
+    m_{a)} &= \text{\input{m_Ag_IQ.tex}} \label{eq:28a}\\
+    b_{a)} &= \text{\input{b_Ag_IQ.tex}} \label{eq:28b}\\
+    m_{b)} &= \text{\input{m_Ag_IB.tex}} \label{eq:28c}\\
+    b_{b)} &= \text{\input{b_Ag_IB.tex}} \label{eq:28d}
+\end{align}
+\end{subequations}
+
 \begin{figure}[H]
 \begin{subfigure}{0.495\linewidth}
 \centering
 \includegraphics[width=\linewidth]{./build/plotAg_IB.pdf}
 \caption{Hallspannung bei konstantem Querstrom}
+\label{fig:4a}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
 \centering
 \includegraphics[width=\linewidth]{./build/plotAg_IQ.pdf}
 \caption{Hallspannung bei konstantem B-Feld}
+\label{fig:4b}
 \end{subfigure}
 \caption{Hallspannungen für Silber}
+\label{fig:4}
 \end{figure}
 
 \subsubsection{Konstanter Querstrom} \label{sec:5.4.1}
 
-\flushleft{Die\;}\justifying Werte für einen konstanten Querstrom werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+\flushleft{Die\;}\justifying Werte für einen konstanten Querstrom werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. 
+Die Ergebnisse lauten wie folgt:
 
 \begin{table}[H]
 \centering
@@ -442,7 +461,8 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
 
 \subsubsection{Konstantes B-Feld} \label{sec:5.4.2}
 
-\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. 
+Die Ergebnisse lauten wie folgt:
 
 \begin{table}[H]
 \centering
@@ -465,6 +485,9 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
 % Zink ===============================================================================================================================================================================================================
 \subsection{Zink} \label{sec:5.5}
 
+\flushleft{Die\;}\justifying folgende Tabelle \ref{tab:8} enthällt die Messwerte der Hallspannung $U_H$ und des dazugehörigen Stroms von Zink.
+Wie auch in Sektion \ref{sec:5.4} ist auf der linken Seite der Querstrom konstant gehalten und auf der rechten Seite das Magnetfeld.
+
 \begin{table}[H]
     \centering
     \input{Zn_table.tex}
@@ -472,23 +495,38 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
     \label{tab:8}
 \end{table}
 
+\flushleft{Mit\;}\justifying den Messwerten aus Tabelle \ref{tab:8} werden die folgenden Graphen \ref{fig:5a} und \ref{fig:5b} erstellt. 
+Die dazugehörigen Parameter lauten:
+\begin{subequations} \label{eq:29}
+\begin{align}
+    m_{a)} &= \text{\input{m_Zn_IQ.tex}} \label{eq:29a}\\
+    b_{a)} &= \text{\input{b_Zn_IQ.tex}} \label{eq:29b}\\
+    m_{b)} &= \text{\input{m_Zn_IB.tex}} \label{eq:29c}\\
+    b_{b)} &= \text{\input{b_Zn_IB.tex}} \label{eq:29d}
+\end{align}
+\end{subequations}
+
 \begin{figure}[H]
 \begin{subfigure}{0.495\linewidth}
 \centering
 \includegraphics[width=\linewidth]{./build/plotZn_IB.pdf}
 \caption{Hallspannung bei konstantem Querstrom}
+\label{fig:5a}
 \end{subfigure}
 \begin{subfigure}{0.495\linewidth}
 \centering
 \includegraphics[width=\linewidth]{./build/plotZn_IQ.pdf}
 \caption{Hallspannung bei konstantem B-Feld}
+\label{fig:5b}
 \end{subfigure}
 \caption{Hallspannungen für Zink}
+\label{fig:5}
 \end{figure}
 
 \subsubsection{Konstanter Querstrom} \label{sec:5.5.1}
 
-\flushleft{Die\;}\justifying Werte für einen konstanten Querstrom werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+\flushleft{Die\;}\justifying Werte für einen konstanten Querstrom werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. 
+Die Ergebnisse lauten wie folgt:
 
 \begin{table}[H]
 \centering
@@ -510,7 +548,8 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
 
 \subsubsection{Konstantes B-Feld} \label{sec:5.5.2}
 
-\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3} berechnet. Die Ergebnisse lauten wie folgt:
+\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. 
+Die Ergebnisse lauten wie folgt:
 
 \begin{table}[H]
 \centering
