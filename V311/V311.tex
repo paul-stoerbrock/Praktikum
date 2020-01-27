@@ -207,6 +207,8 @@ der Widerstand auf dem Display ausgegeben.
 
 \section{Auswertung} \label{sec:5}
 
+\subsection{Messwerte} \label{sec:5.1}
+
 \flushleft{Es\;}\justifying werden die drei Materialien Kupfer, Silber und Zink verwendet. 
  Die gemessenen Maße der Folien und Drähte, sowie der Widerstände der Materialien lauten:
 
@@ -240,6 +242,7 @@ Zink keine Spule und kein Draht zur Verfügung stand. Damit lauten die spezifisc
 \end{subequations}
 
 % Hysterese ===============================================================================================================================================================================================================
+\subsection{Hysterese} \label{sec:5.2}
 
 \flushleft{Die\;}\justifying folgende Tabelle \ref{tab:2} gibt die Messwerte des Magnetfeldes für einen steigenden Strom (links) und einem 
 sinkenden Strom (rechts) wieder. 
@@ -271,6 +274,7 @@ den Formeln \eqref{eq:14e} und \eqref{eq:14f} bestimmt und lauten:
 \end{figure}
 
 % Kupfer ===============================================================================================================================================================================================================
+\subsection{Kupfer} \label{sec:5.3}
 
 \flushleft{Die\;}\justifying folgende Tabelle \ref{tab:3} gibt die Messwerte der Hallspannung $U_H$ bei variierendem Querstrom $I_Q$ oder Magnetfeld
 $I_B$ für Kupfer wieder:
@@ -310,6 +314,8 @@ angefertigt. Außerdem lauten die relevanten Parameter:
 \label{fig:3}
 \end{figure}
 
+\subsubsection{Konstanter Querstrom} \label{sec:5.3.1}
+
 \flushleft{Für\;}\justifying die Ladungsträger pro Volumen wird die Formel \eqref{eq:3} nach $n$ umgestellt und für $z$ Gleichung \eqref{eq:4d}
 eingesetzt, nachdem Formel \eqref{eq:4c} in Formel \eqref{eq:3} eingesetzt wurde. Für die relative Masse $A_u$ von Kupfer und der Dichte 
 $\rho$ werden die Werte aus Tabelle \ref{tab:1} verwendet, wohingegen die atomaren Masseneinheit $u$ eine Konstante ist. Werden nun alle Werte 
@@ -332,12 +338,12 @@ in die resultierende Formel
 der spezifische Widerstand $\varrho_{Cu}$ \eqref{eq:15a} werden in Formel \eqref{eq:7} eingesetzt, nachdem diese nach $\overline{\tau}$ umgestellt 
 wurde. Daraus folgt für $\overline{\tau}\,$:
 \begin{align}
-        \overline{\tau_{Cu}} &= 2\frac{m_0}{e_0^2}\frac{1}{n\varrho} = \text{\input{tau_Cu_IB.tex}}
+        \overline{\tau}_{Cu} &= 2\frac{m_0}{e_0^2}\frac{1}{n\varrho} = \text{\input{tau_Cu_IB.tex}}
     \intertext{
-        Für die mittlere Driftgeschwindigkeit $\overline{v_d}$ wird die Formel \eqref{eq:5} umgestellt. Auch hier wird das zuvor berechnete
+        Für die mittlere Driftgeschwindigkeit $\overline{v}_d$ wird die Formel \eqref{eq:5} umgestellt. Auch hier wird das zuvor berechnete
     $n_{Cu}$ \eqref{eq:18b} eingesetzt, woraus folgt:
     }
-        \overline{v_{d,Cu}} &= \frac{-j}{n e_0} = \text{\input{v_d_Cu_IB.tex}} \label{eq:21}
+        \overline{v}_{d,Cu} &= \frac{-j}{n e_0} = \text{\input{v_d_Cu_IB.tex}} \label{eq:21}
     \intertext{
         Mit $\overline{\tau}$ lässt sich außerdem der Betrag des elektrischen Feldes $E$ mithilfe der Formel \eqref{eq:6} berechnen.
     Für $E$ folgt:
@@ -345,9 +351,9 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
         E &= 2\frac{j}{n \overline{\tau}}\frac{m_0}{e_0^2} \label{eq:22}
     \intertext{
         Mit dem Betrag des E-Feldes lässt sich nun die Beweglichkeit der Elektronen $\mu$ bestimmen. Dafür wird die Formel \eqref{eq:13}
-    nach $\mu$ umgestellt und die Werte für $\overline{v_{d,Cu}}$ \eqref{eq:21} und $E$ \eqref{eq:22} eingesetzt:
+    nach $\mu$ umgestellt und die Werte für $\overline{v}_{d,Cu}$ \eqref{eq:21} und $E$ \eqref{eq:22} eingesetzt:
     }
-        \mu_{Cu} &= \frac{\overline{v_{d,Cu}}}{E} = \text{\input{mu_Cu_IB.tex}} \label{eq:23}
+        \mu_{Cu} &= \frac{\overline{v}_{d,Cu}}{E} = \text{\input{mu_Cu_IB.tex}} \label{eq:23}
     \intertext{
         Um die mittlere Weglänge $\overline{l}$ zu bestimmen, wird zuerst die Fermi-Energie $E_F$ nach Formel \eqref{eq:9} und die
         durch $E_F$ bestimmte absolute Geschwindigkeit $\abs{v}$ berechnet.
@@ -357,12 +363,34 @@ wurde. Daraus folgt für $\overline{\tau}\,$:
     \intertext{
         Wird $E_F$ nun in Formel \eqref{eq:10} eingesetzt, folgt für die absolute Geschwindigkeit:
     }
-        \abs{v} &\approx \sqrt{\frac{2 E_F}{m_0}} = %\text{\input{v_Cu_IB.tex}} \label{eq:25}
+        \abs{v_{Cu}} &\approx \sqrt{\frac{2 E_F}{m_0}} = \text{\input{v_Cu_IB.tex}} \label{eq:25}
     \intertext{
         Mit der absoluten Geschwindigkeit lässt sich $\overline{l}$ approximieren als:   
     }
-        \overline{l} &\approx \overline{\tau}\sqrt{\frac{2 E_F}{m_0}} = \text{\input{l_Cu_IB.tex}} \label{eq:26}
+        \overline{l}_{Cu} &\approx \overline{\tau}\sqrt{\frac{2 E_F}{m_0}} = \text{\input{l_Cu_IB.tex}} \label{eq:26}
 \end{align}
+
+\subsubsection{Konstantes B-Feld} \label{sec:5.3.1}
+
+\flushleft{Die\;}\justifying Werte für ein konstantes B-Feld werden analog zu Abschnitt \ref{sec:5.3.1} berechnet. Die Ergebnisse lauten wie folgt:
+section
+\begin{table}[H]
+\centering
+    \begin{tabular}{l r l}
+    \toprule
+        Ladungsträger pro Volumen               &$n_{Cu}$               = & \text{\input{n_Cu_IQ.tex}}  \\
+        Zahl der Ladungsträger pro Volumen      &$z_{Cu}$               = & \text{\input{z_Cu_IQ.tex}}  \\
+        Hallkonstante                           &$R_{H,Cu}$             = & \text{\input{AH_Cu_IQ.tex}} \\
+        Mittlere Flugzeit                       &$\overline{\tau}_{Cu}$ = & \text{\input{tau_Cu_IQ.tex}}\\
+        Mittlere Driftgeschwindigkeit           &$\overline{v}_{d,Cu}$  = & \text{\input{v_d_Cu_IQ.tex}}\\
+        Beweglichkeit                           &$\mu_{Cu}$             = & \text{\input{mu_Cu_IQ.tex}} \\
+        Totalgeschwindigkeit                    &$\abs{v_{Cu}}$         = & \text{\input{v_Cu_IQ.tex}}  \\
+        Mittlere freie Weglänge                 &$\overline{l}_{Cu}$    = & \text{\input{l_Cu_IQ.tex}}  \\
+        \bottomrule
+    \end{tabular}
+\caption{Werte für Kupfer mit konstantem B-Feld}
+\label{tab:4}
+\end{table}
 
 Ergebnisse für Querstrom = const:
 
@@ -373,7 +401,7 @@ Ergebnisse für Querstrom = const:
 &\text{Mittlere Flugzeit = \input{tau_Cu_IB.tex}}\\
 &\text{Mittlere Driftgeschwindigkeit = \input{v_d_Cu_IB.tex}}\\
 &\text{Beweglichkeit = \input{mu_Cu_IB.tex}}\\
-%&\text{Totalgeschwindigkeit = \input{v_Cu_IB.tex}}\\
+&\text{Totalgeschwindigkeit = \input{v_Cu_IB.tex}}\\
 &\text{Mittlere freie Weglänge = \input{l_Cu_IB.tex}}
 \end{align}
 
