@@ -908,7 +908,7 @@ with open('build/mu_Ag_IQ.tex', 'w') as f:
 # tex file for v_Ag_IQ.tex
 
 with open('build/v_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(v_Ag_IQ*1e-05,r'\meter\per\second',exp='e-05' ,figures=2))
+  f.write(make_SI(v_Ag_IQ*1e-05,r'\meter\per\second',exp='e05' ,figures=2))
 
 # tex file for l_Ag_IQ.tex
 
