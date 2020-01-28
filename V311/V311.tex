@@ -24,7 +24,7 @@
 \setcounter{page}{1}
 \section{Ziel} \label{sec:1}\justifying
 In der heutigen Zeit bilden Kenntnisse zur elektrischen Leitfähigkeit von Metallen eine entscheidende Rolle.
-Die meiste Technick von heute benötigt Kenntnisse über die Leitfähigkeit von verschiedenen
+Viele modernen Technologien benötigen Kenntnisse über die Leitfähigkeit von verschiedenen
 Materialien wie Metallen. Eine effiziente Möglichkeit zur Untersuchung der verschiedenen
 elektrischen Leitungseigenschaften bildet der Versuch zum Hall-Effekt.
 
@@ -138,33 +138,7 @@ Bei überlappenden Energiebändern kann es passieren, dass Elektronen vom nieder
 Band übergehen. Dann entsteht eine Leerstelle im niederen Band, welche als Loch bezeichnet wird.
 Diese werden von einem elektrische Feld beeinflusst und verhalten sich ähnlich einer positiven Ladung.
 Sie sind damit ein Teil des Hall-Effekts, bei dem die Hall-Spannung allerdings das 
-Vorzeichen wechselt. Dies nennt     man den anomalen Hall-Effekt.
-
-% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Fehlerrechnung} \label{sec:3}\justifying
-
-Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
-verwendet:
-\begin{subequations} \label{eq:14}
-\begin{align} 
-\intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
-}
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:14a}
-\intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
-}
-    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:14b},
-\intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
-}
-    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:14c}
-\intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
-}
-    y &= m \cdot x + b \label{eq:14d} \\ 
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:14e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:14f}
-\end{align}
-\end{subequations}
-\newpage
+Vorzeichen wechselt. Dies nennt man den anomalen Hall-Effekt.
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -176,8 +150,7 @@ und sieben Experimentierkabel.}
 
 \flushleft{Zu\;}\justifying Beginn wird das Eisenjoch durch beide Spulen geführt. An beiden Enden des Eisenjochs werden nun die Magnetschuhe
 angebracht. Sobald der Elektromagnet aufgebaut ist, werden die beiden Spulen in Reihe geschaltet und an den einen Generator angeschlossen. Nun wird eine Hall-Sonde an einem Stativ befestigt und zwischen die Magnetschuhe gestellt, um
-die Hysterese des Magnetfelds zu bestimmen. Dafür wird der Strom sukzessiv 
-, bis eine festgelegte Spannung an den Spulen anliegt. Für jede Erhöhung des Stroms wird die Stärke
+die Hysterese des Magnetfelds zu bestimmen. Dafür wird der Strom sukzessiv erhöht, bis eine festgelegte Spannung an den Spulen anliegt. Für jede Erhöhung des Stroms wird die Stärke
 des Magnetfelds mit der Hall-Sonde abgelesen. Ist die festgelegte Spannung erreicht, wird der selbe Prozess wiederholt während der Strom reduziert
 wird. 
 
@@ -255,10 +228,15 @@ sinkenden Strom (rechts) wieder.
 \end{table}
 
 \flushleft{Mithilfe\;}\justifying der Messwerte aus Tabelle \ref{tab:2} lässt sich der Graph \ref{fig:2} erstellen. Der folgende Graph wird 
-mit dem Phython Befehl np.polyfit() \cite{numpy} und der Formel \eqref{eq:14d} $y = mx + b$ erstellt. Die Parameter $m$ und $b$ werden mit 
-den Formeln \eqref{eq:14e} und \eqref{eq:14f} bestimmt und lauten:
+mit dem phython Befehl np.polyfit \cite{numpy} und der Formel \eqref{eq:14d} $y = mx + b$ erstellt. Die Parameter $m$ und $b$ werden mit 
+den Formeln 
 \begin{subequations}
 \begin{align}
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \qquad \text{und} \label{eq:14e}\\
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:14f}
+\intertext{
+    bestimmt und lauten:
+}
     m_{auf} &= \text{\input{m_hyauf.tex}} \label{eq:16a}\\
     b_{auf} &= \text{\input{b_hyauf.tex}} \label{eq:16b}\\
     m_{ab}  &= \text{\input{m_hyab.tex}}  \label{eq:16c}\\
