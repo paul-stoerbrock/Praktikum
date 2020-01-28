@@ -575,7 +575,7 @@ Die Ergebnisse lauten wie folgt:
 
 \begin{table}[H]
 \centering
-    \begin{tabular}{l r r r}
+    \begin{tabular}{c c c c}
     \toprule
         \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{Querstrom $I_q$ = Konstant} & 
         \multicolumn{1}{c}{Magnetfeld $I_B$ = Konstant} & \multicolumn{1}{c}{Literaturwerte}\\
@@ -597,54 +597,94 @@ Die Ergebnisse lauten wie folgt:
 \end{table}
 
 % Hysterese ===============================================================================================================================================================================================================
-
+Die hysteresekurve gibt den erwarteten verlauf der Geraden in den Messwerten wieder.
+Die Geraden unterscheiden sich dabei nur um eine Offsetspannung, während sich die Steigung
+von beiden mit der Messungenauigkeit kaum merklich unterscheidet. Die Offsetspannung
+ergibt sich dabei dadurch, dass die Kontakte für den Abgriff der Hallspannung nicht
+das gleiche Potential haben und damit nicht auf einer Äquipotentialfläche liegen.
+Daher kommt auch die Spannung bei fast 0 Ampere.
 
 
 % Kupfer ===============================================================================================================================================================================================================
+\flushleft{Die\;}\justifying Graphen \ref{fig:3a} und \ref{fig:3b} geben den linearen Verlauf der Gleichung \eqref{eq:1}
+wieder. Zudem entspricht die positive Hallspannung dem, was bei Kupfer zu erwarten ist.
 
-\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Kupfer für einen konstanten Querstrom lautet wie folgt:
-\begin{align}
-    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Cu_err_IB.tex}}
-\end{align}
-
-\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Kupfer für ein konstantes B-Feld lautet wie folgt:
-\begin{align}
-    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Cu_err_IQ.tex}}
-\end{align}
-
-\flushleft{Der\;}\justifying relative Fehler des spezifischen Widerstands von Kupfer lautet wie folgt:
+\flushleft{Für\;}\justifying den relativen Fehler des spezifischen Widerstands von Kupfer ergibt sich:
 \begin{align}
     \frac{\varrho - \varrho_{Lit.}}{\varrho_{Lit.}} = \text{\input{rho_Cu_err.tex}}
 \end{align}
 
+\flushleft{Der\;}\justifying relative Fehler ist dabei sehr gering, was für einen guten Messwert spricht.
+Für die Berechnung der B-Felder wurde nur die Gerade der aufsteigenden Hysteresekurve
+berücksichtigt, da sich die Steigungen stark ähneln und es keinen Unterschied macht,
+mit welcher Gleichung gearbeitet wird.
+Im Allgemeinen zeigen die berechneten mikroskopischen Größen von Kupfer erwartbare
+Größenordnungen auf, was auch die realtiven Fehler der Hallkonstanten für konstanten
+Querstrom
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Cu_err_IB.tex}}
+\end{align}
+und konstantes B-Feld zeigen
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Cu_err_IQ.tex}}.
+\end{align}
+ Der sich dabei ergebenede relative Fehler könnte durch einen systematischen
+ Fehler ergeben.\\
+ Aus dem Vorzeichen der Hallspannung ließe sich schließen, dass es sich bei Kupfer
+ um einen Elektronenleiter handeln könnte.
+
+
 % Silber ===============================================================================================================================================================================================================
-
-\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Silber für einen konstanten Querstrom lautet wie folgt:
-\begin{align}
-    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Ag_err_IB.tex}}
-\end{align}
-
-\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Silber für ein konstantes B-Feld lautet wie folgt:
-\begin{align}
-    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Ag_err_IQ.tex}}
-\end{align}
-
-\flushleft{Der\;}\justifying relative Fehler des spezifischen Widerstands von Silber lautet wie folgt:
+Für Silber weicht der bestimmte spezifische Widerstand auch nicht weit vom Literaturwert ab und zeigt eine relativ fehlerfreie Messung an:
 \begin{align}
     \frac{\varrho - \varrho_{Lit.}}{\varrho_{Lit.}} = \text{\input{rho_Ag_err.tex}}
 \end{align}
+Die Graphen \ref{fig:4a} und \ref{fig:4b} für Silber hingegen zeigen einen unerwarteten Verlauf auf, da dieser
+von der Steigung das gleiche Vorzeichen wie Kupfer haben müsste.
+Dementsprechend ergibt sich für die relativen Fehler bei konsantem Querstrom
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Ag_err_IB.tex}}
+\end{align}
+und bei konstanem B-Feld
+\begin{align}
+    \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Ag_err_IQ.tex}}
+\end{align}
+ein relativ großer relativer Fehler. Dieser entsteht für konstanten Querstrom vor allem 
+durch das Vorzeichen. Bei dem konstantem Magnetfeld lässt sich der wesentlich höhere Fehler 
+nicht alleine dadurch erklären. Bei näherer Betrachtung des Messwertes für die Hallkonstante 
+in der Tabelle \ref{tab:10} fällt auf, dass sich der errechnete Wert um eine Zehnerpotenz
+vom Literaturwert unterscheidet. Dieser ist auch bei allen anderen berechneten Größen der Fall
+wie sich anhand der Tabellen \ref{tab:6} und \ref{tab:7} erkennen lässt
+Dies könnte zum einen auf einen systematischen 
+Fehler zurückzuführen sein. Vorstellbar wäre auch, dass die Messmethode mit dem 
+konstanten B-Feld im Allgemeinen ungenauer sein könnte. Allerdings lässt sich das
+bei der Kupferprobe nicht erschließen, da dort der Wert fürs konstante B-Feld genauer ist.
+
+
 
 % Zink ===============================================================================================================================================================================================================
-
-\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Zink für einen konstanten Querstrom lautet wie folgt:
+Für Zink wurde als spezifischer Widerstand ein Literaturwert verwendet, da zu dieser
+Probe aufgrund von fehlendem Material kein Wert bestimmt werden konnte.
+Die Graphen \ref{fig:5a} und \ref{fig:5b} seheinen sich hier völlig zu widersprechen, da
+beide eigentlich eine ähnliche Steigung haben müssten. Auffälig ist hierbei besonders
+Graph \ref{fig:5a}, da bei diesem die Messwerte am wenigsten eine Gerade bilden. Die
+Messwerte springen zudem häufig im Graphen wieder zu einer tieferen Spannung.
+Der Grund hierfür müsste in der Messung selbst liegen.
+Für den Fall konstantem Querstroms entsteht für den relativen Fehler der Hallkonstante
+entsprechend
 \begin{align}
     \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Zn_err_IB.tex}}
 \end{align}
-
-\flushleft{Der\;}\justifying relative Fehler der Hallkonstante von Zink für ein konstantes B-Feld lautet wie folgt:
+ein größerer Fehler.
+Allerdings zeigt sich bei Zink mit dem konstanten konstanten B-Feld ein ähnliches Problem
+wie bei SIlber schon:
 \begin{align}
     \frac{R_F - R_{F,Lit.}}{R_{F,Lit.}} = \text{\input{AH_Zn_err_IQ.tex}}
 \end{align}
+Wie bei Silber liegt Zink ungefähr eine Zehnerpotenz über dem Literaturwert. Daher
+liegt die Vermutung nahe, dass bei Silber und Zink ein ähnliches Problem vorliege.
+Aufgrund des zweiten Graphen für Zink ließe sich schlussfolgern, dass es sich um einen
+Lochleiter handele, wie es auch der Literaturwert bestätigt.
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage

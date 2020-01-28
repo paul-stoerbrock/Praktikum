@@ -871,7 +871,7 @@ with open('build/l_Ag_IB.tex', 'w') as f:
 # tex file for n_Ag_IQ.tex
 
 with open('build/n_Ag_IQ.tex', 'w') as f:
-  f.write(make_SI(n_Ag_IQ*1e-28,r'\meter\tothe{-3}',exp='e-28' ,figures=2))
+  f.write(make_SI(n_Ag_IQ*1e-28,r'\meter\tothe{-3}',exp='e28' ,figures=2))
   
 # tex file of AH_Ag_IQ
 
