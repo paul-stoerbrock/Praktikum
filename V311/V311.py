@@ -171,12 +171,12 @@ b_hyab = parhyab[1]
 
 #Plot von Kupfer mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-B= parhyauf[0].n*Cu_IB+parhyauf[1].n
+B_Cu= parhyauf[0].n*Cu_IB+parhyauf[1].n
 
-par, covm = np.polyfit(B, Cu_UHB, deg=1, cov=True)
+par, covm = np.polyfit(B_Cu, Cu_UHB, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
-plt.plot(B, Cu_UHB,'kx', label='Messwerte')
+plt.plot(B_Cu, Cu_UHB,'kx', label='Messwerte')
 x_plot = np.linspace(0, 1.3, 1000)
 plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
 plt.yticks([0, 5*1e-06, 10*1e-06, 15*1e-06, 20*1e-06],
@@ -219,12 +219,12 @@ b_Cu_IQ = parCu_IQ[1]
 
 #Plot von Silber mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-B= parhyauf[0].n*Ag_IB+parhyauf[1].n
+B_Ag= parhyauf[0].n*Ag_IB+parhyauf[1].n
 
-par, covm = np.polyfit(B, Ag_UHB, deg=1, cov=True)
+par, covm = np.polyfit(B_Ag, Ag_UHB, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
-plt.plot(B, Ag_UHB,'kx', label='Messwerte')
+plt.plot(B_Ag, Ag_UHB,'kx', label='Messwerte')
 x_plot = np.linspace(0, 1.3, 1000)
 plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
 plt.yticks([-170*1e-06, -175*1e-06, -180*1e-06, -185*1e-06, -190*1e-06, -195*1e-06],
@@ -267,12 +267,12 @@ b_Ag_IQ = parAg_IQ[1]
 
 #Plot von Zink mit konstantem Querstrom %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-B= parhyauf[0].n*Zn_IB+parhyauf[1].n
+B_Zn= parhyauf[0].n*Zn_IB+parhyauf[1].n
 
-par, covm = np.polyfit(B, Zn_UHB, deg=1, cov=True)
+par, covm = np.polyfit(B_Zn, Zn_UHB, deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
-plt.plot(B, Zn_UHB,'kx', label='Messwerte')
+plt.plot(B_Zn, Zn_UHB,'kx', label='Messwerte')
 x_plot = np.linspace(0, 1.3, 1000)
 plt.plot(x_plot, x_plot*par[0]+par[1], 'r-', label="Lineare Regression")
 plt.yticks([ -313*1e-06, -315*1e-06, -317*1e-06, -319*1e-06],
@@ -1076,23 +1076,23 @@ with open('build/l_Zn_IQ.tex', 'w') as f:
 # Kupfer ===============================================================================================================================================================
 
 table_header = r'''
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c c c}
     \toprule
-    \multicolumn{2}{c}{$\text{Konstanter Querstrom =} \; \SI{10}{\ampere}$} & \multicolumn{2}{c}{$\text{Konstantes B-Feld =} \; \SI{5}{\ampere}$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
-    \multicolumn{1}{c}{$\text{Strom} \; I_B \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt} $} & 
+    \multicolumn{3}{c}{$\text{Konstanter Querstrom $I_Q$ =} \; \SI{10}{\ampere}$} & \multicolumn{2}{c}{$\text{Konstanter Strom $I_B$ =} \; \SI{5}{\ampere}$}\\
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-5}
+    \multicolumn{1}{c}{$\text{Strom} \; I_B \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt} $} & \multicolumn{1}{c}{$B \:/\: \si{\tesla}$} &
     \multicolumn{1}{c}{$\text{Strom} \; I_Q \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt}$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4} 
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-5} 
 
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.0f} & {3:1.2f}\\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.0f} & {4:1.2f}\\'
 
 with open('build/Cu_table.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(Cu_IB, Cu_UHB*1e+04, Cu_IQ, Cu_UHQ*1e+04):
+    for row in zip(Cu_IB, Cu_UHB*1e+04, B_Cu, Cu_IQ, Cu_UHQ*1e+04):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -1100,23 +1100,23 @@ with open('build/Cu_table.tex', 'w') as g:
 # Zink ===============================================================================================================================================================
 
 table_header = r'''
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c c c}
     \toprule
-    \multicolumn{2}{c}{$\text{Konstanter Querstrom =} \; \SI{8}{\ampere}$} & \multicolumn{2}{c}{$\text{Konstantes B-Feld =} \; \SI{5}{\ampere}$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
-    \multicolumn{1}{c}{$\text{Strom} \; I_B \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt} $} & 
+    \multicolumn{3}{c}{$\text{Konstanter Querstrom $I_Q$ =} \; \SI{8}{\ampere}$} & \multicolumn{2}{c}{$\text{Konstanter Strom $I_B$ =} \; \SI{5}{\ampere}$}\\
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-5}
+    \multicolumn{1}{c}{$\text{Strom} \; I_B \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt} $} & \multicolumn{1}{c}{$B \:/\: \si{\tesla}$} &
     \multicolumn{1}{c}{$\text{Strom} \; I_Q \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt}$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4} 
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-5} 
 
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.1f} & {3:1.2f}\\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.0f} & {4:1.2f}\\'
 
 with open('build/Zn_table.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(Zn_IB, Zn_UHB*1e+04, Zn_IQ, Zn_UHQ*1e+04):
+    for row in zip(Zn_IB, Zn_UHB*1e+04, B_Zn, Zn_IQ, Zn_UHQ*1e+04):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -1124,23 +1124,23 @@ with open('build/Zn_table.tex', 'w') as g:
 # Silber ===============================================================================================================================================================
 
 table_header = r'''
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c c c}
     \toprule
-    \multicolumn{2}{c}{$\text{Konstanter Querstrom =} \; \SI{10}{\ampere}$} & \multicolumn{2}{c}{$\text{Konstantes B-Feld =} \; \SI{5}{\ampere}$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}
-    \multicolumn{1}{c}{$\text{Strom} \; I_B \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt} $} & 
+    \multicolumn{3}{c}{$\text{Konstanter Querstrom $I_Q$ =} \; \SI{10}{\ampere}$} & \multicolumn{2}{c}{$\text{Konstanter Strom $I_B$ =} \; \SI{5}{\ampere}$}\\
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-5}
+    \multicolumn{1}{c}{$\text{Strom} \; I_B \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt} $} & \multicolumn{1}{c}{$B \:/\: \si{\tesla}$} & 
     \multicolumn{1}{c}{$\text{Strom} \; I_Q \:/\: \si{\ampere}$} & \multicolumn{1}{c}{$\text{Spannung} \; U_H \:/\: \si{\milli\volt}$}\\
-    \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4} 
+    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-5} 
 
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.0f} & {3:1.2f}\\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.0f} & {4:1.2f}\\'
 
 with open('build/Ag_table.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(Ag_IB, Ag_UHB*1e+04, Ag_IQ, Ag_UHQ*1e+04):
+    for row in zip(Ag_IB, Ag_UHB*1e+04, B_Ag, Ag_IQ, Ag_UHQ*1e+04):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
@@ -1169,3 +1169,4 @@ with open('build/Hysterese_table.tex', 'w') as g:
         g.write('\n')
     g.write(table_footer)
 
+print(m_Cu_IQ)

@@ -46,10 +46,10 @@ Leitfähigkeit. Die Elektronen auf diesem Band werden als Leitunselektronen beze
 Die Anzahl der freien Leitungselektronen in einem Volumen $V$ lässt sich dabei über die Hallspannung
 berechnen: \cite{V311}
 \begin{align}
-    U_H =- \frac{1}{n e_0} \frac{B \cdot I_q}{d}. \label{eq:1}
+    U_H =- \frac{1}{n e_0} \frac{B \cdot I_Q}{d}. \label{eq:1}
 \end{align}
 Die Hallspannung beschreibt dabei eine Messgröße des Halleffekts. Bei diesem wird 
-ein Querstrom $I_q$ durch eine Leiterplatte der Dicke $d$ geleitet, während die
+ein Querstrom $I_Q$ durch eine Leiterplatte der Dicke $d$ geleitet, während die
 Leiterplatte sich in einem homogenen Magnetfeld senkrecht zur Probe befindet. 
 Durch das Magnetfeld wirkt auf die Elektronen die Lorentzkraft, welche dazu führt,
 dass die Elektronen durch die Auslenkung ein elektrisches Feld aufbauen. Die sich, nach
@@ -191,12 +191,12 @@ der Widerstand auf dem Display ausgegeben.
     \toprule
         \multicolumn{1}{c}{} & \multicolumn{1}{c}{Kupfer} & \multicolumn{1}{c}{Silber} & \multicolumn{1}{c}{Zink}\\
         \cmidrule(lr{0,5em}){1-4}
-        Foliendicke $d$        & \text{\input{d_Cu_Folie.tex}}   & \text{\input{d_Ag_Folie.tex}}   & \text{\input{d_Zn_folie.tex}}\\
-        Drahtdurchmesser    & \text{\input{d_Cu_Draht.tex}}   & \text{\input{d_Ag_Draht.tex}}   & \text{}\\
-        Drahtlänge $l$         & \text{\input{l_Cu.tex}}         & \text{\input{l_Ag.tex}}         & \text{}\\
-        Widerstand $R$         & \text{\input{R_Cu.tex}}         & \text{\input{R_Ag.tex}}         & \text{}\\
-        Dichte  $\rho$            & \text{\input{varrho_Cu.tex}}    & \text{\input{varrho_Ag.tex}}    & \text{\input{varrho_Zn.tex}}\\
-        Relative Atommasse $A_u$      & \text{\input{atom_mass_Cu.tex}} & \text{\input{atom_mass_Ag.tex}} & \text{\input{atom_mass_Zn.tex}}\\
+        Foliendicke $d$             & \text{\input{d_Cu_Folie.tex}}   & \text{\input{d_Ag_Folie.tex}}   & \text{\input{d_Zn_folie.tex}}\\
+        Drahtdurchmesser            & \text{\input{d_Cu_Draht.tex}}   & \text{\input{d_Ag_Draht.tex}}   & \text{}\\
+        Drahtlänge $l$              & \text{\input{l_Cu.tex}}         & \text{\input{l_Ag.tex}}         & \text{}\\
+        Widerstand $R$              & \text{\input{R_Cu.tex}}         & \text{\input{R_Ag.tex}}         & \text{}\\
+        Dichte  $\rho$              & \text{\input{varrho_Cu.tex}}    & \text{\input{varrho_Ag.tex}}    & \text{\input{varrho_Zn.tex}}\\
+        Relative Atommasse $A_u$    & \text{\input{atom_mass_Cu.tex}} & \text{\input{atom_mass_Ag.tex}} & \text{\input{atom_mass_Zn.tex}}\\
         \bottomrule
     \end{tabular}
 \caption{Messwerte für den Spezifischen Widerstand}
@@ -228,12 +228,15 @@ sinkenden Strom (rechts) wieder.
 \end{table}
 
 \flushleft{Mithilfe\;}\justifying der Messwerte aus Tabelle \ref{tab:2} lässt sich der Graph \ref{fig:2} erstellen. Der folgende Graph wird 
-mit dem phython Befehl np.polyfit \cite{numpy} und der Formel \eqref{eq:14d} $y = mx + b$ erstellt. Die Parameter $m$ und $b$ werden mit 
+mit dem Python Befehl np.polyfit \cite{numpy} und der Formel $y = mx + b$ erstellt. Die Parameter $m$ und $b$ werden mit 
 den Formeln 
 \begin{subequations}
 \begin{align}
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \qquad \text{und} \label{eq:14e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:14f}
+    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2}\\
+\intertext{
+    und
+}
+    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2}\\
 \intertext{
     bestimmt und lauten:
 }
@@ -255,7 +258,7 @@ den Formeln
 \subsection{Kupfer} \label{sec:5.3}
 
 \flushleft{Die\;}\justifying folgende Tabelle \ref{tab:3} gibt die Messwerte der Hallspannung $U_H$ bei variierendem Querstrom $I_Q$ oder Magnetfeld
-$I_B$ für Kupfer wieder:
+$I_B$ für Kupfer wieder. Das Magnetfeld $B$ wird aus der Geradengleichung $B = m_{auf} \cdot I_B + b_{auf}$ gewonnen. 
 
 \begin{table}[H]
     \centering
@@ -268,10 +271,10 @@ $I_B$ für Kupfer wieder:
 angefertigt. Außerdem lauten die relevanten Parameter: 
 \begin{subequations} \label{eq:17}
 \begin{align}
-    m_{a)} &= \text{\input{m_Cu_IQ.tex}} \label{eq:17a}\\
-    b_{a)} &= \text{\input{b_Cu_IQ.tex}} \label{eq:17b}\\
-    m_{b)} &= \text{\input{m_Cu_IB.tex}} \label{eq:17c}\\
-    b_{b)} &= \text{\input{b_Cu_IB.tex}} \label{eq:17d}
+    m_{a)} &= \text{\input{m_Cu_IB.tex}} \label{eq:17a}\\
+    b_{a)} &= \text{\input{b_Cu_IB.tex}} \label{eq:17b}\\
+    m_{b)} &= \text{\input{m_Cu_IQ.tex}} \label{eq:17c}\\
+    b_{b)} &= \text{\input{b_Cu_IQ.tex}} \label{eq:17d}
 \end{align}
 \end{subequations}
 
@@ -296,7 +299,7 @@ angefertigt. Außerdem lauten die relevanten Parameter:
  
 \flushleft{Die\;}\justifying Ladungsträger pro Volumen $n$ lassen sich mit der Formel \eqref{eq:1} bestimmen. Dafür wird das Magnetfeld $B$
 benötigt, welches sich mit den Steigung $m_{auf}$ \eqref{eq:16a} oder $m_{ab}$ \eqref{eq:16c} des Graphen \ref{fig:2} bestimmen lässt, da 
-Das B-Feld aus der Geradengleichung $B = m_{auf/ab} \cdot I + b_{auf/ab}$ folgt. Wird der Wert mit dem dazugehörigen Werten aus
+Das B-Feld aus der Geradengleichung $B = m_{auf} \cdot I + b_{auf}$ folgt. Wird der Wert mit dem dazugehörigen Werten aus
 Tabellen \ref{tab:1} und \ref{tab:2} in Formel \eqref{eq:1} eingesetzt, folgt für $n$:
 \begin{align}
     n_{Cu} = \text{\input{n_Cu_IB.tex}} \label{eq:18}
@@ -390,10 +393,10 @@ linken Seite der Querstrom konstant und auf der rechten Seite das Magnetfeld.
 und den relevanten Parameter $m$ und $b$
 \begin{subequations} \label{eq:28}
 \begin{align}
-    m_{a)} &= \text{\input{m_Ag_IQ.tex}} \label{eq:28a}\\
-    b_{a)} &= \text{\input{b_Ag_IQ.tex}} \label{eq:28b}\\
-    m_{b)} &= \text{\input{m_Ag_IB.tex}} \label{eq:28c}\\
-    b_{b)} &= \text{\input{b_Ag_IB.tex}} \label{eq:28d}
+    m_{a)} &= \text{\input{m_Ag_IB.tex}} \label{eq:28a}\\
+    b_{a)} &= \text{\input{b_Ag_IB.tex}} \label{eq:28b}\\
+    m_{b)} &= \text{\input{m_Ag_IQ.tex}} \label{eq:28c}\\
+    b_{b)} &= \text{\input{b_Ag_IQ.tex}} \label{eq:28d}
 \end{align}
 \end{subequations}
 
@@ -477,10 +480,10 @@ Wie auch in Sektion \ref{sec:5.4} ist auf der linken Seite der Querstrom konstan
 Die dazugehörigen Parameter lauten:
 \begin{subequations} \label{eq:29}
 \begin{align}
-    m_{a)} &= \text{\input{m_Zn_IQ.tex}} \label{eq:29a}\\
-    b_{a)} &= \text{\input{b_Zn_IQ.tex}} \label{eq:29b}\\
-    m_{b)} &= \text{\input{m_Zn_IB.tex}} \label{eq:29c}\\
-    b_{b)} &= \text{\input{b_Zn_IB.tex}} \label{eq:29d}
+    m_{a)} &= \text{\input{m_Zn_IB.tex}} \label{eq:29a}\\
+    b_{a)} &= \text{\input{b_Zn_IB.tex}} \label{eq:29b}\\
+    m_{b)} &= \text{\input{m_Zn_IQ.tex}} \label{eq:29c}\\
+    b_{b)} &= \text{\input{b_Zn_IQ.tex}} \label{eq:29d}
 \end{align}
 \end{subequations}
 
@@ -555,7 +558,7 @@ Die Ergebnisse lauten wie folgt:
 \centering
     \begin{tabular}{c c c c}
     \toprule
-        \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{Querstrom $I_q$ = Konstant} & 
+        \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{Querstrom $I_Q$ = Konstant} & 
         \multicolumn{1}{c}{Magnetfeld $I_B$ = Konstant} & \multicolumn{1}{c}{Literaturwerte}\\
     \cmidrule(lr{0,5em}){1-4}
         Kupfer $R_F$ & \text{\input{AH_Cu_IB.tex}} & \text{\input{AH_Cu_IQ.tex}} & \text{\input{AHconst_Cu_lit.tex}} \\
