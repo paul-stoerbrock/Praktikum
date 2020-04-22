@@ -109,18 +109,18 @@ Bedingung: $d_{\omega} f(\omega,T) = 0 $
 \end{figure}
 
 \begin{align}
-    P &= \frac{c}{4} \int_0^{\infty} \, d \omega \frac{\hbar \omega ^3}{\pi ^2c^3} \frac{1}{\exp(\frac{\hbar \omega}{k_{\text{B}}T})-1}\\
+    P &= \frac{c}{4} \int_0^{\infty} \, d \omega \frac{\hbar \omega ^3}{\pi ^2c^3} \frac{1}{\exp\left(\frac{\hbar \omega}{k_{\text{B}}T}\right)-1}\\
     &= \--\frac{\hbar}{4 \pi ^2 c^2} \int_0^ {\infty} \, d \omega \frac{\omega ^3}{1-\exp (\--(\--\frac{\hbar \omega}{k_{\text{B}}T}))}\\
-    &= \-- \frac{\hbar}{4\pi ^2 c^2} \int_0^ {\infty} \, d \omega \omega ^3 \sum_{n=0}^{\infty} e^{-(-n\frac{\hbar \omega}{k_{\text{B}}T})}\\
+    &= \-- \frac{\hbar}{4\pi ^2 c^2} \int_0^ {\infty} \, d \omega \omega ^3 \sum_{n=0}^{\infty} \exp\left(\--\left(\--n\frac{\hbar \omega}{k_{\text{B}}T}\right)\right)\\
     \intertext{
         Substitution
     }
-    u &= -\frac{n \hbar \omega}{k_{\text{B}}T}\\
-    \omega &= -\frac{u k_{\text{B}}T}{\hbar n}\\
-    \frac{du}{d \omega}&= -\frac{n \hbar}{k_{\text{B}}T}\\
-    d \omega &= -\frac{k_{text{B}}T}{n \hbar} \,d u\\
-    P&= \frac{\hbar k_{\text{B}}^4 T^4}{4 \pi ^2 c^2 \hbar ^4} \sum_{n=0}^ {infty} \frac{1}{n^4}\int_0^{\infty} \, du u^3 e^ {-u}\\
-    &= \frac{ k_{\text{B}}^4 T^4}{4 \pi ^2 c^2 \hbar ^3} \sum_{n=0}^ {infty} \frac{1}{n^4} 3!\\
+    u &= \--\frac{n \hbar \omega}{k_{\text{B}}T}\\
+    \omega &= \--\frac{u k_{\text{B}}T}{\hbar n}\\
+    \frac{du}{d \omega}&= \--\frac{n \hbar}{k_{\text{B}}T}\\
+    d \omega &= \--\frac{k_{\text{B}}T}{n \hbar} \,d u\\
+    P&= \frac{\hbar k_{\text{B}}^4 T^4}{4 \pi ^2 c^2 \hbar ^4} \sum_{n=0}^ {\infty} \frac{1}{n^4}\int_0^{\infty} \, du u^3 e^ {-u}\\
+    &= \frac{ k_{\text{B}}^4 T^4}{4 \pi ^2 c^2 \hbar ^3} \sum_{n=0}^ {\infty} \frac{1}{n^4} 3!\\
     &= \frac{3}{2 \pi ^2}\frac{ k_{\text{B}}^4 T^4}{ c^2 \hbar ^3} \frac{\pi ^4}{90}\\
     &= \frac{\pi ^2}{60} \frac{ k_{\text{B}}^4}{ c^2 \hbar ^3} T^4 \\
     &= \sigma T^4
