@@ -80,17 +80,18 @@ Bedingung: $d_{\omega} f(\omega,T) = 0 $
     \intertext{
         Zähler muss null werden
     }
-    C (3 \omega ^2(\exp(C' \omega)-1)- \omega ^3 C' \exp(C' \omega))&=0\\
+    &C (3 \omega ^2(\exp(C' \omega)-1)- \omega ^3 C' \exp(C' \omega))&=0\\
     &\Leftrightarrow C \omega ^2 (3 (\exp(C' \omega)-1)- \omega  C' \exp(C' \omega))&=0\\
     &\Leftrightarrow 3 (\exp(C' \omega)-1)- \omega  C' \exp(C' \omega)&=0\\
     &\Leftrightarrow -3&= (C' \omega -3) \exp(C' \omega)
 \end{align*}
-%\begin{figure}[H]
-%    \centering
-%    \caption{numerische Lösung der Gleichung mit WolframAlpha}
-%    \includegraphics[width=0.75\textwidth]{images/wolfram_calc.jpg}
-%    \label{fig:2}
-%\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{numerische Lösung der Gleichung mit WolframAlpha}
+    \includegraphics[width=0.75\textwidth]{images/wolfram_calc.jpg}
+    \label{fig:2}
+\end{figure}
 
 \begin{align*}
     C' \omega &= 2.282144\\
@@ -143,31 +144,71 @@ Bedingung: $d_{\omega} f(\omega,T) = 0 $
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{images/Aufgabe_3a.jpg}
-    \label{fig:3}
+    \label{fig:8}
 \end{figure}
+
+    \flushleft{Damit\;}\justifying das Elektron der Kathode enkommen kann, muss das Photon Energie gleich der Austrittsarbeit ($W_A$) aufbringen. 
+    Daraus folgt $\hbar \omega = W_A$.
+    Wird nun für $\hbar$ und $\omega$
+
+    \begin{align}
+        \hbar &= \frac{h}{2\pi} \qquad \qquad \omega = \frac{c}{\lambda_1}\cdot 2\pi
+                \intertext{eingesetzt, ergibt sich:
+        }
+        W_A &=\hbar \frac{c}{\lambda_1} 2 \pi \qquad \Leftrightarrow \qquad \lambda_1 = \frac{h c}{W_A}
+    \end{align}
 
 \subsection{b)}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{images/Aufgabe_3b.jpg}
-    \label{fig:3}
+    \label{fig:9}
 \end{figure}
+
+    \flushleft{Die\;}\justifying maximale kinetische Energie ($E_{kin}$), die ein Elektron von einem Photon gewinnen kann, wird von der Austrittsarbeit beschränkt. 
+    Daraus folgt:
+
+    \begin{align}
+        &E_{kin} = \hbar \omega_2 - W_A\\
+        &E_{kin} = \frac{\hbar c}{\lambda_2} 2\pi - \frac{\hbar c}{\lambda_A} 2\pi = 
+        \frac{h c}{\lambda_2} - \frac{h c}{\lambda_A} = h c \left ( \frac{1}{\lambda_2} - \frac{1}{\lambda_A} \right )
+    \end{align}
 
 \subsection{c)}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{images/Aufgabe_3c.jpg}
-    \label{fig:3}
+    \label{fig:10}
 \end{figure}
+
+    \flushleft{Mithilfe\;}\justifying von Energie- und Impulserhaltung lässt sich die Wellenlängendifferenz anhand des Steuungswinkels bestimmen.
+    Energieerhaltung diktiert, dass die kinetische Energie des Photons ($h \omega$) plus der potentiellen Energie des Elektrons ($m_0 c^2$)
+    gleich der Energie nach der Steuung sein muss. 
+    Also folgt aus der
+
+    \begin{align}
+        &\text{Energieerhaltung}\;                          h\omega + m_0 \cdot c^2 = h\omega' + m \cdot c^2,\\
+        &\text{der Impulserhaltung in x-Richtung}\;         \frac{h}{\lambda} = \frac{h}{\lambda'} \cdot cos(\phi) + m \cdot v \cdot cos(\theta)\\
+        &\text{und der Impulserhaltung in y-Richtung}\;     0 = \frac{h}{\lambda'} \cdot sin(\phi) - m \cdot v \cdot sin(\theta)\\
+        \intertext{die Wellenlängendifferenz
+        }
+        &\Delta\lambda = \lambda_3' - \lambda_3 = \frac{\hbar}{m_0 c} \cdot (1-cos(\phi)). \label{eq:deltaL}\\
+        \intertext{Die Wellenlänge wird minimal bei maximaler Frequenz, welche bei Rückstreuung auftritt. Werden
+        }
+        &\frac{h}{m_0 c} = \lambda_c = const \qquad \text{und} \qquad \phi = \pi 
+        \intertext{in \eqref{eq:deltaL} eingesetzt, folgt die minimale Wellenlänge:
+        }
+        &\Rightarrow \lambda_3' = 2 \cdot \frac{h}{m_0 c} + \lambda_3
+    \end{align}
 
 \subsection{d)}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{images/Aufgabe_3d.jpg}
-    \label{fig:3}
+    \label{fig:11}
 \end{figure}
 
 \end{document}
