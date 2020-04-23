@@ -1,4 +1,5 @@
 \input{../../header.tex}
+\usepackage{ulem}
 
 \begin{document}
     \title{Physik IV Übungsblatt 1}
@@ -160,6 +161,18 @@ Bedingung: $d_{\omega} f(\omega,T) = 0 $
     \includegraphics[width=0.75\textwidth]{images/Aufgabe_2b.jpg}
     \label{fig:6}
 \end{figure}
+
+    \begin{align}
+        m_e \cdot a &= -\frac{e^2}{4\pi \cdot \varepsilon_0} \cdot \frac{r}{r_0^3}\\
+        \ddot{r} + \frac{e^2}{4\pi \cdot \varepsilon_0 \cdot m_e} \cdot \frac{r}{r_0^3} &= 0\\
+        \omega^2 &= \frac{e^2}{4\pi \cdot \varepsilon_0 \cdot m_e} \cdot \frac{1}{r_0^3}\\
+        \omega &= \sqrt{\frac{e^2}{4\pi \cdot \varepsilon_0 \cdot m_e} \cdot \frac{1}{r_0^3}}\\
+        E = \hbar \omega \qquad r = r_0\\
+        \Rightarrow \frac{E^2}{\hbar^2} &= \frac{e^2}{4\pi \cdot \varepsilon_0 \cdot m_e} \cdot \frac{1}{r_0^3}\\
+        r_0^3 &= \frac{\hbar^2 \cdot e^2}{E^2 \cdot 4\pi \cdot \varepsilon_0 \cdot m_e}\\
+        \frac{\xout{(10^{-19})^2} \cdot (10^{-34})^2}{\xout{(10^{-19})^2} \cdot 10^{-12} \cdot 10^{-31}} &=
+        \frac{10^{-68}}{10^{-43}} = \sqrt[3]{10^{-25}}
+    \end{align}
 
 \subsection{c)}
 
