@@ -139,9 +139,42 @@ Bei hohen Frequenzen wäre  zu erwarten, dass die Strahlungsintensität entsprec
 
 \subsection{a)}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/Aufgabe_2a.jpg}
+    \label{fig:5}
+\end{figure}
+
+    \begin{align}
+        \Phi_E &= \int_{\partial V} \vec{E} \cdot \,d\vec{A} = \frac{1}{\varepsilon_0} \iiint_{V} \rho \; \,dV\\
+        \intertext{$\,d\vec{A} = r^2 \cdot sin(\theta) \; \,d\varphi \,d\theta$
+        }
+        \intertext{$\theta \; \epsilon \; [0,\pi] \qquad \varphi \; \epsilon \; [0, 2\pi]$
+        }
+        E \cdot 4\pi \cdot r^2 &= \frac{1}{\varepsilon_0} \int_{0}^{r}\int_{0}^{2\pi}\int_{0}^{\pi} \rho \cdot r'^2 \cdot sin(\theta)\; \,d\theta \,d\varphi \,dr'\\
+        &= \frac{4\pi}{\varepsilon_0} \int_{0}^{r} r'^2 \cdot \rho \; \,dr'\\
+        &= \frac{4\pi}{3} \cdot r^3 \cdot \frac{\rho}{\varepsilon_0}\\
+        \rho &= \frac{Q}{V} = \frac{Q}{\sfrac{4\pi}{3} \cdot r_0^3}\\
+        E &= \frac{Q}{4\pi \cdot \varepsilon_0} \cdot \frac{r}{r_0^3}\\
+        F &= E(-q) = \frac{Qq}{4\pi \cdot \varepsilon_0} \cdot \frac{r}{r_0^3}\\
+        &= \frac{-e^2}{4\pi \cdot \varepsilon_0} \cdot \frac{r}{r_0^3}
+    \end{align}
+
 \subsection{b)}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/Aufgabe_2b.jpg}
+    \label{fig:6}
+\end{figure}
+
 \subsection{c)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/Aufgabe_2c.jpg}
+    \label{fig:7}
+\end{figure}
 
 \section{Aufgabe 3}
 
