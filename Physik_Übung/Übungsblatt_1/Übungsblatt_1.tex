@@ -35,7 +35,7 @@
 
 Herleitung des Rayleigh-Jeans Gesetz aus dem Plank'schen Strahlungsgesetz:
 
-\begin{align*}
+\begin{align}
     f(\omega , T)&= \frac{\hbar \omega ^3}{\pi ^2 c^3} \frac{1}{\text{exp}\left(\frac{\hbar \omega}{k_{\text{B}} T} \right)-1}
     \intertext{
         \flushleft{Da\;}\justifying $\hbar \omega \ll k_{\text{B}}T$ ist, wird der Expontialteil ebenso sehr klein,
@@ -48,11 +48,11 @@ Herleitung des Rayleigh-Jeans Gesetz aus dem Plank'schen Strahlungsgesetz:
         Durch Ergänzung von $d \omega$ ergibt sich das Rayleigh-Jeans Gesetz
     }
     f(\omega, T) \, d \omega &= \frac{\omega ^2 k_{\text{B}}}{\pi ^2 c^3}\; T \, d \omega
-\end{align*}
+\end{align}
 
 Herleitung des Wienschen Strahlungsgesetz Gesetz aus dem Plank'schen Strahlungsgesetz:
 
-\begin{align*}
+\begin{align}
     \intertext{
         Für den Fall  $\hbar \omega \gg k_{\text{B}} T $ ist die Exponential viel größer als 1,
         so dass die 1 im Nenner vernachlässigt werden kann.
@@ -63,13 +63,13 @@ Herleitung des Wienschen Strahlungsgesetz Gesetz aus dem Plank'schen Strahlungsg
         ergibt sich das Wiensche Strahlungsgesetz:
     } 
     f(\omega, T) = c_1 \omega ^3 \exp \left(\--\frac{c_2 \omega}{k_B T} \right)
-\end{align*}
+\end{align}
 
 Herleitung des Wienschen Verschiebungsgesetz aus dem Plank'schen Strahlungsgesetz:
 
 Bedingung: $d_{\omega} f(\omega,T) = 0 $
 
-\begin{align*}
+\begin{align}
     d_{\omega} f(\omega, T) &= \frac{\hbar }{\pi ^2 c^3} \frac{d}{d\omega} \frac{\omega^3}{\text{exp}\left(\frac{\hbar \omega}{k_{\text{B}} T} \right)-1}
     \intertext{
        Setze  
@@ -85,7 +85,7 @@ Bedingung: $d_{\omega} f(\omega,T) = 0 $
     \Leftrightarrow C \omega ^2 (3 (\exp(C' \omega)-1)- \omega  C' \exp(C' \omega))&=0\\
     \Leftrightarrow 3 (\exp(C' \omega)-1)- \omega  C' \exp(C' \omega)&=0\\
     \Leftrightarrow -3&= (C' \omega -3) \exp(C' \omega)
-\end{align*}
+\end{align}
 \begin{figure}[H]
     \centering
     \caption{numerische Lösung der Gleichung mit WolframAlpha}
@@ -93,13 +93,13 @@ Bedingung: $d_{\omega} f(\omega,T) = 0 $
     \label{fig:2}
 \end{figure}
 
-\begin{align*}
+\begin{align}
     C' \omega &= 2.282144\\
     \omega &= \frac{1}{C'} 2.282144\\
      &= \frac{k_{\text{B}}}{\hbar}\cdot 2.282144\cdot T\\
     \omega &= \SI{3,6938e11}{\hertz\kelvin\tothe{-1}}\cdot T\\
     \alpha &= \SI{3,6938e11}{\hertz\kelvin\tothe{-1}}
-\end{align*}
+\end{align}
 
 \subsection{b)}
 
@@ -177,17 +177,47 @@ Bei hohen Frequenzen wäre  zu erwarten, dass die Strahlungsintensität entsprec
         E = \hbar \omega \qquad r = r_0\\
         \Rightarrow \frac{E^2}{\hbar^2} &= \frac{e^2}{4\pi \cdot \varepsilon_0 \cdot m_e} \cdot \frac{1}{r_0^3}\\
         r_0^3 &= \frac{\hbar^2 \cdot e^2}{E^2 \cdot 4\pi \cdot \varepsilon_0 \cdot m_e}\\
-        \frac{\xout{(10^{-19})^2} \cdot (10^{-34})^2}{\xout{(10^{-19})^2} \cdot 10^{-12} \cdot 10^{-31}} &=
-        \frac{10^{-68}}{10^{-43}} = \sqrt[3]{10^{-25}}
+        r_0 &= \SI{8.399e-11}{\meter}
+        \intertext{
+            Relativer Fehler zum gegebenen Wert $r=\SI{10e-10}{\meter} $
+        } 
+        \abs{\frac{r_0-r}{r}}=91,6 \%
     \end{align}
+    Der, über das Thomsonsche Atommodel berechnete Atomradius von Wasserstoff, zeigt einen 
+    deutlichen Unterschied zu dem des Bohrschen Atommodel auf.
 
 \subsection{c)}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{images/Aufgabe_2c.jpg}
     \label{fig:7}
 \end{figure}
+
+\begin{align}
+    L &= n \hbar = mrv \;(1)\\
+    r &= \frac{n \hbar}{mv} \label{eq:51} \\
+    F_Z &= F_{el}\\
+    \frac{mv^2}{r} &= \frac{e^2}{4 \pi \epsilon _0} \frac{r}{r_0^3}\\
+    v &= \sqrt{\frac{r^2}{r_0^3}\frac{e^2}{4 \pi \epsilon _0 m}} \;(2) \label{eq:54}\\
+    \intertext{
+        Gleichung \eqref{eq:54} in \eqref{eq:51} einsetzen
+    }
+    r &= \frac{\hbar}{m \sqrt{\frac{r^2}{r_0^3}\frac{e^2}{4 \pi \epsilon _0 m}}}\\
+    r^4 &= \frac{\hbar ^2 r_0^3 \epsilon _0 4 \pi}{m e^2} n^2\\
+    \intertext{
+        Berechnung der Gesamtenergie
+        }
+    \frac{m v^2}{r} &= \frac{e^2}{4 \pi \varepsilon _0}\frac{r}{r_0^3}\;\vert \cdot \frac{r}{2}\\
+    \frac{1}{2} m v^2 &= \frac{1}{2} \frac{e^2}{4 \pi \varepsilon _0} \frac{r^2}{r_0^3}\\
+    E_{\text{kin}}&=-\frac{1}{2} E_{\text{pot}}\\
+    E_{\text{ges}} &= E_{\text{kin}}+E_{\text{pot}}\\
+    &=  \frac{1}{2} E_{\text{pot}}\\
+    &= \frac{1}{2} \frac{e^2}{4 \pi \varepsilon _0} \frac{r^2}{r_0^3}\\
+    &= \frac{1}{2} \frac{e^2}{4 \pi \varepsilon _0 r_0^3} \left(\sqrt[4]{\frac{\hbar ^2 r_0^3 \epsilon _0 4 \pi}{m e^2} n^2} \right)^2\\
+\end{align}
+Das Thomson'schen Atommodel ist proportional zu $n $, während das Bohrsche Atommodel 
+proprtional zu $\frac{1}{n^2} $
+
 
 \section{Aufgabe 3}
 
