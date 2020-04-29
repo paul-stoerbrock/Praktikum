@@ -1,5 +1,4 @@
 \input{../../header.tex}
-\usepackage{ulem}
 
 \begin{document}
     \title{Physik IV Übungsblatt 2}
@@ -32,11 +31,77 @@
 
 \subsection{a)}
 
+\subsubsection{i)}
 
+    \begin{align*}
+        \Psi_1(x) &= N_1 \cdot e^{- \frac{x^2}{2x_0^2}}\\
+        \int_{-\infty}^{\infty} \abs{\Psi_1 (x)}^2 \mathrm{d}x &\stackrel{!}{=} 1\\
+        \int_{-\infty}^{\infty} \left| N_1 \cdot e^{-\frac{x^2}{2x_0^2}} \right| ^2 \mathrm{d}x &= 1 \nonumber\\
+        \abs{N_1}^2 \int_{-\infty}^{\infty} e^{-\frac{x^2}{2x_0^2}} \mathrm{d}x &= 1 \nonumber\\
+        u = \frac{x}{x_0} \qquad \rightarrow \qquad \frac{\mathrm{d}u}{\mathrm{d}x} &= \frac{1}{x_0} 
+        \qquad \Leftrightarrow \qquad \mathrm{d}u = \frac{1}{x_0} \mathrm{d}x \nonumber\\
+        \abs{N_1}^2 \int_{-\infty}^{\infty} x_0 \cdot e^{-\frac{x^2}{2x_0^2}} \mathrm{d}u &= 1 \nonumber\\
+        \abs{N_1}^2 \cdot x_0 \cdot \sqrt{\pi} &= 1 \nonumber\\
+        \abs{N_1} &= \pm \sqrt{\frac{1}{\sqrt{\pi}x_0}} \qquad \qquad \qquad (A)
+    \end{align*}
+
+\subsubsection{ii)}
+
+    \begin{align*}
+        \hat{x} \Psi &= x \Psi\\
+        \langle \hat{x} \rangle &= \int_{-\infty}^{\infty} \abs{N_1}^2 e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x\\
+        u = \frac{x}{x_0} \qquad \rightarrow \qquad \frac{\mathrm{d}u}{\mathrm{d}x} &= \frac{1}{x_0} 
+        \qquad \Leftrightarrow \qquad \mathrm{d}u = \frac{1}{x_0} \mathrm{d}x \nonumber\\
+        &= - \int_{-\infty}^{\infty} x_0 \cdot \abs{N_1}^2 \cdot e^{- u^2} \mathrm{d}u \nonumber\\
+        &= x_0^2 \abs{N_1}^2 \cdot \frac{1}{2} \left[ e^{- u^2} \right]_{-\infty}^{\infty} \nonumber\\
+        \langle \hat{x} \rangle_{\Psi_1} &= 0 \qquad \qquad \qquad (B)\\
+        \hat{p} \Psi_1 &= -i \hbar \frac{\partial}{\partial x} \Psi_1\\
+        &= i \hbar \abs{N_1} \frac{x}{x_0^2} \cdot e^{-\frac{x^2}{2x_0^2}} \nonumber\\
+        \langle \hat{p} \rangle &= \int_{-\infty}^{\infty} \Psi_1^* \hat{p} \Psi_1 \mathrm{d}x\\
+        &= \int_{-\infty}^{\infty} \abs{N_1}^2 e^{- \frac{x^2}{2x_0^2}} \cdot i \hbar \frac{x}{x_0^2} e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
+        &= i \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} x \cdot e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
+        &= - \frac{1}{2} i \hbar \abs{N_1}^2 x_0 \left[ e^{- u^2} \right]_{-\infty}^{\infty} \nonumber\\
+        \langle \hat{p} \rangle_{\Psi_1} &= 0 \qquad \qquad \qquad (C)\\
+        \langle \hat{x}^2 \rangle &= \int_{-\infty}^{\infty} \Psi_1^2(x) x^2 \mathrm{d}x\\
+        &= \int_{-\infty}^{\infty} \abs{N_1}^2 x^2 e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber
+        \intertext{\flushleft{Da\;}\justifying die Gaußkurve symmetrisch ist, folgt:
+        }
+        &= 2 \cdot \int_{0}^{\infty} \abs{N_1}^2 x^2 e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
+        &\stackrel{Blatt\;(5)}{=} 2 \abs{N_1}^2 \cdot \sqrt{\pi} \frac{x_0^3(1)!!}{2^2} \qquad \text{für $n = 1$} \nonumber\\
+        &= 2 \abs{N_1}^2 \cdot \sqrt{\pi} \frac{x_0^3}{8} \qquad \qquad \qquad (D)\\
+        \langle \hat{x}^2 \rangle_{\Psi_1} &\stackrel{(A)}{=} \frac{1}{2} \cdot x_0^2\\
+        \langle \hat{p}^2 \rangle &= \int_{-\infty}^{\infty} \abs{N_1}^2 e^{- \frac{x^2}{2x_0^2}} (-\hbar) \frac{\mathrm{d}^2}{\mathrm{d}x^2} 
+        \abs{N_1} \cdot e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x\\
+        &= - \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} e^{- \frac{x^2}{2x_0^2}} \frac{\mathrm{d}}{\mathrm{d}x} \left( -\frac{x}{x_0^2} 
+        \right) e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
+        &= - \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} e^{- \frac{x^2}{2x_0^2}} \left( -\frac{1}{x_0^2} + \frac{x^2}{x_0^4} \right) 
+        e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
+        &\stackrel{!}{=} -2 \hbar \abs{N_1}^2 \int_{0}^{\infty} \left( -\frac{1}{x_0^2} + \frac{x^2}{x_0^4} \right) e^{- \frac{x^2}{2x_0^2}}
+        \mathrm{d}x \nonumber\\
+        &= -2 \hbar \abs{N_1}^2 \int_{0}^{\infty} \left( -\frac{1}{x_0^2} \sqrt{\pi} \frac{x_0}{2} + \frac{1}{x_0^4} \sqrt{\pi} \frac{x_0^3}{2^2}
+        \right) \nonumber\\
+        &= -2 \hbar \abs{N_1}^2 \left( -\frac{1}{4} \frac{\sqrt{\pi}}{x_0} \right) = \frac{1}{2} \sqrt{\pi} \hbar \frac{\abs{N_1}^2}{x_0} \nonumber\\
+        \langle \hat{p} \rangle_{\Psi_1}^2 &\stackrel{(A)}{=} \frac{1}{2} \frac{\hbar}{x_0^2}
+    \end{align*}
+
+\subsubsection{iii)}
+
+    \begin{align*}
+        \Delta x &= \sqrt{\langle \hat{x}^2 \rangle - \langle \hat{x} \rangle^2}\\
+        &= \sqrt{\frac{x_0^2}{2}} = \frac{\abs{x_0}}{\sqrt{2}}\\
+        \Delta p &= \sqrt{\langle \hat{p}^2 \rangle - \langle \hat{p} \rangle^2}\\
+        &= \sqrt{\frac{\hbar}{2 x_0^2}}\\
+        \Delta x \cdot \Delta p &= \frac{\abs{x_0}}{\sqrt{2}} \cdot \sqrt{\frac{\hbar}{2 x_0^2}}
+        = \frac{\hbar}{2}
+    \end{align*}
 
 \subsection{b)}
 
+\subsubsection{i)}
 
+\subsubsection{ii)}
+
+\subsubsection{iii)}
 
 \subsection{c)}
 
@@ -82,11 +147,26 @@
 
 \subsection{a)}
 
-
+\begin{align}
+    \intertext{\flushleft{Die\;}\justifying eindimensionale Schrödingergleichung in der Ortsdarstellung lautet:
+    }
+    i\hbar \frac{\partial \psi}{\partial t} = - \frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2}  + V \psi \label{eq:a}
+\end{align}
 
 \subsection{b)}
 
-
+    \begin{align}
+        \Psi(x,t) &= \varphi \cdot e^{-i \frac{E}{\hbar} t}\\
+        \frac{\partial \Psi}{\partial t} &= -i \frac{E}{\hbar} \cdot \varphi(x) \cdot e^{-i \frac{E}{\hbar} t} \label{eq:b}\\
+        \frac{\partial^2 \Psi}{\partial x^2} &= \frac{\partial^2 \varphi}{\partial x^2} \cdot e^{-i \frac{E}{\hbar} t} \label{eq:c}\\
+        \intertext{\flushleft{$e^{-i \frac{E}{\hbar} t} = 1$\;}\justifying, da der stationäre Zustand zeitunabhängig ist. Werden nun Gleichungen \eqref{eq:b} und 
+        \eqref{eq:c} in Gleichung \eqref{eq:a} eingesetzt, ergibt sich:
+        }\\
+        \Rightarrow i \hbar (-i \frac{E}{\hbar} \cdot \varphi(x)) &= - \frac{\hbar^2}{2m} \frac{\partial^2 \varphi}{\partial x^2} + V\varphi\\
+        \Leftrightarrow E \varphi &= - \frac{\hbar^2}{2m} \frac{\partial^2 \varphi}{\partial x^2} + V\varphi \label{eq:3b}
+        \intertext{\flushleft{Bei\;}\justifying der Gleichung \eqref{eq:3b} handelt es sich um die Eigenwertgleichung der Energie.
+        }
+    \end{align}
 
 \begin{figure}[H]
     \centering
@@ -96,12 +176,18 @@
 
 \subsection{c)}
 
-
-
-
+    \begin{align}
+        \varphi(x) &= e^{i \frac{p}{\hbar} x}\\
+        \frac{\partial^2 \varphi}{\partial x} &= - \frac{p^2}{\hbar^2} \cdot e^{i \frac{p}{\hbar} x}\\
+        E &= (- \frac{\hbar}{2m}) \cdot (- \frac{p^2}{\hbar^2}) + V\\
+        E &= \frac{p^2}{2m \hbar} + V
+    \end{align}
 
 \subsection{d)}
 
-
+    \begin{align}
+        \hbar \omega &= \frac{k^2 \cdot \hbar^2}{2m\hbar} + V \qquad \qquad \text{mit $k = \frac{2\pi}{\lambda}$}\\
+        \omega(k) &= \frac{k^2}{2m} + \frac{V}{\hbar} \qquad \qquad \text{mit $p = \frac{2\pi \hbar}{\lambda} = k\hbar$}
+    \end{align}
 
 \end{document}
