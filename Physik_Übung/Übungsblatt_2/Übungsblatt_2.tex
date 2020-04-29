@@ -58,7 +58,48 @@
 
 \subsection{a)}
 
+\flushleft{Beweis\,}\justifying der Orthogonalität zwischen 
+$\Psi _1 $ und $\Psi _2 $
 
+Fall $\Psi _0 = \Psi _1$
+
+\begin{align}
+    <\Psi _0 , \Psi _0> &= \int_{-\infty}^{\infty} \,dx\, \Psi _0^* \Psi _0\\
+    &= \int_{-\infty}^{\infty} \,dx\, \abs{\Psi _0 }^2 \\
+    &=1
+\end{align}
+
+Beweis, dass $\Psi$ bereits normiert ist:
+
+
+
+Fall: $\Psi _0 \ne \Psi _1$
+
+\begin{align}
+    <\Psi _0 , \Psi _1> &= \int_{-\infty}^{\infty} \,dx \, \Psi _0^* \cdot \Psi _1\\
+    &=\int_{-\infty}^{\infty} \,dx\, \Psi _0 N \frac{d \Psi _0 (x)}{dx}\\
+    &=\int_{-\infty}^{\infty} \,dx\, \frac{N}{2} \frac{d}{dx}(\Psi _0(x)\cdot \Psi _0(x))\\
+    &=\frac{N}{2} \int_{-\infty}^{\infty} \,dx\,  \frac{d}{dx}(\Psi _0(x)\cdot \Psi _0^*(x))\\
+    &=\frac{N}{2} \int_{-\infty}^{\infty} \,dx\, \frac{d}{dx}(\abs{\Psi _0(x)}^2)\\
+    &=\frac{N}{2} [\abs{\Psi _0(x)}^2]_{-\infty}^ {\infty}
+    \intertext{
+        $\Psi _0 (x)$ ist gerade und läuft im Unendlichen gegen 0
+        }
+    \Rightarrow &= 0
+\end{align}
+
+\begin{align*}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} \int_{-\infty}^{\infty} \, dx \, \abs{\Psi (x)}^2&=1\\
+    \int_{-\infty}^{\infty} \, dx\, \abs{\Psi (x)}^2 &= \int_{-\infty}^{\infty}\, dx\, \abs{c_0 \Psi _0 (x) + c_1 \Psi _1(x)}^2\\
+    &=\int_{-\infty}^{\infty} \, dx\, (c_0 \Psi _0  + c_1 \Psi _1)^* \,(c_0 \Psi _0  + c_1 \Psi _1)\\
+    &=\int_{-\infty}^{\infty} \, dx\, (c_0^* \Psi _0  + c_1^* \Psi _1^*) \,(c_0 \Psi _0  + c_1 \Psi _1)\\
+    &=\int_{-\infty}^{\infty} \, dx\, \abs{c_0}^2 \abs{\Psi _0}^2+\abs{c_1}^2 \abs{\Psi _1}^2 + c_0^* c_1 \Psi _0 \Psi _1+c_1^* c_0 \Psi _0 \Psi_1^*\\
+    &=\int_{-\infty}^{\infty} \, dx\, \abs{c_0}^2 \abs{\Psi _0}^2 +\int_{-\infty}^{\infty} \, dx\,\abs{c_1}^2 \abs{\Psi _1}^2 +\int_{-\infty}^{\infty} \, dx\, c_0^* c_1 \Psi _0 \Psi _1+ \\
+    &\phantom{=} \int_{-\infty}^{\infty} \, dx\, c_1^* c_0 \Psi _0 \Psi_1^*\\
+    &= \abs{c_0}^2+\abs{c_1}^2+ \int_{-\infty}^ {\infty}\,dx\, \frac{c_0^*c_1}{N}\frac{1}{2} \frac{d}{dx}(\abs{\Psi _0}^2)+ \int_{-\infty}^{\infty} \,dx\, \frac{c_1^*c_0}{N^*}\frac{1}{2}\frac{d}{dx}(\abs{\Psi _0}^2) \\
+    &= 1+ \underbrace{\left[\frac{c_0^*c_1}{2N}\abs{\Psi _0}^2\right]_{-\infty}^{\infty}}_{=0} + \underbrace{\left[\frac{c_1^*c_0}{2N^*}\abs{\Psi _0}^2 \right]_{-\infty}^{\infty}}_{=0} \\
+    &=1
+\end{align*}
 
 \subsection{b)}
 
