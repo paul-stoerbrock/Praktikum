@@ -72,4 +72,4 @@ with open('build/A_E.tex', 'w') as f:
 # tex file of P_S
 
 with open('build/P_S.tex', 'w') as f: 
-  f.write(make_SI(P_S*1e-15, r'\peta\watt' ,figures=1))
+  f.write(make_SI(P_S*1e-15, r'\giga\watt' ,figures=1))
