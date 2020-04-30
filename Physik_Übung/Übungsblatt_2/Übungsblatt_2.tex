@@ -34,13 +34,13 @@
 \subsubsection{i)}
 
     \begin{align*}
-        \Psi_1(x) &= N_1 \cdot e^{- \frac{x^2}{2x_0^2}}\\
-        \int_{-\infty}^{\infty} \abs{\Psi_1 (x)}^2 \mathrm{d}x &\stackrel{!}{=} 1\\
-        \int_{-\infty}^{\infty} \left| N_1 \cdot e^{-\frac{x^2}{2x_0^2}} \right| ^2 \mathrm{d}x &= 1 \nonumber\\
-        \abs{N_1}^2 \int_{-\infty}^{\infty} e^{-\frac{x^2}{2x_0^2}} \mathrm{d}x &= 1 \nonumber\\
+        \Psi_1(x) &= N_1 \cdot exp \left(- \frac{x^2}{2x_0^2} \right)\\
+        \int_{-\infty}^{\infty} \abs{\Psi_1 (x)}^2 \; \mathrm{d}x &\stackrel{!}{=} 1\\
+        \int_{-\infty}^{\infty} \abs{N_1 \cdot exp \left(-\frac{x^2}{2x_0^2} \right)} ^2 \; \mathrm{d}x &= 1 \nonumber\\
+        \abs{N_1}^2 \int_{-\infty}^{\infty} exp \left(-\frac{x^2}{2x_0^2} \right) \; \mathrm{d}x &= 1 \nonumber\\
         u = \frac{x}{x_0} \qquad \rightarrow \qquad \frac{\mathrm{d}u}{\mathrm{d}x} &= \frac{1}{x_0} 
         \qquad \Leftrightarrow \qquad \mathrm{d}u = \frac{1}{x_0} \mathrm{d}x \nonumber\\
-        \abs{N_1}^2 \int_{-\infty}^{\infty} x_0 \cdot e^{-\frac{x^2}{2x_0^2}} \mathrm{d}u &= 1 \nonumber\\
+        \abs{N_1}^2 \int_{-\infty}^{\infty} x_0 \cdot exp \left(-\frac{x^2}{2x_0^2} \right) \; \mathrm{d}u &= 1 \nonumber\\
         \abs{N_1}^2 \cdot x_0 \cdot \sqrt{\pi} &= 1 \nonumber\\
         \abs{N_1} &= \pm \sqrt{\frac{1}{\sqrt{\pi}x_0}} \qquad \qquad \qquad (A)
     \end{align*}
@@ -49,35 +49,36 @@
 
     \begin{align*}
         \hat{x} \Psi &= x \Psi\\
-        \langle \hat{x} \rangle &= \int_{-\infty}^{\infty} \abs{N_1}^2 e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x\\
+        \langle \hat{x} \rangle &= \int_{-\infty}^{\infty} \abs{N_1}^2 exp \left(- \frac{x^2}{2x_0^2}\right) \; \mathrm{d}x\\
         u = \frac{x}{x_0} \qquad \rightarrow \qquad \frac{\mathrm{d}u}{\mathrm{d}x} &= \frac{1}{x_0} 
         \qquad \Leftrightarrow \qquad \mathrm{d}u = \frac{1}{x_0} \mathrm{d}x \nonumber\\
-        &= - \int_{-\infty}^{\infty} x_0 \cdot \abs{N_1}^2 \cdot e^{- u^2} \mathrm{d}u \nonumber\\
+        &= - \int_{-\infty}^{\infty} x_0 \cdot \abs{N_1}^2 \cdot exp \left(- u^2 \right) \; \mathrm{d}u \nonumber\\
         &= x_0^2 \abs{N_1}^2 \cdot \frac{1}{2} \left[ e^{- u^2} \right]_{-\infty}^{\infty} \nonumber\\
         \langle \hat{x} \rangle_{\Psi_1} &= 0 \qquad \qquad \qquad (B)\\
         \hat{p} \Psi_1 &= -i \hbar \frac{\partial}{\partial x} \Psi_1\\
-        &= i \hbar \abs{N_1} \frac{x}{x_0^2} \cdot e^{-\frac{x^2}{2x_0^2}} \nonumber\\
-        \langle \hat{p} \rangle &= \int_{-\infty}^{\infty} \Psi_1^* \hat{p} \Psi_1 \mathrm{d}x\\
-        &= \int_{-\infty}^{\infty} \abs{N_1}^2 e^{- \frac{x^2}{2x_0^2}} \cdot i \hbar \frac{x}{x_0^2} e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
-        &= i \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} x \cdot e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
-        &= - \frac{1}{2} i \hbar \abs{N_1}^2 x_0 \left[ e^{- u^2} \right]_{-\infty}^{\infty} \nonumber\\
+        &= i \hbar \abs{N_1} \frac{x}{x_0^2} \cdot exp \left(-\frac{x^2}{2x_0^2} \right) \nonumber\\
+        \langle \hat{p} \rangle &= \int_{-\infty}^{\infty} \Psi_1^* \hat{p} \Psi_1 \; \mathrm{d}x\\
+        &= \int_{-\infty}^{\infty} \abs{N_1}^2 exp \left( -\frac{x^2}{2x_0^2} \right) \cdot i \hbar \frac{x}{x_0^2} exp \left(- \frac{x^2}{2x_0^2} \right)
+        \; \mathrm{d}x \nonumber\\
+        &= i \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} x \cdot exp \left(- \frac{x^2}{2x_0^2} \right) \; \mathrm{d}x \nonumber\\
+        &= - \frac{1}{2} i \hbar \abs{N_1}^2 x_0 \left[ exp \left(- u^2 \right) \right]_{-\infty}^{\infty} \nonumber\\
         \langle \hat{p} \rangle_{\Psi_1} &= 0 \qquad \qquad \qquad (C)\\
-        \langle \hat{x}^2 \rangle &= \int_{-\infty}^{\infty} \Psi_1^2(x) x^2 \mathrm{d}x\\
-        &= \int_{-\infty}^{\infty} \abs{N_1}^2 x^2 e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber
+        \langle \hat{x}^2 \rangle &= \int_{-\infty}^{\infty} \Psi_1^2(x) x^2 \; \mathrm{d}x\\
+        &= \int_{-\infty}^{\infty} \abs{N_1}^2 x^2 exp \left(- \frac{x^2}{2x_0^2} \right) \; \mathrm{d}x \nonumber
         \intertext{\flushleft{Da\;}\justifying die Gaußkurve symmetrisch ist, folgt:
         }
-        &= 2 \cdot \int_{0}^{\infty} \abs{N_1}^2 x^2 e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
+        &= 2 \cdot \int_{0}^{\infty} \abs{N_1}^2 x^2 exp \left(- \frac{x^2}{2x_0^2} \right) \; \mathrm{d}x \nonumber\\
         &\stackrel{Blatt\;(5)}{=} 2 \abs{N_1}^2 \cdot \sqrt{\pi} \frac{x_0^3(1)!!}{2^2} \qquad \text{für $n = 1$} \nonumber\\
         &= 2 \abs{N_1}^2 \cdot \sqrt{\pi} \frac{x_0^3}{8} \qquad \qquad \qquad (D)\\
         \langle \hat{x}^2 \rangle_{\Psi_1} &\stackrel{(A)}{=} \frac{1}{2} \cdot x_0^2\\
-        \langle \hat{p}^2 \rangle &= \int_{-\infty}^{\infty} \abs{N_1}^2 e^{- \frac{x^2}{2x_0^2}} (-\hbar) \frac{\partial ^2}{\partial x^2} 
-        \abs{N_1} \cdot e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x\\
-        &= - \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} e^{- \frac{x^2}{2x_0^2}} \frac{\partial}{\partial x} \left( -\frac{x}{x_0^2} 
-        \right) e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
-        &= - \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} e^{- \frac{x^2}{2x_0^2}} \left( -\frac{1}{x_0^2} + \frac{x^2}{x_0^4} \right) 
-        e^{- \frac{x^2}{2x_0^2}} \mathrm{d}x \nonumber\\
-        &\stackrel{!}{=} -2 \hbar \abs{N_1}^2 \int_{0}^{\infty} \left( -\frac{1}{x_0^2} + \frac{x^2}{x_0^4} \right) e^{- \frac{x^2}{2x_0^2}}
-        \mathrm{d}x \nonumber\\
+        \langle \hat{p}^2 \rangle &= \int_{-\infty}^{\infty} \abs{N_1}^2 exp \left(- \frac{x^2}{2x_0^2} \right) (-\hbar) \frac{\partial ^2}{\partial x^2} 
+        \abs{N_1} \cdot exp \left(- \frac{x^2}{2x_0^2} \right) \; \mathrm{d}x\\
+        &= - \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} exp \left(- \frac{x^2}{2x_0^2} \right) \frac{\partial}{\partial x} \left( -\frac{x}{x_0^2} 
+        \right) exp \left(- \frac{x^2}{2x_0^2} \right) \; \mathrm{d}x \nonumber\\
+        &= - \hbar \abs{N_1}^2 \int_{-\infty}^{\infty} exp \left(- \frac{x^2}{2x_0^2} \right) \left( -\frac{1}{x_0^2} + \frac{x^2}{x_0^4} \right) 
+        exp \left(- \frac{x^2}{2x_0^2} \right) \; \mathrm{d}x \nonumber\\
+        &\stackrel{!}{=} -2 \hbar \abs{N_1}^2 \int_{0}^{\infty} \left( -\frac{1}{x_0^2} + \frac{x^2}{x_0^4} \right) exp \left(- \frac{x^2}{2x_0^2}
+        \right) \; \mathrm{d}x \nonumber\\
         &= -2 \hbar \abs{N_1}^2 \int_{0}^{\infty} \left( -\frac{1}{x_0^2} \sqrt{\pi} \frac{x_0}{2} + \frac{1}{x_0^4} \sqrt{\pi} \frac{x_0^3}{2^2}
         \right) \nonumber\\
         &= -2 \hbar \abs{N_1}^2 \left( -\frac{1}{4} \frac{\sqrt{\pi}}{x_0} \right) = \frac{1}{2} \sqrt{\pi} \hbar \frac{\abs{N_1}^2}{x_0} \nonumber\\
@@ -120,7 +121,7 @@
     &= \int_{-\infty}^{\infty}\,dx\, x\cdot  \abs{N_2}^2 \frac{x^2}{x_0^2}\exp(-\frac{x^2}{x_0^2})\\
     &=\int_{-\infty}^{\infty}\,dx\, \underbrace{\underbrace{\frac{x^3}{x_0^2}}_{\text{ungerade Fkt}} \underbrace{\exp(-\frac{x^2}{x_0^2})}_{\text{gerade Fkt}}}_{\text{ungerade Fkt}}\\
     \intertext{
-        $\Rightarrow $ Integral $\;I \in (-\infty,\infty) 0\; $ ist
+        $\Rightarrow $ Integral $\;I \in (-\infty,\infty) \; 0\; $ ist
     }
     <\hat x >_{\Psi_2}&=0
 \end{align}
@@ -275,11 +276,12 @@ Berechnung der Erwartungswerte für den Zustand $\Psi _0$
         \intertext{\flushleft{$e^{-i \frac{E}{\hbar} t} = 1$\;}\justifying, da der stationäre Zustand zeitunabhängig ist. Werden nun Gleichungen \eqref{eq:b} und 
         \eqref{eq:c} in Gleichung \eqref{eq:a} eingesetzt, ergibt sich:
         }\\
-        \Rightarrow i \hbar (-i \frac{E}{\hbar} \cdot \varphi(x)) &= - \frac{\hbar^2}{2m} \frac{\partial^2 \varphi}{\partial x^2} + V\varphi\\
+        \Rightarrow i \hbar (-i \frac{E}{\hbar} \cdot \varphi(x)) &= - \frac{\hbar^2}{2m} \frac{\partial^2 \varphi}{\partial x^2} + V\varphi \nonumber\\
         \Leftrightarrow E \varphi &= - \frac{\hbar^2}{2m} \frac{\partial^2 \varphi}{\partial x^2} + V\varphi \label{eq:3b}
-        \intertext{\flushleft{Bei\;}\justifying der Gleichung \eqref{eq:3b} handelt es sich um die Eigenwertgleichung der Energie.
-        }
     \end{align}
+
+    \flushleft{Bei\;}\justifying der Gleichung \eqref{eq:3b} handelt es sich um die Eigenwertgleichung der Energie.
+
 
 \begin{figure}[H]
     \centering
