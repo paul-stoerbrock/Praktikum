@@ -23,20 +23,22 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
-def A_S(R_S):
+def A_S(R_S):                       #Sonnenoberfläche
     return 4*np.pi*R_S**2
 
-def A_E(R_E):
+def A_E(R_E):                       #Erdoberfläche
     return 4*np.pi*R_S**2
 
-def P_S(A_S, T_S):
-    return sigma*A_S*T_S**4
+def P_S(A_S, T_S):                  #Luminosität (Sonne)
+    return const.Stefan_Boltzmann*A_S*T_S**4
+
+def L(P_S, R):                      #Flussdichte im Abstand 1 au
+    return P_S/(4*np.pi*R)
 
 T_S = 5780
 R_S = 6.69*10**5
 R_E = 6360
-
-
+R   = const.au
 
 # tex file of T_S
 
@@ -56,4 +58,4 @@ with open('build/R_E.tex', 'w') as f:
 # tex file of P_S
 
 with open('build/P_S.tex', 'w') as f: 
-  f.write(make_SI(P_S, r'\watt' ,figures=0))
+  f.write(make_SI(P_S(A_S, T_S), r'\\watt' ,figures=1))
