@@ -81,7 +81,7 @@
         &= -2 \hbar \abs{N_1}^2 \int_{0}^{\infty} \left( -\frac{1}{x_0^2} \sqrt{\pi} \frac{x_0}{2} + \frac{1}{x_0^4} \sqrt{\pi} \frac{x_0^3}{2^2}
         \right) \nonumber\\
         &= -2 \hbar \abs{N_1}^2 \left( -\frac{1}{4} \frac{\sqrt{\pi}}{x_0} \right) = \frac{1}{2} \sqrt{\pi} \hbar \frac{\abs{N_1}^2}{x_0} \nonumber\\
-        \langle \hat{p} \rangle_{\Psi_1}^2 &\stackrel{(A)}{=} \frac{1}{2} \frac{\hbar}{x_0^2}
+        \langle \hat{p}^2 \rangle_{\Psi_1} &\stackrel{(A)}{=} \frac{1}{2} \frac{\hbar}{x_0^2}
     \end{align*}
 
 \subsubsection{iii)}
@@ -97,19 +97,78 @@
 
 \subsection{b)}
 
-\subsubsection{i)}
-
-\subsubsection{ii)}
-
-\subsubsection{iii)}
-
-\subsection{c)}
+\begin{align}
+    \Psi_2 (x)=N_2 \frac{x}{x_0} \exp{-\frac{x^2}{2x_0^2}}
+\end{align}
 
 \subsubsection{i)}
 
+\begin{align}
+    &\int_{-\infty}^{\infty}\,dx\, \abs{N_2\frac{x}{x_0}\exp\left(-\frac{x^2}{2x_0^2}\right)}^2=1\\
+    &\abs{N_2}^2 \int_{-\infty}^{\infty}\,dx\, \abs{\frac{x}{x_0}\exp\left(-\frac{x^2}{2x_0^2}\right)}^2=1\\
+    &\abs{N_2}^2 \left(\int_0^{\infty}\,dx\,\left(\frac{x}{x_0}\exp\left(-\frac{x^2}{2x_0^2}\right)\right)^2+ \int_{-\infty}^0\,dx\,\left(-\frac{x}{x_0} \exp\left(-\frac{x^2}{2x_0^2}\right)\right)^2 \right)=1\\
+    &2 \abs{N_2}^2 \int_0^{\infty}\,dx\, \frac{x^2}{x_0^2} \exp\left(-\frac{x^2}{x_0^2}\right)=1\\
+    &2 \abs{N_2}^2 \left(\sqrt{\pi} \frac{1}{x_0^2} \frac{x_0^3}{2^2}\right)=1\\
+    &\abs{N_2}^2=\frac{2}{x_0\sqrt{\pi}}\\
+    &\abs{N_2}= \pm \sqrt{\frac{2}{x_0\sqrt{\pi}}}
+\end{align}
+
 \subsubsection{ii)}
 
+\begin{align}
+    <\hat x > &= \int_{-\infty}^{\infty}\,dx\, \Psi _2^* \hat x \Psi _2\\
+    &= \int_{-\infty}^{\infty}\,dx\, x\cdot \frac \abs{N_2}^2 \frac{x^2}{x_0^2}\exp(-\frac{x^2}{x_0^2})\\
+    &=\int_{-\infty}^{\infty}\,dx\, \underbrace{\underbrace{\frac{x^3}{x_0^2}}_{\text{ungerade Fkt}} \underbrace{\exp(-\frac{x^2}{x_0^2})}_{\text{gerade Fkt}}}_{\text{ungerade Fkt}}\\
+    \intertext{
+        $\Rightarrow $ Integral $\;I \in (-\infty,\infty) 0\; $ ist
+    }
+    <\hat x >_{\Psi_2}&=0
+\end{align}
+
+\begin{align}
+    <\hat x ^2> &= \int_{-\infty}^{\infty}\,dx\, \abs{N_2}^2 x^2 \frac{x^2}{x_0^2} \exp\left(-\frac{x^2}{x_0^2}\right)\\
+    &=\frac{1}{x_0^2} \abs{N_2}^2 2 \int_0^{\infty}\,dx\, x^4 \exp\left(-\frac{x^2}{x_0^2}\right)\\
+    &=\frac{1}{x_0^2} \abs{N_2}^2 2\sqrt{\pi} \frac{x_0^5(2\cdot2-1)!!}{2^3}\\
+    &=\frac{3\sqrt{\pi}}{4}x_0^3 \abs{N_2}^2\\
+    <\hat x ^2>_{\Psi _2}&= \frac{3}{2} x_0^2
+\end{align}
+
+\begin{align}
+    <\hat p > &= \int_{-\infty}^{\infty}\,dx\, \Psi _2^*\hat p \Psi _2\\
+    &=\int_{-\infty}^{\infty}\,dx\, N_2^* \frac{x}{x_0} \exp\left(-\frac{x^2}{2x_0^2}\right) (-i\hbar) \frac{d}{dx}\left(\frac{x}{x_0} N_2 \exp \left(-\frac{x^2}{2x_0^2}\right)\right) \\
+    &=(-i\hbar) \frac{\abs{N_2}^2}{x_0^2} \int_{-\infty}^{\infty} \,dx\,x\exp\left(-\frac{x^2}{2x_0^2}\right) \left(1-\frac{x^2}{x_0^2}\right)\exp\left(-\frac{x^2}{2x_0^2}\right)\\
+    \intertext{
+        $\left(\text{zwei Ungerade Fkt.}\; x \exp\left(-\frac{x^2}{x_0^2} \right) \wedge x^3 \exp\left(-\frac{x^2}{x_0^2} \right) \right)$
+    }
+    &\Rightarrow <\hat p >_{\Psi _2}=0
+\end{align}
+
+\begin{align}
+    <\hat p ^2> &= \int_{-\infty}^{\infty}\,dx\, \frac{x}{x_0} N_2^* exp\left(-\frac{x^2}{2x_0^2}\right) (-\hbar^2) \frac{d^2}{dx^2}\left(\frac{x}{x_0} N_2 \exp\left(-\frac{x^2}{x_0^2}\right) \right)\\
+    &= - \hbar ^2 \frac{\abs{N_2}^2}{x_0^2} \int_{-\infty}^{\infty}\,dx\, x \exp\left(-\frac{x^2}{2x_0^2}\right)\frac{d}{dx}\left(\left(1-\frac{x^2}{x_0^2}\right)\exp\left(-\frac{x^2}{2x_0^2}\right) \right)\\
+    &= - \hbar ^2 \frac{\abs{N_2}^2}{x_0^2} \int_{-\infty}^{\infty}\,dx\, x \exp\left(-\frac{x^2}{2x_0^2}\right)\left(\--\frac{3x}{x_0^2}+\frac{x^3}{x_0^4} \right) \exp\left(-\frac{x^2}{2x_0^2}\right)\\
+    &= - \hbar^2 \frac{\abs{N_2}^2}{x_0^4} \int_{-\infty}^{\infty}\,dx\, \left(-3x^2+\frac{x^4}{x_0^2})\exp(-\frac{x^2}{x_0^2}\right)\\
+    &= - \hbar^2 \frac{\abs{N_2}^2}{x_0^4} \sqrt{\pi} 2\left(\frac{-3x_0^3}{2^2}+\frac{x_0^5 3!!}{x_0^2\cdot 2^3}\right)\\
+    &= \frac{3}{4} \hbar^2 \sqrt{\pi} \abs{N_2}^2 \frac{1}{x_0}\\
+    <\hat p ^2 >_{\Psi _2}&=\frac{3}{2} \frac{\hbar ^2}{x_0^2}
+\end{align}
+
 \subsubsection{iii)}
+\begin{align}
+\Delta x&= \sqrt{<\hat x ^2>-<\hat x>^2 }\\
+&=\sqrt{3}{2} \abs{x_0}\\
+\Delta p &= \sqrt{<\hat p ^2>-<\hat p >^2}\\
+&=\sqrt{\frac{3}{2}}\frac{\hbar}{\abs{x_0}}\\
+\Delta x \Delta p &= \frac{3}{2} \hbar 
+\end{align}
+
+%\subsection{c)}
+%
+%\subsubsection{i)}
+%
+%\subsubsection{ii)}
+%
+%\subsubsection{iii)}
 
 
 
