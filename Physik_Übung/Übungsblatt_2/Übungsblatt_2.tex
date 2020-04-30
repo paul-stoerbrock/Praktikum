@@ -116,41 +116,41 @@
 \subsubsection{ii)}
 
 \begin{align}
-    <\hat x > &= \int_{-\infty}^{\infty}\,dx\, \Psi _2^* \hat x \Psi _2\\
+    \langle\hat x \rangle &= \int_{-\infty}^{\infty}\,dx\, \Psi _2^* \hat x \Psi _2\\
     &= \int_{-\infty}^{\infty}\,dx\, x\cdot  \abs{N_2}^2 \frac{x^2}{x_0^2}\exp(-\frac{x^2}{x_0^2})\\
     &=\int_{-\infty}^{\infty}\,dx\, \underbrace{\underbrace{\frac{x^3}{x_0^2}}_{\text{ungerade Fkt}} \underbrace{\exp(-\frac{x^2}{x_0^2})}_{\text{gerade Fkt}}}_{\text{ungerade Fkt}}\\
     \intertext{
         $\Rightarrow $ Integral $\;I \in (-\infty,\infty) 0\; $ ist
     }
-    <\hat x >_{\Psi_2}&=0
+    \langle\hat x \rangle_{\Psi_2}&=0
 \end{align}
 
 \begin{align}
-    <\hat x ^2> &= \int_{-\infty}^{\infty}\,dx\, \abs{N_2}^2 x^2 \frac{x^2}{x_0^2} \exp\left(-\frac{x^2}{x_0^2}\right)\\
+    \langle\hat x ^2\rangle &= \int_{-\infty}^{\infty}\,dx\, \abs{N_2}^2 x^2 \frac{x^2}{x_0^2} \exp\left(-\frac{x^2}{x_0^2}\right)\\
     &=\frac{1}{x_0^2} \abs{N_2}^2 2 \int_0^{\infty}\,dx\, x^4 \exp\left(-\frac{x^2}{x_0^2}\right)\\
     &=\frac{1}{x_0^2} \abs{N_2}^2 2\sqrt{\pi} \frac{x_0^5(2\cdot2-1)!!}{2^3}\\
     &=\frac{3\sqrt{\pi}}{4}x_0^3 \abs{N_2}^2\\
-    <\hat x ^2>_{\Psi _2}&= \frac{3}{2} x_0^2
+    \langle\hat x ^2\rangle_{\Psi _2}&= \frac{3}{2} x_0^2
 \end{align}
 
 \begin{align}
-    <\hat p > &= \int_{-\infty}^{\infty}\,dx\, \Psi _2^*\hat p \Psi _2\\
+    \langle\hat p \rangle &= \int_{-\infty}^{\infty}\,dx\, \Psi _2^*\hat p \Psi _2\\
     &=\int_{-\infty}^{\infty}\,dx\, N_2^* \frac{x}{x_0} \exp\left(-\frac{x^2}{2x_0^2}\right) (-i\hbar) \frac{\partial}{\partial x}\left(\frac{x}{x_0} N_2 \exp \left(-\frac{x^2}{2x_0^2}\right)\right) \\
     &=(-i\hbar) \frac{\abs{N_2}^2}{x_0^2} \int_{-\infty}^{\infty} \,dx\,x\exp\left(-\frac{x^2}{2x_0^2}\right) \left(1-\frac{x^2}{x_0^2}\right)\exp\left(-\frac{x^2}{2x_0^2}\right)\\
     \intertext{
         $\left(\text{zwei Ungerade Fkt.}\; x \exp\left(-\frac{x^2}{x_0^2} \right) \wedge x^3 \exp\left(-\frac{x^2}{x_0^2} \right) \right)$
     }
-    &\Rightarrow <\hat p >_{\Psi _2}=0
+    &\Rightarrow \langle\hat p \rangle_{\Psi _2}=0
 \end{align}
 
 \begin{align}
-    <\hat p ^2> &= \int_{-\infty}^{\infty}\,dx\, \frac{x}{x_0} N_2^* exp\left(-\frac{x^2}{2x_0^2}\right) (-\hbar^2) \frac{\partial ^2}{\partial x^2}\left(\frac{x}{x_0} N_2 \exp\left(-\frac{x^2}{x_0^2}\right) \right)\\
+    \langle\hat p ^2\rangle &= \int_{-\infty}^{\infty}\,dx\, \frac{x}{x_0} N_2^* exp\left(-\frac{x^2}{2x_0^2}\right) (-\hbar^2) \frac{\partial ^2}{\partial x^2}\left(\frac{x}{x_0} N_2 \exp\left(-\frac{x^2}{x_0^2}\right) \right)\\
     &= - \hbar ^2 \frac{\abs{N_2}^2}{x_0^2} \int_{-\infty}^{\infty}\,dx\, x \exp\left(-\frac{x^2}{2x_0^2}\right)\frac{\partial}{\partial x}\left(\left(1-\frac{x^2}{x_0^2}\right)\exp\left(-\frac{x^2}{2x_0^2}\right) \right)\\
     &= - \hbar ^2 \frac{\abs{N_2}^2}{x_0^2} \int_{-\infty}^{\infty}\,dx\, x \exp\left(-\frac{x^2}{2x_0^2}\right)\left(\--\frac{3x}{x_0^2}+\frac{x^3}{x_0^4} \right) \exp\left(-\frac{x^2}{2x_0^2}\right)\\
     &= - \hbar^2 \frac{\abs{N_2}^2}{x_0^4} \int_{-\infty}^{\infty}\,dx\, \left(-3x^2+\frac{x^4}{x_0^2})\exp(-\frac{x^2}{x_0^2}\right)\\
     &= - \hbar^2 \frac{\abs{N_2}^2}{x_0^4} \sqrt{\pi} 2\left(\frac{-3x_0^3}{2^2}+\frac{x_0^5 3!!}{x_0^2\cdot 2^3}\right)\\
     &= \frac{3}{4} \hbar^2 \sqrt{\pi} \abs{N_2}^2 \frac{1}{x_0}\\
-    <\hat p ^2 >_{\Psi _2}&=\frac{3}{2} \frac{\hbar ^2}{x_0^2}
+    \langle\hat p ^2 \rangle_{\Psi _2}&=\frac{3}{2} \frac{\hbar ^2}{x_0^2}
 \end{align}
 
 \subsubsection{iii)}
@@ -201,10 +201,10 @@ Fall: $\Psi _0 \ne \Psi _1$
 
 \begin{align}
     <\Psi _0 , \Psi _1> &= \int_{-\infty}^{\infty} \,dx \, \Psi _0^* \cdot \Psi _1\\
-    &=\int_{-\infty}^{\infty} \,dx\, \Psi _0 N \frac{\partial \Psi _0 (x)}{\partial x}\\
-    &=\int_{-\infty}^{\infty} \,dx\, \frac{N}{2} \frac{\partial}{\partial x}(\Psi _0(x)\cdot \Psi _0(x))\\
-    &=\frac{N}{2} \int_{-\infty}^{\infty} \,dx\, \frac{\partial}{\partial x}(\Psi _0(x)\cdot \Psi _0^*(x))\\
-    &=\frac{N}{2} \int_{-\infty}^{\infty} \,dx\, \frac{\partial}{\partial x}(\abs{\Psi _0(x)}^2)\\
+    &=\int_{-\infty}^{\infty} \,dx\, \Psi _0 N \frac{d \Psi _0 (x)}{d x}\\
+    &=\int_{-\infty}^{\infty} \,dx\, \frac{N}{2} \frac{d}{d x}(\Psi _0(x)\cdot \Psi _0(x))\\
+    &=\frac{N}{2} \int_{-\infty}^{\infty} \,dx\, \frac{d}{d x}(\Psi _0(x)\cdot \Psi _0^*(x))\\
+    &=\frac{N}{2} \int_{-\infty}^{\infty} \,dx\, \frac{d}{d x}(\abs{\Psi _0(x)}^2)\\
     &=\frac{N}{2} [\abs{\Psi _0(x)}^2]_{-\infty}^ {\infty}
     \intertext{
         $\Psi _0 (x)$ ist gerade und läuft im Unendlichen gegen 0
@@ -220,7 +220,7 @@ Fall: $\Psi _0 \ne \Psi _1$
     &=\int_{-\infty}^{\infty} \, dx\, \abs{c_0}^2 \abs{\Psi _0}^2+\abs{c_1}^2 \abs{\Psi _1}^2 + c_0^* c_1 \Psi _0 \Psi _1+c_1^* c_0 \Psi _0 \Psi_1^*\\
     &=\int_{-\infty}^{\infty} \, dx\, \abs{c_0}^2 \abs{\Psi _0}^2 +\int_{-\infty}^{\infty} \, dx\,\abs{c_1}^2 \abs{\Psi _1}^2 +\int_{-\infty}^{\infty} \, dx\, c_0^* c_1 \Psi _0 \Psi _1+ \\
     &\phantom{=} \int_{-\infty}^{\infty} \, dx\, c_1^* c_0 \Psi _0 \Psi_1^*\\
-    &= \abs{c_0}^2+\abs{c_1}^2+ \int_{-\infty}^ {\infty}\,dx\, \frac{c_0^*c_1}{N}\frac{1}{2} \frac{\partial}{\partial x}(\abs{\Psi _0}^2)+ \int_{-\infty}^{\infty} \,dx\, \frac{c_1^*c_0}{N^*}\frac{1}{2}\frac{\partial}{\partial x}(\abs{\Psi _0}^2) \\
+    &= \abs{c_0}^2+\abs{c_1}^2+ \int_{-\infty}^ {\infty}\,dx\, \frac{c_0^*c_1}{N}\frac{1}{2} \frac{d}{d x}(\abs{\Psi _0}^2)+ \int_{-\infty}^{\infty} \,dx\, \frac{c_1^*c_0}{N^*}\frac{1}{2}\frac{d}{d x}(\abs{\Psi _0}^2) \\
     &= 1+ \underbrace{\left[\frac{c_0^*c_1}{2N}\abs{\Psi _0}^2\right]_{-\infty}^{\infty}}_{=0} + \underbrace{\left[\frac{c_1^*c_0}{2N^*}\abs{\Psi _0}^2 \right]_{-\infty}^{\infty}}_{=0} \\
     &=1
 \end{align*}
@@ -230,20 +230,110 @@ Fall: $\Psi _0 \ne \Psi _1$
 Berechnung der Erwartungswerte für den Zustand $\Psi _0$
 
 \begin{align}
-    <\hat x > &= \int_{-\infty}^{\infty}\,dx\, \Psi _0^* \hat x \Psi _0\\
+    \langle\hat x \rangle &= \int_{-\infty}^{\infty}\,dx\, \Psi _0^* \hat x \Psi _0\\
     &= \int_{-\infty}^{\infty} \,dx\, \Psi _0^* x \Psi _0\\
     &= \int_{-\infty}^{\infty} \,dx\, \underbrace{x \abs{\Psi _0}^2}_{\text{ungerade Fkt}}\\
-    &\Rightarrow <\hat x>_{\Phi _0}=0
+    &\Rightarrow \langle\hat x\rangle_{\Phi _0}=0
 \end{align}
 
 
 \begin{align}
-    <\hat p > &= \int_{-\infty}^{\infty}\,dx\, \Psi _0 (-i\hbar)\frac{\partial}{\partial x} \Psi _0 \\
-    &= (-i \hbar)\int_{-\infty}^{\infty}\,dx\, \underbrace{\Psi_0^* \frac{\Psi _1}{N}}_{\text{ungerade Fkt}}
+    \langle\hat p \rangle &= \int_{-\infty}^{\infty}\,dx\, \Psi _0 (-i\hbar)\frac{\partial}{\partial x} \Psi _0 \\
+    &= (-i \hbar)\int_{-\infty}^{\infty}\,dx\, \underbrace{\Psi_0^* \frac{\Psi _1}{N}}_{\text{ungerade Fkt}}\\
+    &\Rightarrow \langle\hat p\rangle_{\Psi _0} = 0
 \end{align}
 
-\subsection{c)}
+Berechnung der Erwartungswerte für den Zustand $\Psi _1$
 
+\begin{align}
+\langle\hat x\rangle &=\int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi_1^* \hat x \Psi _1\\
+&=\int_{-\infty}^{\infty} \,\mathrm{d}x\, N^* \frac{d\Psi _0^*}{dx} N \frac{d\Psi _0}{dx}\\
+&=\abs{N}^2 \int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{x \left(\frac{d \Psi _0}{dx} \right)^2}_{ungerade}\\
+&\Rightarrow \langle\hat x\rangle_{\Psi _0} = 0
+\end{align}
+
+\begin{align}
+    \langle\hat p \rangle &=\int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi _1^* \hat p \Psi _1\\
+    &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, N^* \frac{d \Psi _0}{dx} (-i\hbar) \frac{\partial}{\partial x}\left(N \frac{d \Psi _0}{dx}\right)\\
+    &= \abs{N}^2 \int_{-\infty}^{\infty} \,\mathrm{d}x\, \frac{d \Psi _0}{dx} \frac{d^2 \Psi _0}{dx^2}\\
+    &=\abs{N}^2 \int_{-\infty}^{\infty} \,\mathrm{d}x\, \frac{1}{2} \frac{d}{dx} \left(\frac{d\Psi _0}{dx}\right)^2\\
+    &= \frac{\abs{N}^2}{2} \left[ \left(\frac{d\Psi _0}{dx}\right)^2\right]_{-\infty}^{\infty}\\
+    &=0
+\end{align}
+
+Berechnung der Erwartungswerte für den Zustand $\Psi$
+
+\begin{align}
+    \langle \hat x \rangle &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi^* \hat x \Psi \\
+    &=\int_{-\infty}^{\infty} \,\mathrm{d}x\, (c_0 \Psi _0 + c_1 \Psi _1)^*x(c_0 \Psi _0+c_1 \Psi _1)\\
+    &=\int_{-\infty}^{\infty} \,\mathrm{d}x\, x (\abs{c_0}^2\abs{\Psi _0}^2+\abs{c_1}^2 \abs{\Psi _1}^2 + c_0^* c_1 \Psi_0^*\Psi _1+c_0 c_1^* \Psi _0 \Psi _1^*)\\
+    &=\int_{-\infty}^{\infty} x \abs{c_0}^2 \abs{\Psi _0}^2 \,\mathrm{d}x\, +\int_{-\infty}^{\infty}  
+    x \abs{c_1}^2 \abs{\Psi _1}^2 \,\mathrm{d}x\, +\int_{-\infty}^{\infty} c_0^* c_1 x \Psi_0^*\Psi_1 \,\mathrm{d}x\,
+    + \int_{-\infty}^{\infty}  c_0 c_1^*x \Psi _0 \Psi_1^* \,\mathrm{d}x\,\\
+    &= 0+0+\int_{-\infty}^{\infty} c_0^*c_1 N x \Psi _0^* \frac{\mathrm{d}\Psi _0}{\mathrm{d}x} \,+\int_{-\infty}^{\infty}  c_0 c_1^* N^* x \Psi _0 \frac{\mathrm{d}\Psi _0}{\mathrm{d}x} \,\mathrm{d}x\, \\
+    &= \int_{-\infty}^{\infty} \frac{c_0^*c_1N}{2}x \frac{\mathrm{d} \Psi _0^2}{\mathrm{d}x}  \,\mathrm{d}x\, +\int_{-\infty}^{\infty} \frac{c_0 c_1^* N^*}{2}x \frac{\mathrm{d}\Psi _0^2 }{\mathrm{d}x} \,\mathrm{d}x\,\\
+    &=\left(\frac{c_0^* c_1 N+c_0c_1^*N^*}{2}\right)\int_{-\infty}^{\infty} x \frac{\mathrm{d}\Psi _0^2 }{\mathrm{d}x} \,\mathrm{d}x\, \\
+    \intertext {
+        Neenrechnung:
+    }    
+    x\frac{\mathrm{d}\Psi _0^2}{dx} &= \frac{\mathrm{d}}{\mathrm{d}x}(\Psi _0^2 x)-\Psi_0^2 \frac{\mathrm{d}}{\mathrm{d}x}x\\
+    \intertext{
+        Fortsetzung der Rechnung:
+    }
+    &= \left(\frac{c_0^* c_1 N+c_0c_1^*N^*}{2}\right) \int_{-\infty}^{\infty} \underbrace{\frac{\mathrm{d}}{\mathrm{d}x}(\Psi _0^2 x)}_{=0} -\Psi_0^2 \,\mathrm{d}x\, \\
+    \intertext{
+        Randterm verschwindet im Unendlichen
+    }
+    &= -\left(\frac{c_0^* c_1 N+c_0c_1^*N^*}{2}\right)
+\end{align}
+
+
+\subsection{c)}
+ 
+ Berechnung des Erwartungswertes der kinetischen Energie für $\Psi _0$
+\begin{align}
+\langle \hat T \rangle &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi _0^* \hat T \Psi _0\\
+&= \int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi _0 \frac{\hat P ^2}{2m} \Psi _0 \\
+&=\int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi _0\frac{1}{2m}(\--i\hbar)^2 \frac{\partial ^2 \Psi _0}{\partial x^2}\\
+&= \--\frac{\hbar ^2}{2m} \int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi _0 \frac{\mathrm{d}^2 \Psi _0}{\mathrm{d}x^2}\\
+\intertext{
+    Nebenrechnung:
+}
+\Psi _0 \frac{\mathrm{d}^2 \Psi _0}{\mathrm{d}x^2}&= \frac{\mathrm{d}}{\mathrm{d}x}\left(\Psi _0 \frac{\mathrm{d}}{\mathrm{d}x} \Psi _0\right)
+-\left(\frac{\mathrm{d}\Psi _0}{\mathrm{d}x}\right)^2\\
+\frac{\mathrm{d}\Psi _0}{\mathrm{d}x} \frac{\mathrm{d}\Psi _0}{\mathrm{d}x} &= \frac{\Psi _1}{N} \frac{\Psi _1^*}{N^*}=\frac{\abs{\Psi _1}^2}{\abs{N}^2}\\
+\intertext{
+    Fortsetzung der Rechnung:
+}
+&=\-- \frac{\hbar ^2}{2m}\int_{-\infty}^{\infty} \,\mathrm{d}x\, \left(\frac{\mathrm{d}}{\mathrm{d}x}\left(\Psi _0 \frac{\mathrm{d}}{\mathrm{d}x} \Psi _0\right)-\frac{\abs{\Psi _1}^1}{\abs{N}^2} \right)\\
+&=\frac{\hbar ^2}{2m \abs{N}^2}
+\end{align}
+
+Beweis der Relation $\int \Psi _0^*(x)(\hat T ^2 \Psi _0)(x)\,\mathrm{d}x = \int \Psi_0^*(x) (\hat T \Psi _0 )(x) \,\mathrm{d}x \int \Psi _1^* (x)(\hat T \Psi _1)(x)\mathrm{d}x $
+
+Umformung der linken Seite:
+\begin{align}
+    \int \mathrm{d}x \Psi _0^* (\hat T ^2 \Psi _0 ) &= \int \Psi _0 \left(\frac{\hat p ^4}{4m^2}\Psi _0 \right)\\
+    &=\int \mathrm{d}x \Psi _0 \frac{\hat p ^2}{(2m)^2} \left((-i \hbar)^2 \frac{\partial ^2}{\partial x^2} \Psi _0 \right) \\   
+    &=\underline{\underline{\frac{\hbar ^4}{4m^2}\int \mathrm{d}x \Psi _0 \frac{\partial ^4 \Psi _0}{\partial x^4}}}\\
+\end{align}
+
+Umformung der rechten Seite Gleichung:
+
+\begin{align}
+    \int \Psi _0^* \hat T \Psi _0 \,\mathrm{d}x\,\int \Psi _1^* \hat T \Psi _1 \, \mathrm{d}x&= \frac{\hbar ^2}{2m\abs{N}^2} \int N^* \frac{\partial \Psi _0}{\partial x} \frac{\hat p ^2}{2m} N \frac{\partial \Psi _0}{\partial x} \,\mathrm{d}x\\
+    &= \frac{\hbar ^2}{4m^2} \int \frac{\mathrm{d} \Psi _0}{\mathrm{d} x} (-i \hbar)^2 \frac{\partial ^2}{\partial x^2}\frac{\mathrm{d} \Psi _0}{\mathrm{d} x} \mathrm{d} x\\
+    &= -\frac{\hbar ^4}{4m^2} \int \frac{\partial \Psi _0}{\partial x} \frac{\partial ^3 \Psi _0}{\partial x^3} \mathrm{d}x\\
+    \intertext{
+        Nebenrechnung:
+    }
+    \frac{\partial \Psi _0}{\partial x}\frac{\partial ^3 \Psi _0}{\partial x}&=\frac{\partial}{\partial x}\left(\Psi _0 \frac{\partial ^3 \Psi _0}{\partial x^3} \right)-\Psi _0 \frac{\partial ^4 \Psi _0}{\partial x^4}\\
+    \intertext{
+        Fortsetzung der Rechnung:
+    }
+    &=-\frac{\hbar ^4}{4m^2} \int \left(\underbrace{ \frac{\partial}{\partial x}\left(\Psi _0 \frac{\partial ^3 \Psi _0}{\partial x^3}\right)}_{=0} -\Psi _0 \frac{\partial ^4 \Psi _0}{\partial x^4}  \right) \mathrm{d}x\\
+    &= \underline{\underline{\frac{\hbar ^4}{4m^2} \int\,\mathrm{d}x \Psi _0 \frac{\partial ^4\Psi _0}{\partial x^4}  }}
+\end{align}
 
 
 \subsection{d)}
