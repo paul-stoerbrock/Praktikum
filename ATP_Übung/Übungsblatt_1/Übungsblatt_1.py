@@ -23,14 +23,14 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
-def A_S(R_S):                       #Sonnenoberfläche
-    return 4*np.pi*R_S**2
-
-def A_E(R_E):                       #Erdoberfläche
-    return 4*np.pi*R_S**2
-
-def P_S(A_S, T_S):                  #Luminosität (Sonne)
-    return const.Stefan_Boltzmann*A_S*T_S**4
+#def A_S(R_S):                       #Sonnenoberfläche
+#    return 4*np.pi*R_S**2
+#
+#def A_E(R_E):                       #Erdoberfläche
+#    return 4*np.pi*R_E**2
+#
+#def P_S(A_S, T_S):                  #Luminosität (Sonne)
+#    return const.Stefan_Boltzmann*A_S*T_S**4
 
 def L(P_S, R):                      #Flussdichte im Abstand 1 au
     return P_S/(4*np.pi*R)
@@ -39,6 +39,10 @@ T_S = 5780
 R_S = 6.69*10**5
 R_E = 6360
 R   = const.au
+
+A_S = 4*np.pi*R_S**2
+A_E = 4*np.pi*R_E**2
+P_S = const.sigma*A_S*T_S**4
 
 # tex file of T_S
 
@@ -55,7 +59,17 @@ with open('build/R_S.tex', 'w') as f:
 with open('build/R_E.tex', 'w') as f: 
   f.write(make_SI(R_E, r'\kilo\meter' ,figures=0))
 
+# tex file of A_S
+
+with open('build/A_S.tex', 'w') as f: 
+  f.write(make_SI(A_S, r'\kilo\meter\tothe{2}' ,figures=0))
+
+# tex file of A_E
+
+with open('build/A_E.tex', 'w') as f: 
+  f.write(make_SI(A_E, r'\kilo\meter\tothe{2}' ,figures=0))
+
 # tex file of P_S
 
 with open('build/P_S.tex', 'w') as f: 
-  f.write(make_SI(P_S(A_S, T_S), r'\\watt' ,figures=1))
+  f.write(make_SI(P_S*1e-15, r'\giga\\watt' ,figures=1))
