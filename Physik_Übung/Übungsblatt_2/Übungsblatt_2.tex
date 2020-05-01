@@ -272,7 +272,7 @@ Berechnung der Erwartungswerte für den Zustand $\Psi$
     &= \int_{-\infty}^{\infty} \frac{c_0^*c_1N}{2}x \frac{\mathrm{d} \Psi _0^2}{\mathrm{d}x}  \,\mathrm{d}x\, +\int_{-\infty}^{\infty} \frac{c_0 c_1^* N^*}{2}x \frac{\mathrm{d}\Psi _0^2 }{\mathrm{d}x} \,\mathrm{d}x\, \nonumber\\
     &=\left(\frac{c_0^* c_1 N+c_0c_1^*N^*}{2}\right)\int_{-\infty}^{\infty} x \frac{\mathrm{d}\Psi _0^2 }{\mathrm{d}x} \,\mathrm{d}x\, \nonumber\\
     \intertext {
-        Neenrechnung:
+        Nebenrechnung:
     }    
     x\frac{\mathrm{d}\Psi _0^2}{dx} &= \frac{\mathrm{d}}{\mathrm{d}x}(\Psi _0^2 x)-\Psi_0^2 \frac{\mathrm{d}}{\mathrm{d}x}x\\
     \intertext{
@@ -287,11 +287,11 @@ Berechnung der Erwartungswerte für den Zustand $\Psi$
 
 \begin{align}
     \langle \hat p \rangle &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi ^* \hat p \Psi \\
-    &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, (c_0 \Psi _0 + c_1 \Psi _1)^*(-i \hbar)\frac{\partial}{\partial x} (c_0 \Psi _0+c_1 Psi _1)\\
+    &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, (c_0 \Psi _0 + c_1 \Psi _1)^*(-i \hbar)\frac{\partial}{\partial x} (c_0 \Psi _0+c_1 \Psi _1)\\
     &= (-i \hbar) \int_{-\infty}^{\infty} \,\mathrm{d}x\, (c_0^* \Psi _0^*+c_1^* \Psi _1^*)\left(c_0 \frac{\partial \Psi _0}{\partial x}+ c_1 \frac{\partial \Psi _1}{\partial x} \right)\\
-    &= (-i\hbar) \left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{\abs{c_0}^2 \Psi _0 \frac{\partial \Psi _0}{\partial x}}_{\text{ungerade} \Rightarrow =0} +\int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{\abs{c_1}^2 \Psi _1^* 
-    \frac{\partial \Psi _1  }{\partial x}}_{\text{ungerade}\, \Rightarrow =0} + \int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0^* c_1 \Psi _0^* \frac{\partial \Psi _1}{\partial x}+\int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0 c_1^* \Psi _1^* \frac{\partial \Psi _0}{\partial x} \right)\\
-    &=(-i \hbar) \left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0^* c_1 N \Psi _0 \frac{\partial ^2 \Psi _0}{\partial x^2} +\int_{-\infty}^{\infty} \,\mathrm{d}x\,\frac{c_0 c_1^*}{N} \abs{Psi _1}^2 \right)\\
+    &= (-i\hbar) \left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{\abs{c_0}^2 \Psi _0 \frac{\partial \Psi _0}{\partial x}}_{\text{ungerade\,} \Rightarrow\, =0} +\int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{\abs{c_1}^2 \Psi _1^* 
+    \frac{\partial \Psi _1  }{\partial x}}_{\text{ungerade}\, \Rightarrow\, =0} + \int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0^* c_1 \Psi _0^* \frac{\partial \Psi _1}{\partial x}+\int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0 c_1^* \Psi _1^* \frac{\partial \Psi _0}{\partial x} \right)\\
+    &=(-i \hbar) \left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0^* c_1 N \Psi _0 \frac{\partial ^2 \Psi _0}{\partial x^2} +\int_{-\infty}^{\infty} \,\mathrm{d}x\,\frac{c_0 c_1^*}{N} \abs{\Psi _1}^2 \right)\\
     &=(-i \hbar) \left(\frac{c_0 c_1^*}{N}+c_0^* c_1 N\left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, \frac{\partial}{\partial x} \left(\Psi _0 \frac{\partial \Psi _0}{\partial x} \right)-\frac{\abs{\Psi _1}^2}{\abs{N}^2} \right)\right)\\
     &= i \hbar \left(\frac{c_0^*c_1}{N^*} -\frac{c_0c_1^*}{N} \right)
 \end{align}
@@ -321,9 +321,9 @@ Beweis der Relation $\int \Psi _0^*(x)(\hat T ^2 \Psi _0)(x)\,\mathrm{d}x = \int
 
 Umformung der linken Seite:
 \begin{align}
-    \int \mathrm{d}x \Psi _0^* (\hat T ^2 \Psi _0 ) &= \int \Psi _0 \left(\frac{\hat p ^4}{4m^2}\Psi _0 \right)\\
-    &=\int \mathrm{d}x \Psi _0 \frac{\hat p ^2}{(2m)^2} \left((-i \hbar)^2 \frac{\partial ^2}{\partial x^2} \Psi _0 \right) \nonumber\\   
-    &=\underline{\underline{\frac{\hbar ^4}{4m^2}\int \mathrm{d}x \Psi _0 \frac{\partial ^4 \Psi _0}{\partial x^4}}}
+    \int \mathrm{d}x \,\Psi _0^* (\hat T ^2 \Psi _0 ) &= \int \Psi _0 \left(\frac{\hat p ^4}{4m^2}\Psi _0 \right)\\
+    &=\int \mathrm{d}x \,\Psi _0 \frac{\hat p ^2}{(2m)^2} \left((-i \hbar)^2 \frac{\partial ^2}{\partial x^2} \Psi _0 \right) \nonumber\\   
+    &=\underline{\underline{\frac{\hbar ^4}{4m^2}\int \mathrm{d}x \,\Psi _0 \frac{\partial ^4 \Psi _0}{\partial x^4}}}
 \end{align}
 
 Umformung der rechten Seite Gleichung:
@@ -340,7 +340,7 @@ Umformung der rechten Seite Gleichung:
         Fortsetzung der Rechnung:
     }
     &=-\frac{\hbar ^4}{4m^2} \int \left(\underbrace{ \frac{\partial}{\partial x}\left(\Psi _0 \frac{\partial ^3 \Psi _0}{\partial x^3}\right)}_{=0} -\Psi _0 \frac{\partial ^4 \Psi _0}{\partial x^4}  \right) \mathrm{d}x \nonumber\\
-    &= \underline{\underline{\frac{\hbar ^4}{4m^2} \int\,\mathrm{d}x \Psi _0 \frac{\partial ^4\Psi _0}{\partial x^4}  }}
+    &= \underline{\underline{\frac{\hbar ^4}{4m^2} \int\,\mathrm{d}x \,\Psi _0 \frac{\partial ^4\Psi _0}{\partial x^4}  }}
 \end{align}
 
 
