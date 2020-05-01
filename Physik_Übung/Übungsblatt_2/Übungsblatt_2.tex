@@ -288,6 +288,16 @@ Berechnung der Erwartungswerte für den Zustand $\Psi$
     &= -\left(\frac{c_0^* c_1 N+c_0c_1^*N^*}{2}\right)
 \end{align}
 
+\begin{align}
+    \langle \hat p \rangle &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, \Psi ^* \hat p \Psi \\
+    &= \int_{-\infty}^{\infty} \,\mathrm{d}x\, (c_0 \Psi _0 + c_1 \Psi _1)^*(-i \hbar)\frac{\partial}{\partial x} (c_0 \Psi _0+c_1 Psi _1)\\
+    &= (-i \hbar) \int_{-\infty}^{\infty} \,\mathrm{d}x\, (c_0^* \Psi _0^*+c_1^* \Psi _1^*)\left(c_0 \frac{\partial \Psi _0}{\partial x}+ c_1 \frac{\partial \Psi _1}{\partial x} \right)\\
+    &= (-i\hbar) \left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{\abs{c_0}^2 \Psi _0 \frac{\partial \Psi _0}{\partial x}}_{\text{ungerade} \Rightarrow =0} +\int_{-\infty}^{\infty} \,\mathrm{d}x\, \underbrace{\abs{c_1}^2 \Psi _1^* 
+    \frac{\partial \Psi _1  }{\partial x}}_{\text{ungerade}\, \Rightarrow =0} + \int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0^* c_1 \Psi _0^* \frac{\partial \Psi _1}{\partial x}+\int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0 c_1^* \Psi _1^* \frac{\partial \Psi _0}{\partial x} \right)\\
+    &=(-i \hbar) \left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, c_0^* c_1 N \Psi _0 \frac{\partial ^2 \Psi _0}{\partial x^2} +\int_{-\infty}^{\infty} \,\mathrm{d}x\,\frac{c_0 c_1^*}{N} \abs{Psi _1}^2 \right)\\
+    &=(-i \hbar) \left(\frac{c_0 c_1^*}{N}+c_0^* c_1 N\left(\int_{-\infty}^{\infty} \,\mathrm{d}x\, \frac{\partial}{\partial x} \left(\Psi _0 \frac{\partial \Psi _0}{\partial x} \right)-\frac{\abs{\Psi _1}^2}{\abs{N}^2} \right)\right)\\
+    &= i \hbar \left(\frac{c_0^*c_1}{N^*} -\frac{c_0c_1^*}{N} \right)
+\end{align}
 
 \subsection{c)}
  
@@ -338,6 +348,7 @@ Umformung der rechten Seite Gleichung:
 
 
 \subsection{d)}
+
 
 
 
