@@ -29,68 +29,106 @@ mittels der Transmission eines Aluminium-Absorbers bestimmt werden.
 
 \section{Theorie}\justifying
 
-% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Fehlerrechnung}\justifying
-
-Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
-verwendet:
-\begin{subequations} \label{eq:}
-\begin{align} 
-\intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
-}
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:a}
-\intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
-}
-    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:b},
-\intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
-}
-    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:c}
-\intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
-}
-    y &= m \cdot x + b \label{eq:6d} \\ 
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:f}
+Bei der Bestrahlung von Kristallen mit Röntgenlicht wird beobachtet, dass
+bei verschiedenen Winkeln Wellenlängen nicht nur die Wellenlänge des eingestrahlten Lichts gefunden wird,
+sondern auch eine Wellenlänge, die größer als die eingestrahlte Wellenlänge ist.\\
+Dieses Phänomen ist auf den Compton-Effekt zurückzuführen. Dieser beschreibt,
+dass ein einfallendes Photon einen Teil seiner Energie an ein freies Elektron abgibt
+und in einem Winkel $\theta $ zur einfallenden Strahlung gestreut wird. Die Energie des Photons wird 
+dabei beschrieben durch die Gleichung 
+\begin{align}
+    E  = \hbar \omega \label{eq:1}.
 \end{align}
-\end{subequations}
-\newpage
+Aus Energie- und Impulserhaltung lässt sich die Differenz der beiden Wellenlängen bestimmen \cite{V603}
+\begin{align}
+    \Delta \lambda = \lambda _2 - \lambda _1 = \frac{h}{m_e c}(1-\cos(\theta))  \label{eq:2},
+\end{align}
+wobei $\lambda _2 $ die Wellenlänge der Compton-Streuung und $\lambda _1 $ die Wellenlänge
+der einfallenden Strahlung definiert. Die Konstante $\frac{h}{m_e c}$ wird als
+Compton-Wellenlänge bezeichnet und hat dementsprechende die Dimension einer Länge.\\
+Um Röntgenstrahlung für eine Messung zu erzeugen werden Elektronen aus einer 
+Glühkathode  auf eine Anode beschleunigt. Das Spektrum der Emission
+setzt sich dann aus zwei Bestandteilen zusammen, der Bremsstrahlung und
+der charakeristischen Röntgenstrahlung.
+Die Bremsstrahlung entsteht durch den Energieverlust bei der Abbremsung durch
+das E-Feld eines Atoms. Das ausfestrahlte Photon besitzt dann genau den
+durch die Abbremsung verlorene Energie, wodurch das Spektrum der Bremsstrahlung kontinuierlich
+ist. 
+%Die minimale Wellenlänge, die vorkommen kann, entsteht, wenn ein Elektron seine
+%gesamte Energie an das Photon abgibt
+%\begin{align}
+%    U\cdot e=\hbar \omega= \frac{hc}{\lambda _{\text{min}}} \label{eq:3}\\
+%    \lambda _{\text{min}}=\frac{hc}{Ue}\label{eq:4}.
+%\end{align}
+Die charakteristische Strahlung entsteht, indem ein Elektron ein Atom ionisiert.
+Dadurch fällt ein Elektron von einer äußeren Schale unter Emission eines 
+Röntgenquants ins Innere. Die charakteristische Strahlung hängt
+dabei vom Anodenmaterial ab und durch die quantisierten Energiezustände von Atomen
+sind diese Linien scharf.\\
+Durch Transmission und Absorption von Röntgenstrahlung durch Aluminium kann
+die Compton-Wellenlänge ermittelt werden. Die Transmission durch verschiedene Stoffe
+verringert sich mit steigender Wellenlänge, wodurch die Intensität
+Compton-Wellenlänge geringer wird. Berechnen lässt sich die Transmission durch
+\begin{align}
+    T=\frac{I_{\text{ref}}}{I_0} \label{eq:3}.
+\end{align}
+
+\flushleft{Die\,}\justifying Absorption verringert wiederum 
+verringert die Intensität einer einfallenden Strahlung.\\
+Die Wellenlänge $\lambda$ kann hierbei durch diw Bragg'sche Bedingung bestimmt 
+werden
+\begin{align}
+    2d \sin (\alpha)=n \lambda \label{eq:4}.
+\end{align}
+$\lambda$ ist dabei die im Winkel $\alpha$ gebeugte Wellenlänge und n die Interferenzordnung.
+
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
 
-Zuerst wird der Aufbau für das Emissionspektrum aufgebaut.
-Dafür wird in die Röntgenröhre \cite{V603}
+Zuerst wird der Aufbau für die Bestimmung des Emissionspektrums von Kupfer aufgebaut.
+Dafür wird das Röntgengerät \cite{V603}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/Aufbau1.jpg}
     \caption{Röntgenröhre}
     \label{fig:1}
 \end{figure}
-\flushleft{ein\,}\justifying LiF-Kristall sowie eine 2 mm Blende eingebracht. Dann wird auf dem 
-Pc über das Programm measure das röntgengerät ausgewählt und
-eine Integrationszeit zwischen 5-10s eingestellt. Die Schrittweite wird auf 0,1°
-festgelegt und der Winkelbereich wirdso gewählt, dass der gesamte Bremsberg sowie die
-charakteristischen Linien enthalten sind. 
-
+\flushleft{mit\,} \justifying dem PC über RS232-Kabel verbunden und ein  LiF-Kristall sowie eine 2 mm Blende in die Röntgenröhre eingebracht. Dann wird mihilfe
+eines Computerprogramms eine Integrationszeit zwischen 5-10s eingestellt, die Schrittweite auf 0,1°
+festgelegt und der Winkelbereich gewählt so, dass der gesamte Bremsberg sowie die
+charakteristischen Linien enthalten sind. \\
+Für die Aufnahme der Transmission des Aluminium-Absorbers wird dieser vor die 2mm Blende gesetzt
+und eine Messung mit dem Absorber sowie eine ohne den Absorber durchgeführt bei einer Messzeit von 100s.
 \flushleft{Für\,}\justifying die Messung der Comptonwellenlänge wird zuerst die Intensität der Kupferröhre gemessen.
 Dafür wird nun eine 5mm Blende statt der 2mm Blende verwendet und der LiF-Kristall
 durch einen Plexiglasstreuer ausgetauscht. Das RS232-Kabel wird entfernt und es wird
 eine manuelle Messung durchgeführt. Dafür wird der Kristall auf 45° und das Geiger-Müller Zählrohr auf 90°
 eingestellt. Danach wird die Intensität der Cu-Röhre gemessen.\\
 Zuletzt wird die Intensität mit Aluminium-Absorber in 2 verschiedenen Stellungen bei einer Messzeit von mindestens 300s
- gemessen: \cite{V603}
-\begin{figure}
+gemessen: \cite{V603}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/Aufbau2.jpg}
     \caption{Aufbau der 2 Stellungen}
     \label{fig:2}
 \end{figure}
-Diese Messung in den 2 Stellungen wird 5 mal wiederholt.
+\flushleft{Diese\,}\justifying Messung in den 2 Stellungen wird 5 mal wiederholt.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
+
+Die Gitterkonstante des LiF-Kristalls lautet \cite{V603}
+\begin{align}
+    d_{LiF}=\SI{201.4}{\pico\meter} \label{eq:5}.
+\end{align}
+
+\subsection{Emissionsspektrum Kupfer}
+
+\flushleft{Die\,}\justifying Messwerte für das Emissionspektrum von Kupfer sind in der nachfolgenden Tabelle 
+aufgetragen.
 
 \begin{table}[H]
     \centering
@@ -99,17 +137,34 @@ Diese Messung in den 2 Stellungen wird 5 mal wiederholt.
     \label{tab:1}
 \end{table}
 
-
+Die Graphik für die Messwerte aus der Tabelle \ref{tab:1} ergibt den Plot:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./build/plot_Cu.pdf}
     \caption{Emissionsspektrum von Kupfer}
-    \label{fig:a}
+    \label{fig:3}
 \end{figure}
 
+\flushleft{Aus\,}\justifying der Graphik lassen sich die Werte für die $K_{\alpha}$- und$K_{\beta}$-Linie
+ablesen. $K_{\alpha}$ liegt bei ca. 22,5° und $K_{\beta}$ bei ca. 20°.
+Daraus lässt sich mit Gleichung \eqref{eq:4} für $n=1$ die Wellenlänge berechnen:
+\begin{align}
+    \lambda _{\alpha}&= \SI{1.54e-10}{\meter} \label{eq:6}\\
+    \lambda_{\beta}&= \SI{1.38e-10}{\meter} \label{eq:7}
+\end{align}
+Damit kann die Energie mithilfe der Gleichung \eqref{eq:1} der Linien bestimmt werden:
+\begin{subequations}
+\begin{align}
+    E_{\alpha}&= \hbar \omega _{\alpha} = \frac{h c}{\lambda _{\alpha}}=\SI{8043.35}{\electronvolt}  \label{eq:8a} \\
+    E_{\beta}&= \SI{8999.64}{\electronvolt} \label{eq:8b}
+\end{align}
+\end{subequations}
 
+\flushleft{Für\,}\justifying die Konstanten h und c werden die Werte von dem Programm Scipy  \cite{scipy} verwendet.
 
+\subsection{Transmission bei Aluminium}
 
+Die Messwerte für das $\lambda T$-Diagramm lauten:  
 
 \begin{table}[H]
     \centering
@@ -119,28 +174,112 @@ Diese Messung in den 2 Stellungen wird 5 mal wiederholt.
 \end{table}
 
 
-
+\flushleft{Für\,}\justifying den Graphen werden die Wellenlängen mit den Winkeln aus Tabelle \ref{tab:2}
+mit Gleichung \eqref{eq:4} und $n=1$ berechnet.
+Für die Berechnung Transmissionwerte wird Gleichung \eqref{eq:3} verwendet.
+Für die Bestimmung der Intensität muss noch eine Totzeitkorrektur mit einer
+Totzeit von $\tau = \SI{60}{\micro\second} $ durchgeführt werden:
+\begin{align}
+    I = \frac{N}{1-\tau \cdot N} \label{eq:9}.
+\end{align}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./build/plot_T.pdf}
     \caption{Transmission von Aluminium}
-    \label{fig:b}
+    \label{fig:4}
 \end{figure}
 
-Die Fitparameter der Geraden
+\flushleft{Die} Fitparameter der Geraden
 \begin{equation}
-T=a \lambda +b
+    T=a \lambda +b \label{eq:10}
 \end{equation}
 betragen dabei
 \begin{align}
-    a = \text{\input{a_Al.tex}}\quad \text{und}\\
-    b = \text{\input{b_Al.tex}}.
+    a &= \text{\input{a_Al.tex}}\quad \text{und} \label{eq:11} \\
+    b &= \text{\input{b_Al.tex}}.\label{eq:12}
 \end{align}
+
+Die drei gemessenen Intensitäten $I_0, I_1$ und $I_2$ für die Bestimmung der Comptonwellenlänge
+haben die Werte
+\begin{subequations}
+\begin{align}
+    I_0 &= 2731 \,\text{Impulse} \label{eq:13a}, \\
+    I_1 &= 1180\,\text{Impulse}\, \label{eq:13b} \text{und} \\
+    I_2 &=1024 \,\text{Impulse}\label{eq:13c}.
+\end{align}
+\end{subequations}
+
+Damit wird die Transmission von Aluminium mit Gl. \eqref{eq:5} berechnet:
+\begin{subequations}
+\begin{align}
+    T_1 &= 0.432 \label{16a}\\
+    T_2 &= 0.375 \label{16b} 
+\end{align}
+\end{subequations}
+
+Durch Umstellen der Gl. \eqref{eq:12} wird mit den Transmissionskoeffizienten
+die Wellenlängen $\lambda _1$ und $\lambda _2$ berechnet
+\begin{subequations}
+\begin{align}
+    \lambda &= \frac{T-b}{a} \label{17a}\\
+    \lambda _1 &= \SI{52.2+-1.2}{\pico\meter} \label{17b}\\
+    \lambda _2 &= \SI{55.9+-1.3}{\pico\meter} \label{17c}.
+\end{align}
+\end{subequations}
+
+Daraus lässt sich die Comptonwellenlänge nahc Formel \eqref{eq:2} mit $\theta = 90°$
+bestimmen:
+\begin{align}
+    \lambda _c = \lambda _2 - \lambda _1 = \SI{3.76+-0.06}{\pico\meter} \label{eq:18}
+\end{align}
+
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}
+
+In der nachfolgenden Tabelle sind die für die Diskussion benötigten Werte, ihre Literaturwerte und
+die dazugehörigen relativen Fehler zusammengefasst.
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c}
+\toprule
+\multicolumn{2}{c}{Messwert}& \multicolumn{1}{c}{Literaturwert}& \multicolumn{1}{c}{relativer Fehler} \\
+\cmidrule(lr){1-2}
+$K_{\alpha}$    &   \SI{8043.35}{\electronvolt} & \SI{8048}{\electronvolt} \cite{K_Linie} & $5,78\cdot 10^{-2 }\%$\\
+$K_{\beta} $    &   \SI{8999.64}{\electronvolt} & \SI{8905}{\electronvolt} \cite{K_Linie} & $1,06\%$\\
+$\lambda _c$    &   \SI{3.76+-0.06}{\pico\meter} & \SI{2.43263}{\angstrom} \cite{nolting2013grundlagen} & $54,97\%$\\
+\bottomrule
+\end{tabular}
+\caption{gemessene Werte, Literaturwerte und relativer Fehler}
+\label{tab:3}
+\end{table}
+
+\flushleft{Das\;}\justifying Kupferspektrum in Abbildung \ref{fig:3} gibt das zu erwartende Spektrum gut
+wieder. Das Bremsspektrum ist kontinuierlich und die Intensität nimmt mit steigender Wellenlänge ab.
+Neben dem Bremspektrum sind klar die beiden Peaks zu erkennen, welche die $K_{\alpha} $-
+und die $K_{\beta} $-Linie definieren. Im Vergleich zu den Literaturwerten in der Tabelle \ref{tab:3}
+sind die Werte nah am gesuchten Wert, was sich in den geringen relativen Fehlern zeigt.
+Auffällig an dem Graph ist, dass die $K_{\alpha} $-Linie wesentlich häufiger gemessen wurde
+als die $K_{\beta}$-Linie. Das kommt vermutlich daher, dass $K_{\alpha} $ ein
+geringeres Energieniveau besitzt als $K_{\beta} $ und dementsprechend die 
+Elektronen häufiger diesen Schalenübergang ionisieren.\\
+Für die Transmission des Alumuminium-Absorbers zeigt die Abbildung
+\ref{fig:4} einen linearen Zusammenhang zwischen Transmission und Wellenlänge,
+was die geringen Messungenauigkeiten der Koeffizienten \eqref{eq:11} und \eqref{eq:12}
+bestätigen.
+Bei der Berechnung der Compton-Wellenlänge wird keine Totzeitkorrektur angewandt,
+da durch die Totzeit von $\tau = \SI{60}{\micro\second} $ für kleine N in 
+Gleichung \eqref{eq:9} der Nenner $\approx$ 1 ist und dann $I=N$ entspricht.
+Die Comptonwellenlänge hat mit $54,97\%$ einen relativ großen Fehler. Dieser Fehler
+kann zum Teil  durch Verunreinigungen im Kristall entstehen, wodurch auch andere 
+Wellenlängen gemessen werden, die nicht mit gemessen werden sollten.
+Zudem ist das Vakuum eventuell nicht perfekt, wodurch manche Elektronen mit
+übriggebliebenen Teilchen Wechselwirken und Strahlung erzeugen. Zudem können
+auch äußere Strahlungsquellen , während der Messung mitgezählt worden sein.
+
+
 
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

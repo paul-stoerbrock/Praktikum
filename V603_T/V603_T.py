@@ -54,6 +54,8 @@ lambda1=2 *201.4*1e-12*np.sin(theta_rad_Al)
 
 plt.plot(theta_deg_Cu, N_Cu,'kx', label='Messwerte')
 x_plot = np.linspace(0, 5, 1000)
+plt.axvline(x=20, color='g', linestyle=':', label='$K_{\\alpha}-Linie$')
+plt.axvline(x=22.5, color='b', linestyle=':', label='$K_{\\beta}-Linie$')
 plt.legend(loc="best")
 plt.annotate('$K_{\\beta}$', xy=(20, 1700), size = 15
 
@@ -64,6 +66,8 @@ plt.annotate('$K_{\\alpha} $', xy=(23, 5050), size = 15
 plt.annotate('Bremsspektrum', xy=(10, 700), size = 20
 
 )
+
+
 plt.xlabel(r'Winkel $\theta \:/\:°$')
 plt.ylabel(r'Intensität $I\:/\:Imp/s$')
 plt.grid()
@@ -71,9 +75,11 @@ plt.tight_layout
 plt.savefig('build/plot_Cu.pdf')
 plt.close()
 
+print(2*201.4*1e-12*np.sin(np.deg2rad(20)))
+print(const.h *const.c/(2*201.4*1e-12*np.sin(np.deg2rad(20))*const.e))
 
 
- #Plot des Absorptionsspektrum ohne Absorber
+#Plot des Absorptionsspektrum ohne Absorber
 
 
 
@@ -112,7 +118,7 @@ I_0 = 2731
 I_1 = 1180
 I_2 = 1024
 
-print((I_1/I_0-par[1])/par[0] )
+print((I_1/I_0-par[1])/par[0])
 print((I_2/I_0-par[1])/par[0])
 
 # Tex Files ##################################################################################################################
@@ -120,7 +126,7 @@ print((I_2/I_0-par[1])/par[0])
 #tex file of a_Al  ###########################################################################
 
 with open('build/a_Al.tex', 'w') as f: 
-  f.write(make_SI(par[0] ,r'\meter\tothe{-1}' ,figures=1))
+  f.write(make_SI(par[0]*1e-10 ,r'\meter\tothe{-1}',exp='e10' ,figures=1))
 
 #tex file of b_Al  ###########################################################################
 
@@ -177,3 +183,9 @@ with open('build/table_Cu.tex', 'w') as g:
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
+
+
+
+
+
+print((1024/2731 - par[1])/par[0]-(1180/2731 - par[1])/par[0] )
