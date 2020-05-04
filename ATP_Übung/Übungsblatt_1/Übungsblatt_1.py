@@ -36,14 +36,23 @@ def L(P_S, R):                      #Flussdichte im Abstand 1 au
     return P_S/(4*np.pi*R)
 
 T_S = 5780
-R_S = 6.69*10**8
-R_E = 6360
+R_S = 6.96*10**8
+R_E = 6360*1e03
 R   = const.au
 
 A_S = 4*np.pi*R_S**2
 A_E = 4*np.pi*R_E**2
 P_S = const.sigma*A_S*T_S**4
-L   = P_S/(4*np.pi*const.au)
+Lum = L(P_S,R) 
+
+
+# Zu Aufgabe 3
+
+f_H1 = 1/(21.1*1e-02) * const.c
+E_H1 = f_H1*2*np.pi*const.physical_constants["Planck constant over 2 pi"][0]
+
+print(P_S)
+print(E_H1 /const.e )
 
 # tex file of T_S
 
@@ -53,12 +62,12 @@ with open('build/T_S.tex', 'w') as f:
 # tex file of R_S
 
 with open('build/R_S.tex', 'w') as f: 
-  f.write(make_SI(R_S, r'\meter' ,figures=0))
+  f.write(make_SI(R_S*1e-03, r'\kilo\meter' ,figures=0))
 
 # tex file of R_E
 
 with open('build/R_E.tex', 'w') as f: 
-  f.write(make_SI(R_E, r'\kilo\meter' ,figures=0))
+  f.write(make_SI(R_E*1e-03, r'\kilo\meter' ,figures=0))
 
 # tex file of A_S
 
@@ -73,9 +82,15 @@ with open('build/A_E.tex', 'w') as f:
 # tex file of P_S
 
 with open('build/P_S.tex', 'w') as f: 
-  f.write(make_SI(P_S*1e-21, r'\zetta\watt' ,figures=1))
+  f.write(make_SI(P_S*1e-26, r'\watt',exp='e26' ,figures=2))
 
-# tex file of L
+# tex file of F_H1
 
-with open('build/L.tex', 'w') as f: 
-  f.write(make_SI(L, r'' ,figures=1))
+with open('build/f_H1.tex', 'w') as f: 
+  f.write(make_SI(f_H1*1e-09,r'\giga\hertz' ,figures=2))
+
+
+# tex file of E_H1
+
+with open('build/E_H1.tex', 'w') as f: 
+  f.write(make_SI(E_H1, r'\electronvolt' ,figures=2))
