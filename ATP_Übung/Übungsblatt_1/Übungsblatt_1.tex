@@ -63,6 +63,7 @@
         \intertext{\flushleft{Das\;}\justifying Stefan-Boltzmann-Gesetz lautet
         $P = \sigma \cdot A \cdot T^4$, wobei P die Luminosität der Schwarzkörpers ist.
         }
+        A= 4 \pi R_{Sonne}^2 
     \end{align}
 
         \begin{table}[H]
@@ -77,27 +78,49 @@
         \caption{Messwerte}
         \label{tab:2a}
         \end{table}
+
+
     
     \begin{align}
         \intertext{\flushleft{Die\;}\justifying Luminosität der Sonne beträgt:
         }
         P_{Sonne} = \text{\input{P_S.tex}}
     \end{align}
+    Die Flussdichte der Sonne in Distanz von $1$au
+    \begin{align}
+        f &= \frac{P_{\text{Sonne}}}{4 \pi R^2} =\frac{4 \pi R_{\text{Sonne}}^2 \sigma T^4}{4 \pi R^2}  = \frac{R_{\text{Sonne}}^2 \sigma T^4}{R^2}
+        &= \SI{1368.95}{\watt\meter\tothe{-2}} 
+    \end{align}
 
-
-
+    
 
 \subsection{b)}
+
+Der Absoptionsfaktor für die Erdatmosphäre ist 0,7. Die Energieaufnahme beträgt dann
+\begin{align}
+    L &= 0,7 \cdot f_{1au} \cdot A_{\text{Erde}} = 0,7 \cdot \SI{1368.95}{\watt\meter\tothe{-2}} \pi \SI{6360e3}{\meter}
+    &= \SI{173}{\peta\watt}
+\end{align}
 
 
 
 \subsection{c)}
 
-
+\begin{align}
+P_{eq} &= P_{ein}-P_{aus}\\
+4 \sigma \pi R^2 T_{eq}^4 &= \pi R^2 f - Albedo\, \pi R^2 f\\
+4 \sigma T_{eq}^4 &= (1-Albedo)f\\
+4 \sigma T_{eq}^4 &= (1-Albedo) \frac{R_{\text{Sonne}}^2 \sigma T^4}{R^2}\\
+T_{eq} & = T_{\text{Sonne}} \sqrt{\frac[4]{1-Albedo}{4}\left(\frac{R_{\text{Sonne}}}{R} \right)^2 }\\
+T_{eq} & = T_{\text{Sonne}} \sqrt{\frac[4]{1-Albedo}{4}\left(\frac{R_{\text{Sonne}}}{1au} \right)^2 } \approx \SI{255}{\kelvin} \\
+\end{align}
 
 \subsection{d)}
 
-
+\flushleft{Ein\;}\justifying Teil der Strahlung, welche von der Erde reflektiert wird, gelangt in die Atmosphäre und
+regt Schwingungen bei Treibhausgasen an. Diese emittieren die Strahlung zurück auf die Erde,
+wovon wiederum ein Teil absorbiert wird.
+Ein anderer Teil der Erdwärme entsteht wiederum durch vulkanische Aktivitäten und ähnliches.
 
 \section{Aufgabe 3}
 
