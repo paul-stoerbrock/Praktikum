@@ -166,13 +166,15 @@ N_Cu_1, N_Cu_2, N_Cu_3 = np.array_split(N_Cu, 3)
 
 
 table_header = r'''
-  \begin{tabular}{c c c c c c}
+  \begin{longtable}{c c c c c c}
+  \caption{Messwerte für das Emissionsspektrum von Kupfer}\\
     \toprule
-    \multicolumn{1}{c}{Winkel $\theta \:/\:° $ } & \multicolumn{1}{c}{Zählrate $N\:/\:Imp/s $ } & \multicolumn{1}{c}{Winkel $\theta \:/\:°$ } & \multicolumn{1}{c}{Zählrate $N\:/\:Imp/s $ }& \multicolumn{1}{c}{Winkel $\theta \:/\:° $}& \multicolumn{1}{c}{Zählrate $N\:/\:Imp/s $  }\\
+    \multicolumn{1}{c}{Winkel $\theta \:/\:° $ } & \multicolumn{1}{c}{Zählrate $N\:/\:Imp/s $ } & \multicolumn{1}{c}{ $\theta \:/\:°$ } & \multicolumn{1}{c}{$N\:/\:Imp/s $ }& \multicolumn{1}{c}{ $\theta \:/\:° $}& \multicolumn{1}{c}{ $N\:/\:Imp/s $  }\\
     \cmidrule(lr){1-2} \cmidrule(lr{0,5em}){3-4} \cmidrule(lr{0,5em}){5-6}
 '''
 table_footer = r'''    \bottomrule
-  \end{tabular}
+  \label{tab:1}
+  \end{longtable}
 '''
 row_template = r'     {0:1.1f} & {1:1.0f} & {2:1.1f} & {3:1.0f} & {4:1.1f} & {5:1.0f} \\'
 

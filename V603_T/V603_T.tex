@@ -130,12 +130,11 @@ Die Gitterkonstante des LiF-Kristalls lautet \cite{V603}
 \flushleft{Die\,}\justifying Messwerte für das Emissionspektrum von Kupfer sind in der nachfolgenden Tabelle 
 aufgetragen.
 
-\begin{table}[H]
-    \centering
-    \input{table_Cu.tex}
-    \caption{Messwerte für das Emissionsspektrum von Kupfer}
-    \label{tab:1}
-\end{table}
+
+\input{table_Cu.tex}
+
+
+
 
 Die Graphik für die Messwerte aus der Tabelle \ref{tab:1} ergibt den Plot:
 \begin{figure}[H]
@@ -249,7 +248,7 @@ die dazugehörigen relativen Fehler zusammengefasst.
 \cmidrule(lr){1-2}
 $K_{\alpha}$    &   \SI{8043.35}{\electronvolt} & \SI{8048}{\electronvolt} \cite{K_Linie} & $5,78\cdot 10^{-2 }\%$\\
 $K_{\beta} $    &   \SI{8999.64}{\electronvolt} & \SI{8905}{\electronvolt} \cite{K_Linie} & $1,06\%$\\
-$\lambda _c$    &   \SI{3.76+-0.06}{\pico\meter} & \SI{2.43263}{\angstrom} \cite{nolting2013grundlagen} & $54,97\%$\\
+$\lambda _c$    &   \SI{3.76+-0.06}{\pico\meter} & \SI{2.43263e02}{\angstrom} \cite{nolting2013grundlagen} & $54,97\%$\\
 \bottomrule
 \end{tabular}
 \caption{gemessene Werte, Literaturwerte und relativer Fehler}
@@ -273,12 +272,23 @@ Bei der Berechnung der Compton-Wellenlänge wird keine Totzeitkorrektur angewand
 da durch die Totzeit von $\tau = \SI{60}{\micro\second} $ für kleine N in 
 Gleichung \eqref{eq:9} der Nenner $\approx$ 1 ist und dann $I=N$ entspricht.
 Die Comptonwellenlänge hat mit $54,97\%$ einen relativ großen Fehler. Dieser Fehler
-kann zum Teil  durch Verunreinigungen im Kristall entstehen, wodurch auch andere 
+kann zum Teil  durch Verunreinigungen im Plexiglasstreuer entstehen, wodurch auch andere 
 Wellenlängen gemessen werden, die nicht mit gemessen werden sollten.
 Zudem ist das Vakuum eventuell nicht perfekt, wodurch manche Elektronen mit
-übriggebliebenen Teilchen Wechselwirken und Strahlung erzeugen. Zudem können
-auch äußere Strahlungsquellen , während der Messung mitgezählt worden sein.
-
+übrig gebliebenen Teilchen Wechselwirken und Strahlung erzeugen. Zudem befindet sich im 
+Bereich des Plexiglastreuer kein Vakuum, wodurch dort auch Teilchen in der Luft
+ionisiert werden könnten. Außerdem wurde die Gerade in Abbildung \ref{fig:4} nur im
+Bereich 7° bis 10° erstellt. Die Messung der Wellenlängen wurde allerdings
+bei 45° gemacht, wo es möglich wäre, dass die Gerade für diesen Bereich nicht
+die optimale Näherung dastelle. \\
+Nichtsdestotrotz kann anhand der Comptonwellenlänge erkannt werden, warum spezifisch 
+Röntgenstrahlung zur Untersuchung verwendet wurde. Die maximale Wellenlängenänderung
+liegt bei 180° wodurch 
+\begin{align}
+    \Delta \lambda = 2 \cdot \lambda _c \approx \SI{5}{\pico\meter} \;\text{(nach dem Literaturwert)}
+\end{align}
+ist. Die maximale Wellenlängenänderung liegt im Bereich Picometer, wodurch sie zum Beispiel im sichtbaren Bereich von Nanometer
+kaum einen Unterschied machen würde.
 
 
 
