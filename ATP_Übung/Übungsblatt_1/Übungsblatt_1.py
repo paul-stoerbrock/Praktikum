@@ -35,6 +35,12 @@ def make_SI(num, unit, exp='', figures=None):
 def L(P_S, R):                      #Flussdichte im Abstand 1 au
     return P_S/(4*np.pi*R)
 
+t = 879.4
+d = const.c*t
+d_AU = d/const.au
+d_galaxy = 8178*1e+03 
+m_n = 1.67492749804*1e-27   #kg
+
 T_S = 5780
 R_S = 6.96*10**8
 R_E = 6360*1e03
@@ -53,6 +59,16 @@ E_H1 = f_H1*2*np.pi*const.physical_constants["Planck constant over 2 pi"][0]
 
 print(P_S)
 print(E_H1 /const.e )
+
+# tex file of d
+
+with open('build/d.tex', 'w') as f: 
+  f.write(make_SI(d, r'\meter' ,figures=2))
+
+# tex file of d_AU
+
+with open('build/d_AU.tex', 'w') as f: 
+  f.write(make_SI(d_AU, r'\astronomicalunit' ,figures=2))
 
 # tex file of T_S
 

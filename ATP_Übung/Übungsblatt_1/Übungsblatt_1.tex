@@ -31,13 +31,40 @@
 
 \subsection{a)}
 
-
+    \flushleft{Das\;}\justifying Neutron hat eine finite Lebensdauer von ca. \SI{879.4}{\second}. Mit der Formel 
+    \begin{align}
+        v = \frac{d}{t} \Leftrightarrow v \cdot t = d \label{eq:1}
+    \end{align}
+    lässt sich die zurückgelegte Distanz bestimmen. Da das Neutron mit annähernder Lichtgeschwindigkeit propagiert ($v \~{c}$), kann man als Reisedauer des Neutrons die Lebensdauer 
+    für $t$ einsetzen. Da sich das Neutron mit ungefährer Lichtgeschwindigkeit fortbewegt, muss die Distanz relativistisch, also mit der Formel
+    \begin{align}
+        \gamma \cdot v \cdot t = d \qquad \qquad \text{mit\;} \gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} \label{eq:2}
+    \end{align}
+    bestimmt werden. Da $v$ hier gegen die Lichtgeschwindigkeit $c$ konvergeiert, kürtzt sich $\gamma$ weg, und es bleibt Formel \eqref{eq:1} stehen. 
+    Somit ergibt sich für die maximale Distanz, die ein Neutron während dessen Lebensdauer zurücklegen kann:
+    \begin{align}
+        3 \cdot 10^8 \sfrac{m}{s} \cdot \SI{879.4}{\second} = \text{\input{d.tex}} \Leftrightarrow \text{\input{d_AU.tex}}
+    \end{align}
+    Demnach könnte ein Neutron bei annähernder Lichtgeschwindigkeit \SI{176}{\percent} der Stecke zwischen Erde und Sonne zurücklegen, was uns erlaubt Neutronen auf der Erde zu beobachten.
 
 \subsection{b)}
 
+    \flushleft{Die\;}\justifying relativistische Gesamtenergie $R_{ges}$ wird mit der Ruheenergie $R_0$, der Ruhemasse $m_0$ und der kinetischen Energie $E_{kin} = c^2 \cdot p^2$ bestimmt:
+    \begin{align}
+        E_{ges}^2 &= E_0^2 + c^2 \cdot p^2 \qquad \qquad \text{mit\;} p = m_0 \cdot v\\
+        E_{ges}^2 &\stackrel{relativistisch}{=} E_0^2 + \frac{c^2 \cdot m_0^2 \cdot v^2}{1-\frac{v^2}{c^2}} \label{eq:3}
+        \intertext{Wird Formel \eqref{eq:2} nach $v$ umgestellt und in \eqref{eq:3} eingesetzt, kürtzt sich das $\gamma$ raus und es folgt:
+        }
+        E_{ges}^2 &= d^2 t^2 \cdot c^2 m_0^2 - m_0^2 c^2
+    \end{align} 
 
 
 \subsection{c)}
+
+\subsection{d)}
+
+    \flushleft{Ein\;}\justifying Myon hat eine Halbwertszeit von \SI{1.52}{\micro\second}. Um die Erde mit relativistischer Geschwindigkeit zu erreichen, bräuchte ein Teilchen 
+    \textasciitilde \SI{499}{\second}. Demnach würde das Myon auf dem Weg zerfallen und kann deswegen nicht von der Erde aus beobachtet werden. 
 
 
 
