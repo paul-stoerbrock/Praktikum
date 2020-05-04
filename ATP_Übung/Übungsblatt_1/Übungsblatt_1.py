@@ -36,13 +36,14 @@ def L(P_S, R):                      #Flussdichte im Abstand 1 au
     return P_S/(4*np.pi*R)
 
 T_S = 5780
-R_S = 6.69*10**5
+R_S = 6.69*10**8
 R_E = 6360
 R   = const.au
 
 A_S = 4*np.pi*R_S**2
 A_E = 4*np.pi*R_E**2
 P_S = const.sigma*A_S*T_S**4
+L   = P_S/(4*np.pi*const.au)
 
 # tex file of T_S
 
@@ -52,7 +53,7 @@ with open('build/T_S.tex', 'w') as f:
 # tex file of R_S
 
 with open('build/R_S.tex', 'w') as f: 
-  f.write(make_SI(R_S, r'\kilo\meter' ,figures=0))
+  f.write(make_SI(R_S, r'\meter' ,figures=0))
 
 # tex file of R_E
 
@@ -72,4 +73,9 @@ with open('build/A_E.tex', 'w') as f:
 # tex file of P_S
 
 with open('build/P_S.tex', 'w') as f: 
-  f.write(make_SI(P_S*1e-15, r'\giga\watt' ,figures=1))
+  f.write(make_SI(P_S*1e-21, r'\zetta\watt' ,figures=1))
+
+# tex file of L
+
+with open('build/L.tex', 'w') as f: 
+  f.write(make_SI(L, r'' ,figures=1))
