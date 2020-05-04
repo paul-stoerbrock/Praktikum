@@ -20,6 +20,12 @@
 
 \setcounter{page}{1}
 
+\section{Ziel}
+
+    \flushleft{Mit\;}\justifying dem Compton-Effekt wird die Wellenlängenverschiebung von Strahlung beschrieben, die an Objekten gestreut wird. Diese Wellenlängenverschiebung
+    lässt sich auf die Wechselwirkung zwischen Photon und Elektron zurückführen. In der Physik wird Strahlung dazu verwendet, Teilchen Energie hinzuzufügen, oder 
+    zu nehmen. Demnach ist es wichtig, die Compton-Wellenlänge zu bestimmen (hier mittels der Transmission von Aluminium) um diese Wechselwirkung nachvollziehen zu können.
+
 \section{Theorie}
 
     \flushleft{Der\;}\justifying Compton-Effekt beschreibt die Wellenlängenverschiebung von $\gamma$-Strahlung, sobald diese mit einem Elektron Wechselwirkt. 
@@ -31,7 +37,7 @@
         \Delta \lambda = \lambda_2 - \lambda_1 = \lambda_C \cdot (1-cos(\theta)) \label{eq:1}
     \end{align}
     \flushleft{bestimmen.\;}\justifying Die $\gamma$-Strahlung wird in einer evakuierten Röhre durch beschleunigte Elektronen erzeugt, welche im Coulombfeld der Anode
-    abgebremst werden. Durch das Abbremsens des Elektrons verliert das Elektron Energie, welche in Form von Photonen (Röntkenquanten) abgestrahlt wird. Diese Strahlung
+    abgebremst werden. Durch des Abbremsens des Elektrons verliert das Elektron Energie, welche in Form von Photonen (Röntkenquanten) abgestrahlt wird. Diese Strahlung
     erzeugt das Bremsspektrum. Jedes Material hat sein eigenes charakteristisches Spektrum, da die Energie, welches das Elektron abgibt um auf eine innere Schale des 
     Atoms zurückzufallen, materialspizifisch ist. Die Energie des Elektrons nach der Streuung ist die Energiedifferenz des einfallenden Photons und dem des gestreuten 
     Photons.\\
@@ -40,7 +46,7 @@
         2 \cdot d \cdot sin(\alpha) = n \cdot \lambda \label{eq:2}
     \end{align}
     bestimmen. Die Bragg´sche Bedingung nutzt die gleichmäßige Gitterstruktur eines Lithiumfluorid-Kristalls (LiF-Kristalls) aus, welche hier eine Gitterkonstante $d = \SI{201.04}
-    {\pico\meter}$ und einer Beugungsordnung $n$ von 1 besitzt. Dies führt zu einer konstruktive Interferenz der Photonen bei einem Glanzwinkel $\alpha$. Mit der Wellenlänge
+    {\pico\meter}$ und einer Beugungsordnung $n$ von 1 besitzt. Dies führt zu einer konstruktiven Interferenz der Photonen bei einem Glanzwinkel $\alpha$. Mit der Wellenlänge
     $\lambda$ lässt sich schließlich die Energie des Elektrons
     \begin{align}
         E = \frac{h \cdot c}{\lambda} \label{eq:3}
@@ -75,37 +81,33 @@
     \end{align}
     bestimmen lässt. 
 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\linewidth]{./images/Aufbau2.jpg}
+        \caption{Versuchsaufbau \cite{V603}}
+        \label{fig:1b}
+    \end{figure}
+
     \flushleft{Um\;}\justifying die Compton-Wellenlänge zu bestimmen, muss die Intensität der Kupfer-Röhre $I_0$ bestimmt werden. Dazu wird die $\SI{2}{\milli\meter}$-Blende
-    durch eine $\SI{5}{\milli\meter}$-Blende und der LiF-Kristall durch den Plexiglas-Streuer ersetzt. Der Kristall wird auf 45° und das Geiger-Müller Zählrohr auf 90° gestellt.
-    Mit diesen Einstellung wird die Intensität $I_0$ abgelesen.
+    durch eine $\SI{5}{\milli\meter}$-Blende und der LiF-Kristall durch den Plexiglas-Streuer ersetzt. Der Kristall wird auf 45° und das Geiger-Müller Zählrohr auf 90° gestellt, 
+    wie in Abbildung \ref{fig:1b} dargestellt. Mit diesen Einstellung wird die Intensität $I_0$ abgelesen.
 
-     \flushleft{Für\;}\justifying die Compton-Wellenlänge werden nun die verbleibenden Intensitäten $I_1$ und $I_2$ der Strahlung bestimmt. Dafür wird der Aluminiumabsorber 
-     einmal zwischen Röntgenröhre und Streukörper $I_1$ und einmal zwischen Streukörper und Geiger-Müller Zählrohr $I_2$ gesteckt. Beide Messungen werden unabhängig über einen 
-     Zeitraum $\SI{300}{\second}$ und einem Winkelintervall von $7° \leq \alpha \leq 10°$ durchgeführt. 
+    \flushleft{Für\;}\justifying die Compton-Wellenlänge werden nun die verbleibenden Intensitäten $I_1$ und $I_2$ der Strahlung bestimmt. Dafür wird der Aluminiumabsorber 
+    einmal zwischen Röntgenröhre und Streukörper $I_1$ und einmal zwischen Streukörper und Geiger-Müller Zählrohr $I_2$ gesteckt, wie in Abbildung \ref{fig:1b} dargestellt. 
+    Beide Messungen werden unabhängig über einen Zeitraum $\SI{300}{\second}$ und einem Winkelintervall von $7° \leq \alpha \leq 10°$ durchgeführt. 
 
 
-
+\newpage
 \section{Auswertung}
 
     \subsection{Emissionsspektrum von Kupfer}
 
-    \flushleft{Mithilfe\;}\justifying des Messwerte aus der folgenden Tabelle \ref{tab:1} wird das Emissionsspektrum von Kupfer graphisch aufgetragen.
+    \flushleft{Mithilfe\;}\justifying der Messwerte aus der folgenden Tabelle \ref{tab:1} wird das Emissionsspektrum von Kupfer graphisch aufgetragen.
 
-    \begin{table}[H]
-        \centering
-        \input{table_Cu1.tex}
-        \caption{Kupfer}
-        \label{tab:1}
-    \end{table}
+    \input{table_Cu.tex}
 
-    \begin{table}[H]
-        \centering
-        \input{table_Cu2.tex}
-        \caption{Kupfer}
-        \label{tab:2}
-    \end{table}
-
-    \flushleft{Das\;}\justifying Emissionsspektrum von Kupfer sieht wie folgt aus:
+    \newpage
+    \flushleft{Der\;}\justifying folgende Graph stellt das Emissionsspektrum von Kupfer dar:
 
     \begin{figure}[H]
         \centering
@@ -114,7 +116,7 @@
         \label{fig:2}
     \end{figure}
 
-    \flushleft{Anhand\;}\justifying des Graphen lassen sich die Werte der Winkel für die $K_{\alpha}$ und $K_{\beta}$ ablesen. Diese lauten:
+    \flushleft{Anhand\;}\justifying des Graphen lassen sich die Werte der Winkel für die $K_{\alpha}$- und $K_{\beta}$-Linie ablesen. Diese lauten:
     \begin{align}
         Winkel_{K_{\alpha}} &= \text{\input{xmax.tex}}  \label{eq:5}\\
         Winkel_{K_{\beta}}  &= \text{\input{xlmax.tex}} \label{eq:6}
@@ -137,25 +139,30 @@
     \flushleft{Um\;}\justifying die Transmission $T$ von Aluminium zu bestimmen, muss zuerst die Intensität $I$ bestimmt werden. Diese lässt sich mit der Formel \eqref{eq:4}
     bestimmen. Die Totzeit des Geiger-Müller Zählrohrs $\tau$ ist hier $\SI{90}{\micro\second}$. 
 
-    \begin{table}[H]
-        \centering
-        \input{table_Al.tex}
-        \caption{Aluminium}
-        \label{tab:3}
-    \end{table}
+    \input{table_Al.tex}
+    %\begin{table}[H]
+    %    \centering
+    %    \input{table_Al.tex}
+    %    \caption{Aluminium}
+    %    \label{tab:2}
+    %\end{table}
 
-    \flushleft{Werden\;}\justifying nun die Werte für Impulse pro Sekunde aus Tabelle \ref{tab:3} für $N$ in Gleichung \eqref{eq:4} eingesetzt, ergeben sich die folgenden Intensitäten:
+    \flushleft{Werden\;}\justifying nun die Werte für Impulse pro Sekunde aus Tabelle \ref{tab:2} für $N$ in Gleichung \eqref{eq:4} eingesetzt, ergeben sich die folgenden Intensitäten:
     \begin{align}
         I_1 &= \frac{N_0}{1- \tau \cdot N_0}   \label{eq:12}\\
         I_2 &= \frac{N_{Al}}{1- \tau \cdot N_{Al}} \label{eq:13}
     \end{align}
 
     \flushleft{Mit\;}\justifying $I_1$ \eqref{eq:12} und $I_2$ \eqref{eq:13} lässt sich nun die Transmission $T=\sfrac{I_2}{I_1}$ bestimmen. Für das folgende $\lambda$-T Diagramm
-    ist die Wellenlänge $\lambda$ wichtig, welche sich wie zuvor mit Gleichung \eqref{eq:2} bestimmen lässt. Mit der Geradengleichung $T = m \cdot x + b$, dem python Befehl np.polyfit 
+    ist die Wellenlänge $\lambda$ wichtig, welche sich wie zuvor mit Gleichung \eqref{eq:2} bestimmen lässt. Mit der Geradengleichung 
+    \begin{align}
+    T = m \cdot x + b, \label{eq:14}
+    \end{align}
+    dem python Befehl np.polyfit 
     \cite{numpy} und den dazugehörigen Parametern
     \begin{align}
-        m &= \text{\input{m_Al.tex}} \label{eq:14}\\
-        b &= \text{\input{b_Al.tex}} \label{eq:15}
+        m &= \text{\input{m_Al.tex}} \label{eq:15}\\
+        b &= \text{\input{b_Al.tex}} \label{eq:16}
     \end{align}
     lässt sich die folgende lineare Regression erstellen:
 
@@ -170,7 +177,7 @@
 
     \flushleft{Die\;}\justifying Compton-Wellenlänge eines Elektrons $\lambda_C$ wird mit der umgestellten Formel \eqref{eq:2} nach $\lambda$ bestimmt:
     \begin{align}
-        \lambda = \frac{2 \cdot d \cdot sin(\alpha)}{n} \qquad \qquad \text{für $n\,=\,1$} \label{eq:16}
+        \lambda = \frac{2 \cdot d \cdot sin(\alpha)}{n} \qquad \qquad \text{für $n\,=\,1$} \label{eq:17}
     \end{align} 
     Für die Transmissionen
     \begin{align}
@@ -178,31 +185,60 @@
         T_2 &= \sfrac{I_2}{I_0} 
     \end{align}
     werden die Intensitäten $I_0$, $I_1$, und $I_2$ benötigt. Diese werden aus der Versuchsanleitung \cite{V603} übernommen:
-    \begin{subequations}\label{eq:17}
+    \begin{subequations}\label{eq:18}
     \begin{align}
-        I_0 &= \text{\input{I_0.tex}} \label{eq:17a}\\
-        I_1 &= \text{\input{I_1.tex}} \label{eq:17b}\\
-        I_2 &= \text{\input{I_2.tex}} \label{eq:17c}
+        I_0 &= \text{\input{I_0.tex}} \label{eq:18a}\\
+        I_1 &= \text{\input{I_1.tex}} \label{eq:18b}\\
+        I_2 &= \text{\input{I_2.tex}} \label{eq:18c}
     \end{align}
     \end{subequations}
 
     \flushleft{Die\;}\justifying daraus resultierenden Transmissionen ergeben:
     \begin{align}
-        T_1 &= \text{\input{T_1.tex}} \label{eq:18}\\
-        T_2 &= \text{\input{T_2.tex}} \label{eq:19}
+        T_1 &= \text{\input{T_1.tex}} \label{eq:19}\\
+        T_2 &= \text{\input{T_2.tex}} \label{eq:20}
     \end{align}
 
     \flushleft{Mit\;}\justifying $T_1$, $T_2$ und der Formel \eqref{eq:16} die Wellenlängen $\lambda_1$ und $\lambda_2$ berechnen, dessen differenz $\delta \lambda$ die Compton-Wellenlänge $\lambda_C$ ergibt.
     Demnach ergibt sich für $\lambda_C$:
     \begin{align}
-        \lambda_C = \text{\input{L_C.tex}} \label{eq:20}
+        \lambda_C = \text{\input{L_C.tex}} \label{eq:21}
     \end{align}
 
 
-
+\newpage
 \section{Diskussion}
 
-    Literaturwert $\lambda_{C,Lit} = \text{\input{L_const.tex}}$ 
+    \flushleft{In\;}\justifying der folgenden Tabelle \ref{tab:3} sind die erarbeiteten Werte, die Literaturwerte und dessen relative Fehler zu finden:
+
+    \begin{table}[H]
+    \centering
+        \begin{tabular}{l l c r}
+            \toprule
+            \multicolumn{1}{c}{} & \multicolumn{1}{c}{Messwerte} & \multicolumn{1}{c}{Literaturwerte} & \multicolumn{1}{c}{Relativer Fehler}\\
+            \cmidrule(lr{0,5em}){1-4}
+            $Energie_{K_{\alpha}}$           & \input{E_a.tex}            & \input{E_a_lit.tex} \cite{NIST}            & \input{E_Fa.tex} \\
+            $Energie_{K_{\beta}}$            & \input{E_b.tex}            & \input{E_b_lit.tex} \cite{NIST}            & \input{E_Fb.tex} \\
+            $\lambda_C$                      & \input{L_C.tex}            & \input{L_const.tex} \cite{scipy}           & \input{L_C_F.tex} \\
+            \bottomrule
+        \end{tabular}
+    \caption{Relative Fehler}
+    \label{tab:3}
+    \end{table}
+
+    \flushleft{Aus\;}\justifying den relativen Fehlern der Tabelle \ref{tab:3} für $K_{\alpha}$ und $K_{\beta}$ lässt sich ein deutliches Verhältniss zwischen der
+    erwarteten Kurve und der gemessenen Kurve feststellen. Der Graph \ref{fig:2} gibt die Peaks der $K_{\alpha}$- und $K_{\beta}$-Linie deutlich und mit geringem 
+    Fehler wieder. 
+
+    \flushleft{Der\;}\justifying Graph \ref{fig:3} veranschaulicht die Linearität der Transmission des Aluminiumabsorbers im Verhältniss zur Wellenlänge. Dieses Verhältniss
+    wird von dem relativ geringen Fehlern der Parameter \eqref{eq:15} und \eqref{eq:16} gestärkt. 
+
+    \flushleft{Bei\;}\justifying der Compton-Wellenlänge $\lambda_C$ hingegen entsteht ein signifikanter Fehler von $\SI{55}{\percent}$ \ref{tab:3}. Es wird mit der Bragg´schen Bedingung \eqref{eq:2} 
+    angenommen, dass es sich bei der atomaren Struktur, des Streukristalls um ein perfekt symmetrisches Gitternetz handelt. Dies ist in der Regel jedoch nicht der Fall, da Kristalle auf atomarer
+    Ebene nicht perfekt geschliffen werden können und Abnutzung das Gitternetz weiter beschädigt. Diese Verunreinigungen können dazu führen, dass die Röntgenstrahlung unterschiedlich gestreut wird, 
+    wodurch unterschiedliche Wellenlängen erzeugt werden. Außerdem können Unreinheiten ebenfalls im Vakuum und auf der Anode entstehen. Da es nicht möglich ist ein perfektes Vakuum künstlich herzustellen, 
+    können Restatome die Röntgenstrahlung beeinflusst haben. Kollision mit Teilchen spielt auch in der Streuvorrichtung selbst eine Rolle, da, wie in Abbildung \ref{fig:1} zu erkennen ist, sich der 
+    Streuer (3) nicht im Vakuum befindet. Dies kann zu einer Ionisierung der Luft führen, welche wiederum die gemessene Intensität negativ beeinflusst.  
 
 \newpage
 \printbibliography

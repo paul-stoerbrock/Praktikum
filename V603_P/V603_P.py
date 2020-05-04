@@ -78,6 +78,12 @@ L_b = 2*d_LiF*np.sin(np.deg2rad(xlmax))
 E_a = (const.h*const.c)/(L_a*const.e)
 E_b = (const.h*const.c)/(L_b*const.e)
 
+E_a_lit = ufloat(8047.8227, 26)
+E_b_lit = ufloat(8905.413, 38)
+
+E_Fa = np.abs(E_a-E_a_lit)/E_a_lit
+E_Fb = np.abs(E_b-E_b_lit)/E_b_lit
+
 print(L_a)
 print(L_b)
 print(E_a)
@@ -114,6 +120,8 @@ L_2 = (T_2-b_Al)/m_Al
 L_C = L_2-L_1
 L_const = const.value(u'Compton wavelength')
 
+L_C_F = (L_C-L_const)/L_const
+
 print(L_1)
 print(L_2)
 print(L_C)
@@ -144,10 +152,30 @@ with open('build/L_b.tex', 'w') as f:
 with open('build/E_a.tex', 'w') as f:
   f.write(make_SI(E_a,r'\electronvolt', figures=2))
 
+# tex file for E_a_lit
+
+with open('build/E_a_lit.tex', 'w') as f:
+  f.write(make_SI(E_a_lit,r'\electronvolt', figures=2))
+
+# tex file for E_Fa
+
+with open('build/E_Fa.tex', 'w') as f:
+  f.write(make_SI(E_Fa.n,r'', figures=4))
+
 # tex file for E_b
 
 with open('build/E_b.tex', 'w') as f:
   f.write(make_SI(E_b,r'\electronvolt', figures=2))
+
+# tex file for E_b_lit
+
+with open('build/E_b_lit.tex', 'w') as f:
+  f.write(make_SI(E_b_lit,r'\electronvolt', figures=2))
+
+# tex file for E_Fb
+
+with open('build/E_Fb.tex', 'w') as f:
+  f.write(make_SI(E_Fb.n,r'', figures=4))
 
 # tex file for m_Al
 
@@ -204,49 +232,60 @@ with open('build/L_C.tex', 'w') as f:
 with open('build/L_const.tex', 'w') as f:
   f.write(make_SI(L_const*1e+12,r'\meter', exp='1e-12', figures=2))
 
+# tex file for L_C_F
+
+with open('build/L_C_F.tex', 'w') as f:
+  f.write(make_SI(L_C_F.n,r'', figures=2))
 
 
+Theta_Cu1, Theta_Cu2, Theta_Cu3 = np.array_split(Theta_Cu,3)
+N_Cu1, N_Cu2, N_Cu3 = np.array_split(N_Cu,3)
 
-\begin{longtable}
-    {S[table-format=2.1] S[table-format=3.2] S[table-format=4.0] S[table-format=2.1] 
-    S[table-format=3.2] S[table-format=4.0] S[table-format=2.1] S[table-format=3.2] S[table-format=4.0]}     # X = Column Format, ex. 1.2
-    \caption{Messdaten zum Emissionsspektrum von Kupfer.} \\
+table_header = r'''
+\begin{longtable}{S[table-format=2.1] S[table-format=3.0] S[table-format=4.1] S[table-format=2.0] S[table-format=3.1] S[table-format=4.0]}
+    \caption{Messwerte Kupfer}\\
     \toprule
-    {$\theta / \si{\degree}$} & {$\lambda / \si{\pico\meter}$} & {$N / Imp/\si{\second}$} & {$\theta / \si{\degree}$} & {$\lambda / \si{\pico\meter}$} & {$N / Imp/\si{\second}$} & {$\theta / \si{\degree}$} & {$\lambda / \si{\pico\meter}$} & {$N / Imp/\si{\second}$} \\
-    \cmidrule(lr{0.5em}){1-3} \cmidrule(lr{0.5em}){4-6} \cmidrule(lr{0.5em}){7-9}
-
+    {$\theta / \si{\degree}$} & {$N / Impuls/\si{\second}$} & 
+    {$\theta / \si{\degree}$} & {$N / Impuls/\si{\second}$} & 
+    {$\theta / \si{\degree}$} & {$N / Impuls/\si{\second}$}\\
+    \cmidrule(lr{0.5em}){1-2} \cmidrule(lr{0.5em}){3-4} \cmidrule(lr{0.5em}){5-6}
 '''
-
-tab_foot_a = r''' 
+table_footer = r''' 
     \bottomrule
     \label{tab:1}
 \end{longtable}
 '''
 
-a_row_template = r'         {0:2.1f} & {1:3.2f} & {2:4.0f} & {3:2.1f} & {4:3.2f} & {5:4.0f} & {6:2.1f} & {7:3.2f} & {8:4.0f} \\'
+row_template = r'     {0:2.1f} & {1:3.0f} & {2:4.1f} & {3:2.0f} & {4:3.1f} & {5:4.0f}\\'
+
+with open('build/table_Cu.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(Theta_Cu1, N_Cu1, Theta_Cu2, N_Cu2, Theta_Cu3, N_Cu3):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
 
 
-  
-Alpha_Al1, Alpha_Al2 = np.array_split(Alpha_Al,2)
-N_Al1, N_Al2 = np.array_split(N_Al,2)
-N_ohne1, N_ohne2 = np.array_split(N_ohne,2)
 
 
 table_header = r'''
-  \begin{tabular}{c c c c c c}
+\begin{longtable}{S[table-format=2.1] S[table-format=3.1] S[table-format=4.1]}
+    \caption{Messwerte Kupfer}\\
     \toprule
-    \multicolumn{1}{c}{$\text{Winkel} \; \beta\:/\si{\degree}$} & \multicolumn{1}{c}{$\text{$N_{AL}$/Sekunde}$} & \multicolumn{1}{c}{$\text{$N_0$/Sekunde}$} &
-    \multicolumn{1}{c}{$\text{Winkel} \; \beta\:/\si{\degree}$} & \multicolumn{1}{c}{$\text{$N_{Al}$/Sekunde}$} & \multicolumn{1}{c}{$\text{$N_0$/Sekunde}$}\\
-    \cmidrule(lr{0,5em}){1-3} \cmidrule(lr{0,5em}){4-6}
+    {$\text{Winkel} \; \alpha\:/\si{\degree}$} & {$\text{$N_{Al}$/Sekunde}$} & {$\text{$N_{ohne}$/Sekunde}$}\\
+    \cmidrule(lr{0.5em}){1-3}
 '''
-table_footer = r'''    \bottomrule
-  \end{tabular}
+table_footer = r''' 
+    \bottomrule
+    \label{tab:2}
+\end{longtable}
 '''
-row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.2f} & {3:1.2f} & {4:1.2f} & {5:1.2f}\\'
+
+row_template = r'     {0:2.1f} & {1:3.1f} & {2:4.1f}\\'
 
 with open('build/table_Al.tex', 'w') as g:
     g.write(table_header)
-    for row in zip(Alpha_Al1, N_Al1, N_ohne1, Alpha_Al2, N_Al2, N_ohne2):
+    for row in zip(Alpha_Al, N_Al, N_ohne):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
