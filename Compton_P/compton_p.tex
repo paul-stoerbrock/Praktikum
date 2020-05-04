@@ -1,0 +1,211 @@
+\input{../header.tex}
+
+\begin{document}
+    \title{V603: Compton-Effekt}
+    \author{  
+    Paul Störbrock\\
+    \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
+    }
+    \date{Abgabe: 04.05.2020\vspace{-4ex}}
+\maketitle
+    
+    \begin{abstract}
+    \centering
+        \textbf{Ziel:} Bestimmung der Compton-Wellenlänge eines Elektrons
+    \end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+
+\section{Theorie}
+
+    \flushleft{Der\;}\justifying Compton-Effekt beschreibt die Wellenlängenverschiebung von $\gamma$-Strahlung, sobald diese mit einem Elektron Wechselwirkt. 
+    Wird $\gamma$-Strahlung an Materie gestreut, übt die Strahlung neben den elastischen Stößen (Reflektion) auch inelastische Stöße (kohärente Streuung) aus. 
+    Die kohärente Streung wird als Compton-Effekt bezeichnet, da ein Photon einen Teil seiner Energie an ein Elektron abgibt, welche das Elektron auf ein 
+    höheres energetisches Niveau bringt. Nach der Wechselwirkung wird das Elektron um einen Winkel $\theta$ gestreut. Mithilfe diesen Winkels und der Konstanten
+    $\lambda_C$, welche die Compton-Wellenlänge genannt und mit $\lambda_C = \sfrac{h}{m_e \cdot c}$ definiert ist, lässt sich die Wellenlängendifferenz
+    \begin{align}
+        \Delta \lambda = \lambda_2 - \lambda_1 = \lambda_C \cdot (1-cos(\theta)) \label{eq:1}
+    \end{align}
+    \flushleft{bestimmen.\;}\justifying Die $\gamma$-Strahlung wird in einer evakuierten Röhre durch beschleunigte Elektronen erzeugt, welche im Coulombfeld der Anode
+    abgebremst werden. Durch das Abbremsens des Elektrons verliert das Elektron Energie, welche in Form von Photonen (Röntkenquanten) abgestrahlt wird. Diese Strahlung
+    erzeugt das Bremsspektrum. Jedes Material hat sein eigenes charakteristisches Spektrum, da die Energie, welches das Elektron abgibt um auf eine innere Schale des 
+    Atoms zurückzufallen, materialspizifisch ist. Die Energie des Elektrons nach der Streuung ist die Energiedifferenz des einfallenden Photons und dem des gestreuten 
+    Photons.\\
+    Um die Energie des Elektrons bestimmen zu können, wird die Wellenlänge $\lambda$ benötigt. Diese lässt sich mit der Bragg´schen Bedingung \cite{V603}
+    \begin{align}
+        2 \cdot d \cdot sin(\alpha) = n \cdot \lambda \label{eq:2}
+    \end{align}
+    bestimmen. Die Bragg´sche Bedingung nutzt die gleichmäßige Gitterstruktur eines Lithiumfluorid-Kristalls (LiF-Kristalls) aus, welche hier eine Gitterkonstante $d = \SI{201.04}
+    {\pico\meter}$ und einer Beugungsordnung $n$ von 1 besitzt. Dies führt zu einer konstruktive Interferenz der Photonen bei einem Glanzwinkel $\alpha$. Mit der Wellenlänge
+    $\lambda$ lässt sich schließlich die Energie des Elektrons
+    \begin{align}
+        E = \frac{h \cdot c}{\lambda} \label{eq:3}
+    \end{align}
+    berechnen, wobei $h$ das Planksche Wirkungsquantum und $c$ die Lichtgeschwindigkeit ist. 
+
+
+
+\newpage
+\section{Versuchsaufbau/Durchführung}
+    \flushleft{Benötigt\;}\justifying werden: \textit{Eine Kupfer-Röntgenröhre, ein LiF-Kristall, ein Plexiglas-Streuer, eine $\SI{2}{\milli\meter}$-Blende, eine $\SI{5}
+    {\milli\meter}$-Blende und einen Aluminiumabsorber.}
+
+    \flushleft{Die\;}\justifying Röntgenaperatur ist wie folgt aufgebaut:
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\linewidth]{./images/Aufbau.jpg}
+        \caption{Aufbau der Röntgenröhre \cite{V603}}
+        \label{fig:1}
+    \end{figure}
+
+    \flushleft{Zu\;}\justifying Beginn wird der LiF-Kristall in die Halterung gesteckt und eine $\SI{2}{\milli\meter}$-Blende verwendet. Um das Emissionsspektrum der Kupfer-Röntgenröhre 
+    zu bestimmen, wird das Röntgenspektrum im $\SI{10}{\second}$-Intervall abgelesen, wobei der Einfallwinkel nach jeder Messung um $0.1°$ variiert wird.
+    Hier wurde die Messung bei einem Winkel $\alpha = 8°$ begonnen und bei $\alpha = 25°$ abgeschlossen. 
+
+    \flushleft{Anschließend\;}\justifying wird die Transmission des Aluminiumabsorbers gemessen, indem der Aluminiumabsorber vor die $\SI{2}{\milli\meter}$-Blende gelegt wird und
+    der Einfallwinkel um 0.1° über $\SI{200}{\second}$ variiert wird. Hier ist der Startwinkel $\alpha = 7°$ und die Messung wurde bei $\alpha = 10°$ beendet. 
+    Mithilfe der Messwerte wird ein $\lambda$-$T$ Diagramm erstellt. Für die Transmission wird die Intensität der Strahlung benötigt, welche sich mit der vorliegenden
+    Totzeit des Geiger-Müller Zählrohrs von $\tau = \SI{90}{\micro\second}$ und der Formel
+    \begin{align}
+        I = \frac{N}{1- \tau \cdot N} \label{eq:4}
+    \end{align}
+    bestimmen lässt. 
+
+    \flushleft{Um\;}\justifying die Compton-Wellenlänge zu bestimmen, muss die Intensität der Kupfer-Röhre $I_0$ bestimmt werden. Dazu wird die $\SI{2}{\milli\meter}$-Blende
+    durch eine $\SI{5}{\milli\meter}$-Blende und der LiF-Kristall durch den Plexiglas-Streuer ersetzt. Der Kristall wird auf 45° und das Geiger-Müller Zählrohr auf 90° gestellt.
+    Mit diesen Einstellung wird die Intensität $I_0$ abgelesen.
+
+     \flushleft{Für\;}\justifying die Compton-Wellenlänge werden nun die verbleibenden Intensitäten $I_1$ und $I_2$ der Strahlung bestimmt. Dafür wird der Aluminiumabsorber 
+     einmal zwischen Röntgenröhre und Streukörper $I_1$ und einmal zwischen Streukörper und Geiger-Müller Zählrohr $I_2$ gesteckt. Beide Messungen werden unabhängig über einen 
+     Zeitraum $\SI{300}{\second}$ und einem Winkelintervall von $7° \leq \alpha \leq 10°$ durchgeführt. 
+
+
+
+
+
+
+\section{Auswertung}
+
+    \subsection{Emissionsspektrum von Kupfer}
+
+    \flushleft{Mithilfe\;}\justifying des Messwerte aus der folgenden Tabelle \ref{tab:1} wird das Emissionsspektrum von Kupfer graphisch aufgetragen.
+
+    \begin{table}[H]
+        \centering
+        \input{table_Cu1.tex}
+        \caption{Kupfer}
+        \label{tab:1}
+    \end{table}
+
+    \begin{table}[H]
+        \centering
+        \input{table_Cu2.tex}
+        \caption{Kupfer}
+        \label{tab:2}
+    \end{table}
+
+    \flushleft{Das\;}\justifying Emissionsspektrum von Kupfer sieht wie folgt aus:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{plotCu.pdf}
+        \caption{Emissionsspektrum Kupfer}
+        \label{fig:2}
+    \end{figure}
+
+    \flushleft{Anhand\;}\justifying des Graphen lassen sich die Werte der Winkel für die $K_{\alpha}$ und $K_{\beta}$ ablesen. Diese lauten:
+    \begin{align}
+        Winkel_{K_{\alpha}} &= \text{\input{xmax.tex}}  \label{eq:5}\\
+        Winkel_{K_{\beta}}  &= \text{\input{xlmax.tex}} \label{eq:6}
+    \end{align}
+
+    \flushleft{Mit\;}\justifying den Winkeln \eqref{eq:5} und \eqref{eq:6} und der Gleichung \eqref{eq:2} lassen sich die Wellenlängen $\lambda_{\alpha}$ und $\lambda_{\beta}$ bestimmen,
+    welche für $\lambda$ in die Formel der Energie \eqref{eq:3} eingesetzt werden. Die Wellenlängen der $K_{\alpha}\,$- und der $K_{\beta}\,$-Linie lauten:
+    \begin{align}
+    \lambda_{\alpha} &= \text{\input{L_a.tex}}  \label{eq:8}\\
+    \lambda_{\beta} &= \text{\input{L_b.tex}}   \label{eq:9}
+    \intertext{
+        \flushleft{Werden\;}\justifying diese Werte nun in Gleichung \eqref{eq:3} eingesetzt, ergibt sich für die Energie der jeweiligen Linie:
+    }
+    E_{\alpha} &= \text{\input{E_a.tex}}    \label{eq:10}\\
+    E_{\beta} &= \text{\input{E_b.tex}}     \label{eq:11}
+    \end{align}
+    
+    \subsection{Transmission von Aluminium}
+
+    \flushleft{Um\;}\justifying die Transmission $T$ von Aluminium zu bestimmen, muss zuerst die Intensität $I$ bestimmt werden. Diese lässt sich mit der Formel \eqref{eq:4}
+    bestimmen. Die Totzeit des Geiger-Müller Zählrohrs $\tau$ ist hier $\SI{90}{\micro\second}$. 
+
+    \begin{table}[H]
+        \centering
+        \input{table_Al.tex}
+        \caption{Aluminium}
+        \label{tab:3}
+    \end{table}
+
+    \flushleft{Werden\;}\justifying nun die Werte für Impulse pro Sekunde aus Tabelle \ref{tab:3} für $N$ in Gleichung \eqref{eq:4} eingesetzt, ergeben sich die folgenden Intensitäten:
+    \begin{align}
+        I_1 &= \frac{N_0}{1- \tau \cdot N_0}   \label{eq:12}\\
+        I_2 &= \frac{N_{Al}}{1- \tau \cdot N_{Al}} \label{eq:13}
+    \end{align}
+
+    \flushleft{Mit\;}\justifying $I_1$ \eqref{eq:12} und $I_2$ \eqref{eq:13} lässt sich nun die Transmission $T=\sfrac{I_2}{I_1}$ bestimmen. Für das folgende $\lambda$-T Diagramm
+    ist die Wellenlänge $\lambda$ wichtig, welche sich wie zuvor mit Gleichung \eqref{eq:2} bestimmen lässt. Mit der Geradengleichung $T = m \cdot x + b$, dem python Befehl np.polyfit 
+    \cite{numpy} und den dazugehörigen Parametern
+    \begin{align}
+        m &= \text{\input{m_Al.tex}} \label{eq:14}\\
+        b &= \text{\input{b_Al.tex}} \label{eq:15}
+    \end{align}
+    lässt sich die folgende lineare Regression erstellen:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{plotAl.pdf}
+        \caption{Lineare Regression Aluminium}
+        \label{fig:3}
+    \end{figure}
+
+    \subsection{Compton-Wellenlänge}
+
+    \flushleft{Die\;}\justifying Compton-Wellenlänge eines Elektrons $\lambda_C$ wird mit der umgestellten Formel \eqref{eq:2} nach $\lambda$ bestimmt:
+    \begin{align}
+        \lambda = \frac{2 \cdot d \cdot sin(\alpha)}{n} \qquad \qquad \text{für $n\,=\,1$} \label{eq:16}
+    \end{align} 
+    Für die Transmissionen
+    \begin{align}
+        T_1 &= \sfrac{I_1}{I_0} \\
+        T_2 &= \sfrac{I_2}{I_0} 
+    \end{align}
+    werden die Intensitäten $I_0$, $I_1$, und $I_2$ benötigt. Diese werden aus der Versuchsanleitung \cite{V603} übernommen:
+    \begin{subequations}\label{eq:17}
+    \begin{align}
+        I_0 &= \text{\input{I_0.tex}} \label{eq:17a}\\
+        I_1 &= \text{\input{I_1.tex}} \label{eq:17b}\\
+        I_2 &= \text{\input{T_2.tex}} \label{eq:17c}
+    \end{align}
+    \end{subequations}
+
+    Die daraus resultierenden Transmissionen ergeben:
+    \begin{align}
+        T_1 &= \text{\input{T_1.tex}} \label{eq:18}\\
+        T_2 &= \text{\input{T_2.tex}} \label{eq:19}
+    \end{align}
+
+    Mit $T_1$, $T_2$ und der Formel \eqref{eq:16} die Wellenlängen $\lambda_1$ und $\lambda_2$ berechnen, dessen differenz $\delta \lambda$ die Compton-Wellenlänge $\lambda_C$ ergibt.
+    Demnach ergibt sich für $\lambda_C$:
+    \begin{align}
+        \lambda_C = \text{\input{L_C.tex}} \label{eq:20}
+    \end{align}
+
+
+
+\section{Diskussion}
+
+\newpage
+\printbibliography
+
+\end{document}
