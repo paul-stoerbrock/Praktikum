@@ -32,13 +32,14 @@
     Wird $\gamma$-Strahlung an Materie gestreut, übt die Strahlung neben den elastischen Stößen (Reflektion) auch inelastische Stöße (kohärente Streuung) aus. 
     Die kohärente Streung wird als Compton-Effekt bezeichnet, da ein Photon einen Teil seiner Energie an ein Elektron abgibt, welche das Elektron auf ein 
     höheres energetisches Niveau bringt. Nach der Wechselwirkung wird das Elektron um einen Winkel $\theta$ gestreut. Mithilfe diesen Winkels und der Konstanten
-    $\lambda_C$, welche die Compton-Wellenlänge genannt und mit $\lambda_C = \sfrac{h}{m_e \cdot c}$ definiert ist, lässt sich die Wellenlängendifferenz
+    $\lambda_C$, welche die Compton-Wellenlänge genannt und mit $\lambda_C = \sfrac{h}{m_e \cdot c}$ definiert ist, lässt sich die Wellenlängendifferenz \cite{V603}
     \begin{align}
         \Delta \lambda = \lambda_2 - \lambda_1 = \lambda_C \cdot (1-cos(\theta)) \label{eq:1}
     \end{align}
     \flushleft{bestimmen.\;}\justifying Die $\gamma$-Strahlung wird in einer evakuierten Röhre durch beschleunigte Elektronen erzeugt, welche im Coulombfeld der Anode
     abgebremst werden. Durch des Abbremsens des Elektrons verliert das Elektron Energie, welche in Form von Photonen (Röntkenquanten) abgestrahlt wird. Diese Strahlung
-    erzeugt das Bremsspektrum. Jedes Material hat sein eigenes charakteristisches Spektrum, da die Energie, welches das Elektron abgibt um auf eine innere Schale des 
+    erzeugt das kontinuierliches Bremsspektrum, da das Elektron einen Teil, oder dessen gesamete kinetische Energie abgeben kann. Jedes Material hat sein eigenes charakteristisches 
+    Spektrum, da die Energie, welches das Elektron abgibt um auf eine innere Schale des 
     Atoms zurückzufallen, materialspizifisch ist. Die Energie des Elektrons nach der Streuung ist die Energiedifferenz des einfallenden Photons und dem des gestreuten 
     Photons.\\
     Um die Energie des Elektrons bestimmen zu können, wird die Wellenlänge $\lambda$ benötigt. Diese lässt sich mit der Bragg´schen Bedingung \cite{V603}
@@ -51,8 +52,12 @@
     \begin{align}
         E = \frac{h \cdot c}{\lambda} \label{eq:3}
     \end{align}
-    berechnen, wobei $h$ das Planksche Wirkungsquantum und $c$ die Lichtgeschwindigkeit ist. 
-
+    berechnen, wobei $h$ das Planksche Wirkungsquantum und $c$ die Lichtgeschwindigkeit ist. Die Compton-Wellenlänge kann schließlich mit dem Transmissionskoeffizienten $T$ von
+    Aluminium berechnet werden \cite{V603}:
+    \begin{align}
+        T = \frac{I_i}{I_0} \label{eq:T}
+    \end{align}
+    $I_i$ ist die zu variierende Intensität mithilfe von Blenden zwischen Quelle und Geiger-Müller Zählrohr und $I_0$ ist die Referenzintensität der Strahlung ohne Blende. 
 
 
 \newpage
@@ -140,12 +145,6 @@
     bestimmen. Die Totzeit des Geiger-Müller Zählrohrs $\tau$ ist hier $\SI{90}{\micro\second}$. 
 
     \input{table_Al.tex}
-    %\begin{table}[H]
-    %    \centering
-    %    \input{table_Al.tex}
-    %    \caption{Aluminium}
-    %    \label{tab:2}
-    %\end{table}
 
     \flushleft{Werden\;}\justifying nun die Werte für Impulse pro Sekunde aus Tabelle \ref{tab:2} für $N$ in Gleichung \eqref{eq:4} eingesetzt, ergeben sich die folgenden Intensitäten:
     \begin{align}
@@ -153,7 +152,7 @@
         I_2 &= \frac{N_{Al}}{1- \tau \cdot N_{Al}} \label{eq:13}
     \end{align}
 
-    \flushleft{Mit\;}\justifying $I_1$ \eqref{eq:12} und $I_2$ \eqref{eq:13} lässt sich nun die Transmission $T=\sfrac{I_2}{I_1}$ bestimmen. Für das folgende $\lambda$-T Diagramm
+    \flushleft{Mit\;}\justifying $I_1$ \eqref{eq:12}, $I_2$ \eqref{eq:13} und der Formel \eqref{eq:T} lässt sich nun die Transmission bestimmen. Für das folgende $\lambda$-T Diagramm
     ist die Wellenlänge $\lambda$ wichtig, welche sich wie zuvor mit Gleichung \eqref{eq:2} bestimmen lässt. Mit der Geradengleichung 
     \begin{align}
     T = m \cdot x + b, \label{eq:14}

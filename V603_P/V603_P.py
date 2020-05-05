@@ -180,7 +180,7 @@ with open('build/E_Fb.tex', 'w') as f:
 # tex file for m_Al
 
 with open('build/m_Al.tex', 'w') as f:
-  f.write(make_SI(m_Al*1e-10,r'\meter', exp='1e+10', figures=1))
+  f.write(make_SI(m_Al*1e-10,r'\per\meter', exp='e10', figures=1))
 
 # tex file for b_Al
 
@@ -225,12 +225,12 @@ with open('build/L_2.tex', 'w') as f:
 # tex file for L_C
 
 with open('build/L_C.tex', 'w') as f:
-  f.write(make_SI(L_C*1e+12,r'\meter', exp='1e-12', figures=2))
+  f.write(make_SI(L_C*1e+12,r'\pico\meter', figures=1))
 
 # tex file for L_const
 
 with open('build/L_const.tex', 'w') as f:
-  f.write(make_SI(L_const*1e+12,r'\meter', exp='1e-12', figures=2))
+  f.write(make_SI(L_const*1e+12,r'\pico\meter', figures=2))
 
 # tex file for L_C_F
 
