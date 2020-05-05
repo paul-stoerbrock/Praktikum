@@ -1,4 +1,8 @@
 \input{../header.tex}
+\usepackage{tikz}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 \begin{document}
     \title{V603: Compton-Effekt}
@@ -6,7 +10,7 @@
     Paul Störbrock\\
     \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
     }
-    \date{Abgabe: 04.05.2020\vspace{-4ex}}
+    \date{Abgabe: 05.05.2020\vspace{-4ex}}
 \maketitle
     
     \begin{abstract}
@@ -28,10 +32,10 @@
 
 \section{Theorie}
 
-    \flushleft{Der\;}\justifying Compton-Effekt beschreibt die Wellenlängenverschiebung von $\gamma$-Strahlung, sobald diese mit einem Elektron Wechselwirkt. 
-    Wird $\gamma$-Strahlung an Materie gestreut, übt die Strahlung neben den elastischen Stößen (Reflektion) auch inelastische Stöße (kohärente Streuung) aus. 
-    Die kohärente Streung wird als Compton-Effekt bezeichnet, da ein Photon einen Teil seiner Energie an ein Elektron abgibt, welche das Elektron auf ein 
-    höheres energetisches Niveau bringt. Nach der Wechselwirkung wird das Elektron um einen Winkel $\theta$ gestreut. Mithilfe diesen Winkels und der Konstanten
+    \flushleft{Der\;}\justifying Compton-Effekt beschreibt die Wellenlängenverschiebung von elektromagnetischer Strahlung, sobald diese mit einem Elektron Wechselwirkt. 
+    Wird $\gamma$-Strahlung an Materie gestreut, übt die Strahlung neben den elastischen Stößen (inkohärente Streuung) auch inelastische Stöße (kohärente Streuung) aus. 
+    Die inkohärente Streung wird als Compton-Effekt bezeichnet, da ein Photon einen Teil seiner Energie an ein Elektron abgibt, welche das Elektron auf ein 
+    höheres energetisches Niveau bringt. Nach der Wechselwirkung wird das Photon um einen Winkel $\theta$ gestreut. Mithilfe diesen Winkels und der Konstanten
     $\lambda_C$, welche die Compton-Wellenlänge genannt und mit $\lambda_C = \sfrac{h}{m_e \cdot c}$ definiert ist, lässt sich die Wellenlängendifferenz \cite{V603}
     \begin{align}
         \Delta \lambda = \lambda_2 - \lambda_1 = \lambda_C \cdot (1-cos(\theta)) \label{eq:1}
@@ -57,10 +61,13 @@
     \begin{align}
         T = \frac{I_i}{I_0} \label{eq:T}
     \end{align}
-    $I_i$ ist die zu variierende Intensität mithilfe von Blenden zwischen Quelle und Geiger-Müller Zählrohr und $I_0$ ist die Referenzintensität der Strahlung ohne Blende. 
+    $I_i$ ist die zu variierende Intensität mithilfe von einem Aluminiumabsorber zwischen Quelle und Geiger-Müller Zählrohr und $I_0$ ist die Referenzintensität der Strahlung ohne Absorber. 
+    Die Intensität wird mit der Formel 
+    \begin{align}
+        I = \frac{N}{1- \tau \cdot N} \label{eq:4}
+    \end{align}
+    bestimmt, wobei $N$ die Impulszahl pro Sekunde und $\tau$ die Totzeit des Geiger-Müller Zählrohrs darstellt.
 
-
-\newpage
 \section{Versuchsaufbau/Durchführung}
     \flushleft{Benötigt\;}\justifying werden: \textit{Eine Kupfer-Röntgenröhre, ein LiF-Kristall, ein Plexiglas-Streuer, eine $\SI{2}{\milli\meter}$-Blende, eine $\SI{5}
     {\milli\meter}$-Blende und einen Aluminiumabsorber.}
@@ -73,18 +80,15 @@
         \label{fig:1}
     \end{figure}
 
-    \flushleft{Zu\;}\justifying Beginn wird der LiF-Kristall in die Halterung gesteckt und eine $\SI{2}{\milli\meter}$-Blende verwendet. Um das Emissionsspektrum der Kupfer-Röntgenröhre 
+    \flushleft{Zu\;}\justifying Beginn wird der LiF-Kristall in die Halterung gesteckt und eine $\SI{2}{\milli\meter}$-Blende verwendet. Das RS232-Kabel wird angeschlossen, wie auf
+    Abbildung \ref{fig:1} gezeigt. Um das Emissionsspektrum der Kupfer-Röntgenröhre 
     zu bestimmen, wird das Röntgenspektrum im $\SI{10}{\second}$-Intervall abgelesen, wobei der Einfallwinkel nach jeder Messung um $0.1°$ variiert wird.
     Hier wurde die Messung bei einem Winkel $\alpha = 8°$ begonnen und bei $\alpha = 25°$ abgeschlossen. 
 
-    \flushleft{Anschließend\;}\justifying wird die Transmission des Aluminiumabsorbers gemessen, indem der Aluminiumabsorber vor die $\SI{2}{\milli\meter}$-Blende gelegt wird und
-    der Einfallwinkel um 0.1° über $\SI{200}{\second}$ variiert wird. Hier ist der Startwinkel $\alpha = 7°$ und die Messung wurde bei $\alpha = 10°$ beendet. 
+    \flushleft{Anschließend\;}\justifying wird die Transmission des Aluminiumabsorbers gemessen, indem der Aluminiumabsorber vor die $\SI{2}{\milli\meter}$-Blende gelegt, das RS232-Kabel
+    abgeogen und der Einfallwinkel um 0.1° über $\SI{200}{\second}$ variiert wird. Hier ist der Startwinkel $\alpha = 7°$ und die Messung wurde bei $\alpha = 10°$ beendet. 
     Mithilfe der Messwerte wird ein $\lambda$-$T$ Diagramm erstellt. Für die Transmission wird die Intensität der Strahlung benötigt, welche sich mit der vorliegenden
-    Totzeit des Geiger-Müller Zählrohrs von $\tau = \SI{90}{\micro\second}$ und der Formel
-    \begin{align}
-        I = \frac{N}{1- \tau \cdot N} \label{eq:4}
-    \end{align}
-    bestimmen lässt. 
+    Totzeit des Geiger-Müller Zählrohrs von $\tau = \SI{90}{\micro\second}$ und der Formel \eqref{eq:4} bestimmen lässt. 
 
     \begin{figure}
         \centering
@@ -212,13 +216,13 @@
 
     \begin{table}[H]
     \centering
-        \begin{tabular}{l l c r}
+        \begin{tabular}{l c c r}
             \toprule
             \multicolumn{1}{c}{} & \multicolumn{1}{c}{Messwerte} & \multicolumn{1}{c}{Literaturwerte} & \multicolumn{1}{c}{Relativer Fehler}\\
             \cmidrule(lr{0,5em}){1-4}
-            $Energie_{K_{\alpha}}$           & \input{E_a.tex}            & \input{E_a_lit.tex} \cite{NIST}            & \input{E_Fa.tex} \\
-            $Energie_{K_{\beta}}$            & \input{E_b.tex}            & \input{E_b_lit.tex} \cite{NIST}            & \input{E_Fb.tex} \\
-            $\lambda_C$                      & \input{L_C.tex}            & \input{L_const.tex} \cite{scipy}           & \input{L_C_F.tex} \\
+            $E_{\alpha}$           & \input{E_a.tex}            & \input{E_a_lit.tex} \cite{NIST}            & \input{E_Fa.tex} \\
+            $E_{\beta}$            & \input{E_b.tex}            & \input{E_b_lit.tex} \cite{NIST}            & \input{E_Fb.tex} \\
+            $\lambda_C$            & \input{L_C.tex}            & \input{L_const.tex} \cite{scipy}           & \input{L_C_F.tex} \\
             \bottomrule
         \end{tabular}
     \caption{Relative Fehler}
@@ -237,7 +241,7 @@
     Ebene nicht perfekt geschliffen werden können und Abnutzung das Gitternetz weiter beschädigt. Diese Verunreinigungen können dazu führen, dass die Röntgenstrahlung unterschiedlich gestreut wird, 
     wodurch unterschiedliche Wellenlängen erzeugt werden. Außerdem können Unreinheiten ebenfalls im Vakuum und auf der Anode entstehen. Da es nicht möglich ist ein perfektes Vakuum künstlich herzustellen, 
     können Restatome die Röntgenstrahlung beeinflusst haben. Kollision mit Teilchen spielt auch in der Streuvorrichtung selbst eine Rolle, da, wie in Abbildung \ref{fig:1} zu erkennen ist, sich der 
-    Streuer (3) nicht im Vakuum befindet. Dies kann zu einer Ionisierung der Luft führen, welche wiederum die gemessene Intensität negativ beeinflusst.  
+    Streuer \circled{3} nicht im Vakuum befindet. Dies kann zu einer Ionisierung der Luft führen, welche wiederum die gemessene Intensität beeinflusst, indem neue Wellenlängen gemessen werden.  
 
 \newpage
 \printbibliography
