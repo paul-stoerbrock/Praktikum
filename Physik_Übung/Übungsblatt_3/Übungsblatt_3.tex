@@ -53,55 +53,55 @@
 
     \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
     \begin{align*}
-        \text{I} \qquad \psi_1 &= N_1 exp \left(-\frac{x^2}{2x_0^2} \right),\\
-        \text{II} \qquad \psi_2 &= N_2 \frac{x}{x_0} exp \left( -\frac{x^2}{2x_0^2} \right),\\
-        \text{III} \qquad \psi_3 &= N_3 \left( 2\frac{x^2}{x_0^2}-1 \right) exp \left( -\frac{x^2}{2x_0^2} \right)
+        \text{I} \qquad \psi_1 &= N_1 \exp \left(-\frac{x^2}{2x_0^2} \right),\\
+        \text{II} \qquad \psi_2 &= N_2 \frac{x}{x_0} \exp \left( -\frac{x^2}{2x_0^2} \right),\\
+        \text{III} \qquad \psi_3 &= N_3 \left( 2\frac{x^2}{x_0^2}-1 \right) \exp \left( -\frac{x^2}{2x_0^2} \right)
     \end{align*}
     \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
 
     \begin{align*}
         \vec{j_1} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi_1^* \nabla \psi_1 - \psi_1 \nabla \psi_1^* \right) \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        &\nabla \psi_1 = N_1 exp \left(-\frac{x^2}{2x_0^2} \right)\\
+        &\nabla \psi_1 = N_1 \exp \left(-\frac{x^2}{2x_0^2} \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
         &= \frac{\hbar}{2mi} \left( N_1^2 exp \left( -\frac{x^2}{x_0^2} \right) \frac{-x}{x_0^2} - N_1^2 exp\left( -\frac{x^2}{x_0^2} \right) \frac{-x}{x_0^2} \right)\\
         &= 0\\
         \\
         \vec{j_2} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi_2^* \nabla \psi_2 - \psi_2 \nabla \psi_2^* \right) \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        &\nabla \psi_2 = N_2 \left( \frac{1}{x_0^2} - \frac{x^2}{x_0^3} \right) exp \left( - \frac{x^2}{2x_0^2} \right)\\
+        &\nabla \psi_2 = N_2 \left( \frac{1}{x_0^2} - \frac{x^2}{x_0^3} \right) \exp \left( - \frac{x^2}{2x_0^2} \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        &= \frac{\hbar}{2mi} \left( N_2^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{1}{x_0} - \frac{x^2}{x_0^3} \right) - N_2^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{1}{x_0} - \frac{x^2}{x_0^3} \right)  \right)\\
+        &= \frac{\hbar}{2mi} \left( N_2^2 \exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{1}{x_0} - \frac{x^2}{x_0^3} \right) - N_2^2 \exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{1}{x_0} - \frac{x^2}{x_0^3} \right)  \right)\\
         &= 0\\
         \\
         \vec{j_3} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi_3^* \nabla \psi_3 - \psi_3 \nabla \psi_3^* \right) \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        \nabla \psi_3 &= N_3 \nabla \left( \left( \frac{2x^2}{x_0^2} -1 \right) exp \left( -\frac{x^2}{2x_0^2} \right) \right)\\
-        &= N_3 \left( \frac{4x}{x_0^2} + \left( \frac{2x^2}{x_0^2} - 1 \right) \left( -\frac{x}{x_0^2} \right) \right) exp \left( -\frac{x^2}{2x_0^2} \right)\\
-        &= N_3 \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) exp \left( -\frac{x^2}{2x_0^2} \right)\\
+        \nabla \psi_3 &= N_3 \nabla \left( \left( \frac{2x^2}{x_0^2} -1 \right) \exp \left( -\frac{x^2}{2x_0^2} \right) \right)\\
+        &= N_3 \left( \frac{4x}{x_0^2} + \left( \frac{2x^2}{x_0^2} - 1 \right) \left( -\frac{x}{x_0^2} \right) \right) \exp \left( -\frac{x^2}{2x_0^2} \right)\\
+        &= N_3 \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) \exp \left( -\frac{x^2}{2x_0^2} \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        &= \frac{\hbar}{2mi} \left( N_3^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) - N_3^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) \right)\\
+        &= \frac{\hbar}{2mi} \left( N_3^2 \exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) - N_3^2 \exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) \right)\\
         &= 0\\
         \\
-        \Aboxed{\psi(\vec{r}, t) &= \frac{1}{\sqrt{V}} exp \left[ i \left( \vec{k} \vec{r} - \omega t \right) \right]}\\
-        \vec{j} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi^* \nabla \psi - \psi \nabla \psi^* \right) \right)\\
+        \Aboxed{\psi(\vec{r}, t) &= \frac{1}{\sqrt{V}} \exp \left[ i \left( \vec{k} \vec{r} - \omega t \right) \right]}\\
+        \vec{j} &\stackrel{(*)}{=} \left( \frac{\hbar}{2mi} \left( \psi^* \nabla \psi - \psi \nabla \psi^* \right) \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        \nabla \psi(\vec{r}, t) &= \frac{1}{\sqrt{V}} i\vec{k} exp \left[ i \left( \vec{k} \vec{r} - wt \right) \right]\\
-        \nabla \psi^*(\vec{r}, t) &= \frac{1}{\sqrt{V}} (-i)\vec{k} exp \left[ -i \left( \vec{k} \vec{r} - wt \right) \right]\\
+        \nabla \psi(\vec{r}, t) &= \frac{1}{\sqrt{V}} i\vec{k} \exp \left[ i \left( \vec{k} \vec{r} - wt \right) \right]\\
+        \nabla \psi^*(\vec{r}, t) &= \frac{1}{\sqrt{V}} (-i)\vec{k} \exp \left[ -i \left( \vec{k} \vec{r} - wt \right) \right]\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
-        &= \frac{\hbar}{2mi} \left( \frac{1}{V^2} i\vec{k} - \frac{1}{V^2} (-i)\vec{k} \right)\\
-        \vec{j} &= \frac{\hbar}{V^2} \vec{k}
+        &= \frac{\hbar}{2mi} \left( \frac{1}{V} i\vec{k} - \frac{1}{V} (-i)\vec{k} \right)\\
+        \vec{j} &= \frac{\hbar}{Vm}\, \vec{k}
     \end{align*}
 
 \newpage
 \subsection{c)}
 
     \begin{align*}
-        \frac{\partial}{\partial t} \rho &= -\nabla \vec{j}\\
-        \frac{\partial}{\partial t} \abs{\psi}^2 &= - \nabla \vec{j}\\
-        \frac{\partial}{\partial t} \int_{-\infty}^{\infty}  \abs{\psi}^2 \,\mathrm{d}x &= -\int_{-\infty}^{\infty}  \frac{\partial}{\partial x} \vec{j} \,\mathrm{d}x\\
-        &= \vec{j}\, \vert_{-\infty}^{\infty}\\
-        &\stackrel{(*)}{=} \left( \frac{\hbar}{2mi} \left( \psi^* \nabla \psi - \psi \nabla \psi^*   \right) \right) \big|_{-\infty}^{\infty}\\
+        \frac{\partial}{\partial t} \rho &= -\nabla \cdot \vec{j}\\
+        \frac{\partial}{\partial t} \abs{\psi}^2 &= - \nabla \cdot \vec{j}\\
+        \frac{\partial}{\partial t} \int_{-\infty}^{\infty}  \abs{\psi}^2 \,\mathrm{d}x &= -\int_{\symbb{R}} \nabla \cdot \vec{j} \,\mathrm{d}V\\
+        &= \vec{j}\, \vert_{\symbb{R}}\\
+        &\stackrel{(*)}{=} \left( \frac{\hbar}{2mi} \left( \psi^* \nabla \psi - \psi \nabla \psi^*   \right) \right) \big| _{\symbb{R}}\\
         \frac{\partial}{\partial t} \int_{-\infty}^{\infty} \abs{\psi}^2 &= 0\\
         \frac{\partial}{\partial t} \langle \psi(\vec{r}, t) \vert \psi(\vec{r}, t) \rangle &= 0
     \end{align*}
@@ -137,21 +137,22 @@
         \\
         i\hbar \frac{1}{f(x)} \frac{\partial}{\partial t} f(t) &= E\\
         \frac{\partial}{\partial t} f(t) &= -\frac{E}{\hbar} i f(t)\\
-        f(t) &= f(0) exp \left( -\frac{E}{\hbar} it \right)
+        f(t) &= f(0) \exp \left( -\frac{E}{\hbar} it \right)
     \end{align*}
 
 \newpage
 \subsection{b)}
 
     \begin{align*}
-        \psi(x, t) &= f(0) exp \left( -\frac{E}{\hbar} it \right) \varphi(x)\\
-        \abs{\psi(x, t)}^2 &= \psi^* \psi = \abs{f(0)}^2 exp \left( -\frac{E}{\hbar} it \right) exp \left( \frac{E}{\hbar} it \right) \abs{\varphi(x)}^2\\
-        &= \abs{f(0)}^2 \abs{varphi(x)}^2\\
+        \psi(x, t) &= f(0) \exp \left( -\frac{E}{\hbar} it \right) \varphi(x)\\
+        \abs{\psi(x, t)}^2 &= \psi^* \psi = \abs{f(0)}^2 \exp \left( -\frac{E}{\hbar} it \right) \exp \left( \frac{E}{\hbar} it \right) \abs{\varphi(x)}^2\\
+        &= \abs{f(0)}^2 \abs{\varphi(x)}^2\\
         \\
-        \langle \psi(x, t) \vert \hat{O} \psi(x, t) \rangle &= \langle f(0) \varphi(x) exp \left( -\frac{E}{\hbar} it \right) \vert \hat{O} f(0) \varphi(x) exp \left( -\frac{E}{\hbar} it \right) \rangle\\
+        \langle \psi(x, t) \vert \hat{O} \psi(x, t) \rangle &= \langle f(0) \varphi(x) \exp \left( -\frac{E}{\hbar} it \right) \vert \hat{O} f(0) \varphi(x) \exp \left( -\frac{E}{\hbar} it \right) \rangle\\
         &= \langle f(0) \varphi(x) \vert \hat{O} f(0) \varphi(x) \rangle\\
-        &= \abs{f(0)} \; \langle \varphi(x) \vert \hat{O} \phi(x) \rangle
-        \intertext{F\"ür alle Zust\"ände, die nur auf $\varphi(x)$ wirken, folgt, dass der  Erwartungswert für alle Zeiten gleich ist.
+        &= \abs{f(0)}^2 \; \langle \varphi(x) \vert \hat{O} \phi(x) \rangle
+        \intertext{F\"ür alle Zust\"ände, die nur auf $\varphi(x)$ wirken, folgt, dass der  Erwartungswert und für alle Zeiten gleich ist.
+        Auch die Wahrscheinlichkeitsdichte ist ebenso zeitunanhängig.
         }
     \end{align*}
 
@@ -187,6 +188,9 @@
         &+ \langle c_2 f_2 \varphi_2 \vert c_2 f_2 E_2 \varphi_2 \rangle\\
         \\
         &= \abs{c_1}^2 E_1 + \abs{c_2}^2 E_2\\
+        \intertext{
+            Die Wahrscheinlichkeit, dass $E_2$ gemessen wird, ist gleich dem Vorfaktor von E_2, also $\abs{c_2}^2 $:
+        }
         \Rightarrow \abs{c_2}^2 &= 1 - \abs{c_1}
     \end{align*}
 
