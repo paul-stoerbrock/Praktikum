@@ -206,27 +206,135 @@
 
 \subsection{a)}
 
-
+    \begin{align*}
+        i\hbar \frac{\partial \psi}{\partial t} &= -\frac{\hbar}{2m} \frac{\partial \psi^2}{\partial x^2} + V \psi\\
+        \intertext{Fallunterscheidung:
+        }
+        \intertext{Fall 1: $I(x<0) \Rightarrow V=0$
+        }
+        i\hbar \frac{\partial \psi}{\partial t} &= -\frac{\hbar}{2m} \frac{\partial \psi^2}{\partial x^2}
+        \\
+        \intertext{Fall 2: $I(x>0) \Rightarrow V=V_0\theta(x)$
+        }
+        i\hbar \frac{\partial \psi}{\partial t} &= -\frac{\hbar}{2m} \frac{\partial \psi^2}{\partial x^2} + V_0\theta(x) \psi
+    \end{align*}
 
 \subsection{b)}
 
-
+    \begin{align*}
+        \psi(x, t) =& f(t) g(x)\\
+        i\hbar \theta \frac{\partial f}{\partial t} &= -\frac{\hbar^2}{2m} f \frac{\partial^2 g}{\partial x^2} + V g f \qquad \vert :\theta g\\
+        \underbrace{i\hbar \frac{1}{f} \frac{\partial f}{\partial t}}_{E} &= -\frac{\hbar^2}{2m} \frac{1}{g} \frac{\partial^2 g}{\partial x^2} + V\\
+        E &= -\frac{\hbar^2}{2m} \frac{1}{g} \frac{\partial^2 g}{\partial x^2} + V\\
+        \Leftrightarrow \frac{\partial^2 g}{\partial x^2} &= -\frac{2m}{\hbar^2} (Eg + Vg)\\
+        \\
+        \intertext{Für $x \leq 0 \Rightarrow V=0:$
+        }
+        g_1 &= A \, exp(ik_1x) + B \, exp(-ik_1x)\\
+        k_1 &= \sqrt{\frac{-2mE}{\hbar^2}} = \frac{\sqrt{-2mE}}{\hbar}\\
+        \intertext{Für $x \geq 0:$
+        }
+        \frac{\partial^2 g_2}{\partial x^2} &= -\frac{2m}{\hbar^2}(E + V_0 \theta)g\\
+        k_2 &= \frac{\sqrt{-2m(E+V_2 \theta)}}{\hbar}\\
+        g_2 &= C \, exp(ik_2x) + D \, exp(-ik_2x)
+    \end{align*}
 
 \subsection{c)}
 
-
+    \begin{align*}
+        E &= i\hbar \frac{1}{f} \frac{\partial f}{\partial t} - \frac{V_0}{f}\\
+        \Leftrightarrow \frac{1}{i\hbar} Ef &= \frac{\partial f}{\partial t}\\
+        f &= c \; exp \left( -\frac{E}{\hbar}t \right)\\
+        \\
+        k \leq 0\\
+        q_1 &= A \; exp(ik_1x) + B \; exp(-ik_1x)\\
+        q_2 &= C \; exp(ik_2x) + D \; exp(-ik_2x)\\
+        \intertext{Stetigkeit bei $x=0$
+        }
+        A + B &= C + D\\
+        \frac{\mathrm{d}\psi}{\mathrm{d}x} \; \text{stetig bei $x=0$}\\
+        &\text{Stetig}=\begin{cases}
+            \frac{\mathrm{d} g_1}{\mathrm{d}x} = ik_1 (A\;exp(ik_1x) + B\;exp(-ik_1x)) \qquad \frac{\mathrm{d} g_1}{\mathrm{d}x} \vert_{-} = ik_1(A-B)\\
+            \\
+            \frac{\mathrm{d} g_2}{\mathrm{d}x} = ik_2 (C\;exp(ik_2x) + D\;exp(-ik_2x)) \qquad \frac{\mathrm{d} g_2}{\mathrm{d}x} \vert_{+} = ik_2(C-D)
+        \end{cases}\\
+        \Delta \left( \frac{\mathrm{d} g}{\mathrm{d}x} \right) &= i(k_1(A-B) -k_2(C-D)) =0\\
+        A+B &= C+D \; \text{$D=0$ (Wellen laufen von links ein)}\\
+        C &= A+B\\
+        B &= C-A\\
+        \\
+        i(k_1(A-B) - k_2(+A+B)) &=0\\
+        k_1(A-B) - k_2(+A+B) &=0\\
+        -B(k_2+k_1) &= +(k_1+k_2)A\\
+        \Leftrightarrow B &= -\frac{k_2-k_1}{k_2+k_1}A\\
+        k_1(A-C+A)-k_2C &= 0\\
+        \Leftrightarrow C &= \frac{2k_1}{k_2+k_1}A
+    \end{align*}
 
 \subsection{d)}
 
-
+    \begin{align*}
+        r  &= \frac{A}{B} = -\frac{k_2-k_1}{k_2+k_1}\\
+        &= -\frac{\sqrt{-2m(E+V_0\theta)} - \sqrt{-2mE}}{\sqrt{-2m(E+V_0\theta)} + \sqrt{-2mE}}\\
+        &= -\frac{\sqrt{E+V_0\theta} - \sqrt{E}}{\sqrt{E+V_0\theta} + \sqrt{E}}\\
+        \\
+        t &= \frac{C}{A} = \frac{2k_1}{k_1 + k_2}\\
+        &= \frac{2\sqrt{-2mE}}{\sqrt{-2mE} + \sqrt{-2m(E+V_0\theta)}}\\
+        &= \frac{2\sqrt{E}}{\sqrt{E} + \sqrt{-2m(E+V_0\theta)}}\\
+        \\
+        k_1 &= \frac{\sqrt{-2mE}}{\hbar}\\
+        k_2 &= \frac{\sqrt{-2m(E+V_0\theta)}}{\hbar}
+    \end{align*}
 
 \subsection{e)}
 
-
+    \begin{align*}
+        \intertext{Fall $E \gg V_0  (V_0\;$ ist gegen\"uber E vernachl\"assigbar)
+        }
+        r &= 0\\
+        t &= 1\\
+        E \rightarrow V_0\\
+        r &= \frac{\sqrt{1+\theta}-1}{\sqrt{1+\theta}+1}\\
+        t &= \frac{2}{1+\sqrt{1+\theta}}
+    \end{align*}
 
 \subsection{f)}
 
-
+    \begin{align*}
+        V_0 > E \qquad x \leq 0\\
+        g_1 &= A\;exp(k_1x) + B\;exp(-k_1x)\\
+        \lim_{x \to -\infty} g_1 &= 0 \qquad \Rightarrow B=0\\
+        g_1 &= A\;exp(k_1x)\\
+        \\
+        x \geq 0\\
+        g_2 &= C\;exp(k_2x) + D\;exp(-k_2x)\\
+        \lim_{x \to \infty} g_2 &= 0 \qquad \Rightarrow C=0\\
+        g_2 &= D\;exp(-k_2x)
+        \intertext{Stetigkeit:
+        }
+        A=D
+        &\begin{cases}
+            g_1(0)_L = A\cdot e^0\\
+            \\
+            g_2(0)_R = D\cdot e^0
+        \end{cases}\\
+        g(x)
+        &\begin{cases}
+            A\;exp(k_1x) \qquad x\leq 0\\
+            \\
+            A\;exp(-k_2x) \qquad x\geq 0
+        \end{cases}\\
+        \\
+        -\frac{\hbar}{2m} \frac{\mathrm{d}^2 g}{\mathrm{d} x^2} - Vg &= Eg \qquad \lvert \int_{-\epsilon}^{\epsilon} \mathrm{d}x\\
+        -\frac{\hbar}{2m} \int_{-\epsilon}^{\epsilon} \frac{\mathrm{d}^2 g}{\mathrm{d} x^2} \,\mathrm{d}x - \int_{-\epsilon}^{\epsilon} Vg \,\mathrm{d}x &= \underbrace{\int_{-\epsilon}^{\epsilon} Eg \,\mathrm{d}x}_{=0}\\
+        \Delta \left( \frac{\mathrm{d} g}{\mathrm{d} x} \right) &= \lim_{\epsilon \to 0} \left( \frac{\mathrm{d} g}{\mathrm{d} x} \vert_{+\epsilon} - \frac{\mathrm{d} g}{\mathrm{d} x} \vert_{-\epsilon} \right)\\
+        &= \frac{2m}{\hbar} \lim_{\epsilon \to 0} \int_{-\epsilon}^{\epsilon} V_0 \theta g(x) \mathrm{d}x\\
+        \stackrel{Symmetrisch}{\Rightarrow} &= \frac{2m}{\hbar} V_0 \lim_{\epsilon \to 0} \int_{0}^{\epsilon} g(x) \mathrm{d}x\\
+        &= \frac{2m}{\hbar} V_0 \lim_{\epsilon \to 0} \int_{0}^{\epsilon} A\;exp(-k_2x) \mathrm{d}x\\
+        &= \frac{2m}{\hbar} V_0 \frac{1}{k_2} \lim_{\epsilon \to 0} A\;exp(-k_2x) \vert_0^{\epsilon}\\
+        &= \frac{2m}{\hbar k_2} V_0 \lim_{\epsilon \to 0} \left( A\;exp(-k_2\epsilon) - A \right)\\
+        &= 0
+    \end{align*}
 
 \subsection{g)}
 
