@@ -61,11 +61,11 @@
 
     \begin{align*}
         \vec{j_1} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi_1^* \nabla \psi_1 - \psi_1 \nabla \psi_1^* \right) \right)\\
+        &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
         &\nabla \psi_1 = N_1 exp \left(-\frac{x^2}{2x_0^2} \right)\\
+        &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
         &= \frac{\hbar}{2mi} \left( N_1^2 exp \left( -\frac{x^2}{x_0^2} \right) \frac{-x}{x_0^2} - N_1^2 exp\left( -\frac{x^2}{x_0^2} \right) \frac{-x}{x_0^2} \right)\\
         &= 0\\
-        \\
-        \\
         \\
         \vec{j_2} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi_2^* \nabla \psi_2 - \psi_2 \nabla \psi_2^* \right) \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
@@ -73,11 +73,6 @@
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
         &= \frac{\hbar}{2mi} \left( N_2^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{1}{x_0} - \frac{x^2}{x_0^3} \right) - N_2^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{1}{x_0} - \frac{x^2}{x_0^3} \right)  \right)\\
         &= 0\\
-        \\
-        \\
-        \\
-        \\
-        \\
         \\
         \vec{j_3} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi_3^* \nabla \psi_3 - \psi_3 \nabla \psi_3^* \right) \right)\\
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
@@ -87,8 +82,6 @@
         &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
         &= \frac{\hbar}{2mi} \left( N_3^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) - N_3^2 exp \left( -\frac{x^2}{x_0^2} \right) \left( \frac{5x}{x_0^2} - \frac{2x^3}{x_0^4} \right) \right)\\
         &= 0\\
-        \\
-        \\
         \\
         \Aboxed{\psi(\vec{r}, t) &= \frac{1}{\sqrt{V}} exp \left[ i \left( \vec{k} \vec{r} - \omega t \right) \right]}\\
         \vec{j} &\stackrel{(*)}{=} \left( \frac{\hbar}{2m} \left( \psi^* \nabla \psi - \psi \nabla \psi^* \right) \right)\\
@@ -100,6 +93,7 @@
         \vec{j} &= \frac{\hbar}{V^2} \vec{k}
     \end{align*}
 
+\newpage
 \subsection{c)}
 
     \begin{align*}
@@ -111,6 +105,136 @@
         \frac{\partial}{\partial t} \int_{-\infty}^{\infty} \abs{\psi}^2 &= 0\\
         \frac{\partial}{\partial t} \langle \psi(\vec{r}, t) \vert \psi(\vec{r}, t) \rangle &= 0
     \end{align*}
+
+\section{Aufgabe 2}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/Aufgabe2abc.jpg}
+    \label{fig:2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/Aufgabe2d.jpg}
+    \label{fig:3}
+\end{figure}
+
+\subsection{a)}
+
+    \begin{align*}
+        i\hbar \frac{\partial}{\partial t} \psi(x, t) &= -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \psi(x, t) + V(x) \psi(x, t)\\
+        \\
+        \psi(x, t) &= f(t)\varphi(x)\\
+        \\
+        i\hbar \varphi(x) \frac{\partial}{\partial t} f(t) &= -\frac{\hbar^2}{2m} f(t) \frac{\partial^2}{\partial x^2} \varphi(x) + V(x) \varphi(x) f(t) \qquad \vert :\varphi(x)f(x)\\
+        \underbrace{i\hbar \frac{1}{f(t)} \frac{\partial}{\partial t}f(t)}_{\text{Nur t-abh\"angig}} &= \underbrace{-\frac{\hbar^2}{2m} \frac{1}{\varphi(x)} \frac{\partial^2}{\partial x^2} \varphi(x) + V(x)}_{\text{Nur x-abh\"angig}}\\
+        \Rightarrow E &= -\frac{\hbar^2}{2m} \frac{1}{\varphi(x)} \frac{\partial^2}{\partial x^2} \varphi(x) + V(x)\\
+        E \varphi(x) &= \frac{(-i\hbar)^2}{2m} \frac{\partial^2}{\partial x^2} \varphi(x) + V(x) \varphi(x)\\
+        &= \frac{\hat{p}^2}{2m} \varphi(x) + V(x) \varphi(x)\\
+        \hat{H} &= \frac{\hat{p}^2}{2m} + V\\
+        \Rightarrow E \varphi(x) &= \hat{H} \varphi(x)\\
+        \\
+        i\hbar \frac{1}{f(x)} \frac{\partial}{\partial t} f(t) &= E\\
+        \frac{\partial}{\partial t} f(t) &= -\frac{E}{\hbar} i f(t)\\
+        f(t) &= f(0) exp \left( -\frac{E}{\hbar} it \right)
+    \end{align*}
+
+\newpage
+\subsection{b)}
+
+    \begin{align*}
+        \psi(x, t) &= f(0) exp \left( -\frac{E}{\hbar} it \right) \varphi(x)\\
+        \abs{\psi(x, t)}^2 &= \psi^* \psi = \abs{f(0)}^2 exp \left( -\frac{E}{\hbar} it \right) exp \left( \frac{E}{\hbar} it \right) \abs{\varphi(x)}^2\\
+        &= \abs{f(0)}^2 \abs{varphi(x)}^2\\
+        \\
+        \langle \psi(x, t) \vert \hat{O} \psi(x, t) \rangle &= \langle f(0) \varphi(x) exp \left( -\frac{E}{\hbar} it \right) \vert \hat{O} f(0) \varphi(x) exp \left( -\frac{E}{\hbar} it \right) \rangle\\
+        &= \langle f(0) \varphi(x) \vert \hat{O} f(0) \varphi(x) \rangle\\
+        &= \abs{f(0)} \; \langle \varphi(x) \vert \hat{O} \phi(x) \rangle
+        \intertext{F\"ür alle Zust\"ände, die nur auf $\varphi(x)$ wirken, folgt, dass der  Erwartungswert für alle Zeiten gleich ist.
+        }
+    \end{align*}
+
+
+\subsection{c)}
+
+
+
+\subsection{d)}
+
+    \begin{align*}
+        \langle \hat{H} \rangle &= \langle \psi_k(x, t) \vert \hat{H} \vert \psi_k(x, t) \rangle\\
+        &= \langle c_1 \psi_1(x, t) + c_2 \psi_2(x, t) \vert \hat{H} \vert c_1 \psi_1(x, t) + c_2 \psi_2(x, t) \rangle\\
+        \\
+        &= \langle c_1 \psi_1(x, t) \vert \hat{H} \vert c_1 \psi_1(x, t) \rangle 
+        + \langle c_1 \psi_1(x, t) \vert \hat{H} \vert c_2 \psi_2(x, t) \rangle
+        + \langle c_2 \psi_2(x, t) \vert \hat{H} \vert c_1 \psi_1(x, t) \rangle\\
+        &+ \langle c_2 \psi_2(x, t) \vert \hat{H} \vert c_2 \psi_2(x, t) \rangle\\
+        \\
+        &= \langle c_1 f_1(t) \varphi_1(x) \vert \hat{H} \vert c_1 f_1(t) \varphi_1(x) \rangle 
+        + \langle c_1 f_1(t) \varphi_1(x) \vert \hat{H} \vert c_2 f_2(t) \varphi_2(x) \rangle
+        + \langle c_2 f_2(t) \varphi_2(x) \vert \hat{H} \vert c_1 f_1(t) \varphi_1(x) \rangle\\
+        &+ \langle c_2 f_2(t) \varphi_2(x) \vert \hat{H} \vert c_2 f_2(t) \varphi_2(x) \rangle\\
+        \\
+        &= \langle c_1 f_1(t) \varphi_1(x) \vert c_1 f_1(t) \hat{H} \varphi_1(x) \rangle
+        + \langle c_1 f_1(t) \varphi_1(x) \vert c_2 f_2(t) \hat{H} \varphi_2(x) \rangle
+        + \langle c_2 f_2(t) \varphi_2(x) \vert c_1 f_1(t) \hat{H} \varphi_1(x) \rangle\\
+        &+ \langle c_2 f_2(t) \varphi_2(x) \vert c_2 f_2(t) \hat{H} \varphi_2(x) \rangle\\
+        \\
+        &= \langle c_1 f_1 \varphi_1 \vert c_1 f_1 E_1 \varphi_1 \rangle
+        + \langle c_1 f_1 \varphi_1 \vert c_2 f_2 E_2 \varphi_2 \rangle
+        + \langle c_2 f_2 \varphi_2 \vert c_1 f_1 E_1 \varphi_1 \rangle\\
+        &+ \langle c_2 f_2 \varphi_2 \vert c_2 f_2 E_2 \varphi_2 \rangle\\
+        \\
+        &= \abs{c_1}^2 E_1 + \abs{c_2}^2 E_2\\
+        \Rightarrow \abs{c_2}^2 &= 1 - \abs{c_1}
+    \end{align*}
+
+\section{Aufgabe 3}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/Aufgabe3a_e.jpg}
+    \label{fig:4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/Aufgabe3f_h.jpg}
+    \label{fig:5}
+\end{figure}
+
+\subsection{a)}
+
+
+
+\subsection{b)}
+
+
+
+\subsection{c)}
+
+
+
+\subsection{d)}
+
+
+
+\subsection{e)}
+
+
+
+\subsection{f)}
+
+
+
+\subsection{g)}
+
+
+
+\subsection{h)}
+
+
 
 
 
