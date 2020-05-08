@@ -45,13 +45,13 @@ Aus Energie- und Impulserhaltung lässt sich die Differenz der beiden Wellenlän
 \end{align}
 wobei $\lambda _2 $ die Wellenlänge der Compton-Streuung und $\lambda _1 $ die Wellenlänge
 der einfallenden Strahlung definiert. Die Konstante $\frac{h}{m_e c}$ wird als
-Compton-Wellenlänge bezeichnet und hat dementsprechende die Dimension einer Länge.\\
+Compton-Wellenlänge bezeichnet und hat dementsprechend die Dimension einer Länge.\\
 Um Röntgenstrahlung für eine Messung zu erzeugen werden Elektronen aus einer 
 Glühkathode  auf eine Anode beschleunigt. Das Spektrum der Emission
 setzt sich dann aus zwei Bestandteilen zusammen, der Bremsstrahlung und
 der charakeristischen Röntgenstrahlung.
 Die Bremsstrahlung entsteht durch den Energieverlust bei der Abbremsung durch
-das E-Feld eines Atoms. Das ausfestrahlte Photon besitzt dann genau den
+das E-Feld eines Atoms. Das ausgestrahlte Photon besitzt dann genau den
 durch die Abbremsung verlorene Energie, wodurch das Spektrum der Bremsstrahlung kontinuierlich
 ist. 
 %Die minimale Wellenlänge, die vorkommen kann, entsteht, wenn ein Elektron seine
@@ -70,12 +70,13 @@ die Compton-Wellenlänge ermittelt werden. Die Transmission durch verschiedene S
 verringert sich mit steigender Wellenlänge, wodurch die Intensität
 Compton-Wellenlänge geringer wird. Berechnen lässt sich die Transmission durch
 \begin{align}
-    T=\frac{I_{\text{ref}}}{I_0} \label{eq:3}.
+    T=\frac{I}{I_0} \label{eq:3}.
 \end{align}
-
+$I_0$ beschreibt hierbei die Intensität der gesamten einfallenden Strahlung und I
+die transmittierte Strahlung, die gerde betrachtet wird.
 \flushleft{Die\,}\justifying Absorption verringert wiederum 
-verringert die Intensität einer einfallenden Strahlung.\\
-Die Wellenlänge $\lambda$ kann hierbei durch diw Bragg'sche Bedingung bestimmt 
+ die Intensität der einfallenden Strahlung.\\
+Die Wellenlänge $\lambda$ kann hierbei durch die Bragg'sche Bedingung bestimmt 
 werden
 \begin{align}
     2d \sin (\alpha)=n \lambda \label{eq:4}.
@@ -120,6 +121,9 @@ gemessen: \cite{V603}
 
 \section{Auswertung}
 
+Für alle Messungen ist eine Spannung von \SI{35}{\kilo\volt} und ein
+Emissionsstrom von \SI{1}{\milli\ampere} verwendet worden.
+
 Die Gitterkonstante des LiF-Kristalls lautet \cite{V603}
 \begin{align}
     d_{LiF}=\SI{201.4}{\pico\meter} \label{eq:5}.
@@ -140,7 +144,7 @@ Die Graphik für die Messwerte aus der Tabelle \ref{tab:1} ergibt den Plot:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./build/plot_Cu.pdf}
-    \caption{Emissionsspektrum von Kupfer}
+    \caption{Emissionsspektrum von Kupfer \cite{matplotlib}}
     \label{fig:3}
 \end{figure}
 
@@ -185,7 +189,7 @@ Totzeit von $\tau = \SI{60}{\micro\second} $ durchgeführt werden:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./build/plot_T.pdf}
-    \caption{Transmission von Aluminium}
+    \caption{Transmission von Aluminium \cite{matplotlib}}
     \label{fig:4}
 \end{figure}
 
@@ -245,7 +249,7 @@ die dazugehörigen relativen Fehler zusammengefasst.
 \begin{tabular}{c c c c}
 \toprule
 \multicolumn{2}{c}{Messwert}& \multicolumn{1}{c}{Literaturwert}& \multicolumn{1}{c}{relativer Fehler} \\
-\cmidrule(lr){1-2}
+\cmidrule(lr){1-4} 
 $K_{\alpha}$    &   \SI{8043.35}{\electronvolt} & \SI{8048}{\electronvolt} \cite{K_Linie} & $5,78\cdot 10^{-2 }\%$\\
 $K_{\beta} $    &   \SI{8999.64}{\electronvolt} & \SI{8905}{\electronvolt} \cite{K_Linie} & $1,06\%$\\
 $\lambda _c$    &   \SI{3.76+-0.06}{\pico\meter} & \SI{2.43263e02}{\angstrom} \cite{nolting2013grundlagen} & $54,97\%$\\
@@ -257,7 +261,7 @@ $\lambda _c$    &   \SI{3.76+-0.06}{\pico\meter} & \SI{2.43263e02}{\angstrom} \c
 
 \flushleft{Das\;}\justifying Kupferspektrum in Abbildung \ref{fig:3} gibt das zu erwartende Spektrum gut
 wieder. Das Bremsspektrum ist kontinuierlich und die Intensität nimmt mit steigender Wellenlänge ab.
-Neben dem Bremspektrum sind klar die beiden Peaks zu erkennen, welche die $K_{\alpha} $-
+Neben dem Bremsspektrum sind klar die beiden Peaks zu erkennen, welche die $K_{\alpha} $-
 und die $K_{\beta} $-Linie definieren. Im Vergleich zu den Literaturwerten in der Tabelle \ref{tab:3}
 sind die Werte nah am gesuchten Wert, was sich in den geringen relativen Fehlern zeigt.
 Auffällig an dem Graph ist, dass die $K_{\alpha} $-Linie wesentlich häufiger gemessen wurde
