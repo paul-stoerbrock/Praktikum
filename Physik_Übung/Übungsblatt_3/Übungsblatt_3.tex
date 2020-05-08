@@ -264,7 +264,6 @@ Beweis der Orthogonalität zweier Eigenfunktionen hermitischer Operatoren
         \Leftrightarrow \frac{1}{i\hbar} Ef &= \frac{\partial f}{\partial t}\\
         f &= c \; \exp \left( -\frac{E}{\hbar}t \right)\\
         \\
-        k \leq 0\\
         g_1 &= A \; \exp(ik_1x) + B \; \exp(-ik_1x)\\
         g_2 &= C \; \exp(ik_2x) + D \; \exp(-ik_2x)\\
         \intertext{Stetigkeit bei $x=0$
@@ -298,7 +297,7 @@ Beweis der Orthogonalität zweier Eigenfunktionen hermitischer Operatoren
         \\
         t &= \frac{C}{A} = \frac{2k_1}{k_1 + k_2}\\
         &= \frac{2\sqrt{2mE}}{\sqrt{2mE} + \sqrt{2m(E-V_0)}}\\
-        &= \frac{2\sqrt{E}}{\sqrt{E} + \sqrt{2m(E-V_0)}}\\
+        &= \frac{2\sqrt{E}}{\sqrt{E} + \sqrt{(E-V_0)}}\\
         \\
         k_1 &= \frac{\sqrt{2mE}}{\hbar}\\
         k_2 &= \frac{\sqrt{2m(E-V_0)}}{\hbar}
@@ -307,16 +306,41 @@ Beweis der Orthogonalität zweier Eigenfunktionen hermitischer Operatoren
 \subsection{e)}
 
     \begin{align*}
-        \intertext{Fall $E \gg V_0  (V_0\;$ ist gegen\"uber E vernachl\"assigbar)
+        \intertext{Fall $E \gg V_0  (V_0\;$ ist gegenüber E vernachlässigbar)
         }
         r &= 0\\
         t &= 1\\
+        \intertext{Hier findet eine Totalreflexion statt, da die einfallende Welle genügend Energie besitzt, um
+        das Potential zu überwinden.
+        }
         E \rightarrow V_0\\
         r &= 1\\
         t &= 2
     \end{align*}
 
+     
+    Graphiken für $m=1, V_0 =100$
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{./build/plot.pdf}
+        \caption{$k_1$ und $k_2$ Abhängigkeit von E}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{./build/plot1.pdf}
+        \caption{$r$ und $t$ Abhängigkeit von E}
+    \end{figure}
 \subsection{f)}
+
+Betrachtung des Falls $V_0 > E$:
+
+\begin{align*}
+    g_1 = A \exp(k_1 x) + B \exp (\-- k_1 x) , \; \text{für} x \leq 0\\
+    g_2 = A \exp(k_2 x) + B \exp (\-- k_2 x) , \; \text{für} x \geq 0\\
+    k_2 = \frac{\sqrt{2m (V_0-E)}}{\hbar}
+\end{align*}
+
+Stetigkeitsbedingung: $C=0$
 
  
 
