@@ -67,12 +67,11 @@
         Für den Strahlungsfluss muss die Luminosität am Ort $R$ bekannt sein, welcher sich mit Formel \eqref{eq:1} bestimmen lässt.
         Werden beide Formeln in den Strahlungsdruckgradienten eingesetzt, ergibt sich für $\frac{\mathrm{d}P}{\mathrm{d}r}$:
         }
-        \frac{\mathrm{d}P}{\mathrm{d}r} &= -\frac{\kappa \rho}{c} \cdot \frac{\sigma \cdot A \cdot T^4}{A}\\
-        \Leftrightarrow \frac{\mathrm{d}P}{\mathrm{d}r} &= -\frac{\kappa \rho}{c} \cdot \sigma T^4
+        \frac{\mathrm{d}P}{\mathrm{d}r} &= -\frac{\kappa \rho}{c} \cdot \frac{L}{A}\\
         \intertext{flushleft{Wird\;}\justifying der Strahlungsdruckgradienten in Abhängigkeit von L nun nach mit der Gewichtskraft gleichgesetzt und nach L umgeformt, ergibt sich:
         }
-        -\frac{\kappa \rho}{c} L &= -G \frac{M_r \rho}{r^2}\\
-        \Leftrightarrow L &= G \frac{M_r c}{\kappa r^2}
+        -\frac{\kappa \rho}{c} \frac{L}{4\pi r^2} &= -G \frac{M_r \rho}{r^2}\\
+        \Leftrightarrow L &= G \frac{4\pi M_r c}{\kappa}
     \end{align*}
 
 \subsection{c)}
@@ -82,6 +81,11 @@
 
 \subsection{d)}
 
+    \begin{align*}
+        \intertext{flushleft{Mit\;}\justifying einer Masse von $0.083 M_{\odot}$ und einer Opazität von \SI{0.02}{\meter\squared\per\kilo\gram} ergibt sich eine Leuchtkraft von:
+        } 
+        L &= G \frac{4\pi 0.083M_{\odot} c}{\text{\SI{0.02}{\meter\squared\per\kilo\gram}}} = \text{\input{L.tex}}
+    \end{align*}
 
 \section{Aufgabe 5}
 
