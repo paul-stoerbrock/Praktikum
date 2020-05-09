@@ -23,17 +23,62 @@
 
 \section{Aufgabe 4}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Aufgabe4.jpg}
-    \label{fig:1}
-\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{images/Aufgabe4.jpg}
+        \label{fig:1}
+    \end{figure}
+
+    \flushleft{Die\;}\justifying Leuchtkraft oder Luminosität eines Sterns ist gegeben durch das Stefan-Boltzman-Gesetzt:
+    \begin{align}
+        L =  \sigma \cdot A \cdot T^4 \label{eq:1}
+    \intertext{flushleft{Wobei\;}\justifying A die betrachtete Oberfläche, T die Oberflächentemperatur und $\sigma = \sfrac{2\pi^5 \kappa^4}{15c^2 h^3}$ die Stefan-Boltzman Konstante darstellt.
+    Die Formel des Strahlungsfluss lautet
+    }
+        f = \frac{P_{Stern}}{A} \label{eq:2}
+    \end{align}
 
 \subsection{a)}
 
+    \begin{align*}
+        \intertext{\flushleft{Das\;}\justifying hydrostatische Gleichgewicht basiert auf das Gleichgewicht zwischen Strahlung und Druck. Demnach muss eine Variation in Druck oder Strahlung eine entsprechende
+        Reaktion der anderen Kraft hervorrufen. Am Equillibrium $F_g = F_p$ muss der Druck der Strahlung gleich der Gewichtskraft sein.
+        Die Gewichtskraft, die an der relevanten Schicht herrscht, ist wie folgt definiert:
+        }
+        F_g &= -G \frac{M_r \mathrm{d}m}{r^2} = -G \frac{M_r \rho}{r^2}\mathrm{d}A \mathrm{d}r
+        \intertext{flushleft{Wobei\;}\justifying $G$ die Gravitationskonstante, $M_r$ die Masse der vom Radius $r$ eingeschlossenen Sphäre und $\rho$ die Dichte der Schicht an der Stelle $r$ ist.
+        Der Druck ist definiert durch:
+        }
+        P &= \frac{\text{Kraft(F)}}{\text{Fl\"ache(A)}} \Leftrightarrow F_p = P \cdot A
+        \intertext{flushleft{Druck\;}\justifying $p$ und Fläche sind hier jeweils variabel und vom Radius abhängig:
+        }
+        F_p &= \mathrm{d}P \, \mathrm{d}A
+        \intertext{flushleft{Im\;}\justifying perfektem Gleichgewicht müssen sich beide Kräfte aufheben, demnach gilt:
+        }
+        F_p - F_g &= 0 \Leftrightarrow F_p = F_g\\
+        \stackrel{einsetzen}{\Rightarrow} \mathrm{d}P \, \mathrm{d}A &= -G \frac{M_r \rho}{r^2}\mathrm{d}A \mathrm{d}r\\
+        \Leftrightarrow \frac{\mathrm{d}P}{\mathrm{d}r} &= -G \frac{M_r \rho}{r^2}
+    \end{align*}
+
 \subsection{b)}
 
+    \begin{align*}
+        \intertext{flushleft{Für\;}\justifying die Eddington Leuchtkraft wird der Strahlungsfluss \eqref{eq:2} benötigt, welcher in den Strahlungsdruckgradienten für $F_{rad}$ eingesetzt wird. 
+        Für den Strahlungsfluss muss die Luminosität am Ort $R$ bekannt sein, welcher sich mit Formel \eqref{eq:1} bestimmen lässt.
+        Werden beide Formeln in den Strahlungsdruckgradienten eingesetzt, ergibt sich für $\frac{\mathrm{d}P}{\mathrm{d}r}$:
+        }
+        \frac{\mathrm{d}P}{\mathrm{d}r} &= -\frac{\kappa \rho}{c} \cdot \frac{\sigma \cdot A \cdot T^4}{A}\\
+        \Leftrightarrow \frac{\mathrm{d}P}{\mathrm{d}r} &= -\frac{\kappa \rho}{c} \cdot \sigma T^4
+        \intertext{flushleft{Wird\;}\justifying der Strahlungsdruckgradienten in Abhängigkeit von L nun nach mit der Gewichtskraft gleichgesetzt und nach L umgeformt, ergibt sich:
+        }
+        -\frac{\kappa \rho}{c} L &= -G \frac{M_r \rho}{r^2}\\
+        \Leftrightarrow L &= G \frac{M_r c}{\kappa r^2}
+    \end{align*}
+
 \subsection{c)}
+
+    flushleft{Eine\;}\justifying Überschreitung der Eddington Leuchtkraft liegt in der Regel einem zu hohem Strahlungsdruck zugrunde. Ein überwiegender Strahlungsdruck hat in der Regel
+    eine Abstrahlung von Masse in Form von Supernovae oder planetaren Nebeln. In beiden Fällen wird mindesten eine Schicht des Stern von der sterneigenen Strahlung abgetragen. 
 
 \subsection{d)}
 
