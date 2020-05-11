@@ -1,7 +1,7 @@
 \input{../../header.tex}
 
 \begin{document}
-    \title{ATP Übungsblatt 1}
+    \title{ATP Übungsblatt 2}
     \author{  
     Tobias Rücker\\
     \texorpdfstring{\href{mailto:tobias.ruecker@tu-dortmund.de}{tobias.ruecker@tu-dortmund.de}
@@ -45,17 +45,17 @@
         Reaktion der anderen Kraft hervorrufen. Am Equillibrium $F_g = F_p$ muss der Druck der Strahlung gleich der Gewichtskraft sein.
         Die Gewichtskraft, die an der relevanten Schicht herrscht, ist wie folgt definiert:
         }
-        F_g &= -G \frac{M_r \mathrm{d}m}{r^2} = -G \frac{M_r \rho}{r^2}\mathrm{d}A \mathrm{d}r
-        \intertext{flushleft{Wobei\;}\justifying $G$ die Gravitationskonstante, $M_r$ die Masse der vom Radius $r$ eingeschlossenen Sphäre und $\rho$ die Dichte der Schicht an der Stelle $r$ ist.
+        dF_g &= -G \frac{M_r \mathrm{d}m}{r^2} = -G \frac{M_r \rho}{r^2}\mathrm{d}A \mathrm{d}r
+        \intertext{\flushleft{Wobei\;}\justifying $G$ die Gravitationskonstante, $M_r$ die Masse der vom Radius $r$ eingeschlossenen Sphäre und $\rho$ die Dichte der Schicht an der Stelle $r$ ist.
         Der Druck ist definiert durch:
         }
-        P &= \frac{\text{Kraft(F)}}{\text{Fl\"ache(A)}} \Leftrightarrow F_p = P \cdot A
-        \intertext{flushleft{Druck\;}\justifying $p$ und Fläche sind hier jeweils variabel und vom Radius abhängig:
+        dP &= \frac{\text{Kraft(F)}}{\text{Fl\"ache(A)}} \Leftrightarrow F_p = P \cdot A
+        \intertext{\flushleft{Druck\;}\justifying $p$ und Fläche sind hier jeweils variabel und vom Radius abhängig:
         }
-        F_p &= \mathrm{d}P \, \mathrm{d}A
-        \intertext{flushleft{Im\;}\justifying perfektem Gleichgewicht müssen sich beide Kräfte aufheben, demnach gilt:
+        dF_p &= \mathrm{d}P \, \mathrm{d}A
+        \intertext{\flushleft{Im\;}\justifying perfektem Gleichgewicht müssen sich beide Kräfte aufheben, demnach gilt:
         }
-        F_p - F_g &= 0 \Leftrightarrow F_p = F_g\\
+        dF_p - dF_g &= 0 \Leftrightarrow dF_p = dF_g\\
         \stackrel{einsetzen}{\Rightarrow} \mathrm{d}P \, \mathrm{d}A &= -G \frac{M_r \rho}{r^2}\mathrm{d}A \mathrm{d}r\\
         \Leftrightarrow \frac{\mathrm{d}P}{\mathrm{d}r} &= -G \frac{M_r \rho}{r^2}
     \end{align*}
@@ -63,12 +63,13 @@
 \subsection{b)}
 
     \begin{align*}
-        \intertext{flushleft{Für\;}\justifying die Eddington Leuchtkraft wird der Strahlungsfluss \eqref{eq:2} benötigt, welcher in den Strahlungsdruckgradienten für $F_{rad}$ eingesetzt wird. 
+        \intertext{\flushleft{Für\;}\justifying die Eddington Leuchtkraft wird der Strahlungsfluss \eqref{eq:2} benötigt, welcher in den Strahlungsdruckgradienten für $F_{rad}$ eingesetzt wird. 
         Für den Strahlungsfluss muss die Luminosität am Ort $R$ bekannt sein, welcher sich mit Formel \eqref{eq:1} bestimmen lässt.
         Werden beide Formeln in den Strahlungsdruckgradienten eingesetzt, ergibt sich für $\frac{\mathrm{d}P}{\mathrm{d}r}$:
         }
         \frac{\mathrm{d}P}{\mathrm{d}r} &= -\frac{\kappa \rho}{c} \cdot \frac{L}{A}\\
-        \intertext{flushleft{Wird\;}\justifying der Strahlungsdruckgradienten in Abhängigkeit von L nun nach mit der Gewichtskraft gleichgesetzt und nach L umgeformt, ergibt sich:
+        \intertext{
+            \flushleft{Wird\;}\justifying der Strahlungsdruckgradienten in Abhängigkeit von L nun nach mit der Gewichtskraft gleichgesetzt und nach L umgeformt, ergibt sich:
         }
         -\frac{\kappa \rho}{c} \frac{L}{4\pi r^2} &= -G \frac{M_r \rho}{r^2}\\
         \Leftrightarrow L &= G \frac{4\pi M_r c}{\kappa}
@@ -76,13 +77,13 @@
 
 \subsection{c)}
 
-    flushleft{Eine\;}\justifying Überschreitung der Eddington Leuchtkraft liegt in der Regel einem zu hohem Strahlungsdruck zugrunde. Ein überwiegender Strahlungsdruck hat in der Regel
+    \flushleft{Eine\;}\justifying Überschreitung der Eddington Leuchtkraft liegt in der Regel einem zu hohem Strahlungsdruck zugrunde. Ein überwiegender Strahlungsdruck hat in der Regel
     eine Abstrahlung von Masse in Form von Supernovae oder planetaren Nebeln. In beiden Fällen wird mindesten eine Schicht des Stern von der sterneigenen Strahlung abgetragen. 
 
 \subsection{d)}
 
     \begin{align*}
-        \intertext{flushleft{Mit\;}\justifying einer Masse von $0.083 M_{\odot}$ und einer Opazität von \SI{0.02}{\meter\squared\per\kilo\gram} ergibt sich eine Leuchtkraft von:
+        \intertext{\flushleft{Mit\;}\justifying einer Masse von $0.083 M_{\odot}$ und einer Opazität von \SI{0.02}{\meter\squared\per\kilo\gram} ergibt sich eine Leuchtkraft von:
         } 
         L &= G \frac{4\pi 0.083M_{\odot} c}{\text{\SI{0.02}{\meter\squared\per\kilo\gram}}} = \text{\input{L.tex}}
     \end{align*}
@@ -113,10 +114,29 @@
 \end{figure}
 
 \subsection{a)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/hertz_russel.pdf}
+    \caption{Hert-Russel Diagramm}
+\end{figure}
 
 \subsection{b)}
+In dem Hertz-Russel Diagramm werden die verschiedenen Sterntypen
+in Abhängigkeit ihrer Leuchtkraft und Temperatur abgebildet.
+Dabei ist die Leuchtkraft logarithmisch als ein Vielfaches der
+Sonnenleuchtkraft aufgetragen
+Gleichzeitig werden auch die Farben der Sterne eingetragen, welche unabhängig
+von ihrer Leuchtkraft sind und nur von der Temperatur hier abhängen.
+Das Diagramm unterteilt sich dabei grob in 4 Bereiche.\\
+Die weißen Zwerge sind die lichtschwächsten Objekte in dem Diagramm und sind Sternüberreste.\\
+Riesen und Überriesen sind sehr leuchtkräftige Sterne.\\
+Die Hauptreihensterne sind von großer Bedeutung, da zum einen in ihnen je nach Masse 
+die pp-Kette oder der CNO Zyklus als Reaktionen stattfindet und unsere Sonne zu dieser Kategorie gehört.
+
 
 \subsection{c)}
+
+
 
 \subsection{d)}
 
