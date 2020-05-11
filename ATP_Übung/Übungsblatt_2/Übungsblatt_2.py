@@ -28,7 +28,7 @@ def make_SI(num, unit, exp='', figures=None):
 M_stern = 0.083*1.98840987*1e+30
 
 #Eddington Leuchtkraft:
-L = const.g*4*np.pi*M_stern*const.c/0.02
+L = const.G*4*np.pi*M_stern*const.c/0.02
 
 # tex file for L
 
