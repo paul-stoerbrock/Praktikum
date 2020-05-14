@@ -69,11 +69,14 @@ plt.tight_layout
 plt.savefig('build/plotCu.pdf')
 plt.close()
 
-xlmax = 20.2  #degrees
-xmax = 22.5    #degrees
+xlmax = ufloat(20.2, 0.1)  #degrees
+xmax = ufloat(22.5, 0.1)    #degrees
+xlmax_F = ufloat(np.deg2rad(20.2), np.deg2rad(0.1))
+xmax_F = ufloat(np.deg2rad(22.5), np.deg2rad(0.1))
 
-L_a = 2*d_LiF*np.sin(np.deg2rad(xmax))
-L_b = 2*d_LiF*np.sin(np.deg2rad(xlmax))
+
+L_a = 2*d_LiF*unp.sin(xmax_F)
+L_b = 2*d_LiF*unp.sin(xlmax_F)
 
 E_a = (const.h*const.c)/(L_a*const.e)
 E_b = (const.h*const.c)/(L_b*const.e)
@@ -97,8 +100,8 @@ plt.plot(Lambda, T, 'kx', label='Messwerte')
 x_plot = np.linspace(4.7*1e-11, 7*1e-11, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 plt.legend(loc="best")
-plt.xlabel(r'Transmission')
-plt.ylabel(r'Wellenlänge $\lambda / m$')
+plt.xlabel(r'Wellenlänge $\lambda / m$')
+plt.ylabel(r'Transmission')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotAl.pdf')
@@ -111,8 +114,14 @@ I_0 = 2731
 I_1 = 1180
 I_2 = 1024
 
-T_1 = I_1/I_0
-T_2 = I_2/I_0
+IF_0 = ufloat(I_0, np.sqrt(I_0))
+IF_1 = ufloat(I_1, np.sqrt(I_1))
+IF_2 = ufloat(I_2, np.sqrt(I_2))
+
+T_1 = IF_1/IF_0
+T_2 = IF_2/IF_0
+
+print(T_1)
 
 L_1 = (T_1-b_Al)/m_Al
 L_2 = (T_2-b_Al)/m_Al
@@ -130,22 +139,22 @@ print(L_const)
 # tex file for xmax
 
 with open('build/xmax.tex', 'w') as f:
-  f.write(make_SI(xmax,r'°', figures=2))
+  f.write(make_SI(xmax,r'°', figures=1))
 
 # tex file for xlmax
 
 with open('build/xlmax.tex', 'w') as f:
-  f.write(make_SI(xlmax,r'°', figures=2))
+  f.write(make_SI(xlmax,r'°', figures=1))
 
 # tex file for L_a
 
 with open('build/L_a.tex', 'w') as f:
-  f.write(make_SI(L_a*1e+10,r'\angstrom', figures=2))
+  f.write(make_SI(L_a*1e+12,r'\pico\meter', figures=2))
 
 # tex file for L_b
 
 with open('build/L_b.tex', 'w') as f:
-  f.write(make_SI(L_b*1e+10,r'\angstrom', figures=2))
+  f.write(make_SI(L_b*1e+12,r'\pico\meter', figures=2))
 
 # tex file for E_a
 
@@ -160,7 +169,7 @@ with open('build/E_a_lit.tex', 'w') as f:
 # tex file for E_Fa
 
 with open('build/E_Fa.tex', 'w') as f:
-  f.write(make_SI(E_Fa.n,r'', figures=4))
+  f.write(make_SI(E_Fa.n*1e+02,r'\percent', figures=2))
 
 # tex file for E_b
 
@@ -175,12 +184,12 @@ with open('build/E_b_lit.tex', 'w') as f:
 # tex file for E_Fb
 
 with open('build/E_Fb.tex', 'w') as f:
-  f.write(make_SI(E_Fb.n,r'', figures=4))
+  f.write(make_SI(E_Fb.n*1e+02,r'\percent', figures=2))
 
 # tex file for m_Al
 
 with open('build/m_Al.tex', 'w') as f:
-  f.write(make_SI(m_Al*1e-10,r'\per\meter', exp='e10', figures=1))
+  f.write(make_SI(m_Al*1e-12,r'\per\pico\meter', figures=1))
 
 # tex file for b_Al
 
@@ -202,6 +211,16 @@ with open('build/I_1.tex', 'w') as f:
 with open('build/I_2.tex', 'w') as f:
   f.write(make_SI(I_2,r'Impuls\per\second', figures=0))
 
+# tex file for L_1
+
+with open('build/L_1.tex', 'w') as f:
+  f.write(make_SI(L_1*1e+12,r'\pico\meter', figures=2))
+
+# tex file for L_2
+
+with open('build/L_2.tex', 'w') as f:
+  f.write(make_SI(L_2*1e+12,r'\pico\meter', figures=2))
+
 # tex file for T_1
 
 with open('build/T_1.tex', 'w') as f:
@@ -212,20 +231,10 @@ with open('build/T_1.tex', 'w') as f:
 with open('build/T_2.tex', 'w') as f:
   f.write(make_SI(T_2,r'', figures=2))
 
-# tex file for L_1
-
-with open('build/L_1.tex', 'w') as f:
-  f.write(make_SI(L_1,r'\meter', figures=2))
-
-# tex file for L_2
-
-with open('build/L_2.tex', 'w') as f:
-  f.write(make_SI(L_2,r'\meter', figures=2))
-
 # tex file for L_C
 
 with open('build/L_C.tex', 'w') as f:
-  f.write(make_SI(L_C*1e+12,r'\pico\meter', figures=1))
+  f.write(make_SI(L_C*1e+12,r'\pico\meter', figures=3))
 
 # tex file for L_const
 
@@ -235,7 +244,7 @@ with open('build/L_const.tex', 'w') as f:
 # tex file for L_C_F
 
 with open('build/L_C_F.tex', 'w') as f:
-  f.write(make_SI(L_C_F.n,r'', figures=2))
+  f.write(make_SI(L_C_F.n*1e+02,r'\percent', figures=2))
 
 
 Theta_Cu1, Theta_Cu2, Theta_Cu3 = np.array_split(Theta_Cu,3)
@@ -243,11 +252,11 @@ N_Cu1, N_Cu2, N_Cu3 = np.array_split(N_Cu,3)
 
 table_header = r'''
 \begin{longtable}{S[table-format=2.1] S[table-format=3.0] S[table-format=4.1] S[table-format=2.0] S[table-format=3.1] S[table-format=4.0]}
-    \caption{Messwerte Kupfer}\\
+    \caption{Impulsrate $N$ der Kupferröhre in Abh\"angigkeit des Streuwinkels $\theta$}\\
     \toprule
-    {$\theta / \si{\degree}$} & {$N / Impuls/\si{\second}$} & 
-    {$\theta / \si{\degree}$} & {$N / Impuls/\si{\second}$} & 
-    {$\theta / \si{\degree}$} & {$N / Impuls/\si{\second}$}\\
+    {$\theta \; [\si{\degree}]$} & {$\text{Impulse} \; N \; [\si{\per\second}]$} & 
+    {$\theta \; [\si{\degree}]$} & {$\text{Impulse} \; N \; [\si{\per\second}]$} & 
+    {$\theta \; [\si{\degree}]$} & {$\text{Impulse} \; N \; [\si{\per\second}]$}\\
     \cmidrule(lr{0.5em}){1-2} \cmidrule(lr{0.5em}){3-4} \cmidrule(lr{0.5em}){5-6}
 '''
 table_footer = r''' 
@@ -270,9 +279,9 @@ with open('build/table_Cu.tex', 'w') as g:
 
 table_header = r'''
 \begin{longtable}{S[table-format=2.1] S[table-format=3.1] S[table-format=4.1]}
-    \caption{Messwerte Kupfer}\\
+    \caption{Impulsrate mit Aluminiumabsorber ($N_{Al}$) und ohne Aluminiumabsorber $N_{\text{ohne}}$ in Abhängigkeit des Streuwinkels $\alpha$}\\
     \toprule
-    {$\text{Winkel} \; \alpha\:/\si{\degree}$} & {$\text{$N_{Al}$/Sekunde}$} & {$\text{$N_{ohne}$/Sekunde}$}\\
+    {$\text{Winkel} \; \alpha\; [\si{\degree}]$} & {$\text{Impulse $N_{Al}$} \; [\si{\per\second}]$} & {$\text{Impulse $N_{\text{ohne}}$} \; [\si{\per\second}]$}\\
     \cmidrule(lr{0.5em}){1-3}
 '''
 table_footer = r''' 
