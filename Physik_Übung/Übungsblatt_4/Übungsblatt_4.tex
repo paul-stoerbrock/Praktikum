@@ -23,7 +23,7 @@
 
 \section{Aufagabe 1}
 
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{images/Aufgabe1.jpg}
         \label{fig:1}
@@ -39,7 +39,7 @@
 
 \section{Aufgabe 2}
 
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{images/Aufgabe2.jpg}
         \label{fig:2}
@@ -47,7 +47,7 @@
 
     \subsection{a)}
 
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{images/2a.jpg}
         \label{fig:3}
@@ -65,18 +65,118 @@
 
     \subsection{b)}
 
+    \begin{align*}
+        -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} + V(x)\varphi(x) &= E\varphi(x) \qquad \vert \int_{-\epsilon}^{\epsilon}\,\mathrm{d}x\\
+        \lim_{x \to 0} \left( \int_{-\epsilon}^{\epsilon} -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} \mathrm{d}x + V_0\,\delta(x)\,\varphi(x) \mathrm{d}x \right) &= \underbrace{\lim_{x \to 0} \int_{-\epsilon}^{\epsilon} E\,\varphi(x) \mathrm{d}x}_{=0}
+        \intertext{Das Integral über eine Fläche mit endlicher Höhe und infinitesimal schmaler Breite ist 0.
+        }
+        \lim_{\epsilon \to 0} \left[ -\frac{\hbar^2}{2m} \frac{\partial \varphi(x)}{\partial x} \right]_{-\epsilon}^{\epsilon} + V_0\,\varphi(0) &= 0\\
+        \Leftrightarrow \lim_{\epsilon \to 0} \varphi'(0+\epsilon) - \varphi'(0-\epsilon) &= \frac{2m}{\hbar^2} V_0\,\varphi(0)
+        \intertext{Für ungerade Parität gilt:
+        }
+        \varphi(x) &= -\varphi(-x)\\
+        \varphi'(x) &= \varphi'(-x)\\
+        \lim_{x \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0
+        \intertext{Für gerade Parität gilt:
+        }
+        \varphi(x) &= \varphi(-x)\\
+        \varphi'(x) &= -\varphi'(-x)\\
+        \lim_{x \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= \lim_{x \to 0} 2\varphi'(\epsilon)
+    \end{align*}
+
     \subsection{c)}
+
+    \begin{align*}
+        \varphi_1(x) &= A\sin(kx) + A'\cos(kx)\\
+        \varphi_2(x) &= B\sin(kx) + B'\cos(kx)\\
+        \varphi(x) &= 0 \qquad \text{sonst}
+        \intertext{Fall 1:
+        }\\
+        \varphi_1(-a) &= -\varphi_2(a) = 0\\
+        \lim_{x \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0 = \frac{2m}{\hbar^2} V_0\,\varphi(0)\\
+        \varphi_1'(0) &= \varphi_2'(0)\\
+        \Leftrightarrow A' &= B'\\
+        \varphi(0) &= 0\\
+        \Rightarrow A' &= 0 \qquad B' = 0\\
+        \varphi_1(-a) &= -\varphi_2(a)\\
+        A\sin(-ka) &= -B\sin(ka)\\
+        \Leftrightarrow -A\sin(ka) &= -B\sin(ka)\\
+        \Leftrightarrow A &= B\\
+        &\varphi(x)\begin{cases}
+            A\sin(kx)\; \text{für}\; -a\leq x\leq 0\\
+            A\sin(kx)\; \text{für}\; 0 \leq a
+        \end{cases}\\
+        \Rightarrow \varphi(x) &= A\sin(kx) \qquad x\leq a\\
+        \varphi(-a) &= 0\\
+        \Leftrightarrow A\sin(-ka) &= 0\\
+        \Rightarrow ka &=\pi n\\
+        \Leftrightarrow k &= \frac{\pi n}{a} \qquad n \in \mathbb[Z]\\
+        k &= \frac{\sqrt{2mE}}{\hbar}\\
+        \Rightarrow \frac{\pi n}{a} &\stackrel{!}{=}  \frac{\sqrt{2mE_n}}{\hbar}\\
+        \Leftrightarrow E_n &= \frac{\pi^2 \hbar^2}{2m a^2}n^2
+        \intertext{Fall 2:
+        }\\
+        \varphi_1(-a) &= \varphi_2(a) = 0\\
+        \lim_{x \to 0} \varphi_2'(\epsilon) - \varphi_1(-\epsilon) &= \frac{2mV_0}{\hbar^2} \varphi(0)\\
+        &= \varphi_1(0) = \varphi_2(0)\\
+        \Rightarrow A' &= B' \tag{*}\\
+        \varphi_1(-a) &= \varphi_2(a)\\
+        A\sin(-ka) + A'\cos(-ka) &= B\sin(ka) + B'\cos(ka) \\
+        -A\sin(ka) + \underbrace{A'\cos(ka)}_{wegk"urzen} &\stackrel{(*)}{=} B\sin(ka) + \underbrace{A'\cos(ka)}_{wegk"urzen}\\
+        \Rightarrow -A &= B\\
+        \frac{2mV_0}{\hbar^2}A' &= \lim_{\epsilon \to 0} \left( -kA\cos(k\epsilon) - kA'\sin(k\epsilon) - kA\cos(-k\epsilon) + A'\sin(-k\epsilon) \right) \\
+        \Leftrightarrow kA - kB &= A'\frac{2mV_0}{\hbar^2}\\
+        \Leftrightarrow -2kA &= A'\frac{2mV_0}{\hbar^2}\\
+        -\frac{A}{A'} &= \frac{2mV_0}{k\hbar^2}\\
+        \varphi_1(-a) &= 0\\
+        A\sin(-ka) + A'\cos(-ka) &= 0\\
+        \frac{A}{A'} &= \cot(ka)\\
+        -\cot(ka) &\stackrel{!}{=} \frac{mV_0}{k\hbar^2} \qquad z=ka\\
+        \cot(z) &= \frac{mV_0}{\hbar^2} \frac{1}{z}a \qquad \text{numerisch lösbar}\\
+        \Rightarrow z &= ka = a \cdot \frac{\sqrt{2mE}}{\hbar}\\
+        \Leftrightarrow E &= \frac{\hbar^2}{2m} \left( \frac{z}{a} \right)^2
+    \end{align*}
 
     \subsection{d)}
 
+    \begin{align*}
+        \intertext{Lösung für den unendlichen Potentialtopf:
+        }
+        E_n &= \frac{n^2 \hbar^2 \pi^2}{2ma^2}
+        \intertext{Ungerade:
+        }
+        E_n &= \frac{n^2 \hbar^2 \pi^2}{2ma^2} \qquad \text{identisch}
+        \intertext{Gerade:
+        }
+        E &= \frac{\hbar^2}{2m} \left( \frac{z}{a} \right)^2
+        \intertext{Grenzfälle:
+        }
+        \intertext{$V_0 \to \infty$
+        }
+        -\cot(ka) &= \frac{mV_0}{k\hbar^2}\\
+        \Leftrightarrow \tan(ka) &= -\frac{k\hbar^2}{mV_0}\\
+        \Rightarrow \tan(ka) &= 0\\
+        \Rightarrow ka &= n\pi\\
+        \Rightarrow E_n &= \frac{\hbar^2}{2m} \frac{n^2\pi^2}{a^2}
+        \intertext{Unendlicher Potentialtopf ohne Barriere
+        }
+        \intertext{$V_0 \to 0$
+        }
+        \tan(ka) &= -\frac{k\hbar^2}{mV_0} \to -\infty\\
+        ka &= \pi\left( \frac{1}{2}+c \right) \qquad c \in \mathbb{Z}\\
+        \Leftrightarrow k &= \frac{\pi}{a}\left( \frac{1}{2}+c \right)\\
+        \frac{\pi}{a}\left( \frac{1}{2}+c \right) &\stackrel{!}{=} \frac{\sqrt{2mE}}{\hbar}\\
+        \Leftrightarrow E &= \frac{\pi^2}{a^2}\frac{\hbar}{2m} \left( \frac{1}{2}+c \right)
+    \end{align*}
+
 \section{Aufgabe 3}
 
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{images/Aufgabe3ab.jpg}
         \label{fig:4}
     \end{figure}
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{images/Aufgabe3cde.jpg}
         \label{fig:5}
