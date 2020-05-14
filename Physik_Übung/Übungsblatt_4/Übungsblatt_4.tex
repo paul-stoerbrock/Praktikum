@@ -193,7 +193,7 @@
         \\
         \hat{H}\hat{b} \vert n \rangle &\stackrel{!}{=} A\left( \hat{b}\hat{a} +c \right)\hat{b} \vert n \rangle\\
         &= A\left(\hat{b}\hat{a}\hat{b}+c\hat{b} \right) \vert n \rangle\\
-        &= A\hat{b} \left( \hat{a}\hat{b} +c \right) \vert v \rangle\\
+        &= A\hat{b} \left( \underline{\hat{a}\hat{b}} +c \right) \vert v \rangle\\
         &\stackrel{!}{=} A\hat{b} \left( \underline{\hat{b}\hat{a} + 1} + c \right) \vert n \rangle\\
         \Leftrightarrow &= \hat{b} \left(\underbrace{A\left(\hat{b}\hat{a}+c \right)}_{=\hat{H}} + A \right) \vert n \rangle\\
         &= \hat{b} \left( \hat{H} + A \right) \vert n \rangle\\
@@ -201,9 +201,9 @@
         \\
         \hat{H}\hat{a} \vert n \rangle &\stackrel{!}{=} A\left( \hat{b}\hat{a} +c \right)\hat{a} \vert n \rangle\\ 
         &= A\left(\hat{b}\hat{a}\hat{a}+c\hat{a} \right) \vert n \rangle\\
-        &= A\hat{a} \left( \hat{b}\hat{a} +c \right) \vert v \rangle\\
+        &= A\hat{a} \left( \underline{\hat{b}\hat{a}} +c \right) \vert n \rangle\\
         &\stackrel{!}{=} A\hat{a} \left( \underline{\hat{a}\hat{b} - 1} + c \right) \vert n \rangle\\
-        \Leftrightarrow &= \hat{a} \left(\underbrace{A\left(\hat{b}\hat{a}+c \right)}_{=\hat{H}} - A \right) \vert n \rangle\\
+        \Leftrightarrow &= \hat{a} \left(\underbrace{A\left(\hat{a}\hat{b}+c \right)}_{\neq\hat{H}} - A \right) \vert n \rangle\\
         &= \hat{a} \left( \hat{H} - A \right) \vert n \rangle\\
         &= \left( E_N - A \right) \hat{a} \vert n \rangle
     \end{align*}
