@@ -67,7 +67,7 @@
 
     \begin{align*}
         -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} + V(x)\varphi(x) &= E\varphi(x) \qquad \vert \int_{-\epsilon}^{\epsilon}\,\mathrm{d}x\\
-        \lim_{x \to 0} \left( \int_{-\epsilon}^{\epsilon} -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} \mathrm{d}x + V_0\,\delta(x)\,\varphi(x) \mathrm{d}x \right) &= \underbrace{\lim_{x \to 0} \int_{-\epsilon}^{\epsilon} E\,\varphi(x) \mathrm{d}x}_{=0}
+        \lim_{\epsilon \to 0} \left( \int_{-\epsilon}^{\epsilon} -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} \mathrm{d}x + V_0\,\delta(x)\,\varphi(x) \mathrm{d}x \right) &= \underbrace{\lim_{\epsilon \to 0} \int_{-\epsilon}^{\epsilon} E\,\varphi(x) \mathrm{d}x}_{=0}
         \intertext{Das Integral über eine Fläche mit endlicher Höhe und infinitesimal schmaler Breite ist 0.
         }
         \lim_{\epsilon \to 0} \left[ -\frac{\hbar^2}{2m} \frac{\partial \varphi(x)}{\partial x} \right]_{-\epsilon}^{\epsilon} + V_0\,\varphi(0) &= 0\\
@@ -76,12 +76,12 @@
         }
         \varphi(x) &= -\varphi(-x)\\
         \varphi'(x) &= \varphi'(-x)\\
-        \lim_{x \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0
+        \lim_{\epsilon \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0
         \intertext{Für gerade Parität gilt:
         }
         \varphi(x) &= \varphi(-x)\\
         \varphi'(x) &= -\varphi'(-x)\\
-        \lim_{x \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= \lim_{x \to 0} 2\varphi'(\epsilon)
+        \lim_{\epsilon \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= \lim_{\epsilon \to 0} 2\varphi'(\epsilon)
     \end{align*}
 
     \subsection{c)}
@@ -93,7 +93,7 @@
         \intertext{Fall 1:
         }\\
         \varphi_1(-a) &= -\varphi_2(a) = 0\\
-        \lim_{x \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0 = \frac{2m}{\hbar^2} V_0\,\varphi(0)\\
+        \lim_{\epsilon \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0 = \frac{2m}{\hbar^2} V_0\,\varphi(0)\\
         \varphi_1'(0) &= \varphi_2'(0)\\
         \Leftrightarrow A' &= B'\\
         \varphi(0) &= 0\\
@@ -117,7 +117,7 @@
         \intertext{Fall 2:
         }\\
         \varphi_1(-a) &= \varphi_2(a) = 0\\
-        \lim_{x \to 0} \varphi_2'(\epsilon) - \varphi_1(-\epsilon) &= \frac{2mV_0}{\hbar^2} \varphi(0)\\
+        \lim_{\epsilon \to 0} \varphi_2'(\epsilon) - \varphi_1(-\epsilon) &= \frac{2mV_0}{\hbar^2} \varphi(0)\\
         &= \varphi_1(0) = \varphi_2(0)\\
         \Rightarrow A' &= B' \tag{*}\\
         \varphi_1(-a) &= \varphi_2(a)\\
