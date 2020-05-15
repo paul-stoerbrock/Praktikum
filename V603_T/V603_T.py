@@ -57,7 +57,7 @@ x_plot = np.linspace(0, 5, 1000)
 plt.axvline(x=20, color='g', linestyle=':', label='$K_{\\alpha}-Linie$')
 plt.axvline(x=22.5, color='b', linestyle=':', label='$K_{\\beta}-Linie$')
 plt.legend(loc="best")
-plt.annotate('$K_{\\beta}$', xy=(20, 1700), size = 15
+plt.annotate('$K_{\\beta}$', xy=(20.1, 1700), size = 15
 
 )
 plt.annotate('$K_{\\alpha} $', xy=(23, 5050), size = 15
@@ -75,9 +75,16 @@ plt.tight_layout
 plt.savefig('build/plot_Cu.pdf')
 plt.close()
 
-print(2*201.4*1e-12*np.sin(np.deg2rad(20)))
-print(const.h *const.c/(2*201.4*1e-12*np.sin(np.deg2rad(20))*const.e))
 
+
+lambda_20 = ufloat(np.deg2rad(20.1),np.deg2rad(0.1))
+lambda_22 = ufloat(np.deg2rad(22.5),np.deg2rad(0.1))
+
+
+print(2*201.4*1e-12*unp.sin(lambda_20))
+print(const.h *const.c/(2*201.4*1e-12*unp.sin(lambda_20)*const.e))
+print(2*201.4*1e-12*unp.sin(lambda_22))
+print(const.h *const.c/(2*201.4*1e-12*unp.sin(lambda_22)*const.e))
 
 #Plot des Absorptionsspektrum ohne Absorber
 
@@ -85,6 +92,7 @@ print(const.h *const.c/(2*201.4*1e-12*np.sin(np.deg2rad(20))*const.e))
 
 
 #Totzeitkorrektur
+
 
 
 I_Al= R_Al/(1-90*1e-06*R_Al)
@@ -114,12 +122,12 @@ plt.close()
 
 par=unp.uarray(par, err)
 
-I_0 = 2731
-I_1 = 1180
-I_2 = 1024
+I_0 = ufloat(2731,np.sqrt(2731))
+I_1 = ufloat(1180,np.sqrt(1180))
+I_2 = ufloat(1024,np.sqrt(1024))
+print(I_1/I_0)
+print(I_2/I_0)
 
-print((I_1/I_0-par[1])/par[0])
-print((I_2/I_0-par[1])/par[0])
 
 # Tex Files ##################################################################################################################
 
@@ -155,7 +163,7 @@ row_template = r'     {0:1.1f} & {1:1.1f} & {2:1.1f}  \\'
 with open('build/table_Al.tex', 'w') as g:
     g.write(table_header)
     for row in zip(theta_deg_Al, R_Al, R_Ohne ):
-        g.write(row_template.format(*row))
+        g.write(row_template.format(*row).replace('.',','))
         g.write('\n')
     g.write(table_footer)
 
@@ -182,7 +190,7 @@ row_template = r'     {0:1.1f} & {1:1.0f} & {2:1.1f} & {3:1.0f} & {4:1.1f} & {5:
 with open('build/table_Cu.tex', 'w') as g:
     g.write(table_header)
     for row in zip(theta_deg_Cu_1, N_Cu_1, theta_deg_Cu_2, N_Cu_2, theta_deg_Cu_3, N_Cu_3):
-        g.write(row_template.format(*row))
+        g.write(row_template.format(*row).replace('.',','))
         g.write('\n')
     g.write(table_footer)
 
@@ -190,4 +198,4 @@ with open('build/table_Cu.tex', 'w') as g:
 
 
 
-print((1024/2731 - par[1])/par[0]-(1180/2731 - par[1])/par[0] )
+print((I_2/I_0 - par[1])/par[0]-(I_1/I_0 - par[1])/par[0] )

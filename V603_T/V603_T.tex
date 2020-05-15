@@ -39,13 +39,16 @@ dabei beschrieben durch die Gleichung
 \begin{align}
     E  = \hbar \omega \label{eq:1}.
 \end{align}
+Dabei bezeichnet $\hbar $ das verschränkte plancksche Wirkungsquantum und $\omega $
 Aus Energie- und Impulserhaltung lässt sich die Differenz der beiden Wellenlängen bestimmen \cite{V603}
 \begin{align}
     \Delta \lambda = \lambda _2 - \lambda _1 = \frac{h}{m_e c}(1-\cos(\theta))  \label{eq:2},
 \end{align}
-wobei $\lambda _2 $ die Wellenlänge der Compton-Streuung und $\lambda _1 $ die Wellenlänge
-der einfallenden Strahlung definiert. Die Konstante $\frac{h}{m_e c}$ wird als
-Compton-Wellenlänge bezeichnet und hat dementsprechend die Dimension einer Länge.\\
+wobei $\lambda _2 $ die Wellenlänge der Compton-Streuung, $\lambda _1 $ die Wellenlänge
+der einfallenden Strahlung und $\theta$ den Streuwinkel der Strahlung definiert. Die Konstante $\frac{h}{m_e c}$ wird als
+Compton-Wellenlänge bezeichnet und hat dementsprechend die Dimension einer Länge,
+wobei $m_e$ die Masse des Elektrons, h das planksche Wirkungsquantum und c die Lichtgeschwindigkeit im
+Vakuum ist.\\
 Um Röntgenstrahlung für eine Messung zu erzeugen werden Elektronen aus einer 
 Glühkathode  auf eine Anode beschleunigt. Das Spektrum der Emission
 setzt sich dann aus zwei Bestandteilen zusammen, der Bremsstrahlung und
@@ -54,12 +57,6 @@ Die Bremsstrahlung entsteht durch den Energieverlust bei der Abbremsung durch
 das E-Feld eines Atoms. Das ausgestrahlte Photon besitzt dann genau den
 durch die Abbremsung verlorene Energie, wodurch das Spektrum der Bremsstrahlung kontinuierlich
 ist. 
-%Die minimale Wellenlänge, die vorkommen kann, entsteht, wenn ein Elektron seine
-%gesamte Energie an das Photon abgibt
-%\begin{align}
-%    U\cdot e=\hbar \omega= \frac{hc}{\lambda _{\text{min}}} \label{eq:3}\\
-%    \lambda _{\text{min}}=\frac{hc}{Ue}\label{eq:4}.
-%\end{align}
 Die charakteristische Strahlung entsteht, indem ein Elektron ein Atom ionisiert.
 Dadurch fällt ein Elektron von einer äußeren Schale unter Emission eines 
 Röntgenquants ins Innere. Die charakteristische Strahlung hängt
@@ -68,7 +65,7 @@ sind diese Linien scharf.\\
 Durch Transmission und Absorption von Röntgenstrahlung durch Aluminium kann
 die Compton-Wellenlänge ermittelt werden. Die Transmission durch verschiedene Stoffe
 verringert sich mit steigender Wellenlänge, wodurch die Intensität
-Compton-Wellenlänge geringer wird. Berechnen lässt sich die Transmission durch
+Compton-Wellenlänge geringer wird. Berechnen lässt sich der Transmissionskoeffizient durch
 \begin{align}
     T=\frac{I}{I_0} \label{eq:3}.
 \end{align}
@@ -81,19 +78,19 @@ werden
 \begin{align}
     2d \sin (\alpha)=n \lambda \label{eq:4}.
 \end{align}
-$\lambda$ ist dabei die im Winkel $\alpha$ gebeugte Wellenlänge und n die Interferenzordnung.
+$\lambda$ ist dabei die im Winkel $\alpha$ gebeugte Wellenlänge, d die Gitterkonstante und n die Interferenzordnung.
 
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
 
-Zuerst wird der Aufbau für die Bestimmung des Emissionspektrums von Kupfer aufgebaut.
-Dafür wird das Röntgengerät \cite{V603}
+Zuerst wird der Aufbau für die Bestimmung des Emissionsspektrums von Kupfer aufgebaut.
+Dafür wird das Röntgengerät 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/Aufbau1.jpg}
-    \caption{Röntgenröhre}
+    \caption{Aufbau einer Röntgenröhre \cite{V603}}
     \label{fig:1}
 \end{figure}
 \flushleft{mit\,} \justifying dem PC über RS232-Kabel verbunden und ein  LiF-Kristall sowie eine 2 mm Blende in die Röntgenröhre eingebracht. Dann wird mihilfe
@@ -108,11 +105,11 @@ durch einen Plexiglasstreuer ausgetauscht. Das RS232-Kabel wird entfernt und es 
 eine manuelle Messung durchgeführt. Dafür wird der Kristall auf 45° und das Geiger-Müller Zählrohr auf 90°
 eingestellt. Danach wird die Intensität der Cu-Röhre gemessen.\\
 Zuletzt wird die Intensität mit Aluminium-Absorber in 2 verschiedenen Stellungen bei einer Messzeit von mindestens 300s
-gemessen: \cite{V603}
+gemessen: 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{./images/Aufbau2.jpg}
-    \caption{Aufbau der 2 Stellungen}
+    \caption{Aufbau der 2  Stellungen im Röntgengerät zur Messung der Intensität \cite{V603}}
     \label{fig:2}
 \end{figure}
 \flushleft{Diese\,}\justifying Messung in den 2 Stellungen wird 5 mal wiederholt.
@@ -123,15 +120,18 @@ gemessen: \cite{V603}
 
 Für alle Messungen ist eine Spannung von \SI{35}{\kilo\volt} und ein
 Emissionsstrom von \SI{1}{\milli\ampere} verwendet worden.
+Alle Graphiken in der Auswertung sind mit dem Programm
+Matplotlib \cite{matplotlib} erstellt worden.
+Alle Messungenauigkeiten wurden mit Uncertainties \cite{uncertainties} berechnet.
 
-Die Gitterkonstante des LiF-Kristalls lautet \cite{V603}
+\flushleft{Die\,} Gitterkonstante des LiF-Kristalls lautet \cite{V603}
 \begin{align}
-    d_{LiF}=\SI{201.4}{\pico\meter} \label{eq:5}.
+    d_{LiF}=\SI{201,4}{\pico\meter} \label{eq:5}.
 \end{align}
 
 \subsection{Emissionsspektrum Kupfer}
 
-\flushleft{Die\,}\justifying Messwerte für das Emissionspektrum von Kupfer sind in der nachfolgenden Tabelle 
+\flushleft{Die\,}\justifying Messwerte für das Emissionsspektrum von Kupfer sind in der nachfolgenden Tabelle 
 aufgetragen.
 
 
@@ -149,17 +149,17 @@ Die Graphik für die Messwerte aus der Tabelle \ref{tab:1} ergibt den Plot:
 \end{figure}
 
 \flushleft{Aus\,}\justifying der Graphik lassen sich die Werte für die $K_{\alpha}$- und$K_{\beta}$-Linie
-ablesen. $K_{\alpha}$ liegt bei ca. 22,5° und $K_{\beta}$ bei ca. 20°.
+ablesen. $K_{\alpha}$ liegt bei ca. 22,5°$\pm$ 0,1° und $K_{\beta}$ bei ca. 20,1°$\pm$ 0.1°.
 Daraus lässt sich mit Gleichung \eqref{eq:4} für $n=1$ die Wellenlänge berechnen:
 \begin{align}
-    \lambda _{\alpha}&= \SI{1.54e-10}{\meter} \label{eq:6}\\
-    \lambda_{\beta}&= \SI{1.38e-10}{\meter} \label{eq:7}
+    \lambda _{\alpha}&= \SI{1,54+-0,006e-10}{\meter} \label{eq:6}\\
+    \lambda_{\beta}&= \SI{1,38+-0,007e-10}{\meter} \label{eq:7}
 \end{align}
 Damit kann die Energie mithilfe der Gleichung \eqref{eq:1} der Linien bestimmt werden:
 \begin{subequations}
 \begin{align}
-    E_{\alpha}&= \hbar \omega _{\alpha} = \frac{h c}{\lambda _{\alpha}}=\SI{8043.35}{\electronvolt}  \label{eq:8a} \\
-    E_{\beta}&= \SI{8999.64}{\electronvolt} \label{eq:8b}
+    E_{\alpha}&= \hbar \omega _{\alpha} = \frac{h c}{\lambda _{\alpha}}=\SI{8043+-34}{\electronvolt}  \label{eq:8a} \\
+    E_{\beta}&= \SI{8,96+-0.04e03}{\electronvolt} \label{eq:8b}
 \end{align}
 \end{subequations}
 
@@ -193,11 +193,11 @@ Totzeit von $\tau = \SI{60}{\micro\second} $ durchgeführt werden:
     \label{fig:4}
 \end{figure}
 
-\flushleft{Die} Fitparameter der Geraden
+\flushleft{Die} Fitparameter der Geraden 
 \begin{equation}
     T=a \lambda +b \label{eq:10}
 \end{equation}
-betragen dabei
+sind mit SciPy \cite{scipy} berechnet worden und betragen 
 \begin{align}
     a &= \text{\input{a_Al.tex}}\quad \text{und} \label{eq:11} \\
     b &= \text{\input{b_Al.tex}}.\label{eq:12}
@@ -207,17 +207,17 @@ Die drei gemessenen Intensitäten $I_0, I_1$ und $I_2$ für die Bestimmung der C
 haben die Werte
 \begin{subequations}
 \begin{align}
-    I_0 &= 2731 \,\text{Impulse} \label{eq:13a}, \\
-    I_1 &= 1180\,\text{Impulse}\, \label{eq:13b} \text{und} \\
-    I_2 &=1024 \,\text{Impulse}\label{eq:13c}.
+    I_0 &= 2731\pm 50 \,\text{Impulse} \label{eq:13a}, \\
+    I_1 &= 1180 \pm 34\,\text{Impulse}\, \label{eq:13b} \text{und} \\
+    I_2 &=1024\pm 32 \,\text{Impulse}\label{eq:13c}.
 \end{align}
 \end{subequations}
 
 Damit wird die Transmission von Aluminium mit Gl. \eqref{eq:5} berechnet:
 \begin{subequations}
 \begin{align}
-    T_1 &= 0.432 \label{16a}\\
-    T_2 &= 0.375 \label{16b} 
+    T_1 &= 0,432\pm 0,015 \label{16a}\\
+    T_2 &= 0,375\pm 0.014 \label{16b} 
 \end{align}
 \end{subequations}
 
@@ -226,15 +226,15 @@ die Wellenlängen $\lambda _1$ und $\lambda _2$ berechnet
 \begin{subequations}
 \begin{align}
     \lambda &= \frac{T-b}{a} \label{17a}\\
-    \lambda _1 &= \SI{52.2+-1.2}{\pico\meter} \label{17b}\\
-    \lambda _2 &= \SI{55.9+-1.3}{\pico\meter} \label{17c}.
+    \lambda _1 &= \SI{52,2+-1.6}{\pico\meter} \label{17b}\\
+    \lambda _2 &= \SI{55,9+-1.6}{\pico\meter} \label{17c}.
 \end{align}
 \end{subequations}
 
-Daraus lässt sich die Comptonwellenlänge nahc Formel \eqref{eq:2} mit $\theta = 90°$
+Daraus lässt sich die Comptonwellenlänge nach Formel \eqref{eq:2} mit $\theta = 90°$
 bestimmen:
 \begin{align}
-    \lambda _c = \lambda _2 - \lambda _1 = \SI{3.76+-0.06}{\pico\meter} \label{eq:18}
+    \lambda _c = \lambda _2 - \lambda _1 = \SI{3,8+-1,1}{\pico\meter} \label{eq:18}
 \end{align}
 
 
@@ -250,9 +250,9 @@ die dazugehörigen relativen Fehler zusammengefasst.
 \toprule
 \multicolumn{2}{c}{Messwert}& \multicolumn{1}{c}{Literaturwert}& \multicolumn{1}{c}{relativer Fehler} \\
 \cmidrule(lr){1-4} 
-$K_{\alpha}$    &   \SI{8043.35}{\electronvolt} & \SI{8048}{\electronvolt} \cite{K_Linie} & $5,78\cdot 10^{-2 }\%$\\
-$K_{\beta} $    &   \SI{8999.64}{\electronvolt} & \SI{8905}{\electronvolt} \cite{K_Linie} & $1,06\%$\\
-$\lambda _c$    &   \SI{3.76+-0.06}{\pico\meter} & \SI{2.43263e02}{\angstrom} \cite{nolting2013grundlagen} & $54,97\%$\\
+$K_{\alpha}$    &   \SI{8043+-34}{\electronvolt} & \SI{8048}{\electronvolt} \cite{K_Linie} & $6,21\cdot 10^{-2 }\%$\\
+$K_{\beta} $    &   \SI{8,96+-0.04e03}{\electronvolt} & \SI{8905}{\electronvolt} \cite{K_Linie} & $0,61\%$\\
+$\lambda _c $    &   \SI{3,8+-1,1}{\pico\meter} & \SI{2.43263}{\pico\meter} \cite{nolting2013grundlagen} & $54,97\%$\\
 \bottomrule
 \end{tabular}
 \caption{gemessene Werte, Literaturwerte und relativer Fehler}
@@ -268,7 +268,7 @@ Auffällig an dem Graph ist, dass die $K_{\alpha} $-Linie wesentlich häufiger g
 als die $K_{\beta}$-Linie. Das kommt vermutlich daher, dass $K_{\alpha} $ ein
 geringeres Energieniveau besitzt als $K_{\beta} $ und dementsprechend die 
 Elektronen häufiger diesen Schalenübergang ionisieren.\\
-Für die Transmission des Alumuminium-Absorbers zeigt die Abbildung
+Für die Transmission des Aluminium-Absorbers zeigt die Abbildung
 \ref{fig:4} einen linearen Zusammenhang zwischen Transmission und Wellenlänge,
 was die geringen Messungenauigkeiten der Koeffizienten \eqref{eq:11} und \eqref{eq:12}
 bestätigen.
@@ -279,12 +279,12 @@ Die Comptonwellenlänge hat mit $54,97\%$ einen relativ großen Fehler. Dieser F
 kann zum Teil  durch Verunreinigungen im Plexiglasstreuer entstehen, wodurch auch andere 
 Wellenlängen gemessen werden, die nicht mit gemessen werden sollten.
 Zudem ist das Vakuum eventuell nicht perfekt, wodurch manche Elektronen mit
-übrig gebliebenen Teilchen Wechselwirken und Strahlung erzeugen. Zudem befindet sich im 
+übrig gebliebenen Teilchen wechselwirken und Strahlung erzeugen. Zudem befindet sich im 
 Bereich des Plexiglastreuer kein Vakuum, wodurch dort auch Teilchen in der Luft
 ionisiert werden könnten. Außerdem wurde die Gerade in Abbildung \ref{fig:4} nur im
 Bereich 7° bis 10° erstellt. Die Messung der Wellenlängen wurde allerdings
 bei 45° gemacht, wo es möglich wäre, dass die Gerade für diesen Bereich nicht
-die optimale Näherung dastelle. \\
+die optimale Näherung darstelle. \\
 Nichtsdestotrotz kann anhand der Comptonwellenlänge erkannt werden, warum spezifisch 
 Röntgenstrahlung zur Untersuchung verwendet wurde. Die maximale Wellenlängenänderung
 liegt bei 180° wodurch 
