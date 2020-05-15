@@ -31,11 +31,130 @@
 
     \subsection{a)}
 
+    Fall $V=V_{1,3} \, \abs{x}> \frac{L}{2} $
+
+    \begin{align}
+    E \varphi_{1,3} (x) &=-\frac{\hbar^2}{2m} \frac{\partial ^2 \varphi _{1,3} (x)}{\partial x^2}+ V_{1,2} (x) \varphi _{1,3}(x)\\
+    \frac{\partial ^2 \varphi _{1,3}}{\partial x^2} &= \-- \frac{2m}{\hbar ^2} (E-V_{1,2})\varphi _{1,3}\\
+    &= q_{1,2}^2 \varphi _{1,3}\\
+    \varphi _1 (x)&=A e^{q_1x}+A' e^{-q_1 x}\\
+    \varphi _3 (x)&=B e^{q_2x}+B' e^{-q_2 x}\\
+    \intertext{
+        Fall $V=0 \, \abs{x} \leq \frac{L}{2} $
+    }
+    \frac{\partial ^2 \varphi _3(x)}{\partial x^2} &=-\frac{2m}{\hbar ^2}E \varphi _3(x)\\
+    &=-k^2 \varphi _3\\
+    \varphi _2 &= C e^{ikx}+C' e^{-ikx}
+    \intertext{
+        Randbedingungen
+        $\varphi _1$ muss normierbar sein für  $\lim_{x \to - \infty} \varphi _1 (x) \ne \infty$ 
+    }
+    \Rightarrow A'&= 0
+    \intertext{
+        Das gleiche gilt für $\varphi _3 $ für $\lim_{x \to \infty} \varphi _3 \ne \infty $.
+    }
+    \Rightarrow B &= 0
+    \intertext{
+        Stetigkeitsbedingungen an den linken Wand
+    }
+    \end{align}
+    \begin{align}    
+    \varphi _1 \left(-\frac{L}{2}\right)&= \varphi_2 \left(-\frac{L}{2}\right)\\
+    A e^{-q_1 \frac{L}{2}}&=B e^{-q_2\frac{L}{2}}+A' e^{q_2 \frac{L}{2}}\\
+    &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
+    \frac{\partial \varphi _1}{\partial x } \vert _{x=-\frac{L}{2}} &=\frac{\partial \varphi _2}{\partial x } \vert _{x=-\frac{L}{2}}\\ 
+    A e^{-q_1 \frac{L}{2}} &= ik C e^{-ik \frac{L}{2}}-ik C' e^{ik \frac{L}{2}}\\
+    &\text{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}}\\
+    \intertext{
+        Stetigkeitbedingungen an der rechten Wand
+    }
+    \varphi_2 \left(\frac{L}{2} \right) &= \varphi _3 \left(\frac{L}{2} \right)\\
+    C e^{i k \frac{L}{2}} + C' e^{-i k \frac{\L}{2}} &= B' e^{-q_2 \frac{L}{2}}\\
+    \frac{\partial \varphi _2}{\partial x} \vert _{x=\frac{L}{2}} &= \frac{\partial \varphi _3}{\partial x} \vert _{x=\frac{L}{2}}\\
+    i k C e^{ik \frac{L}{2}}-ik C' e^{-ik \frac{L}{2}} &= \-- q_2 B' e^{-q_2 \frac{L}{2} }
+    \end{align}
+
+    Die vier Gleichungen für die 4 Paramter A, C, C' und B' bilden ein
+    homogenes Gleichungssystem. Da das System eindeutige Lösungen besitzen muss,
+    muss die Säkulardeterminante 0 ergeben.
     \subsection{b)}
+$
+    \begin{vmatrix}
+        e^{-q_1 \frac{L}{2}} & -e^{-ik \frac{L}{2}} & -e^{ik\frac{L}{2}} & 0\\
+        0 & e^{ik \frac{L}{2}} & e^{-ik\frac{L}{2}}  & -e^{-q_2 \frac{L}{2}}   \\
+        q_1 e^{-q_1 \frac{L}{2}} & -ik e^{-ik \frac{L}{2}} & ik e^{ik \frac{L}{2}} & 0  \\
+        0 & ik e^{ik \frac{L}{2}} & -ik e^{-ik \frac{L}{2}} & q_2 e^{-q_2 \frac{L}{2}}  
+    \end{vmatrix}
+    =0
+$
+$
+e^{-q-1 \frac{L}{2}}
+\begin{vmatrix}
+  e^{ik \frac{L}{2}}  & e^{-ik \frac{L}{2}} & - e^{-q_2 \frac{L}{2}}\\
+  -ik e^{-ik\frac{L}{2}}  & ik e^{ik\frac{L}{2}} & 0\\
+  ik e^{ik\frac{L}{2}}  & -ik e^{-ik \frac{L}{2}}  & q_2 e^{- q_2 \frac{L}{2}}
+\end{vmatrix}
++ e^{-ik\frac{L}{2}}
+\begin{vmatrix}
+ 0  & e^{-ik \frac{L}{2}} & - e^{-q_2 \frac{L}{2}}\\
+  q_1 e^{-q_1 \frac{L}{2}} & ik e^{ik \frac{L}{2}} & 0 \\
+ 0  & -ik e^{-ik \frac{L}{2}} & q_2 e^{-q_2 \frac{L}{2}} 
+\end{vmatrix}
+-e^{ik\frac{L}{2}}
+\begin{vmatrix}
+ 0  &  e^{ik \frac{L}{2}} & -e^{-q_2 \frac{L}{2}} \\   
+ q_1 e^{-q_1 \frac{L}{2}}  & -ik e^{-ik \frac{L}{2}}  & 0   \\
+ 0  &  ik e^{ik \frac{L}{2}} & q_2 e{-q_2 \frac{L}{2}}   
+\end{vmatrix}
++0 = 0 
+$
+
+\begin{align*}
+    &e^{-q_1 \frac{L}{2}}\left(ik q_2 e^{ikL-q-2 \frac{L}{2}}+ k^2 e^{-q_2 \frac{L}{2} -ikL}+ikq_2 e^{-ikL -q_2 \frac{L}{2}}
+    - k^2 e^{ikL-q_2 \frac{L}{2}} \right)\\
+     &+ e^{-ik \frac{L}{2}} \left(ik q_1 e^{-ik \frac{L}{2}-q_2\frac{L}{2}-q_1\frac{L}{2}}
+    -q_1 q_2 e^{-ik\frac{L}{2}-q_1 \frac{L}{2}-q_2 \frac{L}{2}} \right)\\
+    &-e^{ik\frac{L}{2}}\left( 
+        -ikq_1 e^{-q_2 \frac{L}{2}-q_1\frac{L}{2} +ik \frac{L}{2} }-q_1 q_2 e^{-q-1\frac{L}{2} -q_2\frac{L}{2} +ik \frac{L}{2}} \right)=0\\
+        &0= (ik q_2 -k^2+ ik q_1 +q_1 q_2) e^{-q_2 \frac{L}{2} - q_1 \frac{L}{2} +ikL }
+        +(ikq_2 + k^2 +ikq_1 -q_1 q_2) e^{-ikL-q_1 \frac{L}{2} - q_2 \frac{L}{2}}\\
+    &-\frac{ikq_2 + k^2 + ik q_1 -q_1 q_2}{ik q_2 - k^2 + ik q_1 + q_1 q_2} e^{-i2Lk} = 1\\
+    &1= e^{-i2Lk} \frac{(q_2-ik)(q_1-ik)}{(q_1 + ik)(q_2+ik)}\\
+    \intertext{Nebenrechnung}
+    & q_{1,2}^2 = \frac{2m}{\hbar ^2} (V_{1,2}-E )\\
+    & V_{1,2} = \frac{\hbar ^2}{2m} q_{1,2}^2+E\\
+    &E= \frac{\hbar ^2 k^2}{2m}\\
+    &\to V_{1,2} = \frac{\hbar ^2}{2m} q_{1,2}^2+\frac{\hbar ^2 k^2}{2m}\\
+    &\frac{V_1}{V_2}= \frac{q_1^2 +k^2}{q_2^2 +k^2} =\frac{(q_1 +ik)(q_1-ik)}{(q_2+ik)(q_2-ik)}\\
+    & \frac{V_1}{V_2} \frac{q_2-ik}{q_1+ik} = \frac{q_1-ik}{q_2 +ik}\\
+    \intertext{Ende Nebenrechnung}
+    & \Rightarrow 1 = e^{-i2kL} \frac{V_1}{V_2} \frac{(ik-q_2)^2}{(ik+q_1)^2}
+\end{align*}
 
     \subsection{c)}
-
-    \subsection{d)}
+    \flushleft{In\,}\justifying der vorherigen gleichung wird der komplexe Bruch in 
+    Schreibweise der Euler-Formel umgeschrieben mit
+    \begin{align}
+        \varphi &= \arctan \left(\frac{b}{a} \right) b>0 \hat a>0 (z = a+ib)\\
+        \varphi &= \arctan \left(\frac{b}{a} \right) + \pi b>0 \hat a<0\\
+        \abs{z} &= \sqrt{a^2+b^2}\\
+        1&= e^{-i2kL} \frac{V_1}{V_2}  \frac{(k^2+q_2^2) e^{2i(\arctan \left(\frac{k}{q_2}+\pi \right) )}}{(k^2+q_1^2) e^{2i \arctan \left(\frac{k}{q_1} \right)} }\\
+        \intertext{
+            \flushleft{Diese\,}\justifying Gleichung ist erfüllt, wenn Winkelanteil und Betrag auf beiden Seiten der Gleichung
+            identisch sind.
+        }
+        \frac{V_1}{V_2}\frac{k^2+q_2^2}{k^2+q_1^2}=1\\
+        1=1\\
+        -2kL + 2 \arctan \left(\frac{q_2}{k} \right)-2 \arctan \left(\frac{q_1}{k}+2 \pi=2 \pi n \right)\\
+        \intertext{
+            Die Lösung erfolgt allerdings mit der Exponential-Gleichung. Es wird q und k
+            eingesetzt sowie die vorgegebenen Werte und das ganze wird dann graphisch ausgewertet,
+            indem die Nullstellen gezählt werden.
+        }
+        \frac{k}{q_{1,2}}= \sqrt{\frac{E}{V_{1,2}-E}}\\
+        \hbar = m=1\; L=5\; V_1=10\\
+        f(E)=\exp\left(i2\left(\--5 \sqrt{2E}+ \arctan \left(\sqrt{\frac{E}{V_2 -E}} \right) +\pi -\arctan \left(\sqrt{\frac{E}{10-E}} \right)\right)\right)-1
+    \end{align} 
 
 \section{Aufgabe 2}
 
