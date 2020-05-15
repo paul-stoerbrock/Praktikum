@@ -136,17 +136,17 @@ $
     \flushleft{In\,}\justifying der vorherigen Gleichung wird der komplexe Bruch in 
     Schreibweise der Euler-Formel umgeschrieben mit
     \begin{align*}
-        \varphi &= \arctan \left(\frac{b}{a} \right) b>0 \wedge a>0 (z = a+ib)\\
-        \varphi &= \arctan \left(\frac{b}{a} \right) + \pi b>0 \wedge a<0\\
+        \varphi &= \arctan \left(\frac{b}{a} \right)\quad b>0 \wedge a>0 (z = a+ib)\\
+        \varphi &= \arctan \left(\frac{b}{a} \right) + \pi \quad b>0 \wedge a<0\\
         \abs{z} &= \sqrt{a^2+b^2}\\
-        1&= e^{-i2kL} \frac{V_1}{V_2}  \frac{(k^2+q_2^2) e^{2i(\arctan \left(\frac{k}{q_2}+\pi \right) )}}{(k^2+q_1^2) e^{2i \arctan \left(\frac{k}{q_1} \right)} }\\
+        1&= e^{-i2kL} \frac{V_1}{V_2}  \frac{(k^2+q_2^2) e^{2i(\arctan \left(\frac{k}{q_2}\right)+\pi  )}}{(k^2+q_1^2) e^{2i \arctan \left(\frac{k}{q_1} \right)} }\\
         \intertext{
             \flushleft{Diese\,}\justifying Gleichung ist erfüllt, wenn Winkelanteil und Betrag auf beiden Seiten der Gleichung
             identisch sind.
         }
         \frac{V_1}{V_2}\frac{k^2+q_2^2}{k^2+q_1^2}&=1\\
         1&=1\\
-        -2kL + 2 \arctan \left(\frac{q_2}{k} \right) &-2 \arctan \left(\frac{q_1}{k}+2 \pi=2 \pi n \right)\\
+        -2kL + 2 \arctan \left(\frac{q_2}{k} \right) &-2 \arctan \left(\frac{q_1}{k}\right)+2 \pi=2 \pi n \\
         \intertext{
             Die Lösung erfolgt allerdings mit der Exponential-Gleichung. Es wird q und k
             eingesetzt sowie die vorgegebenen Werte. Das ganze wird dann graphisch ausgewertet,
@@ -323,7 +323,7 @@ $
         \\
         \hat{H}\hat{a} \vert n \rangle &= A\left( \hat{b}\hat{a} +c \right)\hat{a} \vert n \rangle\\ 
         &= A\left(\underline{\hat{b}\hat{a}}\hat{a}+c\hat{a} \right) \vert n \rangle\\
-        &= A\left( \underline{\left( \hat{b}\hat{a}-1  \right)} \hat{a} + c\hat{a} \right)\vert n \rangle\\
+        &= A\left( \underline{\left( \hat{a}\hat{b}-1  \right)} \hat{a} + c\hat{a} \right)\vert n \rangle\\
         \Leftrightarrow &= A\hat{a} \left( \hat{b}\hat{a} - 1 + c \right) \vert n \rangle\\
         \Leftrightarrow &= \hat{a} \left(\underbrace{A\left(\hat{b}\hat{a}+c \right)}_{=\hat{H}} - A \right) \vert n \rangle\\
         &= \hat{a} \left( \hat{H} - A \right) \vert n \rangle\\
@@ -331,6 +331,18 @@ $
     \end{align*}
 
     \subsection{b)}
+    Die Eigenwerte des Hamiltonoperators müssen reell $(E_n=E_n^*)$ sein.
+
+    \begin{align}
+        \hat H = \hat H ^\dagger\\
+        A(\hat b \hat a +c)= A(\hat b \hat a +c)^\dagger\\
+        =(hat b \hat a)^\dagger + \bar c\\
+        =\hat a ^\dagger \hat b ^\dagger + \bar c
+    \end{align}
+    $\hat n =$ reel somit
+    $\hat a = \hat b ^\dagger$ 
+    und
+    $c=\bar c$
 
     \subsection{c)}
 
