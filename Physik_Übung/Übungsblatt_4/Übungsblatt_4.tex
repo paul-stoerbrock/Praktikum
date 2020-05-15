@@ -68,16 +68,16 @@
     \begin{align*}
         -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} + V(x)\varphi(x) &= E\varphi(x) \qquad \vert \int_{-\epsilon}^{\epsilon}\,\mathrm{d}x\\
         \lim_{\epsilon \to 0} \left( \int_{-\epsilon}^{\epsilon} -\frac{\hbar^2}{2m} \frac{\partial^2 \varphi(x)}{\partial x^2} \mathrm{d}x + V_0\,\delta(x)\,\varphi(x) \mathrm{d}x \right) &= \underbrace{\lim_{\epsilon \to 0} \int_{-\epsilon}^{\epsilon} E\,\varphi(x) \mathrm{d}x}_{=0}
-        \intertext{Das Integral über eine Fläche mit endlicher Höhe und infinitesimal schmaler Breite ist 0.
+        \intertext{\flushleft{Das\;}\justifying Integral über eine Fläche mit endlicher Höhe und infinitesimal schmaler Breite ist 0.
         }
         \lim_{\epsilon \to 0} \left[ -\frac{\hbar^2}{2m} \frac{\partial \varphi(x)}{\partial x} \right]_{-\epsilon}^{\epsilon} + V_0\,\varphi(0) &= 0\\
         \Leftrightarrow \lim_{\epsilon \to 0} \varphi'(0+\epsilon) - \varphi'(0-\epsilon) &= \frac{2m}{\hbar^2} V_0\,\varphi(0)
-        \intertext{Für ungerade Parität gilt:
+        \intertext{\flushleft{Für\;}\justifying ungerade Parität gilt:
         }
         \varphi(x) &= -\varphi(-x)\\
         \varphi'(x) &= \varphi'(-x)\\
         \lim_{\epsilon \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0
-        \intertext{Für gerade Parität gilt:
+        \intertext{\flushleft{Für\;}\justifying gerade Parität gilt:
         }
         \varphi(x) &= \varphi(-x)\\
         \varphi'(x) &= -\varphi'(-x)\\
@@ -90,7 +90,7 @@
         \varphi_1(x) &= A\sin(kx) + A'\cos(kx)\\
         \varphi_2(x) &= B\sin(kx) + B'\cos(kx)\\
         \varphi(x) &= 0 \qquad \text{sonst}
-        \intertext{Fall 1:
+        \intertext{\flushleft{Fall\;}\justifying 1:
         }\\
         \varphi_1(-a) &= -\varphi_2(a) = 0\\
         \lim_{\epsilon \to 0} \varphi'(\epsilon) - \varphi'(-\epsilon) &= 0 = \frac{2m}{\hbar^2} V_0\,\varphi(0)\\
@@ -114,7 +114,7 @@
         k &= \frac{\sqrt{2mE}}{\hbar}\\
         \Rightarrow \frac{\pi n}{a} &\stackrel{!}{=}  \frac{\sqrt{2mE_n}}{\hbar}\\
         \Leftrightarrow E_n &= \frac{\pi^2 \hbar^2}{2m a^2}n^2
-        \intertext{Fall 2:
+        \intertext{\flushleft{Fall\;}\justifying 2:
         }\\
         \varphi_1(-a) &= \varphi_2(a) = 0\\
         \lim_{\epsilon \to 0} \varphi_2'(\epsilon) - \varphi_1(-\epsilon) &= \frac{2mV_0}{\hbar^2} \varphi(0)\\
@@ -140,7 +140,7 @@
     \subsection{d)}
 
     \begin{align*}
-        \intertext{Lösung für den unendlichen Potentialtopf:
+        \intertext{\flushleft{Lösung\;}\justifying für den unendlichen Potentialtopf:
         }
         E_n &= \frac{n^2 \hbar^2 \pi^2}{2ma^2}
         \intertext{Ungerade:
@@ -149,7 +149,7 @@
         \intertext{Gerade:
         }
         E &= \frac{\hbar^2}{2m} \left( \frac{z}{a} \right)^2
-        \intertext{Grenzfälle:
+        \intertext{\flushleft{Grenzfälle\;}\justifying:
         }
         \intertext{$V_0 \to \infty$
         }
@@ -158,7 +158,7 @@
         \Rightarrow \tan(ka) &= 0\\
         \Rightarrow ka &= n\pi\\
         \Rightarrow E_n &= \frac{\hbar^2}{2m} \frac{n^2\pi^2}{a^2}
-        \intertext{Unendlicher Potentialtopf ohne Barriere
+        \intertext{\flushleft{Unendlicher\;}\justifying Potentialtopf ohne Barriere
         }
         \intertext{$V_0 \to 0$
         }
@@ -191,19 +191,19 @@
         \Leftrightarrow \hat{a}\hat{b} &= \hat{b}\hat{a} + 1\\
         \Leftrightarrow \hat{b}\hat{a} &= \hat{a}\hat{b} - 1\\
         \\
-        \hat{H}\hat{b} \vert n \rangle &\stackrel{!}{=} A\left( \hat{b}\hat{a} +c \right)\hat{b} \vert n \rangle\\
+        \hat{H}\hat{b} \vert n \rangle &= A\left( \hat{b}\hat{a} +c \right)\hat{b} \vert n \rangle\\
         &= A\left(\hat{b}\hat{a}\hat{b}+c\hat{b} \right) \vert n \rangle\\
         &= A\hat{b} \left( \underline{\hat{a}\hat{b}} +c \right) \vert v \rangle\\
-        &\stackrel{!}{=} A\hat{b} \left( \underline{\hat{b}\hat{a} + 1} + c \right) \vert n \rangle\\
+        &= A\hat{b} \left( \underline{\hat{b}\hat{a} + 1} + c \right) \vert n \rangle\\
         \Leftrightarrow &= \hat{b} \left(\underbrace{A\left(\hat{b}\hat{a}+c \right)}_{=\hat{H}} + A \right) \vert n \rangle\\
         &= \hat{b} \left( \hat{H} + A \right) \vert n \rangle\\
         &= \left( E_N + A \right) \hat{b} \vert n \rangle\\
         \\
-        \hat{H}\hat{a} \vert n \rangle &\stackrel{!}{=} A\left( \hat{b}\hat{a} +c \right)\hat{a} \vert n \rangle\\ 
-        &= A\left(\hat{b}\hat{a}\hat{a}+c\hat{a} \right) \vert n \rangle\\
-        &= A\hat{a} \left( \underline{\hat{b}\hat{a}} +c \right) \vert n \rangle\\
-        &\stackrel{!}{=} A\hat{a} \left( \underline{\hat{a}\hat{b} - 1} + c \right) \vert n \rangle\\
-        \Leftrightarrow &= \hat{a} \left(\underbrace{A\left(\hat{a}\hat{b}+c \right)}_{\neq\hat{H}} - A \right) \vert n \rangle\\
+        \hat{H}\hat{a} \vert n \rangle &= A\left( \hat{b}\hat{a} +c \right)\hat{a} \vert n \rangle\\ 
+        &= A\left(\underline{\hat{b}\hat{a}}\hat{a}+c\hat{a} \right) \vert n \rangle\\
+        &= A\left( \underline{\left( \hat{b}\hat{a}-1  \right)} \hat{a} + c\hat{a} \right)\vert n \rangle\\
+        \Leftrightarrow &= A\hat{a} \left( \hat{b}\hat{a} - 1 + c \right) \vert n \rangle\\
+        \Leftrightarrow &= \hat{a} \left(\underbrace{A\left(\hat{b}\hat{a}+c \right)}_{=\hat{H}} - A \right) \vert n \rangle\\
         &= \hat{a} \left( \hat{H} - A \right) \vert n \rangle\\
         &= \left( E_N - A \right) \hat{a} \vert n \rangle
     \end{align*}
