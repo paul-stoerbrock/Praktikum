@@ -27,6 +27,12 @@
 
 \section{Auswertung}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotCu.pdf}
+        \label{fig:}
+    \end{figure}
+
 \section{Diskussion}
 
 \newpage
@@ -34,3 +40,56 @@
 
 \newpage
 \section{Appendix}
+
+    \input{table_Cu.tex}
+
+    \begin{table}[H]
+        \centering
+        \caption{Bragg}
+        \input{table_bragg.tex}
+        \label{tab:2}
+    \end{table}
+
+    \begin{table}[H]
+        \centering
+        \caption{Brom}
+        \input{table_brom.tex}
+        \label{tab:3}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \caption{Gallium}
+        \input{table_gallium.tex}
+        \label{tab:4}
+    \end{table}
+    
+    \begin{table}[H]
+    \centering
+        \begin{subtable}{.49\textwidth}
+        \centering
+        \caption{Rubidium}
+        \input{table_rub.tex}
+        \label{tab:5a}
+        \end{subtable}    
+        \begin{subtable}{.49\textwidth}
+        \centering
+        \caption{Strontium}
+        \input{table_stron.tex}
+        \label{tab:5b}
+        \end{subtable}
+        \begin{subtable}{.49\textwidth}
+        \centering
+        \caption{Zink}
+        \input{table_zink.tex}
+        \label{tab:5c}
+        \end{subtable}    
+        \begin{subtable}{.49\textwidth}
+        \centering
+        \caption{Zirkonium}
+        \input{table_zirk.tex}
+        \label{tab:5d}
+        \end{subtable}
+    \end{table}
+
+\end{document}
