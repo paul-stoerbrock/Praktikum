@@ -25,7 +25,4 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
-## tex file for L
-#
-#with open('build/L.tex', 'w') as f:
-#  f.write(make_SI(L*1e-30,r'\watt', figures=2))
+
