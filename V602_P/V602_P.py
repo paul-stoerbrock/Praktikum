@@ -53,6 +53,7 @@ theta_bragg_lit = 28 #degree
 E_Kedge_cu = 8987.9615 #eV
 
 
+
 #Braggsche Bedingung-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def Gauß(x, a, b, c, d):
@@ -66,6 +67,8 @@ popBragg, pcovBragg = curve_fit(
     absolute_sigma=True,
     p0=[150, 28, -30, 20]
     )
+err_bragg = np.sqrt(np.diag(pcovBragg))
+
 
 plt.plot(theta_bragg, N_bragg, 'kx', label='Messwerte')
 x_plot = np.linspace(26, 30, 1000)
@@ -82,10 +85,10 @@ plt.tight_layout
 plt.savefig('build/plotBragg.pdf')
 plt.close()
 
-a = popBragg[0]
-b = popBragg[1]
-c = popBragg[2]
-d = popBragg[3]
+a = ufloat(popBragg[0], err_bragg[0])
+b = ufloat(popBragg[1], err_bragg[1])
+c = ufloat(popBragg[2], err_bragg[2])
+d = ufloat(popBragg[3], err_bragg[3])
 
 theta_bragg_diff = np.abs(theta_bragg_lit - xmax_bragg)
 
@@ -727,12 +730,22 @@ with open('build/m_ry.tex', 'w') as f:
 with open('build/b_ry.tex', 'w') as f:
   f.write(make_SI(b_ry,r'', figures=1))
 
-Rydb = m_ry**2
-print(Rydb)
-# tex file for Rydb
+Rydb_const = m_ry**2
 
-with open('build/Rydb.tex', 'w') as f:
-  f.write(make_SI(Rydb,r'', figures=1))
+Rydb_f = Rydb_const*const.e/(const.h) #Rydb_const = eV, const.h = Joule
+
+print(Rydb_const) #eV
+print(Rydb_f) 
+
+# tex file for Rydb_const
+
+with open('build/Rydb_const.tex', 'w') as f:
+  f.write(make_SI(Rydb_const,r'', figures=1))
+
+# tex file for Rydb_f
+
+with open('build/Rydb_f.tex', 'w') as f:
+  f.write(make_SI(Rydb_f,r'\peta\hertz', figures=1))
 
 #Tabelle Kupfer-------------------------------------------------------------------------------------------------------------------------------------------------
 
