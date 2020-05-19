@@ -75,7 +75,7 @@ eingesetzt, lässt sich die Sommerfeldsche Feinstrukturformel nach der Abschirmk
     }
     2d\sin(\theta) &= n\lambda \label{eq:6}
 \end{align}
-\flushleft{Bestimmen.\;}\justifying Die Bragg'sche Reflexion bezeichnet die Beugung der emittierten Röntgenstrahlung an einem Lithiumfluorid-Kristall (LiF-Kristall).
+\flushleft{bestimmen.\;}\justifying Die Bragg'sche Reflexion bezeichnet die Beugung der emittierten Röntgenstrahlung an einem Lithiumfluorid-Kristall (LiF-Kristall).
 Dabei ist $d_{LiF}=\SI{201.4}{\pico\meter}$ \cite{V602} die Gitterkonstante des LiF-Kristalls, $\lambda$ die Wellenlänge der Strahlung, $\theta$
 der Glanzwinkel und $n$ die Ordnungszahl. Das atomare Gitter des LiF-Kristalls beugt die Photonen und erzeugt im Glanzwinkel konstruktive 
 Interferenz. 
@@ -101,6 +101,7 @@ Bromabsorber, ein Galliumabsorber, ein Rubidiumabsorber, ein Strontiumabsorber, 
     \centering
     \includegraphics[width=\textwidth]{./images/Röntgenröhre.jpg}
     \caption{Aufbau der Röntgenröhre \cite{V602}}
+    \label{fig:1}
 \end{figure}
 \flushleft{Zu\;}\justifying Beginn wird die Bragg Bedingung überprüft. Dazu wird der LiF-Kristall auf einen festen Winkel von $\theta=\SI{14}{\degree}$ gestellt und der
 Winkelbereich des Geiger-Müller Zählrohrs variiert. Der Winkelbereich liegt zwischen $\SI{26}{\degree}\leq\alpha\leq\SI{30}{\degree}$ und wird in
@@ -125,13 +126,336 @@ Die Winkelintervalle lauten wie folgt:\\
 
 \section{Auswertung}
 
-\flushleft{\;}\justifying
+\subsection{Bragg'sche Bedingung}
+
+    \flushleft{Um\;}\justifying die Bragg'sche Bedingung zu überprüfen, wird die Intesität der Röntgenstrahlung gegen den Winkel $\alpha$ des
+    Geiger-Müller Zählrohrs graphisch aufgetragen. Dazu werden die Werte aus die Tabelle \ref{tab:2} und die Pythonbibliothek matplotlib 
+    \cite{matplotlib} verwendet. Alle folgendenen Graphen werden mit matplotlib erstellt. Der Graph der Bragg'schen Bedingung sieht aus wie
+    folgt:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotBragg.pdf}
+        \caption{Impulsrate gegen $\theta$ unter Variation des Geiger-Müller Zählrohrs}
+        \label{fig:2}
+    \end{figure}
+
+    \flushleft{Da\;}\justifying es sich bei der Werteverteilung im Graph \ref{fig:2} um eine Gaußverteilung handelt, wird die Ausgleichskurve 
+    mit dem Pythonbefehl curve\_fit \cite{matplotlib} unter Verwendung der Formel der Gaußkurve
+    \begin{align}
+        \theta &= a\cdot \exp\left(-\left(\frac{x-b}{c}\right)^2\right)\cdot d \label{eq:8}
+    \end{align}
+    \flushleft{erstellt.\;}\justifying Die dazugehörigen Parameter lauten:
+    \begin{subequations}\label{eq:9}
+        \begin{align}
+            a &= \text{\input{a.tex}} \label{eq:9a}\\
+            b &= \text{\input{b.tex}} \label{eq:9b}\\
+            c &= \text{\input{c.tex}} \label{eq:9c}\\
+            d &= \text{\input{d.tex}} \label{eq:9d}
+        \end{align}
+    \end{subequations}
+    \flushleft{Das\;}\justifying in Graph \ref{fig:2} eingezeichnete Maximum liegt bei 
+    \begin{subequations}\label{eq:10}
+    \begin{align}
+        \theta &= \text{\input{xmax_bragg.tex}} \label{eq:10a}\\
+        N &= \text{\input{ymax_bragg.tex}}. \label{eq:10b}
+    \end{align}
+    \end{subequations}
+
+\subsection{Auflösevermögen der K-Linien des Kupferemissionsspektrums}
+
+    \flushleft{Für\;}\justifying das Emissionsspektrum von Kupfer werden die Werte aus Tabelle \ref{tab:1} wie folgt gegeneinander aufgetragen:
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{build/plotCu.pdf}
-        \label{fig:}
+        \caption{Emissionsspektrum der Kupferröhre}
+        \label{fig:3}
     \end{figure}
+
+    \flushleft{Anhand\;}\justifying des Graphen lassen sich die $K_{\alpha}$- und die $K_{\beta}$-Linie ablesen. Diese liegen bei einem
+    Winkel $\theta$ von:
+    \begin{subequations}\label{eq:11}
+    \begin{align}
+        \theta_{K_{\alpha}} &= \text{\input{xmax_cu.tex}} \label{eq:11a}\\
+        \theta_{K_{\beta}} &= \text{\input{xlmax_cu.tex}} \label{eq:11b}
+    \end{align}
+    \end{subequations}
+    \flushleft{Durch\;}\justifying Umstellen der Formel \eqref{eq:6} nach $\lambda = 2d\cdot\sin(\theta)$ für $n=1$ lassen sich die Wellenlängen 
+    der beiden Linien bestimmen: 
+    \begin{subequations}\label{eq:12}
+    \begin{align}
+        \lambda_{K_{\alpha}} &= \text{\input{L_cu_a.tex}} \label{eq:12a}\\
+        \lambda_{K_{\beta}} &= \text{\input{L_cu_b.tex}} \label{eq:12b}
+    \end{align}
+    \end{subequations}
+    \flushleft{Hierbei\;}\justifying ist zu beachten, dass der Winkel $\theta$ mit einem Fehler $\Delta \theta$ von \SI{0.1}{\degree} behaftet ist.
+    Dieser Fehler wird mithilfe eines ufloats \cite{uncertainties} an Python übergeben. 
+    Mithilfe der Formel \eqref{eq:5} lassen sich die jeweiligen Energien für die $K_{\alpha}$- und $K_{\beta}$-Linie
+    berechnen. Diese lauten:
+    \begin{subequations}\label{eq:13}
+    \begin{align}
+        E_{K_{\alpha}} &= \text{\input{E_cu_a.tex}} \label{eq:13a}\\
+        E_{K_{\beta}} &= \text{\input{E_cu_b.tex}} \label{eq:13b}
+    \end{align}
+    \end{subequations}
+    \flushleft{Da\;}\justifying die Linien nicht eindeutig definiert sind, wird das Auflösevermögen der beiden Kanten bestimmt. Dazu wird die 
+    Halbwertsbreite der einzelnen Linien benötigt. Die Halbwertsbreiten lassen sich dem Graphen \ref{fig:3} entnehmen. Mithilfe der 
+    Halbwertsbreiten lässt sich das $\Delta E_{FWHM}$ bestimmen, wofür die Wellenlänge der Kanten der jeweiligen Halbwertsbreite benötigt wird. 
+    Die Wellenlängen der Halbwertsbreiten lauten:
+    \begin{subequations}\label{eq:14}
+    \begin{align}
+        \lambda_{K_{\alpha},links} &= \text{\input{L_HWB_cu_a_links.tex}} \qquad \text{Für}\;\theta = 22.35 \label{eq:14a}\\
+        \lambda_{K_{\alpha},rechts} &= \text{\input{L_HWB_cu_a_rechts.tex}} \qquad \text{Für}\;\theta = 22.85 \label{eq:14b}\\
+        \lambda_{K_{\beta},links} &= \text{\input{L_HWB_cu_b_links.tex}} \qquad \text{Für}\;\theta = 20.05 \label{eq:14c}\\
+        \lambda_{K_{\beta},rechts} &= \text{\input{L_HWB_cu_b_rechts.tex}} \qquad \text{Für}\;\theta = 22.55 \label{eq:14d}
+    \end{align}
+    \end{subequations}
+    \flushleft{Die\;}\justifying daraus nach Formel \eqref{eq:5} resultierenden Energien lauten:
+    \begin{subequations}\label{eq:15}
+    \begin{align}
+        E_{K_{\alpha},links} &= \text{\input{E_HWB_cu_a_links.tex}} \label{eq:15a}\\
+        E_{K_{\alpha},rechts} &= \text{\input{E_HWB_cu_a_rechts.tex}} \label{eq:15b}\\
+        E_{K_{\beta},links} &= \text{\input{E_HWB_cu_b_links.tex}} \label{eq:15c}\\
+        E_{K_{\beta},rechts} &= \text{\input{E_HWB_cu_b_rechts.tex}} \label{eq:15d}
+    \end{align}
+    \end{subequations}
+    \flushleft{Für\;}\justifying das $\Delta E_{FWHM}$ wird der Abolutbetrag der Differenz der jeweiligen $E_{K_{\alpha,\beta},links,rechts}$ benötigt.
+    Also ergibt sich für $\Delta E_{FWHM}$:
+    \begin{subequations}\label{eq:16}
+    \begin{align}
+        \Delta E_{FWHM, \alpha} &= \vert E_{K_{\alpha},rechts}-E_{K_{\alpha},links} \vert = \text{\input{E_HWB_cu_a.tex}} \label{eq:16a}\\
+        \Delta E_{FWHM, \beta} &= \vert E_{K_{\beta},rechts}-E_{K_{\beta},links} \vert = \text{\input{E_HWB_cu_b.tex}} \label{eq:16b}
+    \end{align}
+    \end{subequations}
+    \flushleft{Werden\;}\justifying die Energien $E_{K_{\alpha, \beta}}$ der $K_{\alpha,\beta}$-Linie und die Energien der HWB 
+    $\Delta E_{FWHM, \alpha, \beta}$ in Formel \eqref{eq:7} eingesetzt, ergibt sich für die jeweiligen Auflösevermögen:
+    \begin{subequations}\label{eq:17}
+    \begin{align}
+        A_{K_{\alpha}} &= \text{\input{A_cu_a.tex}} \label{eq:17a}\\
+        A_{K_{\beta}} &= \text{\input{A_cu_b.tex}} \label{eq:17b}
+    \end{align}
+    \end{subequations}
+    \flushleft{Anschließend\;}\justifying werden die Abschirmkonstanten $\sigma_{1,2,3}$ für Kupfer bestimmt. Dazu wird die Formel \eqref{eq:3}
+    verwendet, wobei der Drehimpulsbeitrag $\left( \frac{1}{j+\frac{1}{2}} \right)$ vernachlässigt wird. Daraus folgen die Abschätzungen:
+    \begin{subequations}\label{eq:18}
+    \begin{align}
+        E_{K,abs} &= R_{\infty} (z-\sigma_1)^2 \label{eq:18a}\\
+        E_{K,\alpha} &= R_{\infty} \left( \frac{1}{n} \right)^2 (z-\sigma_1)^2 - R_{\infty} \left( \frac{1}{m} \right)^2 (z-\sigma_2)^2 \label{eq:18b}\\
+        E_{K,\beta} &= R_{\infty} \left( \frac{1}{n} \right)^2 (z-\sigma_1)^2 - R_{\infty} \left( \frac{1}{l} \right)^2 (z-\sigma_3)^2 \label{eq:18c}
+    \end{align}
+    \end{subequations}
+    \flushleft{Hier\;}\justifying werden $n_1$, $m=2$ und $l=3$ gesetzt. Die Ornungszahl $z$ von Kupfer ist 29. Da sich $\sigma_1$ hier nicht ermitteln lässt, 
+    wird der Literaturwert für die Absorptionsenergie $E_{K,abs}= \text{\input{E_Kedge_cu.tex}}$ eingesetzt. Die daraus folgende 
+    Abschirmkonstante lautet:
+    \begin{align}
+        \sigma_1 &= \text{\input{sigma1_cu.tex}} \label{eq:19}
+    \end{align}
+    \flushleft{Wird\;}\justifying $z_{eff,1}^2=\sfrac{E_{K,abs}}{R_{\infty}}$ in Gleichungen \eqref{eq:18b} und \eqref{eq:18c} eingesetzt,
+    folgt durch jeweiliges Umformen:
+    \begin{subequations}\label{eq:20}
+    \begin{align}
+        \sigma_2 &= z-\sqrt{4\cdot\frac{E_{K,abs}-E_{K_{\alpha}}}{R_{infty}}} = \text{\input{sigma2_cu.tex}} \label{eq:20a}\\
+        \sigma_3 &= z-\sqrt{9\cdot\frac{E_{K,abs}-E_{K_{\beta}}}{R_{infty}}} = \text{\input{sigma3_cu.tex}} \label{eq:20b}
+    \end{align}
+    \end{subequations}
+
+\subsection{Absorptionsenergie und Abschirmkonstante von Brom}
+
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Brom mithilfe der Messwerte aus Tabelle \ref{tab:3} 
+    wieder. 
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotBr.pdf}
+        \caption{Absorptionsspektrum des Bromabsorbers}
+        \label{fig:4}
+    \end{figure}
+
+    \flushleft{Um\;}\justifying die Absorptionsenergie $E_{K,Br}$ zu bestimmen, wird die Mitte der K-Kante bestimmt. Das erfolgt mit der
+    Formel \cite{V602}
+    \begin{subequations}\label{eq:21}
+    \begin{align}
+        I_K &= I_K^{min} + \frac{I_K^{max}-I_K^{min}}{2}. \label{eq:21a}
+        \intertext{Die Extrema der Intesität liegen hier bei:
+        }
+        I_{max} &= \text{\input{I_max_br.tex}} \label{eq:21b}\\
+        I_{min} &= \text{\input{I_min_br.tex}} \label{eq:21c}
+        \intertext{Daraus folgt die mittlere Intensität
+        }
+        I_K &= \text{\input{I_K_br.tex}} \label{eq:21d}
+        \intertext{womit sich der Winkel $\theta_K$ aus dem Graphen ablesen lässt:
+        }
+        \theta_K &= \text{\input{theta_K_br.tex}} \label{eq:21e}
+        \intertext{Mithilfe des Winkels $\theta_K$ lassen sich analog zum Emissionsspektrum von Kupfer die Wellenlänge $\lambda_K$ mit Formel
+        \eqref{eq:6} und Energie $E_K$ mit Formel \eqref{eq:5} berechnen:
+        }
+        \lambda_K &= \text{\input{L_K_br.tex}} \label{eq:21f}\\
+        E_{K,Br} &= \text{\input{E_K_br.tex}} \label{eq:21g}
+        \intertext{Abschließend wird die Abschirmkonstante $\sigma_{Br}$ mithilfe von Formel \eqref{eq:4} bestimmt:
+        }
+        \sigma_{Br} &= \text{\input{sigma_br.tex}} \label{eq:21h}
+    \end{align}
+    \end{subequations}
+
+    \textit{\flushleft{Mit\;}\justifying den folgenden Absorbern wird analog zum Bromabsorber verfahren, weshalb im Fogenden nur noch die 
+    Ergebnisse angegeben werden.}
+
+\subsection{Absorptionsenergie und Abschirmkonstante von Gallium}
+
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Gallium mithilfe der Messwerte aus Tabelle \ref{tab:4} 
+    wieder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotGa.pdf}
+        \caption{Absorptionsspektrum des Galliumabsorbers}
+        \label{fig:5}
+    \end{figure}
+
+    \flushleft{Ergebnisse\;}\justifying für den Galliumabsorber:
+    \begin{subequations}\label{eq:22}
+    \begin{align}
+        I_{max} &= \text{\input{I_max_ga.tex}} \label{eq:22a}\\
+        I_{min} &= \text{\input{I_min_ga.tex}} \label{eq:22b}\\
+        \Rightarrow I_K &= \text{\input{I_K_ga.tex}} \label{eq:22c}\\
+        \Rightarrow \theta_K &= \text{\input{theta_K_ga.tex}} \label{eq:22d}\\
+        \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_ga.tex}} \label{eq:22e}\\
+        \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Ga} &= \text{\input{E_K_ga.tex}} \label{eq:22f}\\
+        \Rightarrow \sigma_{Ga} &= \text{\input{sigma_ga.tex}} \label{eq:22g}
+    \end{align}
+    \end{subequations}
+
+\subsection{Absorptionsenergie und Abschirmkonstante von Rubidium}
+
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Rubidium mithilfe der Messwerte aus Tabelle \ref{tab:5a} 
+    wieder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotRb.pdf}
+        \caption{Absorptionsspektrum des Rubidiumabsorbers}
+        \label{fig:6}
+    \end{figure}
+
+    \flushleft{Ergebnisse\;}\justifying für den Rubidiumabsorber:
+    \begin{subequations}\label{eq:23}
+    \begin{align}
+        I_{max} &= \text{\input{I_max_rb.tex}} \label{eq:23a}\\
+        I_{min} &= \text{\input{I_min_rb.tex}} \label{eq:23b}\\
+        \Rightarrow I_K &= \text{\input{I_K_rb.tex}} \label{eq:23c}\\
+        \Rightarrow \theta_K &= \text{\input{theta_K_rb.tex}} \label{eq:23d}\\
+        \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_rb.tex}} \label{eq:23e}\\
+        \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Rb} &= \text{\input{E_K_rb.tex}} \label{eq:23f}\\
+        \Rightarrow \sigma_{Rb} &= \text{\input{sigma_rb.tex}} \label{eq:23g}
+    \end{align}
+    \end{subequations}
+
+\subsection{Absorptionsenergie und Abschirmkonstante von Strontium}
+
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Strontium mithilfe der Messwerte aus Tabelle \ref{tab:5b} 
+    wieder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotSr.pdf}
+        \caption{Absorptionsspektrum des Strontiumabsorbers}
+        \label{fig:7}
+    \end{figure}
+
+    \flushleft{Ergebnisse\;}\justifying für den Strontiumabsorber:
+    \begin{subequations}\label{eq:24}
+    \begin{align}
+        I_{max} &= \text{\input{I_max_sr.tex}} \label{eq:24a}\\
+        I_{min} &= \text{\input{I_min_sr.tex}} \label{eq:24b}\\
+        \Rightarrow I_K &= \text{\input{I_K_sr.tex}} \label{eq:24c}\\
+        \Rightarrow \theta_K &= \text{\input{theta_K_sr.tex}} \label{eq:24d}\\
+        \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_sr.tex}} \label{eq:24e}\\
+        \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Sr} &= \text{\input{E_K_sr.tex}} \label{eq:24f}\\
+        \Rightarrow \sigma_{Sr} &= \text{\input{sigma_sr.tex}} \label{eq:24g}
+    \end{align}
+    \end{subequations}
+
+\subsection{Absorptionsenergie und Abschirmkonstante von Zink}
+
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Zink mithilfe der Messwerte aus Tabelle \ref{tab:5b} 
+    wieder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotZn.pdf}
+        \caption{Absorptionsspektrum des Zinkabsorbers}
+        \label{fig:8}
+    \end{figure}
+
+    \flushleft{Ergebnisse\;}\justifying für den Zinkabsorber:
+    \begin{subequations}\label{eq:25}
+    \begin{align}
+        I_{max} &= \text{\input{I_max_zn.tex}} \label{eq:25a}\\
+        I_{min} &= \text{\input{I_min_zn.tex}} \label{eq:25b}\\
+        \Rightarrow I_K &= \text{\input{I_K_zn.tex}} \label{eq:25c}\\
+        \Rightarrow \theta_K &= \text{\input{theta_K_zn.tex}} \label{eq:25d}\\
+        \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_zn.tex}} \label{eq:25e}\\
+        \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Zn}K &= \text{\input{E_K_zn.tex}} \label{eq:25f}\\
+        \Rightarrow \sigma_{Zn} &= \text{\input{sigma_zn.tex}} \label{eq:25g}
+    \end{align}
+    \end{subequations}
+
+\subsection{Absorptionsenergie und Abschirmkonstante von Zirkonium}
+
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Zirkonium mithilfe der Messwerte aus Tabelle \ref{tab:5b} 
+    wieder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotZr.pdf}
+        \caption{Absorptionsspektrum des Zirkoniumabsorbers}
+        \label{fig:9}
+    \end{figure}
+
+    \flushleft{Ergebnisse\;}\justifying für den Zirkoniumabsorber:
+    \begin{subequations}\label{eq:26}
+    \begin{align}
+        I_{max} &= \text{\input{I_max_zr.tex}} \label{eq:26a}\\
+        I_{min} &= \text{\input{I_min_zr.tex}} \label{eq:26b}\\
+        \Rightarrow I_K &= \text{\input{I_K_zr.tex}} \label{eq:26c}\\
+        \Rightarrow \theta_K &= \text{\input{theta_K_zr.tex}} \label{eq:26d}\\
+        \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_zr.tex}} \label{eq:26e}\\
+        \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Zr} &= \text{\input{E_K_zr.tex}} \label{eq:26f}\\
+        \Rightarrow \sigma_{Zr} &= \text{\input{sigma_zr.tex}} \label{eq:26g}
+    \end{align}
+    \end{subequations}
+
+\subsection{Rydbergfrequenz}
+
+    \flushleft{Um\;} die Rydbergfrequenz bestimmen zu können, werden die zuvor bestimmten Energien $E_K$ und Abschirmkonstanten $sigma_K$ der
+    Absorber in dem folgenden $\sqrt{E_K}-Z$ Diagramm aufgetragen. Dazu wird die Geradengleichung \textbf{[...]} ($\sqrt{E_K} = \sqrt{Rh} 
+    \cdot z_{eff,K}$) verwendet. Die Ausgleichsgerade wird mit dem numpy Befehl polyfit \cite{numpy} und den Parametern 
+    \begin{subequations}\label{27}
+    \begin{align}
+        m &= \text{\input{m_ry.tex}}\label{eq:27a}\\
+        b &= \text{\input{b_ry.tex}}\label{eq:27b}
+    \end{align}
+    \end{subequations}
+    \flushleft{erstellt.\;}\justifying
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotE_K.pdf}
+        \caption{Lineare Regression der Rydbergfrequenz}
+        \label{fig:10}
+    \end{figure}
+
+    \flushleft{Die\;}\justifying Steigung $m$ stellt hier die Wurzel der Rydbergkonstante $\sqrt{R_{\infty}}$ dar. Demnach ist $m^2$ die Rydbergkonstante
+    \begin{subequations}\label{28}
+    \begin{align}
+        R_{\infty} &= \text{\input{Rydb_const.tex}}\label{eq:28a}
+        \intertext{Die Rydbergfrequenz lässt sich $R_f = \frac{R_{\infty} e}{h}$ bestimmen, wobei $e$ die Elementarladung und $h$ das planksche
+        Wirkungsquantum darstellt. Folglich ist die Rydbergfrequenz
+        }
+        R_f &= \text{\input{Rydb_f.tex}}.\label{eq:28b}
+    \end{align}
+    \end{subequations}
 
 \section{Diskussion}
 
@@ -152,14 +476,14 @@ Die Winkelintervalle lauten wie folgt:\\
 
     \begin{table}[H]
         \centering
-        \caption{Brom}
+        \caption{Absorptionsspektrum Brom}
         \input{table_brom.tex}
         \label{tab:3}
     \end{table}
     
     \begin{table}[H]
         \centering
-        \caption{Gallium}
+        \caption{Absorptionsspektrum Gallium}
         \input{table_gallium.tex}
         \label{tab:4}
     \end{table}
@@ -168,28 +492,30 @@ Die Winkelintervalle lauten wie folgt:\\
     \centering
         \begin{subtable}{.49\textwidth}
         \centering
-        \caption{Rubidium}
+        \caption{Absorptionsspektrum Rubidium}
         \input{table_rub.tex}
         \label{tab:5a}
         \end{subtable}    
         \begin{subtable}{.49\textwidth}
         \centering
-        \caption{Strontium}
+        \caption{Absorptionsspektrum Strontium}
         \input{table_stron.tex}
         \label{tab:5b}
         \end{subtable}
         \begin{subtable}{.49\textwidth}
         \centering
-        \caption{Zink}
+        \caption{Absorptionsspektrum Zink}
         \input{table_zink.tex}
         \label{tab:5c}
         \end{subtable}    
         \begin{subtable}{.49\textwidth}
         \centering
-        \caption{Zirkonium}
+        \caption{Absorptionsspektrum Zirkonium}
         \input{table_zirk.tex}
         \label{tab:5d}
         \end{subtable}
+    \caption{Absorptionsspektren verschiedener Materialien}
+    \label{tab:5}
     \end{table}
 
 \end{document}
