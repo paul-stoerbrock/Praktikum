@@ -51,11 +51,36 @@ z_zr = 40
 
 theta_bragg_lit = 28 #degree
 E_Kedge_cu = 8987.9615 #eV
+E_cu_a_lit = 7884.8368
+E_cu_b_lit = 8859.814
+E_K_br_lit = 13483.8619 #eV
+E_K_ga_lit = 10377.7616 #eV
+E_K_rb_lit = 15207.7422 #eV
+E_K_sr_lit = 16115.2623 #eV
+E_K_zn_lit = 9668.5515 #eV
+E_K_zr_lit = 18008.1526 #eV
+
+
+
+# tex file for theta_bragg_lit
+
+with open('build/theta_bragg_lit.tex', 'w') as f:
+  f.write(make_SI(theta_bragg_lit,r'°', figures=1))
 
 # tex file for E_Kedge_cu
 
 with open('build/E_Kedge_cu.tex', 'w') as f:
-  f.write(make_SI(E_Kedge_cu,r'\electronvolt', figures=1))
+  f.write(make_SI(E_Kedge_cu,r'\electronvolt', figures=0))
+
+# tex file for E_cu_a_lit
+
+with open('build/E_cu_a_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_a_lit,r'\electronvolt', figures=1))
+
+# tex file for E_cu_b_lit
+
+with open('build/E_cu_b_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_b_lit,r'\electronvolt', figures=1))
 
 #Braggsche Bedingung-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -93,12 +118,17 @@ b = ufloat(popBragg[1], err_bragg[1])
 c = ufloat(popBragg[2], err_bragg[2])
 d = ufloat(popBragg[3], err_bragg[3])
 
-theta_bragg_diff = np.abs(theta_bragg_lit - xmax_bragg)
+theta_bragg_err = abs(xmax_bragg-theta_bragg_lit)/theta_bragg_lit
+
+# tex file for theta_bragg_err
+
+with open('build/theta_bragg_err.tex', 'w') as f:
+  f.write(make_SI(theta_bragg_err*1e+02,r'\percent', figures=1))
 
 # tex file for a
 
 with open('build/a.tex', 'w') as f:
-  f.write(make_SI(a,r'\per\second', figures=1))
+  f.write(make_SI(a,r'', figures=1))
 
 # tex file for b
 
@@ -125,10 +155,10 @@ with open('build/xmax_bragg.tex', 'w') as f:
 with open('build/ymax_bragg.tex', 'w') as f:
   f.write(make_SI(ymax_bragg,r'\per\second', figures=1))
 
-# tex file for theta_bragg_diff
+# tex file for theta_bragg_err
 
-with open('build/theta_bragg_diff.tex', 'w') as f:
-  f.write(make_SI(theta_bragg_diff,r'\degree', figures=1))
+with open('build/theta_bragg_err.tex', 'w') as f:
+  f.write(make_SI(theta_bragg_err*1e+02,r'\percent', figures=1))
 
 #Emissionsspektrum Kupfer---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -152,7 +182,7 @@ plt.axvline(x=xmax_cu, color='r', linestyle= ':', label='$K_{\\alpha}$-Linie')
 plt.axvline(x=xlmax_cu, color='b', linestyle= ':', label='$K_{\\beta}$-Linie')
 plt.annotate('$K_{\\alpha}$', xy=(xmax_cu, 3500), xycoords='data', xytext=(xmax_cu+1, 3500), textcoords='data', arrowprops=dict(arrowstyle='->', facecolor='grey'), horizontalalignment='left')
 plt.annotate('$K_{\\beta}$', xy=(xlmax_cu, 3500), xycoords='data', xytext=(xlmax_cu+1, 3500), textcoords='data', arrowprops=dict(arrowstyle='->', facecolor='grey'), horizontalalignment='left')
-plt.annotate('Bremsstrahlung', xy=(xmax_cu/2, 1100), xytext=(xmax_cu/2, 1100), verticalalignment='top', horizontalalignment='left')
+plt.annotate('Bremsberg', xy=(xmax_cu/2, 1100), xytext=(xmax_cu/2, 1100), verticalalignment='top', horizontalalignment='left')
 plt.axvline(x=HWB_lKa_cu_a, color='grey', linestyle= '-', label='Grenzen der Halbwertsbreite (HWB)')
 plt.axvline(x=HWB_rKa_cu_a, color='grey', linestyle= '-', label='')
 plt.axvline(x=HWB_lKa_cu_b, color='grey', linestyle= '-', label='')
@@ -209,6 +239,10 @@ sigma1_cu = z_cu-np.sqrt(E_Kedge_cu/R_infty)
 sigma2_cu = z_cu-unp.sqrt(4*(E_Kedge_cu-E_cu_a)/R_infty)
 sigma3_cu = z_cu-unp.sqrt(9*(E_Kedge_cu-E_cu_b)/R_infty)
 
+E_cu_a_err = abs(E_cu_a-E_cu_a_lit)/E_cu_a_lit
+E_cu_b_err = abs(E_cu_b-E_cu_b_lit)/E_cu_b_lit
+
+
 
 
 # tex file for L_cu_a
@@ -221,6 +255,16 @@ with open('build/L_cu_a.tex', 'w') as f:
 with open('build/E_cu_a.tex', 'w') as f:
   f.write(make_SI(E_cu_a,r'\electronvolt', figures=1))
 
+# tex file for E_cu_a_lit
+
+with open('build/E_cu_a_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_a_lit,r'\electronvolt', figures=1))
+
+# tex file for E_cu_a_err
+
+with open('build/E_cu_a_err.tex', 'w') as f:
+  f.write(make_SI(E_cu_a_err*1e+02,r'\percent', figures=1))
+
 
 
 # tex file for L_cu_b
@@ -232,6 +276,17 @@ with open('build/L_cu_b.tex', 'w') as f:
 
 with open('build/E_cu_b.tex', 'w') as f:
   f.write(make_SI(E_cu_b,r'\electronvolt', figures=1))
+
+# tex file for E_cu_b_lit
+
+with open('build/E_cu_b_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_b_lit,r'\electronvolt', figures=1))
+
+# tex file for E_cu_b_err
+
+with open('build/E_cu_b_err.tex', 'w') as f:
+  f.write(make_SI(E_cu_b_err*1e+02,r'\percent', figures=1))
+
 
 
 # tex file for Breite_lKa_cu_a
@@ -362,6 +417,8 @@ L_K_br = 2*d_LiF*unp.sin(theta_K_br)
 
 E_K_br = (const.h*const.c)/(L_K_br*const.e)
 
+E_K_br_err = abs(E_K_br-E_K_br_lit)/E_K_br_lit
+
 # tex file for I_max_br
 
 with open('build/I_max_br.tex', 'w') as f:
@@ -391,6 +448,16 @@ with open('build/L_K_br.tex', 'w') as f:
 
 with open('build/E_K_br.tex', 'w') as f:
   f.write(make_SI(E_K_br,r'\electronvolt', figures=1))
+
+# tex file for E_K_br_lit
+
+with open('build/E_K_br_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_br_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_br_err
+
+with open('build/E_K_br_err.tex', 'w') as f:
+  f.write(make_SI(E_K_br_err*1e+02,r'\percent', figures=2))
 
 #Absorbtionsspektrum Gallium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -425,6 +492,9 @@ L_K_ga = 2*d_LiF*unp.sin(theta_K_ga)
 
 E_K_ga = (const.h*const.c)/(L_K_ga*const.e)
 
+E_K_ga_err = abs(E_K_ga-E_K_ga_lit)/E_K_ga_lit
+
+
 # tex file for I_max_ga
 
 with open('build/I_max_ga.tex', 'w') as f:
@@ -454,6 +524,16 @@ with open('build/L_K_ga.tex', 'w') as f:
 
 with open('build/E_K_ga.tex', 'w') as f:
   f.write(make_SI(E_K_ga,r'\electronvolt', figures=1))
+
+# tex file for E_K_ga_lit
+
+with open('build/E_K_ga_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_ga_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_ga_err
+
+with open('build/E_K_ga_err.tex', 'w') as f:
+  f.write(make_SI(E_K_ga_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Rubidium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -488,6 +568,9 @@ L_K_rb = 2*d_LiF*unp.sin(theta_K_rb)
 
 E_K_rb = (const.h*const.c)/(L_K_rb*const.e)
 
+E_K_rb_err = abs(E_K_rb-E_K_rb_lit)/E_K_rb_lit
+
+
 # tex file for I_max_rb
 
 with open('build/I_max_rb.tex', 'w') as f:
@@ -517,6 +600,16 @@ with open('build/L_K_rb.tex', 'w') as f:
 
 with open('build/E_K_rb.tex', 'w') as f:
   f.write(make_SI(E_K_rb,r'\electronvolt', figures=1))
+
+# tex file for E_K_rb_lit
+
+with open('build/E_K_rb_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_rb_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_rb_err
+
+with open('build/E_K_rb_err.tex', 'w') as f:
+  f.write(make_SI(E_K_rb_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Strontium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -551,6 +644,9 @@ L_K_sr = 2*d_LiF*unp.sin(theta_K_sr)
 
 E_K_sr = (const.h*const.c)/(L_K_sr*const.e)
 
+E_K_sr_err = abs(E_K_sr-E_K_sr_lit)/E_K_sr_lit
+
+
 # tex file for I_max_sr
 
 with open('build/I_max_sr.tex', 'w') as f:
@@ -580,6 +676,16 @@ with open('build/L_K_sr.tex', 'w') as f:
 
 with open('build/E_K_sr.tex', 'w') as f:
   f.write(make_SI(E_K_sr,r'\electronvolt', figures=1))
+
+# tex file for E_K_sr_lit
+
+with open('build/E_K_sr_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_sr_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_sr_err
+
+with open('build/E_K_sr_err.tex', 'w') as f:
+  f.write(make_SI(E_K_sr_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Zink-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -614,6 +720,9 @@ L_K_zn = 2*d_LiF*unp.sin(theta_K_zn)
 
 E_K_zn = (const.h*const.c)/(L_K_zn*const.e)
 
+E_K_zn_err = abs(E_K_zn-E_K_zn_lit)/E_K_zn_lit
+
+
 # tex file for I_max_zn
 
 with open('build/I_max_zn.tex', 'w') as f:
@@ -643,6 +752,16 @@ with open('build/L_K_zn.tex', 'w') as f:
 
 with open('build/E_K_zn.tex', 'w') as f:
   f.write(make_SI(E_K_zn,r'\electronvolt', figures=1))
+
+# tex file for E_K_zn_lit
+
+with open('build/E_K_zn_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_zn_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_zn_err
+
+with open('build/E_K_zn_err.tex', 'w') as f:
+  f.write(make_SI(E_K_zn_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Zirkonium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -677,6 +796,9 @@ L_K_zr = 2*d_LiF*unp.sin(theta_K_zr)
 
 E_K_zr = (const.h*const.c)/(L_K_zr*const.e)
 
+E_K_zr_err = abs(E_K_zr-E_K_zr_lit)/E_K_zr_lit
+
+
 # tex file for I_max_zr
 
 with open('build/I_max_zr.tex', 'w') as f:
@@ -707,6 +829,16 @@ with open('build/L_K_zr.tex', 'w') as f:
 with open('build/E_K_zr.tex', 'w') as f:
   f.write(make_SI(E_K_zr,r'\electronvolt', figures=1))
 
+# tex file for E_K_zr_lit
+
+with open('build/E_K_zr_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_zr_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_zr_err
+
+with open('build/E_K_zr_err.tex', 'w') as f:
+  f.write(make_SI(E_K_zr_err*1e+02,r'\percent', figures=1))
+
 #Rydbergfrequenz R_infty-------------------------------------------------------------------------------------------------------------------------------------------------
 
 sigma_br = z_br - unp.sqrt(E_K_br/R_infty-const.alpha**2*z_br**4/4)
@@ -716,35 +848,109 @@ sigma_sr = z_sr - unp.sqrt(E_K_sr/R_infty-const.alpha**2*z_sr**4/4)
 sigma_zn = z_zn - unp.sqrt(E_K_zn/R_infty-const.alpha**2*z_zn**4/4)
 sigma_zr = z_zr - unp.sqrt(E_K_zr/R_infty-const.alpha**2*z_zr**4/4)
 
+sigma_br_lit = z_br - unp.sqrt(E_K_br_lit/R_infty-const.alpha**2*z_br**4/4)
+sigma_ga_lit = z_ga - unp.sqrt(E_K_ga_lit/R_infty-const.alpha**2*z_ga**4/4)
+sigma_rb_lit = z_rb - unp.sqrt(E_K_rb_lit/R_infty-const.alpha**2*z_rb**4/4)
+sigma_sr_lit = z_sr - unp.sqrt(E_K_sr_lit/R_infty-const.alpha**2*z_sr**4/4)
+sigma_zn_lit = z_zn - unp.sqrt(E_K_zn_lit/R_infty-const.alpha**2*z_zn**4/4)
+sigma_zr_lit = z_zr - unp.sqrt(E_K_zr_lit/R_infty-const.alpha**2*z_zr**4/4)
+
+sigma_br_err=abs(sigma_br-sigma_br_lit)/sigma_br_lit
+sigma_ga_err=abs(sigma_ga-sigma_ga_lit)/sigma_ga_lit
+sigma_rb_err=abs(sigma_rb-sigma_rb_lit)/sigma_rb_lit
+sigma_sr_err=abs(sigma_sr-sigma_sr_lit)/sigma_sr_lit
+sigma_zn_err=abs(sigma_zn-sigma_zn_lit)/sigma_zn_lit
+sigma_zr_err=abs(sigma_zr-sigma_zr_lit)/sigma_zr_lit
+
 # tex file for sigma_br
 
 with open('build/sigma_br.tex', 'w') as f:
   f.write(make_SI(sigma_br,r'', figures=1))
+
+# tex file for sigma_br_lit
+
+with open('build/sigma_br_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_br_lit,r'', figures=1))
+
+# tex file for sigma_br_err
+
+with open('build/sigma_br_err.tex', 'w') as f:
+  f.write(make_SI(sigma_br_err*1e+02,r'\percent', figures=2))
 
 # tex file for sigma_ga
 
 with open('build/sigma_ga.tex', 'w') as f:
   f.write(make_SI(sigma_ga,r'', figures=1))
 
+# tex file for sigma_ga_lit
+
+with open('build/sigma_ga_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_ga_lit,r'', figures=1))
+
+# tex file for sigma_ga_err
+
+with open('build/sigma_ga_err.tex', 'w') as f:
+  f.write(make_SI(sigma_ga_err*1e+02,r'\percent', figures=1))
+
 # tex file for sigma_rb
 
 with open('build/sigma_rb.tex', 'w') as f:
   f.write(make_SI(sigma_rb,r'', figures=1))
+
+# tex file for sigma_rb_lit
+
+with open('build/sigma_rb_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_rb_lit,r'', figures=1))
+
+# tex file for sigma_rb_err
+
+with open('build/sigma_rb_err.tex', 'w') as f:
+  f.write(make_SI(sigma_rb_err*1e+02,r'\percent', figures=1))
 
 # tex file for sigma_sr
 
 with open('build/sigma_sr.tex', 'w') as f:
   f.write(make_SI(sigma_sr,r'', figures=1))
 
+# tex file for sigma_sr_lit
+
+with open('build/sigma_sr_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_sr_lit,r'', figures=1))
+
+# tex file for sigma_sr_err
+
+with open('build/sigma_sr_err.tex', 'w') as f:
+  f.write(make_SI(sigma_sr_err*1e+02,r'\percent', figures=1))
+
 # tex file for sigma_zn
 
 with open('build/sigma_zn.tex', 'w') as f:
   f.write(make_SI(sigma_zn,r'', figures=1))
 
+# tex file for sigma_zn_lit
+
+with open('build/sigma_zn_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_zn_lit,r'', figures=1))
+
+# tex file for sigma_zn_err
+
+with open('build/sigma_zn_err.tex', 'w') as f:
+  f.write(make_SI(sigma_zn_err*1e+02,r'\percent', figures=1))
+
 # tex file for sigma_zr
 
 with open('build/sigma_zr.tex', 'w') as f:
   f.write(make_SI(sigma_zr,r'', figures=1))
+
+# tex file for sigma_zr_lit
+
+with open('build/sigma_zr_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_zr_lit,r'', figures=1))
+
+# tex file for sigma_zr_err
+
+with open('build/sigma_zr_err.tex', 'w') as f:
+  f.write(make_SI(sigma_zr_err*1e+02,r'\percent', figures=1))
 
 sigma = np.array([sigma_br.n, sigma_ga.n, sigma_rb.n, sigma_sr.n, sigma_zn.n, sigma_zr.n])
 z = np.array([z_br, z_ga, z_rb, z_sr, z_zn, z_zr])
@@ -784,6 +990,10 @@ Rydb_const = m_ry**2
 
 Rydb_f = Rydb_const*const.e/(const.h) #Rydb_const = eV, const.h = Joule
 
+Rydb_f_lit = const.value(u'Rydberg constant times c in Hz')
+
+Rydb_f_err = abs(Rydb_f-Rydb_f_lit)/Rydb_f_lit
+
 print(Rydb_const) #eV
 print(Rydb_f) 
 
@@ -796,6 +1006,16 @@ with open('build/Rydb_const.tex', 'w') as f:
 
 with open('build/Rydb_f.tex', 'w') as f:
   f.write(make_SI(Rydb_f*1e-15,r'\peta\hertz', figures=1))
+
+# tex file for Rydb_f_lit
+
+with open('build/Rydb_f_lit.tex', 'w') as f:
+  f.write(make_SI(Rydb_f*1e-15,r'\peta\hertz', figures=1))
+
+# tex file for Rydb_f_err
+
+with open('build/Rydb_f_err.tex', 'w') as f:
+  f.write(make_SI(Rydb_f_err,r'\percent', figures=1))
 
 #Tabelle Kupfer-------------------------------------------------------------------------------------------------------------------------------------------------
 

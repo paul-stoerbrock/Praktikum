@@ -21,16 +21,20 @@
 
 \section{Ziel}
 
+\flushleft{Das\;}\justifying Ziel dieses Versuches ist das Auflösevermögen der $K_{\alpha}$- und $K_{\beta}$-Linie des Kupferröhrenspektrums
+zu untersuchen. Außerdem werden anhand der Energien der K-Kanten von den Absorptionsspektren verschiedener Materialien die Abschirmkonstanten bestimmt. 
+Mithilfe der Energien und den Abschirmkonstanten lässt sich die Rydbergfrequenz $R$ berechnen. 
+
 \section{Theorie}
 
 \flushleft{Röntgenstrahlung\;}\justifying wird erzeugt, indem Elektronen von einer Glühkathode in einer evakuierten Rühre zu einer
 Anode beschleunigt werden. Trifft ein beschleunigtes Elektron auf die Anode, wird das Elektronen abgebremst und verliert Energie. Die Abbremsung
-erfolgt im Coulombfeld eines Atomkerns der Anode. Die verlorene Energie wird als Photon (Röntgenquant) abgestrahlt welches ein kontinuierliches 
+erfolgt im Coulombfeld eines Atomkerns der Anode. Die verlorene Energie wird als Photon (Röntgenquant) abgestrahlt, welches ein kontinuierliches 
 Bremsspektrum erzeugt. Das Photon stellt die Röntgenstrahlung dar und besitzt die Charakteristik des Anodenmaterials. Das Bremsspektrum ist 
 kontinuierlich, da das Elektron dessen gesamte kinetische Energie verlieren kann. 
 
-\flushleft{Bei\;}\justifying der Wechselwirkung zwischen Elektron und Anode, wird das Anodenmaterial ionisiert. Das heißt, dass ein Elektron der
-Anode auf höheres Energieniveau gebracht wird. Dies geschieht, indem das Elektron auf eine äußere Schale spring. Da nun eine Leerstelle auf der
+\flushleft{Bei\;}\justifying der Wechselwirkung zwischen Elektron und Anode, wird das Anodenmaterial ionisiert, das heißt, dass ein Elektron der
+Anode auf ein höheres Energieniveau gebracht wird. Dies geschieht, indem das Elektron auf eine äußere Schale spring. Da nun eine Leerstelle auf der
 inneren Bahn entstanden ist, kann ein Elektron von einer äußeren Schale auf die innere zurückfallen, also auf ein niedrigeres Energieniveau.
 Demnach ist die Energiedifferenz $h\cdot\nu=E_m - E_n$ \cite{V602} der beiden Schalen $m,n$ die Energie des emittierten Röntgenquants. 
 Das Charakteristische Spektrum besitzt scharfe Linien, welche als $K_{\alpha}, K_{\beta}, L_{\alpha}, L_{\beta}, M_{\alpha},...$ beschrieben werden. 
@@ -63,11 +67,25 @@ eines Elektrons mit der Sommerfeldschen Feinstrukturformel \cite{V602}
 \end{align}
 \flushleft{bestimmt\;}\justifying werden. $R_{\infty}$ ist hier wieder die Rydbergenergie, $z_{eff}$ die Kernladungszahl, $\alpha$ die 
 Sommerfeldsche Feinstrukturkonstante, $n$ die Hauptquantenzahl und $j$ der Gesamtdrehimpuls des jeweiligen Elektrons. Wird $z_{eff}=z-\sigma$
-eingesetzt, lässt sich die Sommerfeldsche Feinstrukturformel nach der Abschirmkonstante $\sigma_{K,abs}$ umstellen. Daraus folgt: \cite{V602}
+eingesetzt, lässt sich die Sommerfeldsche Feinstrukturformel zu der Abschirmkonstante $\sigma_{K,abs}$ umstellen. Daraus folgt: \cite{V602}
 \begin{align}
     \sigma_{K,abs} &= z - \sqrt{\frac{E_K}{R_{\infty}} - \frac{\alpha^2 z^4}{4}} \label{eq:4}
 \end{align}
-
+\flushleft{Die\;}\justifying Rydbergenergie $R_{\infty}= R\cdot h$ ist definiert durch die Rydbergfrequenz $R$ und dem plankschen Wirkungsquantum $h$.
+Das Moseley'sche Gesetzt erlaubt es die Energie $E_{K_{\alpha}}$ durch eine Proportionalität zu $z_{eff}^2$ als 
+\begin{align}
+    E_{K_{\alpha}} &= Rh \left( z-\sigma \right)^2 \label{eq:Mosel}
+\end{align}
+\flushleft{zu\;}\justifying approximieren. Durch Umstellen dieser Gleichung lässt sich die Geradengleichung
+\begin{align}
+    \sqrt{E_{K_{\alpha}}} &= \sqrt{Rh}\cdot z_{eff}^2 \label{eq:RyGl}
+\end{align}
+\flushleft{bestimmen.\;}\justifying Dabei ist $\sqrt{Rh}$ die Steigung $m$, woraus sich die Rydbergfrequenz
+\begin{align}
+ R &= \frac{m^2}{h} \label{eq:Ryf}
+ \end{align}
+\flushleft{ergibt.}
+\newpage
 \flushleft{Die\;}\justifying Energie des emittierten Photons 
 \begin{align}
     E=\frac{hc}{\lambda e} \label{eq:5}
@@ -77,15 +95,15 @@ eingesetzt, lässt sich die Sommerfeldsche Feinstrukturformel nach der Abschirmk
 \end{align}
 \flushleft{bestimmen.\;}\justifying Die Bragg'sche Reflexion bezeichnet die Beugung der emittierten Röntgenstrahlung an einem Lithiumfluorid-Kristall (LiF-Kristall).
 Dabei ist $d_{LiF}=\SI{201.4}{\pico\meter}$ \cite{V602} die Gitterkonstante des LiF-Kristalls, $\lambda$ die Wellenlänge der Strahlung, $\theta$
-der Glanzwinkel und $n$ die Ordnungszahl. Das atomare Gitter des LiF-Kristalls beugt die Photonen und erzeugt im Glanzwinkel konstruktive 
+der Glanzwinkel und $n$ die Ordnungszahl des Materials. Das atomare Gitter des LiF-Kristalls beugt die Photonen und erzeugt im Glanzwinkel konstruktive 
 Interferenz. 
 
-\flushleft{Da\;}\justifying das Emissionsspektrum aufgrund der Sommerfeldschen Feinstruktur nicht eindeutig ist, sondern die Sprünge bzw. Peaks auf 
-einem Intervall liegen, muss für die Breite der Linien das Auflösevermögen 
+\flushleft{Da\;}\justifying das Emissionsspektrum aufgrund der Sommerfeldschen Feinstruktur nicht eindeutig ist, sondern die Sprünge bzw. Peaks in 
+einem Intervall liegen, wird für die Breite der Linien das Auflösevermögen 
 \begin{align}
     A = \frac{E_K}{\Delta E_{FWHM}} \label{eq:7}
 \end{align}
-bestimmt werden. $E_K$ ist hierbei die jeeweilige Kantenenergie und $\Delta E_{FWHM}$ ist die jeweilige Energie der Halbwertsbreite (HWB). Die HWB
+bestimmt werden. $E_K$ ist hierbei die jeweilige Kantenenergie und $\Delta E_{FWHM}$ ist die jeweilige Energie der Halbwertsbreite (HWB). Die HWB
 beschreibt die Länge des Intervalls, in welcher sich die betrachtete Kante befindet. Im Falle von Kupfer werden die $K_{\alpha}$- und die
 $K_{\beta}$-Linie betrachtet, welche in dem jeweiligen Intervall der $HWB_{K_{\alpha}}$ und $HWB_{K_{\beta}}$ liegen. Die halbe Amplitude der $K_{\alpha}$- 
 bzw. $K_{\beta}$-Linie beschreibt Anfang und Ende der HWB. Die DiffAus der Differenz der Grenzen der HWB lässt sich die Energie der jeweiligen HWB
@@ -96,6 +114,7 @@ bestimmen, welche zum Auflösevermögen der Linie führt.
 \flushleft{Benötigt\;}\justifying werden: \textit{Eine Kupfer-Röntgenröhre, ein LiF-Kristall, ein Geiger-Müller Zählrohr, ein Röntgengerät, ein 
 Bromabsorber, ein Galliumabsorber, ein Rubidiumabsorber, ein Strontiumabsorber, ein Zinkabsorber und ein Zirkoniumabsorber.}
 
+\newpage
 \flushleft{Das\;}\justifying Röntgengerät wird wie folgt aufgebaut:
 \begin{figure}[H]
     \centering
@@ -105,22 +124,22 @@ Bromabsorber, ein Galliumabsorber, ein Rubidiumabsorber, ein Strontiumabsorber, 
 \end{figure}
 \flushleft{Zu\;}\justifying Beginn wird die Bragg Bedingung überprüft. Dazu wird der LiF-Kristall auf einen festen Winkel von $\theta=\SI{14}{\degree}$ gestellt und der
 Winkelbereich des Geiger-Müller Zählrohrs variiert. Der Winkelbereich liegt zwischen $\SI{26}{\degree}\leq\alpha\leq\SI{30}{\degree}$ und wird in
-$\SI{1}{\degree}$-Schritten bei einer Integrationszeit von $\Delta t=\SI{5}{\second}$ pro Winkel durchlaufen. 
+$\SI{0.1}{\degree}$-Schritten bei einer Integrationszeit von $\Delta t=\SI{5}{\second}$ pro Winkel durchlaufen. 
 
-\flushleft{Um\;}\justifying das Emissionsspektrum der Kupferröhre zu bestimmen wird diesmal das Geiger-Müller Zählrohr fixiert und der LiF-Kristall
-variiert. Der Winkelbereich des LiF-Kristalls liegt hier zwischen $\SI{4}{\degree}\leq\alpha\leq\SI{26}{\degree}$ und wird ebensdalls in 
-$\SI{1}{\degree}$-Schritten bei einer Integrationszeit von $\Delta t=\SI{5}{\second}$ pro Winkel durchlaufen.
+\flushleft{Um\;}\justifying das Emissionsspektrum der Kupferröhre zu bestimmen wird diesmal das Geiger-Müller Zählrohr um den doppelten Winkel
+zum LiF-Kristall variiert. Der Winkelbereich des LiF-Kristalls liegt hier zwischen $\SI{8}{\degree}\leq\alpha\leq\SI{25}{\degree}$ und wird ebenfalls in 
+$\SI{0.1}{\degree}$-Schritten bei einer Integrationszeit von $\Delta t=\SI{5}{\second}$ pro Winkel durchlaufen.
 
 \flushleft{Für\;}\justifying das Absorptionsspektrum der anderen Materialien wird der entsprechende Absorber angebracht. Hier wird der Winkelbereich
-ebenfalls in $\SI{1}{\degree}$-Schritten durchlaufen, jedoch bei einer Integrationszeit von je $\Delta t=\SI{20}{\second}$ pro Winkel.
+ebenfalls in $\SI{0.1}{\degree}$-Schritten durchlaufen, jedoch bei einer Integrationszeit von je $\Delta t=\SI{20}{\second}$ pro Winkel.
 Die Winkelintervalle lauten wie folgt:\\
 \begin{align*}
-    &\SI{12.8}{\degree}\leq\theta_{\text{Brom}}\leq\SI{14.3}{\degree},\\ 
-    &\SI{17}{\degree}\leq\theta_{\text{Gallium}}\leq\SI{19}{\degree},\\
-    &\SI{11.2}{\degree}\leq\theta_{\text{Rubidium}}\leq\SI{12.5}{\degree},\\
-    &\SI{10.5}{\degree}\leq\theta_{\text{Strontium}}\leq\SI{12}{\degree},\\
-    &\SI{18}{\degree}\leq\theta_{\text{Zink}}\leq\SI{19.5}{\degree}\;\text{und}\\
-    &\SI{9.5}{\degree}\leq\theta_{\text{Zirkonium}}\leq\SI{11}{\degree}.
+    \SI{12.8}{\degree}  &\leq\theta_{\text{Brom}}\leq\SI{14.3}{\degree},\\ 
+    \SI{17}{\degree}    &\leq\theta_{\text{Gallium}}\leq\SI{19}{\degree},\\
+    \SI{11.2}{\degree}  &\leq\theta_{\text{Rubidium}}\leq\SI{12.5}{\degree},\\
+    \SI{10.5}{\degree}  &\leq\theta_{\text{Strontium}}\leq\SI{12}{\degree},\\
+    \SI{18}{\degree}    &\leq\theta_{\text{Zink}}\leq\SI{19.5}{\degree}\;\text{und}\\
+    \SI{9.5}{\degree}   &\leq\theta_{\text{Zirkonium}}\leq\SI{11}{\degree}.
 \end{align*}
 
 
@@ -128,7 +147,7 @@ Die Winkelintervalle lauten wie folgt:\\
 
 \subsection{Bragg'sche Bedingung}
 
-    \flushleft{Um\;}\justifying die Bragg'sche Bedingung zu überprüfen, wird die Intesität der Röntgenstrahlung gegen den Winkel $\alpha$ des
+    \flushleft{Um\;}\justifying die Bragg'sche Bedingung zu überprüfen, wird die Intesität der Röntgenstrahlung gegen den Winkel $\theta$ des
     Geiger-Müller Zählrohrs graphisch aufgetragen. Dazu werden die Werte aus die Tabelle \ref{tab:2} und die Pythonbibliothek matplotlib 
     \cite{matplotlib} verwendet. Alle folgendenen Graphen werden mit matplotlib erstellt. Der Graph der Bragg'schen Bedingung sieht aus wie
     folgt:
@@ -189,7 +208,7 @@ Die Winkelintervalle lauten wie folgt:\\
         \lambda_{K_{\beta}} &= \text{\input{L_cu_b.tex}} \label{eq:12b}
     \end{align}
     \end{subequations}
-    \flushleft{Hierbei\;}\justifying ist zu beachten, dass der Winkel $\theta$ mit einem Fehler $\Delta \theta$ von \SI{0.1}{\degree} behaftet ist.
+    \flushleft{Es\;}\justifying ist zu beachten, dass hier alle Winkel $\theta$ mit einem Fehler $\Delta \theta$ von \SI{0.1}{\degree} behaftet ist.
     Dieser Fehler wird mithilfe eines ufloats \cite{uncertainties} an Python übergeben. 
     Mithilfe der Formel \eqref{eq:5} lassen sich die jeweiligen Energien für die $K_{\alpha}$- und $K_{\beta}$-Linie
     berechnen. Diese lauten:
@@ -201,14 +220,14 @@ Die Winkelintervalle lauten wie folgt:\\
     \end{subequations}
     \flushleft{Da\;}\justifying die Linien nicht eindeutig definiert sind, wird das Auflösevermögen der beiden Kanten bestimmt. Dazu wird die 
     Halbwertsbreite der einzelnen Linien benötigt. Die Halbwertsbreiten lassen sich dem Graphen \ref{fig:3} entnehmen. Mithilfe der 
-    Halbwertsbreiten lässt sich das $\Delta E_{FWHM}$ bestimmen, wofür die Wellenlänge der Kanten der jeweiligen Halbwertsbreite benötigt wird. 
+    Halbwertsbreiten lässt sich $\Delta E_{FWHM}$ bestimmen, wofür die Wellenlänge der Kanten der jeweiligen Halbwertsbreite benötigt wird. 
     Die Wellenlängen der Halbwertsbreiten lauten:
     \begin{subequations}\label{eq:14}
     \begin{align}
-        \lambda_{K_{\alpha},links} &= \text{\input{L_HWB_cu_a_links.tex}} \qquad \text{Für}\;\theta = 22.35 \label{eq:14a}\\
-        \lambda_{K_{\alpha},rechts} &= \text{\input{L_HWB_cu_a_rechts.tex}} \qquad \text{Für}\;\theta = 22.85 \label{eq:14b}\\
-        \lambda_{K_{\beta},links} &= \text{\input{L_HWB_cu_b_links.tex}} \qquad \text{Für}\;\theta = 20.05 \label{eq:14c}\\
-        \lambda_{K_{\beta},rechts} &= \text{\input{L_HWB_cu_b_rechts.tex}} \qquad \text{Für}\;\theta = 22.55 \label{eq:14d}
+        \lambda_{K_{\alpha},links} &= \text{\input{L_HWB_cu_a_links.tex}} \qquad \text{für}\;\theta = 22.35 \label{eq:14a}\\
+        \lambda_{K_{\alpha},rechts} &= \text{\input{L_HWB_cu_a_rechts.tex}} \qquad \text{für}\;\theta = 22.85 \label{eq:14b}\\
+        \lambda_{K_{\beta},links} &= \text{\input{L_HWB_cu_b_links.tex}} \qquad \text{für}\;\theta = 20.05 \label{eq:14c}\\
+        \lambda_{K_{\beta},rechts} &= \text{\input{L_HWB_cu_b_rechts.tex}} \qquad \text{für}\;\theta = 22.55 \label{eq:14d}
     \end{align}
     \end{subequations}
     \flushleft{Die\;}\justifying daraus nach Formel \eqref{eq:5} resultierenden Energien lauten:
@@ -220,7 +239,7 @@ Die Winkelintervalle lauten wie folgt:\\
         E_{K_{\beta},rechts} &= \text{\input{E_HWB_cu_b_rechts.tex}} \label{eq:15d}
     \end{align}
     \end{subequations}
-    \flushleft{Für\;}\justifying das $\Delta E_{FWHM}$ wird der Abolutbetrag der Differenz der jeweiligen $E_{K_{\alpha,\beta},links,rechts}$ benötigt.
+    \flushleft{Für\;}\justifying $\Delta E_{FWHM}$ wird der Absolutbetrag der Differenz der jeweiligen $E_{K_{\alpha,\beta},links,rechts}$ benötigt.
     Also ergibt sich für $\Delta E_{FWHM}$:
     \begin{subequations}\label{eq:16}
     \begin{align}
@@ -245,7 +264,7 @@ Die Winkelintervalle lauten wie folgt:\\
         E_{K,\beta} &= R_{\infty} \left( \frac{1}{n} \right)^2 (z-\sigma_1)^2 - R_{\infty} \left( \frac{1}{l} \right)^2 (z-\sigma_3)^2 \label{eq:18c}
     \end{align}
     \end{subequations}
-    \flushleft{Hier\;}\justifying werden $n_1$, $m=2$ und $l=3$ gesetzt. Die Ornungszahl $z$ von Kupfer ist 29. Da sich $\sigma_1$ hier nicht ermitteln lässt, 
+    \flushleft{Hier\;}\justifying werden $n=1$, $m=2$ und $l=3$ gesetzt. Die Ornungszahl $z$ von Kupfer ist 29. Da sich $\sigma_1$ hier nicht ermitteln lässt, 
     wird der Literaturwert für die Absorptionsenergie $E_{K,abs}= \text{\input{E_Kedge_cu.tex}}$ eingesetzt. Die daraus folgende 
     Abschirmkonstante lautet:
     \begin{align}
@@ -260,6 +279,7 @@ Die Winkelintervalle lauten wie folgt:\\
     \end{align}
     \end{subequations}
 
+\newpage
 \subsection{Absorptionsenergie und Abschirmkonstante von Brom}
 
     \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Brom mithilfe der Messwerte aus Tabelle \ref{tab:3} 
@@ -292,7 +312,8 @@ Die Winkelintervalle lauten wie folgt:\\
         }
         \lambda_K &= \text{\input{L_K_br.tex}} \label{eq:21f}\\
         E_{K,Br} &= \text{\input{E_K_br.tex}} \label{eq:21g}
-        \intertext{Abschließend wird die Abschirmkonstante $\sigma_{Br}$ mithilfe von Formel \eqref{eq:4} bestimmt:
+        \intertext{Abschließend wird die Abschirmkonstante $\sigma_{Br}$ mithilfe von Formel \eqref{eq:4} bestimmt, wobei die Ornungszahl von Brom
+        $z=35$ \cite{NIST} ist:
         }
         \sigma_{Br} &= \text{\input{sigma_br.tex}} \label{eq:21h}
     \end{align}
@@ -322,7 +343,7 @@ Die Winkelintervalle lauten wie folgt:\\
         \Rightarrow \theta_K &= \text{\input{theta_K_ga.tex}} \label{eq:22d}\\
         \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_ga.tex}} \label{eq:22e}\\
         \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Ga} &= \text{\input{E_K_ga.tex}} \label{eq:22f}\\
-        \Rightarrow \sigma_{Ga} &= \text{\input{sigma_ga.tex}} \label{eq:22g}
+        \Rightarrow \sigma_{Ga} &= \text{\input{sigma_ga.tex}} \qquad \text{mit}\; z=31\; \text{\cite{NIST}} \label{eq:22g}
     \end{align}
     \end{subequations}
 
@@ -347,7 +368,7 @@ Die Winkelintervalle lauten wie folgt:\\
         \Rightarrow \theta_K &= \text{\input{theta_K_rb.tex}} \label{eq:23d}\\
         \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_rb.tex}} \label{eq:23e}\\
         \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Rb} &= \text{\input{E_K_rb.tex}} \label{eq:23f}\\
-        \Rightarrow \sigma_{Rb} &= \text{\input{sigma_rb.tex}} \label{eq:23g}
+        \Rightarrow \sigma_{Rb} &= \text{\input{sigma_rb.tex}} \text{mit}\; z=37\; \text{\cite{NIST}} \label{eq:23g}
     \end{align}
     \end{subequations}
 
@@ -372,13 +393,13 @@ Die Winkelintervalle lauten wie folgt:\\
         \Rightarrow \theta_K &= \text{\input{theta_K_sr.tex}} \label{eq:24d}\\
         \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_sr.tex}} \label{eq:24e}\\
         \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Sr} &= \text{\input{E_K_sr.tex}} \label{eq:24f}\\
-        \Rightarrow \sigma_{Sr} &= \text{\input{sigma_sr.tex}} \label{eq:24g}
+        \Rightarrow \sigma_{Sr} &= \text{\input{sigma_sr.tex}} \text{mit}\; z=38\; \text{\cite{NIST}} \label{eq:24g}
     \end{align}
     \end{subequations}
 
 \subsection{Absorptionsenergie und Abschirmkonstante von Zink}
 
-    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Zink mithilfe der Messwerte aus Tabelle \ref{tab:5b} 
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Zink mithilfe der Messwerte aus Tabelle \ref{tab:5c} 
     wieder.
 
     \begin{figure}[H]
@@ -397,13 +418,13 @@ Die Winkelintervalle lauten wie folgt:\\
         \Rightarrow \theta_K &= \text{\input{theta_K_zn.tex}} \label{eq:25d}\\
         \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_zn.tex}} \label{eq:25e}\\
         \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Zn}K &= \text{\input{E_K_zn.tex}} \label{eq:25f}\\
-        \Rightarrow \sigma_{Zn} &= \text{\input{sigma_zn.tex}} \label{eq:25g}
+        \Rightarrow \sigma_{Zn} &= \text{\input{sigma_zn.tex}} \text{mit}\; z=30\; \text{\cite{NIST}} \label{eq:25g}
     \end{align}
     \end{subequations}
 
 \subsection{Absorptionsenergie und Abschirmkonstante von Zirkonium}
 
-    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Zirkonium mithilfe der Messwerte aus Tabelle \ref{tab:5b} 
+    \flushleft{Der\;}\justifying folgende Graph \ref{fig:4} gibt das Absorptionsspektrum von Zirkonium mithilfe der Messwerte aus Tabelle \ref{tab:5d} 
     wieder.
 
     \begin{figure}[H]
@@ -422,15 +443,15 @@ Die Winkelintervalle lauten wie folgt:\\
         \Rightarrow \theta_K &= \text{\input{theta_K_zr.tex}} \label{eq:26d}\\
         \stackrel{\eqref{eq:6}}{\Rightarrow} \lambda_K &= \text{\input{L_K_zr.tex}} \label{eq:26e}\\
         \stackrel{\eqref{eq:5}}{\Rightarrow} E_{K,Zr} &= \text{\input{E_K_zr.tex}} \label{eq:26f}\\
-        \Rightarrow \sigma_{Zr} &= \text{\input{sigma_zr.tex}} \label{eq:26g}
+        \Rightarrow \sigma_{Zr} &= \text{\input{sigma_zr.tex}} \text{mit}\; z=40\; \text{\cite{NIST}} \label{eq:26g}
     \end{align}
     \end{subequations}
 
 \subsection{Rydbergfrequenz}
 
     \flushleft{Um\;} die Rydbergfrequenz bestimmen zu können, werden die zuvor bestimmten Energien $E_K$ und Abschirmkonstanten $sigma_K$ der
-    Absorber in dem folgenden $\sqrt{E_K}-Z$ Diagramm aufgetragen. Dazu wird die Geradengleichung \textbf{[...]} ($\sqrt{E_K} = \sqrt{Rh} 
-    \cdot z_{eff,K}$) verwendet. Die Ausgleichsgerade wird mit dem numpy Befehl polyfit \cite{numpy} und den Parametern 
+    Absorber in dem folgenden $\sqrt{E_K}-Z$ Diagramm aufgetragen. Dazu wird die Geradengleichung \eqref{eq:RyGl} verwendet. 
+    Die Ausgleichsgerade wird mit dem numpy Befehl polyfit \cite{numpy} und den Parametern 
     \begin{subequations}\label{27}
     \begin{align}
         m &= \text{\input{m_ry.tex}}\label{eq:27a}\\
@@ -446,21 +467,92 @@ Die Winkelintervalle lauten wie folgt:\\
         \label{fig:10}
     \end{figure}
 
-    \flushleft{Die\;}\justifying Steigung $m$ stellt hier die Wurzel der Rydbergkonstante $\sqrt{R_{\infty}}$ dar. Demnach ist $m^2$ die Rydbergkonstante
+    \flushleft{Da\;}\justifying hier die Steigung $m$ die Wurzel der Rydbergenergie $\sqrt{R \cdot h}$ darstellt, ist $m^2$ die Rydbergfrequenz $R$
+    mal dem plankschen Wirkungsquantum $h$:
     \begin{subequations}\label{28}
     \begin{align}
-        R_{\infty} &= \text{\input{Rydb_const.tex}}\label{eq:28a}
-        \intertext{Die Rydbergfrequenz lässt sich $R_f = \frac{R_{\infty} e}{h}$ bestimmen, wobei $e$ die Elementarladung und $h$ das planksche
-        Wirkungsquantum darstellt. Folglich ist die Rydbergfrequenz
+        m^2 &= R\cdot h = \text{\input{Rydb_const.tex}}\label{eq:28a}
+        \intertext{Die Rydbergfrequenz lässt sich also mit $R_f = \frac{R_{\infty} e}{h}$ bestimmen, wobei $e$ die Elementarladung darstellt. 
+        Folglich ist die Rydbergfrequenz
         }
         R_f &= \text{\input{Rydb_f.tex}}.\label{eq:28b}
     \end{align}
     \end{subequations}
 
+\newpage
 \section{Diskussion}
 
+    \flushleft{Die\;}\justifying Bragg'sche Bedingung behandelt den Glanzwinkel $\theta$, wo konstruktive Interferenz herrscht. Dieser liegt im
+    Graphen \ref{fig:2} beim Maximum $\theta = \text{\input{xmax_bragg.tex}}$. Der theoretische Wert ist hier $\theta=\text{\input{theta_bragg_lit.tex}}$,
+    was sich geometrisch begründen lässt, da der Einfallswinkel geleich dem Ausfallswinkel sein muss. Der relative Fehler beträgt demnach:
+    \begin{align}
+        \frac{\theta-\theta_{Lit.}}{\theta_{Lit.}} &= \text{\input{theta_bragg_err.tex}.}\label{eq:29}
+    \end{align}
+    \flushleft{Der\;}\justifying kleine relative Fehler gibt die Genauigkeit des Messgeräts und die Beschaffenheit des LiF-Kristalls wieder.
+    Der Fehler kann auf die Verunreinigungen der Oberfläche des LiF-Kristalls und dem Sauerstoff zwischen Kupferröhre und Geiger-Müller
+    Zählrohr zurückgeführt werden. Da die Bragg'sche Bedingung Auskunft über die Genauigkeit der Emissionsspektren, bzw. der Absorptionsspektren
+    gibt, indem es die Lage der konstruktiven Interferenz anahnd einer Gaußkurve beschreibt, kann eine Abweichung vom theoretischen Glanzwinkels
+    von \SI{1}{\degree} oder \SI{3}{\degree} die Form der Spektren verändern. Die Gaußform der Kurve diktiert, dass die Intensität in beiden 
+    Richtungen vom Maximum schnell abfällt, also würden die folgenden Spektren an Intensität verlieren. Dies würde es erschweren, die genaue 
+    Position der K-Kanten zu erkennen.
+
+    \flushleft{Wird\;}\justifying das Emissionsspektrum von Kupfer \ref{fig:3} betrachtet, sind die charakteristischen Linien klar erkennbar.
+    Jedoch kann die minimale Wellenlänge nicht bestimmt werden, da das Spektrum nur in einem Intervall von $\SI{8}{\degree}\leq\alpha\leq\SI{25}{\degree}$
+    gemessen wurde. Würde das Intervall erweitert werden, könnten die L-Kanten von Kupfer gemessen werden, was vorraussetzt, dass der Bremsberg hinter
+    der K-Kante weitergehen muss. Die Auflösevermögen
+    \begin{subequations}\label{eq:30}
+    \begin{align}
+    A_{K_{\alpha}}  &= \text{\input{A_cu_a.tex}} \label{eq:30a}\\
+    A_{K_{\beta}}   &= \text{\input{A_cu_b.tex}} \label{eq:30b}
+    \end{align}
+    \end{subequations} 
+    \flushleft{weisen\;}\justifying einen relativ hohen Fehler auf. Dies kann durch die geringe Messwertzahl um die jeweiligen Maxima der $K_{\alpha}$- 
+    bzw. $K_{\beta}$-Linie erklärt werden, da mehr Messwerte zur besseren Auflösung der einzelnen Linien beitragen. Demnach ist die Bestimmung
+    eines statistischen Fehlers nicht sinnvoll.
+    
+    \flushleft{Die\;}\justifying folgende Tabelle gibt die berechneten Werte der Kupferröhre, der Absorber und der Rydbergfrequenz mit ihren 
+    Literaturwerten und relativen Fehlern wieder:
+
+    \begin{table}[H]
+    \centering
+        \begin{tabular}{l c c r}
+            \toprule
+            \multicolumn{1}{c}{} & \multicolumn{1}{c}{Messwerte} & \multicolumn{1}{c}{Literaturwerte} & \multicolumn{1}{c}{Relativer Fehler}\\
+            \cmidrule(lr{0,5em}){1-4}
+            $E_{K_{\alpha}}$            & \input{E_cu_a.tex}            & \input{E_cu_a_lit.tex} \cite{NIST}            & \input{E_cu_a_err.tex} \\
+            $E_{K_{\beta}}$             & \input{E_cu_b.tex}            & \input{E_cu_b_lit.tex} \cite{NIST}            & \input{E_cu_b_err.tex} \\
+            $E_{K_{Br}}$                & \input{E_K_br.tex}            & \input{E_K_br_lit.tex} \cite{NIST}            & \input{E_K_br_err.tex} \\
+            $\sigma_{K_{Br}}$           & \input{sigma_br.tex}          & \input{sigma_br_lit.tex}                      & \input{sigma_br_err.tex} \\
+            $E_{K_{Ga}}$                & \input{E_K_ga.tex}            & \input{E_K_ga_lit.tex} \cite{NIST}            & \input{E_K_ga_err.tex} \\
+            $\sigma_{K_{Ga}}$           & \input{sigma_ga.tex}          & \input{sigma_ga_lit.tex}                      & \input{sigma_ga_err.tex} \\
+            $E_{K_{Rb}}$                & \input{E_K_rb.tex}            & \input{E_K_rb_lit.tex} \cite{NIST}            & \input{E_K_rb_err.tex} \\
+            $\sigma_{K_{Rb}}$           & \input{sigma_rb.tex}          & \input{sigma_rb_lit.tex}                      & \input{sigma_rb_err.tex} \\
+            $E_{K_{Sr}}$                & \input{E_K_sr.tex}            & \input{E_K_sr_lit.tex} \cite{NIST}            & \input{E_K_sr_err.tex} \\
+            $\sigma_{K_{Sr}}$           & \input{sigma_sr.tex}          & \input{sigma_sr_lit.tex}                      & \input{sigma_sr_err.tex} \\
+            $E_{K_{Zn}}$                & \input{E_K_zn.tex}            & \input{E_K_zn_lit.tex} \cite{NIST}            & \input{E_K_zn_err.tex} \\
+            $\sigma_{K_{Zn}}$           & \input{sigma_zn.tex}          & \input{sigma_zn_lit.tex}                      & \input{sigma_zn_err.tex} \\
+            $E_{K_{Zr}}$                & \input{E_K_zr.tex}            & \input{E_K_zr_lit.tex} \cite{NIST}            & \input{E_K_zr_err.tex} \\
+            $\sigma_{K_{Zr}}$           & \input{sigma_zr.tex}          & \input{sigma_zr_lit.tex}                      & \input{sigma_zr_err.tex} \\
+            $R$                         & \input{Rydb_f.tex}            & \input{Rydb_f_lit.tex} \cite{numpy}           & \input{Rydb_f_err.tex} \\
+            \bottomrule
+        \end{tabular}
+    \caption{Messwertvergleich mit den jeweiligen Literaturwerten und relativen Fehlern}
+    \label{tab:6}
+    \end{table}
+
+    \flushleft{Werden\;}\justifying die relativen Fehler betrachtet, ist es auffällig, dass die Fehler der Messwerte sehr klein sind. Dies kann sich
+    auf die Bragg'sche Bedingung zurückführen lassen, da dort bereits ein kleiner Fehler des Glanzwinkels bestimmt wurde. Diese geringe 
+    Messungenauigkeit hat demnach kleine Fehler in den Energien zufolge. Da die Abschirmkonstanten unmittelbar von den Energien abhängen,
+    sind auch diese Fehler gering. Außerdem spielt das für die Kupferröhre gemessene Auflösevermögen \eqref{eq:30} auch für die Absorber eine Rolle,
+    da aufgrund der geringen Messwertzahl ein genaues Ablesen der HWB nicht möglich ist. 
+
+    \flushleft{Der\;}\justifying Graph \ref{fig:10} hat ebenso einen nahezu perfekten Fit. Alle berechneten Werte der Energien liegen genau auf der
+    Ausgleichsgerade. Folglich hat die Rydbergfrequenz den geringsten Fehler, die zuvor enstandenden Fehler der Energien fast gänzlich kompensiert
+    werden.  
+
 \newpage
-\section{Literatur}
+\printbibliography
+
 
 \newpage
 \section{Appendix}
@@ -469,7 +561,7 @@ Die Winkelintervalle lauten wie folgt:\\
 
     \begin{table}[H]
         \centering
-        \caption{Bragg}
+        \caption{Messwerte zur Bragg'schen Bedingung}
         \input{table_bragg.tex}
         \label{tab:2}
     \end{table}
