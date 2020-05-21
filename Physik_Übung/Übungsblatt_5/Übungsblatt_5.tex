@@ -43,15 +43,15 @@
         }
         V(x)
         &\begin{cases}
-            \frac{2(z-2)e^2}{4\pi \epsilon_0 x} \qquad \text{für}\; x > x_1=R_0 \qquad \text{einsetzten in (*)}\\
+            \frac{2(z-2)e^2}{4\pi \varepsilon_0 x} \qquad \text{für}\; x > x_1=R_0 \qquad \text{einsetzten in (*)}\\
             0 \qquad \qquad \quad \!\text{für}\; x<x_1
         \end{cases}
         \intertext{\flushleft{Die\;}\justifying Wahrscheinlichkeit $P$, mit der das $\alpha$-Teilchen die Potentialbarriere durchtunnelt:
         }
-        P(x) &\approx exp\left( -2 \int_{R_0}^{b} \frac{1}{\hbar} \sqrt{2m\left( \frac{2(z-2)e^2}{4\pi \epsilon_0 x} -E \right)} \mathrm{d}x \right)
+        P(x) &\approx exp\left( -2 \int_{R_0}^{b} \frac{1}{\hbar} \sqrt{2m\left( \frac{2(z-2)e^2}{4\pi \varepsilon_0 x} -E \right)} \mathrm{d}x \right)
         \intertext{\flushleft{Substitution:\;}\justifying
         }
-        b &= \frac{2(z-2)e^2}{4\pi \epsilon_0 E}\\
+        b &= \frac{2(z-2)e^2}{4\pi \varepsilon_0 E}\\
         \frac{x}{b} &= \sin^2(u) \Leftrightarrow x = b\sin^2(u) \Leftrightarrow \frac{b}{x} = \frac{1}{\sin^2(u)}\\
         \frac{\mathrm{d}x}{\mathrm{d}u} &= 2b \sin(u)\cos(u)\\
         \Leftrightarrow \mathrm{d}x &= 2b \sin(u)\cos(u) \mathrm{d}u
@@ -90,11 +90,11 @@
         }
         \tau &\approx \frac{t_0}{P}
         \stackrel{(*)}{=} \frac{1}{nP}
-        \intertext{\flushleft{In\;}\justifying der Zeit $\mathrm{d}t$ zerfällen dN  Kerne in der Zeit dt.
+        \intertext{\flushleft{In\;}\justifying der Zeit $\mathrm{d}t$ zerfallen dN Kerne.
         Die Wahrscheinlichkeit, das ein Kern im Zeitintervall zerfällt, ist durch $\sfrac{dt}{\tau} $ gegeben.
         }
         \mathrm{d}N &= -\frac{N}{\tau} \mathrm{d}t
-        \intertext{\flushleft{Die:\;}\justifying Lösung der DGL ergibt:
+        \intertext{\flushleft{Die\;}\justifying Lösung der DGL ergibt:
         }
         N &= N_0 exp\left( -\frac{t}{\tau} \right)\\
         \frac{N}{N_0} &= \frac{1}{2} = exp\left( -\frac{t_{\sfrac{1}{2}}}{\tau} \right)\\
@@ -112,37 +112,37 @@
             -e\varepsilon_x x, \quad x>0
         \end{cases}\\
         P(x) &= exp\left( -2 \int_{0}^{b} \kappa(x) \mathrm{d}x \right)\\
-        &= exp\left( -2 \int_{0}^{b} \frac{1}{\hbar} \sqrt{2m(-e\epsilon_x x-E)}\, \mathrm{d}x \right)
+        &= exp\left( -2 \int_{0}^{b} \frac{1}{\hbar} \sqrt{2m(-e\varepsilon_x x-E)}\, \mathrm{d}x \right)
         \intertext{\flushleft{$2mE$\;}\justifying ausklammern:
         }
-        &= exp\left( -2 \frac{\sqrt{2mE}}{\hbar} \int_{0}^{b} \sqrt{-\frac{e\epsilon_x x}{E}-1}\, \mathrm{d}x \right)
+        &= exp\left( -2 \frac{\sqrt{2mE}}{\hbar} \int_{0}^{b} \sqrt{-\frac{e\varepsilon_x x}{E}-1}\, \mathrm{d}x \right)
         \intertext{\flushleft{Substitution:\;}\justifying
         }
-        u &= -\frac{e\epsilon_x x}{E}-1\\
-        \frac{\mathrm{d}u}{\mathrm{d}x} &=  -\frac{e\epsilon_x}{E}\\
-        \Leftrightarrow \mathrm{d}x &= \frac{-E}{e\epsilon_x}\, \mathrm{d}u
+        u &= -\frac{e\varepsilon_x x}{E}-1\\
+        \frac{\mathrm{d}u}{\mathrm{d}x} &=  -\frac{e\varepsilon_x}{E}\\
+        \Leftrightarrow \mathrm{d}x &= \frac{-E}{e\varepsilon_x}\, \mathrm{d}u
         \intertext{\flushleft{$u$\;}\justifying und $\mathrm{d}x$ einsetzten:
         }
-        &= exp\left( -2 \frac{\sqrt{2mE}}{\hbar} \int_{-1}^{u(b)} \sqrt{u} \frac{(-E)}{e\epsilon_x}\, \mathrm{d}u \right)\\
-        &= exp\left( 2 \frac{\sqrt{2mE^3}}{\hbar e\epsilon_x} \left[ \frac{2}{3} u^{\frac{3}{2}} \right]_{-1}^{u(b)} \right)
+        &= exp\left( -2 \frac{\sqrt{2mE}}{\hbar} \int_{-1}^{u(b)} \sqrt{u} \frac{(-E)}{e\varepsilon_x}\, \mathrm{d}u \right)\\
+        &= exp\left( 2 \frac{\sqrt{2mE^3}}{\hbar e\varepsilon_x} \left[ \frac{2}{3} u^{\frac{3}{2}} \right]_{-1}^{u(b)} \right)
         \intertext{\flushleft{$u$\;}\justifying rücksubstituieren:
         }
-        &= exp\left( \frac{4}{3} \frac{\sqrt{2mE^3}}{\hbar e\epsilon_x} \left( \sqrt{\left( -\frac{e\epsilon_x b}{E}-1 \right)^3}-\sqrt{-1} \right) \right)\\
-        E_{el} &= -e\epsilon_x b\\
-        \Leftrightarrow b &= -\frac{E_{el}}{e\epsilon_x}
+        &= exp\left( \frac{4}{3} \frac{\sqrt{2mE^3}}{\hbar e\varepsilon_x} \left( \sqrt{\left( -\frac{e\varepsilon_x b}{E}-1 \right)^3}-\sqrt{-1} \right) \right)\\
+        E_{el} &= -e\varepsilon_x b\\
+        \Leftrightarrow b &= -\frac{E_{el}}{e\varepsilon_x}
         \intertext{\flushleft{$b$\;}\justifying einsetzten:
         }
-        &= exp\left( \frac{4}{3} \frac{\sqrt{2mE^3}}{\hbar e\epsilon_x} \left( \sqrt{1-1}-\sqrt{-1} \right) \right)\\
-        &= exp\left( -\frac{4}{3} \frac{\sqrt{-2mE^3}}{\hbar e\epsilon_x} \right)
+        &= exp\left( \frac{4}{3} \frac{\sqrt{2mE^3}}{\hbar e\varepsilon_x} \left( \sqrt{1-1}-\sqrt{-1} \right) \right)\\
+        &= exp\left( -\frac{4}{3} \frac{\sqrt{-2mE^3}}{\hbar e\varepsilon_x} \right)
     \end{align*}
 
 \subsection{d)}
 
     \begin{align*}
-        \intertext{\flushleft{$P$\;}\justifying für $E_{el}=-4.5eV$ und $\epsilon_x=\SI{5e+08}{\volt\per\meter}$:
+        \intertext{\flushleft{$P$\;}\justifying für $E_{el}=-4.5eV$ und $\varepsilon_x=\SI{5e+08}{\volt\per\meter}$:
         }
         P_1 = exp\left( -\frac{4}{3} \frac{\sqrt{ -2m_e \cdot \SI{-91.125}{\electronvolt}}}{\hbar e \cdot \SI{5e+08}{\volt\per\meter}} \right) = \text{\input{P_1.tex}}
-        \intertext{\flushleft{$P$\;}\justifying für $E_{el}=-4.5eV$ und $\epsilon_x=\SI{5e+09}{\volt\per\meter}$:
+        \intertext{\flushleft{$P$\;}\justifying für $E_{el}=-4.5eV$ und $\varepsilon_x=\SI{5e+09}{\volt\per\meter}$:
         }
         P_2 = exp\left( -\frac{4}{3} \frac{\sqrt{ -2m_e \cdot \SI{-91.125}{\electronvolt}}}{\hbar e \cdot \SI{5e+09}{\volt\per\meter}} \right) = \text{\input{P_2.tex}}
     \end{align*}
