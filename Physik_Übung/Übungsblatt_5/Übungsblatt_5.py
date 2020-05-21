@@ -27,5 +27,5 @@ def make_SI(num, unit, exp='', figures=None):
 
 
 
-print(np.exp(4 * np.sqrt(2 *const.m_e *(4.5*const.e)**3)/(3*const.hbar*5e09*const.e)))
-print(const.m_e)
+print(np.exp(-4 * np.sqrt(2 *const.m_e *(4.5*const.e)**3)/(3*const.hbar*5e08*const.e)))
+
