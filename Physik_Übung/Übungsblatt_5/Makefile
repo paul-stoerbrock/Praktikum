@@ -1,6 +1,6 @@
 all: build/Übungsblatt_5.pdf
 
-build/Übungsblatt_5.pdf: FORCE Übungsblatt_5.tex Übungsblatt_4.py |build
+build/Übungsblatt_5.pdf: FORCE Übungsblatt_5.tex  |build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS=build:\
 	max_print_line=1048576 \
