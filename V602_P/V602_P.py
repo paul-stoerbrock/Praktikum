@@ -51,8 +51,36 @@ z_zr = 40
 
 theta_bragg_lit = 28 #degree
 E_Kedge_cu = 8987.9615 #eV
+E_cu_a_lit = 7884.8368
+E_cu_b_lit = 8859.814
+E_K_br_lit = 13483.8619 #eV
+E_K_ga_lit = 10377.7616 #eV
+E_K_rb_lit = 15207.7422 #eV
+E_K_sr_lit = 16115.2623 #eV
+E_K_zn_lit = 9668.5515 #eV
+E_K_zr_lit = 18008.1526 #eV
 
 
+
+# tex file for theta_bragg_lit
+
+with open('build/theta_bragg_lit.tex', 'w') as f:
+  f.write(make_SI(theta_bragg_lit,r'°', figures=1))
+
+# tex file for E_Kedge_cu
+
+with open('build/E_Kedge_cu.tex', 'w') as f:
+  f.write(make_SI(E_Kedge_cu,r'\electronvolt', figures=0))
+
+# tex file for E_cu_a_lit
+
+with open('build/E_cu_a_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_a_lit,r'\electronvolt', figures=1))
+
+# tex file for E_cu_b_lit
+
+with open('build/E_cu_b_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_b_lit,r'\electronvolt', figures=1))
 
 #Braggsche Bedingung-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -72,7 +100,7 @@ err_bragg = np.sqrt(np.diag(pcovBragg))
 
 plt.plot(theta_bragg, N_bragg, 'kx', label='Messwerte')
 x_plot = np.linspace(26, 30, 1000)
-plt.plot(x_plot, Gauß(x_plot,*popBragg), linestyle='-', label='Nicht-lineare Regression')
+plt.plot(x_plot, Gauß(x_plot,*popBragg), linestyle='-', label='Ausgleichskurve')
 
 plt.xlabel(r'Winkel $\theta\;[\degree]$')
 plt.ylabel(r'Impuls [s$^{-1}$]')
@@ -90,7 +118,12 @@ b = ufloat(popBragg[1], err_bragg[1])
 c = ufloat(popBragg[2], err_bragg[2])
 d = ufloat(popBragg[3], err_bragg[3])
 
-theta_bragg_diff = np.abs(theta_bragg_lit - xmax_bragg)
+theta_bragg_err = abs(xmax_bragg-theta_bragg_lit)/theta_bragg_lit
+
+# tex file for theta_bragg_err
+
+with open('build/theta_bragg_err.tex', 'w') as f:
+  f.write(make_SI(theta_bragg_err*1e+02,r'\percent', figures=1))
 
 # tex file for a
 
@@ -112,10 +145,20 @@ with open('build/c.tex', 'w') as f:
 with open('build/d.tex', 'w') as f:
   f.write(make_SI(d,r'', figures=1))
 
-# tex file for theta_bragg_diff
+# tex file for xmax_bragg
 
-with open('build/theta_bragg_diff.tex', 'w') as f:
-  f.write(make_SI(theta_bragg_diff,r'\degree', figures=1))
+with open('build/xmax_bragg.tex', 'w') as f:
+  f.write(make_SI(xmax_bragg,r'\degree', figures=1))
+
+# tex file for ymax_bragg
+
+with open('build/ymax_bragg.tex', 'w') as f:
+  f.write(make_SI(ymax_bragg,r'\per\second', figures=1))
+
+# tex file for theta_bragg_err
+
+with open('build/theta_bragg_err.tex', 'w') as f:
+  f.write(make_SI(theta_bragg_err*1e+02,r'\percent', figures=1))
 
 #Emissionsspektrum Kupfer---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -131,15 +174,15 @@ ymax_cu = np.max(N_cu)
 xmax_cu = theta_cu[145]
 ylmax_cu = N_cu[122]
 xlmax_cu = theta_cu[122]
-HWB_lKa_cu_a = 22.3
-HWB_rKa_cu_a = 22.9
-HWB_lKa_cu_b = 20
-HWB_rKa_cu_b = 20.6
+HWB_lKa_cu_a = 22.35
+HWB_rKa_cu_a = 22.85
+HWB_lKa_cu_b = 20.05
+HWB_rKa_cu_b = 20.55
 plt.axvline(x=xmax_cu, color='r', linestyle= ':', label='$K_{\\alpha}$-Linie')
 plt.axvline(x=xlmax_cu, color='b', linestyle= ':', label='$K_{\\beta}$-Linie')
-plt.annotate('$K_{\\alpha}$', xy=(xmax_cu, 2500), xycoords='data', xytext=(xmax_cu+1, 2500), textcoords='data', arrowprops=dict(arrowstyle='->', facecolor='grey'), horizontalalignment='left')
-plt.annotate('$K_{\\beta}$', xy=(xlmax_cu, 2500), xycoords='data', xytext=(xlmax_cu+1, 2500), textcoords='data', arrowprops=dict(arrowstyle='->', facecolor='grey'), horizontalalignment='left')
-plt.annotate('Bremsstrahlung', xy=(xmax_cu/2, 1100), xytext=(xmax_cu/2, 1100), verticalalignment='top', horizontalalignment='left')
+plt.annotate('$K_{\\alpha}$', xy=(xmax_cu, 3500), xycoords='data', xytext=(xmax_cu+1, 3500), textcoords='data', arrowprops=dict(arrowstyle='->', facecolor='grey'), horizontalalignment='left')
+plt.annotate('$K_{\\beta}$', xy=(xlmax_cu, 3500), xycoords='data', xytext=(xlmax_cu+1, 3500), textcoords='data', arrowprops=dict(arrowstyle='->', facecolor='grey'), horizontalalignment='left')
+plt.annotate('Bremsberg', xy=(xmax_cu/2, 1100), xytext=(xmax_cu/2, 1100), verticalalignment='top', horizontalalignment='left')
 plt.axvline(x=HWB_lKa_cu_a, color='grey', linestyle= '-', label='Grenzen der Halbwertsbreite (HWB)')
 plt.axvline(x=HWB_rKa_cu_a, color='grey', linestyle= '-', label='')
 plt.axvline(x=HWB_lKa_cu_b, color='grey', linestyle= '-', label='')
@@ -152,29 +195,41 @@ plt.tight_layout
 plt.savefig('build/plotCu.pdf')
 plt.close()
 
+# tex file for xmax_cu
+
+with open('build/xmax_cu.tex', 'w') as f:
+  f.write(make_SI(xmax_cu,r'°', figures=1))
+
+# tex file for xlmax_cu
+
+with open('build/xlmax_cu.tex', 'w') as f:
+  f.write(make_SI(xlmax_cu,r'°', figures=1))
+
 xmax_cu = ufloat(np.deg2rad(22.5), np.deg2rad(0.1))
 xlmax_cu = ufloat(np.deg2rad(20.2), np.deg2rad(0.1))
-Breite_lKa_cu_a = ufloat(np.deg2rad(22.3), np.deg2rad(0.1))
-Breite_rKa_cu_a = ufloat(np.deg2rad(22.9), np.deg2rad(0.1))
-Breite_lKa_cu_b = ufloat(np.deg2rad(20), np.deg2rad(0.1))
-Breite_rKa_cu_b = ufloat(np.deg2rad(20.6), np.deg2rad(0.1))
-
-
-HWB_cu_bogen_a = abs(Breite_rKa_cu_a-Breite_lKa_cu_a)
-HWB_cu_bogen_b = abs(Breite_rKa_cu_b-Breite_lKa_cu_b)
+Breite_lKa_cu_a = ufloat(np.deg2rad(22.35), np.deg2rad(0.1))
+Breite_rKa_cu_a = ufloat(np.deg2rad(22.85), np.deg2rad(0.1))
+Breite_lKa_cu_b = ufloat(np.deg2rad(20.05), np.deg2rad(0.1))
+Breite_rKa_cu_b = ufloat(np.deg2rad(20.55), np.deg2rad(0.1))
 
 
 L_cu_a = 2*d_LiF*unp.sin(xmax_cu)
 L_cu_b = 2*d_LiF*unp.sin(xlmax_cu)
-L_HWB_cu_a = 2*d_LiF*unp.sin(HWB_cu_bogen_a)
-L_HWB_cu_b = 2*d_LiF*unp.sin(HWB_cu_bogen_b)
+L_HWB_cu_a_links = 2*d_LiF*unp.sin(Breite_lKa_cu_a)
+L_HWB_cu_a_rechts = 2*d_LiF*unp.sin(Breite_rKa_cu_a)
+L_HWB_cu_b_links = 2*d_LiF*unp.sin(Breite_lKa_cu_b)
+L_HWB_cu_b_rechts = 2*d_LiF*unp.sin(Breite_rKa_cu_b)
 
 
 E_cu_a = (const.h*const.c)/(L_cu_a*const.e)
 E_cu_b = (const.h*const.c)/(L_cu_b*const.e)
-E_HWB_cu_a = (const.h*const.c)/(L_HWB_cu_a*const.e)
-E_HWB_cu_b = (const.h*const.c)/(L_HWB_cu_b*const.e)
+E_HWB_cu_a_links = (const.h*const.c)/(L_HWB_cu_a_links*const.e)
+E_HWB_cu_a_rechts = (const.h*const.c)/(L_HWB_cu_a_rechts*const.e)
+E_HWB_cu_b_links = (const.h*const.c)/(L_HWB_cu_b_links*const.e)
+E_HWB_cu_b_rechts = (const.h*const.c)/(L_HWB_cu_b_rechts*const.e)
 
+E_HWB_cu_a = abs(E_HWB_cu_a_rechts-E_HWB_cu_a_links)
+E_HWB_cu_b = abs(E_HWB_cu_b_rechts-E_HWB_cu_b_links)
 
 A_cu_a = E_cu_a/E_HWB_cu_a
 A_cu_b = E_cu_b/E_HWB_cu_b
@@ -184,35 +239,55 @@ sigma1_cu = z_cu-np.sqrt(E_Kedge_cu/R_infty)
 sigma2_cu = z_cu-unp.sqrt(4*(E_Kedge_cu-E_cu_a)/R_infty)
 sigma3_cu = z_cu-unp.sqrt(9*(E_Kedge_cu-E_cu_b)/R_infty)
 
-# tex file for xmax_cu
+E_cu_a_err = abs(E_cu_a-E_cu_a_lit)/E_cu_a_lit
+E_cu_b_err = abs(E_cu_b-E_cu_b_lit)/E_cu_b_lit
 
-with open('build/xmax_cu.tex', 'w') as f:
-  f.write(make_SI(xmax_cu,r'°', figures=1))
+
+
 
 # tex file for L_cu_a
 
 with open('build/L_cu_a.tex', 'w') as f:
-  f.write(make_SI(L_cu_a,r'', figures=1))
+  f.write(make_SI(L_cu_a*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_cu_a
 
 with open('build/E_cu_a.tex', 'w') as f:
-  f.write(make_SI(E_cu_a,r'', figures=1))
+  f.write(make_SI(E_cu_a,r'\electronvolt', figures=1))
 
-# tex file for xlmax_cu
+# tex file for E_cu_a_lit
 
-with open('build/xlmax_xu.tex', 'w') as f:
-  f.write(make_SI(xlmax_cu,r'°', figures=1))
+with open('build/E_cu_a_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_a_lit,r'\electronvolt', figures=1))
+
+# tex file for E_cu_a_err
+
+with open('build/E_cu_a_err.tex', 'w') as f:
+  f.write(make_SI(E_cu_a_err*1e+02,r'\percent', figures=1))
+
+
 
 # tex file for L_cu_b
 
 with open('build/L_cu_b.tex', 'w') as f:
-  f.write(make_SI(L_cu_b,r'', figures=1))
+  f.write(make_SI(L_cu_b*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_cu_b
 
 with open('build/E_cu_b.tex', 'w') as f:
-  f.write(make_SI(E_cu_b,r'', figures=1))
+  f.write(make_SI(E_cu_b,r'\electronvolt', figures=1))
+
+# tex file for E_cu_b_lit
+
+with open('build/E_cu_b_lit.tex', 'w') as f:
+  f.write(make_SI(E_cu_b_lit,r'\electronvolt', figures=1))
+
+# tex file for E_cu_b_err
+
+with open('build/E_cu_b_err.tex', 'w') as f:
+  f.write(make_SI(E_cu_b_err*1e+02,r'\percent', figures=1))
+
+
 
 # tex file for Breite_lKa_cu_a
 
@@ -234,30 +309,60 @@ with open('build/Breite_lKa_cu_b.tex', 'w') as f:
 with open('build/Breite_rKa_cu_b.tex', 'w') as f:
   f.write(make_SI(Breite_rKa_cu_b,r'°', figures=1))
 
-# tex file for L_HWB_cu_a
+# tex file for L_HWB_cu_a_links
 
-with open('build/L_HWB_cu_a.tex', 'w') as f:
-  f.write(make_SI(L_HWB_cu_a,r'', figures=1))
+with open('build/L_HWB_cu_a_links.tex', 'w') as f:
+  f.write(make_SI(L_HWB_cu_a_links*1e+12,r'\pico\meter', figures=1))
+
+# tex file for L_HWB_cu_a_rechts
+
+with open('build/L_HWB_cu_a_rechts.tex', 'w') as f:
+  f.write(make_SI(L_HWB_cu_a_rechts*1e+12,r'\pico\meter', figures=1))
+
+# tex file for E_HWB_cu_a_links
+
+with open('build/E_HWB_cu_a_links.tex', 'w') as f:
+  f.write(make_SI(E_HWB_cu_a_links,r'\electronvolt', figures=1))
+
+# tex file for E_HWB_cu_a_rechts
+
+with open('build/E_HWB_cu_a_rechts.tex', 'w') as f:
+  f.write(make_SI(E_HWB_cu_a_rechts,r'\electronvolt', figures=1))
 
 # tex file for E_HWB_cu_a
 
 with open('build/E_HWB_cu_a.tex', 'w') as f:
-  f.write(make_SI(E_HWB_cu_a,r'', figures=1))
+  f.write(make_SI(E_HWB_cu_a,r'\electronvolt', figures=1))
 
 # tex file for A_cu_a
 
 with open('build/A_cu_a.tex', 'w') as f:
   f.write(make_SI(A_cu_a,r'', figures=1))
 
-# tex file for L_HWB_cu_b
+# tex file for L_HWB_cu_b_links
 
-with open('build/L_HWB_cu_b.tex', 'w') as f:
-  f.write(make_SI(L_HWB_cu_b,r'', figures=1))
+with open('build/L_HWB_cu_b_links.tex', 'w') as f:
+  f.write(make_SI(L_HWB_cu_b_links*1e+12,r'\pico\meter', figures=1))
+
+# tex file for L_HWB_cu_b_rechts
+
+with open('build/L_HWB_cu_b_rechts.tex', 'w') as f:
+  f.write(make_SI(L_HWB_cu_b_rechts*1e+12,r'\pico\meter', figures=1))
+
+# tex file for E_HWB_cu_b_links
+
+with open('build/E_HWB_cu_b_links.tex', 'w') as f:
+  f.write(make_SI(E_HWB_cu_b_links,r'\electronvolt', figures=1))
+
+# tex file for E_HWB_cu_b_rechts
+
+with open('build/E_HWB_cu_b_rechts.tex', 'w') as f:
+  f.write(make_SI(E_HWB_cu_b_rechts,r'\electronvolt', figures=1))
 
 # tex file for E_HWB_cu_b
 
 with open('build/E_HWB_cu_b.tex', 'w') as f:
-  f.write(make_SI(E_HWB_cu_b,r'', figures=1))
+  f.write(make_SI(E_HWB_cu_b,r'\electronvolt', figures=1))
 
 # tex file for A_cu_b
 
@@ -312,6 +417,8 @@ L_K_br = 2*d_LiF*unp.sin(theta_K_br)
 
 E_K_br = (const.h*const.c)/(L_K_br*const.e)
 
+E_K_br_err = abs(E_K_br-E_K_br_lit)/E_K_br_lit
+
 # tex file for I_max_br
 
 with open('build/I_max_br.tex', 'w') as f:
@@ -335,12 +442,22 @@ with open('build/theta_K_br.tex', 'w') as f:
 # tex file for L_K_br
 
 with open('build/L_K_br.tex', 'w') as f:
-  f.write(make_SI(L_K_br,r'°', figures=1))
+  f.write(make_SI(L_K_br*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_K_br
 
 with open('build/E_K_br.tex', 'w') as f:
-  f.write(make_SI(E_K_br,r'°', figures=1))
+  f.write(make_SI(E_K_br,r'\electronvolt', figures=1))
+
+# tex file for E_K_br_lit
+
+with open('build/E_K_br_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_br_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_br_err
+
+with open('build/E_K_br_err.tex', 'w') as f:
+  f.write(make_SI(E_K_br_err*1e+02,r'\percent', figures=2))
 
 #Absorbtionsspektrum Gallium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -364,7 +481,7 @@ xmin_ga = theta_gallium[1]
 plt.axvline(x=xmax_ga, color='r', linestyle= '--', label='$K_{Edge}$-Linie (Ende)')
 plt.axvline(x=xmin_ga, color='b', linestyle= '--', label='$K_{Edge}$-Linie (Anfang)')
 plt.axvline(x=theta_K_ga_graph, color='grey', linestyle= '--', label='$\\theta$')
-plt.axhline(y=I_K_ga, color='grey', linestyle= ':', label='$I_K(\\Theta)$')
+plt.axhline(y=I_K_ga, color='grey', linestyle= ':', label='$I_K(\\theta)$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -374,6 +491,9 @@ plt.close()
 L_K_ga = 2*d_LiF*unp.sin(theta_K_ga)
 
 E_K_ga = (const.h*const.c)/(L_K_ga*const.e)
+
+E_K_ga_err = abs(E_K_ga-E_K_ga_lit)/E_K_ga_lit
+
 
 # tex file for I_max_ga
 
@@ -398,12 +518,22 @@ with open('build/theta_K_ga.tex', 'w') as f:
 # tex file for L_K_ga
 
 with open('build/L_K_ga.tex', 'w') as f:
-  f.write(make_SI(L_K_ga,r'°', figures=1))
+  f.write(make_SI(L_K_ga*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_K_ga
 
 with open('build/E_K_ga.tex', 'w') as f:
-  f.write(make_SI(E_K_ga,r'°', figures=1))
+  f.write(make_SI(E_K_ga,r'\electronvolt', figures=1))
+
+# tex file for E_K_ga_lit
+
+with open('build/E_K_ga_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_ga_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_ga_err
+
+with open('build/E_K_ga_err.tex', 'w') as f:
+  f.write(make_SI(E_K_ga_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Rubidium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -427,7 +557,7 @@ xmin_rb = theta_rub[2]
 plt.axvline(x=xmax_rb, color='r', linestyle= '--', label='$K_{Edge}$-Linie (Ende)')
 plt.axvline(x=xmin_rb, color='b', linestyle= '--', label='$K_{Edge}$-Linie (Anfang)')
 plt.axvline(x=theta_K_rb_graph, color='grey', linestyle= '--', label='$\\theta$')
-plt.axhline(y=I_K_rb, color='grey', linestyle= ':', label='$I_K(\\Theta)$')
+plt.axhline(y=I_K_rb, color='grey', linestyle= ':', label='$I_K(\\theta)$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -437,6 +567,9 @@ plt.close()
 L_K_rb = 2*d_LiF*unp.sin(theta_K_rb)
 
 E_K_rb = (const.h*const.c)/(L_K_rb*const.e)
+
+E_K_rb_err = abs(E_K_rb-E_K_rb_lit)/E_K_rb_lit
+
 
 # tex file for I_max_rb
 
@@ -455,18 +588,28 @@ with open('build/I_K_rb.tex', 'w') as f:
 
 # tex file for theta_K_rb
 
-with open('build/theta_K_br.tex', 'w') as f:
+with open('build/theta_K_rb.tex', 'w') as f:
   f.write(make_SI(theta_K_rb_graph,r'°', figures=1))
 
 # tex file for L_K_rb
 
 with open('build/L_K_rb.tex', 'w') as f:
-  f.write(make_SI(L_K_rb,r'°', figures=1))
+  f.write(make_SI(L_K_rb*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_K_rb
 
 with open('build/E_K_rb.tex', 'w') as f:
-  f.write(make_SI(E_K_rb,r'°', figures=1))
+  f.write(make_SI(E_K_rb,r'\electronvolt', figures=1))
+
+# tex file for E_K_rb_lit
+
+with open('build/E_K_rb_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_rb_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_rb_err
+
+with open('build/E_K_rb_err.tex', 'w') as f:
+  f.write(make_SI(E_K_rb_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Strontium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -490,7 +633,7 @@ xmin_sr = theta_stron[2]
 plt.axvline(x=xmax_sr, color='r', linestyle= '--', label='$K_{Edge}$-Linie (Ende)')
 plt.axvline(x=xmin_sr, color='b', linestyle= '--', label='$K_{Edge}$-Linie (Anfang)')
 plt.axvline(x=theta_K_sr_graph, color='grey', linestyle= '--', label='$\\theta$')
-plt.axhline(y=I_K_sr, color='grey', linestyle= ':', label='$I_K(\\Theta)$')
+plt.axhline(y=I_K_sr, color='grey', linestyle= ':', label='$I_K(\\theta)$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -500,6 +643,9 @@ plt.close()
 L_K_sr = 2*d_LiF*unp.sin(theta_K_sr)
 
 E_K_sr = (const.h*const.c)/(L_K_sr*const.e)
+
+E_K_sr_err = abs(E_K_sr-E_K_sr_lit)/E_K_sr_lit
+
 
 # tex file for I_max_sr
 
@@ -524,12 +670,22 @@ with open('build/theta_K_sr.tex', 'w') as f:
 # tex file for L_K_sr
 
 with open('build/L_K_sr.tex', 'w') as f:
-  f.write(make_SI(L_K_sr,r'°', figures=1))
+  f.write(make_SI(L_K_sr*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_K_sr
 
 with open('build/E_K_sr.tex', 'w') as f:
-  f.write(make_SI(E_K_sr,r'°', figures=1))
+  f.write(make_SI(E_K_sr,r'\electronvolt', figures=1))
+
+# tex file for E_K_sr_lit
+
+with open('build/E_K_sr_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_sr_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_sr_err
+
+with open('build/E_K_sr_err.tex', 'w') as f:
+  f.write(make_SI(E_K_sr_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Zink-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -553,7 +709,7 @@ xmin_zn = theta_zink[4]
 plt.axvline(x=xmax_zn, color='r', linestyle= '--', label='$K_{Edge}$-Linie (Ende)')
 plt.axvline(x=xmin_zn, color='b', linestyle= '--', label='$K_{Edge}$-Linie (Anfang)')
 plt.axvline(x=theta_K_zn_graph, color='grey', linestyle= '--', label='$\\theta$')
-plt.axhline(y=I_K_zn, color='grey', linestyle= ':', label='$I_K(\\Theta)$')
+plt.axhline(y=I_K_zn, color='grey', linestyle= ':', label='$I_K(\\theta)$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -563,6 +719,9 @@ plt.close()
 L_K_zn = 2*d_LiF*unp.sin(theta_K_zn)
 
 E_K_zn = (const.h*const.c)/(L_K_zn*const.e)
+
+E_K_zn_err = abs(E_K_zn-E_K_zn_lit)/E_K_zn_lit
+
 
 # tex file for I_max_zn
 
@@ -587,12 +746,22 @@ with open('build/theta_K_zn.tex', 'w') as f:
 # tex file for L_K_zn
 
 with open('build/L_K_zn.tex', 'w') as f:
-  f.write(make_SI(L_K_zn,r'°', figures=1))
+  f.write(make_SI(L_K_zn*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_K_zn
 
 with open('build/E_K_zn.tex', 'w') as f:
-  f.write(make_SI(E_K_zn,r'°', figures=1))
+  f.write(make_SI(E_K_zn,r'\electronvolt', figures=1))
+
+# tex file for E_K_zn_lit
+
+with open('build/E_K_zn_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_zn_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_zn_err
+
+with open('build/E_K_zn_err.tex', 'w') as f:
+  f.write(make_SI(E_K_zn_err*1e+02,r'\percent', figures=1))
 
 #Absorbtionsspektrum Zirkonium-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -616,7 +785,7 @@ xmin_zr = theta_zirk[0]
 plt.axvline(x=xmax_zr, color='r', linestyle= '--', label='$K_{Edge}$-Linie (Ende)')
 plt.axvline(x=xmin_zr, color='b', linestyle= '--', label='$K_{Edge}$-Linie (Anfang)')
 plt.axvline(x=theta_K_zr_graph, color='grey', linestyle= '--', label='$\\theta$')
-plt.axhline(y=I_K_zr, color='grey', linestyle= ':', label='$I_K(\\Theta)$')
+plt.axhline(y=I_K_zr, color='grey', linestyle= ':', label='$I_K(\\theta)$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -626,6 +795,9 @@ plt.close()
 L_K_zr = 2*d_LiF*unp.sin(theta_K_zr)
 
 E_K_zr = (const.h*const.c)/(L_K_zr*const.e)
+
+E_K_zr_err = abs(E_K_zr-E_K_zr_lit)/E_K_zr_lit
+
 
 # tex file for I_max_zr
 
@@ -650,12 +822,22 @@ with open('build/theta_K_zr.tex', 'w') as f:
 # tex file for L_K_zr
 
 with open('build/L_K_zr.tex', 'w') as f:
-  f.write(make_SI(L_K_zr,r'°', figures=1))
+  f.write(make_SI(L_K_zr*1e+12,r'\pico\meter', figures=1))
 
 # tex file for E_K_zr
 
 with open('build/E_K_zr.tex', 'w') as f:
-  f.write(make_SI(E_K_zr,r'°', figures=1))
+  f.write(make_SI(E_K_zr,r'\electronvolt', figures=1))
+
+# tex file for E_K_zr_lit
+
+with open('build/E_K_zr_lit.tex', 'w') as f:
+  f.write(make_SI(E_K_zr_lit,r'\electronvolt', figures=1))
+
+# tex file for E_K_zr_err
+
+with open('build/E_K_zr_err.tex', 'w') as f:
+  f.write(make_SI(E_K_zr_err*1e+02,r'\percent', figures=1))
 
 #Rydbergfrequenz R_infty-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -666,35 +848,109 @@ sigma_sr = z_sr - unp.sqrt(E_K_sr/R_infty-const.alpha**2*z_sr**4/4)
 sigma_zn = z_zn - unp.sqrt(E_K_zn/R_infty-const.alpha**2*z_zn**4/4)
 sigma_zr = z_zr - unp.sqrt(E_K_zr/R_infty-const.alpha**2*z_zr**4/4)
 
+sigma_br_lit = z_br - unp.sqrt(E_K_br_lit/R_infty-const.alpha**2*z_br**4/4)
+sigma_ga_lit = z_ga - unp.sqrt(E_K_ga_lit/R_infty-const.alpha**2*z_ga**4/4)
+sigma_rb_lit = z_rb - unp.sqrt(E_K_rb_lit/R_infty-const.alpha**2*z_rb**4/4)
+sigma_sr_lit = z_sr - unp.sqrt(E_K_sr_lit/R_infty-const.alpha**2*z_sr**4/4)
+sigma_zn_lit = z_zn - unp.sqrt(E_K_zn_lit/R_infty-const.alpha**2*z_zn**4/4)
+sigma_zr_lit = z_zr - unp.sqrt(E_K_zr_lit/R_infty-const.alpha**2*z_zr**4/4)
+
+sigma_br_err=abs(sigma_br-sigma_br_lit)/sigma_br_lit
+sigma_ga_err=abs(sigma_ga-sigma_ga_lit)/sigma_ga_lit
+sigma_rb_err=abs(sigma_rb-sigma_rb_lit)/sigma_rb_lit
+sigma_sr_err=abs(sigma_sr-sigma_sr_lit)/sigma_sr_lit
+sigma_zn_err=abs(sigma_zn-sigma_zn_lit)/sigma_zn_lit
+sigma_zr_err=abs(sigma_zr-sigma_zr_lit)/sigma_zr_lit
+
 # tex file for sigma_br
 
 with open('build/sigma_br.tex', 'w') as f:
   f.write(make_SI(sigma_br,r'', figures=1))
+
+# tex file for sigma_br_lit
+
+with open('build/sigma_br_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_br_lit,r'', figures=1))
+
+# tex file for sigma_br_err
+
+with open('build/sigma_br_err.tex', 'w') as f:
+  f.write(make_SI(sigma_br_err*1e+02,r'\percent', figures=2))
 
 # tex file for sigma_ga
 
 with open('build/sigma_ga.tex', 'w') as f:
   f.write(make_SI(sigma_ga,r'', figures=1))
 
+# tex file for sigma_ga_lit
+
+with open('build/sigma_ga_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_ga_lit,r'', figures=1))
+
+# tex file for sigma_ga_err
+
+with open('build/sigma_ga_err.tex', 'w') as f:
+  f.write(make_SI(sigma_ga_err*1e+02,r'\percent', figures=1))
+
 # tex file for sigma_rb
 
 with open('build/sigma_rb.tex', 'w') as f:
   f.write(make_SI(sigma_rb,r'', figures=1))
+
+# tex file for sigma_rb_lit
+
+with open('build/sigma_rb_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_rb_lit,r'', figures=1))
+
+# tex file for sigma_rb_err
+
+with open('build/sigma_rb_err.tex', 'w') as f:
+  f.write(make_SI(sigma_rb_err*1e+02,r'\percent', figures=1))
 
 # tex file for sigma_sr
 
 with open('build/sigma_sr.tex', 'w') as f:
   f.write(make_SI(sigma_sr,r'', figures=1))
 
+# tex file for sigma_sr_lit
+
+with open('build/sigma_sr_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_sr_lit,r'', figures=1))
+
+# tex file for sigma_sr_err
+
+with open('build/sigma_sr_err.tex', 'w') as f:
+  f.write(make_SI(sigma_sr_err*1e+02,r'\percent', figures=1))
+
 # tex file for sigma_zn
 
 with open('build/sigma_zn.tex', 'w') as f:
   f.write(make_SI(sigma_zn,r'', figures=1))
 
+# tex file for sigma_zn_lit
+
+with open('build/sigma_zn_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_zn_lit,r'', figures=1))
+
+# tex file for sigma_zn_err
+
+with open('build/sigma_zn_err.tex', 'w') as f:
+  f.write(make_SI(sigma_zn_err*1e+02,r'\percent', figures=1))
+
 # tex file for sigma_zr
 
 with open('build/sigma_zr.tex', 'w') as f:
   f.write(make_SI(sigma_zr,r'', figures=1))
+
+# tex file for sigma_zr_lit
+
+with open('build/sigma_zr_lit.tex', 'w') as f:
+  f.write(make_SI(sigma_zr_lit,r'', figures=1))
+
+# tex file for sigma_zr_err
+
+with open('build/sigma_zr_err.tex', 'w') as f:
+  f.write(make_SI(sigma_zr_err*1e+02,r'\percent', figures=1))
 
 sigma = np.array([sigma_br.n, sigma_ga.n, sigma_rb.n, sigma_sr.n, sigma_zn.n, sigma_zr.n])
 z = np.array([z_br, z_ga, z_rb, z_sr, z_zn, z_zr])
@@ -734,6 +990,10 @@ Rydb_const = m_ry**2
 
 Rydb_f = Rydb_const*const.e/(const.h) #Rydb_const = eV, const.h = Joule
 
+Rydb_f_lit = const.value(u'Rydberg constant times c in Hz')
+
+Rydb_f_err = abs(Rydb_f-Rydb_f_lit)/Rydb_f_lit
+
 print(Rydb_const) #eV
 print(Rydb_f) 
 
@@ -745,7 +1005,17 @@ with open('build/Rydb_const.tex', 'w') as f:
 # tex file for Rydb_f
 
 with open('build/Rydb_f.tex', 'w') as f:
-  f.write(make_SI(Rydb_f,r'\peta\hertz', figures=1))
+  f.write(make_SI(Rydb_f*1e-15,r'\peta\hertz', figures=1))
+
+# tex file for Rydb_f_lit
+
+with open('build/Rydb_f_lit.tex', 'w') as f:
+  f.write(make_SI(Rydb_f*1e-15,r'\peta\hertz', figures=1))
+
+# tex file for Rydb_f_err
+
+with open('build/Rydb_f_err.tex', 'w') as f:
+  f.write(make_SI(Rydb_f_err,r'\percent', figures=1))
 
 #Tabelle Kupfer-------------------------------------------------------------------------------------------------------------------------------------------------
 
