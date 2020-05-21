@@ -2,7 +2,7 @@
 \allowdisplaybreaks
 
 \begin{document}
-    \title{Physik IV Übungsblatt 4}
+    \title{Physik IV Übungsblatt 5}
     \author{  
     Tobias Rücker\\
     \texorpdfstring{\href{mailto:tobias.ruecker@tu-dortmund.de}{tobias.ruecker@tu-dortmund.de}
@@ -60,8 +60,8 @@
     	&= -2 \int_{u(R_0)}^{u(b)} 2b \frac{\sqrt{2mE}}{\hbar}\sin(u)\cos(u) \underbrace{\sqrt{\frac{1}{\sin^2(u)}-1}}_{=\cot(u)} \,\mathrm{d}u\\
         &= -4 \int_{u(R_0)}^{u(b)} \frac{b}{\hbar}\,\sqrt{2mE}\, \sin(u)\cos(u) \cot(u)\,\mathrm{d}u\\
         &= -4 \int_{u(R_0)}^{u(b)} \frac{b}{\hbar}\,\sqrt{2mE}\, \cos^2(u)\, \mathrm{d}u\\
-        &= -4 \frac{b}{\hbar}\sqrt{2mE}\, \left[ \frac{1}{2} \left( u-\sin(u)\cos(u) \right) \right]_{u(R_0)}^{u(b)}\\
-        &= -2 \frac{b}{\hbar}\sqrt{2mE}\, (u(b)+\sin(u(b))\cos(u(b)))-u(R_0)+\sin(u(R_0))\cos(u(R_0))
+        &= -4 \frac{b}{\hbar}\sqrt{2mE}\, \left[ \frac{1}{2} \left( u+\sin(u)\cos(u) \right) \right]_{u(R_0)}^{u(b)}\\
+        &= -2 \frac{b}{\hbar}\sqrt{2mE}\, (u(b)+\sin(u(b))\cos(u(b)))-u(R_0)-\sin(u(R_0))\cos(u(R_0))
         \intertext{\flushleft{Die\;}\justifying Grenzen in $u$ einsetzten:
         }
         u &= \arcsin\left(\sqrt{\frac{x}{b}}\right)\\
@@ -80,18 +80,21 @@
 \subsection{b)}
 
     \begin{align*}
-        \intertext{\flushleft{Stoßzeit\;}\justifying innerhalb des Atomkerns:
+        \intertext{\flushleft{Beim\;}\justifying Alpha Zerfall wird angenommen, dass das Alpha-Teilchen gegen die Wände 
+        des Atomkerns stößt. Seine Stoßzeit lässt sich dann berechnen durch:
         }
         t_0 &= \frac{2R}{v} \tag{*}\\
-        E &= \frac{1}{2}mv^2 \Leftrightarrow v = \sqrt{\frac{2E}{m}}
-        \intertext{\flushleft{Lebensdauer:\;}\justifying
+        E &\approx \frac{1}{2}mv^2 \Leftrightarrow v \approx \sqrt{\frac{2E}{m}}
+        \intertext{\flushleft{Die\;}\justifying Lebensdauer des Atoms entspricht im Mittel dann der Stoßzeit geteilt durch die 
+        Transmissionswahrscheinlichkeit.
         }
-        \tau &= \frac{t_0}{P}
+        \tau &\approx \frac{t_0}{P}
         \stackrel{(*)}{=} \frac{1}{nP}
-        \intertext{\flushleft{In\;}\justifying der Zeit $\mathrm{d}t$ zerfällt ein Teilchen mit der Wahrscheinlichkeit $\tau\,$:
+        \intertext{\flushleft{In\;}\justifying der Zeit $\mathrm{d}t$ zerfällen dN  Kerne in der Zeit dt.
+        Die Wahrscheinlichkeit, das ein Kern im Zeitintervall zerfällt, ist durch $\sfrac{dt}{\tau} $ gegeben.
         }
         \mathrm{d}N &= -\frac{N}{\tau} \mathrm{d}t
-        \intertext{\flushleft{Lösung:\;}\justifying
+        \intertext{\flushleft{Die:\;}\justifying Lösung der DGL ergibt:
         }
         N &= N_0 exp\left( -\frac{t}{\tau} \right)\\
         \frac{N}{N_0} &= \frac{1}{2} = exp\left( -\frac{t_{\sfrac{1}{2}}}{\tau} \right)\\
@@ -120,8 +123,8 @@
         \Leftrightarrow \mathrm{d}x &= \frac{-E}{e\epsilon_x}\, \mathrm{d}u
         \intertext{\flushleft{$u$\;}\justifying und $\mathrm{d}x$ einsetzten:
         }
-        &= exp\left( -2 \frac{\sqrt{2mE}}{\hbar} \int_{-1}^{u(b)} \sqrt{u} \frac{-E}{e\epsilon_x}\, \mathrm{d}u \right)\\
-        &= exp\left( -2 \frac{\sqrt{2mE^3}}{\hbar e\epsilon_x} \left[ \frac{2}{3} u^{\frac{3}{2}} \right]_{-1}^{u(b)} \right)
+        &= exp\left( -2 \frac{\sqrt{2mE}}{\hbar} \int_{-1}^{u(b)} \sqrt{u} \frac{(-E)}{e\epsilon_x}\, \mathrm{d}u \right)\\
+        &= exp\left( 2 \frac{\sqrt{2mE^3}}{\hbar e\epsilon_x} \left[ \frac{2}{3} u^{\frac{3}{2}} \right]_{-1}^{u(b)} \right)
         \intertext{\flushleft{$u$\;}\justifying rücksubstituieren:
         }
         &= exp\left( \frac{4}{3} \frac{\sqrt{2mE^3}}{\hbar e\epsilon_x} \left( \sqrt{\left( -\frac{e\epsilon_x b}{E}-1 \right)^3}-\sqrt{-1} \right) \right)\\
