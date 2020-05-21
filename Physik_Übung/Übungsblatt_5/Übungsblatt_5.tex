@@ -162,6 +162,34 @@
 
 \subsection{a)}
 
+    \begin{align*}
+        \vert \alpha \rangle &= \sum_{n=0}^{\infty} a_n \vert n \rangle\\
+        \hat{a} \vert n \rangle &= \hat{b}^{\dagger} \vert n \rangle\\
+        \hat{H}\hat{a} \vert n \rangle &= (E_n-A) \hat{a} \vert n \rangle\\
+        \vert \alpha \rangle &= a_n \vert n \rangle\\
+        \\
+        \langle \alpha \vert \alpha \rangle &= \sum_{k=0}^{\infty} a_k^* \langle k \vert \sum_{n=0}^{\infty} a_n \vert n \rangle\\
+        &= \sum_{k=0}^{\infty} a_k^* \sum_{n=0}^{\infty} a_n \underbrace{\langle k \vert n \rangle}_{\delta_{kn}}\\
+        &\stackrel{k=n}{=} \sum_{n=0}^{\infty} a_n^* \cdot a_n = \sum_{n=0}^{\infty} \vert a_n \vert^2 = 1\\
+        \\
+        \hat{a} &= \frac{1}{\sqrt{2}} \left( \sqrt{\frac{m\omega}{\hbar}} \hat{x} + i\sqrt{\frac{1}{m\omega\hbar}} \hat{p} \right)\\
+        \hat{a} + \hat{a}^{\dagger} &= \sqrt{\frac{2m\omega}{\hbar}} \hat{x}\\
+        \Leftrightarrow \hat{x} &= \sqrt{\frac{\hbar}{2m\omega}} \left( \hat{a}+\hat{a}^{\dagger} \right)\\
+        \\
+        \langle \alpha \vert \hat{x} \vert \alpha \rangle &= \langle \alpha \vert \sqrt{\frac{\hbar}{2m\omega}} \left( \hat{a}+\hat{a}^{\dagger} \right) \vert \alpha \rangle\\
+        &= \sqrt{\frac{\hbar}{2m\omega}} \left( \langle \alpha \vert \hat{a} \vert \alpha \rangle + \langle \alpha \vert \hat{a}^{\dagger} \vert \alpha \rangle \right)\\
+        \hat{a}^{\dagger} \vert n \rangle &= \sqrt{n+1} \vert n+1 \rangle\\
+        \hat{a} \vert n \rangle &= \sqrt{n} \vert n-1 \rangle\\
+        \intertext{\flushleft{$\Rightarrow$\;}\justifying $=0,$ da das Skalarprodukt zwischen zwei verschiedenen Eigenvektoren ist.
+        }
+        \hat{a}-\hat{a}^{\dagger} &= \left(i\sqrt{\frac{1}{2m\omega\hbar}} \hat{p} \right)\\
+        \Leftrightarrow \hat{p} &= -i\sqrt{2m\omega\hbar} (\hat{a}-\hat{a}^{\dagger})\\
+        \langle \alpha \vert \hat{p} \vert \alpha \rangle &= \langle \alpha \vert (-i)\sqrt{2m\omega\hbar}(\hat{a}-\hat{a}^{\dagger})\\
+        &= -i\sqrt{2m\omega\hbar} \left( \langle \alpha \vert \hat{a} \vert \alpha \rangle - \langle \alpha \vert \hat{a}^{\dagger} \vert \alpha \rangle \right)\\
+        &= -i\sqrt{2m\omega\hbar} \left( \langle n \vert \hat{a} \vert n \rangle - \langle n \vert \hat{a}^{\dagger} \vert n \rangle \right)\\
+        &= 0
+    \end{align*}
+
 \subsection{b)}
 
 \subsection{c)}
