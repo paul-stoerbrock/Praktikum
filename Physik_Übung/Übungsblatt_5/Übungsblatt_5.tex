@@ -237,6 +237,26 @@
 
 \subsection{c)}
 
+    \begin{align*}
+        \text{Spur}(A) &= \sum_{i} \langle \alpha_i \vert A \vert \alpha_i \rangle \qquad \text{mit Basisvektor}\; \vert \beta_i \rangle
+        \intertext{\flushleft{Erweitern\;}\justifying um $\vert \beta_j \rangle \cdot \langle \beta_j \vert=1$ und $\vert \beta_k \rangle \cdot \langle \beta_k \vert=1$:
+        }
+        &= \sum_{i} \sum_{j,k} \langle \alpha_i \vert \beta_j \rangle \langle \beta_j \vert A \vert \beta_k \rangle \langle \beta_k \vert \alpha_i \rangle
+        \intertext{{Durch\;}\justifying Umstellen (Sortieren) können die $\alpha_i$ zusammengefasst werden:
+        }
+        &= \sum_{j,k} \langle \beta_k \vert \underbrace{\left( \sum_{i} \vert \alpha_i \rangle \cdot \langle \alpha_i \vert \right)}_{=1\;(Einheitsoperator)} \vert \beta_j \rangle \langle \beta_j \vert A \vert \beta_k \rangle\\
+        &= \sum_{j,k} \langle \beta_k \vert \beta_j \rangle \langle \beta_j \vert A \vert \beta_k \rangle\\
+        \langle \beta_k \vert \beta_j \rangle
+        &\begin{cases}
+            1 \qquad \text{für}\; j=k\\
+            0 \qquad \text{sonst}
+        \end{cases}\\
+        \Rightarrow \delta_{jk} &= \langle \beta_k \vert \beta_j \rangle
+        \intertext{\flushleft{Da\;}\justifying die Spur$(A)$ nur $\neq 0$ ist für j=k folgt:
+        }
+        \text{Spur}(A) &=\sum_{j,k} \delta_{jk} \langle \beta_j \vert A \vert \beta_k \rangle = \sum_{k} \langle \beta_k \vert A \vert \beta_k \rangle
+    \end{align*}
+
 \subsection{d)}
 
 
