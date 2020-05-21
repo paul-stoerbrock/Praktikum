@@ -232,7 +232,7 @@
         \vdots & \vdots & \ddots & \vdots\\
         q_{1n}^* & q_{2n}^* & \ldots & q_{nm}^*
         \end{pmatrix}\\
-        &= \sum_{i} \alpha_i^* \sum_{j} q_{ji}^* = \langle \gamma \vert
+        &= \sum_{j} \alpha_j^* \sum_{i} q_{ji}^* = \langle \gamma \vert
     \end{align*}
 
 \subsection{c)}
@@ -258,6 +258,20 @@
     \end{align*}
 
 \subsection{d)}
+    \begin{align*}
+        (AB)^{\dagger} &= A^{\dagger}B^{\dagger}\\
+        (AB)^{\dagger} &= (A^*B^*)^T\\
+        A^* &= (A^*)_j^{\;\;i} \qquad (A^*)^T = (A^*)_{\,\;j}^i\\
+        B^* &= (B^*)_k^{\;\;j} \qquad (B^*)^T = (B^*)_{\,\;k}^j\\
+        \Rightarrow ((A^*B^*)^T)_k^{\;\;i} &= (A^*B^*)_{\,\;k}^i\\
+        &= (A^*)_{\,\;j}^i (B^*)_{\,\;k}^j\\
+        &= ((A^*)^T)_j^{\;\;i}((B^*)^T)_k^{\;\;j}
+        \intertext{\flushleft{$j \times i \cdot k \times j$\;}\justifying sind in der Konstellation nicht miteinander vereinbar 
+        (Zeile von $A \neq$ Spalte von $B$). Demnach folgt:
+        }
+        &= ((B^*)^T)_k^{\;\;j}((A^*)^T)_j^{\;\;i}\\
+        &= (B^{\dagger})_k^{\;\;j}(A^{\dagger})_j^{\;\;i}
+    \end{align*}
 
 
 \end{document}
