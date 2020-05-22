@@ -171,7 +171,10 @@
         \langle \alpha \vert \alpha \rangle &= \sum_{k=0}^{\infty} a_k^* \langle k \vert \sum_{n=0}^{\infty} a_n \vert n \rangle\\
         &= \sum_{k=0}^{\infty} a_k^* \sum_{n=0}^{\infty} a_n \underbrace{\langle k \vert n \rangle}_{\delta_{kn}}\\
         &\stackrel{k=n}{=} \sum_{n=0}^{\infty} a_n^* \cdot a_n = \sum_{n=0}^{\infty} \vert a_n \vert^2 = 1\\
-        \\
+    \end{align*}
+
+\subsection{b)}
+    \begin{align*}
         \hat{a} &= \frac{1}{\sqrt{2}} \left( \sqrt{\frac{m\omega}{\hbar}} \hat{x} + i\sqrt{\frac{1}{m\omega\hbar}} \hat{p} \right)\\
         \hat{a} + \hat{a}^{\dagger} &= \sqrt{\frac{2m\omega}{\hbar}} \hat{x}\\
         \Leftrightarrow \hat{x} &= \sqrt{\frac{\hbar}{2m\omega}} \left( \hat{a}+\hat{a}^{\dagger} \right)\\
@@ -188,11 +191,40 @@
         &= -i\sqrt{2m\omega\hbar} \left( \langle \alpha \vert \hat{a} \vert \alpha \rangle - \langle \alpha \vert \hat{a}^{\dagger} \vert \alpha \rangle \right)\\
         &= -i\sqrt{2m\omega\hbar} \left( \langle n \vert \hat{a} \vert n \rangle - \langle n \vert \hat{a}^{\dagger} \vert n \rangle \right)\\
         &= 0
+        \intertext{
+            Erwartungswert für$\hat x ^2$
+        }
+        \bra{\alpha} \hat x ^2 \ket{\alpha} &= \bra{\alpha} \frac{\hbar}{2m\omega} (\hat a + \hat a ^\dagger)^2 \ket{\alpha}\\
+        &= \frac{\hbar}{2m \omega} \bra{\alpha} \hat a ^2 + \hat a ^{\dagger 2} + \hat a \hat a ^\dagger + \hat a ^\dagger \hat a \ket{\alpha}\\
+        \intertext{
+            Nebenrechnung
+        }
+        [\hat a ^\dagger , \hat a]&= (\hat a ^\dagger \hat a)^\dagger - \hat a ^\dagger \hat a =1\\
+        \intertext{
+            weiter Ausnutzen der Normierung
+        }
+        &=\frac{\hbar}{2m \omega} \bra{n} \hat a ^\dagger \hat a +1 + \hat a ^\dagger \hat a \ket{n}\\
+        &=\frac{\hbar}{2m \omega} \bra{n} 2 \hat n +1 \ket{n}\\
+        &=\frac{\hbar}{m \omega} \left(n+\frac{1}{2} \right)\\
+        \intertext{
+            Erwartungswert für $\hat p ^2$
+        }
+        \bra{\alpha} \hat p ^2 \ket{\alpha} &= \bra{\alpha} \-- \frac{m \omega \hbar}{2} (\hat a - \hat a ^\dagger)^2 \ket{\alpha}\\
+        &= \frac{m \omega \hbar}{2} \bra{n} 2 \hat n +1 \ket{\alpha}\\
+        &=m \omega \hbar \left(n + \frac{1}{2} \right)
     \end{align*}
 
-\subsection{b)}
-
 \subsection{c)}
+
+\begin{align}
+    \Delta x \Delta p &\geq \sqrt{\frac{\hbar}{m \omega}\left(n + \frac{1}{2} \right) } \sqrt{m \omega \hbar \left(n + \frac{1}{2} \right) }\\
+    &= \hbar \left(n + \frac{1}{2} \right)
+\end{align}
+Der minimalste Energiezustand befindet sich bei $n=0$:
+\begin{align}
+    \Delta x \Delta p = \frac{\hbar}{2}
+\end{align}
+
 
 \subsection{d)}
 
