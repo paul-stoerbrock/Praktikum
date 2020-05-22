@@ -28,32 +28,6 @@
 
 \section{Theorie}\justifying
 
-% Fehlerrechnung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Fehlerrechnung}\justifying
-
-Für die Berechnung von Messunsicherheiten werden in diesem Protokoll folgende Formeln
-verwendet:
-\begin{subequations} \label{eq:}
-\begin{align} 
-\intertext{Zur Bestimmung eines Mittelwertes wird folgende Formel benutzt:
-}
-    \overline{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i \label{eq:a}
-\intertext{Zur Bestimmung der Messunsicherheit bei Mittelwerten wird mit der Formel
-}
-    \Delta\overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^{N} (x_i - \overline{x})^2} \label{eq:b},
-\intertext{gearbeitet und die Gaußsche Fehlerfortpflanzung wird mit
-}
-    \Delta f &= \sqrt{\sum_{i=1}^{N} \left( \frac{\delta f}{\delta x_i} \right)^2 \cdot (\Delta x_i)^2} \label{eq:c}
-\intertext{berechnet. Um Ausgleichsgeraden und ihre Parameter zu bestimmen, werden folgende Formeln verwendet:
-}
-    y &= m \cdot x + b \label{eq:6d} \\ 
-    m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}{\overline{x^2} - {\overline{x}}^2} \label{eq:e}\\
-    b &= \frac{\overline{y} \cdot \overline{x^2} - \overline{xy} \cdot \overline{x}}{\overline{x^2} - {\overline{x}}^2} \label{eq:f}
-\end{align}
-\end{subequations}
-\newpage
-
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying

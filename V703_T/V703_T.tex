@@ -1,0 +1,162 @@
+\input{../header.tex}
+
+\begin{document}
+    \title{V703 Das Geiger-Müller-Zählrohr}
+    \author{  
+    Tobias Rücker\\
+    \texorpdfstring{\href{mailto:tobias.ruecker@tu-dortmund.de}{tobias.ruecker@tu-dortmund.de}
+    }{}}
+    \date{Durchführung: 19.05.2020, Abgabe: 26.05.2020 \vspace{-4ex}}
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+% Ziel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{page}{1}
+\section{Ziel}\justifying
+
+Das Geiger-Müller-Zählrohr stellt in der Physik ein wichtiges Instrument zur Messung der Intensität
+ionisierter Strahlung. Zur näheren Verständnis des Instruments wird im folgenden aus einer 
+Messung die Zählrohr-Charakteristik untersucht und die Totzeit des Geräts bestimmt. 
+
+% Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Theorie}\justifying
+
+Beim Geiger-Müller-Zählrohr entsteht durch die Absorption von Strahlung ein elektrischer Impuls.
+Diese Impulse werden daraufhin durch einen Impulszähler gezählt und damit die Intensität bestimmt.
+Der Aufbau des Geiger-Müller-Zählrohrs besteht aus einem Kathodenzylinder in dem sich ein Anodendraht befindet.
+Das innere des Zylinders ist mit einem Gasgemisch aus einem Edelgas und einem Alkohol. \cite{V703}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/endfenster.jpg}
+    \caption{Querschnitt durch ein Endfenster-Zählrohr}
+    \label{fig:1}
+\end{figure}
+\flushleft{Durch\;}\justifying diesen Aufbau können je nach Radiusgröße des Anodendrahts verschiedene 
+große Beschleunigungen erreicht werden.
+In dem Kathodenzylinder wechselwirken die einkommenden Teilchen mit dem Gas, bis sie
+keine Energie mehr besitzen. Dieser Vorgang wird die Primärionisation genannt.
+Alle Vorgänge, die danach kommen hängen von der jeweiligen Spannung ab. \cite{V703}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/bereich.jpg}
+    \caption{Anzahl der erzeugten Elektron-Ionenpaare als Funktion der Spannung }
+    \label{fig:2}
+\end{figure}
+\flushleft{Diese\;}\justifying Graphik veranschaulicht abhängig von der Spannung in welchem Bereich sich das System befindet.
+Im ersten Bereich gehen die meisten der durch Ionisation erzeugten Elektronen durch  ist.
+verloren. \\
+Mit steigender Feldstärke entsteht im Bereich II ein Ionisationsstrom, der proportional zur Energie und Intensität
+Dieser Bereich wird Ionisationskammer genannt. Diese stellt eine Vorstufe zum Geiger-Müller-Zählrohr dar.
+Hier sind goße Intensitäten nötig, um den kleinen Ionisationsstrom zu messen.\\
+In dem dritten Bereich sind die Elektronen energiereich genug, dass die ausgelösten Elektronen
+weitere Elektronen ionisieren. Dieser Prozess wird Townsed-Lawine bezeichnet. Hier
+ist die Ladung Q im Draht proportional zur Feldstärke und kann als Maß für die
+Energie genutzt werden. In diesem Bereich können Intensitäts- und Energiemessungen
+vorgenommen werden. Im Allgemeinen wird dieser Bereich als Proportionalitätsrohr bezeichnet.
+Der vierte Bereich umfasst den Arbeitsbereich des Zählrohrs. Hier ist die Ladung Q, die im Draht
+ankommt, unabhängig von der Primärionisation. 
+Ab dem Punkt, wo die $\alpha $- und die $\beta$-Kurve sich überlagern, beginnt der Auslösebereich.
+In diesem entstehen UV-Photonen und es finden Elektronenlawinen im gesamten Zählrohr statt.
+Hier können nur Intensitätsmessungen vorgenommen werden.
+Durch die Ionisationsprozesse bauen die einzelnen Ionen ein elektrisches Feld in der Nähe des
+Drahtes auf und schwächen damit die durch die Spannung angelegte Feldstärke. Dadurch finden
+keine Elektronenlawinen statt. Dadurch entsteht eine Totzeit wie es in der folgenden Graphik 
+zu sehen ist. \cite{V703}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/totzeit.jpg}
+    \caption{graphische Darstellung der Tot- und Erholungszeit}
+    \label{fig:3}
+\end{figure}
+\flushleft{Nach\;}\justifying der Totzeit kommt eine Erholungszeit, bis die Feldstärke wieder seinen ursprünglichen Wert eingenommen hat.
+Die Ionen nehmen dann nach einiger Zeit Elektronen von dem Metall auf. Dabei sind
+die Energien der Ionen so groß, dass weitere Elektronen herausgelöst werden.
+Dadurch entstehen vereinzelte und versetzte Impulse, welche Nachentladungen
+genannt werden. Dabei ist deren Laufzeit größer als die Totzeit, was 
+ionisierte Ladungen vortäuscht.
+Das ist der Grund, weshalb in dem Gas zusätzlich Alkoholmoleküle sind. Diese
+stoßen mit den ionisiertem Edelgas zusammen und werden selbst ionisiert.
+Da sie aber eine geringere Energie besitzen, lösen sie keine Sekundärelektronen aus,
+sondern regen nur Schwingungen an.\\
+In einem Gebiet des vierten Bereichs findet sich die Charakteristik des Zählrohrs.
+Das ist der Gebietsteil, in dem ein linearer Teil, welcher Plateau genannt wird, existiert.
+Bei einem idealen Gerät findet in diesem Spannungsbereich kein Anstieg statt.
+In der Realität exisitieren allerdings noch ein paar Nachentladungen, wodurch ein kleiner 
+Anstieg vorhanden ist, wie diese Graphik dies zeigt: \cite{V703}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/plateau.jpg}
+    \caption{Zählrohrcharakteristik(einfallende Strahlung konstant)}
+    \label{fig:4}
+\end{figure}
+\flushleft{Im\;}\justifying fünften und letzten Bereich auf der Graphik \ref{fig:2}
+erhöht sich die Anzahl der Nachentladungen drastisch, wodurch es zu einer hohen
+Stromdichte kommt, die das Geiger-Müller-Zählrohr zerstören würde.\\
+Bei diesen ganzen Messungen muss erkannt werden, wieviele Teilchen in das Volumen vordringen.
+Das wird bei den Endfenster-Zählrohren über eine dünnschichtige Wand realisiert, in die
+auch $\alpha$-Teilchen eindringen können. Hochenergetische Photonen hingegen haben nur eine 
+geringe Chance mit der Wand zu wechselwirken, weshalb Messungen nur bei hohen $\gamma$-Intensitäten
+sinnvoll ist.
+
+% Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Versuchsaufbau und Versuchsdurchführung}\justifying
+Der Grundlegende Aufbau der Messapartur sieht folgendermaßen aus:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/aufbau.jpg}
+    \caption{Schematischer Aufbau eines Geiger-Müller-Zählrohrs}
+    \label{fig:5}
+\end{figure}
+\flushleft{Für\;}\justifying die Aufnahme des Charakteristischen Spektrums wird eine $\beta$-Quelle vor das
+Fenster des Zählrohrs platziert. Gemessen wird dabei die Zählrate in Abhängigkeit
+der Spannung U. Die maximale Impulsrate soll dabei 100 Imp/s nicht überschreiten.
+Die Messzeit wird dabei auf einen Wert eingestellt, sodass der statistische Fehler 
+geringer als 1\% ist. Die Spannung soll dabei nicht in den Entladungsbereich gehen.
+Parallel zu dieser Messung wirdmit einem Amperemeter alle $\SI{50}{\volt} $ die Stromstärke
+gemessen.\\
+Für die Messung der Totzeit mit dem Oszilloskop soll eine hohe Strahlungsintensität vorhanden sein.
+Nun kann, nachdem das Oszilloskop auf die Anstiegsflanke getriggert wurde, die Totzeit
+aus dem Graphen gemäß der Abbildung \ref{fig:3} bestimmt werden.\\
+Bei der Zwei-Quellen-Methode zur Messung der Totzeit wird zuerst möglichst Präzise die Zählrate des
+ersten radioaktiven Präparats bestimmt. Der AUfbau sieht dabei folgendermaßen aus:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/quelle.jpg}
+    \caption{Aufbau der Zwei-Quellen-Methode}
+    \label{fig:6}
+\end{figure}
+\flushleft{Im\;}\justifying zweiten Schritt wird wie auf dem mittleren Bild gezeigt eine zweite Quelle in
+die Messung eingebracht, ohne die Position der Ersten zu verändern, und dann
+erneut die Impulsrate gemessen. Zuletzt wird noch die erste Strahlungsquelle
+entfernt und die Zweite alleine gemessen.
+
+% Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Auswertung}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{plot_kenn.pdf}
+\caption{Graph der Kennlinie}
+\label{fig:a}
+\end{figure}
+
+% Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Diskussion}
+
+
+% Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\printbibliography
+
+\end{document}
