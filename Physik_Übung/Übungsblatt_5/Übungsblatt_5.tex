@@ -228,6 +228,20 @@ Der minimalste Energiezustand befindet sich bei $n=0$:
 
 \subsection{d)}
 
+\begin{align}
+    \hat a \Psi (x,t) &= \frac{1}{\sqrt{2}} \left( \sqrt{\frac{ m \omega}{\hbar}} \hat x + i \sqrt{\frac{1}{m \omega \hbar}} \hat p \right) \Psi (x,t)\\
+    \intertext{
+        Nebenrechnung
+    }
+    \frac{\partial \Psi}{\partial x} \Psi (x,t) &= \left( \frac{2x}{2 x_0^2}+\frac{\beta}{x_0^2} e^{-i \omega t} \right) \Psi (x,t) \\
+    \intertext{
+        weiter
+    }
+    &=\frac{1}{\sqrt{2}} \left(\sqrt{\frac{m \omega}{\hbar}}x + \hbar \sqrt{1}{m \omega \hbar} \left( \frac{2x}{2 x_0^2}+\frac{\beta}{x_0^2} e^{-i \omega t} \right) \right) \Psi (x,t)\\
+    &= \frac{1}{\sqrt{2}} \left(2 \sqrt{\frac{m \omega}{\hbar}}x + \sqrt{\frac{m \omega}{\hbar}} \beta e^{-i \omega t} \right) \Psi (x,t)\\
+    &=\underbrace{\sqrt{\frac{2 m \omega}{\hbar}} \left(x+\frac{1}{2} \beta e^{-i \omega t} \right)}_{\text{Eigenwert } \lambda} \Psi (x,t)
+\end{align}
+
 
 \section{Aufgabe 3}
 
