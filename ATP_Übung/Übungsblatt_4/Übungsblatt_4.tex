@@ -51,20 +51,78 @@
 
     \subsection{a)}
 
+    \flushleft{Ein\;}\justifying Parsec, oder Parallaxen Sekunde wird verwendet um die Distanz entfernter Lichtquellen im Universum 
+    zu bestimmen. Dabei wird folgende Geometrie verwendet:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{images/Parallaxe.jpg}
+        \label{fig:5}
+    \end{figure}
+
+    \flushleft{Wird\;}\justifying der Stern in einem Abstand von sechs Monaten betrachtet, hat die Erde ihre Position um 2AE verändert. 
+    Unter betrachtung des vergleichsweise statischen Hintergrund fällt nun auf, dass sich der gesuchte Stern um einen Winkel verschoben 
+    hat. Dieser Winkel ist der Parallaxenwinkel und erlaubt es die Distanz zwischen Sonne und gesuchtem Stern zu ermitteln. 
+    Ein Parsec ist die Distanz des Fluchtpunkts bei einem Parallaxenwinkel von einer Bogensekunde.
+
     \subsection{b)}
+
+    \begin{align*}
+        m-M &= 5 \cdot \log_{10}\left( \frac{1}{10pc} \right)\\
+        \Leftrightarrow M &= m-5 \cdot \log_{10}\left( \frac{1}{10 \text{pc}} \right)
+        \intertext{\flushleft{Werden\;}\justifying nun für $m=-26.74\,\text{mag}$ und $r=149.6\cdot10^6\SI{}{\kilo\meter}$ eingesetzt, ergibt sich
+        } 
+        M &= \text{\input{M.tex}}
+    \end{align*}
 
     \subsection{c)}
 
+    \begin{align*}
+        m-M &= 5 \cdot \log_{10}\left( \frac{r}{10 \text{pc}} \right) \tag(*)\\
+        &= 5\left(\log_{10}\left( \frac{r}{\text{pc}} \right)-\log_{10} \left( 10\right) \right)\\
+        &= 5\left( \log_{10}\left(\frac{r}{\text{pc}}\right)-1 \right)\\
+        \frac{m-M}{5}+1 &= \log_{10}\left(\frac{r}{\text{pc}}\right)\\
+        \Rightarrow \frac{r}{\text{pc}} &= 10^{\left(\frac{m-M}{5}-1 \right)}\\
+        r &= 10^{\frac{m-M}{5}+1} \text{pc}
+        \intertext{\flushleft{Durch\;}\justifying einsetzen von $m=-1.46\,\text{mag}$ und $M=1.43\,\text{mag}$
+        }
+        r &= \text{\input{r.tex}}
+    \end{align*}
+
     \subsection{d)}
 
+    \flushleft{Die\;}\justifying Parallaxenmethode kann bei einzelnen Sternen sowie bei Sternenhaufen angewandt werden. Bei Sternhaufen
+    wird die Sternstromparallaxe verwendet, wo der Konvergenzpunkt einzelner geeigneter Sterne betrachtet wird. Dazu muss die Relativbewegung
+    der Erde, sowie die spektral Verschiebung berücksichtigt werden. Diese Methode kann Distanzen bis zu 130 Lj/40 pc bestimmen.
+
+    \flushleft{Cepheiden\;}\justifying sind pulsierende Riesen, die über eine bestimmte Periode $T$ ihre Luminosität verändern. Die Luminosität
+    hängt direkt mit der Länge der Periode zusammen, wodurch die wahre Leuchtkraft des Cepheids bestimmt werden kann. Mit bekannten Cepheiden
+    (bekannte Luminosität und Periodendauer) kann mit $(*)$ auf den Abstand zu neuen Cepheiden geschlossen werden. Diese Methode kann Distanzen
+    bis zu $10^7\,$Lj bestimmen.
+
+    \flushleft{Die\;}\justifying Rotverschiebung ist ein Phenomen, welches der Ausdehnung des Raumes/des Universums zu verschulden ist. Durch
+    die Expansion des Raumes wird ein relativistisch propagierendes Photon im Raum gedehnt, wodurch sich dessen Wellenlänge vergrößert. Bei 
+    bekannten Spektren von Sternen oder Galaxien lässt sich diese Dehnung auf das ursprüngliche Spektrum zurückführen, wodurch die Distanz 
+    errechnet werden kann. Die Genauigkeit schwankt jedoch, da dem Licht unterwegs viel im Weg stehen kann, dass sich auf den Dopplereffekt 
+    auswirken kann. Demnach ist die Distanzmessung via Rotverschiebung nur bis auf ca. 100k Lj genau.
+
+    \flushleft{Die\;}\justifying letzte Methode ist die der Standardkerzen. Obgleich selten, haben Supernovae des Typus Ia eine bekannte 
+    Relation zwischen Luminosität und Breite der Lichtkurve. Hier tritt wieder die Rotverschiebung auf, welche zurückführt auf die Distanz. 
+    Diese Messung ist bis zu $10^{10}\,$Lj genau. 
+
     \subsection{e)}
+
+    \flushleft{Wie\;}\justifying bereits im Absatz der Rotverschiebung erklärt, kann dem Licht vieles im Weg stehen. Das Licht kann
+    durch Gravitationsfelder gestreckt/gestaucht werden oder durch Gas/Staub an Intensität verlieren. Es ist zum Beispiel schwer bis 
+    unmöglich Objekte auf der uns gegenüberliegender Seite der Milchstraße genau zu bestimmen, da zu viele Leuchtende Körper im Weg sind.
+    Schwächer leuchtende Objekte können demnach vom Hintergrund "verschluckt" werden. 
 
 \section{Aufgabe 12}
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{images/Aufgabe12.jpg}
-        \label{fig:5}
+        \label{fig:6}
     \end{figure}
 
     \subsection{a)}
