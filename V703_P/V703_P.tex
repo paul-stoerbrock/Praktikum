@@ -23,29 +23,142 @@
 
 \section{Theorie}
 
-    \flushleft{Zu\;}\justifying
+    \flushleft{Das\;}\justifying Geiger-Müller Zählrohr wird in der Physik verwendet Um
+    ionisierende Strahlung zu Messen. Dabei werden durch die Absorption von $\alpha$- und
+    $\beta$-Teilchen, und Röntgen-Quanten elektrische Impulse erzeugt, die mit dem 
+    richtigen Aufbau gemessen werden können. Der Querschnitt eines Geiger-Müller Zählrohrs
+    ist in der folgenden Abbildung dargestellt:
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\linewidth]{images/Messbereich.jpg}
-        \caption{\cite{703}}
+        \includegraphics[width=\linewidth]{images/Querschnitt.jpg}
+        \caption{Aufbau eines Geiger-Müller Zählrohrs \cite{V703}}
         \label{fig:1}
     \end{figure}
+
+    \flushleft{Die\;}\justifying einfallenden Teilchen wandern durch das Eintrittsfenster
+    in den Hohlraum des Zählrohrs. Der Hohlraum ist mit einem Gasgemisch (z.B.
+    $\SI{100}{\milli\bar}$ Argon und $\SI{100}{\milli\bar}$ Ethylalkohol) gefüllt. 
+    Wird zwischen Stahlmantel (Kathode) und dem Anodendraht eine Spannung aufgebaut, 
+    entsteht im Hohlraum ein radialsymmetrisches Feld. Dieses Feld beschleunigt die
+    eintretenden Teilchen in Richtung des Anodendrahts wie $\sfrac{1}{r}$, wobei bei
+    einem bliebig kleinen Radius $r_a$ mit $r_a < r < r_k$ die Beschleunigung unendlich
+    groß werden kann. 
+
+    \flushleft{Das\;}\justifying hat zur Folge, dass ein einfallendes Teilchen das
+    Gasgemisch solange ionisiert, bis dessen gesamte Energie aufgebraucht ist. Die
+    nun freien Elektronen wandern zum Anodendraht, können jedoch auf dem Weg
+    rekombiniert werden. Da die Zahl der gewonnenen Elektronen und Ionen proportional
+    zur Energie des einfallenden Teilchens ist, ist auch der gemessene Ionisationsstrom
+    proportional zur Intensität der Strahlung. Außerdem kann die Zahl der Rekombination 
+    verringert werden, indem das E-Feld, also die angelegte Spannung erhöht wird. Demnach 
+    ist der Ionisationsstrom auch proportional zur Feldstärke des E-Felds. Die Abhängigkeit 
+    zwischen Spannung und Elektron-Ionen-Paare wird in der folgenden Abbildung verdeutlicht:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{images/Messbereich.jpg}
+        \caption{Anzahl der Elektron-Ionenpaare als Funktion der Spannung $U$ \cite{V703}}
+        \label{fig:2}
+    \end{figure}
+
+    \flushleft{Bei\;}\justifying außreichender Strahlung und relativ geringer Spannung wird
+    der in Abbildung \ref{fig:1} gezeigte Aufbau als Ionisationskammer Bezeichnet (\ref{fig:2}
+    Bereich II). Wird die Spannung jedoch weiter erhöht, gewinnen die Elektronen, die vom 
+    einfallenden Teilchen aus den Argon-Atomen gelöst wurden, durch das E-Feld nahe des 
+    Anodendrahts genug Energie, um selbst Atome zu ionisieren. Dieser Vorgang wird als 
+    Stoßionisation bezeichnet und hat einen Lawinen-Effekt zur Folge (Townsend-Lawine), die
+    genügend Ladung am Anodendraht sammelt um den elektrischen Ladungsimpuls messen zu können. Hierbei
+    ist zu berücksichtigen, dass die Ladung immer noch proportional zur abgegebenen Energie des
+    einfallenden Teilchens ist. Folglich kann der Ladungsimpuls als Maß der Teilchenenergie benutzt
+    werden. Aus der Proportionalität folgt der Name des Bereichs III in Abbildung \ref{fig:2}.
+
+    \flushleft{In\;}\justifying Abbildung \ref{fig:2} wird außerdem deutlich, dass der 
+    Proportionalitätsbereich bei einer genügend hohen Spannung endet. Der Bereich IV ist hier
+    der wichtige Bereich, da das Geiger-Müller Zählrohr in diesem Bereich arbeitet. Im Bereich
+    IV ist die Spannung so groß und das E-Feld so stark, dass durch die Townsend-Lawine auch 
+    UV-Photonen emittiert werden. Da Photonen neutral geladen sind, werden sie nicht vom E-Feld
+    zum Anodendraht geschickt und können sich auch senkrecht zu den Feldlinien ausbreiten. Diese 
+    Bewegungsfreiheit hat zur Folge, dass sich im gesamten Hohlraum Elektronenlawinen bilden. 
+    Nun hängt die Ladung nicht mehr von der Energie des einfallenden Teilchens ab, weshalb der
+    Ladungsimpuls nur noch als Maß der Intensität verwendet werden kann (Geiger-Müller Zählrohr).
+    Durch die erhöhte Elektronenzahl in dem großen Ionisationsstrom wandern freie Elektronen 
+    relativ schnell zum Anodendraht. Massereichere, positiv geladene Ionen hingegen verweilen
+    länger im Hohlraum und bauen langsam einen "Ionen-Schlauch" auf, der die Feldstärke am 
+    Anodendraht reduziert. Ist die Feldstärke klein genug, kann keine Stoßionisation mehr
+    stattfinden, was bedeutet, dass ein neu einfallendes Teilchen nicht mehr registriert werden
+    kann. Dieser Zeitpunkt $T$ wird als Totzeit bezeichnet und in der folgenden Abbildung dargestellt:
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{images/Erholungszeit.jpg}
-        \caption{\cite{703}}
-        \label{fig:2}
+        \caption{Tot- und Erholungszeit als Ladungs-Zeit-Diagramm \cite{V703}}
+        \label{fig:3}
     \end{figure}
+
+    \flushleft{Über\;}\justifying die Totzeit wandern die Ionen zum Stahlmantel und das E-Feld wird
+    langesam wieder aufgebaut. Die Dauer dieses Prozesses $T_E$ heißt Erholungszeit und wird durch
+    die Einhüllende der Energieschübe, die in Abbildung \ref{fig:3} abgebildet werden, dargestellt.
+    Diese Energieschübe entstehen, da die Ionen beim Auftreffen auf den Stahlmantel neutralisiert 
+    werden und genug Energie freisetzen um die Austrittsarbeit der Elektronen zu überwinden. Die
+    aus dem Stahlmantel herausgelösten Elektron wandern zum Anodendraht und können auf dem Weg 
+    neue und zeitlich versetzte Zählrohrentladungen auslösen. Diese zeitlich versetzten Ladungsstöße
+    heißen Nachentladungen und sind in Abbildung \ref{fig:3} unter der Einhüllenden deutlich erkennbar.
+    Die Nachentladung störrt und kann mit dem Zusatz von Ethylalkohol größtenteils behoben werden, da 
+    Ethylalkoholionen während der Neutralisierung an dem Stahlmantel nicht genug Energie aufbringen 
+    können, um Elektronen zu lösen. 
+
+    \newpage
+    \flushleft{Um\;}\justifying die Charakteristik eines Zählrohrs zu bestimmen, wird die Intensität
+    $N$ gegen die angelegte Spannung $U$ aufgetragen. Der daraus folgende Graph
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{images/Plateau.jpg}
-        \caption{\cite{703}}
-        \label{fig:3}
+        \caption{Graphische Darstellung der Zählrohrcharakteristik \cite{V703}}
+        \label{fig:4}
     \end{figure}
 
+    \flushleft{stellt\;}\justifying das Plateau eines Zählrohrs dar. Das Plateau hat im idealen Fall
+    eine Steigung von $0$, doch kann eine Nachentladung selbst durch das vorliegende Gasgemisch nicht
+    vermieden werden. $U_E$ ist hier die Spannung, an welcher das Gasgemisch ionisiert wird. Die länger
+    des Plateaus ist ein Qualitätsmaß des Zählrohrs. Hinter dem Plateau geht der Graph in den Bereich
+    der Dauerentladung über. In diesem Bereich (Bereich V in Abbildung \ref{fig:2}) hat besitzt das 
+    ionisierende Teilche genug Energie um eine Dauerentladung zu zünden. Die dabei entstehenden hohen 
+    Stromdichten können das Zählrohr zerstören.
+
+    \flushleft{Die\;}\justifying Totzeit $T$ wird hier über zwei Methoden bestimmt: die Zwei-Quellen-
+    Methode (ZQM) und die Oszilloskopmethode (OM). Die ZQM vergleicht die Impulsraten zweier Quellen
+    indem die Impulsraten $N$ beider Quellen jeweils einmal separat ($N_1, N_2$) und einmal zusammen 
+    ($N_{1+2}$) gemessen werden. Dabei wird beachtet, dass auf Grund der Totzeit $T$ die gemessene 
+    Impulsrate $N_r$ immer kleiner ist, als die tatsächliche Teilchenzahl $N_w$, die im Zählrohrvolumen 
+    absorbiert werden. Aus der Formel \cite{V703}
+    \begin{align}
+        N_w &= \frac{Impulsrate}{Messzeit} = \frac{N_r t}{(1-TN_r)t} = \frac{N_r}{1-TN_r}
+    \end{align}
+    \flushleft{folgt\;}\justifying für die drei Impulsraten $N_1,N_2,N_{1+2}$ unter der Bedingung
+    $N_{1+2} = N_1+N_2$ die Gleichung:
+    \begin{align}
+        \frac{N_{1+2}}{1-TN_{1+2}} &= \frac{N_1}{1-TN_1}+\frac{N_2}{1-TN_2}
+    \end{align}
+    \flushleft{Diese\;}\justifying Gleichung kann nach $T$ umgestellt werden, wodurch die Totzeit als
+    \begin{align}
+        T &\approx \frac{N_1+N_2-N_{1+2}}{2N_1N_2}
+    \end{align}
+    \flushleft{approximiert\;}\justifying werden kann. Die Totzeit kann nicht definitiv bestimmt werden,
+    da die Bedingung $N_{1+2} = N_1+N_2$ experimentell zu $N_{1+2} < N_1+N_2$ korrigiert wird. 
+
+    \flushleft{Die\;}\justifying Zahl der freigesetzten Ladungen pro einfallendem Teilchen $Z$ kann mit den 
+    gemittelten Zählrohrstrom $\bar{I}$ \cite{V703}
+    \begin{align}
+        \bar{I} &:=\frac{1}{\tau} \int_{0}^{\tau} \frac{U(t)}{R} \mathrm{d}t \qquad \text{für}\;\tau \gg T
+        \intertext{wie folgt berechnet werden:
+        }
+        Z &= \frac{\bar{I}}{e_0 N}
+    \end{align}
+    \flushleft{Wobei\;}\justifying $e_0$ die Elementarladung eines Elektrons und $N$ die Impulszahl darstellt.
+
+\newpage
 \section{Versuchsaufbau und Durchführung}
 
     \flushleft{Zu\;}\justifying Beginn wird die Charakteristik des Zählrohrs gemessen, indem vor das Fenster des Zählrohrs eine $\beta$-Quelle,
@@ -55,8 +168,8 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{images/Aufbau.jpg}
-        \caption{Aufbau des Geiger-Müller Zählrohrs samt Messaparatur \cite{703}}
-        \label{fig:4}
+        \caption{Aufbau des Geiger-Müller Zählrohrs samt Messaparatur \cite{V703}}
+        \label{fig:5}
     \end{figure}
 
     \flushleft{Dabei\;}\justifying sollte die maximale Impulsrate $\SI{100}{\per\second}$ Impulse nicht überschreiten. Die Impulsrate wird
@@ -74,9 +187,9 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\linewidth]{images/Oszilloskop.jpg}
-        \caption{Momentaufnahme des Oszilloskops \cite{703}}
-        \label{fig:5}
+        \includegraphics[width=0.75\linewidth]{images/Oszilloskop.jpg}
+        \caption{Momentaufnahme des Oszilloskops \cite{V703}}
+        \label{fig:6}
     \end{figure}
 
     \flushleft{Dabei\;}\justifying beträgt eine Kästchenlänge der Zeitachse $\SI{100}{\micro\second}$. 
