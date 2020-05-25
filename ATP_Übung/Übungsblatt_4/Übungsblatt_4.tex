@@ -68,10 +68,49 @@
     \end{figure}
 
     \subsection{a)}
-
+    Zwei Werte aus verschiedenen Messungen für die Hubbelkonstanten sind
+    \begin{align}
+        H_{0,1903.12097} &= 67.4^{+6.0}_{\--6.2} \si{\kilo\meter\second\tothe{-1}\mega pc \tothe{-1}}\\
+        H_{0,1903.07603} &= 74.22\pm1.82 \si{\kilo\meter\second\tothe{-1}\mega pc \tothe{-1}}
+    \end{align}
+    Die erste Hubbelkonstante entstammt aus einer Messung der Planck-Sonde im Jahr 2013. Diese
+    hatte die Hubblekonstante und die Materiedichte des Universums über die Abschwächung hochenergetischer
+    Gammaquanten. Die Menge an Gammaquanten hängt in einer Sichtlinie hängt von der Expansionsrate des
+    Universums und der Materiedichte ab.\\
+    Die zweite Hubblekonstante ist vom Hubble-Weltraumteleskop gemessen worden. Dabei wurden 70 langperiodige
+    Cepheiden in der Magellanschen Wolke beobachtet.\\
+    Diese hohe Abweichung zwischen den Messwerten ist sehr ungewöhnlich. Zum aktuellen Zeitpunkt gibt
+    es keine Erklärungen für die Ursache. Ein Fehler in den Messungen ist dabei schon ausgeschlossen worden.
+    Daher wird angenommen, dass es sich dabei um ein kosmische Eigenschaft handelt außerhalb des LambdaCDM
     \subsection{b)}
+    \begin{align}
+        H(a(t)) &= \frac{\dot{a}(t)}{a(t)}\\
+        a(t) &= \frac{a_0}{1+z}\\
+        \dot{a} &= \frac{\dif{}}{\dif{t}} \frac{a_0}{1+z}\\
+        &= a_0 \frac{\dif{z} }{\dif{t}} \left(-\frac{1}{(1+z)^2} \right)\\
+        H(z) &= \frac{-\frac{a_0}{(1+z)^2 \frac{\dif{z}}{\dif{t}}}}{\frac{a_0}{1+z}}\\
+        H(z) dt &= -\frac{1}{1+z} \dif{z}\\
+        \frac{dif{t}}{\dif{z}}(z)&= -\frac{1}{H(z)(1+z)}
+    \end{align}
 
     \subsection{c)}
+    Betrachtung, dass unser Universum nur aus Materie bestehe:
+    \begin{align}
+        \Omega _{\text{Dunkle Energie}} &= \Omega _{\text{Strahlung}} =0\\
+        \Omega _{\text{Materie}} &=1\\
+        H(z) &= H_0 \sqrt{(1+z)^3}\\
+        \frac{\dif{t}}{\dif{z}}&=-\frac{1}{H_0 \sqrt{(1+z)^5}} 
+        \dif{t} &= -\frac{1}{H_0 \sqrt{(1+z)^5}} \dif{z} \left| \int \right. \\
+        \int_t^0 \dif{t'} &= -\frac{1}{H_0}  \int_0^{\infty} \frac{1}{(1+z)^{\frac{5}{2}}} \dif{z}\\
+        \intertext{\justifying
+            In der Gleichung vorher eird das Alter das Universum berechnet, indem vom aktuellen
+            Stand zurückgerechnet wird. Dabei gilt für die größte Rotverschiebung z, das früheste
+            Stadium des Universums betrachtet wird und bei der kleinsten der aktuelle Stand.
+        }
+        u=&z+1 \\
+        &= -\frac{1}{H_0} \left(-\frac{2}{3} \right) \left(u \right)^{-\frac{3}{2}} \left|_{\infty}^1 \right. \\
+        &=\frac{2}{3 H_0}
+    \end{align}
 
     \subsection{d)}
 
