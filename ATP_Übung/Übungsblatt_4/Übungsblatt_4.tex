@@ -29,6 +29,41 @@
         \label{fig:1}
     \end{figure}
 
+    \flushleft{Um\;}\justifying die direkte Distanz $d$ der beiden Städte Paris ($P$) und Guyana($G$) zu bestimmen, wird das gleichschenklige 
+    Dreieck Paris-Guyana-Erdmittelpunkt betrachtet. Die Schenkel sind hierbei der Erdradius $r_E$ und die Hypothenuse ist die direkte Distanz
+    $d$. Dabei gilt es den von den Schenkeln aufgespanneten Winkel $\alpha$ zu bestimmen um auf $d$ schließen zu können.
+
+    \flushleft{Paris\;}\justifying [Längengrad($L_1$): $\SI{2.3}{\degree}$, Breitengrad($B_1$): $\SI{48.9}{\degree}$] und Guyana [Längengrad($L_2$): $\SI{-54}{\degree}$, 
+    Breitengrad($B_2$): $\SI{4}{\degree}$]
+    \begin{align*}
+        \alpha_x &= |L_1-L_2| = |\SI{2.3}{\degree}-(\SI{-54}{\degree})| = \SI{56.3}{\degree}\\
+        \alpha_y &= |B_1-B_2| = |\SI{48.9}{\degree}-\SI{4}{\degree}| = \SI{44.9}{\degree}
+        \intertext{\flushleft{Aus\;}\justifying $\alpha = \sqrt{\alpha_x^2+\alpha_y^2}$ folgt:
+        }
+        \alpha &= \SI{77.25}{\degree}
+        \intertext{\flushleft{Aus\;}\justifying den obig genannten Verhältnis ergibt sich mit Pythagoras:
+        }
+        r_E^2 &= \left( \frac{d}{2} \right) +h 
+        \intertext{\flushleft{Wobei\;}\justifying $h$ die Strecke zwischen Distanz $d$ und Erdmittelpunkt beschreibt.
+        }
+        \Rightarrow \cos\left( \frac{\alpha}{2} \right) &= \frac{h}{r_E}\\
+        \Leftrightarrow h &= r_E \cos\left( \frac{\alpha}{2} \right)\\
+        \left( \frac{d}{2} \right)^2 &= r_E^2 - r_E^2 \cos^2\left( \frac{\alpha}{2} \right)\\
+        d &= 2r_E \sqrt{1-\cos^2\left( \frac{\alpha}{2} \right)}\\
+        \Rightarrow d &= \SI{7491.562159}{\kilo\meter}
+    \end{align*}
+    \flushleft{Für\;}\justifying die Distanz $H$ zwischen Erde und Mars wird ein ähnliches gleichschenkliges Dreieck wie zuvor betrachtet,
+    nur sind hier die Schenkel $e$ der Abstand zwischen Paris/Guyana und Mars. $d$ ist hier die selbe direkte Distanz zwischen Paris und Guyana,
+    wobei der Winkel, der von den Schenkeln aufgespannt wird, hier $\beta$ ist. Daraus folgt analog zu der obigen Rechnung:
+    \begin{align*}
+        e^2 &= \left( \frac{d}{2} \right)^2 + e^2 \cos^2\left( \frac{\beta}{2} \right)\\
+        e^2\left( 1-\cos\left( \frac{\beta}{2} \right) \right) &= \frac{d^2}{4}\\
+        e &= \frac{d}{2\sqrt{1-\cos^2\left( \frac{\beta}{2} \right)}}\\
+        \Rightarrow 0.3812 \text{AE} &= \frac{d}{2\sqrt{1-\cos^2\left( \frac{\beta}{2} \right)}}\\
+        AE &= \frac{d}{2\cdot0.3812\sqrt{1-\cos^2\left( \frac{\beta}{2} \right)}}\\
+        &= 8.812\cdot10^{20}\text{km}
+    \end{align*}
+
 \section{Aufgabe 11}
 
     \begin{figure}[H]
@@ -65,6 +100,7 @@
     hat. Dieser Winkel ist der Parallaxenwinkel und erlaubt es die Distanz zwischen Sonne und gesuchtem Stern zu ermitteln. 
     Ein Parsec ist die Distanz des Fluchtpunkts bei einem Parallaxenwinkel von einer Bogensekunde.
 
+    \newpage
     \subsection{b)}
 
     \begin{align*}
@@ -84,7 +120,7 @@
         \frac{m-M}{5}+1 &= \log_{10}\left(\frac{r}{\text{pc}}\right)\\
         \Rightarrow \frac{r}{\text{pc}} &= 10^{\left(\frac{m-M}{5}-1 \right)}\\
         r &= 10^{\frac{m-M}{5}+1} \text{pc}
-        \intertext{\flushleft{Durch\;}\justifying einsetzen von $m=-1.46\,\text{mag}$ und $M=1.43\,\text{mag}$
+        \intertext{\flushleft{Durch\;}\justifying einsetzen von $m=-1.46\,\text{mag}$ und $M=1.43\,\text{mag}$ ergibt sich:
         }
         r &= \text{\input{r.tex}}
     \end{align*}
