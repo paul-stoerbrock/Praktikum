@@ -26,3 +26,9 @@ def make_SI(num, unit, exp='', figures=None):
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
 
+r_star = 44.5* 6.96*10**8
+
+mass_star = 1.988*10**(30) 
+
+print(2* np.pi * np.sqrt(3*np.pi*r_star**6/(4* const.G* mass_star)) )
+

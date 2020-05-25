@@ -22,7 +22,7 @@
 Absorptionsspektren bilden für die Physik und vor allem für die Astronomie eine entscheidende Rolle
 bei der Bestimmung der stofflichen Zusammensetzung wie der Temperatur von strahlenden Himmelskörpern.
 Die Kenntnis über die Absorptionsspektren verschiedener Materialien spielt also eine bedeutende
-Rolle. Daher werden die Absorptionsspektren verschiedener Materalien mittels einer Röntgenröhre zu
+Rolle. Daher werden die Absorptionsspektren verschiedener Materialien mittels einer Röntgenröhre 
 untersucht und deren Abschirmkonstanten bestimmt. 
 
 
@@ -39,6 +39,8 @@ bzw. seine Wellelänge minimal, wenn das Elektron vollständig abgebremst wird: 
 \begin{align}
 \lambda _{\text{min}}=\frac{h \cdot c}{e_0 U} \label{eq:1}
 \end{align}
+Dabei bezeichnet h das plank'sche Wirkungsquantum, c die Lichtgeschwinsigkeit $e_0$ die
+Elektronenladung und U die angelegte Spannung, wobei $e_0 U$ die Energie der Elektronen ist.
 Der andere Teil des Spektrums entsteht durch die charakteristische Strahlung des Anodenmaterials.
 Dieses entsteht, wenn ein Elektron ein Atom ionisiert. Dadurch fallen Elektronen von höheren
 Schalen auf niedriegere und senden einen Röntgenquant aus, der der Energiedifferenz
@@ -46,15 +48,17 @@ der beiden Schalen entspricht \cite{V602}
 \begin{align}
     h \nu = E_m - E_n \label{eq:2}
 \end{align}
+Hier beschreibt $nu$ die Frequenz des Röntgenquants, E die Energie des Elektrons auf der jeweiligen Schale.
 Da die Energieniveaus in Atomen quantisiert bildet das charakteristische Spektrum scharfe Linien.
 Die Bezeichnung der einzelnen Linien erfolgt durch $K_{\alpha}, K_{\beta}, L_{\alpha},... $. 
 Dabei beschreibt der Buchstabe, auf welcher Schale das Elektron endet und der Index von welchem
 es startet.\\
-Die einzelnen Linien besitzen bei der Messung jeweils eine gewisse Unschärfe, welche sich durch
+Die einzelnen Linien besitzen bei der Messung jeweils eine gewisse Unschärfe, welche sich durch\cite{V602}
 \begin{align}
     A=\frac{E_k}{E_{FWHM}} \label{eq:3}
 \end{align}
 berechnen lässt.
+A kennzeichnet dabei die Auflöung, $E_k$ die Energie der Linie und $E_{FWHM} $ die Halbwertsbreite des Peaks.
 Bei Atomen mit mehreren Elektronen in der Hülle, schwächen diese das Coulombfeld des Atoms ab,
 wodurch die Energie eines Elektrons auf der n-ten Schale beschrieben wird durch \cite{V602}
 \begin{align}
@@ -76,7 +80,7 @@ Die Bindungsenergie in der Feinstruktur wird dabei mit der Sommerfeldschen Feins
 \begin{align}
     E_{n,j}= - R_{\infty} \left(z_{\text{eff},1}^2\cdot \frac{1}{n^2}+\alpha ^2 z_{\text{eff},2}^4\cdot \frac{1}{n^3}\left(\frac{1}{j+\frac{1}{2}}-\frac{3}{4n} \right) \right) \label{eq:5}
 \end{align}
-\alpha bezeichnet dabei die Sommerfeldsche Feinstrukturkonstante, j der Gesamtdrehimpuls und n 
+$\alpha$ bezeichnet dabei die Sommerfeldsche Feinstrukturkonstante, j der Gesamtdrehimpuls und n 
 die Hauptquantenzahl.
 MIthilfe der K-Kante und der Formel \eqref{eq:5} lässt sich die Abschirmkonstante für die
 K-Schale bestimmen \cite{V602}
@@ -85,7 +89,7 @@ K-Schale bestimmen \cite{V602}
 \end{align}
 wobei Z die Ordnungszahl ist.\\
 Bei der Analyse der Röntgenstrahlung wird diese mit einem LiF-Kristall abhängig von der Wellenlänge in verschiedene
-gestreut. Dabei wird die Streuung durch die Bragg'sche Reflexion beschrieben
+Winkel gestreut. Dabei wird die Streuung durch die Bragg'sche Reflexion beschrieben \cite{V602}
 \begin{align}
     2d \sin \theta =n \lambda \label{eq:7}.
 \end{align}
@@ -98,19 +102,19 @@ Der grundlegende Aufbau besteht aus dem Röntgengerät:\cite{V603}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/Aufbau1.jpg}
-    \caption{Röntgengerät}
+    \caption{Aufbau eines Röntgengerät}
     \label{fig:1}
 \end{figure}
 \flushleft{Alle\;}\justifying Messungen werden dabei über dem Computer gesteuert, dort wird bei dem entsprechenden Programm
-das Röntgengerät ausgewählt und Messart, Drehmodus, den anzufahrenden Kristallwinkel und die 
-Integrationszeit eingestellt. Die Messart wird auf Spektren gestelltund es wird kontrolliert, ob der
+das Röntgengerät ausgewählt und die Messart, der Drehmodus, den anzufahrenden Kristallwinkel und die 
+Integrationszeit eingestellt. Die Messart wird auf Spektren gestellt und es wird kontrolliert, ob der
 LiF-Kristall und die 1mm Blende in den Halterungen sind und ob die Blende vor dem Geiger-Müllerzählrohr
 waagerecht angebracht ist. \\
 Für die Überprüfung der Bragg-Bedingung wird der Kristallwinkel auf 14° gestellt und ein Winkelbereich von 26-30°
 mit einem Zuwachs von 0,1° eingestellt. Die Integrationszeit wird dabei auf $\SI{5}{\second}$ gestellt.\\
 Um das Emissionsspektrum der Anode zu bestimmen, wird eine Integrationszeit von \SI{10}{\second} und
 eine Schrittweite von 0,1° eingestellt und eine Messung im passenden Winkelbereich vorgenommen.\\
-Für die Messung des Absorptionsspektrum wird jeweils ein Absorber vor das Geiger-Müller Zählrohr positioniert
+Für die Messung des Absorptionsspektrums wird jeweils ein Absorber vor das Geiger-Müller Zählrohr positioniert
 und eine Messung mit einer Integrationszeit von \SI{20}{\second} und einer Schrittweite von 0,1° durchgeführt werden.
 Der Meßbereich sollte dabei angepasst auf das jeweilige Material eingestellt sein. Diese Messung 
 wird mit 5 verschiedenen Absorbern mit durchgeführt.
@@ -119,12 +123,13 @@ wird mit 5 verschiedenen Absorbern mit durchgeführt.
 
 \section{Auswertung}
 Alle Messungen sind mit einer Spannung von  \SI{35}{\kilo\volt}, einem Amplitudenstrom von
-\SI{1}{\milli\ampere} und einem LiF-Kristall mit einer Gitterkonstanten d von \cite{V602}
+\SI{1}{\milli\ampere} und einem LiF-Kristall mit einer Gitterkonstante d von \cite{V602}
 \begin{align}
-    d = \SI{201.4}{\pico\meter} \label{eq:8}.
+    d = \SI{201.4}{\pico\meter} \label{eq:8}
 \end{align}
-Alle Plots in der Auswertung wurden mit Matplotlib \cite{matplotlib} erstellt
-und alle Messungenauigkeiten wurden mit uncertainties \cite{uncertainties} berechnet
+durchgeführt worden.
+Alle Plots in der Auswertung sind mit Matplotlib \cite{matplotlib} erstellt woden
+und alle Messungenauigkeiten sind mit uncertainties \cite{uncertainties} berechnet worden.
 
 \subsection{Überprüfung der Bragg'schen Bedingung}
 Die Messwerte für die Überprüfung der Bragg'schen Bedingung sind:
@@ -135,7 +140,7 @@ Die Messwerte für die Überprüfung der Bragg'schen Bedingung sind:
 \label{tab:1}
 \end{table}
 
-\flushleft{Der\;}\justifying aus den Messwerten der Tabelle \ref{tab:1} entstehende PLot sieht
+\flushleft{Der\;}\justifying aus den Messwerten der Tabelle \ref{tab:1} entstehende Plot sieht
 folgendermaßen aus.
 
 \begin{figure}[H]
@@ -145,10 +150,10 @@ folgendermaßen aus.
     \label{fig:2}
 \end{figure}
 
-\flushleft{Der\;}\justifying Plot ist mit curvefit und der Funktion
+\flushleft{Der\;}\justifying Plot ist mit curvefit aus SciPy \cite{scipy} und der Funktion
 \begin{subequations}
 \begin{align}
-    N(\theta) &= A \exp \left(\left(\frac{\theta -B}{C} \right)^2\right)+D \label{eq:9a}
+    N(\theta) &= A \exp \left(-\left(\frac{\theta -B}{C} \right)^2\right)+D \label{eq:9a}
     \intertext{ mit den Parametern
     }
     A&= \text{\input{A_Bragg.tex}},\label{eq:9b} \\
@@ -158,11 +163,11 @@ folgendermaßen aus.
 \end{align}
 \end{subequations}
 erstellt worden.\\
-Das Maximum der Kurve befindet sich bei 28,15°.
+Das Maximum der Kurve befindet sich bei $(28,15\pm0,1)°$.
 \newpage
 \subsection{Emissionsspektrum von Kupfer}
 
-Die Tabelle \ref{tab:1} mit den Messwerten befindet sich im Anhang.
+Die Tabelle \ref{tab:1} mit den Messwerten für das Emissionsspektrum befindet sich im Anhang.
 
 \flushleft{Aus\,}\justifying diesen Messwerten ergibt sich der Graph:
 \begin{figure}[H]
@@ -217,7 +222,7 @@ berechnet:
 \end{subequations}
 
 \flushleft{Für\,}\justifying die Bestimmung der Abschirmkonstante von Kupfer wird Gleichung \eqref{eq:4} verwendet.
-Für die Abschirmkonstante $\sigma _1$ wird  diese Gleichung nach $\sigma _1$ umgestellt
+Für die Berechnung der Abschirmkonstante wird  diese Gleichung nach $\sigma _1$ umgestellt
 \begin{align}
     \sigma_1 &= z-\sqrt{\frac{E_{\text{abs}} }{13.6}}. \label{eq:16}
     \intertext{
@@ -228,7 +233,7 @@ Für die Abschirmkonstante $\sigma _1$ wird  diese Gleichung nach $\sigma _1$ um
     \sigma _1 &= \text{\input{sigma_1_Cu.tex}} \label{eq:18}.
 \end{align}
 Für die Abschirmkonstante der beiden K-Strahlen werden die Gleichungen
-\eqref{eq:2}, \eqref{eq:4} und \eqref{eq:16}
+\eqref{eq:2}, \eqref{eq:4} und \eqref{eq:16} benötigt
 \begin{align}
     \sigma _{2/3} &= z- \sqrt{\frac{E_{\text{abs}}-E}{13.6} }\cdot 2(\text{bzw}. \cdot 3\, \text{für} \sigma _3)\label{eq:19}\\
     \sigma _2 &= \text{\input{sigma_2.tex}} \label{eq:20} \\
@@ -236,7 +241,7 @@ Für die Abschirmkonstante der beiden K-Strahlen werden die Gleichungen
 \end{align}
 
 \flushleft{Die\,}\justifying theoretischen Werte der Abschirmkonstanten werden mit den theoretischen
-Werten \cite{NIST} für die $K_{\alpha} $- und $K_{\beta} $-Linie berechnet:
+Werten \cite{NIST} für die Energie der $K_{\alpha} $- und $K_{\beta} $-Linie berechnet:
 \begin{align}
     E_{\alpha, \text{theo}}&= \SI{8048.11}{\electronvolt} \label{eq:22} \\
     E_{\beta, \text{theo}}&= \SI{8906.9}{\electronvolt}. \label{eq:23}\\
@@ -249,8 +254,11 @@ Werten \cite{NIST} für die $K_{\alpha} $- und $K_{\beta} $-Linie berechnet:
 
 Für die verschiedenen Elemente werden jeweils zuerst die Tabellen
 mit den Messwerten dargestellt und dann werden die Graphen
-dargestellt. In den Graphen werden jeweils das Minimum und das Maximum
-der K-Kante dargestellt.
+abgebildet.
+Aus den Abbildungen werden daraufhin das Minima und Maxima der K-Kante 
+mithilfe der Messwerte ermittelt.
+In den Graphen werden jeweils die Mitte der K-Kante
+und der dazugehörige Winkel gezeigt.
 Danach wird die Intensität in der Mitte der Kante über die Formel \cite{V602}
 \begin{align}
     I_k = I_K^{\text{min}}+\frac{I_K^{\text{max}}-I_K^{\text{min}}}{2} \label{eq:26}
@@ -452,7 +460,7 @@ mitsamt ihrer Literaturwerte und der relativen Fehler aufgetragen.
     \toprule
     \multicolumn{2}{c}{Messwert} &\multicolumn{1}{c}{Literatur-/theo. Wert}  &\multicolumn{1}{c}{Relativer Fehler $\frac{mess-lit}{lit} $}  \\
     \cmidrule(lr){1-4} 
-       $\theta _{\text{max,Bragg}}$ & 28,15°  & 28° & \text{\input{relerr_max.tex}}\% \\
+       $\theta _{\text{max,Bragg}}$ & $(28,15\pm 0,1)°$  & 28° & \text{\input{relerr_max.tex}}\% \\
        $E_{K_{\alpha}} $ & \text{\input{E_alpha.tex}} & \SI{8048.11}{\electronvolt} \cite{NIST} & \text{\input{relerr_E_alpha.tex}}\% \\
        $E_{K_{\beta}}$ & \text{\input{E_beta.tex}} & \SI{8906.9}{\electronvolt}\cite{NIST} & \text{\input{relerr_E_beta.tex}}\%  \\
        $A_{\alpha} $ & \text{\input{A_alpha.tex}} & - & - \\
@@ -493,14 +501,14 @@ Messbereich stammen, wodurch die genaue Bestimmung der Halbwertsbreite nicht
 einfach ist. Auch der vorliegende Untergrund durch die Bremsstrahlung 
 verschiebt die eigentliche Halbwertsbreite, wodurch sie kaum
 aussagekräftig ist.\\ 
-Die Abschirmkonstanten von Kupfer in der Tabelle \ref{tab:9} für die $K_{\alpha}- $
+Die Abschirmkonstanten von Kupfer in der Tabelle \ref{tab:9} für die $K_{\alpha}\-- $
 und $K_{\beta} $-Linie zeigen im Vergleich zu den Literaturwerten nur geringe relative
 Fehler auf. Die Literaturwerte liegen dabei innerhalb der jeweiligen Fehlerintervalle.
 Die Messung der Absorptionskante konnte dabei nicht mit der vorliegenden Apparatur
 bestimmt werden, weshalb zu Berechnung der anderen beiden Abschirmkonstante der 
 Literaturwert verwendet worden ist.\\
 Die einzelnen Absorptionsenergien und Abschirmkonstanten der verschiedenen haben
-realtiv geringe Fehler un bei den meistens liegen die Literaturwerte innerhalb
+realtiv geringe Fehler und bei den meistens liegen die Literaturwerte innerhalb
 der Fehlergrenzen der einzelnen Werte. Die existierenden Fehler können 
 statistische Fehler sein. Zudem ist bei der Auswertung mit der Bragg-
 Bedingun nur die 1. Ordnung betrachtet worden, was zusätzliche
@@ -518,6 +526,7 @@ hängt direkt mit deren Fehlern zusammen.
 \newpage
 \printbibliography
 \newpage
-\section{Anhang}
+\section*{Anhang}
+\addcontentsline{toc}{section}{Anhang}
 \input{table_Cu.tex}
 \end{document}

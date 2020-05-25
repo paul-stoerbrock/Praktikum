@@ -273,10 +273,13 @@ with open('build/Delta_E_beta.tex', 'w') as f:
 # tex file for Auflösung
 
 with open('build/A_alpha.tex', 'w') as f: 
-  f.write(make_SI(E(theta_alpha)/abs(E(ufloat(np.deg2rad(22.85),np.deg2rad(0.1)))-E(ufloat(np.deg2rad(22.35),np.deg2rad(0.1)))) ,r'' ,figures=1))
+  f.write(make_SI(E(theta_alpha)/(abs(E(ufloat(np.deg2rad(22.85),np.deg2rad(0.1)))-E(ufloat(np.deg2rad(22.35),np.deg2rad(0.1))))) ,r'' ,figures=1))
+
+c=ufloat(np.deg2rad(20.55),np.deg2rad(0.1))
+d=ufloat(np.deg2rad(20.05),np.deg2rad(0.1))
 
 with open('build/A_beta.tex', 'w') as f: 
-  f.write(make_SI(E(theta_beta)/abs(E(ufloat(np.deg2rad(20.55),np.deg2rad(0.1)))-E(ufloat(np.deg2rad(20.05),np.deg2rad(0.1)))) ,r'' ,figures=1))
+  f.write(make_SI(E(theta_beta)/(abs(E(c)-E(d))) ,r'' ,figures=1))
 
 
 # tex file for sigma _1
