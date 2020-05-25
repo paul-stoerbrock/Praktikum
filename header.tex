@@ -39,11 +39,13 @@
 #1 \delimsize| #2
 }
 
+\usepackage{expl3}
+\usepackage{xparse}
 \NewDocumentCommand \dif {m}
 {
 \mathinner{\symup{d} #1}
 }
-
+\ExplSyntaxOff
 
 \usepackage[
   math-style=ISO,
@@ -97,6 +99,8 @@
 \usepackage{grffile}
 
 \usepackage{booktabs}
+
+\sisetup{separate-uncertainty=true}
 
 \usepackage{microtype} %Verbesserungen am Schriftbild
 
