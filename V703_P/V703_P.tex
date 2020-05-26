@@ -21,9 +21,12 @@
 
 \section{Ziel}
 
+    \flushleft{Das\;}\justifying Ziel dieses Versuches ist die Totzeit eines Geiger-Müller Zählrohrs zu bestimmen. Dazu werden die 
+    Zählrohrcharakteristik und die Anzahl der freigesetzten Ladungen pro einfallendem Teilchen untersucht. 
+
 \section{Theorie}
 
-    \flushleft{Das\;}\justifying Geiger-Müller Zählrohr wird in der Physik verwendet Um
+    \flushleft{Das\;}\justifying Geiger-Müller Zählrohr wird in der Physik verwendet, um
     ionisierende Strahlung zu Messen. Dabei werden durch die Absorption von $\alpha$- und
     $\beta$-Teilchen, und Röntgen-Quanten elektrische Impulse erzeugt, die mit dem 
     richtigen Aufbau gemessen werden können. Der Querschnitt eines Geiger-Müller Zählrohrs
@@ -84,7 +87,7 @@
     Ladungsimpuls nur noch als Maß der Intensität verwendet werden kann (Geiger-Müller Zählrohr).
     Durch die erhöhte Elektronenzahl in dem großen Ionisationsstrom wandern freie Elektronen 
     relativ schnell zum Anodendraht. Massereichere, positiv geladene Ionen hingegen verweilen
-    länger im Hohlraum und bauen langsam einen "Ionen-Schlauch" auf, der die Feldstärke am 
+    länger im Hohlraum und bauen langsam einen \"Ionen-Schlauch\"\; auf, der die Feldstärke am 
     Anodendraht reduziert. Ist die Feldstärke klein genug, kann keine Stoßionisation mehr
     stattfinden, was bedeutet, dass ein neu einfallendes Teilchen nicht mehr registriert werden
     kann. Dieser Zeitpunkt $T$ wird als Totzeit bezeichnet und in der folgenden Abbildung dargestellt:
@@ -132,29 +135,29 @@
     indem die Impulsraten $N$ beider Quellen jeweils einmal separat ($N_1, N_2$) und einmal zusammen 
     ($N_{1+2}$) gemessen werden. Dabei wird beachtet, dass auf Grund der Totzeit $T$ die gemessene 
     Impulsrate $N_r$ immer kleiner ist, als die tatsächliche Teilchenzahl $N_w$, die im Zählrohrvolumen 
-    absorbiert werden. Aus der Formel \cite{V703}
+    absorbiert werden.
+
+    \newpage
+    \flushleft{Aus\;}\justifying der tatsächlichen Teilchenzahl \cite{V703}
     \begin{align}
-        N_w &= \frac{Impulsrate}{Messzeit} = \frac{N_r t}{(1-TN_r)t} = \frac{N_r}{1-TN_r}
+        N_w &= \frac{Impulsrate}{Messzeit} = \frac{N_r t}{(1-TN_r)t} = \frac{N_r}{1-TN_r} \label{eq:1}
     \end{align}
     \flushleft{folgt\;}\justifying für die drei Impulsraten $N_1,N_2,N_{1+2}$ unter der Bedingung
     $N_{1+2} = N_1+N_2$ die Gleichung:
     \begin{align}
-        \frac{N_{1+2}}{1-TN_{1+2}} &= \frac{N_1}{1-TN_1}+\frac{N_2}{1-TN_2}
+        \frac{N_{1+2}}{1-TN_{1+2}} &= \frac{N_1}{1-TN_1}+\frac{N_2}{1-TN_2} \label{eq:2}
     \end{align}
     \flushleft{Diese\;}\justifying Gleichung kann nach $T$ umgestellt werden, wodurch die Totzeit als
     \begin{align}
-        T &\approx \frac{N_1+N_2-N_{1+2}}{2N_1N_2}
+        T &\approx \frac{N_1+N_2-N_{1+2}}{2N_1N_2} \label{eq:3}
     \end{align}
     \flushleft{approximiert\;}\justifying werden kann. Die Totzeit kann nicht definitiv bestimmt werden,
-    da die Bedingung $N_{1+2} = N_1+N_2$ experimentell zu $N_{1+2} < N_1+N_2$ korrigiert wird. 
+    da die Bedingung $N_{1+2} = N_1+N_2$ durch trotzdem auftretenden Nachentladungen experimentell zu $N_{1+2} < N_1+N_2$ korrigiert wird. 
 
     \flushleft{Die\;}\justifying Zahl der freigesetzten Ladungen pro einfallendem Teilchen $Z$ kann mit den 
-    gemittelten Zählrohrstrom $\bar{I}$ \cite{V703}
+    Zählrohrstrom $I$ wie folgt berechnet werden: \cite{V703}
     \begin{align}
-        \bar{I} &:=\frac{1}{\tau} \int_{0}^{\tau} \frac{U(t)}{R} \mathrm{d}t \qquad \text{für}\;\tau \gg T
-        \intertext{wie folgt berechnet werden:
-        }
-        Z &= \frac{\bar{I}}{e_0 N}
+        Z &= \frac{I}{e_0 N} \label{eq:5}
     \end{align}
     \flushleft{Wobei\;}\justifying $e_0$ die Elementarladung eines Elektrons und $N$ die Impulszahl darstellt.
 
@@ -183,6 +186,7 @@
     Präparat hinzugestellt. Abschließend wird das erste Präparat entfernt. Für jeden der drei Schritte wird eine Integrationszeit von $\SI{120}
     {\second}$ verwendet. 
 
+    \newpage
     \flushleft{Für\;}\justifying die Oszilloskopmethode wird die Zeit zwischen den ersten beiden Pulsen von dem folgenden Bild abgelesen:
 
     \begin{figure}[H]
@@ -194,16 +198,109 @@
 
     \flushleft{Dabei\;}\justifying beträgt eine Kästchenlänge der Zeitachse $\SI{100}{\micro\second}$. 
 
-
-
-
+\newpage
 \section{Auswertung}
 
+    \subsection{Zählrohrcharakteristik}
+
+    \flushleft{Der\;}\justifying folgende Graph beschreibt die Zählrohrcharakteristik und beinhaltet die Plateaulänge und Steigung
+    symbolisiert bei der linearen Ausgleichsrechnung. Für die Erstellung des Graphen wurden die Werte der Tabelle \ref{tab:1} und 
+    die Pythonbibliothek matplotlib \cite{matplotlib}, bzw. der Pythonbefehl polyfit \cite{numpy} für die Ausgleichsgerade verwendet. 
+    Hierbei ist zu beachten, dass die Werte der Impulsrate $N$ Poisson verteilt sind, wodurch sich ein Fehler $\Delta N = \sqrt{N}$ 
+    ergibt, welcher an die Messwerte über Python als ufloat \cite{uncertainties} übergeben werden. Dieser Fehler wird im folgenden 
+    Graphen als vertikaler Balken aufgetragen.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotGM.pdf}
+        \caption{Zählrohrcharakteristik}
+        \label{fig:7}
+    \end{figure}
+
+    \flushleft{Die\;}\justifying für die Ausgleichsgerade $N = m*U+b$ relevanten Parameter der Steigung $m$ und des Schnittpunkts der y-Achse 
+    $b$ lauten wie folgt:
+    \begin{align}
+        m &= \text{\input{m_GM.tex}}\\
+        b &= \text{\input{b_GM.tex}}
+    \end{align}
+
+    \subsection{Totzeit}
+
+    \flushleft{Für\;}\justifying die Bestimmung der Totzeit $T$ mithilfe der Zwei-Quellen-Methode werden die jeweiligen Impulsraten der
+    einzelnen Quellen benötigt. Diese lauten
+    wie folgt \cite{V703}:
+    \begin{align}
+        N_1 &= \text{\input{N_1.tex}}\\
+        N_2 &= \text{\input{N_2.tex}}\\
+        N_{1+2} &= \text{\input{N_12.tex}}
+        \intertext{\flushleft{Mithilfe\;}\justifying dieser Impulsraten und der Formel \eqref{eq:3} lässt sich die folgende Totzeit bestimmen:
+        }
+        T &\approx \text{\input{T.tex}}
+    \end{align}
+    \flushleft{Für\;}\justifying die Oszilloskopmethode werden der Primärimpuls und der Sekundärimpuls aus Abbildung \ref{fig:6} abgelesen. Hierbei
+    ist die Länge eines Kastens \SI{100}{\micro\second}. Die Zeitdifferenz bezeichnet die Totzeit und lautet:
+    \begin{align}
+        T &\approx \SI{50}{\micro\second}
+    \end{align}
+    \flushleft{Aufgrund\;}\justifying der Auflösung und der Menge der Impulsen ist es schwer den Primärimpuls und Sekundärimpuls zu bestimmen. Hier ist der
+    Primärimpuls der prominente Impuls (ca. \SI{120}{\micro\second} von links) und der Sekundärimpuls der daurauf folgende Impuls (ca. \SI{170}
+    {\micro\second} von links).
+
+    \subsection{Zahl der freigesetzten Ladungen pro einfallendem Teilchen}
+
+    \flushleft{Die\;}\justifying Zahl der freigesetzten Ladungen pro einfallendem Teilchen $Z$ lässt sich mit der Formel \eqref{eq:5} und 
+    den Werten der Impulsraten aus Tabelle \ref{tab:2} bestimmen. 
+    Dazu wird die jeweilige Stromstärke $I$ benötigt. Die Werte für $Z$ mit ihrer zugehörigen Stromstärke sind in der folgenden Tabelle aufgetragen:
+
+    \begin{table}[H]
+        \centering
+        \input{Z.tex}
+        \caption{Freigesetzte Ladungen pro einfallendem Teilchen $Z$ und dessen Strom $I$}
+        \label{tab:3}
+    \end{table}
+    \flushleft{Beide\;}\justifying Werte sind hier fehlerbehaftet, da die Stromstärke $I$ einem Fehler von $\Delta I = \SI{0.05}{\micro\second}$
+    unterliegt. Werden die Werte für $Z$ und dessen Stromstärke $I$ graphisch gegeneinander aufgetragen (wieder mit der Pythonbibliothek matplotlib
+    \cite{matplotlib}), ergibt sich der folgende Graph:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{build/plotZ.pdf}
+        \caption{$Z$ als Funktion des Stroms $I$}
+        \label{fig:8}
+    \end{figure}
+    \flushleft{Da\;}\justifying hier beide Werte fehlerbehaftet sind, hat jeder Messwert einen Fehlerbalken in x- und y-Richtung. Es wird 
+    mithilfe der Geradengleichung $Z=m*I+b$ und dem Pythonbefehl polyfit \cite{numpy} eine Ausgleichsgerade durch alle Messwerte gelegt. 
+    Die dazugehörigen Parameter $m$ und $b$ lauten wie folgt:
+    \begin{align}
+        m &= \text{\input{m.tex}}\\
+        b &= \text{\input{b.tex}}
+    \end{align}
+
+\newpage
 \section{Diskussion}
+
+    \flushleft{Der\;}\justifying Graph der Zählrohrcharakteristik \ref{fig:7} gibt einen Zählratenverlauf ähnlich zu dem erwarteten Verlauf
+    aus Abbildung \ref{fig:4} aus. Die Impulsrate $N$ muss hier bei ca. $\SI{10000}{\per\second}$ gehalten werden, da der Fehler bei 
+    $\leq \SI{1}{\percent}$ liegen soll. Im Graphen \ref{fig:7} ist der abrupte Anstieg der Zählrate an den letzten vier Werten erkennbar. Verglichen mit der Abbildung
+    \ref{fig:4} stellt die in der Zählrohrcharakteristik abgebildete Ausgleichsgerade ein gutes Plateau dar, da die ersten drei und die letzten vier
+    Messwerte nicht in die Rechnung der Ausgleichsgerade miteinbezogen werden. Diese Werte beschreiben die an dem Plateau angrenzenden
+    Spannungsbereiche $U_E$ und der Dauerentladung. Eine Steigung des Plateaus von $m = \text{\input{m_GM.tex}}$ entspricht gleichermaßen der 
+    erwarteten Steigung, da idealerweise die Steigung gleich null sein sollte, es aber aufgrund der dennoch auftretenden Nachentladung eine 
+    geringe Steigung gibt. 
+
+    \flushleft{Die\;}\justifying Totzeit der ZQM nach Formel \eqref{eq:3} gibt einen realistischen Wert wieder. Dies wird bestätigt, wenn die Totzeit 
+    mit der des Zählrohrs aus Versuch 603 von $\SI{90}{\micro\second}$ \cite{V603} verglichen wird. Wenn die Zählrate $N_{1+2}$ mit der Summer der
+    Zählraten $N_1$ und $N_2$ verglichen wird, stellt sich heraus, dass die Bedingung $N_{1+2} < N_1+N_2$ hier erfüllt ist. Die OM hingegen lässt auf keinen nützlichen
+    Wert schließen, da nicht klar zwischen Primär- und Sekundärimpuls unterschieden werden kann. Demnach ist die Totzeit $T=\SI{50}{\micro\second}$
+    nicht realistisch. 
+
+    \flushleft{Der\;}\justifying Graph \ref{fig:8} und dessen Ausgleichsgerade gibt eine fast lineare Beziehung der einzelnen Messwerte wieder. 
+    $Z$ wächst mit einem steigenden Strom, wobei die letzten drei Werte stärker von der Ausgleichsgeraden abweichen. Der Fehler der beiden Werte
+    setzt sich größtenteils aus dem Messfehler des Amperemeters und dem statistischen Fehler der Impulsrate zusammen.
 
 \newpage
 \printbibliography
 
+\newpage
 \section{Appendix}
 
     \input{GM.tex}
@@ -212,7 +309,7 @@
         \centering
         \input{strom.tex}
         \caption{Messwerte des Zählerstroms des Geiger-Müller Zählrohrs}
-        \label{tab:1}
+        \label{tab:2}
     \end{table}
 
 \end{document}

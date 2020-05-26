@@ -26,11 +26,32 @@ def make_SI(num, unit, exp='', figures=None):
 U_GM, N_GM = np.genfromtxt('Kennlinie.dat', unpack = True)
 U_strom, I_strom = np.genfromtxt('Zaehlrohrstrom.dat', unpack = True)
 
-N_1 = 96041/2 #per second
-N_2 = 76518/2 #per second
-N_12 = 158479/2 #per second
+N_1 = 96041/120 #per second
+N_2 = 76518/120 #per second
+N_12 = 158479/120 #per second
 
 T=(N_1+N_2-N_12)/(2*N_1*N_2) #micro second
+print(T)
+
+# tex file for N_1
+
+with open('build/N_1.tex', 'w') as f:
+  f.write(make_SI(N_1,r'\per\second', figures=1))
+
+# tex file for N_2
+
+with open('build/N_2.tex', 'w') as f:
+  f.write(make_SI(N_2,r'\per\second', figures=1))
+
+# tex file for N_12
+
+with open('build/N_12.tex', 'w') as f:
+  f.write(make_SI(N_12,r'\per\second', figures=1))
+
+# tex file for T
+
+with open('build/T.tex', 'w') as f:
+  f.write(make_SI(T*1e+06,r'\micro\second', figures=2))
 
 N_GM_error = unp.uarray(N_GM, np.sqrt(N_GM))
 I_bar_err = unp.uarray(I_strom, 0.05) #in micro Amp
@@ -60,6 +81,26 @@ plt.close()
 m_GM = ufloat(par[0], err[0])
 b_GM = ufloat(par[1], err[1])
 
+m_winkel = unp.arctan(m_GM/100)
+m_percent = (m_winkel*180)/np.pi
+
+print(m_percent)
+
+# tex file for m_GM
+
+with open('build/m_GM.tex', 'w') as f:
+  f.write(make_SI(m_GM,r'\percent\per{100}\volt', figures=1))
+
+# tex file for b_GM
+
+with open('build/b_GM.tex', 'w') as f:
+  f.write(make_SI(b_GM,r'\per\second', figures=1))
+
+# tex file for m_percent
+
+with open('build/m_percent.tex', 'w') as f:
+  f.write(make_SI(m_percent,r'\percent', figures=2))
+
 #Zahl der freigesetzten Ladung---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 par, covm = np.polyfit(noms(I_bar_err*1e-06), noms(Z), deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -67,24 +108,51 @@ err = np.sqrt(np.diag(covm))
 yerr=0.05*1e-06
 xerr=stds(Z)
 
-plt.plot(noms(I_bar_err*1e-06), noms(Z))
 plt.errorbar(noms(I_bar_err*1e-06), noms(Z), xerr, yerr, fmt='kx')
 x_plot = np.linspace(0.125*1e-06, 2*1e-06, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
-plt.xlabel(r'Strom$\;I\;$[Amp]')
-plt.ylabel(r'Z')
+plt.xticks([0.2*1e-06, 0.4*1e-06, 0.6*1e-06, 0.8*1e-06, 1.0*1e-06, 1.2*1e-06, 1.4*1e-06, 1.6*1e-06, 1.8*1e-06],
+[0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8])
+plt.xlabel(r'Strom$\;I\;[\mu A]$')
+plt.ylabel(r'Freigestzte Ladung pro einfallenden Teilchen $Z$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotZ.pdf')
 plt.close()
 
+m = ufloat(par[0], err[0])
+b = ufloat(par[1], err[1])
 print(stds(Z))
 
-## tex file for theta_bragg_lit
-#
-#with open('build/theta_bragg_lit.tex', 'w') as f:
-#  f.write(make_SI(theta_bragg_lit,r'°', figures=1))
+# tex file for m
+
+with open('build/m.tex', 'w') as f:
+  f.write(make_SI(m*1e-14,r'\per\micro\ampere', figures=1))
+
+# tex file for b
+
+with open('build/b.tex', 'w') as f:
+  f.write(make_SI(b*1e-09,r'', figures=1))
+
+table_header = r'''
+  \begin{tabular}{c c}
+    \toprule
+    {$\text{Freie Ladungen}\;Z\;[10^{-9}]$} & {$\text{Strom $I$} \; [\si{\micro\ampere}]$} \\
+
+    \cmidrule(lr{0,5em}){1-2}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.4f} & {1:1.2f} \\'
+
+with open('build/Z.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(Z*1e-09, I_bar_err):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
 
 #Geiger-Müller Kennlinie-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -141,7 +209,7 @@ with open('build/GM.tex', 'w') as g:
 table_header = r'''
   \begin{tabular}{c c c c c c}
     \toprule
-    {$\text{Spannung $U$} \; [\si{\volt}]$} & {$\text{Strom $I$} \; [\si{\micro\volt}]$} \\
+    {$\text{Spannung $U$} \; [\si{\volt}]$} & {$\text{Strom $I$} \; [\si{\micro\ampere}]$} \\
 
     \cmidrule(lr{0,5em}){1-2}
 '''
