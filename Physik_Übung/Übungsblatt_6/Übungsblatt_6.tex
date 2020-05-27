@@ -1,4 +1,5 @@
 \input{../../header.tex}
+\usepackage{physics}
 \allowdisplaybreaks
 
 \begin{document}
@@ -79,9 +80,135 @@
 
     \subsection{a)}
 
+    \begin{align*}
+        \ket{\to} &= \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\ket{\downarrow}\right), \qquad \ket{\leftarrow} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\ket{\downarrow}\right)\\
+        \Rightarrow\bra{\to} &= \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\right), \qquad \bra{\leftarrow} = \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\right)
+        \intertext{\flushleft{Normierung:\;}\justifying
+        }
+        \braket{\to} &= \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\right) \right) \left(  \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\ket{\downarrow}\right) \right)\\
+        &= \frac{1}{2} \underbrace{\braket{\uparrow}}_{=1} + \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+        + \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} + \frac{1}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1}\\
+        &= \frac{1}{2}+\frac{1}{2} = 1\\
+        \\
+        \braket{\leftarrow} &= \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\right) \right) \left(  \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\ket{\downarrow}\right) \right)\\
+        &= \frac{1}{2} \underbrace{\braket{\uparrow}}_{=1} - \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+        - \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} + \frac{1}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1}\\
+        &= \frac{1}{2}+\frac{1}{2} = 1
+        \intertext{\flushleft{Orthogonalität:\;}\justifying
+        }
+        \braket{\leftarrow}{\to} &= \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\right) \right) \left(  \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\ket{\downarrow}\right) \right)\\
+        &= \frac{1}{2} \underbrace{\braket{\uparrow}}_{=1} + \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+        - \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} - \frac{1}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1}\\
+        &= \frac{1}{2}-\frac{1}{2} = 0
+    \end{align*}
+
     \subsection{b)}
 
+    \begin{align*}
+        \ket{\otimes} &= \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\text{i}\ket{\downarrow}\right), \qquad \ket{\odot} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\text{i}\ket{\downarrow}\right)\\
+        \Rightarrow\bra{\otimes} &= \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\text{i}\right), \qquad \bra{\odot} = \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\text{i}\right)
+        \intertext{\flushleft{Normierung:\;}\justifying
+        }
+        \braket{\otimes} &= \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\text{i}\right) \right) \left(  \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\text{i}\ket{\downarrow}\right) \right)\\
+        &= \frac{1}{2} \underbrace{\braket{\uparrow}}_{=1} + \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+        - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} - \frac{\text{i}^2}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1}\\
+        &= \frac{1}{2}-\frac{\text{i}^2}{2} = 1\\
+        \braket{\odot} &= \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\text{i}\right) \right) \left(  \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\text{i}\ket{\downarrow}\right) \right)\\
+        &= \frac{1}{2} \underbrace{\braket{\uparrow}}_{=1} - \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+        + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} - \frac{\text{i}^2}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1}\\
+        &= \frac{1}{2}-\frac{\text{i}^2}{2} = 1
+        \intertext{\flushleft{Orthogonalität:\;}\justifying
+        }
+        \braket{\otimes}{\odot} &= \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\text{i}\right) \right) \left(  \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\text{i}\ket{\downarrow}\right) \right)\\
+        &= \frac{1}{2} \underbrace{\braket{\uparrow}}_{=1} - \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+        - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} + \frac{\text{i}^2}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1}\\
+        &= \frac{1}{2}+\frac{\text{i}^2}{2} = 0
+    \end{align*}
+
     \subsection{c)}
+
+    \begin{align*}
+    \braket{\odot}{\uparrow}\braket{\uparrow}{\odot} &= 
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} + \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} \right)
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} - \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\uparrow}{\downarrow}}_{=0} \right)\\
+    &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} = \frac{1}{2}\\
+    \braket{\odot}{\downarrow}\braket{\downarrow}{\odot} &= 
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\uparrow}{\downarrow}}_{=0} + \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} - \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)\\
+    &= \frac{i}{\sqrt{2}} \cdot \frac{(-i)}{\sqrt{2}} = \frac{1}{2}\\
+    \braket{\otimes}{\uparrow}\braket{\uparrow}{\otimes} &= 
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} - \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} \right)
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} + \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\uparrow}{\downarrow}}_{=0} \right)\\
+    &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} = \frac{1}{2}\\
+    \braket{\otimes}{\downarrow}\braket{\downarrow}{\otimes} &= 
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\uparrow}{\downarrow}}_{=0} - \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)
+    \left( \frac{1}{\sqrt{2}} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} + \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)\\
+    &= \frac{-i}{\sqrt{2}} \cdot \frac{i}{\sqrt{2}} = \frac{1}{2}\\
+    \end{align*}
+
+    \flushleft{Die\;}\justifying $[...]$-Klammern sind hier keine Kommutatorklammern!
+    \begin{align*}
+        \braket{\odot}{\to}\braket{\to}{\odot} &=
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\text{i}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\ket{\downarrow}\right) \right) \right] 
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\text{i}\ket{\downarrow}\right) \right) \right]\\
+    &= \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    + \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)
+    \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    - \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    + \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)\\
+    &= \left( \frac{1}{2} + \frac{\text{i}}{2} \right) \left( \frac{1}{2} - \frac{\text{i}}{2} \right)\\
+    &= \frac{1}{4} - \frac{\text{i}}{4} + \frac{1}{4} + \frac{\text{i}}{4} = \frac{1}{2}\\
+        \braket{\odot}{\leftarrow}\braket{\leftarrow}{\odot} &=
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\text{i}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\ket{\downarrow}\right) \right) \right] 
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\text{i}\ket{\downarrow}\right) \right) \right]\\
+    &= \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    - \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)
+    \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    - \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    - \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)\\
+    &= \left( \frac{1}{2} - \frac{\text{i}}{2} \right) \left( \frac{1}{2} + \frac{\text{i}}{2} \right)\\
+    &= \frac{1}{4} + \frac{\text{i}}{4} - \frac{1}{4} + \frac{\text{i}}{4} = \frac{1}{2}\\
+        \braket{\otimes}{\to}\braket{\to}{\otimes} &=
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\text{i}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\ket{\downarrow}\right) \right) \right] 
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}+\bra{\downarrow}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\text{i}\ket{\downarrow}\right) \right) \right]\\
+    &= \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    + \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)
+    \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    + \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    + \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)\\
+    &= \left( \frac{1}{2} - \frac{\text{i}}{2} \right) \left( \frac{1}{2} + \frac{\text{i}}{2} \right)\\
+    &= \frac{1}{4} + \frac{\text{i}}{4} - \frac{1}{4} + \frac{\text{i}}{4} = \frac{1}{2}\\
+        \braket{\otimes}{\leftarrow}\braket{\leftarrow}{\otimes} &=
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\text{i}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}-\ket{\downarrow}\right) \right) \right] 
+    \left[ \left( \frac{1}{\sqrt{2}}\left(\bra{\uparrow}-\bra{\downarrow}\right) \right) 
+    \left( \frac{1}{\sqrt{2}}\left(\ket{\uparrow}+\text{i}\ket{\downarrow}\right) \right) \right]\\
+    &= \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    - \frac{1}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    + \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)
+    \left( \frac{1}{2} \underbrace{\braket{\uparrow}{\uparrow}}_{=1} 
+    + \frac{\text{i}}{2} \underbrace{\braket{\uparrow}{\downarrow}}_{=0}
+    - \frac{1}{2} \underbrace{\braket{\downarrow}{\uparrow}}_{=0} 
+    - \frac{\text{i}}{2} \underbrace{\braket{\downarrow}{\downarrow}}_{=1} \right)\\
+    &= \left( \frac{1}{2} + \frac{\text{i}}{2} \right) \left( \frac{1}{2} - \frac{\text{i}}{2} \right)\\
+    &= \frac{1}{4} - \frac{\text{i}}{4} + \frac{1}{4} + \frac{\text{i}}{4} = \frac{1}{2}
+    \end{align*}
 
     \subsection{d)}
 
