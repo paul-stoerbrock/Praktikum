@@ -58,16 +58,47 @@
     \end{figure}
 
     \subsection{a)}
-
+    \begin{align}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} [\hat A, \hat B \hat C] &= [\hat A , \hat B]\hat C + \hat B [\hat A , \hat C]\\
+    [hat A , \hat B \hat C] &= \hat A \hat B \hat C - \hat B \hat C \hat A -\hat B \hat A \hat C + \hat B \hat A \hat C\\
+    &=(\hat A \hat B - \hat B \hat A) \hat C + \hat B (\hat A \hat C -\hat C \hat A)\\
+    &=\underline{\underline{[\hat A , \hat B]\hat C + \hat B [\hat A , \hat C]}}
+    \end{align}
     \subsection{b)}
-
+    \begin{align}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} &[\hat A , [\hat B , \hat C]] + [\hat B ,[\hat C, \hat A]]+ [\hat C,[\hat A , \hat B]] =0\\
+    [\hat A , [\hat B , \hat C]] &= [\hat A, \hat B \hat C - \hat C \hat B] \\
+    &=[\hat A , \hat B \hat C] -[\hat A , \hat C \hat B]\\
+    &= \hat A \hat B \hat C -\hat B \hat C \hat A- (\hat A \hat C \hat B-\hat C \hat B \hat A)\\
+    [\hat B , [\hat C , \hat A]] &= [\hat B, \hat C \hat A-\hat A \hat C]\\
+    &= \hat B \hat C \hat A - \hat C \hat A \hat B - (\hat B \hat A \hat C - \hat A \hat C \hat B)\\
+    [\hat C , [\hat A , \hat B]] &= [\hat C , \hat A \hat B]- [\hat C , \hat B \hat A]\\
+    &= \hat C \hat A \hat B - \hat A \hat B \hat C -(\hat C \hat B \hat A - \hat B \hat A \hat C)\\
+    \Rightarrow &[\hat A , [\hat B , \hat C]] + [\hat B , [\hat C , \hat A]] +[\hat C , [\hat A , \hat B]] = 0
+    \end{align}
     \subsection{c)}
-
+    \begin{align}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} [\hat A , \hat B ^n] &= \sum_{i=1}^n \hat B ^{i-1} [\hat A , \hat B ] \hat B ^{n-i}\\
+    [\hat A , \hat B ^n] &= [\hat a , \hat B \hat B ^{n-1}]\\
+    &= [\hat A , \hat B] \hat B ^{n-1} + \hat B [\hat A , \hat B ^{n-1}]\\
+    &= [\hat A , \hat B] \hat B ^{n-1} + \hat B [\hat A , \hat B \hat B ^{n-2}] \\
+    &= [\hat A , \hat B] \hat B ^{n-1} + \hat B ([\hat A , \hat B] \hat B ^{n-2} + \hat B [\hat A , \hat B ^ {n-2} ] )\\
+    &= [\hat A , \hat B] \hat B ^{n-1} + \hat B [\hat A , \hat B] \hat B ^{n-2} + \hat B ^2 [\hat  A , \hat B ^{n-2}]\\
+    &= [\hat A , \hat B] \hat B ^{n-1} + \hat B [\hat A, \hat B] \hat B ^{n-2} + \hdots + \hat B ^{n-1} [\hat A , \hat B]\\
+    &=\underline{\underline{ \sum_{i=1}^n \hat B ^{i-1} [\hat A , \hat B] \hat B ^{n-i}}}
+    \end{align}
     \subsection{d)}
 
     \subsection{e)}
-
+    \begin{align}
+    [\hat x , f(\hat p)] &= f' (\hat p ) [\hat x , \hat p] = i \hbar f' (\hat p)
+    \end{align}
     \subsection{f)}
+    \begin{align}
+    \hat A \hat B &= (\hat A \hat B)\\
+    &= \hat B ^* \hat A ^*\\
+    \Rightarrow & \hat A = \hat B ^* \quad \text{und} \quad \hat B = \hat A ^* 
+    \end{align}
 
 
 \section{Aufgabe 3}
