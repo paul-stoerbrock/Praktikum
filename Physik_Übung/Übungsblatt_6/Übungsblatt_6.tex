@@ -34,21 +34,21 @@
 
     \flushleft{Observable\;}\justifying = Hermitisch:
     \begin{align*}
-    A &= A^{\dagger} = \left(A^T\right)^*\\
-    B &= B^{\dagger} = \left(A^T\right)^*\\
-    A &=
+    \hat{A} &= \hat{A}^{\dagger} = \left(A^T\right)^*\\
+    \hat{B} &= \hat{B}^{\dagger} = \left(A^T\right)^*\\
+    \hat{A} &=
     \begin{pmatrix}
         1 & 0 & 0\\
         0 & 1 & 0\\
         0 & 0 & -2
     \end{pmatrix},\;
-    B =
+    \hat{B} =
     \begin{pmatrix}
         0 & 0 & 0\\
         0 & 0 & -\text{i}\\
         0 & \text{i} & 0
     \end{pmatrix}\\
-    A^{\dagger} &= 
+    \hat{A}^{\dagger} &= 
     \begin{pmatrix}
         1 & 0 & 0\\
         0 & 1 & 0\\
@@ -62,7 +62,7 @@
     \text{Hermitisch}
     \intertext{\flushleft{Operator\;}\justifying $A$ ist eine Observable.
     }
-    B^{\dagger} &= 
+    \hat{B}^{\dagger} &= 
     \begin{pmatrix}
         0 & 0 & 0\\
         0 & 0 & \text{i}\\
@@ -78,15 +78,307 @@
     }
     \intertext{\flushleft{Die\;}\justifying möglichen Messwerte sind die EW der Observablen:
     }
-    \text{EW}(A) &= 1\cdot1\cdot(-2)+0-0=-2\\
-    \text{EW}(B) &= 0
+    \intertext{\flushleft{EW}\justifying $(\hat{A})$:
+    }
+    p(\lambda) &= det\vert\hat{A}-\lambda E \vert\\
+    &= det\left[
+    \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & -2
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        \lambda & 0 & 0\\
+        0 & \lambda & 0\\
+        0 & 0 & \lambda
+    \end{pmatrix}
+     \right]\\
+    &= det
+    \begin{vmatrix}
+        1-\lambda & 0 & 0\\
+        0 & 1-\lambda & 0\\
+        0 & 0 & -2-\lambda
+    \end{vmatrix}\\
+    &= (1-\lambda)(1-\lambda)(-2-\lambda)\\
+    &\Rightarrow \lambda_{1,2} = 1 \qquad
+    \lambda_3 =-2
+    \intertext{\flushleft{EW}\justifying $(\hat{B})$:
+    }
+    p(\lambda) &= det\vert\hat{B}-\lambda E \vert\\
+    &=det\left[
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & -\text{i}\\
+        0 & \text{i} & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        \lambda & 0 & 0\\
+        0 & \lambda & 0\\
+        0 & 0 & \lambda
+    \end{pmatrix}
+    \right]\\
+    &= 
+    \begin{vmatrix}
+        -\lambda & 0 & 0\\
+        0 & -\lambda & -\text{i}\\
+        0 & \text{i} & -\lambda
+    \end{vmatrix}\\
+    &=(-\lambda)(-\lambda)(-\lambda)-(\text{i})(-\text{i})(-\lambda)\\
+    &=-\lambda^3+\lambda\\
+    &= \lambda(1-\lambda^2)\\
+    &\Rightarrow \lambda_1 = 0 \qquad
+    \lambda_2 = 1 \qquad \lambda_3 =-1
     \end{align*}
 
     \subsection{b)}
 
+    \flushleft{Können\;}\justifying $\hat{A}$ und $\hat{B}$ gleichzeitig gemessen werden? $\Leftrightarrow$ Kommutieren $\hat{A}$ und $\hat{B}$?
+    \begin{align*}
+        \left[ \hat{A},\hat{B} \right] &= \hat{A}\hat{B}-\hat{B}\hat{A}\\
+    \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & -2
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & -\text{i}\\
+        0 & \text{i} & 0
+    \end{pmatrix}
+    &=
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & -\text{i}\\
+        0 & -2\text{i} & 0
+    \end{pmatrix}\\
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & -\text{i}\\
+        0 & \text{i} & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & -2
+    \end{pmatrix}
+    &=
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & 2\text{i}\\
+        0 & \text{i} & 0
+    \end{pmatrix}\\
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & -\text{i}\\
+        0 & -2\text{i} & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & 2\text{i}\\
+        0 & \text{i} & 0
+    \end{pmatrix}
+    &=
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & 0 & -3\text{i}\\
+        0 & -3\text{i} & 0
+    \end{pmatrix} \neq 0
+    \intertext{\flushleft{Der\;}\justifying Kommutator ist $\neq$ 0, also können $\hat{A}$ und $\hat{B}$ nicht gleichzeitig gemessen werden.
+    }
+    \end{align*}
+
     \subsection{c)}
 
+    \flushleft{Zuerst\;}\justifying werden die EV der Observablen bestimmt:
+    \begin{align*}
+    \intertext{\flushleft{EV}\justifying $(\hat{A})$:
+    }
+    &\left( \hat{A}-\lambda E \right) \vec{v} = \vec{0}\;\text{für}\;\lambda = 1\\
+    &\begin{pmatrix}
+        1-\lambda & 0 & 0\\
+        0 & 1-\lambda & 0\\
+        0 & 0 & -2-\lambda
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2\\
+        v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\begin{pmatrix}
+        0\\
+        0\\
+        -3v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\Rightarrow v_{1,2} \in \mathbb{R} \qquad v_3=0\\
+    \\
+    &\left( \hat{A}-\lambda E \right) \vec{v} = \vec{0}\;\text{für}\;\lambda = -2\\
+    &\begin{pmatrix}
+        1-\lambda & 0 & 0\\
+        0 & 1-\lambda & 0\\
+        0 & 0 & -2-\lambda
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2\\
+        v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\begin{pmatrix}
+        3v_1\\
+        3v_2\\
+        0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\Rightarrow v_{1,2}=0 \qquad v_3 \in \mathbb{R}
+    \intertext{\flushleft{EV}\justifying $(\hat{B})$:
+    }
+    &\left( \hat{B}-\lambda E \right) \vec{v} = \vec{0}\;\text{für}\;\lambda = 0\\
+    &\begin{pmatrix}
+        -\lambda & 0 & 0\\
+        0 & -\lambda & -\text{i}\\
+        0 & \text{i} & -\lambda
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2\\
+        v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\begin{pmatrix}
+        0\\
+        -\text{i}v_3\\
+        \text{i}v_2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\Rightarrow v_1 \in \mathbb{R} \qquad v_{2,3}=0\\
+    \\
+    &\left( \hat{B}-\lambda E \right) \vec{v} = \vec{0}\;\text{für}\;\lambda = 1\\
+    &\begin{pmatrix}
+        -\lambda & 0 & 0\\
+        0 & -\lambda & -\text{i}\\
+        0 & \text{i} & -\lambda
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2\\
+        v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\begin{pmatrix}
+        -v_1\\
+        -v_2-\text{i}v_3\\
+        \text{i}v_2-v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\Rightarrow v_1=0 \qquad v_{2,3}\in \mathbb{R}\\
+    \\
+    &\left( \hat{B}-\lambda E \right) \vec{v} = \vec{0}\;\text{für}\;\lambda = -1\\
+    &\begin{pmatrix}
+        -\lambda & 0 & 0\\
+        0 & -\lambda & -\text{i}\\
+        0 & \text{i} & -\lambda
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2\\
+        v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\begin{pmatrix}
+        v_1\\
+        v_2-\text{i}v_3\\
+        \text{i}v_2+v_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}\\
+    &\Rightarrow v_1=0 \qquad v_{2,3}\in \mathbb{R}
+    \intertext{\flushleft{Aus\;}\justifying den EV der Observablen lassen sich die Eigenzustände $\ket{\lambda_i}$ der jeweiligen 
+    Messwerte $\lambda_i$ bestimmen. Dazu werden frei wählbare Komponenten der EV mit einem Vorfaktor \{a,b,c\} vor dem Eigenzustand dargestellt.
+    Da die Messung von $\hat{B}$ als Ergebnis 1 ergibt, handelt es sich hier um den Eigenzustand zum EW $\lambda_2$= 1. Hier sind die Komponenten
+    $v_{2,3}$ frei wählbar, es folgt also für den Eigenzustand $\ket{\lambda_{B_2}}$:
+    }
+    \ket{\lambda_{B_2}} &= b\ket{2}+c\ket{3}
+    \end{align*}
+
     \subsection{d)}
+
+    \flushleft{Die\;}\justifying möglichen Messergebnisse des Operators $\hat{A}$ sind $\lambda_{1,2}=1$ und $\lambda_3=-2$. Mit den jeweiligen
+    Zuständen wird analog zum Aufgabenteil c) verfahren:
+    \begin{align*}
+    \ket{\lambda_{A_{1,2}}} &= a\ket{1}+b\ket{2}\\
+    \ket{\lambda_{A_3}} &= c\ket{3}
+    \end{align*}
+    Für die Wahrscheinlichkeiten der möglichen Messergebnisse der Anschlussmessung gilt: 
+    \begin{align*}
+    P(\lambda_{A_1}) &= P(\lambda_{A_2}) = \abs{\braket{\lambda_{A_{1,2}}}{\lambda_{B_2}}}^2 =\braket{\lambda_{B_2}}{\lambda_{A_{1,2}}}\braket{\lambda_{A_{1,2}}}{\lambda_{B_2}}\\
+    &= \left( -\frac{\text{i}}{\sqrt{2}}\ket{2}+\frac{1}{\sqrt{2}}\ket{3} \right) \left( \frac{1}{\sqrt{2}} \ket{1}+\frac{1}{\sqrt{2}}\ket{2} \right)
+    \left( \frac{1}{\sqrt{2}}\ket{1}+\frac{1}{\sqrt{2}}\ket{2} \right) \left( \frac{\text{i}}{\sqrt{2}} \ket{2}+\frac{1}{\sqrt{2}}\ket{3} \right)\\
+    &= \left( -\frac{\text{i}}{2} \underbrace{\braket{2}{1}}_{=0} - \frac{\text{i}}{2} \underbrace{\braket{2}{2}}_{=1} + 
+    \frac{1}{2} \underbrace{\braket{3}{1}}_{=0} + \frac{1}{2} \underbrace{\braket{3}{2}}_{=0} \right)
+    \left( \frac{\text{i}}{2} \underbrace{\braket{1}{2}}_{=0} + \frac{1}{2} \underbrace{\braket{1}{3}}_{=0} + 
+    \frac{\text{i}}{2} \underbrace{\braket{2}{2}}_{=1} + \frac{1}{2} \underbrace{\braket{2}{3}}_{=0} \right)\\
+    &= \frac{-\text{i}}{2} \cdot \frac{\text{i}}{2} = \frac{1}{4}\\
+    P(\lambda_{A_3}) &= \abs{\braket{\lambda_{A_3}}{\lambda_{B_2}}}^2 =\braket{\lambda_{B_2}}{\lambda_{A_3}}\braket{\lambda_{A_3}}{\lambda_{B_2}}\\
+    &= \left( -\frac{\text{i}}{\sqrt{2}}\ket{2}+\frac{1}{\sqrt{2}}\ket{3} \right) \ket{3}
+    \bra{3} \left( \frac{\text{i}}{\sqrt{2}} \ket{2}+\frac{1}{\sqrt{2}}\ket{3} \right)\\
+    &= \left( -\frac{\text{i}}{\sqrt{2}} \underbrace{\braket{2}{3}}_{=0} + \frac{1}{2} \underbrace{\braket{3}{3}}_{=1} + 
+    \frac{\text{i}}{\sqrt{2}} \underbrace{\braket{3}{2}}_{=0} + \frac{1}{2} \underbrace{\braket{3}{3}}_{=1} \right)\\
+    &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} = \frac{1}{2}
+    \end{align*}
 
     \subsection{e)}
 
