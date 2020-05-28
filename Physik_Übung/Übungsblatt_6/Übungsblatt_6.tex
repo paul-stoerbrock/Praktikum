@@ -326,10 +326,82 @@
     \begin{align}
     \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} e^{\hat A} \hat B e^{-\hat A} &= \sum_{n=0}^{\infty} \frac{1}{n!} [\hat A , \hat B]_n\\
     f(\lambda) &= e^{\lambda \hat A} \hat B e^{- \lambda \hat A}\\
-    &= e^{\lambda \hat A} [\hat A , \hat B]_0 e^{-\lambda \hat A}
+    &= e^{\lambda \hat A} [\hat A , \hat B]_0 e^{-\lambda \hat A}\\
+    \intertext{
+        Entwicklung von f in eine Taylorreihe um 0
+    }
+    f'(\lambda) &= e^{\lambda \hat A} (\hat A \hat B - \hat B \hat A) e^{-\lambda \hat A}\\
+    &=e{\lambda \hat A} [\hat A , \hat B]_1 e^{-\lambda \hat A}\\
+    f''{\lambda} &= e^{\lambda \hat A} (\hat A [\hat A, \hat B]_1-[\hat A , \hat B]_1 \hat A) e^{-\lambda \hat A}\\
+    &= e^{\lambda \hat A} [\hat A , [\hat A,\hat B]_1] e^{-\lambda \hat A}\\
+    &=  e^{\lambda \hat A} [\hat A , \hat B]_2 e^{-\lambda \hat A}\\
+    \intertext{
+        Induktion:
+    }
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} f^{(n)} &= e^{\lambda \hat A} [\hat A , \hat B]_n e^{-\lambda \hat A}\\
+    \intertext{
+        Induktionsanfang
+    }
+    n &=0\\
+    f^{(0)} &=e^{\lambda \hat A} [\hat A , \hat B]_0 e^{-\lambda \hat A} \surd
+    \intertext{
+        Induktionsvorraussetzung
+    }
+    f^{(n)} &= e^{\lambda \hat A} [\hat A , \hat B]_n e^{-\lambda \hat A}\\
+    \intertext{gilt für ein $n \in \symbb{N} $}
+    [\hat A , \hat B]_n &= [\hat A , [\hat A , \hat B]_{n-1} ]
+    \intertext{
+        Induktionsbehauptung
+    }
+    n &\to n+1\\
+    \frac{\partial}{\partial \lambda} f^{(n)} &= \frac{\partial}{\partial \lambda} (e^{\lambda \hat A} [\hat A ,\hat B]_n e^{-\lambda \hat A} )\\
+    f^{(n+1)} &= e^{\lambda \hat A} (\hat A [\hat A , \hat B]_n-[\hat A , \hat B]_n \hat A) e^{-\lambda \hat A} \\
+    &= e^{\lambda \hat A} [\hat A ,[\hat A, \hat B]_n] e^{-\lambda \hat A} \\
+    f^{(n+1)} &= e^{\lambda \hat A} [\hat A , \hat B]_{n+1} e^{-\lambda \hat A} \surd\\
+    \intertext{
+        Aufstellen der Taylorreihe
+    }
+    f^{(n)}(0) &= [\hat A , \hat B]_n \\
+    \Rightarrow T(\lambda , 0)&= \sum_{n=0}^{\infty} \frac{1}{n!} [\hat A , \hat B] \lambda ^n\\
+    T(1,0)&= \sum_{n=0}^{\infty} \frac{1}{n!} [\hat A , \hat B]_n \\
+    f(1) &= e^{\hat A} \hat B e^{-\hat A}\\
+    \Rightarrow e^{\hat A} \hat B e^{-\hat A} &= \sum_{n=0}^{\infty} \frac{1}{n!} [\hat A , \hat B]_n
     \end{align}
     \subsection{b)}
-
+    \begin{align}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} e^{\hat A + \hat B} &= e^{\hat A} e^{\hat B} e^{-[\hat A ,\hat B]/2}\\
+    e^{\lambda \hat A} \hat B e^{-\lambda \hat A} &= \sum_{n=0}^{\infty} \frac{1}{n!} [\hat A , \hat B]_n \lambda ^n\\
+    &=\sum_{n=0}^{\infty} \frac{1}{n!} [\hat A ,[\hat A , \hat B]_{n-1}] \lambda ^n\\
+    \intertext{
+        Aufgrund der Bedingung $[\hat A ,[\hat A, \hat B]] =0 $ werden alle Summanenglieder
+        außer für $n=0$ und $n=1$ 0.
+    }
+    \Rightarrow &= \frac{1}{0!} \hat B + \frac{1}{1!} [\hat A , \hat B] \lambda\\
+    e^{\lambda \hat A} \hat B e^{-\lambda \hat A } &= \hat B + \lambda [\hat A , \hat B]\\
+    e^{\lambda \hat A} \hat B &=(\hat B + \lambda [\hat A, \hat B])e^{\lambda \hat A}\\
+    \frac{\dif{}}{\dif{\lambda}} (e^{\lambda \hat A} e^{\lambda \hat B}) &= \hat A e^{\lambda \hat A} e^{\lambda \hat B} + e^{\lambda \hat A} \hat B e^{\lambda \hat B}\\
+    &= \hat A e^{\lambda \hat A} e^{\lambda \hat B} + (\hat B + \lambda[\hat A , \hat B])e^{\lambda \hat A} e^{\lambda \hat B}\\
+    \frac{\dif{g(\lambda)}}{\dif{\lambda}}&= (\hat A + \hat B + \lambda[\hat A, \hat B])g(\lambda)\\
+    \intertext{
+        Allgemeine Lösung der DGL lautet
+    }
+    g(\lambda) &= C \exp\left(\int \hat A + \hat B + \lambda [\hat A , \hat B]\,\dif{\lambda} \right)\\
+    &= C \exp(\hat A \lambda + \hat B \lambda + \frac{1}{2} \lambda ^2 [\hat A , \hat B])
+    \intertext{
+        Vergleich der DGL-Lösung mit der ursprünglichen Funktion g
+    }
+    e^{\lambda \hat A} e^{\lambda \hat B} &= C e^{\hat A \lambda + \hat B \lambda + \frac{1}{2} \lambda ^2 [\hat A , \hat B]}
+    \intertext{
+        Wähle $C=1$ und $\lambda = 1$ 
+    }
+    e^{\hat A} e^{\hat B} &= e^{\hat A + \hat B  + \frac{1}{2} [\hat A , \hat B]}
+    \intertext{
+        Da $[\hat A , \hat B] $ mit $\hat B$ und $\hat A$ kommutiert, lässt sich die rechte Seite 
+    folgendermaßen schreibn
+    }
+    &=e^{\hat A + \hat B} e^{\frac{1}{2}[\hat A , \hat B]}\\
+    e^{\hat A + \hat B} &= e^{\hat A} e^{\hat B} e^{-\frac{1}{2} [\hat A , \hat B]}
+    \end{align}
 
 
 \end{document}
