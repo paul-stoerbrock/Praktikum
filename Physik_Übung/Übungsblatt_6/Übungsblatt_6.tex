@@ -101,7 +101,7 @@
     }
     &=\sum_{n=1}^{\infty} a_n \sum_{i=1}^n \hat B ^{i-1} [\hat A , \hat B] \hat B ^{n-i}\\
     \intertext{
-        Dadurch, dass der Kommutator $[[\hat A , \hat B], \hat B]=0$ ist, können die beiden Terme vertauscht werden.
+        \flushleft{Dadurch}, dass der Kommutator $[[\hat A , \hat B], \hat B]=0$ ist, können die beiden Terme vertauscht werden.
     }
     &=\sum_{n=1}^{\infty} a_n \sum_{i=1}^n \hat B ^{i-1} \hat B ^{n-i} [\hat A , \hat B]\\
     &=\sum_{n=1}^{\infty} a_n \sum_{i=1}^n \hat B^{n-1} [\hat A , \hat B]\\
@@ -273,7 +273,11 @@
     \end{figure}
 
     \subsection{a)}
-
+    \begin{align}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} e^{\hat A} \hat B e^{-\hat A} &= \sum_{n=0}^{\infty} \frac{1}{n!} [\hat A , \hat B]_n\\
+    f(\lambda) &= e^{\lambda \hat A} \hat B e^{- \lambda \hat A}\\
+    &= e^{\lambda \hat A} [\hat A , \hat B]_0 e^{-\lambda \hat A}
+    \end{align}
     \subsection{b)}
 
 
