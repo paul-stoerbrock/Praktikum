@@ -88,7 +88,27 @@
     &=\underline{\underline{ \sum_{i=1}^n \hat B ^{i-1} [\hat A , \hat B] \hat B ^{n-i}}}
     \end{align}
     \subsection{d)}
-
+    \begin{align}
+    \mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}} [\hat A , f8\hat B] &= f'(\hat B) [\hat A , \hat B]\\
+    \intertext{
+        Potenzriehenansatz für die Funktion f:
+    }
+    f(\hat B) &= \sum_{n=0}^{\infty} a_n \hat B ^n\\
+    f'(\hat B) &= \sum_{n=1}^{\infty} a_n \hat B ^n \\
+    [\hat A , \sum_{n=0}^{\infty} a_n \hat B ^n ] &= \sum_{n=0}^{\infty} a_n [\hat A , \hat B ^n]
+    \intertext{
+        0-tes Summenglied verschwindet und anwenden von c)
+    }
+    &=\sum_{n=1}^{\infty} a_n \sum_{i=1}^n \hat B ^{i-1} [\hat A , \hat B] \hat B ^{n-i}\\
+    \intertext{
+        Dadurch, dass der Kommutator $[[\hat A , \hat B], \hat B]=0$ ist, können die beiden Terme vertauscht werden.
+    }
+    &=\sum_{n=1}^{\infty} a_n \sum_{i=1}^n \hat B ^{i-1} \hat B ^{n-i} [\hat A , \hat B]\\
+    &=\sum_{n=1}^{\infty} a_n \sum_{i=1}^n \hat B^{n-1} [\hat A , \hat B]\\
+    &=\sum_{n=1}^{\infty} a_n n \hat B ^{n-1} [\hat A , \hat B]\\
+    &= f'(\hat B) [\hat A , \hat B]
+    \end{align}
+    
     \subsection{e)}
     \begin{align}
     [\hat x , f(\hat p)] &= f' (\hat p ) [\hat x , \hat p] = i \hbar f' (\hat p)
