@@ -12,7 +12,24 @@ from scipy.stats import sem #standard error of mean = sem(x)
 from scipy.optimize import curve_fit #function curve_fit 
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
 
+import sympy
+
+
 # Funktionsdefinitionen ########################################################################################################################################################
+def error(f, err_vars=None):
+    from sympy import Symbol, latex
+    s = 0
+    latex_names = dict()
+    
+    if err_vars == None:
+        err_vars = f.free_symbols
+        
+    for v in err_vars:
+        err = Symbol('latex_std_' + v.name)
+        s += f.diff(v)**2 * err**2
+        latex_names[err] = '\\sigma_{' + latex(v) + '}'
+        
+    return latex(sympy.sqrt(s), symbol_names=latex_names)
 
 def make_SI(num, unit, exp='', figures=None):
     ''' Format an uncertainties ufloat as a \SI quantity '''
@@ -838,3 +855,12 @@ with open('build/table_Zr.tex', 'w') as g:
         g.write('\n')
     g.write(table_footer)
 
+
+# Fehlerrechnungen ########################################################
+
+theta,  E1 = sympy.var('\\theta  E')
+h, c, d, z, R, E= sympy.symbols('h c d z R E_{abs}')
+
+f= z-sympy.sqrt(E-E1/R)
+
+print(error(f, err_vars=[E1]))

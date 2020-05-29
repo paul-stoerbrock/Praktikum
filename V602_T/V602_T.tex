@@ -93,16 +93,17 @@ Winkel gestreut. Dabei wird die Streuung durch die Bragg'sche Reflexion beschrie
 \begin{align}
     2d \sin \theta =n \lambda \label{eq:7}.
 \end{align}
+Hier ist d die Gitterkonstante und $\theta$ der Streuwinkel.
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
 
-Der grundlegende Aufbau besteht aus dem Röntgengerät:\cite{V603}
+Der grundlegende Aufbau besteht aus dem Röntgengerät:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/Aufbau1.jpg}
-    \caption{Aufbau eines Röntgengerät}
+    \caption{Aufbau eines Röntgengerät\cite{V603}}
     \label{fig:1}
 \end{figure}
 \flushleft{Alle\;}\justifying Messungen werden dabei über dem Computer gesteuert, dort wird bei dem entsprechenden Programm
@@ -192,7 +193,14 @@ aus \eqref{eq:2} in Abhängigkeit von der Wellenlänge gesetzt
     \intertext{
         Nun wird die Bragg'sche Bedingung \eqref{eq:6} für $n=1$ eingesetzt
     }
-    E &= \frac{hc}{2d\sin(\theta)} \label{eq:12}.
+    E &= \frac{hc}{2d\sin(\theta)} \label{eq:12}.\\
+    \intertext{
+        Die Messungenauigkeit von E berechnet sich dabei wie folgt
+    }
+    \Delta E =\sqrt{\frac{c^{2} h^{2} \sigma_{\theta}^{2} \cos^{2}{\left(\theta \right)}}{4d^{2} \sin^{4}{\left(\theta \right)}}},
+    \intertext{
+        wobei $\sigma _{\theta} die Standardabweichung von $\theta ist.$ $
+    }
 \end{align}
 
 \flushleft{Damit\;}\justifying werden die Energien für die beiden K-Linien berechnet
@@ -230,7 +238,7 @@ Für die Berechnung der Abschirmkonstante wird  diese Gleichung nach $\sigma _1$
     Auch die Kernzahl für Kupfer kommt aus dieser Quelle
     }
     E_{\text{abs}}&= \SI{8987.96}{\electronvolt}\label{eq:17}\\
-    \sigma _1 &= \text{\input{sigma_1_Cu.tex}} \label{eq:18}.
+    \sigma _1 &= \text{\input{sigma_1_Cu.tex}} \label{eq:18}.\\
 \end{align}
 Für die Abschirmkonstante der beiden K-Strahlen werden die Gleichungen
 \eqref{eq:2}, \eqref{eq:4} und \eqref{eq:16} benötigt
@@ -238,6 +246,11 @@ Für die Abschirmkonstante der beiden K-Strahlen werden die Gleichungen
     \sigma _{2/3} &= z- \sqrt{\frac{E_{\text{abs}}-E}{13.6} }\cdot 2(\text{bzw}. \cdot 3\, \text{für} \sigma _3)\label{eq:19}\\
     \sigma _2 &= \text{\input{sigma_2.tex}} \label{eq:20} \\
     \sigma _3 &= \text{\input{sigma_3.tex}} \label{eq:21}.
+        \intertext{
+        Die Ungenauigkeit der Abschirmkonstante ergibt sich aus der Gleichung
+    }
+    \Delta \sigma_{2/3} &= \sqrt{\frac{\sigma_{E}^{2}}{13.6^{2}\cdot4 \left(- \frac{E}{13.6} + E_{abs}\right)}}\cdot 2(\text{bzw}. \cdot 3\, \text{für}\, \sigma _3),
+    \intertext{wobei $\sigma _{E} $ die Standardabweichung der Energie ist.}
 \end{align}
 
 \flushleft{Die\,}\justifying theoretischen Werte der Abschirmkonstanten werden mit den theoretischen
@@ -278,7 +291,7 @@ stammen, die theoretischen Abschirmkonstanten berechnet.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{build/plot_Br.pdf}
-    \caption{Absorptionsspektrum von Brom\cite{matplotlib}}
+    \caption{Absorptionsspektrum von Brom  \cite{matplotlib}}
     \label{fig:4}
 \end{figure}
 
@@ -428,7 +441,7 @@ Der Graph sieht dabei wie folgt aus:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{build/plot_Ez.pdf}
-    \caption{ Diagramm\cite{matplotlib}}
+    \caption{ \cite{matplotlib}}
     \label{fig:10}
 \end{figure}
 Die Parameter der Ausgleichsgeraden sind mit der Funktion polyftit aus Scipy erstellt
