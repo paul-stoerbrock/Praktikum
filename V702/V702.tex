@@ -9,7 +9,7 @@
     Paul Störbrock\\
     \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
     }
-    \date{Durchführung:26.05.2020 , Abgabe:  \vspace{-4ex}}
+    \date{Durchführung: 26.05.2020, Abgabe: 02.06.20 \vspace{-4ex}}
 \maketitle
 \thispagestyle{empty}
 
@@ -23,58 +23,59 @@
 \setcounter{page}{1}
 \section{Ziel}\justifying
 Die Kenntnis über die Stabilität von Atomen und den Verlaufsprozess von verschiedenen
-Zerfällen spielen nicht nur bei Messungen in der Physik, sondern vor allem auch in der 
-Medizin zum Beispiel in der Krebsbehandlung. Daher wird im folgenden die Halbwertszeit von
-zwei Materialien mittels energiearmer Neutronen beschossen werden und die Teilchen mittels 
+Zerfällen spielt nicht nur bei Messungen in der Physik, sondern vor allem auch in der 
+Medizin zum Beispiel in der Krebsbehandlung eine Rolle. Daher wird im Folgenden die Halbwertszeit von
+zwei Materialien bestimmt, indem diese mit energiearmen Neutronen beschossen werden und die Teilchen mittels 
 einem Geiger-Müller-Zählrohr gezählt werden.
 
 % Theorie %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Theorie}\justifying
-DIe Stabilität von Atomen hängt stark von dem Verhältnis der Protonen und Neutronen ab. Sind
-Atome nicht stabil zerfallen sie stabilen oder instabilen Kernen, wo bei instabilen der Zerfallsprozess
+Die Stabilität von Atomen hängt stark von dem Verhältnis der Protonen und Neutronen ab. Sind
+Atome nicht stabil, zerfallen sie zu stabile oder instabile Kernen, wo bei instabilen der Zerfallsprozess
 noch nicht beendet ist.  Eine wichtige Eigenschaft des Zerfallsprozesses stellt die Halbwertszeit T
-dar. Sie beschreibt die Zeit nach der die Hälfte der Kerne einer Menge zerfallen sind.
+dar. Sie beschreibt die Zeit, nach der die Hälfte der Kerne einer Menge zerfallen sind.
 Für die Messung der Halbwertszeit in einer Größenordnung von Stunden und Sekunden werden
-stabile Kerne mit Neutronen beschossen. Diese Kerne erden zu einem Zwischenkern $A^*$, welcher
+stabile Kerne mit Neutronen beschossen. Diese Kerne werden nach der Absorption des Neutrons zu einem Zwischenkern $A^*$, welcher
 auch Compoundkern genannt wird. Die Energie des Neutrons verteilt sich auf die anderen Nukleonen,
 wodurch diese in höhere Energiezustände gebracht werden. Bei Neutronen mit geringen 
-Energien kann kein Nukleon abstoßen und geht unter Aussendung eines Gammaquants in den Grundzustand über
+Energien kann kein Nukleon abgestoßen werden, weshalb es unter Aussendung eines Gammaquants in den Grundzustand übergeht \cite{V702}
 \begin{align}
-    \ce{_z^mA+ _0^1n -> _z^{m+1}A^* -> _z^{m+1} A + \symup{\gamma}}. \label{eq:1} \text{\cite{V702}}
+    \ce{_z^mA+ _0^1n -> _z^{m+1}A^* -> _z^{m+1} A + \symup{\gamma}}. \label{eq:1} %hier steht das erste plus im exponenten
 \end{align}
 Dabei gibt m die Massenzahl, z die Ordnungszahl, n das eingesendete Neutron, A den beschossenen Kern,
 $A^*$ den Zwischenkern und $\gamma$ den ausgesendeten Gammaquant an. Durch das zusätzliche
-Neutron ist der Kern nun instabil und zerfällt
+Neutron ist der Kern nun instabil und zerfällt \cite{V702}
 \begin{align}
-    \ce{_z^{m+1}A -> _{z+1}^{m+1}C + \symup{\beta}^- + E_{\text{kin}}+ \bar{\symup{\nu}}_e } \label{eq:2}.\text{\cite{V702}}
+    \ce{_z^{m+1}A -> _{z+1}^{m+1}C + \symup{\beta}^- + E_{\text{kin}}+ \bar{\symup{\nu}}_e } \label{eq:2}.
 \end{align}
 Hierbei ist C der aus dem Zerfall entstehende Kern, $\beta ^-$ ein Elektron und $\bar{\nu}_e$ ein Elektron-Antineutrino.
 Die Masse der Teilchen auf der linken Seite der Reaktionsgleichung ist größer als die der Teilchen auf
 der rechten Seite. Diese Energie geht in Form von kinetischer Energie an das Elektron und
-Elektron-Antineutrino. um möglichst viele Zerfälle für eine Messung zu erzeugen wird ein
+Elektron-Antineutrino. Um möglichst viele Zerfälle für eine Messung zu erzeugen wird ein
 entsprechend hoher Wirkungsquerschnitt $\sigma$ benötigt. Der Wirkungsquerschnitt beschreibt
 die Fläche, die der Atomkern haben müsste, damit jedes Neutron mit der Fläche wechselwirkt.
-Für eine geringe Energie der Neutronen gegenüber dem Zwischenkern ergibt sich folgende
-Proportionalität für den Wirkungsquerschnitt
+Für eine geringe Energie der Neutronen gegenüber des Zwischenkerns ergibt sich folgende
+Proportionalität für den Wirkungsquerschnitt \cite{V702}
 \begin{align}
-    \sigma \sim \frac{1}{v} \text{\cite{V702}}, \label{eq:3}
+    \sigma \sim \frac{1}{v}, \label{eq:3}
 \end{align}
 wobei v die Geschwindigkeit der Neutronen ist.
 Aufgrund der Proporionalität sind niederenergetische Neutronen für die Messung notwendig,
 was verständlich ist, da eine kleinere Energie eine geringere Geschwindigkeit bedeutet
 und sich das Neutron dadurch länger in der Einwirkssphähre befindet.\\
 Für die Erzeugung von Neutronen kann die Reaktion von Beryllium mit 
-Alpha-Teilchen genutzt werden
+Alpha-Teilchen genutzt werden \cite{V702}
 \begin{align}
-    \ce{ ^9 Be + _2^4 \symup{\alpha} -> _6^{12} C+ _0^1n }. \text{\cite{V702}} \label{eq:4}
+    \ce{ ^9 Be + _2^4 \symup{\alpha} -> _6^{12} C+ _0^1n }. \label{eq:4}
 \end{align}
-Die $\alpha$-Teilchen entstehen dabei asu dem Zerfall von $^{226} $Ra-Kerne.
-Da die Neutronen nach der Reaktion noch zu energiereich sind wird eine dicke Materieschicht eingebracht,
+Die $\alpha$-Teilchen entstehen dabei aus dem Zerfall von $^{226} $Ra-Kerne.
+Da die Neutronen nach der Reaktion noch zu energiereich sind, wird eine dicke Materieschicht (Abb. \ref{fig:1}, Nr. 2) eingebracht,
 durch die die Neutronen hindurchdiffundieren müssen. Die Kerne davon sollten auf
-einer gleichen Größenordnung wie die Neutronen sein, damit der Energieübretrag am größten ist.
-Daher Eignet sich Paraffin dafür. Ein schematischer Aufbau für so eine Quelle ist
-\begin{figure}
+einer gleichen Größenordnung wie die Neutronen sein, damit der Energieübertrag am größten ist.
+Daher eignet sich Paraffin dafür. Ein schematischer Aufbau für so eine Quelle ist in der folgenden Abbildung
+dargestellt:
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/neutron_quelle.jpg}
     \caption{Schematischer Aufbau einer Neutronenquelle \cite{V702}.
@@ -84,19 +85,19 @@ Daher Eignet sich Paraffin dafür. Ein schematischer Aufbau für so eine Quelle 
     }
     \label{fig:1}
 \end{figure}
-Die abgebremsten Neutronen haben eine kinetische Energie, welche der mittleren Energie der Umgebung entspricht,
+Die abgebremsten Neutronen haben eine kinetische Energie, welche der mittleren Energie der Umgebung entspricht und
 werden thermische Neutronen genannt.\\
-Für Messungen werden eine zylindrische Probe in einen Aktivierungsschacht gebracht.
-Da es schwer ist die Zerfallsrate pro Zeit genau zu bestimmen wird die Anzahl der 
-Zerfälle über einen Zeitintervall $\Delta t$ betrachtet. Dafür ergibt sich ein
-einfacher exponentieller Zusammenhang
+Für Messungen wird eine zylindrische Probe in einen Aktivierungsschacht gebracht.
+Da es schwer ist die Zerfallsrate pro Zeit genau zu bestimmen, wird die Anzahl der 
+Zerfälle über ein Zeitintervall $\Delta t$ betrachtet. Dafür ergibt sich ein
+einfacher exponentieller Zusammenhang \cite{V702}
 \begin{align}
-    N_{\Delta t} (t) = N_0 (1-e^{\lambda \Delta t}) e^{- \lambda t}. \text{\cite{V702}} \label{eq:5} 
+    N_{\Delta t} (t) = N_0 (1-e^{\lambda \Delta t}) e^{- \lambda t}. \label{eq:5} 
 \end{align}
-Dabei stellt $N_0$ die zu Messbeginn vorhandene Anzahl an instabilen Kernen, $\lambda$ die Zerfallskonstante dar.
-Die Halbwertszeit lässt sich über die Formel
+Dabei stellt $N_0$ die zu Messbeginn vorhandene Anzahl an instabilen Kernen und $\lambda$ die Zerfallskonstante dar.
+Die Halbwertszeit lässt sich über die Formel \cite{V702}
 \begin{align}
-    T=\frac{\ln(2)}{\lambda} \text{\cite{V702}} \label{eq:6}
+    T=\frac{\ln(2)}{\lambda} \label{eq:6}
 \end{align}
 berechnen.\\
 Eine geeignete Wahl des Zeitintervalls ist wichtig, da es ansonsten zu hohen
@@ -109,10 +110,10 @@ $\ce{^{103}_{45}Rh + n}
 \end{cases}.
 $
 Das i beim Rhodium steht für einen isomeren Kern, welcher sich nur in der Energie und
-Halbwertszeit von Rhodium-Kern unterscheidet.\\
+Halbwertszeit vom Rhodium-Kern unterscheidet.\\
 Da der isomere Kern kurzlebiger ist, wird ab einem gewissen Zeitpunkt $t^*$ hauptsächlich
-die andere Zerfallskette gemessen, was sich in der Abbildung zeigt
-\begin{figure}
+die andere Zerfallskette gemessen, was sich in der folgenden Abbildung zu erkennen ist:
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/Rh_theo.jpg}
     \caption{logarithmische Darstellung eines zeitlichen Zerfalls mit
