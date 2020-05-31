@@ -52,9 +52,21 @@ def error(f, err_vars=None):
 t_V, N_V = np.genfromtxt('Vanadium.dat' , unpack=True)
 t_Rh, N_Rh = np.genfromtxt('Rhodium.dat', unpack=True)
 
+N_U_V= np.array([129,129,129,129,129,129,129,129,129,129,143,143,143,143,143,143,143,143,143,143,144,144,144,144,144,144,144,144,144,144,136,136,136,136,136,136,136,136,136,136,139,139,139,139])
+N_U_V_err = unp.uarray(N_U_V, np.sqrt(N_U_V))
 
 N_V_err = unp.uarray(N_V, np.sqrt(N_V))
+
+N_V_ohne_U = N_V_err-N_U_V_err/10
+
+
+
+N_U_Rh =np.array([129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,136,136,136,136])
+N_U_Rh_err =unp.uarray(N_U_Rh,np.sqrt(N_U_Rh))
+
 N_Rh_err = unp.uarray(N_Rh, np.sqrt(N_Rh))
+
+N_Rh_ohne_U = N_Rh_err-N_U_Rh_err/20
 
 
 
@@ -63,12 +75,16 @@ N_Rh_err = unp.uarray(N_Rh, np.sqrt(N_Rh))
 
 # Plot von Vanadium %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-plt.errorbar(t_V, N_V,xerr=stds(N_V_err) ,fmt='ko', label='Messwerte')
-#x_plot = np.linspace(26, 30, 1000)
-#plt.plot(x_plot, gauß(x_plot, *popBragg), 'r-', label='Fitkurve')
+par, cov= np.polyfit(t_V, np.log(noms(N_V_ohne_U)), deg=1, cov=True)
+err= np.sqrt(np.diag(cov))
+
+plt.errorbar(t_V, noms(N_V_ohne_U),xerr=stds(N_V_ohne_U) ,fmt='ko', label='Messwerte')
+x_plot = np.linspace(0, 1400, 10000)
+plt.plot(x_plot, np.exp(x_plot*par[0]+par[1]), 'r-', label='Fitkurve')
+plt.yscale('log')
 plt.legend(loc="best")
-plt.xlabel(r'Winkel $t \:/\:s$')
-plt.ylabel(r' $I\:/\:Imp/s$')
+plt.xlabel(r' $t \:/\:s$')
+plt.ylabel(r' $I\:/\:Imp/30s$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plot_V.pdf')
@@ -76,12 +92,14 @@ plt.close()
 
 
 # Plot von Rhodium %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+print(N_Rh_ohne_U)
 
-plt.errorbar(t_Rh, N_Rh,xerr=stds(N_Rh_err) ,fmt='ko', label='Messwerte')
+plt.errorbar(t_Rh, noms(N_Rh_ohne_U),xerr=stds(N_Rh_ohne_U) ,fmt='kx', label='Messwerte')
 #x_plot = np.linspace(26, 30, 1000)
-#plt.plot(x_plot, gauß(x_plot, *popBragg), 'r-', label='Fitkurve')
+#plt.plot(x_plot, , 'r-', label='Fitkurve')
+plt.yscale('log')
 plt.legend(loc="best")
-plt.xlabel(r'Winkel $t \:/\:s$')
+plt.xlabel(r' $t \:/\:s$')
 plt.ylabel(r' $I\:/\:Imp/s$')
 plt.grid()
 plt.tight_layout
