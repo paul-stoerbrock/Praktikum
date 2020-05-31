@@ -46,6 +46,10 @@ def error(f, err_vars=None):
     return latex(sympy.sqrt(s), symbol_names=latex_names)
 
 
+def f(x, A, B):
+    return np.exp(-A*x)+np.exp(-B*x)
+
+
 
 # Messwerte #########################################################
 
@@ -90,17 +94,32 @@ plt.tight_layout
 plt.savefig('build/plot_V.pdf')
 plt.close()
 
+par_V = unp.uarray(par, err)
 
 # Plot von Rhodium %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-print(N_Rh_ohne_U)
+print(noms(t_Rh[26:]))
+
+par, cov = np.polyfit( t_Rh[22:], np.log(noms(N_Rh_ohne_U[22:])), deg=1, cov=True)
+
+par2, cov2 = curve_fit(
+    f,
+    t_Rh,
+    np.log(noms(N_Rh_ohne_U)),
+    sigma=None,
+    absolute_sigma=True,
+    p0=[100, 1e-02]
+)
+
+
 
 plt.errorbar(t_Rh, noms(N_Rh_ohne_U),xerr=stds(N_Rh_ohne_U) ,fmt='kx', label='Messwerte')
-#x_plot = np.linspace(26, 30, 1000)
-#plt.plot(x_plot, , 'r-', label='Fitkurve')
+x_plot = np.linspace(0, 660, 10000)
+plt.plot(x_plot, np.exp(x_plot*par[0]+par[1]) , 'r-', label='Gerade des langlebigen Zerfalls')
+#plt.plot(x_plot, np.exp(-par2[0]*x_plot)+np.exp(-par2[1]*x_plot), 'b-', label='Fitkurve' )
 plt.yscale('log')
 plt.legend(loc="best")
 plt.xlabel(r' $t \:/\:s$')
-plt.ylabel(r' $I\:/\:Imp/s$')
+plt.ylabel(r' $I\:/\:Imp/15s$')
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plot_Rh.pdf')
