@@ -110,15 +110,15 @@
 
 \subsection{b)}
 \begin{align}
-    M &= \int_0^{2 \pi} \int_0^{\pi} \int_0^r r^{2'} \sin \theta \rho(r') \,\dif{r'} \\
+    M &= \int_0^{2 \pi} \int_0^{\pi} \int_0^r r^{2'} \sin \theta \rho (r') \,\dif{r'} \\
     &= 4 \pi \int_0^r r^{'2} \frac{\rho_0}{(\frac{r'}{r_s})(1+\frac{r'}{r_S})} \dif{r'} \\
-    &= 4 \pi \rho _0 r_s \int_0^r \frac{r'}{(1+\frac{r'}{r_s)}^2} \,\dif{r'} \\
-    &= 4 \pi \rho _0 r_s^3 \int_^r \frac{r'}{(r_s+r')^2} \,\dif{r'}\\
+    &= 4 \pi \rho _0 r_s \int_0^r \frac{r'}{(1+\frac{r'}{r_s})^2} \,\dif{r'} \\
+    &= 4 \pi \rho _0 r_s^3 \int_0^r \frac{r'}{(r_s+r')^2} \,\dif{r'}\\
     \intertext{
         Substitution:
     }
     r_s+r'&=u\\
-    \frac{\dif{u}{\dif{r'}}} &= 1\\
+    \frac{\dif{u}}{\dif{r'}} &= 1\\
     \intertext{
         weiter
     }
@@ -129,7 +129,7 @@
     \intertext{
         Für M in Aufgabenteil a einsetzen
     }
-    \Rightarrow v &= \sqrt{\frac{G 4 \pi r_s^3 (\ln(\frac{r_s+r}{r_s}-\frac{r}{r+r_s})){r}}}
+    \Rightarrow v &= \sqrt{\frac{G 4 \pi r_s^3 (\ln(\frac{r_s+r}{r_s}-\frac{r}{r+r_s}))}{r}}
 \end{align}
 
 
