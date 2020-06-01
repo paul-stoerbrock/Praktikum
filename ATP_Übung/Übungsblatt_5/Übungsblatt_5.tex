@@ -141,6 +141,26 @@ Das Masse-Leuchtkraft-Verhältnis für den Coma-Haufen ergab sich zu $250 M_{\od
 in Galaxien gilt ein Verhältnis von $2,5 M_{\odot}/L_{\odot} $
 
 \subsection{d)}
+\begin{align}
+    \frac{1}{2} m v^2 &=- \left(\int_0^{r_0} \frac{G M(r)}{r^2} \,\dif{r} +\int_{r_0}^{\infty} \frac{G M_0}{r^2} \right) \,\dif(r) \\
+    &=-\left(\int_0^{r_0} \frac{G}{r^2} 4 \pi \rho _0 r^3 \left(\ln \left(\frac{r_s+r}{r_s}\right)-\frac{r}{r+r_s}\right) \,\dif(r) + \int_{r_0}^{\infty} \frac{G M_0}{r^2} \,\dif(r) \right)\\
+    r_s &\sim r\\
+    &=-\left(G r 4 \pi \rho _0 (\ln 2 - \frac{1}{2}) \dif{r} + \int_{r_0}^{\infty} \frac{G M_0}{r^2} \,\dif(r) \right)\\
+    &=-\left( G r^2 2 \pi \rho _0 \left(\ln 2 - \frac{1}{2} \right) \vert _0^{r_0} + \left(-\frac{G M_0}{r} \rvert _{r_0}^{\infty} \right) \right)\\
+    &=-G r_0^2 \pi \rho _0 \left(\ln 2 - \frac{1}{2} \right) + \frac{G M_0}{r_0}\\
+    \intertext{Nebenrechnung:}
+    \rho _0 &= \frac{M_0}{V_0}\\
+    &= \frac{M_0}{\frac{4}{3}\pi r_0^3}
+    \intertext{
+        weiter
+    }
+    &=\frac{GM_0}{r_0} \left(-\frac{3}{2}\left(\ln 2 - \frac{1}{2} \right)+1 \right)\\
+    v^2 &= \frac{2m G M_0}{r_0} \left(-\frac{3}{2} \ln 2 + \frac{7}{4} \right)\\
+    E_{\text{kin}} &= \frac{3}{2} \frac{R}{N} T \quad, N=1 \\
+    T&= \frac{mv^2}{3R}\\
+    &=\frac{m}{3R} \frac{2mGM_0}{r_0}\left(-\frac{3}{2} \ln 2 + \frac{7}{4} \right)\\
+    &= \left(- \ln 2 + \frac{7}{6} \right) \frac{m^2 M_{\odot} G}{R r_0}
+\end{align}
 
 
 \section{Aufgabe 15}
