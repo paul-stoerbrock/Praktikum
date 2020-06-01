@@ -30,9 +30,63 @@
 
 \subsection{a)}
 
+    \flushleft{Bei\;}\justifying der Wald-Analogie des Olbersschen Paradoxon wird die Formel der mittleren freien Weglänge im 2-Dimensionalen
+    verwendet:
+    \begin{align*}
+        \lambda &= \frac{1}{\rho\cdot\sigma}
+    \end{align*}
+    \flushleft{Hierbei\;}\justifying ist $\rho$ die Baumdichte des Waldes und $\sigma$ der Wirkungsquerschnitt eines Baumes (\SI{25}{\centi\meter}).
+    Um die Baumdichte bestimmen zu können, wird eine Fläche vorrausgesetzt. Hier wird eine Approximation der Fläche des Stadtwaldes von Dattel
+    verwendet. Die Fläche des Lohbusches ist ungefähr:
+    \begin{align*}
+    \text{Länge} &= \text{\input{Länge.tex}}\\
+    \text{Breite} &= \text{\input{Breite.tex}}\\
+    \text{Fläche} &= \text{\input{Fläche.tex}}
+    \intertext{
+        \flushleft{Aus\;}\justifying der Fläche lässt sich über die Teilchenzahl $N$ die Baumdichte mithilfe von
+    }
+    \rho &= \frac{N}{A}
+    \intertext{
+        \flushleft{bestimmen.\;}\justifying Da die Baumverteilung als homogen bei einem Abstand von \SI{5}{\meter} angenommen wird,
+        ist die Baumzahl $N$ hiermit:
+    }
+    N &= \frac{A}{25} = \text{\input{Baumzahl.tex}}
+    \intertext{
+        \flushleft{Die\;}\justifying Baumdichte ist damit:
+    }
+    \rho &= \text{\input{Baumdichte.tex}}\\
+    \Rightarrow \lambda &= \frac{1}{\rho\cdot\sigma} = \text{\input{lambda.tex}}
+    \end{align*}
+
+
 \subsection{b)}
 
+    \flushleft{Wird\;}\justifying das Analogon aus Aufgabenteil a) auf den 3-dimensionalen Raum des Universums angewandt, bei einer 
+    mittleren Sternendichte von $\rho = 10^{-10}\text{pc}^{-3}$ und einem mittleren Sternenradius $R=R_{\odot}$, ergibt
+    sich für die mittlere Entfernung:
+    \begin{align*}
+        \lambda &= \frac{1}{\rho \sigma}\\
+        \sigma &= \pi\cdot R_{\odot}^2 = \text{\input{sigma_13b.tex}}\\
+        \Rightarrow\lambda &= \text{\input{lambda_13b.tex}}
+        \intertext{
+            \flushleft{In\;}\justifying Parsec ergibt das:
+        }
+        \Rightarrow\lambda &= \text{\input{lambda_13b_parsec.tex}}
+    \end{align*}
+
 \subsection{c)}
+
+    \flushleft{Der\;}\justifying Grund, dass der Nachhimmel dunkel ist, liegt an der falschen Annahme des Paradoxons, dass das Universum 
+    unendlich alt ist. Mit einem geschätzten Alter von 15 milliarden Jahren, hat das momentane Universum einen Radius von ca. 15 milliarden
+    Lichtjahren. Wird nun die mittlere freie Weglänge aus b) in Lichtjahre umgerechnet, ergibt sich:
+    \begin{align*}
+        \lambda &= \text{\input{lambda_13c.tex}}\\
+        \frac{15\cdot 10^9\text{ly}}{\text{\input{lambda_13c}}\cdot 100} &= \text{\input{percent.tex}}
+    \end{align*}
+    \flushleft{Aus\;}\justifying dem Prozentsatz vom Alter des Universums über der mittleren freien Weglänge lässt sich schließen,
+    dass das Licht der Sterne außerhalb des observablen Universums, im Falle eines unendlichen Universums, nicht die Zeit hatte,
+    uns zu erreichen. 
+
 
 \section{Aufgabe 14}
 
@@ -49,6 +103,7 @@
     \end{figure}
 
 \subsection{a)}
+
 
 \subsection{b)}
 
