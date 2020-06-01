@@ -1,7 +1,7 @@
 \input{../../header.tex}
 
 \begin{document}
-    \title{ATP Übungsblatt 4}
+    \title{ATP Übungsblatt 5}
     \author{  
     Tobias Rücker\\
     \texorpdfstring{\href{mailto:tobias.ruecker@tu-dortmund.de}{tobias.ruecker@tu-dortmund.de}
@@ -49,12 +49,45 @@
     \end{figure}
 
 \subsection{a)}
+\begin{align}
+    m \frac{v^2}{r} &= \frac{GMm}{r^2}\\
+    v &= \sqrt{\frac{GM}{r}}
+\end{align}
 
 \subsection{b)}
+\begin{align}
+    M &= \int_0^{2 \pi} \int_0^{\pi} \int_0^r r^{2'} \sin \theta \rho(r') \,\dif{r'} \\
+    &= 4 \pi \int_0^r r^{'2} \frac{\rho_0}{(\frac{r'}{r_s})(1+\frac{r'}{r_S})} \dif{r'} \\
+    &= 4 \pi \rho _0 r_s \int_0^r \frac{r'}{(1+\frac{r'}{r_s)}^2} \,\dif{r'} \\
+    &= 4 \pi \rho _0 r_s^3 \int_^r \frac{r'}{(r_s+r')^2} \,\dif{r'}\\
+    \intertext{
+        Substitution:
+    }
+    r_s+r'&=u\\
+    \frac{\dif{u}{\dif{r'}}} &= 1\\
+    \intertext{
+        weiter
+    }
+    &= 4 \pi \rho _0 r_s^3 \int_{r_s}^{r_s +r} \frac{u-r_s}{u^2} \dif{u}\\
+    &= 4 \pi \rho _0 r_s^3 \int_{r_s}^{r_s+r} \frac{1}{u} - \frac{r_s}{u^2} \dif{u} \\
+    &= 4 \pi \rho _0 r_s^3 (\ln(u)+ \frac{r-s}{u} )\vert _{r_s}^{r_s+r}\\
+    4 \pi \rho _0 r_s^3 (\ln(\frac{r_s+r}{r_s})-\frac{r}{r+r_s})
+    \intertext{
+        Für M in Aufgabenteil a einsetzen
+    }
+    \Rightarrow v &= \sqrt{\frac{G 4 \pi r_s^3 (\ln(\frac{r_s+r}{r_s}-\frac{r}{r+r_s})){r}}}
+\end{align}
+
 
 \subsection{c)}
+\flushleft{Fritz\,}\justifying Zwicky hatte die Relativbewegungen von Galaxien im Coma-Haufen betrachtet,
+da viel Masse schnelle Bewegung der Galaixien hervorruft. Über die Bestimmung
+der Geschwindigkeitsdispersion und das Virialtheorem lässt sich dann die Masse des Coma-Haufens zu berechnen.
+Das Masse-Leuchtkraft-Verhältnis für den Coma-Haufen ergab sich zu $250 M_{\odot}/L_{\odot} $. Für typische Sterne
+in Galaxien gilt ein Verhältnis von $2,5 M_{\odot}/L_{\odot} $
 
 \subsection{d)}
+
 
 \section{Aufgabe 15}
 
