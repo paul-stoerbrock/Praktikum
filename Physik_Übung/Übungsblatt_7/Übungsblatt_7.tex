@@ -32,7 +32,7 @@
 
     \subsection{a)}
     \begin{align}
-    \int \dif{\omega} Y_{lm}^* (\theta, \phi) Y_{l'm'}(\theta , \phi)\\
+    &\int \dif{\omega} Y_{lm}^* (\theta, \phi) Y_{l'm'}(\theta , \phi)\\
     &=\int \dif{\omega} \frac{1}{\sqrt{2 \pi}} N_{lm} P_{lm} (\cos \theta) e^{-im\phi} 
     \frac{1}{\sqrt{2 \pi}} N_{l'm'} P_{l'm'}(\cos \theta) e^{im' \phi}\\
     &=\int \dif{\omega} \frac{1}{2 \pi} N_{lm} N_{l'm'} e^{i(m'-m)\phi} P_{lm} P_{l'm'}\\
@@ -63,15 +63,15 @@
     l=l' \;1\\
     l \ne l' \;0
     \end{cases}\\
-    \Rightarrow \int \dif{\omega} Y_{l'm'}^* Y_{lm} = \delta_{ll'} \delta _{mm'}\\
-    \sum_{l=0}^{\infty} \sum_{m=-l}^l Y_{lm}^* (\theta ' , \phi ') Y_{lm} (\theta , \phi) = \delta (\phi - \phi ') \delta (\cos \theta - \cos \theta ')\\
+    &\Rightarrow \int \dif{\omega} Y_{l'm'}^* Y_{lm} = \delta_{ll'} \delta _{mm'}\\
+    &\sum_{l=0}^{\infty} \sum_{m=-l}^l Y_{lm}^* (\theta ' , \phi ') Y_{lm} (\theta , \phi) = \delta (\phi - \phi ') \delta (\cos \theta - \cos \theta ')\\
     \end{align}
 
     \subsection{b)}
     \begin{align}
     \intertext{
         \flushleft{Die\,}\justifying Kugelflächenfunktionen bilden ein orthonormales Funktionensystem. Durch ihre Vollständigkeit 
-        bilden sie einen Satz von quadratintegrablen Funktionen im $L^2$ und können alle anderen Funktionen in $L^2$  
+        bilden sie einen Satz von quadratintegrablen Funktionen im $L^2$ und können alle anderen Funktionen in $L^2$ darstellen.
     }
     c_{lm} &= \int_0^{2 \pi} \int_0^\pi Y_{lm}^* f(\theta, \phi) \sin \theta \dif{\theta} \dif{\phi} \\
     \end{align}
@@ -300,15 +300,15 @@
         \vec{\hat{r}}^2 &= \left( x^2+y^2+z^2 \right), \qquad \vec{\hat{p}}^2 = \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \right)\\
         \left[ \hat{L}_z,\vec{\hat{r}}^2 \right] \Psi &= -\text{i}\hbar \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right) \left( x^2+y^2+z^2 \right) - \left( x^2+y^2+z^2 \right) \left(-\text{i}\hbar \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)\right)\Psi\\
         &= -\text{i}\hbar \left(\left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right) \left( x^2+y^2+z^2 \right) - \left( x^2+y^2+z^2 \right) \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)\right)\Psi\\
-        &= -\text{i}\hbar\left( \left[ L_z,x \right]x - x\left[ L_z,x \right] + \left[ L_z,y \right]y - y\left[ L_z,y \right] + \underbrace{\left[ L_z,z \right]}_{=0}z - z\underbrace{\left[ L_z,z \right]}_{=0}\right) \Psi\\
-        &= -\text{i}\hbar\left( \text{i}\hbar \hat{y}\hat{x} - \hat{x}\text{i}\hbar\hat{y} - \text{i}\hbar \hat{x}\hat{y} + \hat{y}\text{i}\hbar\hat{x} \right) \Psi\\
+        &= \left( \left[ L_z,x \right]x - x\left[ L_z,x \right] + \left[ L_z,y \right]y - y\left[ L_z,y \right] + \underbrace{\left[ L_z,z \right]}_{=0}z - z\underbrace{\left[ L_z,z \right]}_{=0}\right) \Psi\\
+        &= \left( \text{i}\hbar \hat{y}\hat{x} - \hat{x}\text{i}\hbar\hat{y} - \text{i}\hbar \hat{x}\hat{y} + \hat{y}\text{i}\hbar\hat{x} \right) \Psi\\
         &= 2\text{i}\hbar \left( \hat{y}\hat{x}-\hat{x}\hat{y} \right) \Psi\\
         &= 2\text{i}\hbar \underbrace{\left[ \hat{y},\hat{x} \right]}_{=0} \Psi = 0\\
         \\
         \left[ \hat{L}_z,\vec{\hat{p}}^2 \right] \Psi &= -\text{i}\hbar \left(\left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right) \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \right) - \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \right) \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)\right)\Psi\\
-        &= -\text{i}\hbar\left( \left[ L_z,\hat{p}_x \right] + \left[ L_z,\hat{p}_y \right] + \left[ L_z,\hat{p}_z \right] \right)\Psi\\
-        &= -\text{i}\hbar\left( \left[ L_z,\hat{p}_x \right]\hat{p}_x - \hat{p}_x\left[ L_z,\hat{p}_x \right] + \left[ L_z,\hat{p}_y \right]\hat{p}_y - \hat{p}_y\left[ L_z,\hat{p}_y \right] + \underbrace{\left[ L_z,\hat{p}_z \right]}_{=0}\hat{p}_z - \hat{p}_z\underbrace{\left[ L_z,\hat{p}_z \right]}_{=0}\right) \Psi\\
-        &= -\text{i}\hbar\left( \text{i}\hbar \hat{p}_y\hat{p}_x - \hat{p}_x\text{i}\hbar\hat{p}_y - \text{i}\hbar \hat{p}_x\hat{p}_y + \hat{p}_y\text{i}\hbar\hat{p}_x \right) \Psi\\
+        &= \left( \left[ L_z,\hat{p}_x \right] + \left[ L_z,\hat{p}_y \right] + \left[ L_z,\hat{p}_z \right] \right)\Psi\\
+        &= \left( \left[ L_z,\hat{p}_x \right]\hat{p}_x - \hat{p}_x\left[ L_z,\hat{p}_x \right] + \left[ L_z,\hat{p}_y \right]\hat{p}_y - \hat{p}_y\left[ L_z,\hat{p}_y \right] + \underbrace{\left[ L_z,\hat{p}_z \right]}_{=0}\hat{p}_z - \hat{p}_z\underbrace{\left[ L_z,\hat{p}_z \right]}_{=0}\right) \Psi\\
+        &= \left( \text{i}\hbar \hat{p}_y\hat{p}_x - \hat{p}_x\text{i}\hbar\hat{p}_y - \text{i}\hbar \hat{p}_x\hat{p}_y + \hat{p}_y\text{i}\hbar\hat{p}_x \right) \Psi\\
         &= 2\text{i}\hbar \underbrace{\left[ \hat{p}_y,x \right]}_{=0} \Psi = 0\\
     \end{align*}
 
