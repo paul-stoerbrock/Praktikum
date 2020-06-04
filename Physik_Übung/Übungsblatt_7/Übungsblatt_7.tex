@@ -31,10 +31,77 @@
     \end{figure}
 
     \subsection{a)}
+    \begin{align}
+    \int \dif{\omega} Y_{lm}^* (\theta, \phi) Y_{l'm'}(\theta , \phi)\\
+    &=\int \dif{\omega} \frac{1}{\sqrt{2 \pi}} N_{lm} P_{lm} (\cos \theta) e^{-im\phi} 
+    \frac{1}{\sqrt{2 \pi}} N_{l'm'} P_{l'm'}(\cos \theta) e^{im' \phi}\\
+    &=\int \dif{\omega} \frac{1}{2 \pi} N_{lm} N_{l'm'} e^{i(m'-m)\phi} P_{lm} P_{l'm'}\\
+    &=\int_0^{\pi} \int_0^{2 \pi} \frac{1}{2 \pi} N_{lm} N_{l'm'} \sin \theta e^{i(m'-m)\phi} P_{lm} P_{l'm'}
+    \dif{\phi} \dif{\theta}\\
+    &=\int_0^{\pi} \frac{1}{2\pi} N_{lm} N_{l'm'} \sin \theta P_{lm} P_{l'm'} \frac{1}{i(m'-m)} 
+    \underbrace{(e^{i(m'-m)2 \pi}-1 )}_{=0} \dif{\theta} \\
+    \intertext{
+        für alle $m \ne m'$ 
+        Fall $m=m'$
+    }
+    &=\int_0^{\pi} \int_0^{2 \pi} \frac{1}{2 \pi} N_{lm} N_{l'm} P_{lm} P_{l'm} \sin \theta e^{i(m-m)\phi} \dif{\phi} \dif{\theta}\\
+    &= \int_0^{\pi} N_{lm} N_{l'm} P_{lm} P_{l'm} \sin \theta \dif{\theta} \\
+    \Rightarrow &\int_0^{2\pi} \frac{1}{2 \pi} \frac{1}{2\pi} e^{i(m'-m)\phi} = \delta _{mm'}\\
+    &=\int_0^{\pi} N_{lm} N_{l'm} P_{lm} P_{l'm} \underbrace{\sin \theta}_{-\frac{\dif{\cos \theta}}{\dif{\theta}}} \dif{\theta}\\
+    &= \int_{\pi}^0 N_{lm} N_{l'm} P_{lm}(\cos \theta) P_{l'm} (\cos \theta) \dif{\cos \theta}\\
+    \intertext{
+        Substitution 
+    }    
+    x&= \cos \theta\\
+    \frac{\dif{x}}{\dif{\cos \theta}} &=1\\
+    \intertext{
+        weiter
+    }
+    &= \int _{-1}^1 N_{lm} N_{lm'} P_{lm}(x) P_{l'm}(x) \dif{x}\\
+    &= N_{lm} N_{l'm} \frac{2}{2l+1} \frac{(l+m)!}{(l-m)!} \delta _{ll'} \\
+    &=\begin{cases}
+    l=l' \;1\\
+    l \ne l' \;0
+    \end{cases}\\
+    \Rightarrow \int \dif{\omega} Y_{l'm'}^* Y_{lm} = \delta_{ll'} \delta _{mm'}\\
+    \sum_{l=0}^{\infty} \sum_{m=-l}^l Y_{lm}^* (\theta ' , \phi ') Y_{lm} (\theta , \phi) = \delta (\phi - \phi ') \delta (\cos \theta - \cos \theta ')\\
+    \end{align}
 
     \subsection{b)}
+    \begin{align}
+    \intertext{
+        \flushleft{Die\,}\justifying Kugelflächenfunktionen bilden ein orthonormales Funktionensystem. Durch ihre Vollständigkeit 
+        bilden sie einen Satz von quadratintegrablen Funktionen im $L^2$ und können alle anderen Funktionen in $L^2$  
+    }
+    c_{lm} &= \int_0^{2 \pi} \int_0^\pi Y_{lm}^* f(\theta, \phi) \sin \theta \dif{\theta} \dif{\phi} \\
+    \end{align}
 
     \subsection{c)}
+    \begin{align}
+        c_{lm} &= \int_0^{2 \pi} \int_0^\pi Y_{lm}^* f(\theta, \phi) \sin \theta \dif{\theta} \dif{\phi} \\
+        \intertext{
+            Transformation:
+        }
+        \phi ' &= \phi + \alpha \\
+        \phi &= \phi ' - \alpha \\
+        \frac{\dif{\phi}}{\dif{\phi '}} &=1\\
+        \intertext{
+            weiter
+        }
+        c_{lm} &= \int_0^{2 \pi} \int_0^{\pi} Y_{lm}^* (\theta , \phi '-\alpha) f(\theta , \phi '  - \alpha) \sin \theta \dif{\theta} \dif{\phi '}\\
+        &= \int_0^{2 \pi} \int_0^{\pi} \frac{1}{\sqrt{2 \pi}} N_{lm} P_{lm} (\cos \theta) e^{-i m (\phi ' - \alpha)} d_{lm} \frac{1}{\sqrt{2 \pi}} N_{lm} P_{lm} (\cos{\theta}) e^{im(\phi ' + \alpha)}\\
+        &= \int_0^{2 \pi} \frac{1}{2 \pi} \underbrace{\int_0^{\pi}  (P_{lm} (\cos \theta))^2}_{=1} e^{im 2 \alpha} d_{lm}\\
+        &= e^{im2 \alpha} d_{lm}\\
+        d_{lm} &= e^{-im2 \alpha} c_{lm}\\
+        \abs{c_{lm}} &= \abs{e^{im 3 \alpha} c_{lm}} \\
+        &=\sqrt{(e^{-im2 \alpha} d_{lm}^*)(e^{im2 \alpha} d_{lm})} \\
+        \abs{c_{lm}} &= \abs{d_{lm}}
+        \intertext{
+            \flushleft{Die\,}\justifying Beträge bleiben bei der Transformation erhalten, während sich die normalen Koeffizienten um 
+            eine Phase $\alpha$ unterscheiden.
+        }
+    \end{align}
+
 
 
 \section{Aufgabe 2}
