@@ -323,6 +323,20 @@
         &= 2\text{i}\hbar \underbrace{\left[ \hat{p}_y,\hat p _x \right]}_{=0} \Psi = 0\\
     \end{align*}
 
+    Da für die d) ein allgemeiner Beweis benötigt wird, ist die Rechnung hier nochmal für belibiges $L_i$ gemacht worden.
+    Erster Teil ist zur sicherstellung, falls das hier einen Fehler haben sollte
+    \begin{align}
+    [\hat L _i , \hat p ^2] &= [\varepsilon _{ijk} \hat r _j \hat p_k , \vec{\hat p}^2]\\
+    &=[\varepsilon _{ijk} \hat r _j \hat p_k , \sum_{n=1}^3 \vec{\hat p}_n^2]\\
+    &=\sum_{n=1}^3 [\varepsilon _{ijk} \hat r _j \hat p_k ,  \vec{\hat p}_n^2]\\
+    &=\sum_{n=1}^3 ([\varepsilon _{ijk} \hat r _j \hat p_k , \hat p _n]\hat p _n -\hat p_n[\varepsilon _{ijk} \hat r _j \hat p_k , \hat p _n] )\\
+    &=\sum_{n=1}^3 (-[ \hat p _n, \varepsilon _{ijk} \hat r _j \hat p_k]\hat p _n +\hat p_n[ \hat p _n, \varepsilon _{ijk} \hat r _j \hat p_k] )\\
+    &=\sum_{n=1}^3 (\varepsilon _{ijk} \hat  p _n (\underbrace{[\hat p _n , \hat r _j]}_{i \hbar \delta _{nj}} \hat p_k - \hat p _k [\hat p _n , \hat r _j]) - \varepsilon _{ijk} ( [\hat p _n , \hat r _j ]\hat p _k - \hat p _k [\hat p _n , \hat r _j] ) \hat p _n )\\
+    &=\sum_{n=1}^3 \varepsilon _{ijk} (\hat p _n (i \hbar \delta _{nj} \hat p _k - \hat p _k i \hbar \delta _{nj} )- (\hat p _k i \hbar \delta _{nj} \hat p _k) - \hat p _k \hat p _k i \hbar \delta _{nj} ) \hat p _n \\
+    [\hat p _i , \hat p _k] =0, i,k=x,y,z \\
+    \Rightarrow [\hat L _i , \hat p ^2] =0
+    \end{align}
+
     \subsection{d)}
 
     \begin{align*}
