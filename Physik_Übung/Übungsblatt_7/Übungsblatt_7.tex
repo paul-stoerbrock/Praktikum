@@ -163,18 +163,19 @@
         \flushleft{Einsetzen\;}\justifying in $L_{x,y,z}$:
     }
     L_x &= -\text{i} \hbar(y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y})\\
-    &= -\text{i} \hbar\left(r\sin(\varphi)\sin(\theta)
-    \left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right)
-    -r\cos(\theta) \left(\sin(\varphi)\sin(\theta)\frac{\partial}{\partial r} + \frac{\cos(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} 
-    + \frac{\sin(\varphi)\cos(\theta)}{r}\frac{\partial}{\partial \theta}\right)\right)\\
+    &= -\text{i} \hbar(r\sin(\varphi)\sin(\theta)
+    &\left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right)\\
+    &-r\cos(\theta) (\sin(\varphi)\sin(\theta)\frac{\partial}{\partial r} + \frac{\cos(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} \\
+    &+ \frac{\sin(\varphi)\cos(\theta)}{r}\frac{\partial}{\partial \theta}))\\
     &= -\text{i}\hbar \left( -\sin(\varphi)\frac{\partial}{\partial\theta} - \frac{\cos(\varphi)}{\tan(\theta)}\frac{\partial}{\partial\varphi}\right)\\
     &= \text{i}\hbar \left( \sin(\varphi)\frac{\partial}{\partial\theta} + \frac{\cos(\varphi)}{\tan(\theta)}\frac{\partial}{\partial\varphi}\right)\\
     \\
     L_y &= -\text{i} \hbar(z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z})\\
-    &= -\text{i} \hbar\left(r\cos(\theta)
-    \left(\cos(\varphi)\sin(\theta)\frac{\partial}{\partial r} - \frac{\sin(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} + \frac{\cos(\theta)\cos(\varphi)}{r}\frac{\partial}{\partial \theta}\right)
-    -r\cos(\varphi)\sin(\theta) 
-    \left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right) \right)\\
+    &= -\text{i} \hbar (r\cos(\theta)
+    (\cos(\varphi)\sin(\theta)\frac{\partial}{\partial r} - \frac{\sin(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} +\\
+    & \frac{\cos(\theta)\cos(\varphi)}{r}\frac{\partial}{\partial \theta})\\
+    &-r\cos(\varphi)\sin(\theta) 
+    \left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right) )\\
     &= \text{i}\hbar\left( -\cos(\varphi)\frac{\partial}{\partial \theta} + \frac{\sin(\varphi)}{\tan(\theta)}\frac{\partial}{\partial \varphi} \right)\\
     \\
     L_z &= (xp_y-yp_x)\\
