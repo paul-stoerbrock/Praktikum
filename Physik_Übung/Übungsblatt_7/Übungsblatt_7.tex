@@ -163,18 +163,19 @@
         \flushleft{Einsetzen\;}\justifying in $L_{x,y,z}$:
     }
     L_x &= -\text{i} \hbar(y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y})\\
-    &= -\text{i} \hbar\left(r\sin(\varphi)\sin(\theta) % muss noch gesplitted werden! (von hier)
-    \left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right)
-    -r\cos(\theta) \left(\sin(\varphi)\sin(\theta)\frac{\partial}{\partial r} + \frac{\cos(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} 
-    + \frac{\sin(\varphi)\cos(\theta)}{r}\frac{\partial}{\partial \theta}\right)\right)\\ % (bis hier)
+    &= -\text{i} \hbar(r\sin(\varphi)\sin(\theta)
+    &\left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right)\\
+    &-r\cos(\theta) (\sin(\varphi)\sin(\theta)\frac{\partial}{\partial r} + \frac{\cos(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} \\
+    &+ \frac{\sin(\varphi)\cos(\theta)}{r}\frac{\partial}{\partial \theta}))\\
     &= -\text{i}\hbar \left( -\sin(\varphi)\frac{\partial}{\partial\theta} - \frac{\cos(\varphi)}{\tan(\theta)}\frac{\partial}{\partial\varphi}\right)\\
     &= \text{i}\hbar \left( \sin(\varphi)\frac{\partial}{\partial\theta} + \frac{\cos(\varphi)}{\tan(\theta)}\frac{\partial}{\partial\varphi}\right)\\
     \\
     L_y &= -\text{i} \hbar(z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z})\\
-    &= -\text{i} \hbar\left(r\cos(\theta)  % muss noch gesplitted werden! (von hier)
-    \left(\cos(\varphi)\sin(\theta)\frac{\partial}{\partial r} - \frac{\sin(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} + \frac{\cos(\theta)\cos(\varphi)}{r}\frac{\partial}{\partial \theta}\right)
-    -r\cos(\varphi)\sin(\theta) 
-    \left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right) \right)\\ % (bis hier)
+    &= -\text{i} \hbar (r\cos(\theta)
+    (\cos(\varphi)\sin(\theta)\frac{\partial}{\partial r} - \frac{\sin(\varphi)}{r\sin(\theta)}\frac{\partial}{\partial \varphi} +\\
+    & \frac{\cos(\theta)\cos(\varphi)}{r}\frac{\partial}{\partial \theta})\\
+    &-r\cos(\varphi)\sin(\theta) 
+    \left(\cos(\theta)\frac{\partial}{\partial r} - \frac{\sin(\theta)}{r}\frac{\partial}{\partial \theta}\right) )\\
     &= \text{i}\hbar\left( -\cos(\varphi)\frac{\partial}{\partial \theta} + \frac{\sin(\varphi)}{\tan(\theta)}\frac{\partial}{\partial \varphi} \right)\\
     \\
     L_z &= (xp_y-yp_x)\\
@@ -194,17 +195,19 @@
         \text{i}\hbar \left( \sin(\varphi)\frac{\partial}{\partial\theta} + \frac{\cos(\varphi)}{\tan(\theta)}\frac{\partial}{\partial\varphi}\right)\\
         \text{i}\hbar \left( -\cos(\varphi)\frac{\partial}{\partial\theta} + \frac{\sin(\varphi)}{\tan(\theta)}\frac{\partial}{\partial\varphi}\right)\\
         \text{i}\hbar\frac{\partial}{\partial \varphi}
-    \end{pmatrix}\\
-    &= -\hbar \left( \sin^2(\varphi)\frac{\partial^2}{\partial \theta^2} + \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial^2}{\partial \varphi \partial \theta} %muss noch gesplitted werden! (von hier)
-    - \frac{\sin(\varphi)\cos(\theta)}{\sin^2(\theta)} \frac{\partial}{\partial \varphi} + \frac{\cos(\varphi)\cos(\varphi)}{\tan(\theta)} \frac{\partial}{\partial \theta}
-    + \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)}\frac{\partial^2}{\partial \varphi \partial \theta} + \frac{\cos^2(\varphi)}{\tan^2(\theta)} \frac{\partial^2}{\partial \varphi^2}
-    - \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)}\frac{\partial}{\partial \varphi} + \cos^2(\varphi) \frac{\partial^2}{\partial \theta^2}
-    + \frac{\cos(\varphi)\sin(\varphi)}{\sin^2(\theta)}\frac{\partial}{\partial \varphi} - \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial^2}{\partial \varphi \partial \theta}
-    - \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial^2}{\partial \varphi \partial \theta} + \frac{\sin^2(\varphi)}{\tan(\theta)} \frac{\partial}{\partial \theta}
-    + \frac{\sin^2(\varphi)}{\tan^2(\theta)} \frac{\partial^2}{\partial \varphi^2} + \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial}{\partial \varphi} + \frac{\partial^2}{\partial \varphi^2} \right)\\ % (bis hier)
-    &= -\hbar \left( \frac{\partial^2}{\partial \theta^2} + \frac{1}{\tan(\theta)} \frac{\partial}{\partial \theta} + \frac{1}{\tan^2(\theta)} \frac{\partial^2}{\partial \varphi^2} + \frac{\partial^2}{\partial \varphi^2} \right)\\
-    &= -\hbar \left( \frac{\partial^2}{\partial \theta^2} + \frac{1}{\tan(\theta)} \frac{\partial}{\partial \theta} + \frac{\partial^2}{\partial \varphi^2} \left( \frac{1}{\tan^2(\theta)} + 1 \right) \right)\\
-    &= -\hbar \left( \frac{1}{\sin(\theta)} \frac{\partial}{\partial \theta} \left( \sin(\theta) \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin(\theta)} \frac{\partial^2}{\partial \varphi^2} \right)
+    \end{pmatrix}
+    \end{align*}
+    \begin{align*}
+    = &-\hbar ( \sin^2(\varphi)\frac{\partial^2}{\partial \theta^2} + \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial^2}{\partial \varphi \partial \theta} \\
+    &- \frac{\sin(\varphi)\cos(\theta)}{\sin^2(\theta)} \frac{\partial}{\partial \varphi} + \frac{\cos(\varphi)\cos(\varphi)}{\tan(\theta)} \frac{\partial}{\partial \theta}\\
+    &+ \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)}\frac{\partial^2}{\partial \varphi \partial \theta} + \frac{\cos^2(\varphi)}{\tan^2(\theta)} \frac{\partial^2}{\partial \varphi^2}\\
+    &- \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)}\frac{\partial}{\partial \varphi} + \cos^2(\varphi) \frac{\partial^2}{\partial \theta^2} \\
+    &+ \frac{\cos(\varphi)\sin(\varphi)}{\sin^2(\theta)}\frac{\partial}{\partial \varphi} - \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial^2}{\partial \varphi \partial \theta}\\
+    &- \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial^2}{\partial \varphi \partial \theta} + \frac{\sin^2(\varphi)}{\tan(\theta)} \frac{\partial}{\partial \theta}\\
+    &+ \frac{\sin^2(\varphi)}{\tan^2(\theta)} \frac{\partial^2}{\partial \varphi^2} + \frac{\cos(\varphi)\sin(\varphi)}{\tan(\theta)} \frac{\partial}{\partial \varphi} + \frac{\partial^2}{\partial \varphi^2} )\\
+    = &-\hbar \left( \frac{\partial^2}{\partial \theta^2} + \frac{1}{\tan(\theta)} \frac{\partial}{\partial \theta} + \frac{1}{\tan^2(\theta)} \frac{\partial^2}{\partial \varphi^2} + \frac{\partial^2}{\partial \varphi^2} \right)\\
+    = &-\hbar \left( \frac{\partial^2}{\partial \theta^2} + \frac{1}{\tan(\theta)} \frac{\partial}{\partial \theta} + \frac{\partial^2}{\partial \varphi^2} \left( \frac{1}{\tan^2(\theta)} + 1 \right) \right)\\
+    = &-\hbar \left( \frac{1}{\sin(\theta)} \frac{\partial}{\partial \theta} \left( \sin(\theta) \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2(\theta)} \frac{\partial^2}{\partial \varphi^2} \right)
     \end{align*}
 
     \subsection{c)}
@@ -302,19 +305,18 @@
     \subsection{c)}
 
     \begin{align*}
-        \vec{\hat{r}}^2 &= \left( x^2+y^2+z^2 \right), \qquad \vec{\hat{p}}^2 = \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \right)\\
-        \left[ \hat{L}_z,\vec{\hat{r}}^2 \right] \Psi &= -\text{i}\hbar \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right) \left( x^2+y^2+z^2 \right) - \left( x^2+y^2+z^2 \right) \left(-\text{i}\hbar \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)\right)\Psi\\
-        &= -\text{i}\hbar \left(\left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right) \left( x^2+y^2+z^2 \right) - \left( x^2+y^2+z^2 \right) \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)\right)\Psi\\
+        \left[ \hat{L}_z,\vec{\hat{r}}^2 \right] \Psi &= [L_z, \hat x ^2 + \hat y ^2 + \hat z ^2] \Psi \\
+        &= ([L_z, \hat x ^2 ] + [L_z, \hat y ^2 ] + [L_z, \hat z ^2 ]) \Psi \\
         &= \left( \left[ L_z,x \right]x - x\left[ L_z,x \right] + \left[ L_z,y \right]y - y\left[ L_z,y \right] + \underbrace{\left[ L_z,z \right]}_{=0}z - z\underbrace{\left[ L_z,z \right]}_{=0}\right) \Psi\\
         &= \left( \text{i}\hbar \hat{y}\hat{x} - \hat{x}\text{i}\hbar\hat{y} - \text{i}\hbar \hat{x}\hat{y} + \hat{y}\text{i}\hbar\hat{x} \right) \Psi\\
         &= 2\text{i}\hbar \left( \hat{y}\hat{x}-\hat{x}\hat{y} \right) \Psi\\
         &= 2\text{i}\hbar \underbrace{\left[ \hat{y},\hat{x} \right]}_{=0} \Psi = 0\\
         \\
-        \left[ \hat{L}_z,\vec{\hat{p}}^2 \right] \Psi &= -\text{i}\hbar \left(\left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right) \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \right) - \left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \right) \left( x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)\right)\Psi\\
-        &= \left( \left[ L_z,\hat{p}_x^2 \right] + \left[ L_z,\hat{p}_y^2 \right] + \left[ L_z,\hat{p}_z^2 \right] \right)\Psi\\
+        \left[ \hat{L}_z,\vec{\hat{p}}^2 \right] \Psi &= [\hat L _z , \hat p _x ^2 + \hat p _y^2 + \hat p _z^2 ] \Psi\\
+        &= \left( \left[ L_z,\hat{p}_x ^2 \right] + \left[ L_z,\hat{p}_y ^2 \right] + \left[ L_z,\hat{p}_z ^2 \right] \right)\Psi\\
         &= \left( \left[ L_z,\hat{p}_x \right]\hat{p}_x - \hat{p}_x\left[ L_z,\hat{p}_x \right] + \left[ L_z,\hat{p}_y \right]\hat{p}_y - \hat{p}_y\left[ L_z,\hat{p}_y \right] + \underbrace{\left[ L_z,\hat{p}_z \right]}_{=0}\hat{p}_z - \hat{p}_z\underbrace{\left[ L_z,\hat{p}_z \right]}_{=0}\right) \Psi\\
-        &= -\text{i}\hbar\left( \text{i}\hbar \hat{p}_y\hat{p}_x - \hat{p}_x\text{i}\hbar\hat{p}_y - \text{i}\hbar \hat{p}_x\hat{p}_y + \hat{p}_y\text{i}\hbar\hat{p}_x \right) \Psi\\
-        &= 2\text{i}\hbar \underbrace{\left[ \hat{p}_y,x \right]}_{=0} \Psi = 0\\
+        &= \left( \text{i}\hbar \hat{p}_y\hat{p}_x - \hat{p}_x\text{i}\hbar\hat{p}_y - \text{i}\hbar \hat{p}_x\hat{p}_y + \hat{p}_y\text{i}\hbar\hat{p}_x \right) \Psi\\
+        &= 2\text{i}\hbar \underbrace{\left[ \hat{p}_y,\hat p _x \right]}_{=0} \Psi = 0\\
     \end{align*}
 
     \subsection{d)}
