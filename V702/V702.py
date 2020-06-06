@@ -47,7 +47,7 @@ def error(f, err_vars=None):
 
 
 def f(x, A, B, C, D, E):
-    return A*np.exp(-B*x)+C*np.exp(-D*x)+E
+    return A*np.exp(B*x)+C*np.exp(D*x)+E
 
 
 
@@ -98,7 +98,6 @@ par_V = unp.uarray(par, err)
 
 # Plot von Rhodium %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 par, cov = np.polyfit( t_Rh[18:], np.log(noms(N_Rh_ohne_U[18:])), deg=1, cov=True)
 err1 = np.sqrt(np.diag(cov))
 
@@ -108,20 +107,26 @@ par2, cov2 = curve_fit(
     noms(N_Rh_ohne_U),
     sigma=None,
     absolute_sigma=True,
-    p0=[ 100, 1000, -20, 1e-02, -220]
+    p0=[ -1, -1, 20, -1e-04, 220]
 )
+
+
 err2 = np.sqrt(np.diag(cov2))
 
-par3, cov3 = np.polyfit(t_Rh[:17], np.log(noms(N_Rh_ohne_U[:17])- par[1]+par[0]*t_Rh[:17]  ), deg=1, cov=True)
-print(noms(N_Rh_ohne_U[:17])- np.exp(par[1]+par[0]*t_Rh[:17] ) )
+par3, cov3 = np.polyfit(t_Rh[:17], np.log(noms(N_Rh_ohne_U[:17])- np.exp(par[1]+par[0]*t_Rh[:17])  ), deg=1, cov=True)
+err3 = np.sqrt(np.diag(cov3))
 
 plt.errorbar(t_Rh, noms(N_Rh_ohne_U),xerr=stds(N_Rh_ohne_U) ,fmt='kx', label='Messwerte')
 x_plot = np.linspace(0, 660, 10000)
-x_plot2 = np.linspace(0, 250, 10000)
+x_plot2 = np.linspace(0, 300, 1000)
 plt.plot(x_plot, np.exp(x_plot*par[0]+par[1]) , 'r-', label='Gerade des langlebigen Zerfalls')
 plt.plot(x_plot, f(x_plot, *par2), 'm-', label='Fitkurve' )
-plt.plot(x_plot2,np.exp(x_plot*par3[0]+par3[1]), 'b-', label='Gerade des kurzlebigen Zerfalls' )
+plt.plot(x_plot2,np.exp(x_plot2*par3[0]+par3[1]), 'b-', label='Gerade des kurzlebigen Zerfalls' )
 plt.yscale('log')
+plt.xticks(
+  [0, 100, 200,  400, 500, 600, 285],
+  [0, 100, 200,  400, 500, 600, r'$t^*$']
+)
 plt.legend(loc="best")
 plt.xlabel(r' $t \:/\:s$')
 plt.ylabel(r' $\ln(I/Imp/15s)$')
@@ -132,7 +137,9 @@ plt.close()
 
 par_Rh_lang = unp.uarray(par,err1)
 par_Rh =  unp.uarray(par2, err2)
+par_Rh_kurz = unp.uarray(par3, err3)
 
+print(cov2)
 
 # tex files ##############################################################################
 
@@ -144,31 +151,68 @@ with open('build/a_V.tex', 'w') as f:
 with open('build/b_V.tex', 'w') as f: 
   f.write(make_SI(par_V[1] ,r' ', figures=2))
 
+with open('build/lambda_V.tex', 'w') as f: 
+  f.write(make_SI(-par_V[0]*1e03 ,r'\per\second ',exp='e-03' ,figures=2))
+
 with open('build/T_V.tex', 'w') as f: 
   f.write(make_SI(-np.log(2)/par_V[0] ,r'\second ', figures=2))
+
+T_V = -np.log(2)/par_V[0]
+
+with open('build/relerr_T_V.tex', 'w') as f: 
+  f.write(make_SI(rel_err(T_V, 225.6) ,r'\percent ', figures=2))
 
 # tex file for Rhodium
 
 with open('build/a_Rh_lang.tex', 'w') as f: 
-  f.write(make_SI(par_Rh_lang[0] ,r' ', figures=2))
+  f.write(make_SI(par_Rh_lang[0]*1e03 ,r'\per\second ', exp='e-03', figures=2))
 
 with open('build/b_Rh_lang.tex', 'w') as f: 
   f.write(make_SI(par_Rh_lang[1] ,r' ', figures=2))
 
+with open('build/lambda_Rh_lang.tex', 'w') as f: 
+  f.write(make_SI(-par_Rh_lang[0]*1e03 ,r'\per\second ', exp='e-03', figures=2))
+
+with open('build/T_Rh_lang.tex', 'w') as f: 
+  f.write(make_SI(-np.log(2)/par_Rh_lang[0] ,r'\second ', figures=2))
+
+T_Rh_lang =-np.log(2)/par_Rh_lang[0]
+
+with open('build/relerr_T_Rh_lang.tex', 'w') as f: 
+  f.write(make_SI(rel_err(T_Rh_lang, 258) ,r'\percent ', figures=2))
+
+
+with open('build/a_Rh_kurz.tex', 'w') as f: 
+  f.write(make_SI(par_Rh_kurz[0]*1e02 ,r'\per\second ', exp='e-02', figures=2))
+
+with open('build/b_Rh_kurz.tex', 'w') as f: 
+  f.write(make_SI(par_Rh_kurz[1] ,r' ', figures=2))
+
+with open('build/lambda_Rh_kurz.tex', 'w') as f: 
+  f.write(make_SI(-par_Rh_kurz[0]*1e02 ,r'\per\second ', exp='e-02', figures=2))
+
+with open('build/T_Rh_kurz.tex', 'w') as f: 
+  f.write(make_SI(-np.log(2)/par_Rh_kurz[0] ,r'\second ', figures=2))
+
+T_Rh_kurz= -np.log(2)/par_Rh_kurz[0]
+
+with open('build/relerr_T_Rh_kurz.tex', 'w') as f: 
+  f.write(make_SI(rel_err(T_Rh_kurz, 42) ,r'\percent ', figures=2))
+
 with open('build/A_Rh.tex', 'w') as f: 
-  f.write(make_SI(par_Rh[0] ,r' ', figures=2))
+  f.write(make_SI(noms(par_Rh[0]) ,r' ', figures=2))
 
 with open('build/B_Rh.tex', 'w') as f: 
-  f.write(make_SI(par_Rh[1] ,r' ', figures=2))
+  f.write(make_SI(noms(par_Rh[1]) ,r' ', figures=2))
 
 with open('build/C_Rh.tex', 'w') as f: 
-  f.write(make_SI(par_Rh[2] ,r' ', figures=2))
+  f.write(make_SI(noms(par_Rh[2]) ,r' ', figures=2))
 
 with open('build/D_Rh.tex', 'w') as f: 
-  f.write(make_SI(par_Rh[3] ,r' ', figures=2))
+  f.write(make_SI(noms(par_Rh[3]) ,r' ', figures=2))
 
 with open('build/E_Rh.tex', 'w') as f: 
-  f.write(make_SI(par_Rh[4] ,r' ', figures=2))
+  f.write(make_SI(noms(par_Rh[4]) ,r' ', figures=2))
 
 
 # Tabellen ########################################################################################

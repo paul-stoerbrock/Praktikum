@@ -112,8 +112,8 @@ Manche Materialien wie Rhodium haben zwei Zerfallsketten\\
 \end{align}
 Das i beim Rhodium steht für einen isomeren Kern, welcher sich nur in der Energie und
 Halbwertszeit vom Rhodium-Kern unterscheidet.\\
-Da der isomere Kern kurzlebiger ist, wird ab einem gewissen Zeitpunkt $t^*$ hauptsächlich
-die andere Zerfallskette gemessen, was sich in der folgenden Abbildung zu erkennen ist:
+Da der nicht-isomere Kern kurzlebiger ist, wird ab einem gewissen Zeitpunkt $t^*$ hauptsächlich
+der isomere Kern gemessen, was in der folgenden Abbildung zu erkennen ist:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/Rh_theo.jpg}
@@ -171,9 +171,9 @@ Die gemessenen Werte lauten
 \subsection{Messung der Halbwertszeit einer Vanadium-Probe}
 Der Zerfall von Vanadium lässt sich in den Fall der Reaktionsgleichung \eqref{eq:2}
 einordnen. Seine Reaktionsgleichung sieht im genauen wie folgt aus
-\begin{align*}
-    \ce{^51_23 V + n -> ^52_23 V -> ^52_24 Cr + \symup{\beta}- + \bar{\symup{\nu}}_e }
-\end{align*}
+\begin{align}
+    \ce{^51_23 V + n -> ^52_23 V -> ^52_24 Cr + \symup{\beta}- + \bar{\symup{\nu}}_e } \label{eq:9}
+\end{align}
 Die Tabelle mit den Messwerten für die Vanadium-Probe befindet sich im Anhang \ref{tab:1}.
 Bei der Erstellung des Plots sind von den Messwerten ein zehntel der Untergrund-Zählraten im jeweiligen Intervall 
 abgezogen worden. 
@@ -191,26 +191,24 @@ Der Plot sieht dann folgendermaßen aus:
 Polyfit aus Scipy \cite{scipy} und den Messwerten aus der
 Tabelle \ref{tab:1}. Die Parameter der Ausgleichsgeraden
 \begin{align}
-    \ln(N_{\Delta t}(t)) &= a \cdot t +b \label{eq:9} \\
+    \ln(N_{\Delta t}(t)) &= a \cdot t +b \label{eq:10} \\
     \intertext{
         mit
     }
-    a &= \text{\input{a_V.tex}} \label{eq:10} \\
-    b &= \text{\input{b_V.tex}} \label{eq:11}
+    a &= \text{\input{a_V.tex}} \label{eq:11} \\
+    b &= \text{\input{b_V.tex}} \label{eq:12}
     \intertext{
         wobei sich die Parameter a und b durch Vergleich mit Gleichung \eqref{eq:5} als
     }
-    a &= - \lambda \label{eq:12} \\
-    b &= \ln(N_0 (1-e^{\lambda \Delta t})) \label{eq:13}
-    \intertext{
-        identifizieren lassen.
-    }
+    a &= - \lambda \label{eq:13} \\
+    b &= \ln(N_0 (1-e^{\lambda \Delta t})) \label{eq:14}
 \end{align}
+identifizieren lassen.\\
 Aus der Steigung a lässt sich nun die Zerfallskonstante $\lambda$ 
 \begin{align}
-    \lambda &= \SI{3.14+-0.17e-03}{\per\second} \label{eq:14}
+    \lambda &= \text{\input{lambda_V.tex}} \label{eq:15}
     \intertext{und mithilfe von Gleichung \eqref{eq:6} die Halbwertszeit T }
-    T &= \text{\input{T_V.tex}} \label{eq:15}
+    T_V &= \text{\input{T_V.tex}} \label{eq:16}
 \end{align}
 bestimmen.
 Die Fehler aus der Gaußschen Fehlerfortpflanzung werden dabei mit der folgenden Formel bestimmt
@@ -222,7 +220,7 @@ Die Fehler aus der Gaußschen Fehlerfortpflanzung werden dabei mit der folgenden
 Die Messwerte aus der Messung der Zerfallsrate findet sich im Anhang \ref{tab:2}.
 Als Zeintinervall ist für Rhodium $\Delta t = \SI{15}{\second} $ gewählt worden.
 Auch hier ist der Untergrund bei der Erstellung des Plots abgezogen worden,
-indem dieser durch 20 geteilt wurde, um ebenfalls ein Zeitintervall von 15s für den Untergrund
+indem dieser durch 20 geteilt wurde, um ebenfalls ein Zeitintervall von $\SI{15}{\second} $ für den Untergrund
 zu haben.
 Der Plot selbst sieht dann wie folgt aus:
 \begin{figure}[H]
@@ -232,16 +230,85 @@ Der Plot selbst sieht dann wie folgt aus:
      $\Delta t = \SI{15}{\second}$ \cite{matplotlib}. 
      Die Zählzeit ist hier logarithmisch aufgetragen. Die Fitkurve entsteht aus
      der Überlagerung der zwei Zerfallsreihen von Rhodium analog zu Abbildung \ref{fig:2}, wobei die einzelnen
-     Geraden eben diese darstellen. Die rote Gerade bildet den langlebigen Zerfall,
-     während die Blaue den kurzlebigen Zerfall darstellt.
+     Geraden eben diese darstellen. Die rote Gerade bildet den langlebigen Zerfall von dem isomeren Kern $\ce{^{104i}_45 Rh } $ ,
+     während die Blaue den kurzlebigen Zerfall von $\ce{^104_45 Rh }$ darstellt.
+     Der Wert $t^*= \SI{285}{\second} $ stellt dabei den Punkt dar, ab dem nur noch der langlebige
+     Zerfall vorzufinden ist.
      } % Caption noch hinzufügen
     \label{fig:5} 
 \end{figure}
+\flushleft{Die\,}\justifying lilane Fitkurve ist mit der Funktion curvefit aus Scipy \cite{scipy} erstellt
+worden. Als Funktion ist dabei
+
+\begin{subequations}
+\begin{align}
+    N_{\Delta t}(t) &= A e^{B t} +C e^{D t} + E \label{eq:18a}
+    \intertext{
+        verwendet worden. Diese Parameter haben die Werte
+    }
+    A &= \text{\input{A_Rh.tex}} \label{eq:18b}\\
+    B &= \text{\input{B_Rh.tex}} \label{eq:18c}\\
+    C &= \text{\input{C_Rh.tex}} \label{eq:18d}\\
+    D &= \text{\input{D_Rh.tex}} \label{eq:18e}\\
+    E &= \text{\input{E_Rh.tex}} \label{eq:18f}.
+\end{align}
+\end{subequations}
+Für die Gerade des langlebigen Zerfalls ist die Funktion polyfit aus Scipy \cite{scipy}
+verwendet worden. Als Werte sind alle Messwerte ab $t^*=\SI{285}{\second} $ benutzt worden.
+Die Gerade hat hier die gleiche Form wie in Gleichung \eqref{eq:10} und die Fitparameter
+lauten
+\begin{subequations}
+\begin{align}
+    a_l &= \text{\input{a_Rh_lang.tex}} \label{eq:19a}\\
+    b_l &= \text{\input{b_Rh_lang.tex}} \label{eq:19b}.
+\end{align}
+\end{subequations}
+Die Relationen für die Fitparameter a und b sind immer noch gegeben durch Gleichung
+\eqref{eq:13} und \eqref{eq:14}. Daraus ergibt sich für die Zerfallskonstante der Wert
+\begin{align}
+    \lambda _l &= \text{\input{lambda_Rh_lang.tex}} \label{eq:20}
+    \intertext{
+        und für die Halbwertszeit ergibt sich nach Gleichung \eqref{eq:6}
+    }
+    T_{Rh,l} &= \text{\input{T_Rh_lang.tex}} \label{eq:21}.
+\end{align}
+Die Messungenauigkeiten werden wie bei Vanandium mit Formel \eqref{eq:17} bestimmt.\\
+Für den kurzlebigen Verlauf ist von den Messwerten für N aus Tabelle \ref{tab:2}, welche kleiner als
+$t^*$ sind, von den entsprechenden Werten der langlebigen Gerade abgezogen und
+damit eine Ausgleichsgerade mit der Funktion polyfit aus Scipy \cite{scipy} erstellt.
+Die Relationen sind äquivalent zu dem langlebigen Zerfall, wodurch sich für die Fitparameter
+folgende Werte ergeben
+\begin{subequations}
+\begin{align}
+    a_k &= \text{\input{a_Rh_kurz.tex}} \label{eq:22a}\\
+    b_k &= \text{\input{b_Rh_kurz.tex}} \label{eq:22b}.
+\end{align}
+\end{subequations}
+Die Zerfallskonstante und die Halbwertszeit betragen dann
+\begin{align}
+    \lambda _k &=  \text{\input{lambda_Rh_kurz.tex}}, \label{eq:23}\\
+    T_{Rh,k} &= \text{\input{T_Rh_kurz.tex}} \label{eq:24}.
+\end{align}
+
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}
-
+\begin{table}
+\centering
+\caption{Zusammenfassung relevanter Werte mitsamt ihrer Literaturwerte und den
+relativen Fehlern}
+\label{tab:3}
+\begin{tabular}[H]{c c c c}
+    \toprule
+    \multicolumn{2}{c}{Messwert} & \multicolumn{1}{c}{Literaturwert } & \multicolumn{1}{c}{relativer Fehler $\frac{mess-lit}{lit} $ }\\
+    \cmidrule(lr){1-4}
+      $T_{V} $   & \input{T_V.tex}  & \SI{225.6}{\second}\cite{szabo1986determination}  & \input{relerr_T_V.tex} \\
+      $T_{Rh,l} $   &  \input{T_Rh_lang.tex} & \SI{258}{\second} \cite{flammersfeld1946isomere}  & \input{relerr_T_Rh_lang.tex} \\
+      $T_{Rh,k} $   &  \input{T_Rh_kurz.tex} & \SI{42}{\second} \cite{flammersfeld1946isomere}  & \input{relerr_T_Rh_kurz.tex} \\
+    \bottomrule
+\end{tabular}
+\end{table}
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
