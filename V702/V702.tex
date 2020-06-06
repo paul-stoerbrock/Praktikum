@@ -70,7 +70,7 @@ Alpha-Teilchen genutzt werden \cite{V702}
     \ce{ ^9 Be + _2^4 \symup{\alpha} -> _6^{12} C + _0^1n }. \label{eq:4}
 \end{align}
 Die $\alpha$-Teilchen entstehen dabei aus dem Zerfall von $^{226} $Ra-Kerne.
-Da die Neutronen nach der Reaktion noch zu energiereich sind, wird eine dicke Materieschicht (Abb. \ref{fig:1}, Nr. 2) eingebracht,
+Da die Neutronen nach der Reaktion noch zu energiereich sind, wird eine dicke Materieschicht eingebracht,
 durch die die Neutronen hindurchdiffundieren müssen. Die Kerne davon sollten auf
 einer gleichen Größenordnung wie die Neutronen sein, damit der Energieübertrag am größten ist.
 Daher eignet sich Paraffin dafür. Ein schematischer Aufbau für so eine Quelle ist in der folgenden Abbildung
@@ -85,7 +85,7 @@ dargestellt:
     }
     \label{fig:1}
 \end{figure}
-Die abgebremsten Neutronen haben eine kinetische Energie, welche der mittleren Energie der Umgebung entspricht und
+\flushleft{Die\,}\justifying abgebremsten Neutronen haben eine kinetische Energie, welche der mittleren Energie der Umgebung entspricht und
 werden thermische Neutronen genannt.\\
 Für Messungen wird eine zylindrische Probe in einen Aktivierungsschacht gebracht.
 Da es schwer ist die Zerfallsrate pro Zeit genau zu bestimmen, wird die Anzahl der 
@@ -103,12 +103,13 @@ berechnen.\\
 Eine geeignete Wahl des Zeitintervalls ist wichtig, da es ansonsten zu hohen
 statistischen oder systematischen Fehlern kommt.\\
 Manche Materialien wie Rhodium haben zwei Zerfallsketten\\
-$\ce{^{103}_{45}Rh + n}  
+\begin{align}
+\ce{^{103}_{45}Rh + n}  
 \begin{cases}
     \ce{\stackrel{10\%}{\to} ^{104i}_{45}Rh +\symup{\gamma} -> ^{104}_{46}Pd +\symup{\beta}^- + \bar{\symup{\nu}}_e }\\
     \ce{\stackrel{90\%}{\to} ^{104}_{45}Rh ->  ^{104}_{46}Pd +\symup{\beta}^- + \bar{\symup{\nu}}_e }
-\end{cases}.\text{\cite{V702}}
-$
+\end{cases}.\text{\cite{V702}} \label{eq:7}
+\end{align}
 Das i beim Rhodium steht für einen isomeren Kern, welcher sich nur in der Energie und
 Halbwertszeit vom Rhodium-Kern unterscheidet.\\
 Da der isomere Kern kurzlebiger ist, wird ab einem gewissen Zeitpunkt $t^*$ hauptsächlich
@@ -130,43 +131,111 @@ die andere Zerfallskette gemessen, was sich in der folgenden Abbildung zu erkenn
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
 
-    \flushleft{Um\:}\justifying die Halbwertszeit der Materialien Vanadium und Rhodium bestimmen zu können, wird der folgende Aufbau verwendet.
+    \flushleft{Um\:}\justifying die Halbwertszeit der gewählten Materialien bestimmen zu können, wird der folgende Aufbau verwendet.
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{images/aufbau.jpg}
-        \caption{Schematischer Aufbau der Messaparatur \cite{V702}. Hier werden die jeweiligen Materialproben neben das Mantelzählrohr gesteckt.
-        Der elektrische Impuls wird verstärkt und an die Zähler weitergegeben.}
+        \caption{Schematischer Aufbau der Messaparatur \cite{V702}. Innerhalb der Bleiabschirmung befindet sich
+        die zylindrische Probe, welche untersucht werden soll. Die elektrischen Signale,
+        welch durch die Zerfälleentstehen werden an einen Verstärker weitergeleitetund
+        anschließend von Zählrohr gemessen. Dabei wird nach dem Zeitintervall $\Delta t$ periosdisch auf
+        den jeweils anderen Zähler umgeschaltet.
+        }
         \label{fig:3}
     \end{figure}
     \flushleft{Zuerst\:}\justifying wird die Untergrundrate $U_N$ bestimmt, dafür wird keine Probe auf das Geiger-Müller-Zählrohr gesteckt.
-    Es wird ein Messintervall von \SI{300}{\second} gewählt und es werden sieben Messwerte für die Impulsrate $N_U$ aufgenommen.
+    Um den Fehler möglichst gering zu halten wird eine  minimale Messzeit von 500 bis $\SI{600}{\second} $ gewählt. Das Zeinintervall
+    wird dabei an dem Codierschalter an der Frontplatte eingestellt.
 
-    \flushleft{Für\:}\justifying die Messung der Vanadiumprobe wird diese auf das Geiger-Müller-Zählrohr gesteckt. Es werden 44 Messwerte für die
-    Impulsrate aufgenommen, mit einem Messintervall von \SI{30}{\second}. 
-
-    \flushleft{Mit\:}\justifying Rhodium wird analog zu Vanadium verfahren. Die Vanadiumprobe wird abgenommen und mit der Rhodiumprobe ersetzt.
-    Hier werden ebenfalls 44 Messwerte der Impulsrate aufgenommen, aber mit einem Messintervall von \SI{15}{\second}.
+    
+    \flushleft{Für\:}\justifying die Messung der Proben werden diese auf das Geiger-Müller-Zählrohr gesteckt und ein
+    für die Messung geeigneter Zeitintervall eingestellt. Dieser kann von Probe zu Probe variieren und muss
+    eventuell durch Vormessungen bestimmt werden.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
+Für die Erstellung der Graphen ist matplotlib \cite{matplotlib} verwendet worden.
+Alle Messungenauigkkeiten, welche sich durch die gauß'sche Fehlerfortpflanzung ergeben,
+in der Auswertung sind wiederum mit Uncertainties \cite{uncertainties}
+berechnet worden.\\
 
-\subsection{Vanadium}% Provisorische Namen!
+\subsection{Messung des Untergrunds}
+Für die Bestimmung des Untergrunds ist ein Zeitintervall von $\Delta t = \SI{300}{\second} $ gewählt worden.
+Die gemessenen Werte lauten 
+\begin{align}
+    N_U = \{129, 143, 144, 136, 139, 126, 158\} \label{eq:8}.
+\end{align}
 
-\begin{figure}
+
+\subsection{Messung der Halbwertszeit einer Vanadium-Probe}
+Der Zerfall von Vanadium lässt sich in den Fall der Reaktionsgleichung \eqref{eq:2}
+einordnen. Seine Reaktionsgleichung sieht im genauen wie folgt aus
+\begin{align*}
+    \ce{^51_23 V + n -> ^52_23 V -> ^52_24 Cr + \symup{\beta}- + \bar{\symup{\nu}}_e }
+\end{align*}
+Die Tabelle mit den Messwerten für die Vanadium-Probe befindet sich im Anhang \ref{tab:1}.
+Bei der Erstellung des Plots sind von den Messwerten ein zehntel der Untergrund-Zählraten im jeweiligen Intervall 
+abgezogen worden. 
+Der Plot sieht dann folgendermaßen aus:
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{build/plot_V.pdf}
-    \caption{} % Caption noch hinzufügen
-    \label{fig:a} % Ändern  sobald Reihenfolge feststeht
+    \caption{Zählraten einer zylindrischen Vanadiumprobe in Abhängigkeit der Zeit t \cite{matplotlib}.
+    Dabei ist die Zählrate logarithmisch aufgetragen und der Untergrund von den Gesamtzählraten abgezogen worden.
+    Die Fehler der Messwerte befinden sich innerhalb der Punkte.
+    } % Caption noch hinzufügen
+    \label{fig:4} 
 \end{figure}
+\flushleft{Die\,}\justifying Ausgleichsgerade in der Abbildung ist mit der Funktion
+Polyfit aus Scipy \cite{scipy} und den Messwerten aus der
+Tabelle \ref{tab:1}. Die Parameter der Ausgleichsgeraden
+\begin{align}
+    \ln(N_{\Delta t}(t)) &= a \cdot t +b \label{eq:9} \\
+    \intertext{
+        mit
+    }
+    a &= \text{\input{a_V.tex}} \label{eq:10} \\
+    b &= \text{\input{b_V.tex}} \label{eq:11}
+    \intertext{
+        wobei sich die Parameter a und b durch Vergleich mit Gleichung \eqref{eq:5} als
+    }
+    a &= - \lambda \label{eq:12} \\
+    b &= \ln(N_0 (1-e^{\lambda \Delta t})) \label{eq:13}
+    \intertext{
+        identifizieren lassen.
+    }
+\end{align}
+Aus der Steigung a lässt sich nun die Zerfallskonstante $\lambda$ 
+\begin{align}
+    \lambda &= \SI{3.14+-0.17e-03}{\per\second} \label{eq:14}
+    \intertext{und mithilfe von Gleichung \eqref{eq:6} die Halbwertszeit T }
+    T &= \text{\input{T_V.tex}} \label{eq:15}
+\end{align}
+bestimmen.
+Die Fehler aus der Gaußschen Fehlerfortpflanzung werden dabei mit der folgenden Formel bestimmt
+\begin{align}
+    \Delta T = \sigma _{\lambda} \frac{\ln(2)}{\lambda ^2}. \label{eq:17}
+\end{align}
 
-\subsection{Rhodium} % Provisorische Namen!
-
-\begin{figure}
+\subsection{Messung der Halbwertszeit einer Rhodium-Probe} 
+Die Messwerte aus der Messung der Zerfallsrate findet sich im Anhang \ref{tab:2}.
+Als Zeintinervall ist für Rhodium $\Delta t = \SI{15}{\second} $ gewählt worden.
+Auch hier ist der Untergrund bei der Erstellung des Plots abgezogen worden,
+indem dieser durch 20 geteilt wurde, um ebenfalls ein Zeitintervall von 15s für den Untergrund
+zu haben.
+Der Plot selbst sieht dann wie folgt aus:
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{build/plot_Rh.pdf}
-    \caption{} % Caption noch hinzufügen
-    \label{fig:b} % Ändern  sobald Reihenfolge feststeht
+    \caption{Messung der Zerfallsrate von Rhodium mit einem Zeitintervall von
+     $\Delta t = \SI{15}{\second}$ \cite{matplotlib}. 
+     Die Zählzeit ist hier logarithmisch aufgetragen. Die Fitkurve entsteht aus
+     der Überlagerung der zwei Zerfallsreihen von Rhodium analog zu Abbildung \ref{fig:2}, wobei die einzelnen
+     Geraden eben diese darstellen. Die rote Gerade bildet den langlebigen Zerfall,
+     während die Blaue den kurzlebigen Zerfall darstellt.
+     } % Caption noch hinzufügen
+    \label{fig:5} 
 \end{figure}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,5 +247,11 @@ die andere Zerfallskette gemessen, was sich in der folgenden Abbildung zu erkenn
 
 \newpage
 \printbibliography
-
+\newpage
+% Anhang %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Anhang}
+\addcontentsline{toc}{section}{Anhang}
+\input{V_table.tex}
+\newpage
+\input{Rh_table.tex}
 \end{document}
