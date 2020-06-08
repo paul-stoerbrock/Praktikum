@@ -61,17 +61,11 @@ plt.tight_layout
 plt.savefig('build/plot18.pdf')
 plt.close()
 
-<<<<<<< HEAD
-
-
-||||||| merged common ancestors
-=======
 I_min = np.min(I_h(x_plot,*popT))
 print(I_min)
 h_min = h[1]
 print(h_min)
 
->>>>>>> 98f1875d3d1d6981037479097d7e8a85d32a1242
 a = popT[0]
 b = popT[1] 
 c = popT[2]
