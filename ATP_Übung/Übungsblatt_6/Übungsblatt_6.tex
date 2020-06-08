@@ -35,9 +35,32 @@
     \end{figure}
 
 \subsection{a)}
+Nach der Maxwell-Boltzmann Statistik ergibt sich für die Anzahl der Teilchen
+\begin{align}
+    \frac{\langle N_i \rangle }{N} &= \frac{1}{Z} \frac{g_i}{e^{-\frac{E_i}{k_b T}}}\\
+    \langle N_i \rangle &= \frac{N}{Z} \frac{g_i}{e^{-\frac{E_i}{k_b T}}}\\
+    \frac{\langle N_b \rangle}{\langle N_a \rangle} &= \frac{g_b}{g_a} e^{\frac {-E_b+E_a}{k_b T}}\\
+    \frac{\langle N_b \rangle}{\langle N_a \rangle} &= \frac{g_b}{g_a} e^{-\frac {E_b+E_a}{k_b T}}
+\end{align}
 
 \subsection{b)}
-
+\begin{align}
+    \ln \left(\frac{N_b}{N_a} \frac{g_a}{g_b} \right) &=- \frac{E_b-E_a}{k_b T}\\
+    T&= -\frac{E_b-E_a}{k_b \ln \left(\frac{N_b}{N_a} \frac{g_a}{g_b} \right)}
+    \intertext{
+        27\% der Moleküle im angeregten Zustand
+    }
+    \Rightarrow \frac{N_b}{N_a}=0,27
+    \intertext{
+        angeregter Zustand ist um $\SI{4.8e-04}{\electronvolt} $
+    }
+    \Rightarrow E_b &= E_a +\SI{4.8e-04}{\electronvolt}
+    \intertext{
+        $g_a=1$ und $g_b =3$
+    }
+    T &= - \frac{\SI{4.8e-04}{\electronvolt}}{k_b \ln \left(0,27 \frac{1}{3} \right) }\\
+    T &= \SI{2.313}{\kelvin}
+\end{align}
 
 
 \section{Aufgabe 17}
