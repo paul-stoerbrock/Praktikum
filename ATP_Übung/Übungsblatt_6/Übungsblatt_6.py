@@ -44,20 +44,61 @@ popT, pcov = curve_fit(
     I,
     sigma=None,
     absolute_sigma=True,
-    p0=[100, 28, -30, 20]
+    p0=[100, 28, -30]
     )
 err_var = np.sqrt(np.diag(pcov))
 
-
 plt.plot(h, I, 'kx', label='Messwerte')
-x_plot = np.linspace(0, 100, 1000)
-plt.plot(x_plot, Gauß(x_plot,*popT), linestyle='-', label='Ausgleichskurve')
+x_plot = np.linspace(0, 10000, 100000)
+plt.plot(x_plot, I_h(x_plot,*popT), linestyle='-', label='Ausgleichskurve')
 
-plt.xlabel(r'I')
-plt.ylabel(r'h')
+plt.xlabel(r'Höhe h [m]')
+plt.ylabel(r'Intensität I [$cm^{-3}s^{-1}$]')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plot18.pdf')
 plt.close()
 
+a = popT[0]
+b = popT[1] 
+c = popT[2]
+
+# tex file for a
+
+with open('build/a.tex', 'w') as f:
+  f.write(make_SI(a*1e+03,r'\per\centi\meter\squared\per\second', exp='e-03', figures=4))
+
+# tex file for b
+
+with open('build/b.tex', 'w') as f:
+  f.write(make_SI(b*1e+07,r'\per\centi\meter\per\second', exp='e-07', figures=4))
+
+# tex file for c
+
+with open('build/c.tex', 'w') as f:
+  f.write(make_SI(c*1e+11,r'\per\cubed\per\second', exp='e-11', figures=4))
+
+## tex file h_min
+#
+#with open('build/h_min.tex', 'w') as f:
+#  f.write(make_SI(h_min,r'\meter', figures=4))
+
+table_header = r'''
+  \begin{tabular}{c c}
+    \toprule
+    {$\text{Höhe h} \; [\si{\meter}]$} & {$\text{Intensität I} \; [\si{\per\centi\meter\cubed\per\second}]$} \\
+
+    \cmidrule(lr{0,5em}){1-2}
+'''
+table_footer = r'''    \bottomrule
+  \end{tabular}
+'''
+row_template = r'     {0:1.0f} & {1:1.2f}\\'
+
+with open('build/table18.tex', 'w') as g:
+    g.write(table_header)
+    for row in zip(h,I):
+        g.write(row_template.format(*row))
+        g.write('\n')
+    g.write(table_footer)
