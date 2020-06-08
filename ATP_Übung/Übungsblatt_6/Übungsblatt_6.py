@@ -54,14 +54,24 @@ plt.plot(x_plot, I_h(x_plot,*popT), linestyle='-', label='Ausgleichskurve')
 
 plt.xlabel(r'Höhe h [m]')
 plt.ylabel(r'Intensität I [$cm^{-3}s^{-1}$]')
+plt.axvline(x=1000, color='g', linestyle= ':', label='$I_{min}$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plot18.pdf')
 plt.close()
 
+<<<<<<< HEAD
 
 
+||||||| merged common ancestors
+=======
+I_min = np.min(I_h(x_plot,*popT))
+print(I_min)
+h_min = h[1]
+print(h_min)
+
+>>>>>>> 98f1875d3d1d6981037479097d7e8a85d32a1242
 a = popT[0]
 b = popT[1] 
 c = popT[2]
@@ -81,10 +91,14 @@ with open('build/b.tex', 'w') as f:
 with open('build/c.tex', 'w') as f:
   f.write(make_SI(c*1e+11,r'\per\cubed\per\second', exp='e-11', figures=4))
 
-## tex file h_min
-#
-#with open('build/h_min.tex', 'w') as f:
-#  f.write(make_SI(h_min,r'\meter', figures=4))
+# tex file h_min
+
+with open('build/h_min.tex', 'w') as f:
+  f.write(make_SI(h_min,r'\meter', figures=0))
+
+
+
+
 
 table_header = r'''
   \begin{tabular}{c c}
