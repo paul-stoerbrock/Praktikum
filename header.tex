@@ -46,6 +46,15 @@
 {
 \mathinner{\symup{d} #1}
 }
+
+\NewDocumentCommand \del {mm}
+{
+    \mathinner{\frac{\partial #1}{\partial #2}}
+}
+\NewDocumentCommand \deln {mmm}
+{
+    \mathinner{\frac{\partial^#3 #1}{\partial #2 ^#3}}
+}
 \ExplSyntaxOff
 
 \usepackage[
