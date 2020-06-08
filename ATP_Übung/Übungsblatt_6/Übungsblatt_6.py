@@ -60,6 +60,8 @@ plt.tight_layout
 plt.savefig('build/plot18.pdf')
 plt.close()
 
+
+
 a = popT[0]
 b = popT[1] 
 c = popT[2]
@@ -102,3 +104,4 @@ with open('build/table18.tex', 'w') as g:
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
+
