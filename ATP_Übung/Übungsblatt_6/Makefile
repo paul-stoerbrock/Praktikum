@@ -1,4 +1,4 @@
-all: build/Übungsblatt_.pdf
+all: build/Übungsblatt_6.pdf
 
 build/Übungsblatt_6.pdf: FORCE Übungsblatt_6.tex Übungsblatt_6.py |build
 	TEXINPUTS="$(call translate,build:)" \
