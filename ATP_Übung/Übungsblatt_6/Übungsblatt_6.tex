@@ -40,7 +40,7 @@ Nach der Maxwell-Boltzmann Statistik ergibt sich für die Anzahl der Teilchen
     \frac{\langle N_i \rangle }{N} &= \frac{1}{Z} \frac{g_i}{e^{-\frac{E_i}{k_b T}}}\\
     \langle N_i \rangle &= \frac{N}{Z} \frac{g_i}{e^{-\frac{E_i}{k_b T}}}\\
     \frac{\langle N_b \rangle}{\langle N_a \rangle} &= \frac{g_b}{g_a} e^{\frac {-E_b+E_a}{k_b T}}\\
-    \frac{\langle N_b \rangle}{\langle N_a \rangle} &= \frac{g_b}{g_a} e^{-\frac {E_b+E_a}{k_b T}}
+    \frac{\langle N_b \rangle}{\langle N_a \rangle} &= \frac{g_b}{g_a} e^{-\frac {E_b-E_a}{k_b T}}
 \end{align}
 
 \subsection{b)}
@@ -90,7 +90,7 @@ Nach der Maxwell-Boltzmann Statistik ergibt sich für die Anzahl der Teilchen
     $\lambda$ aufgetragen, ergibt sich aus der enstehenden Kurve das Maximum der Wellenlänge $\lambda=$ \SI{1.06}{\milli\meter}. Die Kurve zeigt, dass das Licht trotz einer relativ homogenen
     Emission unterschiedlich stark gestreckt wurde. 
 
-\subsection{b)}
+\subsection{c)}
 
     \flushleft{Baryonisch\;}\justifying akustische Oszillationen:\\
     Baryonen beschreibt Materie wie Neutronen und Protonen, welche aus drei Quarks bestehen. Vor der Rekombination der Elekronen und Protonen zu Wasserstoffkernen, 
@@ -184,7 +184,55 @@ Nach der Maxwell-Boltzmann Statistik ergibt sich für die Anzahl der Teilchen
 
 \subsection{d)}
 
-    \flushleft{lässt\;}\justifying
+    \flushleft{Die\;}\justifying jährliche effektive Dosis beträgt:
+    \begin{align*}
+        \text{Dosis}_{jahr} &= \text{\SI{2}{\milli\sievert}}\\
+        \Rightarrow \text{Dosis}_{sec} &= \text{\SI{0.634}{\nano\sievert}} \qquad (\text{Dosis pro Sekunde})
+        \intertext{
+            \flushleft{Da\;}\justifying die Dosis proportional zur Ionisation ist, gilt:
+        }
+        \text{Dosis}_{sec} &\propto I_0 \Leftrightarrow \text{\SI{0.634}{\nano\sievert\per\second}} \propto \text{\SI{17.5}{\per\centi\meter\cubed\per\second}}
+        \intertext{
+            \flushleft{Daraus\;}\justifying ergibt sich der Proportionalitätsfaktor:
+        }
+        \alpha &= \frac{\text{Dosis}_{sec}}{I_0}
+        \intertext{
+            \flushleft{Die\;}\justifying Höhe kann bei gleichbleibender Geschwindigkeit als Geradengleichung angesehen werden. Da sich der gesamte Flug
+            aus einer Aufsteige- und Absteigephase zusammensetzt, folgt für die Höhe:
+        }
+        h(t) &= \begin{cases}
+            m \cdot t \qquad \qquad \qquad \, \text{für}\; t_{\text{Start}} \leq t \leq t_{0.5} \qquad \text{Aufsteigen}\\
+            -m \cdot t + \frac{h_{max}}{2t_{0.5}^2} \qquad \text{für}\; t_{0.5} \leq t \leq t_{\text{Ende}} \qquad \text{Absteigen}
+        \end{cases}
+        \intertext{
+            \flushleft{Die\;}\justifying Geradengleichungen können für $h$ in die aus Aufgabenteil b) bekannte Gleichung der Ionisation $I(h)$
+            eingesetzt werden, woraus folgt:
+        }
+        I(t) &= \begin{cases}
+            a( m \cdot t)+b( m \cdot t)^2+c( m \cdot t)^3 \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \, \text{für}\; t_{\text{Start}} \leq t \leq t_{0.5}\\
+            a\left( -m \cdot t + \frac{h_{max}}{2t_{0.5}^2} \right)+b\left( -m \cdot t + \frac{h_{max}}{2t_{0.5}^2} \right)^2+c\left( -m \cdot t + \frac{h_{max}}{2t_{0.5}^2} \right)^3 \qquad \text{für}\; t_{0.5} \leq t \leq t_{\text{Ende}}
+        \end{cases}
+        \intertext{
+            \flushleft{Um\;}\justifying auf die Dosis zu kommen, muss die Ionisationsfkt. mit dem Proportionalitätsfaktor $\alpha$ multipliziert und anschließend
+            integriert werden. Wichtig hierbei ist, dass die auf der Erde gemessenen Ionisation $I_0$ noch hinzuaddiert wird, da die in der
+            obig angegebenen Funktion nicht berücksichtigt wurde. Da die Geschwindigkeit wie bereits erwähnt gleichmäßig ist, kann angenommen werden, dass der Graph 
+            um den Zeitpunkt $t_{0.5}$ symmetrisch ist, was das Intergral wie folgt vereinfacht:
+        }
+        \text{Dosis}_{ges} &= \alpha \int_{t_{\text{Start}}}^{t_{\text{Ende}}} I(t) + I_0 \mathrm{d}t \Rightarrow 2\alpha \int_{0}^{t_{0.5}} I(t) + I_0 \mathrm{d}t\\
+        &= 2\alpha \int_{0}^{t_{0.5}} a( m \cdot t)+b( m \cdot t)^2+c( m \cdot t)^3 + I_0 \mathrm{d}t\\
+        &= 2\alpha \left( \int_{0}^{t_{0.5}} a( m \cdot t) \mathrm{d}t + \int_{0}^{t_{0.5}} b( m \cdot t)^2 \mathrm{d}t + \int_{0}^{t_{0.5}} c( m \cdot t)^3 \mathrm{d}t \int_{0}^{t_{0.5}} I_0 \mathrm{d}t \right)\\
+        &= 2\alpha \left( \left[ \frac{1}{2} amt^2 + \frac{1}{3} bmt^3 + \frac{1}{4} cmt^4 + I_0t \right]_0^{t_{0.5}} \right)\\
+        &= 2\alpha \left( \frac{1}{2} amt_{0.5}^2 + \frac{1}{3} bmt_{0.5}^3 + \frac{1}{4} cmt_{0.5}^4 + I_0t_{0.5} \right)\\
+        \text{Dosis}_{ges,1} &= \text{\SI{25.805}{\micro\sievert}}\\
+        \text{Dosis}_{ges,2} &= \text{\SI{41.626}{\micro\sievert}}
+        \intertext{
+           \flushleft{Schließlich\;}\justifying muss, um bestimmen zu können, die auf der Erde verstreicht um mit der Erddosis $\text{Dosis}_{sec}$ zu erfahren, die Gesamtdosis $\text{Dosis}_{ges}$
+           durch die Erddosis pro Sekunde teilen: 
+        }
+        t_{\text{Erddosis}} &= \frac{\text{Dosis}_{ges}}{\text{Dosis}_{sec}}\\
+        t_{\text{Erddosis,1}} &= \text{\SI{11.3}{\hour}}\\
+        t_{\text{Erddosis,2}} &= \text{\SI{18.2}{\hour}}
+    \end{align*}
 
 
 
