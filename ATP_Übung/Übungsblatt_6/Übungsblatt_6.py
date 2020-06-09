@@ -112,3 +112,4 @@ with open('build/table18.tex', 'w') as g:
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)
+
