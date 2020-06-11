@@ -64,7 +64,34 @@
 
     \subsection{a)}
 
+    \begin{align*}
+        n &= 3,\;l = m = 1\\
+        \\
+        \Psi(r,\theta,\varphi) &= R(r)Y(\theta,\varphi)\\
+        &= \frac{f(\rho)}{\rho} \sqrt{\frac{2l+1}{4\pi} \frac{(l-m)!}{(l+m)!}} P_l^m(\cos(\theta)) e^{im\varphi}
+        \intertext{
+            \flushleft{Mit\;}\justifying $P_1^1(\cos(\theta)) = -\sin(\theta)$ folgt:
+        }
+        &= \frac{f(\rho)}{\rho} \sqrt{\frac{3}{4\pi} \frac{1}{2}} (-\sin(\theta)) e^{i\varphi}
+        \intertext{
+            \flushleft{Das\;}\justifying $g(\rho)$ des Radialteils ist für $n=3$ und $l=1$ gleich $6\rho^2-\rho^3$. Daraus folgt für $f(\rho)$:
+        }
+        f(\rho) &= e^{-\beta\rho} \frac{6\rho^2-\rho^3}{\rho} = e^{-\beta\rho} \left( 6\rho-\rho^2 \right)
+        \intertext{
+            \flushleft{Eingesetzt\;}\justifying ergibt sich für $\Psi$:
+        }
+        &= e^{-\beta\rho} \left( 6\rho-\rho^2 \right) \sqrt{\frac{3}{8\pi}} (-\sin(\theta)) e^{i\varphi}
+    \end{align*}
+
     \subsection{b)}
+
+    \flushleft{Der\;}\justifying Energieeigenwert lautet
+    \begin{align*}
+        E &= -E_{Ryd}\frac{1}{n^2} = -E_{Ryd}\frac{1}{9}
+        \intertext{
+            \flushleft{Für\;}\justifying die Quantenzahl $n=3$ ist die Energie $n^2$-mal, also 9-fach entartet.
+        }
+    \end{align*}
 
 \section{Aufgabe 3}
 
@@ -75,6 +102,16 @@
     \end{figure}
 
     \subsection{a)}
+
+    \flushleft{s1:\;}\justifying $n=1, l=m=0$
+    \begin{align*}
+        \Psi(r,\theta,\varphi) &= \frac{f(\rho)}{\rho} \sqrt{\frac{2l+1}{4\pi} \frac{(l-m)!}{(l+m)!}} P_l^m(\cos(\theta)) e^{im\varphi}
+        \intertext{
+            \flushleft{Für\;}\justifying $n=1,l=m=0$ ergibt sich für $P_0^0(\cos(\theta)) = 1$. Der Radialteil ist für $n=1$ und $l=0$ gleich $\rho$.
+            Daraus folgt für $\Psi$:
+        }
+        &= e^{-\beta\rho} \sqrt{\frac{1}{4\pi} \frac{1}{1}} \cdot 1 \cdot e^0 = e^{-\beta\rho} \sqrt{\frac{1}{4\pi}}
+    \end{align*}
 
     \subsection{b)}
 
