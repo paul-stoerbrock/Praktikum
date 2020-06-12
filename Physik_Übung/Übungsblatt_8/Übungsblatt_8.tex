@@ -249,16 +249,16 @@
     \begin{align*}
         s1: P(r)\mathrm{d}r &= \int_{0}^{2\pi} \int_{0}^{\pi} \abs{\Psi(r,\theta,\varphi)}^2 r^2 \sin(\theta)\, \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\varphi\\
         &= \abs{R(r)}^2 r^2 \,\mathrm{d}r \int_{0}^{2\pi} \int_{0}^{\pi} \abs{Y(\theta,\varphi)}^2 \sin(\theta) \, \mathrm{d}\theta\, \mathrm{d}\varphi\\
-        &= \abs{e^{-\beta\rho}}^2 r^2 \,\mathrm{d}r \int_{0}^{2\pi} \int_{0}^{\pi} \abs{\sqrt{\frac{1}{4\pi}}}^2 \sin(\theta) \, \mathrm{d}\theta\, \mathrm{d}\varphi\\
-        &= \abs{e^{-\beta\rho}}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} \int_{0}^{2\pi} \left[-\cos(\theta)\right]_0^{\pi} \mathrm{d}\varphi\\
-        &= \abs{e^{-\beta\rho}}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} 2\pi (1-(-1))\\
-        &= e^{-2\beta\rho} r^2 \mathrm{d}r\\
+        &= \abs{e^{-\beta\frac{r}{a_0}}}^2 r^2 \,\mathrm{d}r \int_{0}^{2\pi} \int_{0}^{\pi} \abs{\sqrt{\frac{1}{4\pi}}}^2 \sin(\theta) \, \mathrm{d}\theta\, \mathrm{d}\varphi\\
+        &= \abs{e^{-\beta\frac{r}{a_0}}}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} \int_{0}^{2\pi} \left[-\cos(\theta)\right]_0^{\pi} \mathrm{d}\varphi\\
+        &= \abs{e^{-\beta\frac{r}{a_0}}}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} 2\pi (1-(-1))\\
+        &= e^{-2\beta\frac{r}{a_0}} r^2 \mathrm{d}r\\
         s2: P(r)\mathrm{d}r &= \int_{0}^{2\pi} \int_{0}^{\pi} \abs{\Psi(r,\theta,\varphi)}^2 r^2 \sin(\theta)\, \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\varphi\\
         &= \abs{R(r)}^2 r^2 \,\mathrm{d}r \int_{0}^{2\pi} \int_{0}^{\pi} \abs{Y(\theta,\varphi)}^2 \sin(\theta) \, \mathrm{d}\theta\, \mathrm{d}\varphi\\
-        &= \abs{e^{-\beta\rho}\left( 1-\frac{\rho}{2} \right)}^2 r^2 \,\mathrm{d}r \int_{0}^{2\pi} \int_{0}^{\pi} \abs{\sqrt{\frac{1}{4\pi}}}^2 \sin(\theta) \, \mathrm{d}\theta\, \mathrm{d}\varphi\\
-        &= \abs{e^{-\beta\rho}\left( 1-\frac{\rho}{2} \right)}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} \int_{0}^{2\pi} \left[-\cos(\theta)\right]_0^{\pi} \mathrm{d}\varphi\\
-        &= \abs{e^{-\beta\rho}\left( 1-\frac{\rho}{2} \right)}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} 2\pi (1-(-1))\\
-        &= e^{-2\beta\rho}\left( 1+\frac{\rho^2}{4} \right) r^2 \mathrm{d}r
+        &= \abs{e^{-\beta\frac{r}{a_0}}\left( 1-\frac{r}{2 a_0} \right)}^2 r^2 \,\mathrm{d}r \int_{0}^{2\pi} \int_{0}^{\pi} \abs{\sqrt{\frac{1}{4\pi}}}^2 \sin(\theta) \, \mathrm{d}\theta\, \mathrm{d}\varphi\\
+        &= \abs{e^{-\beta\frac{r}{a_0}}\left( 1-\frac{r}{2 a_0} \right)}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} \int_{0}^{2\pi} \left[-\cos(\theta)\right]_0^{\pi} \mathrm{d}\varphi\\
+        &= \abs{e^{-\beta\frac{r}{a_0}}\left( 1-\frac{r}{2 a_0} \right)}^2 r^2 \,\mathrm{d}r \frac{1}{4\pi} 2\pi (1-(-1))\\
+        &= e^{-2\beta\frac{r}{a_0}}\left( 1-\frac{r}{a_0} +\frac{r^2}{4 a_0^2} \right) r^2 \mathrm{d}r
     \end{align*}
 
     \begin{figure}[H]
