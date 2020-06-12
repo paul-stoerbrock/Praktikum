@@ -37,16 +37,137 @@
     \end{figure}
 
     \subsection{a)}
+    Das B-Feld einer Leiterschleife lautet:
+    \begin{align}
+        \vec{B} (z) &= \frac{\mu}{2} \frac{R^2 I}{(R^2+z^2)^{\frac{3}{2}}} \hat{\vec{e}} _z \\
+        \intertext{
+            Die Stromstärke des Magnetfeldes kommt von der positiven bewegten Ladung und lässt
+            sich folgendermaßen schreiben 
+        }
+        I &= e \nu = e \frac{\omega}{2 \pi}\\
+        \vec{B}(z) &= \frac{\mu}{2} \frac{R^2 \frac{e\omega}{2 \pi} m_e }{r^3 m_e } \hat{\vec{e} }_z\\ 
+        \intertext{
+            mit 
+        }
+        \abs{\vec L} &= m_e \omega R^2\\
+        \intertext{und}
+        c^2 &= \frac{1}{\mu \varepsilon}\\
+        \mu _0 &= \frac{1}{c^2 \varepsilon }
+        \intertext{weiter}
+        \vec{B} (z) &=\frac{e}{4 \pi m_e \varepsilon _0 c^2} \frac{\vec L }{r^3} 
+    \end{align}
 
     \subsection{b)}
+    \begin{align}
+        H_{SB} &= - \vec{\mu} \vec b\\
+        \intertext{
+            mit
+        }
+        \vec mu = -g \frac{e}{2m} \vec S \\
+        \text{mit}\; g&=2
+        \intertext{weiter}
+        &= -\frac{1}{2} \frac{\-- e}{m_e } \vec S \frac{\mu _0 e }{4 \pi m_e } \frac{1}{n^3} \vec L\\
+        &= \lambda \vec S \vec L\\
+        \text{mit} \quad \lambda = \frac{e^2}{8 m_e^2 \pi \varepsilon _0 c^2 r^3 }     
+    \end{align}
 
     \subsection{c)}
+    Für die Berechnung der Aufgabe wird zuerst folgende Relation bewiesen:
+    \begin{align}
+        [\hat{\vec L}, \hat{\vec S} ] &=0\\
+        \ket{\phi } &= \sumint_n \ket{\Psi _{km} } \braket{\Psi _{km} }{\phi }\\
+        \intertext{
+            wobei $\ket{\phi}$ ein beliebiger Vektor aus $\mathcal H $ und
+            $\sumint_n \ket{\Psi _{km} } \bra{\Psi _{km} }=1$ ist.
+            Die Eigenwertgleichung für $\hat{\vec L} \hat{\vec S} $ ergibt dann
+        }
+        \hat L \hat S \ket{\phi} &= \sumint _n \hat{\vec{L}} \hat{\vec{S } } \ket{\Psi _{km} } \braket{\Psi _{km} }{\phi}\\
+        &= \sumint \hat L \hbar ^2 s(s+1) \ket{\Psi _{km} } \braket{\Psi _{km} }{\phi } \\
+        &= \sumint  \hbar ^2 s(s+1) \hat L \ket{\Psi _{km} } \braket{\Psi _{km} }{\phi } \\
+        &= \sumint  \hbar ^4 s(s+1) l(l+1) \ket{\Psi _{km} } \braket{\Psi _{km} }{\phi } \\
+        &= \hbar s(s+1) l(l+1) \ket{ \phi}\\
+        \intertext{
+            Analog dazu ergibt sich
+        }
+        \hat{\vec{S }} \hat{\vec L} \ket{\phi} &= \sumint _n \hbar ^4 l(l+1) s(s+1) \ket{\Psi } \braket{\Psi _{km} }{\phi}\\
+        &= \hbar ^4 l(l+1) s(s+1) \ket{\phi}\\
+        \Rightarrow \hat L \hat S \ket{\phi} &= \hat S \hat L \ket{\phi}\\
+        \intertext{
+            Kommutator zwischen $ L _i $ und $ H_{SB} $
+        }
+        [L_i, H_{SB} ] &= [L_i , \lambda \vec{S} \vec{L} ]\\
+        &= \sum _j \lambda [ L_i , S_j L_j]\\
+        &= \sum _j \lambda [L_i , L_j ] S_j \\
+        &=\sum_{jk} \lambda i \hbar \varepsilon _{ijk} L_k S_j \\
+        &=i \hbar \lambda (S\times L)_i
+        \intertext{
+            Kommutator zwischen $ S _i $ und $ H_{SB} $
+        }
+        [S_i, H_{SB} ] &= \sum _j \lambda [S_i , S_j L_j ]\\
+        &= \sum _j [S_i , S_j ] L_j \\
+        &= \sum _{jk} i \hbar \lambda \varepsilon _{ijk} S_k L_j \\
+        &= - i \hbar \lambda (S \times L)_i\intertext{
+            Kommutator zwischen $ J _i $ und $ H_{SB} $
+        }
+        [J_i , H_{SB}] &= [L_{i}, H_{SB}] + [S_i , H_{SB}]\\
+        &=0
+        \intertext{
+            Kommutator zwischen $\vec L ^2 $ und $ H_{SB} $
+        }
+        [\vec L ^2 , H_{SB}] &= [\vec L , \vec S \vec L] \\
+        \intertext{
+            Da L und S kommutieren kann ein $\vec L $ aus dem Kommutator gezogen werden.
+        }
+        &= \vec L \underbrace{[\vec L , \vec S ]}_{=0 }=0\\
+        \intertext{
+            Kommutator zwischen $\vec S ^2  $ und $ H_{SB} $
+        }
+        [\vec S ^2, H_{SB} ] &= [\vec S ^2 , \vec S \vec L ]\\
+        &= \vec S [\vec S , \vec L ] =0
+        \intertext{
+            Kommutator zwischen $\vec J ^2$ und $ H_{SB} $
+        }
+        [\vec J ^2 , H_{SB} ] &= [\vec L ^2 , H_{SB} ] + [\vec S ^2 , H_{SB} ] + 2 [\vec L \vec S , H_{SB} ]\\
+        &= 2 [\vec L \vec S , \vec L \vec S ] =0
+    \end{align}
+    Da der Kommutato Gesamtdrehimpuls und das Quadrat des Gesamtdrehimpulses, des Bahndrehimpulses und
+    des Spin-Operators mit dem Hamiltonoperator verschwindet, sind all diese Größen Erhaltungsgrößen.
+    Nur der Bahndrehimpuls und der Spin-operator sind nicht erhalten.    
 
     \subsection{d)}
+    \begin{align}
+        J_i^2 &= L_i^2 + S_i^2 - 2 S_i L_i \\
+        S_i L_i = \frac{1}{2} (L_i^2 + S_i^2 - J_i^2)\\
+        \langle H_{SB} \rangle &= \langle \lambda S L \rangle \\
+        &= \sum_i \langle  \lambda S_i L_i \rangle  \\
+        &= \sum_i \langle \frac{\lambda }{2} (L_i ^2 + S_i^2 - J_i^2 ) \rangle\\
+        &= \sum_i \int \Psi ^* \frac{\lambda}{2} (L_i^2 + S_i^2 - J_i^2 ) \Psi \dif{r}\\
+        &= \frac{\hbar ^2}{2} (l(l+1)+s(s+1)+j(j+1) ) \int \Psi ^* \lambda ' \frac{1}{r^3} \Psi \dif{r}\\
+        \lambda ' &= \frac{e^2}{8 m_e^2 \pi \varepsilon _0 c^2}\\
+        &= \frac{\hbar ^2 \lambda '}{2} (l(l+1)+s(s+1)+j(j+1) ) \langle \frac{1}{r^3} \rangle\\
+        &= \frac{\hbar \lambda '}{2} \frac{l(l+1)+s(s+1)+j(j+1)}{l(l+\frac{1}{2})(l+1)n^3 a_0^3 } 
+    \end{align}
+
 
     \subsection{e)}
+    \begin{align}
+        H_{SB} &= \frac{\hbar \lambda '}{2} \frac{l(l+1) + \frac{1}{2}(\frac{1}{2}+1)+(l \pm \frac{1}{2})(l \pm \frac{1}{2}+1 ) }{l(l+\frac{1}{2})(l+1)3^3 a_0^3 }\\
+        &=\frac{\hbar \lambda '}{54} \frac{l(l+1)+\frac{3}{4}+ (l \pm \frac{1}{2})(l\pm \frac{1}{2} +1 )}
+    \end{align}
+    Da $l \in \symbb{N} $ ist und kleiner als n ist, funktioniert diese Rechnung nur für den Wert $l=0$ nicht.
+    Ohne Spinbahkopplung sieht.
 
     \subsection{f)}
+    Für ein wasserstoffähnliches Atom verändert sich die Stromstärke I zu:
+    \begin{align}
+        I= Z e \nu
+        \intertext{
+            Dadurch ergibt sich für B
+        }
+        \vec B &= \frac{\mu _0}{2} \frac{\mu _0 e Z}{4 \pi m_e r^3} \vec L\\
+        r &= \frac{a_0 }{Z}\\
+        \vec B &= \frac{\mu _0 }{2} \frac{\mu _0 e Z^4}{4 \pi m_e a_0^3} 
+    \end{align}
 
 \section{Aufgabe 2}
 
