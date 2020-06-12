@@ -196,7 +196,7 @@
         \intertext{
             \flushleft{Das\;}\justifying $g(\rho)$ des Radialteils ist für $n=3$ und $l=1$ gleich $6\rho^2-\rho^3$. Daraus folgt für $f(\rho)$:
         }
-        f(\rho) &= e^{-\beta\rho} \frac{6\rho^2-\rho^3}{\rho} = e^{-\beta\rho} \left( 6\rho-\rho^2 \right)
+        f(\rho) &= e^{-\beta\rho} 6\rho^2-\rho^3
         \intertext{
             \flushleft{Eingesetzt\;}\justifying ergibt sich für $\Psi$:
         }
@@ -285,7 +285,44 @@
 
     \subsection{a)}
 
+    \begin{align*}
+        L_{x,y,z} &= \overline{0L} \Rightarrow \abs{0L} = \hbar\sqrt{l(l+1)}\\
+        L_{x,y} &= \overline{0j} = \overline{0L} \cdot \sin(\theta) = \hbar\sqrt{l(l+1)}\\
+        \\
+        L_x &= \abs{0l} = \abs{0j} \cos(\varphi) = \abs{0L}\cos(\varphi)\sin(\theta)\\
+        L_y &= \abs{0K} = \abs{0j} \sin(\varphi) = \abs{0L}\sin(\varphi)\sin(\theta)\\
+        L_z &= \abs{0H} = \hbar m\\
+        \vec{L} &= \begin{pmatrix}
+            \abs{0L}\cos(\varphi)\sin(\theta)\\
+            \abs{0L}\sin(\varphi)\sin(\theta)\\
+            \hbar m
+        \end{pmatrix}
+    \end{align*}
+
     \subsection{b)}
+
+    \begin{align*}
+        \langle \abs{0l} \rangle &=  \langle L_x \rangle = \frac{1}{2\pi} \int_{0}^{2\pi} \abs{0L} \cos(\varphi) \sin(\theta) \,\mathrm{d}\varphi\\
+        &= \frac{1}{2\pi} \abs{0L}\sin(\theta) \int_{0}^{2\pi} \cos(\varphi) \,\mathrm{d}\varphi\\
+        &= 0\\
+        \\
+        \langle \abs{0K} \rangle &=  \langle L_y \rangle = \frac{1}{2\pi} \int_{0}^{2\pi} \abs{0L} \sin(\varphi) \sin(\theta) \,\mathrm{d}\varphi\\
+        &= \frac{1}{2\pi} \abs{0L}\sin(\theta) \int_{0}^{2\pi} \sin(\varphi) \,\mathrm{d}\varphi\\
+        &= 0\\
+        \langle \abs{0l}^2 \rangle &= \frac{1}{2\pi} \int_{0}^{2\pi} \abs{0L}^2 \cos^2(\varphi) \sin^2(\theta) \,\mathrm{d}\varphi\\
+        &= \frac{1}{2} \abs{0L}^2 \sin^2(\theta)\\
+        &= \frac{1}{2} \abs{0j}^2\\
+        \langle \abs{0K}^2 \rangle &= \frac{1}{2\pi} \int_{0}^{2\pi} \abs{0L}^2 \sin^2(\varphi) \sin^2(\theta) \,\mathrm{d}\varphi\\
+        &= \frac{1}{2} \abs{0L}^2 \sin^2(\theta)\\
+        &= \frac{1}{2} \abs{0j}^2\\
+        \\
+        \Rightarrow L_x &= L_y\\
+        \Rightarrow \Delta L_x &= \Delta L_y = \sqrt{\langle \abs{0l}^2 \rangle - \langle \abs{0l} \rangle^2} = \sqrt{\langle \abs{0l}^2 \rangle} = \sqrt{\frac{1}{2} \abs{0j}^2} \\
+        \abs{0L}^2 &= \abs{0H}^2 + \abs{0j}^2\\
+        \Rightarrow \abs{0j} &= \sqrt{\abs{0L}^2-\abs{0H}^2}\\
+        &= \sqrt{\frac{1}{2} \left( \hbar^2 l (l+1) -\hbar^2 m^2 \right)}\\
+        &= \hbar \sqrt{\frac{1}{2} l(l+1) - m^2}
+    \end{align*}
 
 
 
