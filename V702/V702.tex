@@ -232,27 +232,16 @@ Der Plot selbst sieht dann wie folgt aus:
      der Überlagerung der zwei Zerfallsreihen von Rhodium analog zu Abbildung \ref{fig:2}, wobei die einzelnen
      Geraden eben diese darstellen. Die rote Gerade bildet den langlebigen Zerfall von dem isomeren Kern $\ce{^{104i}_45 Rh } $ ,
      während die Blaue den kurzlebigen Zerfall von $\ce{^104_45 Rh }$ darstellt.
-     Der Wert $t^*= \SI{285}{\second} $ stellt dabei den Punkt dar, ab dem nur noch der langlebige
-     Zerfall vorzufinden ist.
-     } % Caption noch hinzufügen
+     Die beiden Gerade wird durch die Funktion $\ln(N_{\Delta t}(t)) = a \cdot t +b$ dargestellt.
+     Bei der Erstellung der Geraden für die kurze Laufzeit werden die Messwerte vom 
+     Gesamtspektrum bis zum Punkt $t^*$ von den entsprechenden der roten Geraden abgezogen.
+     Der Wert $t^*= \SI{285}{\second} $ stellt dabei den Punkt dar, ab dem hauptsächlich noch der langlebige
+     Zerfall vorzufinden ist. Die lilane Fitkurve ensteht durch Addition die Addition der
+     beiden Geraden.
+     } 
     \label{fig:5} 
 \end{figure}
-\flushleft{Die\,}\justifying lilane Fitkurve ist mit der Funktion curvefit aus Scipy \cite{scipy} erstellt
-worden. Als Funktion ist dabei
 
-\begin{subequations}
-\begin{align}
-    N_{\Delta t}(t) &= A e^{B t} +C e^{D t} + E \label{eq:18a}
-    \intertext{
-        verwendet worden. Diese Parameter haben die Werte
-    }
-    A &= \text{\input{A_Rh.tex}} \label{eq:18b}\\
-    B &= \text{\input{B_Rh.tex}} \label{eq:18c}\\
-    C &= \text{\input{C_Rh.tex}} \label{eq:18d}\\
-    D &= \text{\input{D_Rh.tex}} \label{eq:18e}\\
-    E &= \text{\input{E_Rh.tex}} \label{eq:18f}.
-\end{align}
-\end{subequations}
 Für die Gerade des langlebigen Zerfalls ist die Funktion polyfit aus Scipy \cite{scipy}
 verwendet worden. Als Werte sind alle Messwerte ab $t^*=\SI{285}{\second} $ benutzt worden.
 Die Gerade hat hier die gleiche Form wie in Gleichung \eqref{eq:10} und die Fitparameter
@@ -290,14 +279,18 @@ Die Zerfallskonstante und die Halbwertszeit betragen dann
     T_{Rh,k} &= \text{\input{T_Rh_kurz.tex}} \label{eq:24}.
 \end{align}
 
+Die lilane Kurve entsteht durch die Addition der beiden einzelnen Geraden.
+
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}
 \begin{table}
 \centering
-\caption{Zusammenfassung relevanter Werte mitsamt ihrer Literaturwerte und den
-relativen Fehlern}
+\caption{In dieser Tabelle sind alle für die Diskussion relevanten Werte aufgelistet. 
+Dabei werden die Messwerte, die dazugehörigen Literaturwerte sowie deren relativer Fehler
+in einer Zeile dargestellt. Die Quellverweise der Literaturwerte sind direkt neben diesen vorhanden.
+}
 \label{tab:3}
 \begin{tabular}[H]{c c c c}
     \toprule
@@ -309,6 +302,18 @@ relativen Fehlern}
     \bottomrule
 \end{tabular}
 \end{table}
+
+\flushleft{Die\;}\justifying Zerfallszeit von Vanadium aus Tabelle \ref{tab:3}  zeigt einen guten Wert, da sich der Literaturwert innerhalb der
+Messungenauigkeit befindet. Der relative Fehler ist demensprechend in einem angemessenen Bereich.
+Die vorhandene Abweichung könnte mit der großen Verteilung um den Mittelwert der letzten Messwerte in Abbildung \ref{fig:4}
+zusammenhängen. Dieser könnte mit durch die zufallsbasierte Messung zustande kommen oder aber mit 
+der Untergrundmessung zusammenhängen. Die Untergrundmessung ist in einem wesentlich größeren Messzeitintervall
+als bei der Messung von Vanadium gewählt worden, wodurch diese nicht zwangsweise für jeden Wert den tatsächlichen Untergrund darstellt,
+sondern einen Durschnittswert für \SI{300}{\second} .\\
+Die Zerfallszeiten von Rhodium und seinen isomeren Kern haben  einen größeren 
+relativen Fehler als bei Vanadium. Beim isomeren Kern, also dem langlebigen Zerfall, ist der Literaturwert 
+trotzdem innerhalb der Messungenauigkeit. Die relativen Fehler können dabei wiederum durch die gleiche Begründung wie
+scon beim Vanadium erklärt werden. 
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

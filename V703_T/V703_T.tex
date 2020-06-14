@@ -31,32 +31,45 @@ Messung die Zählrohr-Charakteristik untersucht und die Totzeit des Geräts best
 Beim Geiger-Müller-Zählrohr entsteht durch die Absorption von Strahlung ein elektrischer Impuls.
 Diese Impulse werden daraufhin durch einen Impulszähler gezählt und damit die Intensität bestimmt.
 Der Aufbau des Geiger-Müller-Zählrohrs besteht aus einem Kathodenzylinder in dem sich ein Anodendraht befindet.
-Das innere des Zylinders ist mit einem Gasgemisch aus einem Edelgas und einem Alkohol. \cite{V703}
+Das innere des Zylinders ist mit einem Gasgemisch aus einem Edelgas und einem Alkohol. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/endfenster.jpg}
-    \caption{Querschnitt durch ein Endfenster-Zählrohr}
+    \caption{Querschnitt durch ein Endfenster-Zählrohr \cite{V703}.
+    Die Elektronen dringen von links in das Zählrohr ein und ionisieren das darin enthaltene Gas.
+    Die Elektronen bewegen sich zum Anodendraht und werden gezählt. Die Ionen bewegen
+    sich zum Kathodenzylinder und nehmen Elektronen auf und lösen bei genügend Energie Sekundärelektronen aus.
+    }
     \label{fig:1}
 \end{figure}
 \flushleft{Durch\;}\justifying diesen Aufbau können je nach Radiusgröße des Anodendrahts verschiedene 
 große Beschleunigungen erreicht werden.
 In dem Kathodenzylinder wechselwirken die einkommenden Teilchen mit dem Gas, bis sie
 keine Energie mehr besitzen. Dieser Vorgang wird die Primärionisation genannt.
-Alle Vorgänge, die danach kommen hängen von der jeweiligen Spannung ab. \cite{V703}
+Alle Vorgänge, die danach kommen hängen von der jeweiligen Spannung ab.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/bereich.jpg}
-    \caption{Anzahl der erzeugten Elektron-Ionenpaare als Funktion der Spannung }
+    \includegraphics[width=0.7\textwidth]{images/bereich.jpg}
+    \caption{Anzahl der erzeugten Elektron-Ionenpaare als Funktion der Spannung \cite{V703}.
+    Insgesamt  wird die Graphik in 5 Bereiche eingeteilt. In Teil 1 geht das meiste an
+    Ladungen durch Ionisation verloren. Teil 2 heißt Ionisationskammer und enthält bereits einen
+    kleinen Ionisationsstrom. Im dritten Bereich können die Elektronen eine Kaskade
+    von Ionisation auszulösen. Der vierte Bereich stellt den Arbeitsbereich des
+    Geiger-Müller-Zählrohrs dar, welches einen linearen Teil enthält, welcher 
+    Plateau genannt wird. Bei einem idealen Zählrohr existiert keine Steigung.
+    Im fünften Teil ensteht ein sehr großer Ionisationsstrom, welcher das
+    Zählrohr zerstören würde.
+    }
     \label{fig:2}
 \end{figure}
 \flushleft{Diese\;}\justifying Graphik veranschaulicht abhängig von der Spannung in welchem Bereich sich das System befindet.
-Im ersten Bereich gehen die meisten der durch Ionisation erzeugten Elektronen durch  ist.
+Im ersten Bereich gehen die meisten der durch Ionisation erzeugten Elektronen 
 verloren. \\
-Mit steigender Feldstärke entsteht im Bereich II ein Ionisationsstrom, der proportional zur Energie und Intensität
+Mit steigender Feldstärke entsteht im Bereich II ein Ionisationsstrom, der proportional zur Energie und Intensität.
 Dieser Bereich wird Ionisationskammer genannt. Diese stellt eine Vorstufe zum Geiger-Müller-Zählrohr dar.
 Hier sind goße Intensitäten nötig, um den kleinen Ionisationsstrom zu messen.\\
 In dem dritten Bereich sind die Elektronen energiereich genug, dass die ausgelösten Elektronen
-weitere Elektronen ionisieren. Dieser Prozess wird Townsed-Lawine bezeichnet. Hier
+weitere Atome ionisieren. Dieser Prozess wird Townsed-Lawine bezeichnet. Hier
 ist die Ladung Q im Draht proportional zur Feldstärke und kann als Maß für die
 Energie genutzt werden. In diesem Bereich können Intensitäts- und Energiemessungen
 vorgenommen werden. Im Allgemeinen wird dieser Bereich als Proportionalitätsrohr bezeichnet.
@@ -68,11 +81,17 @@ Hier können nur Intensitätsmessungen vorgenommen werden.
 Durch die Ionisationsprozesse bauen die einzelnen Ionen ein elektrisches Feld in der Nähe des
 Drahtes auf und schwächen damit die durch die Spannung angelegte Feldstärke. Dadurch finden
 keine Elektronenlawinen statt. Dadurch entsteht eine Totzeit wie es in der folgenden Graphik 
-zu sehen ist. \cite{V703}
+zu sehen ist. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/totzeit.jpg}
-    \caption{graphische Darstellung der Tot- und Erholungszeit}
+    \caption{graphische Darstellung der Tot- und Erholungszeit \cite{V703}.
+    Augetragen ist die im Draht ankommende Ladung gegenüber der Zeit. 
+    Durch ionisierte Atome in der Nähe des Drahts können keine Stoßionisation
+    stattfinden und der Anzahl der Ladungen nimmt ab. Diese Zeit T der Abnahme
+    heißt Totzeit. Der Strom erreicht dann nach und nach seine ursprüngliche 
+    Stärke zurück in der Erholungszeit $T_E$.
+    }
     \label{fig:3}
 \end{figure}
 \flushleft{Nach\;}\justifying der Totzeit kommt eine Erholungszeit, bis die Feldstärke wieder seinen ursprünglichen Wert eingenommen hat.
@@ -89,11 +108,16 @@ In einem Gebiet des vierten Bereichs findet sich die Charakteristik des Zählroh
 Das ist der Gebietsteil, in dem ein linearer Teil, welcher Plateau genannt wird, existiert.
 Bei einem idealen Gerät findet in diesem Spannungsbereich kein Anstieg statt.
 In der Realität exisitieren allerdings noch ein paar Nachentladungen, wodurch ein kleiner 
-Anstieg vorhanden ist, wie diese Graphik dies zeigt: \cite{V703}
+Anstieg vorhanden ist, wie diese Graphik dies zeigt: 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/plateau.jpg}
-    \caption{Zählrohrcharakteristik(einfallende Strahlung konstant)}
+    \includegraphics[width=0.7\linewidth]{images/plateau.jpg}
+    \caption{Zählrohrcharakteristik(einfallende Strahlung konstant) \cite{V703}.
+    Eine vergrößerte Darstellung des vierten Bereichs der Abbildung \ref{fig:2}.
+    $U_E$ markiert den Beginn des Auslösebereichs. Zudem ist das Plateau 
+    eingezeichnet, sowie dessen Steigung, welches durch Nachentladungen
+    entsteht.
+    }
     \label{fig:4}
 \end{figure}
 \flushleft{Im\;}\justifying fünften und letzten Bereich auf der Graphik \ref{fig:2}
@@ -112,7 +136,11 @@ Der Grundlegende Aufbau der Messapartur sieht folgendermaßen aus:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/aufbau.jpg}
-    \caption{Schematischer Aufbau eines Geiger-Müller-Zählrohrs}
+    \caption{Schematischer Aufbau eines Geiger-Müller-Zählrohrs \cite{V703}.
+    Auf dem Zählrohr gesammelte Ladungen fließen über einen Widerstand ab und  
+    erzeugen einen Spannungsimpuls. Über den Kondensator und einen Verstärker 
+    werden die Ladungen dann am Zähler gemessen.
+    }
     \label{fig:5}
 \end{figure}
 \flushleft{Für\;}\justifying die Aufnahme des Charakteristischen Spektrums wird eine $\beta$-Quelle vor das
@@ -129,8 +157,12 @@ Bei der Zwei-Quellen-Methode zur Messung der Totzeit wird zuerst möglichst Prä
 ersten radioaktiven Präparats bestimmt. Der Aufbau sieht dabei folgendermaßen aus:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/quelle.jpg}
-    \caption{Aufbau der Zwei-Quellen-Methode}
+    \includegraphics[width=0.5\textwidth]{images/quelle.jpg}
+    \caption{Aufbau der Zwei-Quellen-Methode \cite{V703}.
+    Im obersten Bild wird die erste Quelle $N_1$  gemessen. Dabei beefindet sich rechts von 
+    der Quelle das Geiger-Müller-Zählrohr. Im mittleren Bild werden danach beide Quelle $N_1$ und $N_2$ zusammen
+    gemessen. Im letzten Bild wird die erste Quele entfernt und nur die zweite Quelle $N_2$ gemessen.
+    }
     \label{fig:6}
 \end{figure}
 \flushleft{Im\;}\justifying zweiten Schritt wird wie auf dem mittleren Bild gezeigt eine zweite Quelle in
@@ -142,14 +174,14 @@ entfernt und die Zweite alleine gemessen.
 
 \section{Auswertung}
 
-Für diese Auswertung wurde eine $^{204}$Tl-Quelle verwendet. Sie ist so 
-platziert worden, dass eine Zählrate con 100 Imp/s nicht überschritten worden ist.
-Alle Plots in der Auswertung sind mit matplotlib \cite{matplotlib} erstellt worden und alle Fehler sind mit
-uncertainties \cite{uncertainties} berechnet worden.
+Für diese Auswertung wird eine $^{204}$Tl-Quelle verwendet. Sie ist so 
+platziert, dass eine Zählrate con 100 Imp/s nicht überschritten wird.
+Alle Plots in der Auswertung werden mit matplotlib \cite{matplotlib} erstellt und alle Fehler werden mit
+uncertainties \cite{uncertainties} berechnet.
 
 \subsection{Aufnahme der Charakteristik des Zählrohrs}
-Für die Messungen der Charakteristik ist in $\SI{10}{\volt} $-Schritten bei einer 
-Integrationszeit von $\SI{60}{\second} $ gemessen worden.
+Für die Messungen der Charakteristik wird in $\SI{10}{\volt} $-Schritten bei einer 
+Integrationszeit von $\SI{60}{\second} $ gemessen.
 Die Messwerte befinden sich dabei in der folgenden Tabelle:
 \input{kenn_table.tex}
 \flushleft{Die\,}\justifying Fehler der Anzahl der Zerfälle N sind dabei Poisson verteilt, wodurch jeder Wert 
@@ -162,33 +194,42 @@ Für den Graphen ergibt sich dementsprechend:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{plot_kenn.pdf}
-    \caption{Graph der Kennlinie \cite{matplotlib}}
+    \caption{Graph der Kennlinie \cite{matplotlib}.
+    Aufgetragen ist hier die Intensität, gemessen bei einer Integrationszeit
+    von \SI{60}{\second}, gegenüber der Spannung U. Die Gerade ist mit Werten aus dem Bereich
+    von 320-\SI{670}{\volt} erstellt und zeigt das Plateau des Geiger-Müller-Zählrohrs.
+    Der Fehler der Messwerte kommt von der Poissonverteilung der Anzahl der Zerfälle.
+    }
     \label{fig:7}
 \end{figure}
 
-\flushleft{Die\;}\justifying Parameter für die Ausgleichsgerade im Plot sind mit der Funktion polyfit aus SciPy \cite{scipy}
-bestimmt worden. Ihre Werte ergeben:
+\flushleft{Die\;}\justifying Parameter für die Ausgleichsgerade im Plot werden mit der Funktion polyfit aus SciPy \cite{scipy}
+bestimmt. Ihre Werte ergeben:
 \begin{align}
     N &= aU+b\label{eq:2} \\
     a&= \text{\input{a_kenn.tex}} \label{eq:3} \\
     b&= \text{\input{b_kenn.tex}} \label{eq:4}.
 \end{align}
-Dabei ist bei der Berechnung der Ausgleichsgeraden nur der Wertebereich des
-Plateaus, welcher sich hier von 320-670V erstreckt, berücksichtigt worden.
+Dabei wird bei der Berechnung der Ausgleichsgeraden nur der Wertebereich des
+Plateaus, welcher sich hier von 350-\SI{670}{\volt} erstreckt, berücksichtigt.
+Ausgedrückt als prozentuale Steigung ergibt sich für das Plateau
+\begin{align}
+m = \text{\input{m.tex}}.
+\end{align}
 
 \subsection{Bestimmung der Totzeit}
 
-Für die Zwei-Quellen-Methode ist eine Totzeit von $\SI{120}{\second} $ eingestellt worden.
-Für die drei Zählraten $N_1, N_2$ und $N_{1+2} $ sind die Werte
+Für die Zwei-Quellen-Methode wird eine Totzeit von $\SI{120}{\second} $ eingestellt.
+Für die drei Zählraten $N_1, N_2$ und $N_{1+2} $ werden die Werte
 \begin{align}
     N_1&= \text{\input{N_1.tex}} \label{eq:5} \\
     N_2&= \text{\input{N_2.tex}} \label{eq:6} \\
-    N_{1+2}&= \text{\input{N_12.tex}} \label{eq:7} \\
+    N_{1+2}&= \text{\input{N_12.tex}} \label{eq:7} 
 \end{align}
-\flushleft{gemessen\;}\justifying worden.
-Daraus lässt sich die Totzeit über die Formel \cite{V703}
+\flushleft{gemessen\;}\justifying.
+Daraus lässt sich die Totzeit über die Formel 
 \begin{align}
-    T &\approx \frac{N_1+N_2-N_{1+2}}{2N_1 N_2} \label{eq:8}\\
+    T &\approx \frac{N_1+N_2-N_{1+2}}{2N_1 N_2} \label{eq:8} \text{\cite{V703}} \\
     T &\approx \text{\input{T.tex}} \label{eq:9}
 \end{align}
 abschätzen.
@@ -196,13 +237,15 @@ abschätzen.
 \flushleft{Die\,}\justifying Abschätzung der Totzeit über das Oszilloskop wird mit der Abbildung vorgenommen:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/oszi.jpg}
-    \caption{Momentaufnahme der Totzeit auf einem Oszilloskop\cite{matplotlib}}
+    \includegraphics[width=0.7\textwidth]{images/oszi.jpg}
+    \caption{Momentaufnahme der Totzeit auf einem Oszilloskop\cite{matplotlib}.
+    Die Zeitachse des Oszilloskops is auf $\SI{100}{\micro\second}/DIV $ eingestellt.
+    }
     \label{fig:8}
 \end{figure}
 \flushleft{Bei diesem\,}\justifying  Bild vom Oszilloskop ist die Zeitachse auf  $\SI{100}{\micro\second}/DIV $
 eingestellt.
-Für die Zeitkorrektur ergibt sich hieraus ein Wert von
+Für die Zeitkorrektur ergibt sich hieraus ein Wert von 
 \begin{align}
     T \approx \SI{40}{\micro\second} \label{eq:10} .
 \end{align}
@@ -219,24 +262,31 @@ Für die Zeitkorrektur ergibt sich hieraus ein Wert von
 \flushleft{Die\,}\justifying Messwerte für die Bestimmung der freigesetzten Ladungsmenge sind in der Tabelle
 \begin{table}[H]
 \centering
-\caption{Messwerte für die Zahl der freigesetzten Ladungen pro eingefallenem Teilchen}
+\caption{Messwerte für die Zahl der freigesetzten Ladungen pro eingefallenem Teilchen.\\
+Alle \SI{50}{\volt} ist die Stromstärke I mit einem Amperemeter gemessen worden.
+Die Messungenauigkeit der Stromstärke folgt durch die Ablesegenauigkeit des Amperemeters.
+Die pro Teilchen freigesetzte Ladungsmenge wird mit der Formel \eqref{eq:12} berechnet.
+}
 \input{Z_table.tex}
 \label{tab:2}
 \end{table}
 \flushleft{dargestellt}\justifying.
-Aus diesen Werten wird die freigesetzte Ladung pro einfallendem Teilchen Z über die Formel \cite{V703}
+Aus diesen Werten wird die freigesetzte Ladung pro einfallendem Teilchen Z über die Formel 
 \begin{align}
-    Z= \frac{I}{e_0 N}  \label{eq:12}
+    Z= \frac{I}{e_0 N}  \label{eq:12} \text{\cite{V703}}
 \end{align}
 berechnet. Hierbei ist $e_0$ die Elementarladung, dessen Wert aus SciPy \cite{scipy} entnommen wird.
 In der nachfolgenden Graphik sind die berechneten Z's gegen die Stromstärke aufgetragen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{plot_z.pdf}
-    \caption{freigesetzte Ladung pro einfallendem Teilchen Z gegen Stromstärke I\cite{matplotlib}}
+    \caption{Freigesetzte Ladung pro einfallendem Teilchen Z\cite{matplotlib}\\
+    In diesem Graphen ist die Anzahl freigesetzter Ladungen pro einfallendem Teilchen gegenüber
+    der Stromstärke I aufgetragen.
+    }
     \label{fig:9}
 \end{figure}
-\flushleft{Die\,}\justifying Ausgleichsgerade ist mit der Funktion polyfit aus SciPy \cite{scipy} erstellt worden.
+\flushleft{Die\,}\justifying Ausgleichsgerade wird mit der Funktion polyfit aus SciPy \cite{scipy} erstellt.
 Die Funktionsparameter zu der Geraden
 \begin{align}
     Z &= aI +b \label{eq:13}
@@ -253,12 +303,12 @@ Die Funktionsparameter zu der Geraden
 Die wichtigsten Werte für die Diskussion sind in der nachfolgenden Tabelle zusammengefasst.
 \begin{table}[H]
 \centering
-\caption{Messwerte}
+\caption{Zusammenfassung aller für die Diskussion relevanter Werte}
 \begin{tabular}{c c}
     \toprule
     \multicolumn{2}{c}{Messwerte}\\
     \cmidrule(lr{0,5em}){1-2}
-    $a_{Plateau}$ & \input{a_kenn.tex} \\
+    $m$ & \input{m.tex} \\
     $b_{Plateau} $ & \input{b_kenn.tex} \\
     $T_{Messung}$ & \input{T.tex}\\
     $T_{Oszi}$ &\SI{40}{\micro\second} \\

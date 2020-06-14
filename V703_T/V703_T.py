@@ -48,11 +48,11 @@ I_miterr = unp.uarray(I*1e-06, 0.05e-06)
 
 # Plot zur Kennlinie des Geiger-Müller Zählrohrs
 
-par,cov = np.polyfit(U_kenn[:36], N[:36], deg=1, cov=True)
+par,cov = np.polyfit(U_kenn[3:36], N[3:36], deg=1, cov=True)
 err = np.sqrt(np.diag(cov))
 
 plt.errorbar(U_kenn, N, yerr=stds(N_miterr) ,fmt='kx', label='Messwerte mit Fehler')
-x_plot = np.linspace(300, 680, 10000)
+x_plot = np.linspace(350, 680, 10000)
 plt.plot(x_plot,par[0]*x_plot+par[1] , 'r-', label='Fitkurve')
 plt.legend(loc="best")
 plt.xlabel(r'Spannung $U \:/\:V$')
@@ -63,6 +63,9 @@ plt.savefig('build/plot_kenn.pdf')
 plt.close()
 
 par_kenn=unp.uarray(par/60,err/60)
+
+m_winkel = unp.arctan(par_kenn[0]/100)
+m_percent = (m_winkel*180)/np.pi
 
 # Plot zu Z #################################################################
 
@@ -129,6 +132,9 @@ with open('build/a_Z.tex', 'w') as f:
 with open('build/b_Z.tex', 'w') as f: 
   f.write(make_SI(par_Z[1]*1e-7 ,r' ',exp='e07' ,figures=2))
 
+with open('build/m.tex', 'w') as f: 
+  f.write(make_SI(m_percent*100 ,r'\percent\per{100}\volt ' ,figures=2))
+
 
 
 
@@ -139,7 +145,10 @@ U1, U2, U3= np.array_split(U_kenn,3)
 
 table_header = r'''
   \begin{longtable}[H]{S[table-format=3.0] S[table-format=5.0]@{${}\pm{}$} S[table-format=3.0] S[table-format=3.0] S[table-format=5.0]@{${}\pm{}$} S[table-format=3.0] S[table-format=3.0] S[table-format=5.0]@{${}\pm{}$} S[table-format=3.0]}
-    \caption{Messwerte für die Charakteristik des Zählrohrs}\\
+    \caption{Messwerte für die Charakteristik des Zählrohrs.
+    Die Messung ist in Abständen von \SI{10}{\volt} durchgeführt worden und
+    der Fehler bei N kommt von der Poisson-Verteilung $ \Delta N = \sqrt{N}$.
+    }\\
     \toprule
     \multicolumn{1}{c}{ $U\:/\:V$ } & \multicolumn{2}{c}{$N\:/\:Imp/60s$ }   &
     \multicolumn{1}{c}{ $U\:/\:V$ } & \multicolumn{2}{c}{  $N\:/\:Imp/60s$ }   &
@@ -164,7 +173,7 @@ with open('build/kenn_table.tex', 'w') as g:
 print(Z)
 
 table_header = r'''
-  \begin{tabular}[H]{S[table-format=3.0] S[table-format=5.0] @{${}\pm\!\!\!{}$} S[table-format=3.0] S[table-format=1.1]@{${}\pm{}$}S[table-format=0.2]  S[table-format=1.2]@{${}\pm{}$}S[table-format=0.2]}
+  \begin{tabular}[H]{S[table-format=3.0] S[table-format=5.0] @{${}\pm{}$} S[table-format=3.0] S[table-format=1.1]@{${}\pm{}$}S[table-format=0.2]  S[table-format=1.2]@{${}\pm{}$}S[table-format=0.2]}
     \toprule
     \multicolumn{1}{c}{ $U\:/\:V$ } & \multicolumn{2}{c}{$N\:/\:Imp/60s$ }   &
     \multicolumn{2}{c}{ $I\:/\:\mu A$ } & \multicolumn{2}{c}{Z /$10^8$} \\
