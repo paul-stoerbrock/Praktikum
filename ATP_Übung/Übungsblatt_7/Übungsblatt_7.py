@@ -30,5 +30,14 @@ def make_SI(num, unit, exp='', figures=None):
 def f(n):
     return (1/(np.sqrt(1-1/n**2))) *const.c**2 *const.m_e
 
-print(f(1.0003)/const.e)
-print(f(1.333)/const.e)
+
+
+l=f(1.0003)/const.e
+w=f(1.333)/const.e
+# tex file for Luft
+
+with open('build/luft.tex', 'w') as f:
+  f.write(make_SI(l*1e-06,r'\giga\electronvolt\per\meter', figures=2))
+
+with open('build/wasser.tex', 'w') as f:
+  f.write(make_SI(w*1e-06,r'\giga\electronvolt\per\meter', figures=2))
