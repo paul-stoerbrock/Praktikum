@@ -175,7 +175,22 @@ Dadurch ist der messbare Bereich ein ganzes Stück größer als der eigentliche 
 Ein Beispiel bildet der Ice-Cube-Detektor am Südpol.
 
 \subsection{e)}
-
+Unter Vernachlässigung von n für ein Photon
+\begin{align}
+    \frac{\dif{N}}{\dif{x}} &= \int_{300nm}^{700nm} \frac{2 \pi \alpha}{\lambda^2} \,\dif{\lambda}\\
+    &= (-\frac{1}{700nm}+\frac{1}{300nm}) 2 \pi \alpha \\
+    \approx 87.357 Photonen/m
+    E&=\frac{hc}{\lambda}
+    \frac{E}{l} &= \int_{300nm}^{700nm} h \frac{c}{\lambda} \,\dif{\lambda}\\
+    &= ch(\ln (700nm)-\ln(300nm) )\\
+    \intertext{
+        N für 1m
+    }
+    \frac{E}{l} &= N_{1m} ch \ln \left(\frac{7}{3} \right)\\
+    &= \SI{0.09}{\electronvolt\per\meter}\\
+    &= \SI{90}{\milli\electronvolt\per\centi\meter}
+\end{align}
+Die berechnete Energie ist wesentlich kleiner als die Energie des \SI{10}{\giga\electronvolt}-Myons.
 
 
 \section{Aufgabe 21}
