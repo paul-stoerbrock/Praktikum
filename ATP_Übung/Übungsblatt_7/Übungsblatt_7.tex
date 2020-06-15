@@ -37,15 +37,91 @@
 
 \subsection{a)}
 
+\begin{table}[H]
+\centering
+    \begin{tabular}{c c c c}
+    \toprule
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{Teilchenzahl $N_n=n^2$}\\
+    \cmidrule(lr{0,5em}){1-4}
+    n=0 & p=1 & T=0 & 1\\        
+    n=1 & p=0 & T=2 & 2\\       
+    n=2 & p=2 & T=2 & 4\\
+    n=3 & p=2 & T=6 & 8\\
+    n=4 & p=6 & T=10 & 16\\
+    n=5 & p=10 & T=22 & 32\\        
+    n=6 & p=22 & T=42 & 64\\
+    \bottomrule
+    \end{tabular}
+\label{tab:1}
+\end{table}
+
+    \flushleft{Die\;}\justifying mittlere Energie $E_n$ pro Teilchen nach $n$ Wechselwirkungen lautet:
+    \begin{align*}
+        E_n &= \frac{E_0}{N_n} = \frac{E_0}{n^2}
+    \end{align*}
+
 \subsection{b)}
+
+    \flushleft{Ein\;}\justifying Teilchenschauer endet, sobald die Energie jedes Teilchens unter die kritische Energie $E_c$ fällt. Es gilt also:
+    \begin{align*}
+        E_0 &= N_{n,max} \cdot E_c\\
+        \Leftrightarrow E_0 &= 2^{n,max} \cdot E_c\\
+        2^{n,max} &= \frac{E_0}{E_c}\\
+        \Leftrightarrow n_{max} &= \log_2\left( \frac{E_0}{E_c} \right)
+        \intertext{
+            \flushleft{Die\;}\justifying atmosphärische Tiefe $X_{max}^{\gamma}$ ergibt sich aus:
+        } 
+        X_{max}^{\gamma} &= n_{max} \cdot d\\
+        &= \log_2\left( \frac{E_0}{E_c} \right) \cdot d
+        \intertext{
+            \flushleft{Wobei\;}\justifying $d$ die atmosphärische Tiefe eines Splits bezeichnet.
+        }
+    \end{align*}
 
 \subsection{c)}
 
+    \flushleft{Nach\;}\justifying einsetzten für $E_0$ und $E_c$ ergibt sich für $n_{max}$:
+    \begin{align*}
+        n_{max} &= \log_2\left( \frac{E_0}{E_c} \right) = 13.52
+        \intertext{
+            \flushleft{Da\;}\justifying $n \in \mathbb{Z}$, wird hier abgerundet. Daraus folgt:
+        }
+        n_{max} &= 13\\
+        \Rightarrow  X_{max}^{\gamma} &= n_{max} \cdot d = \SI{325}{\gram\per\meter\squared} 
+    \end{align*}
+
 \subsection{d)}
+
+    \begin{align*}
+        \rho(h) &= \rho(0) exp\left( -\frac{h}{h_s} \right)\\
+        X(h) &= \int \rho(h) \mathrm{d}h\\
+        X(h_{max}) &= \int_{h_{max}}^{\infty} \rho(0) exp\left( -\frac{h}{h_s} \right) \mathrm{d}h\\
+        &= \left[  -\rho(0) h_s exp\left( -\frac{h}{h_s} \right) \right]_{h_{max}}^{\infty}\\
+        &= \rho(0) h_s exp\left( -\frac{h_{max}}{h_s} \right) -0\\
+        X_{max}^{\gamma} &= \rho(0) h_s exp\left( -\frac{h_{max}}{h_s} \right)\\
+        \Leftrightarrow \frac{X_{max}^{\gamma}}{\rho(0) h_s} &= exp\left( -\frac{h_{max}}{h_s} \right)\\
+        \Leftrightarrow ln\left( \frac{X_{max}^{\gamma}}{\rho(0) h_s} \right) &= -\frac{h_{max}}{h_s}\\
+        \Leftrightarrow h_{max} &= -h_s \cdot ln\left( \frac{X_{max}^{\gamma}}{\rho(0) h_s} \right) = 9197.208
+    \end{align*}
 
 \subsection{e)}
 
+    \flushleft{Ein\;}\justifying hadronischer Schauer besteht aus drei Komponenten, der mysonischen Komponente, der hadronischen Komponente und der elektromagnetischen Komponente. 
+    Durch die Wechselwirkung zwischen Primärteilchen und der Luft entstehen Teilchen, die den drei Komponenten untergeordnet werden können.\\
+    Bei der mysonischen Komponente werden Kaonen (+,-,0) und Pionen (+,-) erzeugt, die anschließend zu Myonen und Neutrinos zerfallen.\\
+    Bei der hadronischen Komponente wird eine hadronische Kaskade erzeugt, die sich aus Protonen, Neutronen, Pionen (+,-) und Kaonen (+,-) zusammensetzt.\\
+    Bei der elektromagnetischen Komponente werden Kaonen (+,-,0) und Pionen (+,-,0) erzeugt. Pionen (+,-) und Kaonen (+,-,0) zerfallen schließend zu Myonen (+,-), welche dann 
+    zu Elektronen $e^-$ und Positronen $e^+$ zerfallen. Diese emittieren durch Energieverlust Bremsstrahlung (Cherenkovstrahlung und Fluoreszenzstrahlung). Das neutrale Pion 
+    zerfällt zu zwei $\gamma$-Photonen. Diese Photonen besitzen hingegen genug Energie um durch Paarproduktion auch jeweils ein $e^+$ und $e^-$ zu erzeugen, welche wiederum
+    anschließend Cherenkov-/Fluoreszenzstrahlung erzeugen. 
+
+    \flushleft{Der\;}\justifying EM-Schauer ensteht durch den Zerfall in $e^+$ und $e^-$, welche die EM-Komponente ausmachen. 
+    
+
 \subsection{f)}
+
+    \flushleft{Ein\;}\justifying EM-Schauer erzeugt bei Detektion einen relativ einheitlichen und engen Lichtkegel an Cherenkovlicht.\\
+    Ein hadronischer Schauer hingegen ist breiter gestreut. Der footprint eines hadronischen Schauers setzt sich aus mehreren kleinen Kegelprofilen (Hotspots) zusammen.  
 
 
 \section{Aufgabe 20}
