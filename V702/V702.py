@@ -230,7 +230,7 @@ Nerr1, Nerr2 = np.array_split(stds(N_Rh_err), 2)
 
 table_header = r'''
   \begin{longtable}[H]{S[table-format=3.0] S[table-format=3.0]@{${}\pm{}$} S[table-format=2.1] S[table-format=3.0] S[table-format=2.0]@{${}\pm{}$} S[table-format=1.1] }
-    \caption{Messwerte aus der Messung der Zerfälle von Rhoium. Bei den Messungen wurden
+    \caption{Messwerte aus der Messung der Zerfälle von Rhodium. Bei den Messungen wurden
     die Zerfälle in einem Zeitintervall $\Delta t = \SI{15}{\second} $ gemessen. Die Fehler
     für die Zerfälle kommen von der Poissonverteilung und betragen $\Delta N =\sqrt{N}$. 
     }\\

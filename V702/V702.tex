@@ -24,7 +24,7 @@
 \section{Ziel}\justifying
 Die Kenntnis über die Stabilität von Atomen und den Verlaufsprozess von verschiedenen
 Zerfällen spielt nicht nur bei Messungen in der Physik, sondern vor allem auch in der 
-Medizin zum Beispiel in der Krebsbehandlung eine Rolle. Daher wird im Folgenden die Halbwertszeit von
+Medizin, zum Beispiel in der Krebsbehandlung, eine Rolle. Daher wird im Folgenden die Halbwertszeit von
 zwei Materialien bestimmt, indem diese mit energiearmen Neutronen beschossen werden und die Teilchen mittels 
 einem Geiger-Müller-Zählrohr gezählt werden.
 
@@ -32,7 +32,7 @@ einem Geiger-Müller-Zählrohr gezählt werden.
 
 \section{Theorie}\justifying
 Die Stabilität von Atomen hängt stark von dem Verhältnis der Protonen und Neutronen ab. Sind
-Atome nicht stabil, zerfallen sie zu stabile oder instabile Kernen, wo bei instabilen der Zerfallsprozess
+Atome nicht stabil, zerfallen sie zu stabilen oder instabilen Kernen, wo bei instabilen der Zerfallsprozess
 noch nicht beendet ist.  Eine wichtige Eigenschaft des Zerfallsprozesses stellt die Halbwertszeit T
 dar. Sie beschreibt die Zeit, nach der die Hälfte der Kerne einer Menge zerfallen sind.
 Für die Messung der Halbwertszeit in einer Größenordnung von Stunden und Sekunden werden
@@ -137,31 +137,30 @@ der isomere Kern gemessen, was in der folgenden Abbildung zu erkennen ist:
         \includegraphics[width=\textwidth]{images/aufbau.jpg}
         \caption{Schematischer Aufbau der Messaparatur \cite{V702}. Innerhalb der Bleiabschirmung befindet sich
         die zylindrische Probe, welche untersucht werden soll. Die elektrischen Signale,
-        welch durch die Zerfälleentstehen werden an einen Verstärker weitergeleitetund
-        anschließend von Zählrohr gemessen. Dabei wird nach dem Zeitintervall $\Delta t$ periosdisch auf
+        welch durch die Zerfälle entstehen werden an einen Verstärker weitergeleitet und
+        anschließend vom Zählrohr gemessen. Dabei wird nach dem Zeitintervall $\Delta t$ periosdisch auf
         den jeweils anderen Zähler umgeschaltet.
         }
         \label{fig:3}
     \end{figure}
     \flushleft{Zuerst\:}\justifying wird die Untergrundrate $U_N$ bestimmt, dafür wird keine Probe auf das Geiger-Müller-Zählrohr gesteckt.
-    Um den Fehler möglichst gering zu halten wird eine  minimale Messzeit von 500 bis $\SI{600}{\second} $ gewählt. Das Zeinintervall
+    Um den Fehler möglichst gering zu halten, wird eine  minimale Messzeit von 500 bis $\SI{600}{\second} $ gewählt. Das Zeitintervall
     wird dabei an dem Codierschalter an der Frontplatte eingestellt.
 
     
-    \flushleft{Für\:}\justifying die Messung der Proben werden diese auf das Geiger-Müller-Zählrohr gesteckt und ein
-    für die Messung geeigneter Zeitintervall eingestellt. Dieser kann von Probe zu Probe variieren und muss
+    \flushleft{Für\:}\justifying die Messung der Proben werden diese auf das Geiger-Müller-Zählrohr gesteckt und ein,
+    für die Messung geeignetes, Zeitintervall eingestellt. Dieses kann von Probe zu Probe variieren und muss
     eventuell durch Vormessungen bestimmt werden.
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
-Für die Erstellung der Graphen ist matplotlib \cite{matplotlib} verwendet worden.
-Alle Messungenauigkkeiten, welche sich durch die gauß'sche Fehlerfortpflanzung ergeben,
-in der Auswertung sind wiederum mit Uncertainties \cite{uncertainties}
-berechnet worden.\\
+Für die Erstellung der Graphen wird matplotlib \cite{matplotlib} verwendet.
+Alle in der Auswertung befindlichen Messungenauigkkeiten, welche sich durch die gauß'sche Fehlerfortpflanzung ergeben,
+werden wiederum mit Uncertainties \cite{uncertainties} berechnet.\\
 
 \subsection{Messung des Untergrunds}
-Für die Bestimmung des Untergrunds ist ein Zeitintervall von $\Delta t = \SI{300}{\second} $ gewählt worden.
+Für die Bestimmung des Untergrunds wird ein Zeitintervall von $\Delta t = \SI{300}{\second} $ gewählt.
 Die gemessenen Werte lauten 
 \begin{align}
     N_U = \{129, 143, 144, 136, 139, 126, 158\} \label{eq:8}.
@@ -169,8 +168,8 @@ Die gemessenen Werte lauten
 
 
 \subsection{Messung der Halbwertszeit einer Vanadium-Probe}
-Der Zerfall von Vanadium lässt sich in den Fall der Reaktionsgleichung \eqref{eq:2}
-einordnen. Seine Reaktionsgleichung sieht im genauen wie folgt aus
+Der Zerfall von Vanadium lässt sich in diesem Fall der Reaktionsgleichung \eqref{eq:2}
+zuordnen. Seine Reaktionsgleichung sieht im genauen wie folgt aus:
 \begin{align}
     \ce{^51_23 V + n -> ^52_23 V -> ^52_24 Cr + \symup{\beta}- + \bar{\symup{\nu}}_e } \label{eq:9}
 \end{align}
@@ -187,16 +186,16 @@ Der Plot sieht dann folgendermaßen aus:
     } % Caption noch hinzufügen
     \label{fig:4} 
 \end{figure}
-\flushleft{Die\,}\justifying Ausgleichsgerade in der Abbildung ist mit der Funktion
+\flushleft{Die\,}\justifying Ausgleichsgerade in der Abbildung wird mit der Funktion
 Polyfit aus Scipy \cite{scipy} und den Messwerten aus der
-Tabelle \ref{tab:1}. Die Parameter der Ausgleichsgeraden
+Tabelle \ref{tab:1} erstellt. Die Parameter der Ausgleichsgeraden
 \begin{align}
     \ln(N_{\Delta t}(t)) &= a \cdot t +b \label{eq:10} \\
     \intertext{
-        mit
+        lauten
     }
     a &= \text{\input{a_V.tex}} \label{eq:11} \\
-    b &= \text{\input{b_V.tex}} \label{eq:12}
+    b &= \text{\input{b_V.tex}} \label{eq:12},
     \intertext{
         wobei sich die Parameter a und b durch Vergleich mit Gleichung \eqref{eq:5} als
     }
@@ -230,20 +229,20 @@ Der Plot selbst sieht dann wie folgt aus:
      $\Delta t = \SI{15}{\second}$ \cite{matplotlib}. 
      Die Zählzeit ist hier logarithmisch aufgetragen. Die Fitkurve entsteht aus
      der Überlagerung der zwei Zerfallsreihen von Rhodium analog zu Abbildung \ref{fig:2}, wobei die einzelnen
-     Geraden eben diese darstellen. Die rote Gerade bildet den langlebigen Zerfall von dem isomeren Kern $\ce{^{104i}_45 Rh } $ ,
+     Geraden eben diese darstellen. Die rote Gerade bildet den langlebigen Zerfall von dem isomeren Kern $\ce{^{104i}_45 Rh } $ ab,
      während die Blaue den kurzlebigen Zerfall von $\ce{^104_45 Rh }$ darstellt.
-     Die beiden Gerade wird durch die Funktion $\ln(N_{\Delta t}(t)) = a \cdot t +b$ dargestellt.
+     Die beiden Geraden werden durch die Funktion $\ln(N_{\Delta t}(t)) = a \cdot t +b$ dargestellt.
      Bei der Erstellung der Geraden für die kurze Laufzeit werden die Messwerte vom 
-     Gesamtspektrum bis zum Punkt $t^*$ von den entsprechenden der roten Geraden abgezogen.
+     Gesamtspektrum bis zum Punkt $t^*$ von den entsprechenden Werten der roten Geraden abgezogen.
      Der Wert $t^*= \SI{285}{\second} $ stellt dabei den Punkt dar, ab dem hauptsächlich noch der langlebige
-     Zerfall vorzufinden ist. Die lilane Fitkurve ensteht durch Addition die Addition der
+     Zerfall vorzufinden ist. Die Fitkurve ensteht durch die Addition der
      beiden Geraden.
      } 
     \label{fig:5} 
 \end{figure}
 
-Für die Gerade des langlebigen Zerfalls ist die Funktion polyfit aus Scipy \cite{scipy}
-verwendet worden. Als Werte sind alle Messwerte ab $t^*=\SI{285}{\second} $ benutzt worden.
+\flushleft{Für\,}\justifying die Gerade des langlebigen Zerfalls wird die Funktion polyfit aus Scipy \cite{scipy}
+verwendet. Als Werte sind alle Messwerte ab $t^*=\SI{285}{\second} $ benutzt worden.
 Die Gerade hat hier die gleiche Form wie in Gleichung \eqref{eq:10} und die Fitparameter
 lauten
 \begin{subequations}
@@ -279,7 +278,7 @@ Die Zerfallskonstante und die Halbwertszeit betragen dann
     T_{Rh,k} &= \text{\input{T_Rh_kurz.tex}} \label{eq:24}.
 \end{align}
 
-Die lilane Kurve entsteht durch die Addition der beiden einzelnen Geraden.
+\flushleft{Die\,}\justifying Fitkurve entsteht dann durch die Addition der beiden einzelnen Geraden.
 
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -288,7 +287,7 @@ Die lilane Kurve entsteht durch die Addition der beiden einzelnen Geraden.
 \begin{table}
 \centering
 \caption{In dieser Tabelle sind alle für die Diskussion relevanten Werte aufgelistet. 
-Dabei werden die Messwerte, die dazugehörigen Literaturwerte sowie deren relativer Fehler
+Dabei werden die Messwerte, die dazugehörigen Literaturwerte, sowie deren relativer Fehler
 in einer Zeile dargestellt. Die Quellverweise der Literaturwerte sind direkt neben diesen vorhanden.
 }
 \label{tab:3}
@@ -306,14 +305,14 @@ in einer Zeile dargestellt. Die Quellverweise der Literaturwerte sind direkt neb
 \flushleft{Die\;}\justifying Zerfallszeit von Vanadium aus Tabelle \ref{tab:3}  zeigt einen guten Wert, da sich der Literaturwert innerhalb der
 Messungenauigkeit befindet. Der relative Fehler ist demensprechend in einem angemessenen Bereich.
 Die vorhandene Abweichung könnte mit der großen Verteilung um den Mittelwert der letzten Messwerte in Abbildung \ref{fig:4}
-zusammenhängen. Dieser könnte mit durch die zufallsbasierte Messung zustande kommen oder aber mit 
+zusammenhängen. Dieser könnte mit durch die zufallsbasierte Messung zustande kommen, oder aber mit 
 der Untergrundmessung zusammenhängen. Die Untergrundmessung ist in einem wesentlich größeren Messzeitintervall
 als bei der Messung von Vanadium gewählt worden, wodurch diese nicht zwangsweise für jeden Wert den tatsächlichen Untergrund darstellt,
-sondern einen Durschnittswert für \SI{300}{\second} .\\
+sondern einen Durschnittswert für \SI{300}{\second}.\\
 Die Zerfallszeiten von Rhodium und seinen isomeren Kern haben  einen größeren 
 relativen Fehler als bei Vanadium. Beim isomeren Kern, also dem langlebigen Zerfall, ist der Literaturwert 
 trotzdem innerhalb der Messungenauigkeit. Die relativen Fehler können dabei wiederum durch die gleiche Begründung wie
-scon beim Vanadium erklärt werden. 
+bei Vanadium erklärt werden. 
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
