@@ -31,6 +31,26 @@
     \end{figure}
 
 \subsection{a)}
+\begin{align}
+    i \hbar \ket{\del{\Psi}{t}} &= H_{SB} \ket{\Psi}\\
+    \intertext{vom letztem Blatt}
+    H_{SB} &= - \vec{\mu} \vec B \ket{\Psi}\\
+    &= g_S \frac{\mu _B}{\hbar} \vec S \vec B \ket{\Psi}\\
+    &= g_S \frac{\mu _B B_0}{\hbar} \cos(\omega t) \vec S \vec e _z \ket{\Psi}\\
+    &= g_S \frac{\mu _B B_0}{\hbar} \cos{ \omega t} S_z \ket{\Psi}\\
+    S_z &= \frac{\hbar}{2} 
+    \begin{pmatrix} 
+        1 &0\\
+        0 & -1\\
+    \end{pmatrix}\\
+    \ket{\del{\Psi}{t}} &= -i g_S \mu _B B_0 \cos{\omega t} S_z \ket{\Psi}\\
+    \del{\Psi _{\pm}}{t} &= \mp i g_S \frac{\mu _B B_0 \hbar}{2} \cos{\omega t} \Psi _{\pm}\\
+    \int _{\Psi _{\pm}(0)}^{\Psi_{\pm}} \frac{1}{\Psi'_{\pm}} \, \dif{\Psi _{\pm}' } &= \int_0^t \mp i g_S \frac{\mu _B B_0 \hbar}{2} \cos{\omega t'} \, \dif{t'}\\
+    \ln(\frac{\Psi _{\pm}}{\Psi _{\pm}(0)}) &= - \mp ig_S \frac{\mu _B B_0 \hbar}{2\omega} \sin{\omega t}\\
+    \Psi _{\pm} &= \Psi _{\pm }(0) \exp(\mp i g_S \frac{\mu _B B_0 \hbar}{2\omega} \sin{\omega t})\\
+    \Psi_{+} &= a \exp(- i g_S \frac{\mu _B B_0 \hbar}{2\omega} \sin{\omega t})\\
+    \Psi_{-} &=b \exp( i g_S \frac{\mu _B B_0 \hbar}{2\omega} \sin{\omega t})
+\end{align}
 
 \subsection{b)}
 
@@ -100,6 +120,42 @@
     \end{figure}
 
 \subsection{a)}
+\begin{align}
+    a_H (t) &= U^\dagger (t) a_s U(t) , U(t) \exp \left( -\frac{i}{\hbar} H_s t \right)\\
+    H_H &= (a_H^\dagger a_H + \frac{1}{2}) \hbar \omega \\
+    \frac{\dif{}}{\dif{t}} a_H &= \underbrace{\del{a_H}{t} }_{=0} + \frac{i}{\hbar } [H_H,a_H ]\\
+    &= \frac{i}{\hbar} \hbar \omega ((a_H^\dagger a_H + \frac{1}{2} )a_H - a_H (a_H^\dagger + \frac{1}{2}) )\\
+    &=i \omega [a_H^\dagger a_H, a_H]\\
+    &=i \omega [a_H^\dagger, a_H]a_H\\
+    &=i \omega a_H
+    \intertext{
+        Lösen der DGL
+    }
+    a_H &= a_H(0) \exp(i \omega t)\\
+    \intertext{Aus dem Vergleich mit der ersten Gleichung für $a_H $ zum Zeitpunkt 0 folgt:}
+    a_H(0) =a_s
+    \Rightarrow a_H &= a_s \exp(i \omega t)\\
+    \intertext{
+        Berechnung von $a_H^\dagger$
+    }
+    a_H^\dagger &= a_s^\dagger \exp(-i \omega t)\\
+    \intertext{
+        Berechnung von $x_H$:
+        Nach dem Blatt 5
+    }
+    x_s &= \sqrt{\frac{\hbar}{2m\omega }} (a_s+a_s^\dagger ) \\ 
+    x_H &= \sqrt{\frac{\hbar}{2m\omega }} (a_H+a_H^\dagger )\\
+    x_H &= \sqrt{\frac{\hbar}{2m\omega }} (a_s \exp(i \omega t)+ a_s^\dagger \exp(-i \omega t)\\
+    x_H &= \sqrt{\frac{\hbar}{2m\omega }} 2\, \text{Re}(a_s \cos(\omega t ))\\
+    \intertext{
+        Berechnung von $p_H$:
+        Nach dem Blatt 5  
+    }
+    p_s &= \sqrt{\frac{\hbar}{2m\omega }} (a_s-a_s^\dagger ) \\
+    p_H &= \sqrt{\frac{\hbar}{2m\omega }} (a_H-a_H^\dagger )\\
+    p_H &= \sqrt{\frac{\hbar}{2m\omega }} (a_s \exp(i \omega t)- a_s^\dagger \exp(-i \omega t)\\
+    p_H &= \sqrt{\frac{\hbar}{2m\omega }} 2i\, \text{Im}(a_s \sin(\omega t ))\\
+\end{align}
 
 \subsection{b)}
 
@@ -108,39 +164,32 @@
         &= x_s p_s e^{i\omega t_1} e^{i\omega t_2} - p_s x_s e^{i\omega t_2} e^{i\omega t_1}\\
         &= e^{i\omega (t_1+t_2)} (x_s \cdot p_s - p_s \cdot x_s)\\
         &= e^{i\omega (t_1+t_2)}[x_s,p_s]\\
-        [x_s,p_s] &= \sqrt{\frac{\hbar}{2m\omega}}i \sqrt{\frac{m\omega\hbar}{2}} \underbrace{[a+a^{\dagger},a^{\dagger}-a]}_{=1+1=2}\\
-        &= i\frac{\hbar}{2} \cdot 2 = i\hbar\\
+        [x_s,p_s] &=  i\hbar\\
         \Rightarrow \left[ \hat{x}_H(t_1),\hat{p}_H(t_2) \right] &= i\hbar e^{i\omega (t_1+t_2)}
     \end{align*}
 
 \subsection{c)}
 
     \begin{align*}
-        \Delta \hat{A} \Delta \hat{B} \leq \frac{1}{2} \abs{\langle \left[ \hat{A},\hat{B} \right] \rangle}\\
-        \Delta A &= \langle (A-\langle A \rangle )^2 \rangle\\
-        &= \bra{Y} \left( A-\langle A \rangle \right)^2 \ket{Y}\\
-        &= \bra{Y} \left( A-\langle A \rangle \right)\left( A-\langle A \rangle \right) \ket{Y}\\
-        &= \braket{f}{f}\\
-        \Delta B &= \langle (B-\langle B \rangle )^2 \rangle\\
-        &= \bra{Y} \left( B-\langle B \rangle \right)^2 \ket{Y}\\
-        &= \bra{Y} \left( B-\langle B \rangle \right)\left( B-\langle B \rangle \right) \ket{Y}\\
-        &= \braket{g}{g}\\
-        \Delta A \Delta B &= \braket{f}{f} \braket{g}{g}
+        \Delta \hat{A} \Delta \hat{B} &\geq \frac{1}{2} \abs{\langle \left[ \hat{A},\hat{B} \right] \rangle}\\
+        \Delta A &=  \sqrt{\langle A^2\rangle-\langle A \rangle^2}  \\
+        \Delta B &= \sqrt{\langle B^2\rangle-\langle B \rangle^2}\\
+        \Delta A \Delta B &= \sqrt{\langle A^2\rangle-\langle A \rangle^2} \sqrt{\langle B^2\rangle-\langle B \rangle^2}
         \intertext{
-            \flushleft{Zwischenrechnung:\;}\justifying
+            Erwartungswerte sind für Heisenbergbild und Schrödingerbild identisch.
+            Dadurch gibt sich für die minimale Unschärfe
         }
-        \braket{f}{g} &= \bra{Y} \left( A-\langle A \rangle \right)\left( B-\langle B \rangle \right) \ket{Y}\\
-        &= \bra{Y} \left( AB - A\langle B\rangle - \langle A\rangle B + \langle A\rangle \langle B\rangle  \right) \ket{Y}\\
-        &= \langle A\rangle \langle B\rangle - \langle B\rangle \langle A\rangle - \langle A\rangle \langle B\rangle + \langle B\rangle \langle A\rangle\\
-        &= \langle A\rangle \langle B\rangle - \langle A\rangle \langle B\rangle\\
-        \braket{g}{f} &= \bra{Y} \left( B-\langle B \rangle \right)\left( A-\langle A \rangle \right) \ket{Y}\\
-        &= \bra{Y} \left( BA - B\langle A\rangle - \langle B\rangle A + \langle B\rangle \langle A\rangle  \right) \ket{Y}\\
-        &= \langle B\rangle \langle A\rangle - \langle A\rangle \langle B\rangle - \langle B\rangle \langle A\rangle + \langle A\rangle \langle B\rangle\\
-        &= \langle B\rangle \langle A\rangle - \langle B\rangle \langle A\rangle
+        \Delta x \Delta p &= \frac{\hbar}{2}
         \intertext{
-            \flushleft{Ende\;}\justifying Zwischenrechnung
-        } 
-        \braket{f}{g} - \braket{g}{f} &= \langle A\rangle \langle B\rangle - \langle B\rangle \langle A\rangle = \left[ \langle A\rangle, \langle B\rangle \right]
+            rechte Seite:
+        }
+        \frac{1}{2} \abs{\langle [\hat A ,\hat B]\rangle }\\
+        &=\frac{1}{2} \abs{\langle i \hbar \exp{i \omega (t_1+t_2)}  \rangle }\\
+        &= \frac{1}{2} \abs{ i \hbar  }\\
+        &= \frac{\hbar}{2}
+        \intertext{
+            Unscharferelation ist erfüllt, da die minimale Unschärfe gleich der rechten Seite ist.
+        }
     \end{align*}
 
 \section{Aufgabe 4}
@@ -162,7 +211,7 @@
         \\
         \langle \hat{L}_z \rangle &= \int \Psi^*(\vec{r},t=0) \hat{L}_z \Psi(\vec{r},t=0)\\
         &= \frac{1}{39} \int \left( 2\Psi_{100} + \Psi_{21-1} - 3i\Psi_{430} - 5\Psi_{53-2} \right)^* \hat{L}_z \left( 2\Psi_{100} + \Psi_{21-1} - 3i\Psi_{430} - 5\Psi_{53-2} \right)\\
-        &= \frac{1}{39} \int \left( 2\Psi_{100}^* + \Psi_{21-1}^* + 3i\Psi_{430}^* - 5\Psi_{53-2} \right) \left( -\hbar\Psi_{21-1} + 10\hbar\Psi_{32-2} \right)\\
+        &= \frac{1}{39} \int \left( 2\Psi_{100}^* + \Psi_{21-1}^* + 3i\Psi_{430}^* - 5\Psi_{53-2} \right) \left( -\hbar\Psi_{21-1} + 10\hbar\Psi_{53-2} \right)\\
         &= -\frac{51}{39} \hbar\\
         \\
         \langle \hat{H} \rangle &= \int \Psi^*(\vec{r},t=0) \hat{H} \Psi(\vec{r},t=0)\\
