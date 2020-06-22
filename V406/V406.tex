@@ -131,7 +131,7 @@ Die Fitkurve wird hier mit der Funktion curvefit aus Scipy \cite{scipy} erstellt
 Die Fitfunktion und die Fitparameter lauten hierbei
 \begin{subequations}
 \begin{align}
-    I(\varphi) &= A**2 \,\text{sinc} \left(\frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \right) \label{eq:6a}\\
+    I(\varphi) &= A^2 \,\text{sinc} \left(\frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \right) \label{eq:6a}\\
     A &= 8,31 \pm 31390,38 \label{eq:6b}\\
     b &= \SI{0.13+-1096.6}{\milli\meter} \label{eq:6c}
 \end{align}
@@ -164,9 +164,13 @@ Dieser Fehler ist grundsätzlich groß. Eine Erklärung für diesen könnte unte
 die Näherung in Gleichung \eqref{eq:5} darstellen, da es eben nur eine Näherung
 ist und nicht die genauen Verhältnisse wiederspiegelt. Zudem sind alle Messungen
 unter Lichteinfall durchgeführt worden, welche auch von dem Photoelement als Untergrund
-gemessen worden ist. Zudem könnte der Laser nicht erfekt auf den Spalt ausgerichtet worden
-sein, wodurch das Beugungsbild verändert werden würde.
-
+gemessen worden ist. Zudem könnte der Laser nicht perfekt auf den Spalt ausgerichtet worden
+sein, wodurch das Beugungsbild verändert werden würde.\\ Sehr auffälig sind die immens 
+großen Messungenauigkeiten bei den Parametern \eqref{eq:6b} und \eqref{eq:6c} der Fitkurve,
+welche mehrere Größenordnungen über dem Wert liegen. Diese können nicht durch statistische
+Fehler entstanden sein, da dafür der Fit zu gut auf die Werte passt. Auch systematische Fehler
+können dies nicht erklären, da dafür die Werte zu nah am Literaturwert liegen. Daher
+müsste es an der Funktion curvefit liegen bzw. ihrer verwendeten Funktion.
 
 \newpage
 \printbibliography

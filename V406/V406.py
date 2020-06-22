@@ -107,7 +107,7 @@ with open('build/b.tex', 'w') as f:
 with open('build/relerr_b.tex', 'w') as f:
   f.write(make_SI(rel_err(par[1], 0.1*1e-03) ,r'\percent', figures=2))
 
-print(rel_err(par[1], 0.1*1e-03))
+
 
 # Tabellen #######################################################################
 
