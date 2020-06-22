@@ -37,11 +37,36 @@
 
 \subsection{a)}
 
+    \flushleft{Tau-}\justifying Neutrinos entstehen aus der Neutrino-Oszillation der Myon-Neutrinos in der Atmosphäre. Tau-Neutrinos haben einen geringen Wirkungsquerschnitt, 
+    weshalb sie nur gering mit Materie wechselwirken. Desshalb ist die Erde für das Tau-Neutrino quasi transparent. Diese Eigenschaft ist für Forschungseinrichtungen wie 
+    IceCube bedeutend wichtig, da dessen Detektoren Neutrino messen, welche durch die Erde propagieren. 
+
 \subsection{b)}
 
 \subsection{c)}
 
+    \begin{align}
+        E_0 &= \gamma E \Leftrightarrow \gamma = \frac{E_0}{E}\\
+        m &= \gamma m\\
+        \tau &= \gamma \tau_0 \qquad \gamma\; \text{einsetzen}\\
+        &= \frac{E_0}{E} \tau_0\\
+        r &= v\tau_0\\
+        v &= \frac{mv}{m} = \frac{p}{mc^2}c^2 = \frac{p}{E_0}c^2\\
+        E_0^2 &= E^2 + (cp)^2 \Leftrightarrow p = \frac{\sqrt{E_0^2-E^2}}{E_0} \qquad \text{einsetzten in $v$}\\
+        \Rightarrow v &= \frac{\sqrt{E_0^2-E^2}}{E_0}c \qquad \text{einsetzten in $r$}\\
+        \\
+        \Rightarrow r &= \frac{\sqrt{E_0^2-E^2}}{E_0} \frac{E_0}{E} \tau_0 c\\
+        &= \frac{\sqrt{E_0^2-E^2}}{m_0 c^2} \tau_0 c\\
+        &= \frac{\sqrt{E_0^2-E^2}}{m_0 c} \tau_0
+    \end{align}
+
 \subsection{d)}
+
+    \begin{align}
+        -\int_{E_0}^{E} \frac{1}{(a+bE')} \mathrm{d}E' &= \int_{0}^{1} 1 \mathrm{d}x\\
+        -\frac{1}{b}\log(a+bE')\vert_{e_0}^{E} &= r\\
+        r_{\langle \frac{\mathrm{d}E}{\mathrm{d}x} \rangle} &= -\frac{1}{b}\log\left(\frac{a+bE}{a+bE_0}\right)
+    \end{align}
 
 \subsection{e)}
 
@@ -84,11 +109,34 @@ aus einem hadronischem und der andere aus einem leptonischen Zerfall.
 
 \subsection{a)}
 
+    \flushleft{Das\;}\justifying Cherenkov Telescope Array (CTA) such nach elektromagentischen Schauern, die von hochenergetischen
+    Photone verursacht werden. Das dabei entstehende Cherenkovlicht kann von dem Array gemessen werden.\\
+    Der Messbereich des CTAs liegt bei ca. \SI{10}{\giga\electronvolt} bis \SI{100}{\tera\electronvolt}.\\
+    Hadronen-Schauer stellen den größten Hintergrund da, da diese ca. 10000-mal häufiger auftreten, als 
+    elektromagentische Schauer.
+
 \subsection{b)}
+
+    \flushleft{Es\;}\justifying ist durchaus hilfreich Radioteleskope bei einer Messung innerhalb der Atmosphäre 
+    zusammenzuschalten, da so stereoskopische Messungen möglich sind. Es kann also der Ursprung des Schauers bestimmt
+    werden. Der Abstand der Teleskope sollte so gewählt werden, dass möglichst viele innerhalb des Schauerfußabdrucks 
+    liegen. Da der Fußabdruck einen Druchmesser von ca. \SI{300}{\meter} hat, sollten die Teleskope mit einem Abstand von unter
+    \SI{150}{\meter} in grid-formation aufgestellt werden, da so mit ein wenig Glück vier Teleskope innerhalb des light pools
+    stehen und eine stereoskopische Beobachtung ermöglichen. Dadurch kann die Position der Quelle bestimmt werden. 
 
 \subsection{c)}
 
+    \flushleft{Ja,\;}\justifying zum Beispiel Imaging Atmospheric Cherenkov Telescopes (IACTs) messen das Cherenkovlicht, welches in der 
+    Atmosphäre auftritt. Demnach ist die Atmosphäre das Detektionsmedium, wodurch die Fläche, welche die IACTs beobachten müssen, sehr groß
+    wird. Also macht es Sinn, die Teleskope möglichst weit auseinander aufzustellen.  
+
 \subsection{d)}
+
+    \flushleft{Das\;}\justifying Messen weiterer Ereignisse ist auf der einen Seite das Ziel, kann aber bei einem einzelnen Teleskop zu Schwierigkeiten
+    führen. Bei einer größeren Fläche steigen die gemessen Ereignisse quadratisch an. Gleichermaßen steigt aber auch der Hintergrund quadratisch an. 
+    Das dabei enstehende Problem ist die Aufzeichnung der Messdaten. Die Photomultiplier würden überlastet werden und an Genauigkeit verlieren. Die
+    Technik für die Datenverarbeitung würde deutlich teuerer werden, ebenso die Herstellung der großen Spiegel, da diese immens präzise geschliffen werden 
+    müssen um eine adäquate Genauigkeit zu erzielen. 
 
 \section{Aufgabe 24}
 
