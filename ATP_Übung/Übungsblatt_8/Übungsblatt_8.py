@@ -26,10 +26,34 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
+def c(E0, E, m0, c, tau):
+    return np.sqrt(E0**2-E**2)/(m0* c) *tau
 
-def f(n):
-    return (1/(np.sqrt(1-1/n**2))) *const.c**2 *const.m_e
+def d(a, b, E, E0):
+    return - 1/b * np.log((a+b*E)/(a+b*E0))
+
 
 #with open('build/luft.tex', 'w') as f:
 #  f.write(make_SI(l*1e-06,r'\giga\electronvolt\per\meter', figures=2))
 
+
+x_plot = np.linspace(0, 140000000, 10000)
+plt.plot(x_plot, d( 2.302, 3.617*1e-6, 105,x_plot), 'r-', label='Energieverlust')
+plt.legend(loc="best")
+plt.xlabel(r' Energie in MeV')
+plt.ylabel(r' Reichweite in cm')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plot_d.pdf')
+plt.close()
+
+
+x_plot = np.linspace(105, 400, 10000)
+plt.plot(x_plot, c(x_plot, 105, 1.8*1e-28, noms(const.c/100), 2.19*1e-6 ), 'r-', label='Zerfall')
+plt.legend(loc="best")
+plt.xlabel(r' Energie in MeV')
+plt.ylabel(r' Reichweite in cm')
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plot_c.pdf')
+plt.close()
