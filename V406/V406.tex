@@ -60,7 +60,9 @@ Kugelwellen. Die Beugungsfunktion sieht dabei folgendermaßen aus
     B(\varphi) &= A_0 b \frac{\sin (\eta)}{\eta}  \label{eq:1} \quad \text{mit}\\
     \eta &= \frac{\pi b \sin \varphi}{\lambda} \label{eq:2} \text{\cite{V406}} .
 \end{align}
-$\lambda$ ist hierbei die Wellenlänge des einfallenden Lichts und $A_0$. % A_0 erklären
+$\lambda$ ist hierbei die Wellenlänge des einfallenden Lichts und $A_0$ die Amplitude
+der einfallenden Welle.
+
 Als Graph sieht die Funktion dabei wie folgt aus:
 \begin{figure}[H]
     \centering
@@ -118,7 +120,13 @@ Die Tabelle \ref{tab:1} mit den Messwerten für die folgende Graphik befindet si
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot.pdf}
-    \caption{} % Caption hinzufügen
+    \caption{
+        Plot der Intensität des Beugunsbildes eines Einzelspalts der Breite \SI{0.1}{\milli\meter} .\cite{matplotlib}\\
+        Aufgetragen ist hier die Intensität in Form der gemessenen Stromstärke
+        gegen den Beugungswinkel \varphi in rad. Der Beugungswinkel wird hierbei mithilfe von
+        Formel \eqref{eq:5} berechnet. Die Fitkurve wird mithlife von curvefit aus Scipy \cite{scipy}
+        mit der Gleichung \eqref{eq:6a} erstellt. 
+    } 
     \label{fig:4} 
 \end{figure}
 \flushleft{Für\,}\justifying die x-Werte werden die kleinen Winkel $\varphi$ durch 

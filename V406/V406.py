@@ -115,24 +115,27 @@ I1, I2 = np.array_split(I, 2)
 b1, b2 = np.array_split(b, 2)
 
 table_header = r'''
-  \begin{longtable}[H]{S[table-format=2.1] S[table-format=8.2] S[table-format=2.1] S[table-format=10.2]  }
+  \begin{longtable}[H]{S[table-format=2.1] S[table-format=1.2] S[table-format=2.1] S[table-format=2.2]  }
     \caption{
+        In der Tabelle sind die Messwerte aus dem Versuch mit dem Einzelspalt notiert.
+        Gemessen wird die Verschiebung auf dem Verschiebereiter b gegen die vom Photoelement
+        gemessene Stromstärke I. 
     }\\ 
     \toprule
     \multicolumn{1}{c}{ $b\:/\:mm$ } & \multicolumn{1}{c}{$I\:/\:\mu A$ }   &
     \multicolumn{1}{c}{ $b\:/\:mm$ } & \multicolumn{1}{c}{$I\:/\:\mu A$ }   \\
     \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}  
 
-'''# caption schreiben
+'''
 table_footer = r'''    \bottomrule
   \label{tab:1}
   \end{longtable}
 '''
-row_template = r'     {0:1.1f} & {1:1.0f} & {2:1.1f} & {3:1.0f}   \\'
+row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.1f} & {3:1.2f}   \\'
 
 with open('build/table.tex', 'w') as g:
     g.write(table_header)
-    for row in zip( b1*1e03, I1*1e06, b2*1e03, I2*1e06):
+    for row in zip( b1*1e03, I1, b2*1e03, I2):
         g.write(row_template.format(*row).replace('nan',' ').replace('.',',') )
         g.write('\n')
     g.write(table_footer)
