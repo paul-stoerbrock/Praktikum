@@ -32,7 +32,7 @@ gebeugten Lichtstrahlen bestimmt.
 
 \section{Theorie}
 Die Beugung von Licht beschreibt eine Ausbreitung von elektromagnetischen Wellen,
-die nicht den Gesetzen der geometrischen Optik entspricht. Dabei gibt es 2 verschiedene
+die nicht den Gesetzen der geometrischen Optik entspricht. Dabei gibt es zwei verschiedene
 Arten der Beugung, die fresnelsche und die fraunhofersche Beugung. Bei der fresnelschen
 Beugung ist die Lichtquelle im Endlichen und es erscheinen divergente Strahlenbündel.
 Bei der fraunhoferschen Beugung  liegt die Lichtquelle im Unendlichen und es treten
@@ -54,15 +54,15 @@ beispielhaft wiedergibt.
 seiner Länge groß ist, sodass das ganze auf ein eindimensionales Problem reduziert werden kann.
 Als Lichtquelle eignet sich dafür ein Laser. Die vom Laser ausgesendeten ebenen Wellen
 treffen auf den Einzelspalt und nach dem Hyugenschen Prinzip bildet jeder Punkt einer Welle
-eine Kugelwelle- Das Beugungsmuster der Welle entsteht dann durch die Interferenz der einzelnen
+eine Kugelwelle. Das Beugungsmuster der Welle entsteht dann durch die Interferenz der einzelnen
 Kugelwellen. Die Beugungsfunktion sieht dabei folgendermaßen aus
 \begin{align}
     B(\varphi) &= A_0 b \frac{\sin (\eta)}{\eta}  \label{eq:1} \quad \text{mit}\\
     \eta &= \frac{\pi b \sin \varphi}{\lambda} \label{eq:2} \text{\cite{V406}} .
 \end{align}
 $\lambda$ ist hierbei die Wellenlänge des einfallenden Lichts und $A_0$. % A_0 erklären
-Als Grap sieht die Funktion dabei wie folgt aus:
-\begin{figure}
+Als Graph sieht die Funktion dabei wie folgt aus:
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{images/graph.jpg}
     \label{fig:2}
@@ -72,12 +72,12 @@ Als Grap sieht die Funktion dabei wie folgt aus:
     Die auf der x-Achse angegebenen Punkte stellen die Nullstellen der Beugungsfunktion dar.
     }
 \end{figure}
-Die Nullstellen sind dabei an den Stellen
+\flushleft{Die\,}\justifying Nullstellen sind dabei an den Stellen
 \begin{align}
     \sin \varphi _n = \pm n \frac{\lambda}{b} \text{\cite{V406}} \label{eq:3},
 \end{align}
 wobei n eine natürliche Zahl ist.
-Da die  Beugung $B(\varphi)$ aufgrund der hohen Lichtfrequenzen nur schwer messbar sind,
+Da die Beugung $B(\varphi)$ aufgrund der hohen Lichtfrequenzen nur schwer messbar ist,
 wird stattdessen die Intensität $I(\varphi)$ 
 \begin{align}
     I(\varphi)  B(\varphi) = A_0^2 b^2 \left\{\frac{\lambda}{\pi b \sin \varphi} \right\} \sin ^2 \left(\frac{\pi b \sin \varphi}{\lambda} \right) \text{\cite{V406}} \label{eq:4}
@@ -86,15 +86,15 @@ gemessen.\\
 
 
 \section{Versuchsaufbau und Durchführung}
-Bei dem Einzelspalt-Experiment wird ein Laser auf einem Stativ befestigt und auf 
+Bei dem Einzelspalt-Experiment wird ein Laser auf einem Stativ befestigt und dieses auf 
 eine Messschiene befestigt. Dann wird eine Bledenhalterung mit einem Stativ 
-mit etwas Abstand befestigt. Zuletzt wird in einer Entfernung L auf der Messchiene
+mit etwas Abstand zum Laser auf der Schiene befestigt. Zuletzt wird in einer Entfernung L auf der Messchiene
 ein Photoelement auf einem Verschiebereiter befestigt. Dieser wird an ein Amperemeter
 angschlossen. Dies sieht beispielsweise so aus:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{images/aufbau.jpg}
-    \caption{Besipielhafter Aufbau eines Einzelspalts-Experiments.\\
+    \caption{Beispielhafter Aufbau eines Einzelspalt-Experiments.\\
     Links ist ein Laser auf einem Stativ, welches sich auf einer Messschiene befindet, angebracht.
     In der Mitte befindet sich die Blendenhalterung und rechts das Photoelement auf einem 
     Verschiebereiter. Das Licht des Lasers erzeugt dann durch die Blende in der Halterung 
@@ -102,16 +102,16 @@ angschlossen. Dies sieht beispielsweise so aus:
     }
     \label{fig:3}
 \end{figure}
-\flushleft{Zuerst\,}\justifying wird der Laser in Richtung der Blende ausgerichtet und parallel zur Messschiene
-ausgerichtet. Dann wird der Punkt auf dem der Laser auf dem Verschiebereiter zeigt mit dem
-Photoelement bestimmt. Dann wird ein Einzelspalt in die Halterung eingebracht so dass
+\flushleft{Zuerst\,}\justifying wird der Laser in Richtung der Blende und parallel zur Messschiene
+ausgerichtet. Dann wird der Punkt, auf dem der Laser auf dem Verschiebereiter zeigt, mit dem
+Photoelement bestimmt. Dann wird ein Einzelspalt in die Halterung eingebracht, so dass
 das Licht durch den Spalt geht. Danach werden ausgehend vom Hauptmaximum rechts und links 
 ca. 50 Messwerte aufgenommen.
 
 \section{Auswertung}
 Alle Plots in der Auswertung werden mit matplotlib \cite{matplotlib} erstellt und alle
 Fehler mit uncertainties \cite{uncertainties} berechnet.\\
-Bei der Durchführung des Einzelspalts wird ein Laser der Wellenlänge $\lambda = \SI{532}{\nano\meter} $.
+Bei der Durchführung des Einzelspalts wird ein Laser der Wellenlänge $\lambda = \SI{532}{\nano\meter} $ verwendet.
 Der Einzelspalt hat eine Breite von $d=\SI{0.1}{\milli\meter} $ und der Abstand von 
 der Blende zum Verschiebereiter beträgt $L=\SI{39.3+-0.1}{\centi\meter} $.\\
 Die Tabelle \ref{tab:1} mit den Messwerten für die folgende Graphik befindet sich im Anhang.
@@ -125,10 +125,10 @@ Die Tabelle \ref{tab:1} mit den Messwerten für die folgende Graphik befindet si
 \begin{align}
     \varphi \approx \tan (\varphi) = \frac{b-b_0}{L} \label{eq:5}
 \end{align}
-genähert. Hierbei sind b die Werte auf dem Verschiebereiter und $b_0$ der Punkt des Maximums.
+genähert. Hierbei sind $b$ die Werte auf dem Verschiebereiter und $b_0$ der Punkt des Maximums.
 Hier wird das Maximum bei $b_0= \SI{27.7}{\milli\meter} $ gewählt.\\
 Die Fitkurve wird hier mit der Funktion curvefit aus Scipy \cite{scipy} erstellt.\\
-Die Fitfunktion und die Fitparameter lauten hierbei
+Die Fitfunktion und die Fitparameter lauten hierbei:
 \begin{subequations}
 \begin{align}
     I(\varphi) &= A^2 \,\text{sinc} \left(\frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \right) \label{eq:6a}\\
@@ -140,12 +140,12 @@ Hierbei ist die Funktion Sinus cardinalis definiert als
 \begin{align}
     \text{sinc}\,x = \frac{\sin (\pi x)}{\pi x} \label{eq:7} .
 \end{align}
-Dabei entsteht aus der Fitfunktion die Formel \eqref{eq:4} für
+Dabei entsteht aus der Fitfunktion die Formel \eqref{eq:4}, wenn für
 \begin{align}
     A &= b^2 A_0^2 \label{eq:8} \\
     x &= \frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \label{eq:9}
 \end{align}
-wählt.
+wählt wird.
 Der Punkt, bei dem im Fit durch 0 geteilt wird, wird dabei automatisch ignoriert.
 
 
@@ -155,10 +155,10 @@ Der angegebene Wert für die Breite des Einzelspalts beträgt
 \begin{align}
     b_{\text{lit}} = \SI{0.1}{\milli\meter}. \label{eq:10}
 \end{align}
-Daraus lässt sich der relative Fehler mit Gleichung \eqref{eq:6c} berechnen
+Daraus lässt sich der relative Fehler mit dem berechneten $b$ aus Gleichung \eqref{eq:6c} berechnen
 \begin{align}
-    b_{\text{relerr}} &= \frac{b-b_{\text{lit}}}{\text{lit}} \label{eq:11}\\
-    b_{\text{relerr}} &= \text{\input{relerr_b.tex}}.
+    b_{\text{rel. Fehler}} &= \frac{b-b_{\text{lit}}}{\text{lit}} \label{eq:11}\\
+    b_{\text{rel. Fehler}} &= \text{\input{relerr_b.tex}}.
 \end{align}
 Dieser Fehler ist grundsätzlich groß. Eine Erklärung für diesen könnte unter anderem
 die Näherung in Gleichung \eqref{eq:5} darstellen, da es eben nur eine Näherung
@@ -167,10 +167,10 @@ unter Lichteinfall durchgeführt worden, welche auch von dem Photoelement als Un
 gemessen worden ist. Zudem könnte der Laser nicht perfekt auf den Spalt ausgerichtet worden
 sein, wodurch das Beugungsbild verändert werden würde.\\ Sehr auffälig sind die immens 
 großen Messungenauigkeiten bei den Parametern \eqref{eq:6b} und \eqref{eq:6c} der Fitkurve,
-welche mehrere Größenordnungen über dem Wert liegen. Diese können nicht durch statistische
+welche mehrere Größenordnungen über den eigentlichen Wert liegen. Diese können nicht durch statistische
 Fehler entstanden sein, da dafür der Fit zu gut auf die Werte passt. Auch systematische Fehler
-können dies nicht erklären, da dafür die Werte zu nah am Literaturwert liegen. Daher
-müsste es an der Funktion curvefit liegen bzw. ihrer verwendeten Funktion.
+können dies nicht erklären, da dafür die Werte zu nah am Literaturwert liegen. Daher ließe sich vermuten, dass
+es an der Funktion curvefit liegt bzw. ihrer verwendeten Funktion.
 
 \newpage
 \printbibliography

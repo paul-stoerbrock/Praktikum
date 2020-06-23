@@ -115,12 +115,12 @@ I1, I2 = np.array_split(I, 2)
 b1, b2 = np.array_split(b, 2)
 
 table_header = r'''
-  \begin{longtable}[H]{S[table-format=2.1] S[table-format=1.2] S[table-format=2.1] S[table-format=2.2]  }
+  \begin{longtable}[H]{S[table-format=2.1] S[table-format=8.2] S[table-format=2.1] S[table-format=10.2]  }
     \caption{
     }\\ 
     \toprule
     \multicolumn{1}{c}{ $b\:/\:mm$ } & \multicolumn{1}{c}{$I\:/\:\mu A$ }   &
-    \multicolumn{1}{c}{ $b\:/\:mm$ } & \multicolumn{1}{c}{  $I\:/\:\mu A$ }   \\
+    \multicolumn{1}{c}{ $b\:/\:mm$ } & \multicolumn{1}{c}{$I\:/\:\mu A$ }   \\
     \cmidrule(lr{0,5em}){1-2} \cmidrule(lr{0,5em}){3-4}  
 
 '''# caption schreiben
@@ -128,7 +128,7 @@ table_footer = r'''    \bottomrule
   \label{tab:1}
   \end{longtable}
 '''
-row_template = r'     {0:1.1f} & {1:1.2f} & {2:1.1f} & {3:1.2f}   \\'
+row_template = r'     {0:1.1f} & {1:1.0f} & {2:1.1f} & {3:1.0f}   \\'
 
 with open('build/table.tex', 'w') as g:
     g.write(table_header)
