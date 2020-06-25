@@ -32,13 +32,83 @@
 
 \subsection{a)}
 
+    \begin{align}
+        L_{\pm} &= L_x \pm iL_y\\
+        \left[ L_x,L_y \right] &= i\hbar L_z \qquad \Rightarrow \text{Den Kommutator schnappen wir uns aus Übung 7 (Aufg.3b)}\\
+        \\
+        L_- L_+ &= \left( L_x - iL_y \right)\left( L_x + iL_y \right)\\
+        &= L_x^2 + iL_x L_y - iL_y L_x + L_y^2\\
+        &= L_x^2 + L_y^2 + i\underbrace{\left( L_x L_y - L_y L_x \right)}_{=\left[L_x,L_y\right]}\\
+        &= L_x^2 + L_y^2 \underbrace{+ L_z^2 - L_z^2}_{Nulladdition} + i \left( i\hbar L_z\right)\\
+        &= \underbrace{L_x^2 + L_y^2 + L_z^2}_{=L^2} - L_z^2 - \hbar L_z\\
+        L_{\pm} &= L^2 - \hbar L_z - L_z^2\\
+        \Leftrightarrow L^2 &= L_{\pm} + \hbar L_z + L_z^2
+    \end{align}
+
 \subsection{b)}
+
+    \begin{align}
+        L^2 \ket{l,m} &= \hbar^2 l(l+1) \ket{l,m}\\
+        L_z \ket{l,m} &= \hbar m \ket{l,m}\\
+        \\
+        L_- L_+ \ket{l,m} &= \left( L^2 - \hbar L_z - L_z^2 \right) \ket{l,m}\\
+        &= \left( \hbar^2 l(l+1) - \hbar^2 m - \hbar^2 m^2 \right) \ket{l,m}\\
+        &= \hbar^2 \left( l(l+1) \underbrace{- m - m^2}_{=-m(m+1)} \right) \ket{l,m}\\
+        &= \hbar^2 \left( l(l+1) -m(m+1) \right) \ket{l,m}
+    \end{align}
 
 \subsection{c)}
 
+    \begin{align}
+        \left( L_x^2 + L_y^2 \right) \ket{l,m} &= \left( L_- L_+ + \hbar L_z \right) \ket{l,m}\\
+        &= \left[ \hbar^2 \left( l(l+1) - m(m+1) \right) + \hbar^2 m  \right] \ket{l,m}\\
+        &= \hbar^2 \left( l(l+1) - m(m+1) + m \right) \ket{l,m}\\
+        &= \hbar^2 \left( l(l+1) - m^2 -m + m \right) \ket{l,m}\\
+        &= \hbar^2 \left( l(l+1) - m^2 \right) \ket{l,m}
+    \end{align}
+
 \subsection{d)}
 
+    \begin{align}
+        \bra{l',m'} L^2 \ket{l,m} &= \hbar^2 l(l+1) \delta_{mm}'\\
+        \bra{l',m'} L^2 \ket{l,m} &= \bra{l',m'} L_- L_+ + \hbar L_z + L_z^2 \ket{l,m'}\\
+        &= \bra{l',m'} \hbar^2 l(l+1) \ket{l,m}\\
+        &= \hbar^2 l(l+1) \underbrace{\braket{l',m'}{l,m}}_{=\delta_{mm'}\delta_{ll'}}\\
+        &= \hbar^2 l(l+1) \delta_{mm'} \delta_{ll'}\\
+        &\stackrel{l=1}{=} 2\hbar \delta_{mm'} \delta_{1l'} 
+        \intertext{
+            \flushleft{Maximal\;}\justifying für $m=l$:
+        }
+        L_+ \ket{l,l} &=0
+        \intertext{
+             \flushleft{Minimum:\;}\justifying
+        }
+        L_- \ket{l,l'} &=0\\
+        l(l+1) &= l'(l'+1)\\
+        l' &= -l\\
+        \Rightarrow &\text{Minimal für $m=-l$.}\\
+        m &= -l, ..., l
+        \intertext{
+            \flushleft{Bei\;}\justifying einem Intervall von $-l \leq m \leq l$ ist die Dimension des Unterraums von $m$ gleich 2l+1, was für $l=1$ eine Dimension von 3 ergibt.
+            Daraus folgt die Matrix:
+        }
+        L^2 &= 2\hbar^2 \begin{pmatrix}
+            1 & 0 & 0\\
+            0 & 1 & 0\\
+            0 & 0 & 1
+        \end{pmatrix}
+    \end{align}
+
 \subsection{e)}
+
+    \flushleft{Zuerst\;}\justifying lässt sich aus der Beziehung $L_z \ket{l,m} = \hbar m \ket{l,m}$ erkennen, dass $m\neq 0$ sein muss, ansonsten würde das Matrixelement sofort 
+    verschwinden. Desweiteren gilt:
+    \begin{align}
+        \bra{l',m'} L_z \ket{l,m} &= \hbar m \braket{l',m'}{l,m}\\
+        &= \hbar m \delta_{mm'} \delta_{ll'} 
+    \end{align}
+    \flushleft{Aus\;}\justifying der Deltafunktion geht hervor, dass $m=m'=l=l'$ sein muss, da $L_z$ sonst $=0$ sein würde, wodurch das Matrixelement verschwindet. Daraus folgt,
+    dass $L_z$ die Bedingungen $m=m'=l=l'\neq 0$ erfüllen muss, damit das Matrixelement erhalten bleibt. 
 
 \section{Aufgabe 2}
 
