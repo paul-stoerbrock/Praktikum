@@ -160,16 +160,14 @@
 
 \subsection{a)}
 
-    \flushleft{Als\;}\justifying geeignete Basis werden die Energieeigenzustände verwendet:
+    \flushleft{Als\;}\justifying geeignete Basis werden die Energieeigenzustände $\ket{\Psi} = \Psi_n \ket{n}$ verwendet.
     \begin{align*}
-        \ket{\Psi} &= \Psi_n \ket{n}\\
-        \\
         \bra{\Psi} H \ket{\Psi} &= \sum_{n,m} \Psi_n^* \bra{n} H \ket{m} \Psi_m\\
         &= \sum_{n,m} \Psi_n^* \bra{n} E_m \ket{m} \Psi_m
         \intertext{
             \flushleft{Für\;}\justifying $E_m \leq E_0$ gilt:
         }
-        &\leq \sum_{n,m} \Psi_n^* \bra{n} E_0 \ket{m} \Psi_m \qquad \text{mit}\; \braket{n}{m} = \delta_{nm}\\
+        &\leq \sum_{n,m} \Psi_n^* \bra{n} E_0 \ket{m} \Psi_m \qquad \text{mit}\; \braket{n}{m} = \delta_{nm} \;\text{und}\;n=m\\
         &\leq E_0 \sum_{n} \abs{\Psi_n}^2\\
         &\leq E_0 \underbrace{\braket{\Psi}{\Psi}}_{=1}\\
         \bra{\Psi} H \ket{\Psi} &\leq E_0
