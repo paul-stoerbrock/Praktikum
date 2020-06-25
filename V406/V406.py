@@ -119,7 +119,7 @@ table_header = r'''
   \begin{longtable}[H]{S[table-format=2.1] S[table-format=1.2] S[table-format=2.1] S[table-format=2.2]  }
     \caption{
         In der Tabelle sind die Messwerte aus dem Versuch mit dem Einzelspalt notiert.
-        Gemessen wird die Verschiebung auf dem Verschiebereiter b gegen die vom Photoelement
+        Gemessen wird die Verschiebung auf dem Verschiebereiter $b$ gegen die vom Photoelement
         gemessene Stromstärke I. 
     }\\ 
     \toprule
