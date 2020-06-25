@@ -46,8 +46,9 @@ beispielhaft wiedergibt.
     \label{fig:1}
     \caption{Beispielhafte Darstellung der Beugung an einem Einzelspalt \cite{V406}.
     Auf der Abbildung ist ein Einzelspalt der Breite b dargestellt, durch welchen 
-    Licht mit Wellenlänge S unter einem Winkel $\varphi$ gebeugt wird. Das x stellt dabei
+    Licht mit Wellenlänge $\lambda$ unter einem Winkel $\varphi$ gebeugt wird. Das x stellt dabei
     den Abstand zweier Lichstrahlen bei einer gleichmäßigen Betrachtung des Spaltes als Beispiel dar.
+    S stellt den Wegunterschied dar.
     }
 \end{figure}
 \flushleft{Um\,}\justifying Beugungsphänomene zu beobachten wird eine  Breite b des Spaltes gewählt, welche  im Vergleich zu
@@ -82,7 +83,7 @@ wobei n eine natürliche Zahl ist.
 Da die Beugung $B(\varphi)$ aufgrund der hohen Lichtfrequenzen nur schwer messbar ist,
 wird stattdessen die Intensität $I(\varphi)$ 
 \begin{align}
-    I(\varphi)  B(\varphi) = A_0^2 b^2 \left\{\frac{\lambda}{\pi b \sin \varphi} \right\} \sin ^2 \left(\frac{\pi b \sin \varphi}{\lambda} \right) \text{\cite{V406}} \label{eq:4}
+    I(\varphi)  B(\varphi) = A_0^2 b^2 \left\{\frac{\lambda}{\pi b \sin \varphi} \right\}^2 \sin ^2 \left(\frac{\pi b \sin \varphi}{\lambda} \right) \text{\cite{V406}} \label{eq:4}
 \end{align}
 gemessen.\\
 
@@ -104,7 +105,9 @@ angschlossen. Dies sieht beispielsweise so aus:
     }
     \label{fig:3}
 \end{figure}
-\flushleft{Zuerst\,}\justifying wird der Laser in Richtung der Blende und parallel zur Messschiene
+Zuerst wird der Dunkelstrom des Photoelement gemessen, indem die Stromstärke
+bei verdeckter Öffnung bestimmt wird.
+\flushleft{Dann\,}\justifying wird der Laser in Richtung der Blende und parallel zur Messschiene
 ausgerichtet. Dann wird der Punkt, auf dem der Laser auf dem Verschiebereiter zeigt, mit dem
 Photoelement bestimmt. Dann wird ein Einzelspalt in die Halterung eingebracht, so dass
 das Licht durch den Spalt geht. Danach werden ausgehend vom Hauptmaximum rechts und links 
@@ -112,8 +115,8 @@ ca. 50 Messwerte aufgenommen.
 
 \section{Auswertung}
 Alle Plots in der Auswertung werden mit matplotlib \cite{matplotlib} erstellt und alle
-Fehler mit uncertainties \cite{uncertainties} berechnet.\\
-Bei der Durchführung des Einzelspalts wird ein Laser der Wellenlänge $\lambda = \SI{532}{\nano\meter} $ verwendet.
+Fehler mit uncertainties \cite{uncertainties} und numpy \cite{numpy} berechnet.\\
+Bei der Messung des Einzelspalts wird ein Laser der Wellenlänge $\lambda = \SI{532}{\nano\meter} $ verwendet.
 Der Einzelspalt hat eine Breite von $d=\SI{0.1}{\milli\meter} $ und der Abstand von 
 der Blende zum Verschiebereiter beträgt $L=\SI{39.3+-0.1}{\centi\meter} $.\\
 Die Tabelle \ref{tab:1} mit den Messwerten für die folgende Graphik befindet sich im Anhang.

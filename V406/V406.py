@@ -43,8 +43,8 @@ def rel_err(mess, lit):
     return abs((unp.nominal_values(mess)-unp.nominal_values(lit))/unp.nominal_values(lit))*100
 
 
-def I_f( phi, A0, b):
-    return  A0**2 *np.sinc(b*np.sin(phi)/(532*1e-09))**2
+def I_f( phi, A0, b1):
+    return  A0**2 *np.sinc(b1*np.sin(phi)/(532*1e-09))**2
 
 #Daten ########################################################################
 
@@ -63,12 +63,13 @@ phi = (b-27.7*1e-03)/(39.3*1e-02)
 
 par, cov = curve_fit(
     I_f,
-    noms(phi),
-    noms(I_ohne_dunkel),
+    phi,
+    I_ohne_dunkel,
     sigma=None,
     absolute_sigma=True,
     p0=[ 0.008, 0.1*1e-03]
     )
+
 
 err=np.sqrt(np.diag(cov))
 
