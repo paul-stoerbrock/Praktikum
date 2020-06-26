@@ -186,9 +186,9 @@
         \nonumber\\
         \hline \nonumber \\
         \frac{\dif{}^2}{\dif{x^2}} \exp(-bx^2) &= -2b \frac{\dif{}}{\dif{x}}(x \exp(-bx^2))\\
-        &= -2b (1-2bx^2) \exp (-bx^2)\nonumber \\
+        &= -2b (1-2bx^2) \exp (-bx^2)\\
         \langle H \rangle &= \int_{-\infty}^{\infty} \Psi^* \hat{H} \Psi \mathrm{d}x\\
-        &= \int_{-\infty}^{\infty} A^* \exp\left( -bx^2 \right) \left( -\frac{\hbar^2}{2m} \deln{}{x}{2} + \frac{m\omega^2}{2} \right) A \exp\left( -bx^2 \right) \mathrm{d}x\\
+        &= \int_{-\infty}^{\infty} A^* \exp\left( -bx^2 \right) \left( -\frac{\hbar^2}{2m} \deln{}{x}{2} + \frac{m\omega^2}{2} x^2S \right) A \exp\left( -bx^2 \right) \mathrm{d}x\\
         &= \int_{-\infty}^{\infty} \abs{A}^2 \left( \frac{m\omega^2}{2} x^2 \exp\left( -2bx^2 \right) + \exp\left( -bx^2 \right) \frac{\hbar^2}{2m} 2b (1-2bx^2) \exp (-bx^2) \right) \,\dif{x}\\
         &= \int_{-\infty}^{\infty} \sqrt{\frac{2b}{\pi}} \left( \frac{m\omega^2}{2} x^2 \exp\left( -2bx^2 \right) + \exp\left( -bx^2 \right) \frac{\hbar^2}{m} b \left( 1-2bx^2 \right) \exp\left( -bx^2 \right) \right) \,\dif{x}\\
         &= \int_{-\infty}^{\infty} \sqrt{\frac{2b}{\pi}} \left( \frac{m\omega^2}{2} x^2 \exp\left( -2bx^2 \right) + \frac{\hbar^2}{m} b \left( 1-2bx^2 \right) \exp\left( -2bx^2 \right) \right) \,\dif{x}\\
@@ -233,8 +233,8 @@
     E_0 &\leq \bra{\Psi} \hat H \ket{\Psi}\\
     &= \int_{-\infty}^{\infty} A^* \exp{(-bx^2)} \left(-\frac{\hbar ^2}{2m} \frac{\dif{}^2}{\dif{x}}-\alpha \delta (x) \right) A \exp (-bx^2) \,\dif{x}\\
     &= \int_{-\infty}^{\infty} \sqrt{\frac{2b}{\pi}} \left( \exp (-bx^2) \left(-\frac{\hbar ^2}{2m} \right) \frac{\dif{}^2}{\dif{x^2}} \exp (-b x^2) - \alpha \delta (x) \exp (-2bx^2) \right)\\
-    &= \alpha \sqrt{\frac{2b}{\pi}}+ \int_{-\infty}^{\infty} \sqrt{\frac{2b}{\pi}} \left( -2b (1-2bx^2) \left(- \frac{\hbar ^2}{2m} \right) \exp (-2bx^2) \right) \,\dif{x}\\
-    &= \alpha \sqrt{\frac{2b}{\pi}} + \frac{\hbar ^2 b}{m}- \int_{-\infty}^{\infty} \frac{2b^2\hbar ^2}{m} x^2 \exp (-2bx^2) \dif{x}\\
+    &= -\alpha \sqrt{\frac{2b}{\pi}}+ \int_{-\infty}^{\infty} \sqrt{\frac{2b}{\pi}} \left( -2b (1-2bx^2) \left(- \frac{\hbar ^2}{2m} \right) \exp (-2bx^2) \right) \,\dif{x}\\
+    &= -\alpha \sqrt{\frac{2b}{\pi}} + \frac{\hbar ^2 b}{m}- \int_{-\infty}^{\infty} \frac{2b^2\hbar ^2}{m} x^2 \exp (-2bx^2) \dif{x}\\
     &= - \alpha \sqrt{\frac{2b}{\pi}} + \frac{\hbar ^2 b}{m}-\frac{b\hbar ^2}{2m}\\
     &= - \alpha \sqrt{\frac{2b}{\pi}} + \frac{\hbar ^2 b}{2m}
     \intertext{
