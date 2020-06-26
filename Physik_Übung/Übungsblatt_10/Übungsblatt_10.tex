@@ -126,6 +126,16 @@
 
 \subsection{a)}
 
+    \flushleft{Da\;}\justifying $S_z \ket{\sfrac{1}{2},m_1} \otimes \ket{\sfrac{1}{2},m_2} = \left( m_1+m_2 \right) \ket{\sfrac{1}{2},m_1} \otimes \ket{\sfrac{1}{2},m_2}$ gilt,
+    ist $\ket{\sfrac{1}{2},m_1} \otimes \ket{\sfrac{1}{2},m_2}$ der Eigenzustand von $S_z$. Der größte Eigenwert von $M$ ist damit definiert durch:
+    \begin{align}
+        M^+ &= m_1^+ + m_2^+ = \frac{1}{2} + \frac{1}{2} = 1
+    \intertext{
+        \flushleft{Dieser\;}\justifying gehört zur Darstellung $S=M^+=1$:
+    }
+    \ket{S=1,M=1} &= \ket{\frac{1}{2},\frac{1}{2}} \otimes \ket{\frac{1}{2},\frac{1}{2}}
+    \end{align}
+
 \subsection{b)}
 
 \subsection{c)}
@@ -139,6 +149,19 @@
     \end{figure}
 
 \subsection{a)}
+
+    \begin{align*}
+        E_{0,n} &= \hbar\omega \left( n+\frac{1}{2} \right)\\
+        V_E &= \alpha \hat{x} = \alpha \sqrt{\frac{\hbar}{2m\omega}} \left( a+a^{\dagger} \right)\\
+        \ket{n} &= \frac{1}{\sqrt{n!}} a^{\dagger} \ket{0}\\
+        E_n^1 &= \bra{n}V\ket{n}\\
+        &= \sqrt{\frac{\hbar}{2m\omega}} \bra{n} \left( a+a^{\dagger} \right) \ket{n} \\
+        \\
+        a^{\dagger} \ket{n} &= \sqrt{n+1} \ket{n+1}\\
+        a \ket{n} &= \sqrt{n} \ket{n-1}\\
+        \bra{n} \left( a+a^{\dagger} \right) \ket{n} &= \left( \sqrt{n} + \sqrt{n+1} \right) \underbrace{\braket{n}{n}}_{=1}\\
+        E_n^1 &\approx \sqrt{\frac{\hbar}{2m\omega}} \left( \sqrt{n} + \sqrt{n+1} \right)
+    \end{align*}
 
 \subsection{b)}
 
