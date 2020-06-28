@@ -38,11 +38,11 @@ par, covm = np.polyfit(U_Gelb[12:26], np.sqrt(I_Gelb[12:26]), deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
 plt.plot(U_Gelb, np.sqrt(I_Gelb), 'kx', label='Messwerte')
-x_plot = np.linspace(0, 20, 1000)
+x_plot = np.linspace(0, 7, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
 plt.xlabel(r'Spannung $U\;[V]$')
-plt.ylabel(r'Strom $U\;[nA]$')
+plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -62,7 +62,7 @@ plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
 
 plt.xlabel(r'Spannung $U\;[V]$')
-plt.ylabel(r'Strom $U\;[nA]$')
+plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -82,7 +82,7 @@ plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
 
 plt.xlabel(r'Spannung $U\;[V]$')
-plt.ylabel(r'Strom $U\;[nA]$')
+plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
