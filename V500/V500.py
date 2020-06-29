@@ -32,7 +32,7 @@ U_Gruen, I_Gruen = np.genfromtxt('Gruen.txt', unpack=True)
 
 
 
-
+#Graphen ========================================================================================================================================================================================================================
 
 par, covm = np.polyfit(U_Gelb[12:26], np.sqrt(I_Gelb[12:26]), deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -41,6 +41,8 @@ plt.plot(U_Gelb, np.sqrt(I_Gelb), 'kx', label='Messwerte')
 x_plot = np.linspace(0, 7, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
+U_g_gelb = -par[1]/par[0]
+plt.plot(U_g_gelb, 0, 'ko', label="U_g")
 plt.axhline(y=0, color='r', linestyle= '--', label="U-Achse")
 plt.xlabel(r'Spannung $U\;[V]$')
 plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
@@ -49,6 +51,24 @@ plt.grid()
 plt.tight_layout
 plt.savefig('build/plotGelb.pdf')
 plt.close()
+
+m_gelb = ufloat(par[0],err[0])
+b_gelb = ufloat(par[1],err[1])
+
+# tex file for m_gelb 
+
+with open('build/m_gelb.tex', 'w') as f:
+  f.write(make_SI(m_gelb,r'\nano\ampere\tothe{1/2}\per\volt', figures=1))
+
+# tex file for b_gelb 
+
+with open('build/b_gelb.tex', 'w') as f:
+  f.write(make_SI(b_gelb,r'\nano\ampere', figures=1))
+
+# tex file for U_g_gelb 
+
+with open('build/U_g_gelb.tex', 'w') as f:
+  f.write(make_SI(U_g_gelb,r'\volt', figures=1))
 
 
 
@@ -61,6 +81,9 @@ plt.plot(U_Gruen, np.sqrt(I_Gruen), 'kx', label='Messwerte')
 x_plot = np.linspace(-0.25, 2, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
+#0=par[0]*x_plot+par[1]
+U_g_gruen = -par[1]/par[0]
+plt.plot(U_g_gruen, 0, 'ko', label="U_g")
 plt.axhline(y=0, color='r', linestyle= '--', label="U-Achse")
 plt.xlabel(r'Spannung $U\;[V]$')
 plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
@@ -69,6 +92,24 @@ plt.grid()
 plt.tight_layout
 plt.savefig('build/plotGruen.pdf')
 plt.close()
+
+m_gruen = ufloat(par[0],err[0])
+b_gruen = ufloat(par[1],err[1])
+
+# tex file for m_gruen 
+
+with open('build/m_gruen.tex', 'w') as f:
+  f.write(make_SI(m_gruen,r'\nano\ampere\tothe{1/2}\per\volt', figures=1))
+
+# tex file for b_gruen 
+
+with open('build/b_gruen.tex', 'w') as f:
+  f.write(make_SI(b_gruen,r'\nano\ampere', figures=1))
+
+# tex file for U_g_gruen 
+
+with open('build/U_g_gruen.tex', 'w') as f:
+  f.write(make_SI(U_g_gruen,r'\volt', figures=1))
 
 
 
@@ -81,6 +122,8 @@ plt.plot(U_Rot, np.sqrt(I_Rot), 'kx', label='Messwerte')
 x_plot = np.linspace(-1.5, 2, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
+U_g_rot = -par[1]/par[0]
+plt.plot(U_g_rot, 0, 'ko', label="U_g")
 plt.axhline(y=0, color='r', linestyle= '--', label="U-Achse")
 plt.xlabel(r'Spannung $U\;[V]$')
 plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
@@ -90,9 +133,27 @@ plt.tight_layout
 plt.savefig('build/plotRot.pdf')
 plt.close()
 
+m_rot = ufloat(par[0],err[0])
+b_rot = ufloat(par[1],err[1])
+
+# tex file for m_rot 
+
+with open('build/m_rot.tex', 'w') as f:
+  f.write(make_SI(m_rot,r'\nano\ampere\tothe{1/2}\per\volt', figures=1))
+
+# tex file for b_rot 
+
+with open('build/b_rot.tex', 'w') as f:
+  f.write(make_SI(b_rot,r'\nano\ampere', figures=1))
+
+# tex file for U_g_rot 
+
+with open('build/U_g_rot.tex', 'w') as f:
+  f.write(make_SI(U_g_rot,r'\volt', figures=1))
 
 
 
+#Tabellen ========================================================================================================================================================================================================================
 
 table_header = r'''
   \begin{tabular}{c c}
