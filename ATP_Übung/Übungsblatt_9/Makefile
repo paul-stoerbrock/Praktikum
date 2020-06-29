@@ -1,9 +1,10 @@
 all: build/Übungsblatt_9.pdf
 
-build/Übungsblatt_9.pdf: FORCE Übungsblatt_9.tex Übungsblatt_9.py |build
+build/Übungsblatt_9.pdf: FORCE Übungsblatt_9.tex Übungsblatt_9.py   |build
 	TEXINPUTS="$(call translate,build:)" \
 	BIBINPUTS=build:\
 	max_print_line=1048576 \
+	python Übungsblatt_9.py
 	latexmk \
 	  --lualatex \
 	  --output-directory=build \
@@ -11,9 +12,7 @@ build/Übungsblatt_9.pdf: FORCE Übungsblatt_9.tex Übungsblatt_9.py |build
 	  --halt-on-error \
 	Übungsblatt_9.tex
 
-#build/plot_d.pdf: Übungsblatt_9.py |build
-#
-#	TEXINPUTS=$$(pwd): python Übungsblatt_9.py
+
 
 
 build:

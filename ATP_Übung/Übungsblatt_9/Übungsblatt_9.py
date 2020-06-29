@@ -26,12 +26,11 @@ def make_SI(num, unit, exp='', figures=None):
 
     return r'\SI{{{}{}}}{{{}}}'.format(x, exp, unit)
 
-def c(E0, E, m0, c, tau):
-    return np.sqrt(E0**2-E**2)/(m0* c) *tau
-
-def d(a, b, E, E0):
-    return - 1/b * np.log((a+b*E)/(a+b*E0))
 
 
-#with open('build/luft.tex', 'w') as f:
-#  f.write(make_SI(l*1e-06,r'\giga\electronvolt\per\meter', figures=2))
+M = np.sqrt((549*const.c**6)/(500*np.pi*1408*const.G**3) )/astro.M_sun.value
+
+
+
+with open('build/M_BH.tex', 'w') as f:
+  f.write(make_SI(M*1e-08,r'M_{\odot}',exp='e08' ,figures=2))
