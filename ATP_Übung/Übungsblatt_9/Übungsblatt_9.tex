@@ -33,15 +33,54 @@
 
 \subsection{a)}
 
+    \flushleft{In\;}\justifying der Abbildung 1 wird die Energie der kosmischen Strahlung gegen die Entfernung zur Erde dargestellt. Die Distanz zur Erde beschreibt die
+    Entfernung, aus welcher Protonen oder Photonen noch gemessen werden können. Außerdem sind verschiedene Distanzen farbig hinterlegt. Die höchste beobachtete 
+    Photonen oder Protonen Energie ist eingezeichnet, sowie die Prozesse, die die Reichweite der Teilchen einschränken (Paarbildung und GZK-Cutoff).\\
+    Photonen:\\
+    Die höchste gemessene Energie eines Photons liegt bei ca. $10^{^13.5}$\SI{}{\electronvolt}. Bei höheren Energien kommt es zur Paarbildung, die besonders stark bei ca. 
+    $10^{15}$\SI{}{\electronvolt} ist. Der $10^{15}$\SI{}{\electronvolt} Bereich kann laut Graphik nur innerhalb der Milchstraße gemssen werden. Oberhalb diesen Bereichs
+    wird die Reichweite wieder größer. Deshalb können ab $10^{16}$\SI{}{\electronvolt} Protonen wieder in lokalen Gruppen, ab $10^{17.5}$\SI{}{\electronvolt} in nahen
+    Galaxienclustern und ab $10^{22}$\SI{}{\electronvolt} in AGNs beobachtet werden. Bei $10^{22}$\SI{}{\electronvolt} ist die maximale Reichweite der hochenergetischen 
+    Photonen. Im niederenergetischen Bereich $10^{11.5}$\SI{}{\electronvolt}, also vor der Paarbildung, können Photonen jedoch noch bei kosmologischen Distanzen beobachtet 
+    werden.\\
+    Protonen:\\
+    Die höchste gemessene Energie eines Photons liegt bei ca. $10^{20.5}$\SI{}{\electronvolt}. Der GZK-Cutoff findet hier ab einer Energie von $10^{21}$\SI{}{\electronvolt}
+    statt und reduziert die Reichweite auf die Distanz von lokalen Galaxienclustern.\\
+    Die beobachtende Astronomie wird durch die Paarbildung und dem GZK-Cutoff bei hohen Energien auf relativ geringe Distanzen eingeschränkt. 
 
 
 \subsection{b)}
 
+    \flushleft{Für\;}\justifying $\theta=0$ divergiert der Bruch unter der Wurzel des $\beta$:
+    \begin{align}
+        \beta &=  \sqrt{ \underbrace{1- \frac{2m_e^2 c^4}{E\epsilon (1-\cos(\theta))}}_{<0}} \qquad \frac{2m_e^2 c^4}{0} \to \infty
+        \intertext{
+            \flushleft{Demnach\;}\justifying wird $\beta$ komplex.
+        }
+        1- \frac{2m_e^2 c^4}{E\epsilon (1-\cos(\theta))} &<0 \Leftrightarrow 1< \frac{2m_e^2 c^4}{E\epsilon (1-\cos(\theta))}\\
+        1-\cos(\theta) &< \frac{2m_e^2 c^4}{E\epsilon}\\
+        \cos(\theta) &> 1-\frac{2m_e^2 c^4}{E\epsilon} \qquad \left(\text{für}\; 0\leq \theta \leq \pi \to \cos(\theta) >x \Leftrightarrow \theta < \arccos(x) \right)\\
+        \theta &< \arccos\left( 1-\frac{2m_e^2 c^4}{E\epsilon} \right) 
+    \end{align}
 
 \subsection{c)}
 
+    \begin{align}
+        \sigma(E,\epsilon, \theta) &= A(1-\beta^2) \left[ 2\beta(\beta^2 -2) + (3-\beta^4) \log\left( \frac{1+\beta}{1-\beta} \right) \right]\\
+        \beta &= \sqrt{1- \frac{2m_e^2 c^4}{E\epsilon (1-\cos(\theta))}} \approx 0.8798\\
+        \sigma(E,\epsilon, \theta) &= 2.0051 \cdot 10^{-26} \text{\SI{}{\centi\meter\squared}} \cdot \frac{\text{\SI{}{\meter\squared}}}{200^2 \text{\SI{}{\centi\meter\squared}}}
+    \end{align}
+
 
 \subsection{d)}
+
+    \begin{align}
+        \lambda &= \frac{1}{n\sigma}
+        \intertext{
+            \flushleft{$n$\;}\justifying klauen wir uns aus Übung 8: $n=3.98 \cdot 10^8 \frac{1}{\text{\SI{}{\meter\squared}}}$
+        }
+        \Rightarrow \lambda &= 1.253 \cdot 10^{21} \text{\SI{}{\meter}} = 40.606 \text{kpc}
+    \end{align}
 
 
 
@@ -49,6 +88,11 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/ex26.jpg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/Messenger.jpg}
 \end{figure}
 
 \subsection{a)}
