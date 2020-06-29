@@ -124,6 +124,10 @@
 
 \section{Auswertung}
 
+    \flushleft{Für\;}\justifying die Auswertung werden alle Graphen mit der python Bibliothek matplotlib \cite{matplotlib} erstellt.\\
+    Der folgende Graph stellt das Verhältnis zwischen Photostrom $I_{\text{Photo}}$ und der dazugehörigen Spannung $U$ dar. Die dazu verwendeten Messwerte sind in Tabelle \ref{tab:1}
+    zu finden und die 
+
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{build/plotGelb.pdf}
@@ -134,7 +138,8 @@
     \begin{align}
     m &= \text{\input{m_gelb.tex}}\\
     b &= \text{\input{b_gelb.tex}}\\
-    U_g &= \text{\input{U_g_gelb.tex}}
+    U_g &= \text{\input{U_g_gelb.tex}}\\
+    \lambda &= \text{\SI{577}{\nano\meter}}
     \end{align}
 
 
@@ -148,7 +153,8 @@
     \begin{align}
     m &= \text{\input{m_gruen.tex}}\\
     b &= \text{\input{b_gruen.tex}}\\
-    U_g &=\text{\input{U_g_gruen.tex}}
+    U_g &=\text{\input{U_g_gruen.tex}}\\
+    \lambda &= \text{\SI{546}{\nano\meter}}
     \end{align}
 
     \begin{figure}[H]
@@ -163,6 +169,18 @@
     b &= \text{\input{b_rot.tex}}\\
     U_g &=\text{\input{U_g_rot.tex}}\\
     \lambda &= \text{\SI{671}{\nano\meter}}
+    \end{align}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{build/plotLambda.pdf}
+        \caption{Placeholder}
+        \label{fig:10}
+    \end{figure}
+
+    \begin{align}
+    m &= \text{\input{m_f.tex}}\\
+    b &= \text{\input{b_f.tex}}   
     \end{align}
 
 \section{Diskussion}
