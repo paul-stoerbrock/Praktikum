@@ -156,7 +156,7 @@
     \intertext{
         \flushleft{Mit\;}\justifying der Fehlerfortpflanzung der Steigung $m$
     }
-    \Delta U_g &= \frac{b}{2m^2} \cdot \sigma_m \label{eq:9}
+    \Delta U_g &= \sqrt{ \left( -\frac{1}{m} \right)^2 \cdot \sigma_b^2 + \left( \frac{b}{2m} \right)^2 \cdot \sigma_m^2 } = \frac{1}{m} \cdot \sigma_b + \frac{b}{m^2} \cdot \sigma_m \label{eq:9}
     \intertext{
         \flushleft{und\;}\justifying dem python Befehl ufloat der uncertainties Bibliothek \cite{uncertainties} ergibt sich für die Gegenspannung:
     }
@@ -212,6 +212,7 @@
     U_g &=\text{\input{U_g_rot.tex}} \label{eq:16}
     \end{align}
 
+\newpage
 \subsection{Verhältnis und Austrittsarbeit}
 
 
@@ -251,11 +252,13 @@
     \begin{align}
     m &= \text{\input{m_f.tex}}\;\text{und} \label{eq:20}\\
     b &= \text{\input{b_f.tex},} \label{eq:21}\\
-    Fehler &= \text{\input{fehler.tex}}   
     \end{align}
     \flushleft{wobei\;}\justifying $m$ das Verhältnis $\sfrac{h}{e_0}$ und $b$ die Austrittsarbeit $A_K$ beschreibt.
 
+\newpage
 \section{Diskussion}
+
+    \flushleft{\;}\justifying
 
     \begin{figure}[H]
         \centering
@@ -265,9 +268,10 @@
     \end{figure}
 
     \begin{align}
+    Fehler_1 &= \text{\input{fehler.tex}}\\
     m &= \text{\input{m_L.tex}}\\
     b &= \text{\input{b_L.tex}}\\
-    Fehler &= \text{\input{fehler_L.tex}}   
+    Fehler_2 &= \text{\input{fehler_L.tex}}   
     \end{align}
 
 \newpage
