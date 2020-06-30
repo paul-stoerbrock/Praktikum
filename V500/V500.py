@@ -125,7 +125,7 @@ with open('build/U_g_gruen.tex', 'w') as f:
 # tex file for U_g_gruen_err 
 
 with open('build/U_g_gruen_err.tex', 'w') as f:
-  f.write(make_SI(U_g_gruen_err,r'\volt', figures=2))
+  f.write(make_SI(U_g_gruen_err,r'\volt', figures=1))
 
 
 
@@ -172,7 +172,7 @@ with open('build/U_g_rot.tex', 'w') as f:
 # tex file for U_g_rot_err 
 
 with open('build/U_g_rot_err.tex', 'w') as f:
-  f.write(make_SI(U_g_rot_err,r'\volt', figures=2))
+  f.write(make_SI(U_g_rot_err,r'\volt', figures=1))
 
 #Frequenzen--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
