@@ -127,7 +127,7 @@
 \subsection{Gelbe Spektrallinie}
 
     \flushleft{Für\;}\justifying die Auswertung werden alle Graphen mit der python Bibliothek matplotlib \cite{matplotlib} erstellt.\\
-    Der folgende Graph stellt das Verhältnis zwischen Photostrom $I_{\text{Photo}}$ und der dazugehörigen Spannung $U$ der gelben Spektrallinie dar. Die dazu verwendeten Messwerte sind 
+    Der folgende Graph stellt das Verhältnis zwischen der Wurzel des Photostroms $\sqrt{I_{\text{Photo}}}$ und der dazugehörigen Spannung $U$ der gelben Spektrallinie dar. Die dazu verwendeten Messwerte sind 
     in Tabelle \ref{tab:1} zu finden und es wird die Formel der allgemeinen Geradengleichung $y=mx+b$ verwendet, wobei hier $y=\sqrt{I_{\text{Photo}}}$ und $x=U$ ist. Die dazugehörigen 
     Parameter $m$ und $b$ lauten:
 
@@ -139,7 +139,9 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{build/plotGelb.pdf}
-        \caption{Gelb}
+        \caption{Dieser Graph stellt die Wurzel des Photostroms $\sqrt{I_{\text{Photo}}}$ der gelben Spektrallinie gegen die Bremsspannung $U$ dar. Zusehen ist ein abfallender Messverlauf, der
+        bei ca. \SI{-7}{\volt} in eine lineare negative Steigung übergeht. Dieser Teil der Messreihe wurde mit einer Ausgleichsgeraden versehen, um im Anschluss die Gegenspannung
+        $U_g$ durch den Schnittpunkt dieser Geraden mit der U-Achse zu bestimmen.}
         \label{fig:7}
     \end{figure}
 
@@ -200,7 +202,7 @@
     \begin{align}
     \nu &= \frac{c}{\lambda} \label{eq:15}
     \end{align}
-    \flushleft{berechnet,\;}\justifying wobei $\lambda$ die Wellenlänge und $c$ die Lichtgeschwindigkeit im Vakuum darstellt. $c$ wird der Konstantenbibliothek constants
+    \flushleft{berechnet,\;}\justifying wobei $\lambda$ die Wellenlänge und $c$ die Lichtgeschwindigkeit im Vakuum darstellt. $c$ wird der Bibliothek constants
     von scipy \cite{scipy} entnommen und die Wellenlängen der Versuchsanleitung \cite{V500}. Diese lauten:
     \begin{subequations} \label{eq:16}
     \begin{align}
@@ -209,6 +211,13 @@
     \lambda_{\text{Rot}} &= \text{\SI{671}{\nano\meter}} \label{eq:16c}
     \end{align}
     \end{subequations}
+    \flushleft{Werden\;}\justifying die Gegenspannungen $U_g$ gegen die folgenden Frequenzen
+    \begin{align}
+    \nu_{\text{Gelb}} &= \text{\input{f_gelb.tex}}\\
+    \nu_{\text{Grün}} &= \text{\input{f_gruen.tex}}\\
+    \nu_{\text{Rot}} &= \text{\input{f_rot.tex}}
+    \end{align}
+    \flushleft{aufgetragen,\;}\justifying unter Verwendung der umgestellten Formel \eqref{eq:3} $U_g = \frac{h}{e_0}\nu - A_K$, ergibt sich der folgende Graph:
 
     \begin{figure}[H]
         \centering
@@ -217,13 +226,13 @@
         \label{fig:10}
     \end{figure}
 
+    \flushleft{Die\;}\justifying dazu verwendeten Parameter $m$ und $b$ lauten
     \begin{align}
-    \lambda &= \text{\SI{577}{\nano\meter}}\\
-    \lambda &= \text{\SI{546}{\nano\meter}}\\
-    \lambda &= \text{\SI{671}{\nano\meter}}\\
-    m &= \text{\input{m_f.tex}}\\
-    b &= \text{\input{b_f.tex}}   
+    m &= \text{\input{m_f.tex}}\;\text{und}\\
+    b &= \text{\input{b_f.tex}},\\
+    Fehler &= \text{\input{fehler.tex}}   
     \end{align}
+    \flushleft{wobei\;}\justifying $m$ das Verhältnis $\sfrac{h}{e_0}$ und $b$ die Austrittsarbeit $A_K$ beschreibt.
 
 \section{Diskussion}
 
