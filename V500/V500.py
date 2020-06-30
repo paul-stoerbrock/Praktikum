@@ -104,6 +104,8 @@ plt.close()
 
 m_gruen = ufloat(par[0],err[0])
 b_gruen = ufloat(par[1],err[1])
+U_g_gruen_err = -b_gruen/m_gruen
+
 
 # tex file for m_gruen 
 
@@ -119,6 +121,11 @@ with open('build/b_gruen.tex', 'w') as f:
 
 with open('build/U_g_gruen.tex', 'w') as f:
   f.write(make_SI(U_g_gruen,r'\volt', figures=2))
+
+# tex file for U_g_gruen_err 
+
+with open('build/U_g_gruen_err.tex', 'w') as f:
+  f.write(make_SI(U_g_gruen_err,r'\volt', figures=2))
 
 
 
@@ -144,6 +151,8 @@ plt.close()
 
 m_rot = ufloat(par[0],err[0])
 b_rot = ufloat(par[1],err[1])
+U_g_rot_err = -b_rot/m_rot
+
 
 # tex file for m_rot 
 
@@ -159,6 +168,11 @@ with open('build/b_rot.tex', 'w') as f:
 
 with open('build/U_g_rot.tex', 'w') as f:
   f.write(make_SI(U_g_rot,r'\volt', figures=2))
+
+# tex file for U_g_rot_err 
+
+with open('build/U_g_rot_err.tex', 'w') as f:
+  f.write(make_SI(U_g_rot_err,r'\volt', figures=2))
 
 #Frequenzen--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
