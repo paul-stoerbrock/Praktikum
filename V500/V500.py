@@ -58,17 +58,17 @@ b_gelb = ufloat(par[1],err[1])
 # tex file for m_gelb 
 
 with open('build/m_gelb.tex', 'w') as f:
-  f.write(make_SI(m_gelb,r'\nano\ampere\tothe{1/2}\per\volt', figures=1))
+  f.write(make_SI(m_gelb,r'\nano\ampere\tothe{1/2}\per\volt', figures=2))
 
 # tex file for b_gelb 
 
 with open('build/b_gelb.tex', 'w') as f:
-  f.write(make_SI(b_gelb,r'\nano\ampere', figures=1))
+  f.write(make_SI(b_gelb,r'\nano\ampere', figures=2))
 
 # tex file for U_g_gelb 
 
 with open('build/U_g_gelb.tex', 'w') as f:
-  f.write(make_SI(U_g_gelb,r'\volt', figures=1))
+  f.write(make_SI(U_g_gelb,r'\volt', figures=2))
 
 
 
@@ -99,17 +99,17 @@ b_gruen = ufloat(par[1],err[1])
 # tex file for m_gruen 
 
 with open('build/m_gruen.tex', 'w') as f:
-  f.write(make_SI(m_gruen,r'\nano\ampere\tothe{1/2}\per\volt', figures=1))
+  f.write(make_SI(m_gruen,r'\nano\ampere\tothe{1/2}\per\volt', figures=2))
 
 # tex file for b_gruen 
 
 with open('build/b_gruen.tex', 'w') as f:
-  f.write(make_SI(b_gruen,r'\nano\ampere', figures=1))
+  f.write(make_SI(b_gruen,r'\nano\ampere', figures=2))
 
 # tex file for U_g_gruen 
 
 with open('build/U_g_gruen.tex', 'w') as f:
-  f.write(make_SI(U_g_gruen,r'\volt', figures=1))
+  f.write(make_SI(U_g_gruen,r'\volt', figures=2))
 
 
 
@@ -139,21 +139,21 @@ b_rot = ufloat(par[1],err[1])
 # tex file for m_rot 
 
 with open('build/m_rot.tex', 'w') as f:
-  f.write(make_SI(m_rot,r'\nano\ampere\tothe{1/2}\per\volt', figures=1))
+  f.write(make_SI(m_rot,r'\nano\ampere\tothe{1/2}\per\volt', figures=2))
 
 # tex file for b_rot 
 
 with open('build/b_rot.tex', 'w') as f:
-  f.write(make_SI(b_rot,r'\nano\ampere', figures=1))
+  f.write(make_SI(b_rot,r'\nano\ampere', figures=2))
 
 # tex file for U_g_rot 
 
 with open('build/U_g_rot.tex', 'w') as f:
-  f.write(make_SI(U_g_rot,r'\volt', figures=1))
+  f.write(make_SI(U_g_rot,r'\volt', figures=2))
 
 
 
-f_gelb = const.c/577e-09
+f_gelb = const.c/578e-09
 f_gruen = const.c/546e-09
 f_rot = const.c/671e-09
 U_g_array = np.array([U_g_gelb, U_g_gruen, U_g_rot])
@@ -174,18 +174,18 @@ plt.tight_layout
 plt.savefig('build/plotLambda.pdf')
 plt.close()
 
-m_f = ufloat(par[0], par[1])
-b_f = ufloat(err[0], err[1])
+m_f = ufloat(par[0], err[0])
+b_f = ufloat(par[1], err[1])
 
 # tex file for m_f 
 
 with open('build/m_f.tex', 'w') as f:
-  f.write(make_SI(m_f,r'\volt\per\hertz', figures=1))
+  f.write(make_SI(m_f*1e+14,r'\volt\per\hertz', figures=2))
 
 # tex file for b_f 
 
 with open('build/b_f.tex', 'w') as f:
-  f.write(make_SI(b_f,r'\volt', figures=1))
+  f.write(make_SI(b_f,r'\volt', figures=2))
 
 
 lit = const.h/const.e
@@ -194,9 +194,43 @@ fehler = np.abs(m_f.n-lit)/lit
 print(fehler)
 print(b_f)
 print(m_f)
-print(b_f.n)
-print(m_f.n)
+print(b_f)
+print(m_f)
 
+U_g_array_L = np.array([U_g_gelb, U_g_gruen])
+f_array_L = np.array([f_gelb, f_gruen])
+
+
+plt.plot(f_array_L, U_g_array_L, 'kx', label='Messwerte')
+m_L = (U_g_gruen-U_g_gelb)/(f_gruen-f_gelb)
+b_L =U_g_gelb-m_L*f_gelb
+f_array_L = np.linspace(0e+14, 6e+14, 1000)
+plt.plot(f_array_L, m_L*f_array_L+b_L, 'b-', label="Gerade")
+
+plt.xlabel(r'Frequenz $\nu\;[Hz]$')
+plt.ylabel(r'Spannung $U_g\;[V]$')
+plt.legend(loc="best")
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotLambdaL.pdf')
+plt.close()
+
+fehler_L = np.abs(m_L-lit)/lit
+
+# tex file for m_L 
+
+with open('build/m_L.tex', 'w') as f:
+  f.write(make_SI(m_L*1e+14,r'\volt\per\hertz', figures=2))
+
+# tex file for b_L 
+
+with open('build/b_L.tex', 'w') as f:
+  f.write(make_SI(b_L,r'\volt', figures=2))
+
+# tex file for fehler_L 
+
+with open('build/fehler_L.tex', 'w') as f:
+  f.write(make_SI(fehler_L,r'', figures=2))
 
 #Tabellen ========================================================================================================================================================================================================================
 
