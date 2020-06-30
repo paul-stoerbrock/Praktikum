@@ -124,9 +124,17 @@
 
 \section{Auswertung}
 
+\subsection{Gelbe Spektrallinie}
+
     \flushleft{Für\;}\justifying die Auswertung werden alle Graphen mit der python Bibliothek matplotlib \cite{matplotlib} erstellt.\\
-    Der folgende Graph stellt das Verhältnis zwischen Photostrom $I_{\text{Photo}}$ und der dazugehörigen Spannung $U$ dar. Die dazu verwendeten Messwerte sind in Tabelle \ref{tab:1}
-    zu finden und die 
+    Der folgende Graph stellt das Verhältnis zwischen Photostrom $I_{\text{Photo}}$ und der dazugehörigen Spannung $U$ der gelben Spektrallinie dar. Die dazu verwendeten Messwerte sind 
+    in Tabelle \ref{tab:1} zu finden und es wird die Formel der allgemeinen Geradengleichung $y=mx+b$ verwendet, wobei hier $y=\sqrt{I_{\text{Photo}}}$ und $x=U$ ist. Die dazugehörigen 
+    Parameter $m$ und $b$ lauten:
+
+    \begin{align}
+    m &= \text{\input{m_gelb.tex}} \label{eq:5}\\
+    b &= \text{\input{b_gelb.tex}} \label{eq:6}
+    \end{align}
 
     \begin{figure}[H]
         \centering
@@ -135,13 +143,20 @@
         \label{fig:7}
     \end{figure}
 
+    \flushleft{Der\;}\justifying Schnittpunkt mit der U-Achse beschreibt hier die Gegenspannung $U_g$ und wird durch Umstellen der Geradengleichung wie folgt berechnet:
     \begin{align}
-    m &= \text{\input{m_gelb.tex}}\\
-    b &= \text{\input{b_gelb.tex}}\\
-    U_g &= \text{\input{U_g_gelb.tex}}\\
-    \lambda &= \text{\SI{577}{\nano\meter}}
+    0 &= mx+b \Leftrightarrow -\frac{b}{m}=x = U_g \label{eq:7}\\
+    U_g &= \text{\input{U_g_gelb.tex}} \label{eq:8}
     \end{align}
 
+\subsection{Grüne Spektrallinie}
+
+    \flushleft{Für\;}\justifying die grüne Spektrallinie wird die Gegenspannung genauso wie bei der gelben Spektrallinie bestimmt. Der folgende Graph wird mithilfe der 
+    Messwerte aus Tabelle \ref{tab:2} und der Geradengleichung analog zur gelben Spektrallinie erstellt. Die dazu verwendeten Parameter $m$ und $b$ lauten wie folgt:
+    \begin{align}
+    m &= \text{\input{m_gruen.tex}} \label{eq:9}\\
+    b &= \text{\input{b_gruen.tex}} \label{eq:10}
+    \end{align}
 
     \begin{figure}[H]
         \centering
@@ -150,12 +165,20 @@
         \label{fig:8}
     \end{figure}
 
+    \flushleft{Die\;}\justifying Gegenspannung $U_g$ wird analog zur Formel \eqref{eq:7} bestimmt und lautet:
     \begin{align}
-    m &= \text{\input{m_gruen.tex}}\\
-    b &= \text{\input{b_gruen.tex}}\\
-    U_g &=\text{\input{U_g_gruen.tex}}\\
-    \lambda &= \text{\SI{546}{\nano\meter}}
+    U_g &=\text{\input{U_g_gruen.tex}} \label{eq:11}
     \end{align}
+
+\subsection{Rote Spektrallinie}
+
+    \flushleft{Für\;}\justifying die rote Spektrallinie wird identisch zu den anderen beiden Spektrallinien verfahren. Für den folgenden Graph werden die Messwerte aus Tabelle
+    \ref{tab:3} und die Parameter
+    \begin{align}
+    m &= \text{\input{m_rot.tex}} \label{eq:12}\\
+    b &= \text{\input{b_rot.tex}} \label{eq:13}
+    \end{align}
+    \flushleft{verwendet.\;}\justifying
 
     \begin{figure}[H]
         \centering
@@ -164,12 +187,28 @@
         \label{fig:9}
     \end{figure}
 
+    \flushleft{Die\;}\justifying Gegenspannung $U_g$ der roten Spektrallinie lautet:
     \begin{align}
-    m &= \text{\input{m_rot.tex}}\\
-    b &= \text{\input{b_rot.tex}}\\
-    U_g &=\text{\input{U_g_rot.tex}}\\
-    \lambda &= \text{\SI{671}{\nano\meter}}
+    U_g &=\text{\input{U_g_rot.tex}} \label{eq:14}
     \end{align}
+
+\subsection{Verhältnis und Austrittsarbeit}
+
+
+    \flushleft{Um\;}\justifying das Verhältnis $\sfrac{h}{e_0}$ und die Austrittsarbeit $A_K$ bestimmen zu können, werden die zuvor berechneten Gegenspannungen $U_g$
+    gegen die Lichtfrequenzen der einzelnen Spektrallinien graphisch aufgetragen. Die Lichtfrequenzen werden mit der Formel
+    \begin{align}
+    \nu &= \frac{c}{\lambda} \label{eq:15}
+    \end{align}
+    \flushleft{berechnet,\;}\justifying wobei $\lambda$ die Wellenlänge und $c$ die Lichtgeschwindigkeit im Vakuum darstellt. $c$ wird der Konstantenbibliothek constants
+    von scipy \cite{scipy} entnommen und die Wellenlängen der Versuchsanleitung \cite{V500}. Diese lauten:
+    \begin{subequations} \label{eq:16}
+    \begin{align}
+    \lambda_{\text{Gelb}} &= \text{\SI{578}{\nano\meter}} \label{eq:16a}\\
+    \lambda_{\text{Grün}} &= \text{\SI{546}{\nano\meter}} \label{eq:16b}\\
+    \lambda_{\text{Rot}} &= \text{\SI{671}{\nano\meter}} \label{eq:16c}
+    \end{align}
+    \end{subequations}
 
     \begin{figure}[H]
         \centering
@@ -179,11 +218,27 @@
     \end{figure}
 
     \begin{align}
+    \lambda &= \text{\SI{577}{\nano\meter}}\\
+    \lambda &= \text{\SI{546}{\nano\meter}}\\
+    \lambda &= \text{\SI{671}{\nano\meter}}\\
     m &= \text{\input{m_f.tex}}\\
     b &= \text{\input{b_f.tex}}   
     \end{align}
 
 \section{Diskussion}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{build/plotLambdaL.pdf}
+        \caption{Placeholder}
+        \label{fig:10}
+    \end{figure}
+
+    \begin{align}
+    m &= \text{\input{m_L.tex}}\\
+    b &= \text{\input{b_L.tex}}\\
+    Fehler &= \text{\input{fehler_L.tex}}   
+    \end{align}
 
 \newpage
 \printbibliography
