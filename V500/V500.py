@@ -174,6 +174,8 @@ plt.tight_layout
 plt.savefig('build/plotLambda.pdf')
 plt.close()
 
+print(f_rot)
+
 m_f = ufloat(par[0], par[1])
 b_f = ufloat(err[0], err[1])
 
@@ -188,14 +190,12 @@ with open('build/b_f.tex', 'w') as f:
   f.write(make_SI(b_f,r'\volt', figures=1))
 
 
-lit = const.h/const.e
+lit = -const.h/const.e
+
+print(lit)
 
 fehler = np.abs(m_f.n-lit)/lit
 print(fehler)
-print(b_f)
-print(m_f)
-print(b_f.n)
-print(m_f.n)
 
 
 #Tabellen ========================================================================================================================================================================================================================
