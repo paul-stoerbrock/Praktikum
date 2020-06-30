@@ -35,6 +35,8 @@ lit = const.h/const.e
 
 #Graphen ========================================================================================================================================================================================================================
 
+#Gelb--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 par, covm = np.polyfit(-U_Gelb[12:26], np.sqrt(I_Gelb[12:26]), deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
 
@@ -45,7 +47,7 @@ plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 U_g_gelb = -par[1]/par[0]
 plt.plot(U_g_gelb, 0, 'ko', label="$U_g$")
 plt.axhline(y=0, color='r', linestyle= '--', label="U-Achse")
-plt.xlabel(r'Spannung $U\;[V]$')
+plt.xlabel(r'Bremsspannung $-U\;[V]$')
 plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
 plt.legend(loc="best")
 plt.grid()
@@ -79,7 +81,7 @@ with open('build/U_g_gelb_err.tex', 'w') as f:
 
 
 
-
+#Grün--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 par, covm = np.polyfit(-U_Gruen, np.sqrt(I_Gruen), deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -92,7 +94,7 @@ plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 U_g_gruen = -par[1]/par[0]
 plt.plot(U_g_gruen, 0, 'ko', label="$U_g$")
 plt.axhline(y=0, color='r', linestyle= '--', label="U-Achse")
-plt.xlabel(r'Spannung $U\;[V]$')
+plt.xlabel(r'Bremsspannung $-U\;[V]$')
 plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
 plt.legend(loc="best")
 plt.grid()
@@ -120,7 +122,7 @@ with open('build/U_g_gruen.tex', 'w') as f:
 
 
 
-
+#Rot--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 par, covm = np.polyfit(-U_Rot, np.sqrt(I_Rot), deg=1, cov=True)
 err = np.sqrt(np.diag(covm))
@@ -132,7 +134,7 @@ plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 U_g_rot = -par[1]/par[0]
 plt.plot(U_g_rot, 0, 'ko', label="$U_g$")
 plt.axhline(y=0, color='r', linestyle= '--', label="U-Achse")
-plt.xlabel(r'Spannung $U\;[V]$')
+plt.xlabel(r'Bremsspannung $-U\;[V]$')
 plt.ylabel(r'Strom $\sqrt{I}\;[nA]$')
 plt.legend(loc="best")
 plt.grid()
@@ -158,7 +160,7 @@ with open('build/b_rot.tex', 'w') as f:
 with open('build/U_g_rot.tex', 'w') as f:
   f.write(make_SI(U_g_rot,r'\volt', figures=2))
 
-
+#Frequenzen--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 f_gelb = const.c/578e-09
 f_gruen = const.c/546e-09
@@ -179,6 +181,8 @@ with open('build/f_gruen.tex', 'w') as f:
 with open('build/f_rot.tex', 'w') as f:
   f.write(make_SI(f_rot*1e-15,r'\femto\hertz', figures=2))
 
+#h/e_0 Verhältnis und Austrittsarbeit A_K--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 U_g_array = np.array([U_g_gelb, U_g_gruen, U_g_rot])
 f_array = np.array([f_gelb, f_gruen, f_rot])
 
@@ -190,7 +194,7 @@ x_plot = np.linspace(0e+14, 6e+14, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 
 plt.xlabel(r'Frequenz $\nu\;[Hz]$')
-plt.ylabel(r'Spannung $U_g\;[V]$')
+plt.ylabel(r'Gegenspannung $U_g\;[V]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -222,6 +226,8 @@ print(m_f)
 print(b_f)
 print(m_f)
 
+#h/e_0 Verhältnis und Austrittsarbeit A_K (Diskussion)--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 U_g_array_L = np.array([U_g_gelb, U_g_gruen])
 f_array_L = np.array([f_gelb, f_gruen])
 
@@ -233,7 +239,7 @@ f_array_L = np.linspace(0e+14, 6e+14, 1000)
 plt.plot(f_array_L, m_L*f_array_L+b_L, 'b-', label="Gerade")
 
 plt.xlabel(r'Frequenz $\nu\;[Hz]$')
-plt.ylabel(r'Spannung $U_g\;[V]$')
+plt.ylabel(r'Gegenspannung $U_g\;[V]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout

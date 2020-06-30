@@ -93,7 +93,12 @@
     \begin{align}
         I_{\text{Photo}} &\propto U^2 \Leftrightarrow \sqrt{I_{\text{Photo}}} \propto U \label{eq:4}
     \end{align}
-    \flushleft{verwendet,\;}\justifying um über den Schnittpunkt der entstehenden Geraden mit der x-Achse die Gegenspannung $U_g$ zu erhalten.
+    \flushleft{verwendet,\;}\justifying um über den Schnittpunkt der entstehenden Geraden mit der x-Achse die Gegenspannung $U_g$ zu erhalten. Für die Bestimmung der Gegenspannung
+    ist außerdem noch die Frequenz des einfallenden Lichts wichtig, welche sich mit der folgenden Formel bestimmen lässt:
+    \begin{align}
+        \nu &= \frac{c}{\lambda} \label{eq:5}
+    \end{align}
+    $c$ ist hier die Lichtgeschwindigkeit im Vakuum und $\lambda$ die Wellenlänge des einfallenden Lichts.
 
 \newpage
 \section{Versuchsaufbau und Durchführung}
@@ -132,8 +137,8 @@
     Parameter $m$ und $b$ lauten:
 
     \begin{align}
-    m &= \text{\input{m_gelb.tex}} \label{eq:5}\\
-    b &= \text{\input{b_gelb.tex}} \label{eq:6}
+    m &= \text{\input{m_gelb.tex}} \label{eq:6}\\
+    b &= \text{\input{b_gelb.tex}} \label{eq:7}
     \end{align}
 
     \begin{figure}[H]
@@ -147,55 +152,64 @@
 
     \flushleft{Der\;}\justifying Schnittpunkt mit der U-Achse beschreibt hier die Gegenspannung $U_g$ und wird durch Umstellen der Geradengleichung wie folgt berechnet:
     \begin{align}
-    0 &= m U_g+b \Leftrightarrow -\frac{b}{m} = U_g \label{eq:7}
+    0 &= m U_g+b \Leftrightarrow -\frac{b}{m} = U_g \label{eq:8}
     \intertext{
-        \flushleft{Fehlerfortpflanzung\;}\justifying
+        \flushleft{Mit\;}\justifying der Fehlerfortpflanzung der Steigung $m$
     }
-    \frac{b}{2m^2} &= U_g
-    U_g &= \text{\input{U_g_gelb_err.tex}} \label{eq:8}
+    \Delta U_g &= \frac{b}{2m^2} \cdot \sigma_m \label{eq:9}
+    \intertext{
+        \flushleft{und\;}\justifying dem python Befehl ufloat der uncertainties Bibliothek \cite{uncertainties} ergibt sich für die Gegenspannung:
+    }
+    U_g &= \text{\input{U_g_gelb_err.tex}} \label{eq:10}
     \end{align}
 
+\newpage
 \subsection{Grüne Spektrallinie}
 
-    \flushleft{Für\;}\justifying die grüne Spektrallinie wird die Gegenspannung genauso wie bei der gelben Spektrallinie bestimmt. Der folgende Graph wird mithilfe der 
-    Messwerte aus Tabelle \ref{tab:2} und der Geradengleichung analog zur gelben Spektrallinie erstellt. Die dazu verwendeten Parameter $m$ und $b$ lauten wie folgt:
+    \flushleft{Für\;}\justifying die grüne Spektrallinie wird die Gegenspannung genauso wie bei der gelben Spektrallinie bestimmt. Der folgende Graph wird analog zur gelben 
+    Spektrallinie mithilfe der Messwerte aus Tabelle \ref{tab:2} erstellt. Die dazu verwendeten Parameter $m$ und $b$ lauten wie folgt:
     \begin{align}
-    m &= \text{\input{m_gruen.tex}} \label{eq:9}\\
-    b &= \text{\input{b_gruen.tex}} \label{eq:10}
+    m &= \text{\input{m_gruen.tex}} \label{eq:11}\\
+    b &= \text{\input{b_gruen.tex}} \label{eq:12}
     \end{align}
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{build/plotGruen.pdf}
-        \caption{Grün}
+        \caption{Dieser Graph gibt die Messwerte des Photostroms $\sqrt{I_{\text{Photo}}}$ der grünen Spektrallinie gegen dessen Bremsspannung $U$ wieder. Es handelt sich hier
+        nur um den relativ linear abfallenden Teil der Fermi-Dirak Kurve, weshalb die Ausgleichsgerade durch alle Messwerte geht. Auch hier wird die Gegenspannung $U_g$ durch den 
+        Schnittpunkt der Ausgleichsgeraden mit der U-Achse bestimmt.}
         \label{fig:8}
     \end{figure}
 
-    \flushleft{Die\;}\justifying Gegenspannung $U_g$ wird analog zur Formel \eqref{eq:7} bestimmt und lautet:
+    \flushleft{Die\;}\justifying Gegenspannung $U_g$ wird ebenfalls analog mit Formel \eqref{eq:8} und der Fehlerfortpflanzung \eqref{eq:9} bestimmt und lautet:
     \begin{align}
-    U_g &=\text{\input{U_g_gruen.tex}} \label{eq:11}
+    U_g &=\text{\input{U_g_gruen.tex}} \label{eq:13}
     \end{align}
 
+\newpage
 \subsection{Rote Spektrallinie}
 
     \flushleft{Für\;}\justifying die rote Spektrallinie wird identisch zu den anderen beiden Spektrallinien verfahren. Für den folgenden Graph werden die Messwerte aus Tabelle
     \ref{tab:3} und die Parameter
     \begin{align}
-    m &= \text{\input{m_rot.tex}} \label{eq:12}\\
-    b &= \text{\input{b_rot.tex}} \label{eq:13}
+    m &= \text{\input{m_rot.tex}} \label{eq:14}\\
+    b &= \text{\input{b_rot.tex}} \label{eq:15}
     \end{align}
     \flushleft{verwendet.\;}\justifying
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{build/plotRot.pdf}
-        \caption{Rot}
+        \caption{Dieser Graph stellt ebenfalls nur den linear abfallenden Teil der Fermi-Dirak Kurve dar. Hier wird abermals die Gegenspannung $U_g$ durch den Schnittpunkt
+        der Ausgleichsgeraden mit der U-Achse bestimmt.}
         \label{fig:9}
     \end{figure}
 
-    \flushleft{Die\;}\justifying Gegenspannung $U_g$ der roten Spektrallinie lautet:
+    \flushleft{Die\;}\justifying Gegenspannung $U_g$ der roten Spektrallinie wird wieder analog zur gelben und grünen Spektrallinie mithilfe der Formeln \eqref{eq:8} und \eqref{eq:9} 
+    berechent und lautet:
     \begin{align}
-    U_g &=\text{\input{U_g_rot.tex}} \label{eq:14}
+    U_g &=\text{\input{U_g_rot.tex}} \label{eq:16}
     \end{align}
 
 \subsection{Verhältnis und Austrittsarbeit}
@@ -204,36 +218,39 @@
     \flushleft{Um\;}\justifying das Verhältnis $\sfrac{h}{e_0}$ und die Austrittsarbeit $A_K$ bestimmen zu können, werden die zuvor berechneten Gegenspannungen $U_g$
     gegen die Lichtfrequenzen der einzelnen Spektrallinien graphisch aufgetragen. Die Lichtfrequenzen werden mit der Formel
     \begin{align}
-    \nu &= \frac{c}{\lambda} \label{eq:15}
+    \nu &= \frac{c}{\lambda} \label{eq:17}
     \end{align}
     \flushleft{berechnet,\;}\justifying wobei $\lambda$ die Wellenlänge und $c$ die Lichtgeschwindigkeit im Vakuum darstellt. $c$ wird der Bibliothek constants
     von scipy \cite{scipy} entnommen und die Wellenlängen der Versuchsanleitung \cite{V500}. Diese lauten:
-    \begin{subequations} \label{eq:16}
+    \begin{subequations} \label{eq:18}
     \begin{align}
-    \lambda_{\text{Gelb}} &= \text{\SI{578}{\nano\meter}} \label{eq:16a}\\
-    \lambda_{\text{Grün}} &= \text{\SI{546}{\nano\meter}} \label{eq:16b}\\
-    \lambda_{\text{Rot}} &= \text{\SI{671}{\nano\meter}} \label{eq:16c}
+    \lambda_{\text{Gelb}} &= \text{\SI{578}{\nano\meter}} \label{eq:18a}\\
+    \lambda_{\text{Grün}} &= \text{\SI{546}{\nano\meter}} \label{eq:18b}\\
+    \lambda_{\text{Rot}} &= \text{\SI{671}{\nano\meter}} \label{eq:18c}
     \end{align}
     \end{subequations}
     \flushleft{Werden\;}\justifying die Gegenspannungen $U_g$ gegen die folgenden Frequenzen
+    \begin{subequations} \label{eq:19}
     \begin{align}
-    \nu_{\text{Gelb}} &= \text{\input{f_gelb.tex}}\\
-    \nu_{\text{Grün}} &= \text{\input{f_gruen.tex}}\\
-    \nu_{\text{Rot}} &= \text{\input{f_rot.tex}}
+    \nu_{\text{Gelb}} &= \text{\input{f_gelb.tex}} \label{eq:19a}\\
+    \nu_{\text{Grün}} &= \text{\input{f_gruen.tex}} \label{eq:19b}\\
+    \nu_{\text{Rot}} &= \text{\input{f_rot.tex}} \label{eq:19c}
     \end{align}
+    \end{subequations}
     \flushleft{aufgetragen,\;}\justifying unter Verwendung der umgestellten Formel \eqref{eq:3} $U_g = \frac{h}{e_0}\nu - A_K$, ergibt sich der folgende Graph:
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{build/plotLambda.pdf}
-        \caption{Placeholder}
+        \caption{Dieser Graph trägt die zuvor bestimmten Gegenspannungen $U_g$ der Spektrallinien gelb, grün und rot gegen dessen jeweiligen Frequenzen auf. Die
+        Steigung $m$ der Ausgleichsgeraden gibt das Verhältnis $\sfrac{h}{e_0}$ wieder und der Schnittpunkt der Ausgleichsgeraden mit der $U_g$-Achse die Austrittsarbeit $A_K$.}
         \label{fig:10}
     \end{figure}
 
     \flushleft{Die\;}\justifying dazu verwendeten Parameter $m$ und $b$ lauten
     \begin{align}
-    m &= \text{\input{m_f.tex}}\;\text{und}\\
-    b &= \text{\input{b_f.tex}},\\
+    m &= \text{\input{m_f.tex}}\;\text{und} \label{eq:20}\\
+    b &= \text{\input{b_f.tex},} \label{eq:21}\\
     Fehler &= \text{\input{fehler.tex}}   
     \end{align}
     \flushleft{wobei\;}\justifying $m$ das Verhältnis $\sfrac{h}{e_0}$ und $b$ die Austrittsarbeit $A_K$ beschreibt.
