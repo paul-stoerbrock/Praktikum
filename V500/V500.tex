@@ -147,8 +147,12 @@
 
     \flushleft{Der\;}\justifying Schnittpunkt mit der U-Achse beschreibt hier die Gegenspannung $U_g$ und wird durch Umstellen der Geradengleichung wie folgt berechnet:
     \begin{align}
-    0 &= mx+b \Leftrightarrow -\frac{b}{m}=x = U_g \label{eq:7}\\
-    U_g &= \text{\input{U_g_gelb.tex}} \label{eq:8}
+    0 &= m U_g+b \Leftrightarrow -\frac{b}{m} = U_g \label{eq:7}
+    \intertext{
+        \flushleft{Fehlerfortpflanzung\;}\justifying
+    }
+    \frac{b}{2m^2} &= U_g
+    U_g &= \text{\input{U_g_gelb_err.tex}} \label{eq:8}
     \end{align}
 
 \subsection{Grüne Spektrallinie}

@@ -55,6 +55,7 @@ plt.close()
 
 m_gelb = ufloat(par[0],err[0])
 b_gelb = ufloat(par[1],err[1])
+U_g_gelb_err = -b_gelb/m_gelb
 
 # tex file for m_gelb 
 
@@ -70,6 +71,11 @@ with open('build/b_gelb.tex', 'w') as f:
 
 with open('build/U_g_gelb.tex', 'w') as f:
   f.write(make_SI(U_g_gelb,r'\volt', figures=2))
+
+# tex file for U_g_gelb_err 
+
+with open('build/U_g_gelb_err.tex', 'w') as f:
+  f.write(make_SI(U_g_gelb_err,r'\volt', figures=2))
 
 
 
