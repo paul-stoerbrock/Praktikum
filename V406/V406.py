@@ -11,6 +11,7 @@ from scipy import stats
 from scipy.stats import sem #standard error of mean = sem(x)
 from scipy.optimize import curve_fit #function curve_fit 
 import scipy.constants as const #Bsp.: const.physical_constants["proton mass"], output -> value, unit, error
+import math
 
 def make_SI(num, unit, exp='', figures=None):
     ''' Format an uncertainties ufloat as a \SI quantity '''
@@ -44,7 +45,10 @@ def rel_err(mess, lit):
 
 
 def I_f( phi, A0, b1):
-    return  A0**2 *np.sinc(b1*np.sin(phi)/(532*1e-09))**2
+    return  (A0* b1 * np.sinc(b1*np.sin(phi)/(532*1e-09)) )**2
+
+def I_f2( phi, A0, b1):
+    return  A0**2 *b1**2 *((532*1e-09)/(np.pi *b1*phi))**2  *np.sin(b1*np.pi*phi/(532*1e-09))**2
 
 #Daten ########################################################################
 
@@ -57,6 +61,26 @@ L = ufloat(39.3, 0.1)*1e-02
 
 phi = (b-27.7*1e-03)/(39.3*1e-02) 
 
+
+phi0 = np.array([])
+I_ohne_dunkel0 = np.array([])
+temp = 0
+
+for x in phi:
+    if math.isfinite(1/np.sin(x)) :
+        phi0 = np.append(phi0, x)
+        I_ohne_dunkel0 = np.append(I_ohne_dunkel0, I_ohne_dunkel[temp])
+        temp = temp +1 
+        
+    else:
+        temp=temp+1
+        continue
+
+# Erstelllung des Arrays ohne Polstelle
+
+print(phi0)
+print(I_ohne_dunkel0)
+
 # Plots
 
 
@@ -65,9 +89,7 @@ par, cov = curve_fit(
     I_f,
     phi,
     I_ohne_dunkel,
-    sigma=None,
-    absolute_sigma=True,
-    p0=[ 0.008, 0.1*1e-03]
+    p0=[ 1.4, 0.1*1e-03]
     )
 
 
@@ -100,10 +122,10 @@ plt.close()
 # tex file for 
 
 with open('build/A.tex', 'w') as f:
-  f.write(make_SI(par[0],r'', figures=1))
+  f.write(make_SI(par[0],r'', figures=2))
 
 with open('build/b.tex', 'w') as f:
-  f.write(make_SI(par[1]*1e03,r'\milli\meter', figures=3))
+  f.write(make_SI(par[1]*1e03,r'\milli\meter', figures=1))
 
 with open('build/relerr_b.tex', 'w') as f:
   f.write(make_SI(rel_err(par[1], 0.1*1e-03) ,r'\percent', figures=2))
