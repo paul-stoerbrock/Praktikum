@@ -258,21 +258,50 @@
 \newpage
 \section{Diskussion}
 
-    \flushleft{\;}\justifying
+    \flushleft{Das\;}\justifying Verhältnis $\sfrac{h}{e_0}$ und die Austrittsarbeit $A_K$ lauten nach dem Graphen aus Abbildung \ref{fig:10}:
+    \begin{align}
+        \sfrac{h}{e_0} &= \text{\input{m_f.tex}} \label{eq:22}\\
+        A_K &= \text{\input{b_f.tex}} \label{eq:23}
+        \intertext{
+            \flushleft{Der\;}\justifying relaitve Fehler des Verhältnisses zum Literaturwert, welcher sich aus den Konstanten $h$ und $e_0$ berechnen lässt, liegt bei
+        }
+        Fehler_1 &= \text{\input{fehler.tex}.} \label{eq:24}
+    \end{align}
+    \flushleft{Das\;}\justifying planksche Wirkungsquantum $h$ und die Elementarladung $e_0$ werden der Bibliothek constants von scipy \cite{scipy} entnommen.
+    Das experimentelle Verhältnis liegt sehr weit von dem erwarteten Verhältnis entfernt. Dies könnte auf den Graphen \ref{fig:9} zurückführbar sein, da die
+    Gegenspannung weit im positiven Bereich liegt, obwohl rotes Licht eine geringere Energie als gelbes, oder grünes Licht besitzt. 
+    Unter Betrachtung der Gegenspannung der gelben \eqref{eq:10} und der grünen Spektrallinie \eqref{eq:13}, fällt auf, dass die Gegenspannung 
+    bei zunehmender Energie ebenfalls zunimmt. Also ist es unwahrscheinlich, dass die rote Spektrallinie eine stärkere Gegenspannung bei kleinerer Energie aufweist. 
+    Wird demnach die Frequenz der roten Spektrallinie aus dem Graphen \ref{fig:10} entfernt und eine Gerade durch die Punkte für gelb und grün gelegt, folgt der Graph:
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{build/plotLambdaL.pdf}
-        \caption{Placeholder}
+        \caption{Dieser Graph stellt die Gegenspannung $U_g$ der gelben und grünen Spektrallinie gegen dessen Frequenzen dar. Aus den beiden Punkten wird eine
+        Gerade bestimmt. Analog zum Graphen \ref{fig:10} ist hier die Steigung der Geraden $m$ das Verhältnis $\frac{h}{e_0}$ und der Schnittpunkt der Geraden mit der
+        $U_g$-Achse die Austrittsarbeit $A_K$.}
         \label{fig:10}
     \end{figure}
 
+    \flushleft{Die\;}\justifying verwendeten Parameter $m$ und $b$ lauten wie folgt:
     \begin{align}
-    Fehler_1 &= \text{\input{fehler.tex}}\\
-    m &= \text{\input{m_L.tex}}\\
-    b &= \text{\input{b_L.tex}}\\
-    Fehler_2 &= \text{\input{fehler_L.tex}}   
+    m &= \frac{h}{e_0} = \text{\input{m_L.tex}} \label{eq:25}\\
+    b &= A_K = \text{\input{b_L.tex}} \label{eq:26}
+    \intertext{
+        \flushleft{Wird\;}\justifying das neue Verhältnis mit dem Literaturwert verglichen entsteht der folgende relative Fehler:
+    }
+    Fehler_2 &= \text{\input{fehler_L.tex}} \label{eq:27} 
     \end{align}
+    \flushleft{Der\;}\justifying neue Fehler \eqref{eq:27} ist deutlich geringer als der vorherige \eqref{eq:24}, was einen systematischen Fehler in der Messreihe der
+    roten Spektrallinie vermuten lässt. Ein möglicher Grund kann die geringe Intensität des Lichtes sein, wie in Abbildung \ref{fig:6} zu erkennen ist. Eine mögliche 
+    Verbesserung der Messwerte wäre, die dritte primäre Spektrallinie (violett) zu messen. Neben dem hohen relativen Fehler ist das Vorzeichen der Austrittsarbeit \eqref{eq:21}
+    falsch, da ein Wert mit positiven Vorzeichen eingesetzt in die umgestellte Geradengleichung \eqref{eq:3} eine negative Austrittsarbeit bedeuten würde.
+
+    \flushleft{Der\;}\justifying Graph der gelben Spektrallinie \ref{fig:7} gibt den Verlauf des Photostroms bei sinkender Bremsspannung wieder. Wie in der Theorie bereits 
+    angedeutet, würde erwartet werden, dass der Strom bei der Gegenspannung $U_g$ abrupt abfallen würde. Dies ist jedoch nicht der Fall, da sonst von einer homogenen Energieverteilung
+    der Elektronen ausgegangen wird. Elekronen besitzen unterschiedliche Energien, die von $0\leq E \leq \sfrac{1}{2}m_0 v_{\text{max}}^2$ reichen kann. Demnach kommen bei steigender 
+    Bremsspannung nur noch die Elekronen an der Anoode an, die am meisten Energie vor dem Stoß besitzen. Daraus ergibt sich der Kurvenverlauf der Fermi-Dirak-Statistik, welcher 
+    ebenfalls im Graphen \ref{fig:7} erkennbar ist. 
 
 \newpage
 \printbibliography
