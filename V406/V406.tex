@@ -15,7 +15,6 @@
     }
     \date{Durchführung: 16.06.2020, Abgabe: 23.06.2020\vspace{-4ex}}
 \maketitle
-\center{\Large Versuchsgruppe: \textbf{23}}
     
 \newpage
 \tableofcontents
@@ -83,7 +82,7 @@ wobei n eine natürliche Zahl ist.
 Da die Beugung $B(\varphi)$ aufgrund der hohen Lichtfrequenzen nur schwer messbar ist,
 wird stattdessen die Intensität $I(\varphi)$ 
 \begin{align}
-    I(\varphi)  B(\varphi) = A_0^2 b^2 \left\{\frac{\lambda}{\pi b \sin \varphi} \right\}^2 \sin ^2 \left(\frac{\pi b \sin \varphi}{\lambda} \right) \text{\cite{V406}} \label{eq:4}
+    I(\varphi) \propto  B(\varphi)^2 = A_0^2 b^2 \left\{\frac{\lambda}{\pi b \sin \varphi} \right\}^2 \sin ^2 \left(\frac{\pi b \sin \varphi}{\lambda} \right) \text{\cite{V406}} \label{eq:4}
 \end{align}
 gemessen.\\
 
@@ -105,7 +104,7 @@ angschlossen. Dies sieht beispielsweise so aus:
     }
     \label{fig:3}
 \end{figure}
-Zuerst wird der Dunkelstrom des Photoelement gemessen, indem die Stromstärke
+\flushleft{Zuerst\;}\justifying wird der Dunkelstrom des Photoelement gemessen, indem die Stromstärke
 bei verdeckter Öffnung bestimmt wird.
 \flushleft{Dann\,}\justifying wird der Laser in Richtung der Blende und parallel zur Messschiene
 ausgerichtet. Dann wird der Punkt, auf dem der Laser auf dem Verschiebereiter zeigt, mit dem
@@ -116,7 +115,7 @@ ca. 50 Messwerte aufgenommen.
 \section{Auswertung}
 Alle Plots in der Auswertung werden mit matplotlib \cite{matplotlib} erstellt und alle
 Fehler mit uncertainties \cite{uncertainties} und numpy \cite{numpy} berechnet.\\
-Bei der Messung des Einzelspalts wird ein Laser der Wellenlänge $\lambda = \SI{532}{\nano\meter} $ verwendet.
+Bei der Durchführung des Experiments wird ein Laser der Wellenlänge $\lambda = \SI{532}{\nano\meter} $ verwendet.
 Der Einzelspalt hat eine Breite von $d=\SI{0.1}{\milli\meter} $ und der Abstand von 
 der Blende zum Verschiebereiter beträgt $L=\SI{39.3+-0.1}{\centi\meter} $.\\
 Die Tabelle \ref{tab:1} mit den Messwerten für die folgende Graphik befindet sich im Anhang.
@@ -142,9 +141,9 @@ Die Fitkurve wird hier mit der Funktion curvefit aus Scipy \cite{scipy} erstellt
 Die Fitfunktion und die Fitparameter lauten hierbei:
 \begin{subequations}
 \begin{align}
-    I(\varphi) &= A^2 \,\text{sinc} \left(\frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \right) \label{eq:6a}\\
-    A &= 8,31 \pm 31390,38 \label{eq:6b}\\
-    b &= \SI{0.13+-1096.6}{\milli\meter} \label{eq:6c}
+    I(\varphi) &= A^2\cdot b^2 \,\text{sinc} \left(\frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \right) \label{eq:6a}\\
+    A &= \input{A.tex} \label{eq:6b}\\
+    b &= \input{b.tex} \label{eq:6c}
 \end{align}
 \end{subequations}
 Hierbei ist die Funktion Sinus cardinalis definiert als
@@ -156,7 +155,7 @@ Dabei entsteht aus der Fitfunktion die Formel \eqref{eq:4}, wenn für
     A &= b^2 A_0^2 \label{eq:8} \\
     x &= \frac{b \sin{\varphi}}{\SI{532}{\nano\meter}} \label{eq:9}
 \end{align}
-wählt wird.
+gewählt wird.
 Der Punkt, bei dem im Fit durch 0 geteilt wird, wird dabei automatisch ignoriert.
 
 
@@ -171,18 +170,12 @@ Daraus lässt sich der relative Fehler mit dem berechneten $b$ aus Gleichung \eq
     b_{\text{rel. Fehler}} &= \frac{b-b_{\text{lit}}}{\text{lit}} \label{eq:11}\\
     b_{\text{rel. Fehler}} &= \text{\input{relerr_b.tex}}.
 \end{align}
-Dieser Fehler ist grundsätzlich groß. Eine Erklärung für diesen könnte unter anderem
+Eine Erklärung für den Fehler könnte unter anderem
 die Näherung in Gleichung \eqref{eq:5} darstellen, da es eben nur eine Näherung
 ist und nicht die genauen Verhältnisse wiederspiegelt. Zudem sind alle Messungen
 unter Lichteinfall durchgeführt worden, welche auch von dem Photoelement als Untergrund
 gemessen worden ist. Zudem könnte der Laser nicht perfekt auf den Spalt ausgerichtet worden
-sein, wodurch das Beugungsbild verändert werden würde.\\ Sehr auffälig sind die immens 
-großen Messungenauigkeiten bei den Parametern \eqref{eq:6b} und \eqref{eq:6c} der Fitkurve,
-welche mehrere Größenordnungen über den eigentlichen Wert liegen. Diese können nicht durch statistische
-Fehler entstanden sein, da dafür der Fit zu gut auf die Werte passt. Auch systematische Fehler
-können dies nicht erklären, da dafür die Werte zu nah am Literaturwert liegen. Daher ließe sich vermuten, dass
-es an der Funktion curvefit liegt bzw. ihrer verwendeten Funktion.
-
+sein, wodurch das Beugungsbild verändert werden würde.\\ 
 \newpage
 \printbibliography
 
