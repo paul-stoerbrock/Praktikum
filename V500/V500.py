@@ -27,6 +27,7 @@ U_Rot, I_Rot = np.genfromtxt('Rot.txt', unpack=True)
 U_Gelb, I_Gelb = np.genfromtxt('Gelb.txt', unpack=True)
 U_Gruen, I_Gruen = np.genfromtxt('Gruen.txt', unpack=True)
 
+lit = const.h/const.e
 
 
 
@@ -156,6 +157,22 @@ with open('build/U_g_rot.tex', 'w') as f:
 f_gelb = const.c/578e-09
 f_gruen = const.c/546e-09
 f_rot = const.c/671e-09
+
+# tex file for f_gelb
+
+with open('build/f_gelb.tex', 'w') as f:
+  f.write(make_SI(f_gelb*1e-15,r'\femto\hertz', figures=2))
+
+# tex file for f_gruen
+
+with open('build/f_gruen.tex', 'w') as f:
+  f.write(make_SI(f_gruen*1e-15,r'\femto\hertz', figures=2))
+
+# tex file for f_rot
+
+with open('build/f_rot.tex', 'w') as f:
+  f.write(make_SI(f_rot*1e-15,r'\femto\hertz', figures=2))
+
 U_g_array = np.array([U_g_gelb, U_g_gruen, U_g_rot])
 f_array = np.array([f_gelb, f_gruen, f_rot])
 
@@ -176,6 +193,7 @@ plt.close()
 
 m_f = ufloat(par[0], err[0])
 b_f = ufloat(par[1], err[1])
+fehler = np.abs(m_f.n-lit)/lit
 
 # tex file for m_f 
 
@@ -187,12 +205,11 @@ with open('build/m_f.tex', 'w') as f:
 with open('build/b_f.tex', 'w') as f:
   f.write(make_SI(b_f,r'\volt', figures=2))
 
+# tex file for fehler 
 
-lit = -const.h/const.e
+with open('build/fehler.tex', 'w') as f:
+  f.write(make_SI(fehler*100,r'\percent', figures=2))
 
-print(lit)
-
-fehler = np.abs(m_f.n-lit)/lit
 print(fehler)
 print(b_f)
 print(m_f)
@@ -232,7 +249,7 @@ with open('build/b_L.tex', 'w') as f:
 # tex file for fehler_L 
 
 with open('build/fehler_L.tex', 'w') as f:
-  f.write(make_SI(fehler_L,r'', figures=2))
+  f.write(make_SI(fehler_L*100,r'\percent', figures=2))
 
 #Tabellen ========================================================================================================================================================================================================================
 
