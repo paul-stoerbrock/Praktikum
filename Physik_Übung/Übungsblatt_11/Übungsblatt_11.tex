@@ -27,6 +27,54 @@
     \centering
     \includegraphics[width=\textwidth]{images/ex1.jpg}
 \end{figure}
+Bestimmung des Störungsteil des Hamilton-Operator:
+\begin{align}
+    q E(t,x) &= - \del{}{x} \phi \\
+    \phi &= \int q E_0 e^{- \alpha t^2} \,\dif{x}\\
+    &=q E_0 x e^{-\alpha t^2}\\
+    \hat H _{int} (t) &= q E_0 \hat x e^{-\alpha t^2}\\
+    \intertext{
+        Bestimmung der Matrixelemente $W_{if}(t) $
+    }
+    \bra{\psi _f} q E_0 \hat x e^{- \alpha t^2} \ket{\psi _i}&= q E_0 e^{-\alpha t^2} \bra{\psi _f} \hat x \ket{\psi _i}  \\
+    \intertext{
+        Um die Wahrscheinlichkeit von einem Zustand i in einen beliebigen Zustand f
+        zu bestimmen, wird die Formel 2 vom Blatt über alle f summiert.
+    }
+    \sum _{f, f \ne i} P_{if}^{(1)} &= \sum _{f, f \ne i} \frac{1}{\hbar ^2} \abs{ \int_{-\infty}^{\infty} \.\dif{t} q E_0 e^{-\alpha t^2} \bra{\psi _f} \hat x \ket{\psi _i} \exp \left( \frac{i}{\hbar} (E_f - E_i)t \right) }^2\\
+    \intertext{
+        Zwischenrechnung:
+    }
+    \hat x &= \sqrt{\frac{\hbar}{2m \omega}} (\hat a + \hat a ^\dagger)\\
+    \bra{\psi _f} \sqrt{\frac{\hbar}{2m \omega}} (\hat a + \hat a ^\dagger) \ket{\psi _i}\\
+    &= \sqrt{\frac{\hbar}{2m \omega}} (\bra{\psi _f} \hat a \ket{\psi _i} + \bra{\psi _f} \hat a ^{\dagger} \ket{\psi _i} )\\
+    &= \sqrt{\frac{\hbar}{2m \omega}} (\sqrt{i} \delta _{f,i-1} + \sqrt{i+1} \delta _{f,i+1} )\\
+    \intertext{
+        Einsetzen in P und weiterrechnen
+    }
+    &= \sum _{f, f \ne i} \frac{1}{\hbar ^2} \abs{ \int_{-\infty}^{\infty} \,\dif{t} q E_0 \sqrt{\frac{\hbar}{2m \omega}} e^{-\alpha t^2} \exp \left( \frac{i}{\hbar} (E_f-E_i)t \right) (\sqrt{i} \delta _{f,i-1} + \sqrt{i+1} \delta _{f,i+1} ) }^2  \\
+    &= \sum _{f, f \ne i} \frac{q^2 E_0^2}{2 \hbar m \omega}  \abs{\sqrt{i} \delta _{f,i-1} + \sqrt{i+1} \delta _{f,i+1} }^2 \abs{ \int_{-\infty}^{\infty} \,\dif{t} \exp \left(-\alpha t^2 \frac{i}{\hbar} (E_f-E_i)t \right)  }\\
+    \intertext{
+        quadratische Ergänzung und Substitution des Exponenten zum Lösen des Integrals
+    }
+    - \alpha t^2 + \underbrace{\frac{i}{\hbar} (E_f -E_i) }_{=C} t\\
+    &= - \alpha \left(t^2 - \frac{C}{\alpha} t + \frac{C^2}{4\alpha ^2} - \frac{C^2}{4 \alpha ^2} \right)\\
+    &= - \alpha \left( t- \frac{C}{2 \alpha} \right)^2 + \frac{C^2}{4 \alpha}\\
+    u  &= t-\frac{C}{2 \alpha}\\
+    \frac{\dif{u}}{\dif{t}}=1\\
+    \intertext{weiter mit der Rechnung}
+    &= \sum _{f, f \ne i} \frac{q^2 E_0^2}{2 \hbar m \omega} \abs{\sqrt{i} \delta _{f,i-1} + \sqrt{i+1} \delta _{f,i+1} }^2 \abs{\int_{-\infty}^{\infty} \,\dif{u} e^{\frac{c^2}{4\alpha} \exp (-\alpha u^2) } }^2\\
+    &= \sum _{f, f \ne i} \frac{q^2 E_0^2}{2 \hbar m \omega} e^{\frac{C^2}{2\alpha}} \abs{\sqrt{i} \delta _{f,i-1} + \sqrt{i+1} \delta _{f,i+1} }^2 \abs{\sqrt{\frac{\pi}{\alpha}}}^2\\
+    \intertext{
+        Beim Auflösen der Summe bleiben nur die Elemente mit $f=i\pm 1$ übrig. Alle
+        anderen verschwinden. Für $C^2$ ergibt sich dadurch.
+    }
+    C^2 &= -\frac{1}{\hbar ^2} (E_{i\pm 1} - E_i)^2 \\
+    &= -\frac{1}{\hbar ^2} (i\pm 1 + \frac{1}{2}-i-\frac{1}{2} )^2 \hbar ^2 \omega ^2\\
+    &= -\omega ^2\\
+    \intertext{weiter}
+    &= \frac{q^2 E_0^2 \pi}{2 \hbar m \omega \alpha} \exp \left(\frac{- \omega ^2}{2\alpha}\right) (2i+1)
+\end{align}
 
 \section{Aufgabe 2}
 \begin{figure}[H]
