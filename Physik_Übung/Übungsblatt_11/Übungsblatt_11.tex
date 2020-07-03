@@ -261,11 +261,78 @@ Aus der ersten Aufgabe
 
 \subsection{a)}
 
+    \flushleft{Es\;}\justifying gilt für den Hamiltonoperator im Mehrteilchensystem:
+    \begin{align*}
+        H &= \sum_{i}^{N} H(i)
+        \intertext{
+            \flushleft{Da\;}\justifying es sich bei diesem System um ein Zweiteilchensystem handelt ($N=2$),
+            gilt für den Hamiltonoperator:
+        }
+        H &= H(1)+H(2) = -\frac{\hbar^2}{2m}\left( \frac{\mathrm{d}^2}{\mathrm{d}x_1^2} + \frac{\mathrm{d}^2}{\mathrm{d}x_2^2} \right) + V(1) + V(2)
+        \intertext{
+            \flushleft{Da\;}\justifying der Hamiltonoperator keinen Spinanteil enthält und mit $S^2$ und $S_z$ kommutiert, folgt, dass sich die
+            Energiezustände in einen Orts- und einen Spinanteil sparieren lassen: 
+        }
+        \ket{E} &= \ket{x} \ket{l,m} \tag{*}
+    \end{align*}
+    
 \subsection{b)}
+
+    \flushleft{Der\;}\justifying Energiezustand der Bosonen ist symmetrisch und der Energiezustand der Fermionen ist antisymmetrisch. 
+    Daraus folgt nach Gleichung (*), dass dies auch für Raumwellenfunktionen gelten muss. 
 
 \subsection{c)}
 
+    \flushleft{Es\;}\justifying wird vom folgenden Produktzustand ausgegangen:
+    \begin{align*}
+        \ket{\phi_1\phi_2} &= \ket{\phi_1(1)} \ket{\phi_2(2)}
+        \intertext{
+            \flushleft{Der\;}\justifying Produktzustand ist jedoch nicht symmetrisch, bzw. antisymmetrisch und muss also eine jeweilige 
+            Linearkombination (antisymmetrisch, bzw. symmetrisch) gefunden werden:
+        }
+        \ket{\phi_1\phi_2} &= \frac{1}{\sqrt{2}} \left( \ket{\phi_1(1)} \ket{\phi_2(2)} \pm \ket{\phi_1(2)} \ket{\phi_2(1)} \right)
+        \intertext{
+            \flushleft{Daraus\;}\justifying ergibt sich für ein Einteilchensystem der beiden Paritäten:\\
+            Positive Parität:
+        }
+        \phi_{n,+}(x) &= \sqrt{\frac{2}{a}} \cos\left( \frac{\pi}{2a}(2n+1)x \right)\\
+        E_{n,+} &= \frac{\pi^2 \hbar^2}{8ma^2}(2n+1)^2
+        \intertext{
+            \flushleft{Negative\;}\justifying Parität:
+        }
+        \phi_{n,-}(x) &= \sqrt{\frac{2}{a}} \sin\left( \frac{n\pi}{a}x \right)\\
+        E_n &= \frac{n^2 \pi^2 \hbar^2}{2ma^2}
+        \intertext{
+            \flushleft{Für\;}\justifying den Ortsanteil $\ket{x}$ ergibt sich also:
+        }
+        \ket{x} &\Rightarrow \ket{\phi_1\phi_2} = \frac{1}{\sqrt{2}} \left( \phi_{nk}(x_1) \phi_{n'k'}(x_2) \pm \phi_{nk}(x_2) \phi_{n'k'}(x_1) \right)
+        \intertext{
+            \flushleft{Hierbei\;}\justifying ist zu beachten, dass bei Fermionen die Spins parallel ausgerichtet sind, das bedeutet, dass
+            $(n,k)\neq (n',k')$ ist, da Fermionen nicht den geleichen Zustand besitzen.\\
+            Daraus folgen die Energien:
+        }
+        E_{nk,n'k'} &= E_{nk} + E_{n'k'} \qquad \text{dabei gilt weiterhin $(n,k)\neq (n',k')$ für Fermionen}
+    \end{align*}
+
 \subsection{d)}
+
+    \flushleft{Die\;}\justifying Grundzustandsenergie eines Einteilchensystems ist
+    \begin{align*}
+        E_{0,+} &= \frac{\pi^2\hbar^2}{8ma^2}
+        \intertext{
+            Daher ergibt sich für die Grundzustandsenergie zweier Bosonen:
+        }
+        E_{0,\text{Boson}} &= 2E_{0,+} = \frac{\pi^2\hbar^2}{4ma^2}
+        \intertext{
+            \flushleft{Da\;}\justifying zwei Fermionen nicht einen Zustand teilen können, muss hier noch der
+            erste angeregte Zustand mit negativer Parität bestimmt werden:
+        }
+        E_{1,-} &= \frac{\pi^2 \hbar^2}{2ma^2}
+        \intertext{
+            \flushleft{Dadurch\;}\justifying ergibt sich für die Grundzustandsenergie zweier Fermionen:
+        }
+        E_{0,\text{Fermion}} &= E_{0,+} + E_{1,-} = \frac{\pi^2\hbar^2}{8ma^2} + \frac{\pi^2 \hbar^2}{2ma^2} = \frac{5\pi^2\hbar^2}{8ma^2}
+    \end{align*}
 
 
 \end{document}
