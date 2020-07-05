@@ -31,13 +31,12 @@ t_auf_5, x_auf_5, t_ab_5, x_ab_5 = np.genfromtxt('tropfen_5.txt', unpack=True)
 t_auf_6, x_auf_6, t_ab_6, x_ab_6 = np.genfromtxt('tropfen_6.txt', unpack=True)
 t_auf_7, x_auf_7, t_ab_7, x_ab_7 = np.genfromtxt('tropfen_7.txt', unpack=True)
 
-q =
-d =
-rho =
+d = 7.6 #in mm
+rho = 
 g = const.g 
-h =
-b =
-p =
+eta =
+b = 8.2*10**(-3) #in Pa*m
+p = 1 #in bar
 v_f =
 v_r =
 V =
