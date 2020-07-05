@@ -31,13 +31,13 @@ t_auf_5, x_auf_5, t_ab_5, x_ab_5 = np.genfromtxt('tropfen_5.txt', unpack=True)
 t_auf_6, x_auf_6, t_ab_6, x_ab_6 = np.genfromtxt('tropfen_6.txt', unpack=True)
 t_auf_7, x_auf_7, t_ab_7, x_ab_7 = np.genfromtxt('tropfen_7.txt', unpack=True)
 
-d = 7.6e-3 #in mm
+d = 3e-3 #in m
 rho = 886 #kg/m^3
 g = const.g 
 eta = 1.843*10**(-5) #Nsm^(-2)
 b = 8.2*10**(-3) #in Pa*m
 p = 10**5 #in pascal
-E = 308/(d) #in V/m
+E = 308/d #in V/m
 
 #Geschwindigkeit Aufwärts============================================================================================================================================================================================================================
 
@@ -94,11 +94,16 @@ def m(a, rho):
 def q(m, rho, g, v_f, v_r, E):
     return (m*g*(v_f+v_r))/(E*v_f)
 
-print(a(b, p, eta, v_f, g, rho))
+print(q(m(a(b, p, eta, v_f, g, rho), rho), rho, g, v_f, v_r, E)/const.e)
 
-print(q(m(a(b, p, eta, v_f, g, rho), rho), rho, g, v_f, v_r, E))
+#Plot============================================================================================================================================================================================================================
 
-## tex file for U_g_gruen_err 
-#
-#with open('build/U_g_gruen_err.tex', 'w') as f:
-#  f.write(make_SI(U_g_gruen_err,r'\volt', figures=1))
+plt.plot(noms(a(b, p, eta, v_f, g, rho)), noms(q(m(a(b, p, eta, v_f, g, rho), rho), rho, g, v_f, v_r, E))/const.e, 'kx', label='Messwerte')
+
+plt.xlabel(r'Radius $\;[m]$')
+plt.ylabel(r'Ladung')
+plt.legend(loc="best")
+plt.grid()
+plt.tight_layout
+plt.savefig('plot.pdf')
+plt.close()
