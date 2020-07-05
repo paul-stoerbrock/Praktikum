@@ -31,7 +31,7 @@ t_auf_5, x_auf_5, t_ab_5, x_ab_5 = np.genfromtxt('tropfen_5.txt', unpack=True)
 t_auf_6, x_auf_6, t_ab_6, x_ab_6 = np.genfromtxt('tropfen_6.txt', unpack=True)
 t_auf_7, x_auf_7, t_ab_7, x_ab_7 = np.genfromtxt('tropfen_7.txt', unpack=True)
 
-d = 3e-3 #in m
+d = 7.6e-3 #in m
 rho = 886 #kg/m^3
 g = const.g 
 eta = 1.843*10**(-5) #Nsm^(-2)
@@ -94,14 +94,15 @@ def m(a, rho):
 def q(m, rho, g, v_f, v_r, E):
     return (m*g*(v_f+v_r))/(E*v_f)
 
+print(a(b, p, eta, v_f, g, rho))
 print(q(m(a(b, p, eta, v_f, g, rho), rho), rho, g, v_f, v_r, E)/const.e)
 
 #Plot============================================================================================================================================================================================================================
 
-plt.plot(noms(a(b, p, eta, v_f, g, rho)), noms(q(m(a(b, p, eta, v_f, g, rho), rho), rho, g, v_f, v_r, E))/const.e, 'kx', label='Messwerte')
+plt.plot(noms(a(b, p, eta, v_f, g, rho))*1e+3, noms(q(m(a(b, p, eta, v_f, g, rho), rho), rho, g, v_f, v_r, E))/const.e, 'kx', label='Messwerte')
 
-plt.xlabel(r'Radius $\;[m]$')
-plt.ylabel(r'Ladung')
+plt.xlabel(r'Radius des Tropfens $\;[mm]$')
+plt.ylabel(r'Vielfaches der Elementarladung')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
