@@ -1,0 +1,61 @@
+Theorie:
+Kräfte wirken auf geladene Öltröpfchen.
+Kleine Auftriebskräfte vernachlässigen , da dichte Unterschied 1 tausendstel
+k in beiden Gleichungen eliminieren und nach q umstellen.
+Masse noch unbekannt, standardmäßige Berechnung.
+Fehlt nur noch Radius
+Radius über Stoksches Gesetz berechnet. (Stoksches Gesetz einfügen) 
+Bei kleinen Fallgeschwindigkeiten passt das nicht mehr 0.1 cm/s.
+0.01 bis 0.001 cm/s haben Öltropfchen im Experiment.
+Korrekturterm an Viskosität.
+Einsetzen und nach a umstellen.
+(b Konstante 8.13 10^-8 N/m).
+Alles einsetzen ergibt für q.
+
+q - Ladung des Tröpfchens
+d - Plattenabstand
+rho - Dichte des Öls
+g - Erdbeschleunigung
+eta - Viskosität von Luft
+p - barometrischer Höhendruck
+a - Radius des Öltröpfchens
+vf - Fallgeschwindigkeit des Öltröpfchens
+vr - Aufstiegsgeschwindigkeit
+U - angelegte Spannung am Kondensator
+
+
+
+Aufbau:
+
+Mikroskop, Ionisationsquelle Schalter, 
+Loch für Öl, Umpoler, Fokussiernadel, Atomizer
+Anschließen an Spannungsquelle
+
+Durchführung:
+-Einstellen des Fokuses, so dass Gitter sichtbar ist. 
+
+-Messung des Plattenabstandes d
+
+-Messung der Spannung mit Multimeter (308 V) 
+(an der Verbindungstelle zum Kondenstor)
+
+-Messung des thermischen Widerstandes
+
+-Geschwindigkeiten der Öltröpfchen messen:
+
+o Aufnahme von Öl mit dem Atomizer durch Pumpen
+o Auf Loch ansetzen und Öl entlassen
+o Während dem einlassen ist der Ionisationsquelle auf an gestellt
+o Nach paar Sekunden ausschalten
+o Ein Tröpfchen auswählen und Fall- und Aufstiegsgeschwindigkeiten bestimmen.
+o Wiederholung des Vorgangs
+
+Auswertung:
+
+
+Diskussion:
+
+
+
+Literatur
+
