@@ -29,7 +29,51 @@
 
 \subsection{a)}
 
+    \flushleft{Das\;}\justifying Hubble-Gesetz lautet wie folgt:
+    \begin{align*}
+        z &= H \cdot \frac{d}{c}
+        \intertext{
+            \flushleft{wobei\;}\justifying hier die Hubble-Konstante $H$ mit $H_0 \approx 70 \,\text{km s$^{-1}$Mpc$^{-1}$}$ genähert wird.
+            $z$ beschreibt die Rotverschiebung und ist hier ungefähr gleich $0.057$, $d$ ist der Abstand und $c$ die Lichtgeschwindigkeit im Vakuum.
+            Wird nach $d$ umgeformt, ergibt sich für den Abstand:
+        }
+        d &= \frac{zc}{H_0} \approx \text{244.117$\,$Mpc}
+    \end{align*}
+    \flushleft{Die\;}\justifying Näherung der Hubble-Konstante ist hier gerechtfertig, da das Licht <1 milliarden ly an Strecke zurückgelegt hat. Die Hubble-Konstante hat sich
+    wahrscheinlich nur im frühen Universum (ca. vor 14 mio Jahren) verändert, da sich das Universum zu der Zeit sehr schnell ausgebreitet hat. Da das Licht nicht aus dem frühen 
+    Universum stammt, ist die Näherung der Hubble-Konstante hier gerechtfertigt.
+
 \subsection{b)}
+
+    \flushleft{Das\;}\justifying Radiospektrum von Cygnus A ist durch das Potenzgesetz 
+    \begin{align*}
+        F_{\nu} &\approx \nu^{-\alpha}
+        \intertext{
+            \flushleft{gegeben\;}\justifying mit $\alpha = 0.08$ und dem Frequenzintervall $10^7\,\text{Hz} \leq \nu \leq 3\cdot 10^9$. Außerdem beträgt $F_{\nu}\approx 1255\,\text{Jy}$ 
+            bei einer Frequenz von $\nu=1400\,\text{\SI{}{\mega\hertz}}$.\\
+            Um die gesamte Radio-Leuchtkraft bestimmen zu können, muss die Proportionalitätskonstante des oben genannten Potenzgesetzes bestimmt werden:
+        }
+        F_{\nu} &= Const\cdot \nu^{-\alpha}\\
+        \Leftrightarrow Const &= \frac{F_{\nu}}{\nu^{-\alpha}} = 2.603\cdot 10^{-16}\,\text{\SI{}{\watt\per\hertz\squared\meter\squared}}
+        \intertext{
+            \flushleft{Um\;}\justifying die Energieflussdichte im Abstand zur Erde bestimmen zu können, muss die spektrale Flussdichte über das Frequenzintervall integriert werden:
+        }
+        f &= \int_{\nu_1}^{\nu_2} Const \cdot \nu^{-\alpha} \mathrm{d}\nu = Const \int_{\nu_1}^{\nu_2} \nu^{-\alpha} \mathrm{d}\nu\\
+        &= Const \left[\frac{1}{\alpha+1} \nu^{-\alpha+1} \right]_{\nu_1}^{\nu_2}\\
+        &= \frac{Const}{\alpha+1} \left( \nu_2^{-\alpha+1}-\nu_1^{-\alpha+1} \right)\\
+        &= 7.735\cdot 10^{-15}\,\text{\SI{}{\watt\per\meter\squared}}
+        \intertext{
+            \flushleft{Unter\;}\justifying der Annahme einer isotropen Abstrahlung in alle Richtungen kann die Leuchtkraft $L$ von Cygnus A wie folgt bestimmt werden:
+        }
+        L &= 4\pi R^2f
+        \intertext{
+            \flushleft{Der\;}\justifying Radius $R$ ist hier der Abstand zwischen der Galaxie und der Erde $d$. Daraus ergibt sich die Leuchtkraft:
+        }
+        L_{\text{Cygnus}} &= 5.515 \cdot 10^{36}\,\text{\SI{}{\watt}}
+        \intertext{
+            \flushleft{Die\;}\justifying Radio-Leuchtkraft der Galaxie Cygnus A ist somit vergleichbar mit der Leuchtkraft der Milchstraße $L\approx 5\cdot 10^{36}$\SI{}{\watt}.
+        }
+    \end{align*}
 
 \section{Aufgabe 29}
 
