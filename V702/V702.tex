@@ -163,9 +163,12 @@ werden wiederum mit Uncertainties \cite{uncertainties} berechnet.\\
 Für die Bestimmung des Untergrunds wird ein Zeitintervall von $\Delta t = \SI{300}{\second} $ gewählt.
 Die gemessenen Werte lauten 
 \begin{align}
-    N_U = \{129, 143, 144, 136, 139, 126, 158\} \label{eq:8}.
+    N_U = \{129, 143, 144, 136, 139, 126, 158\} \si{Imp/200\second} \label{eq:8}.
 \end{align}
-
+Der Mittelwert des Untergrundes ist dabei
+\begin{align}
+    \bar{N} _{U} = \SI{139+-4}{Imp/200\second}.
+\end{align}
 
 \subsection{Messung der Halbwertszeit einer Vanadium-Probe}
 Der Zerfall von Vanadium lässt sich in diesem Fall der Reaktionsgleichung \eqref{eq:2}
@@ -174,7 +177,7 @@ zuordnen. Seine Reaktionsgleichung sieht im genauen wie folgt aus:
     \ce{^51_23 V + n -> ^52_23 V -> ^52_24 Cr + \symup{\beta}- + \bar{\symup{\nu}}_e } \label{eq:9}
 \end{align}
 Die Tabelle mit den Messwerten für die Vanadium-Probe befindet sich im Anhang \ref{tab:1}.
-Bei der Erstellung des Plots sind von den Messwerten ein zehntel der Untergrund-Zählraten im jeweiligen Intervall 
+Bei der Erstellung des Plots sind von den Messwerten ein zehntel der Untergrund-Zählrate 
 abgezogen worden. 
 Der Plot sieht dann folgendermaßen aus:
 \begin{figure}[H]
@@ -182,8 +185,8 @@ Der Plot sieht dann folgendermaßen aus:
     \includegraphics[width=\linewidth]{build/plot_V.pdf}
     \caption{Zählraten einer zylindrischen Vanadiumprobe in Abhängigkeit der Zeit t \cite{matplotlib}.
     Dabei ist die Zählrate logarithmisch aufgetragen und der Untergrund von den Gesamtzählraten abgezogen worden.
-    Die Fehler der Messwerte befinden sich innerhalb der Punkte.
-    } % Caption noch hinzufügen
+    Die Fehler kommen dabei aus der Poissonverteilung $\Delta n = \sqrt{n}$ .
+    } 
     \label{fig:4} 
 \end{figure}
 \flushleft{Die\,}\justifying Ausgleichsgerade in der Abbildung wird mit der Funktion

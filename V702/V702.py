@@ -56,21 +56,19 @@ def f(x, A, B, C, D):
 t_V, N_V = np.genfromtxt('Vanadium.dat' , unpack=True)
 t_Rh, N_Rh = np.genfromtxt('Rhodium.dat', unpack=True)
 
-N_U_V= np.array([129,129,129,129,129,129,129,129,129,129,143,143,143,143,143,143,143,143,143,143,144,144,144,144,144,144,144,144,144,144,136,136,136,136,136,136,136,136,136,136,139,139,139,139])
-N_U_V_err = unp.uarray(N_U_V, np.sqrt(N_U_V))
+U = np.array([129, 143, 144, 136, 139, 126, 158]) 
+U_sem = ufloat(np.mean(U), sem(U))
+print(U_sem)
 
 N_V_err = unp.uarray(N_V, np.sqrt(N_V))
 
-N_V_ohne_U = N_V_err-N_U_V_err/10
+N_V_ohne_U = N_V_err-U_sem/10
 
 
-
-N_U_Rh =np.array([129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,136,136,136,136])
-N_U_Rh_err =unp.uarray(N_U_Rh,np.sqrt(N_U_Rh))
 
 N_Rh_err = unp.uarray(N_Rh, np.sqrt(N_Rh))
 
-N_Rh_ohne_U = N_Rh_err-N_U_Rh_err/20
+N_Rh_ohne_U = N_Rh_err-U_sem/20
 
 
 
@@ -82,7 +80,7 @@ N_Rh_ohne_U = N_Rh_err-N_U_Rh_err/20
 par, cov= np.polyfit(t_V, np.log(noms(N_V_ohne_U)), deg=1, cov=True)
 err= np.sqrt(np.diag(cov))
 
-plt.errorbar(t_V, noms(N_V_ohne_U),xerr=stds(N_V_ohne_U) ,fmt='ko', label='Messwerte')
+plt.errorbar(t_V, noms(N_V_ohne_U),yerr=stds(N_V_ohne_U) ,fmt='ko', label='Messwerte')
 x_plot = np.linspace(0, 1400, 10000)
 plt.plot(x_plot, np.exp(x_plot*par[0]+par[1]), 'r-', label='Ausgleichsgerade')
 plt.yscale('log')
@@ -105,7 +103,7 @@ err1 = np.sqrt(np.diag(cov))
 par3, cov3 = np.polyfit(t_Rh[:17], np.log(noms(N_Rh_ohne_U[:17])- np.exp(par[1]+par[0]*t_Rh[:17])  ), deg=1, cov=True)
 err3 = np.sqrt(np.diag(cov3))
 
-plt.errorbar(t_Rh, noms(N_Rh_ohne_U),xerr=stds(N_Rh_ohne_U) ,fmt='kx', label='Messwerte')
+plt.errorbar(t_Rh, noms(N_Rh_ohne_U),yerr=stds(N_Rh_ohne_U) ,fmt='kx', label='Messwerte')
 x_plot = np.linspace(0, 660, 10000)
 x_plot2 = np.linspace(0, 300, 1000)
 plt.plot(x_plot, np.exp(x_plot*par[0]+par[1]) , 'r-', label='Gerade des langlebigen Zerfalls')
