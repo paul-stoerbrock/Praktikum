@@ -64,7 +64,7 @@
             0\\
             0
         \end{pmatrix} \right)^2 + \frac{m}{2} \alpha^2 \hat{y}^2\\
-        &= \frac{1}{2m} \left( \hat{p}_x \hat{y}qB \right)^2 + \frac{1}{2m} \hat{p}_y^2 + \frac{m}{2} \alpha^2 \hat{y}^2\\
+        &= \frac{1}{2m} \left( \hat{p}_x + \hat{y}qB \right)^2 + \frac{1}{2m} \hat{p}_y^2 + \frac{m}{2} \alpha^2 \hat{y}^2\\
         &= \frac{1}{2m} \hat{p}_x^2 + \frac{qB}{m} \hat{y} \hat{p}_x + \frac{1}{2m} \hat{p}_y^2 + \left( \frac{q^2 B^2}{2m} + \frac{m}{2}\alpha^2 \right) \hat{y}^2
     \end{align}
 
@@ -84,7 +84,7 @@
         &-\frac{\hbar^2}{2m} f\prime\prime(y) + \frac{1}{2} m \omega^2 y^2 f(y) = Ef(y)\\
         &-\frac{\hbar^2}{2m} f\prime\prime(y) = \left( - \left( \frac{q^2 B^2}{2m} + \frac{m}{2}\alpha^2 \right) y^2 - \frac{k_x q B \hbar}{m} y + \underbrace{\frac{\hbar^2 k_x^2}{2m} + E}_{C} \right) f(y)\\
         &-\frac{\hbar^2}{2m} f\prime\prime(y) = \left( - \left( \frac{q^2 B^2}{2m} + \frac{m}{2}\alpha^2 \right) y^2 - \frac{k_x q B \hbar}{m} y + C \right) f(y)\\
-        &= \left( - \underbrace{\left( \overbrace{\frac{q^2 B^2}{2m}}^{\omega^2} + \frac{m}{2}\alpha^2 \right)}_{a} y^2 - 2\underbrace{\frac{k_x q B \hbar}{m^2}}_{b} y + C \right) f(y)\\
+        &= \left( - \underbrace{\left( \overbrace{\frac{q^2 B^2}{2m}}^{\omega^2} + \frac{m}{2}\alpha^2 \right)}_{a} y^2 - \underbrace{\frac{k_x q B \hbar}{m}}_{b} y + C \right) f(y)\\
         &= \left(-\frac{1}{2}m a \left( y^2 + \frac{2b}{a} y + \frac{b^2}{a^2} - \frac{b^2}{a^2} \right) \right) f(y)\\
         &= \left(-\frac{1}{2}m \underbrace{a}_{\omega^2} \left( \underbrace{y + \frac{b}{a}}_{\tilde{y}} \right)^2 + \underbrace{\frac{1}{2} m \frac{b^2}{a} + C}_{\tilde{E}} \right) f(y) \qquad \text{mit}\; a=\omega^2+\alpha^2\\
         &-\frac{\hbar^2}{2m}f\prime\prime(y) + \frac{1}{2} m \tilde{\omega}^2 \tilde{y}^2 f(y) = \tilde{E}f(y)
