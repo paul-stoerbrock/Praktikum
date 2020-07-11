@@ -32,18 +32,140 @@ ersten angeregten Zustand wird nun mithilfe des Frank-Hertz-Versuches bestimmt.
 \section{Theorie}\justifying
 Der Frank-Hertz-Versuch gehört zu den Elektronenstoßexperimenten. Bei diesen 
 wechselwirken Elektronen mit Atomen und durch den Energieverlust der Elektronen 
-kann auf den Energieübergang zurückgeschlossen werden. Der Versuch selbst besteht
+kann auf den Energieübergang zurückgeschlossen werden.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/theo_aufbau.jpg}
+    \caption{
+        Theoretischer Aufbau des Frank-Hertz-Versuchs \cite{V601}.\\
+        Bei dem Frank-Hertz-Versuch ist ein evakuiertes Gefäß mit Quecksilbergas gefüllt.
+        Ein Glühdraht emittiert dabei Elektronen, welche durch die Beschleunigungselektrode
+        mit der Beschleunigungsspannung $U_B$
+        beschleunigt werden und dann mit den Atomen wechselwirken. Eine Auffängerelektrode
+        misst die durch das Gegenfeld mit der Gegenspannung $U_A$ kommenden Elektronen, welche einen Teil ihrer Energie 
+        bei der Wechselwirkung abgegeben haben.
+    } 
+    \label{fig:1}
+\end{figure}
+\leftside{Der} Versuch selbst besteht
 dabei aus einem evakuierten Gefäß in dem ein Tropfen Quecksilber spontan verdampft. 
 Dieser verdampft so weit bis in dem Gefäß der Gleichgewichtsdruck $p_{sät} $ erreicht.
 Dieser hängt von der Temperatur im Gefäß ab
 \begin{align}
-    p_{sät} = 5,5\cdot 10^7 \exp \left(\frac{-6876}{T} \right) \label{eq:1} \cite{V601} .
+    p_{sät}(T) = 5,5\cdot 10^7 \exp \left(\frac{-6876}{T} \right) \label{eq:1} \text{\cite{V601}} .
 \end{align}
+Die Elektronen für den Versuch stammen aus einer Glühkathode, wobei die Elektronen
+idealerweise monoenergetisch sind. Diese werden durch eine netzförmige Elektrode
+mit positiver Gleichspannung $U_B$ beschleunigt. Bei der Wechselwirkung mit 
+den Atomen können dann 2 Fälle auftreten. Zum einen können die Elektronen eine
+zu geringe Energie besitzen, sodass diese nur elastische Stöße mit dem Kern
+erzeugen. Der Energieübertrag ist dabei augrund des Masseunterschieds vernachlässigbar.
+Einzig die Richtungsänderung ist hier entscheidend.\\
+Im zweiten Fall haben die Elektronen mindestens die Energie des Übergangs vom Grundzustand
+in den ersten angeregten Zustand
+\begin{align}
+    E=E_1 -E_0 . \label{eq:2} \text{\cite{V601}}
+\end{align}
+Hierbei ist $E_0$ die Energie des Grundzustands und $E_1$ die Energie des ersten ageregten Zustands.
+Nach kurzer Zeit geht das Atom dann wieder unter Aussendung eines Lichtquants in den Grundzustand zurück.
+Die Elektronen gelangen danach zu einer Auffängerelektrode, an die eine Gegenspannung $U_A$ 
+anglegt wird. Dadurch können nur Elektronen gemessen werden, deren Energie, welche von der 
+Geschwindigkeit senkrecht zur Elektrode abhängig ist, größer als das des Gegenfeldes ist.
+Wird nun die Beschleunigungsspannung gegen den Auffängerstrom bei kostanter Gegenspannung
+aufgetragen, kann dies theoretisch wie folgt aussehen:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/kurve.jpg}
+    \caption{
+        Theoretischer Verlauf einer idealen der Frank-Hertz-Kurve\cite{V601}.\\
+        Bei der Frank-Hertz-Kurve ist die Beschleunigungsspannung gegen den
+        Auffängerstrom bei einer festen Gegenspannung aufgetragen. Der Verlauf
+        zeigt, dass mit steigender Spannung die Stromstärke erstmal stärker wird,
+        bis die Elektronen die Energie des Übergangs vom Grundzustand zum ersten angeregten
+        Zustand $U_1$ erreichen. Da fällt die Kurve schlagartig auf 0 ab, da alle Elektronen
+        mit den Atomen wechselwirken. Bei weiterer Erhöhung steigt die Kurve weiter an
+        bis eine Spannung von 2 $U_1$ erreicht wird. Das wiederholt sich periodisch.
+    } 
+    \label{fig:2}
+\end{figure}
+\leftside{Bei} steigender Spannung steigt der Auffängerstrom erstmal an, bis die Elektronen genügend
+Energie haben, um das Quecksilber anzuregen. Dann fällt die Stromstärke schlagartig ab.
+Dies wiederholt sich dann immer wieder, wobei die Amplituden dabei immer größer werden.
+Abstand zweier Maxima ist dabei
+\begin{align}
+    U_1 = \frac{1}{e_0} (E_1 -E_0) \label{eq:3}. \text{\cite{V601}}
+\end{align}
+Hier ist $e_0$ die Elementarladung.\\
+Die Abbildung \ref{fig:2} liefert hierbei nur eine idealisierte Darstellung des Verlaufs
+der tatsächliche Verlauf verändert sich durch einige Aspekte des Experiments.
+Zum einen bestehen Glühdraht und Beschleunigungskathode aus verschiedenen Materialien,
+wodurch das Potential zwischen diesen nicht die genau die Beschleuigungsspannung ist.
+Bei dem Frank-Hertz-Versuch wird die Austrittsarbeit des Materials $\Phi _g$ der Glühkathode
+um einiges kleiner als die der Beschleuigungskathode $\Phi _B$.
+Das Verhältnis der Potentiale lässt sich graphisch durch folgende Abbildung darstellen:
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/potential.jpg}
+    \caption{
+        Darstellung des Potentialgefälles zwischen Beschleuigungselektrode und Glühdraht \cite{V601}\\
+        Aufgrund unterschiedlicher Materialien haben Glühdraht und Beschleunigungselektrode
+        eine unterschiedliche Austrittsarbeit $\Phi _G$ bzw. $\Phi _B$. ie Austrittsarbeit des
+        Glühdrahts ist dabei geringer als die der Beschleunigungselektrode. Dadurch ist die eigentliche
+        Beschleunigungsspannung $U_{B,eff}$.
+    }
+    \label{fig:3}
+\end{figure}
+\leftside{Damit} ergibt sich für die effektive Beschleuigungsspannung
+\begin{subequations}
+\begin{align}
+    U_{B,eff} &= U_B - \frac{1}{e_0} (E_1 -E_0) \label{eq:4a}\text{\cite{V601}},
+    \intertext{
+        wobei der Term
+    }
+    K&:= \frac{1}{e_0} (E_1 -E_0) \label{eq:4b}
+\end{align}
+\end{subequations}
+als Kontaktpotential bezeichnet wird.\\
+Zudem besitzen alle Elektronen nicht die gleichen Energien aufgrund der Fermi-Dirac-Verteilung.
+Die Verteilung der Energien ist dabei temperaturabhängig und sorgt dafür, dass
+die Elektronen unterschiedliche Anfangsgeschwindigkeiten besitzen. Damit gibt es keinen
+unstetigen Abfall, wie in Abbildung \ref{fig:2}, sondern es fällt zu einem Minimum ab
+und steigt dann wieder an. \\
+Zudem sorgt die Ablenkung der Elektronen bei den elastischen Stößen, wenn diese zwischen Beschleunigungsspannung
+und Auffängerelektrode stattfinden, dafür, dass deren Geschwindigkeitskomponente senkrecht zur Elektrode
+verändert wird. Dadurch wird die Kurve Verbreitert und abgeflacht.\\
+Damit viele Elektronen mit dem Gas wechselwirken, muss die freie Weglänge
+um einen Faktor 1000-4000 mal kleiner sein als der Abstand von der Kathode zur Beschleunigungselektrode sein.
+Die freie Weglänge kann über den bereits erwähnten Sättigungsdampfdruck nach der folgenden Formel reguliert werden
+\begin{align}
+    \bar w [cm] = \frac{0,0029}{p_{sät}} \;\text{[p in mbar]}. \label{eq:5} \text{\cite{V601}}
+\end{align}
+
 
 
 % Versuchsaufbau + Versuchsdurchführung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und Versuchsdurchführung}\justifying
+Der Aufbau für den Frank-Hertz-Versuch wird in der folgenden Abbildung dagestellt:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Aufbau.jpg}
+    \caption{} %caption hinzufügen
+    \label{fig:4}
+\end{figure}
+\leftside{Das} zweite Gerät von links ist das evakuierte Glasrohr mit Auffängerelektrode, Glühdraht und
+Beschleunigungselektrode. Das ganz rechte Gerät ist das Amperemeter, welches den
+Auffängerstrom misst. Die ganz linken Geräte sind für die Einstellungen der Spannung und 
+die Erhitzung des Glasrohrs zuständig. Das zweite Gerät von rechts ist die Spannungsquelle
+des Glühdrahts.\\
+Für die Durchführung wird zuerst die Beschleunigungsspannung konstant auf \SI{11}{\volt} eingestellt.
+Dann wird bei Zimmertemperatur die Gegenpannung gegen den Auffängerstrom im mesbaren Bereich gemessen.
+Daraufhin wird die Temperatur auf den Bereich von 140 - \SI{160}{\celsius} erhöht und die Messung wiederholt.\\
+Dannach wird die Gegenspannung auf \SI{1}{\volt} gestellt und die Temperatur eine Temperatur von
+ungefähr \SI{164}{\celsius} gestellt. Dann wird die Beschleunigungsspannung gegen
+den Auffängerstrom gemmessen. Dannach wird die Temperatur auf ca. \SI{175}{\celsius} gestellt 
+und die Messung wiederholt.
+
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -52,15 +174,15 @@ Dieser hängt von der Temperatur im Gefäß ab
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UA.pdf}
-    \caption{}
-    \label{fig:a}
+    \caption{} %caption hinzufügen
+    \label{fig:a} % label korrigieren
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UB.pdf}
-    \caption{}
-    \label{fig:b}
+    \caption{} % caption hinzufügen
+    \label{fig:b} % label korrigieren
 \end{figure}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

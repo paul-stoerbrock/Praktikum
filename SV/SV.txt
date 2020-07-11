@@ -46,6 +46,7 @@ Durchführung:
 o Aufnahme von Öl mit dem Atomizer durch Pumpen
 o Auf Loch ansetzen und Öl entlassen
 o Während dem einlassen ist der Ionisationsquelle auf an gestellt
+0 Thorium-232 Quelle (
 o Nach paar Sekunden ausschalten
 o Ein Tröpfchen auswählen und Fall- und Aufstiegsgeschwindigkeiten bestimmen.
 o Wiederholung des Vorgangs

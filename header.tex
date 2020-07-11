@@ -47,7 +47,10 @@
 {
 \mathinner{\symup{d} #1}
 }
-
+\NewDocumentCommand \leftside {m}
+{
+\flushleft{#1\;}\justifying
+}
 \NewDocumentCommand \del {mm}
 {
     \mathinner{\frac{\partial #1}{\partial #2}}

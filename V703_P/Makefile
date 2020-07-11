@@ -11,9 +11,9 @@ build/V703_P.pdf: FORCE V703_P.tex V703_P.py |build
 	  --halt-on-error \
 	V703_P.tex
 
-#build/plot.pdf:  V703_P.py .dat |build
-#
-#	TEXINPUTS=$$(pwd): python V703_P.py
+build/plot.pdf:  V703_P.py .dat |build
+
+	TEXINPUTS=$$(pwd): python V703_P.py
 
 build:
 	mkdir -p build
