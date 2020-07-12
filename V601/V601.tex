@@ -170,21 +170,30 @@ und die Messung wiederholt.
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
-
+Alle Plots in der Auswertung werden mit matplotlib \cite{matplotlib} erstellt.
+Alle Fehler werden mit uncertainties \cite{uncertainties} und numpy \cite{numpy} berechnet.\\
+Der Sättigungsdampfdruck und der Wirkungsquerschnitt für die in der Aufgabe vorkommenden
+Temperaturen ist in der folgenden Tabelle dargestellt.
 \input{T_table.tex}
+Der Sättigungsdampfdruck wird hier mit Gleichung \eqref{eq:1} und der Wirkungsquerschnitt 
+mit Gleichung \eqref{eq:5} berechnet.
+
+\subsection{Differentielle Energieverteilung}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UA.pdf}
     \caption{} %caption hinzufügen
-    \label{fig:a} % label korrigieren
+    \label{fig:5} 
 \end{figure}
+
+\subsection{Frank-Hertz-Kurve}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UB.pdf}
     \caption{} % caption hinzufügen
-    \label{fig:b} % label korrigieren
+    \label{fig:6} 
 \end{figure}
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

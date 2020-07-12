@@ -148,6 +148,9 @@ plt.close()
 table_header = r'''
   \begin{longtable}[H]{S[table-format=3.2] S[table-format=5.1] S[table-format=3.1] }
     \caption{
+        In der Tabelle sind die Temperaturen mitsamt ihres Sättigungsdampfdruck und des
+        Wirkungsquerschnitts dargestellt. Der Sättigungsdampfdruck wird mithilfe der Formel
+        \eqref{eq:1} und der Wirkungsquerschnitt mit Formel \eqref{eq:5} berechnet.
     }\\ 
     \toprule
     \multicolumn{1}{c}{ $T\:/\:K$ } & \multicolumn{1}{c}{$p_{\text{sät}} \:/\:\mu bar$ }   &
