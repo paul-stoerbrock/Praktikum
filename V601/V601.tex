@@ -52,7 +52,7 @@ dabei aus einem evakuierten Gefäß in dem ein Tropfen Quecksilber spontan verda
 Dieser verdampft so weit bis in dem Gefäß der Gleichgewichtsdruck $p_{sät} $ erreicht.
 Dieser hängt von der Temperatur im Gefäß ab
 \begin{align}
-    p_{sät}(T) = 5,5\cdot 10^7 \exp \left(\frac{-6876}{T} \right) \label{eq:1} \text{\cite{V601}} .
+    p_{sät}(T) = 5,5\cdot 10^7 \exp \left(\frac{-6876}{T} \right) \label{eq:1} \quad \text{(p in mbar, T in K)} \text{\cite{V601}} .
 \end{align}
 Die Elektronen für den Versuch stammen aus einer Glühkathode, wobei die Elektronen
 idealerweise monoenergetisch sind. Diese werden durch eine netzförmige Elektrode
@@ -103,7 +103,7 @@ wodurch das Potential zwischen diesen nicht die genau die Beschleuigungsspannung
 Bei dem Frank-Hertz-Versuch wird die Austrittsarbeit des Materials $\Phi _g$ der Glühkathode
 um einiges kleiner als die der Beschleuigungskathode $\Phi _B$.
 Das Verhältnis der Potentiale lässt sich graphisch durch folgende Abbildung darstellen:
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/potential.jpg}
     \caption{
@@ -171,6 +171,8 @@ und die Messung wiederholt.
 
 \section{Auswertung}
 
+\input{T_table.tex}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UA.pdf}
@@ -194,5 +196,9 @@ und die Messung wiederholt.
 
 \newpage
 \printbibliography
+\newpage
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\input{UB_table.tex}
 
 \end{document}
