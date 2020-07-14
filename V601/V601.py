@@ -165,7 +165,7 @@ with open('build/lambda.tex', 'w') as f:
 table_header = r'''
   \begin{longtable}[H]{S[table-format=3.2] S[table-format=5.1] S[table-format=3.1] S[table-format=3.1] }
     \caption{
-        In der Tabelle sind die Temperaturen mitsamt ihres Sättigungsdampfdruck und des
+        In der Tabelle sind die Temperaturen mitsamt ihres Sättigungsdampfdrucks und des
         Wirkungsquerschnitts dargestellt. Der Sättigungsdampfdruck wird mithilfe der Formel
         \eqref{eq:1} und der Wirkungsquerschnitt mit Formel \eqref{eq:5} berechnet. In der vierten
         Spalte ist dann das Verhältnis zwischen dem Abstand des Glühdrahts zur Beschleunigerelektrode a,
