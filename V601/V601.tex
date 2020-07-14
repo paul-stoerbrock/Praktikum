@@ -39,11 +39,11 @@ kann auf den Energieübergang zurückgeschlossen werden.\\
     \caption{
         Theoretischer Aufbau des Frank-Hertz-Versuchs \cite{V601}.\\
         Bei dem Frank-Hertz-Versuch ist ein evakuiertes Gefäß mit Quecksilbergas gefüllt.
-        Ein Glühdraht emittiert dabei Elektronen, welche durch die Beschleunigungselektrode
+        Ein Glühdraht an einer Spannungsquelle emittiert dabei Elektronen, welche durch die Beschleunigungselektrode
         mit der Beschleunigungsspannung $U_B$
-        beschleunigt werden und dann mit den Atomen wechselwirken. Eine Auffängerelektrode
-        misst die durch das Gegenfeld mit der Gegenspannung $U_A$ kommenden Elektronen, welche einen Teil ihrer Energie 
-        bei der Wechselwirkung abgegeben haben.
+        beschleunigt werden und dann mit den Atomen wechselwirken. Wenn die Elektronen
+        dann noch genügend Energie haben um das Gegenfeld der Auffängerelektrode zu überwinden,
+        werden sie vom Amperemeter gemessen. 
     } 
     \label{fig:1}
 \end{figure}
@@ -52,7 +52,7 @@ dabei aus einem evakuierten Gefäß in dem ein Tropfen Quecksilber spontan verda
 Dieser verdampft so weit bis in dem Gefäß der Gleichgewichtsdruck $p_{sät} $ erreicht.
 Dieser hängt von der Temperatur im Gefäß ab
 \begin{align}
-    p_{sät}(T) = 5,5\cdot 10^7 \exp \left(\frac{-6876}{T} \right) \label{eq:1} \text{\cite{V601}} .
+    p_{sät}(T) = 5,5\cdot 10^7 \exp \left(\frac{-6876}{T} \right) \label{eq:1} \quad \text{(p in mbar, T in K)} \text{\cite{V601}} .
 \end{align}
 Die Elektronen für den Versuch stammen aus einer Glühkathode, wobei die Elektronen
 idealerweise monoenergetisch sind. Diese werden durch eine netzförmige Elektrode
@@ -103,7 +103,7 @@ wodurch das Potential zwischen diesen nicht die genau die Beschleuigungsspannung
 Bei dem Frank-Hertz-Versuch wird die Austrittsarbeit des Materials $\Phi _g$ der Glühkathode
 um einiges kleiner als die der Beschleuigungskathode $\Phi _B$.
 Das Verhältnis der Potentiale lässt sich graphisch durch folgende Abbildung darstellen:
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/potential.jpg}
     \caption{
@@ -150,7 +150,15 @@ Der Aufbau für den Frank-Hertz-Versuch wird in der folgenden Abbildung dagestel
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/Aufbau.jpg}
-    \caption{} %caption hinzufügen
+    \caption{
+        Aufbau des Frank-Hertz-Versuchs.
+        Das zweite Gerät von links bildet die evakuierte Glasröhre, in der sich
+        das Quecksilbergas mitsamt Glühdraht, Beschleuigungselektrode und Auffängerelektrode
+        befindet. Links davon befindet sich das obere Gerät zur Regulierung der beiden Spannungen
+        $U_B$ und $U_A$ sowie das untere Gerät zur Erhöhung der Temperatur. Ganz rechts im Bild steht
+        das Amperemeter zur Messung des Auffängerstroms $I_A$. Zwischen Amperemeter und
+        der Glasröhre befndet sich die Spannungsquelle des Glühdrahts.
+    } 
     \label{fig:4}
 \end{figure}
 \leftside{Das} zweite Gerät von links ist das evakuierte Glasrohr mit Auffängerelektrode, Glühdraht und
@@ -160,39 +168,126 @@ die Erhitzung des Glasrohrs zuständig. Das zweite Gerät von rechts ist die Spa
 des Glühdrahts.\\
 Für die Durchführung wird zuerst die Beschleunigungsspannung konstant auf \SI{11}{\volt} eingestellt.
 Dann wird bei Zimmertemperatur die Gegenpannung gegen den Auffängerstrom im mesbaren Bereich gemessen.
-Daraufhin wird die Temperatur auf den Bereich von 140 - \SI{160}{\celsius} erhöht und die Messung wiederholt.\\
+Daraufhin wird die Temperatur auf den Bereich von 140 - \SI{160}{\celsius} erhöht und die Messung in diesem Bereich wiederholt.\\
 Dannach wird die Gegenspannung auf \SI{1}{\volt} gestellt und die Temperatur eine Temperatur von
-ungefähr \SI{164}{\celsius} gestellt. Dann wird die Beschleunigungsspannung gegen
-den Auffängerstrom gemmessen. Dannach wird die Temperatur auf ca. \SI{175}{\celsius} gestellt 
-und die Messung wiederholt.
+ungefähr \SI{164}{\celsius} erhitzt. Dann wird die Beschleunigungsspannung gegen
+den Auffängerstrom gemessen. Dannach wird die Temperatur auf ca. \SI{175}{\celsius} gestellt 
+und die Messung wiederholt. Die Temperatur wird dabei möglichst konstant gehalten.
 
 
 % Auswertung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
+Alle Plots in der Auswertung werden mit matplotlib \cite{matplotlib} erstellt.
+Alle Fehler werden mit uncertainties \cite{uncertainties} und numpy \cite{numpy} berechnet.\\
+Der Sättigungsdampfdruck und der Wirkungsquerschnitt für die in der Aufgabe vorkommenden
+Temperaturen ist in der folgenden Tabelle dargestellt.
+\input{T_table.tex}
+\leftside{Der} Sättigungsdampfdruck wird hier mit Gleichung \eqref{eq:1} und der Wirkungsquerschnitt 
+mit Gleichung \eqref{eq:5} berechnet.
+
+\subsection{Differentielle Energieverteilung}
+
+Die Tabelle mit den Messwerten für die differentielle Energieverteilung findet sich im Anhang \ref{tab:2}.
+Bei den nachfolgenden Plots wird die Gegenspannung $U_A$ gegen die Steigung
+aufgetragen. Für die Berechnung der Steigung wird die Differenz der zweier nachfolgender
+y-Werte durch die Differenz der x-Werte gebildet
+\begin{align}
+    m = \frac{\Delta y}{\Delta x}=\frac{y_2-y_1}{x_2-x_1} \label{eq:6}.
+\end{align}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UA.pdf}
-    \caption{} %caption hinzufügen
-    \label{fig:a} % label korrigieren
+    \caption{
+        Messung der differentiellen Energieverteilung für eine Temperatur von \SI{298.4}{\kelvin}.
+        Aufgetragen ist die Spannung des Gegenfeldes gegen die Steigung, welche aus
+        zwei nachfolgenden Werten der Tabelle \ref{tab:2} jeweils gebildet wird.
+    } 
+    \label{fig:5}
 \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{plot_UA_2.pdf}
+    \caption{
+        Messung der differentiellen Energieverteilung für eine Temperatur von \SI{418.6}{\kelvin}.
+        Aufgetragen ist die Spannung des Gegenfeldes gegen die Steigung, welche aus
+        zwei nachfolgenden Werten der Tabelle \ref{tab:2} jeweils gebildet wird.
+    } 
+    \label{fig:6}
+\end{figure}
+
+\subsection{Frank-Hertz-Kurve}
+
+Die Messwerte für die Frank-Hertz-Kurve befindet sich im Anhang in der Tabelle \ref{tab:3}.
+In einem Plot aufgetragen sieht das ganze folgendermaßen aus.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{plot_UB.pdf}
-    \caption{} % caption hinzufügen
-    \label{fig:b} % label korrigieren
+    \caption{
+        In der Abbildung werden Messwerte der
+        Frank-Hertz-Kurve bei den Temperaturen \SI{437.1}{\kelvin} und \SI{448.1}{\kelvin} und einer Gegenspannung von \SI{1}{\volt}.
+        Die vertikalen Linien in der Graphik zeigen die Orte der lokalen Maxima der Kurve für \SI{448.1}{\kelvin}. Die erkennbaren
+        befinden sich bei 30, 36, 41, 46 und \SI{52}{\volt}. Der Abstand zweier 
+        Maxima definiert dabei die Übergangsenergie vom Grundzustand zum 1.
+        angeregten Zustand.
+    }
+    \label{fig:7} 
 \end{figure}
+\leftside{Die} eingezeichneten vertikalen Linien markieren die lokalen Maxima bei den
+Messwerten für \SI{448.1}{\kelvin}. Der Abstand zweier Maxima bildet nach 
+Abbildung \ref{fig:2} die Spannung U1. Bei Mittelung ergibt sich für E nach Formel \eqref{eq:3}
+\begin{align}
+    E = \text{\input{U1.tex}}. \label{eq:7} 
+\end{align}
+Als Wellenlänge ausgedrückt ergibt das
+\begin{align}
+    \lambda = \frac{h c}{E} = \text{\input{lambda.tex}}  , \label{eq:8} 
+\end{align}
+wobei h das plank'sche Wirkungsquantum und c die Lichtgeschwindigkeit im Vakuum ist.
+Für die Rechnung  werden die Konstanten aus der scipy-Bibiliothek  verwendet.
+Der Fehler ergibt sich aus der Gaußschen Fehlerfortpflanzung
+\begin{align}
+    \Delta \lambda = \sigma _{E}  \frac{h c}{E^2}. \label{eq:9} 
+\end{align}
+
+
 
 % Diskussion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}
+Beim der Tabelle \ref{tab:1} sind bis auf die Messung bei Zimmertemperatur alle
+Messungen mit einem passenden Wirkungsquerschnitt nach der Theorie durchgeführt worden.
+Der Abstand a sollte einen Faktor 1000-4000 größer sein, damit möglichst viele Elektronen
+bei der passenden Energie wechselwirken. Für die Messung bei Zimmertemeratur werden
+weniger Elektronen wechselwirken, da hier der Wirkungsquerschnitt wesentlich geringer ist.\\
+Ein Problem in der Auswertung stellt die Bestimmung der differentiellen Energievertelung dar.
+Die aufgenommenen Daten waren sehr klein und nach ein paar Volt nicht mehr mit dem 
+Amperemeter zu messen. Dadurch konte aus diesen Daten kein Kontaktpotential ermittelt werden.
+Die Versuchsdurchführung war ursprünglich mit einem XY-Schreiber durchzuführen.
+Da dieser aber defekt war mussten Messwerte aufgenommen werden. \\
+Die Übergansenergie aus der Frank-Hertz-Kurve beträgt \SI{5.50+-0.29}{\electronvolt}.
+Der relative Fehler für die Übergangsenergie beträgt hierbei
+\begin{align}
+    U1_{\text{relerr}} = \frac{E-\SI{4.9}{\electronvolt}}{E} =\text{\input{relerr_U1.tex}}. \label{eq:10} 
+\end{align}
+Der Literaurwert ist dabei aus der Quelle \cite{linsen200926} entommen worden.
+Eine Erklärung des relativen Fehlers bietet die stark schwankenden Temperaturen
+während der Messung. Es stellte sich als sehr schwierig an diesen konstant zu halten.
+Diese Schwankungen haben teilweise 20-\SI{50}{\celsius} betragen. Auch sind Messwerte bei kleineren
+Spannungen teilweise nicht messbar gewesen, da sie zu klein waren, um vom Amperemeter 
+gemessen werden zu können.
 
 
 % Literatur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \printbibliography
+\newpage
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\input{UA_table.tex}
+\input{UB_table.tex}
 
 \end{document}
