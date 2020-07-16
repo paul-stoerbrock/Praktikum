@@ -1,0 +1,6 @@
+#Delta \nu [Hz] und revolutions per minute [rpm]
+-90  4020
+-138 4520
+-166 5030
+-170 5500
+-209 6000
