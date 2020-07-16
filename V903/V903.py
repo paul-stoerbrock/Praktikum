@@ -177,8 +177,8 @@ with open('build/b45.tex', 'w') as f:
 #
 plt.plot(depth, v(nu_0, alpha(c_L, c_P), dnu, c_L), 'ko', label="$Messwerte$")
 plt.axhline(y=max(v(nu_0, alpha(c_L, c_P), dnu, c_L)), color='r', linestyle= '--', label="Maximale Strömung")
-plt.axvline(x=depth[7], color='b', linestyle= '--', label="Tiefe")
-plt.xlabel(r'Tiefe $d\;[\mu s]$')
+plt.axvline(x=depth[7], color='b', linestyle= '--', label="Zentrum des Rohrs")
+plt.xlabel(r'Messtiefe $d\;[\mu s]$')
 plt.ylabel(r'Strömungsgeschwindigkeit $v\;[\frac{m}{s}]$')
 plt.legend(loc="best")
 plt.grid()

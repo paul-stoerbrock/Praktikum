@@ -188,19 +188,30 @@
         b_{45°} &= \text{\input{b45.tex}} \label{eq:11}
     \end{align}
 
+\newpage
+\subsection{Strömungsprofil des Rohrs}
 
+    \flushleft{Für\;}\justifying das Strömungsprofil wird die Strömungsgeschwindigkeit gegen die Messtiefe graphisch aufgetragen. Mit den Messwerten der Frequenzverschiebung
+    $\Delta\nu$ aus Tabelle \ref{tab:4} und der Formel \eqref{eq:5} werden die Strömungsgeschwindigkeiten $v$ aus Tabelle \ref{tab:8} berechnet. Der Winkel $\theta$ ist hier
+    15°. Werden die Strömungsgeschwindigkeiten gegen die Messtiefe aufgetragen ergibt sich der folgende Graph:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{build/plotdepth.pdf}
-    \caption{}
+    \caption{Dieser Graph stellt die Strömungsgeschwindigkeit $v$ an verschiedenen Messtiefen $d$ des Rohrs dar. Die maximale Strömungsgeschwindigkeit ist in rot und dessen dazugehörige
+    Messtiefe in blau eingezeichnet.}
     \label{fig:8}
 \end{figure}
+
+    \flushleft{Neben\;}\justifying der Messtiefe wird außerdem die Streuintensität der Messaperatur bestimmt. Dazu wird die Strömungsgeschwindigkeit gegen die Signalstärke aufgetragen.
+    Die Messwerte zur Signalstärke werden der Tabelle \ref{tab:4} und die errechneten Strömungsgeschwindigkeiten der Tabelle \ref{tab:8} entnommen. Der daraus enstehende Graph
+    sieht aus wie folgt:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{build/plotstrength.pdf}
-    \caption{}
+    \caption{Dieser Graph stellt die Strömungsgeschwindigkeiten $v$ gegen die Signalstärken der jeweiligen Frequenzverschiebung dar. Hier sind das Strömungsgeschwindigkeitsmaximum
+    in rot und die maximale Signalstärke in blau eingezeichnet.}
     \label{fig:9}
 \end{figure}
 
@@ -266,7 +277,7 @@
     \centering
     \caption{Placeholder}
     \input{v.tex}
-    \label{tab:7}
+    \label{tab:8}
 \end{table}
 
 \end{document}
