@@ -115,60 +115,93 @@
 \newpage
 \section{Auswertung}
 
-    \flushleft{Alle\;}\justifying folgenden Graphen werden mit der Python Bibliothek matplotlib \cite{matplotlib} und dem Befehl polyfit aus der numpy Bibliothek \cite{numpy} erstellt. 
-    Alle Fehler werden mithilfe der python Bibliothek uncertainties \cite{uncertainties} berechnet.\\
+    \flushleft{Alle\;}\justifying folgenden Graphen werden mit der Python Bibliothek matplotlib \cite{matplotlib} und dessen Ausgleichgeraden mit dem Befehl polyfit aus der numpy Bibliothek 
+    \cite{numpy} erstellt. Alle Fehler werden mithilfe der python Bibliothek uncertainties \cite{uncertainties} berechnet.\\
     \flushleft{Um\;}\justifying auf die Strömungsgeschwindigkeit der Doppler-Flüssigkeit zu schließen wird die Formel der Frequenzverschiebung $\Delta\nu$ \eqref{eq:3} zur Geschwindigkeit
     $v$ umgestellt, wodurch sich für die Geschwindigkeit folgendes Verhältnis ergibt:
     \begin{align}
         v &= \frac{1}{2} \frac{\Delta\nu \cdot c_L}{\nu_0\cdot \cos(\alpha)} \label{eq:5}
     \end{align}
-
-\subsection{Strömungsgeschwindigkeit für 15°}
-
-    \flushleft{Aus\;}\justifying Formel \eqref{eq:5} lassen sich die Strömungsgeschwindigkeiten für die einzelnen Geschwindigkeiten der Pumpe bestimmen. Mit den Werten aus 
-    Tabelle \ref{tab:1} für die Frequenzverschiebung $\Delta\nu$ und den daraus mit Formel \eqref{eq:5} berechneten Geschwindigkeiten lässt sich folgender Graph erstellen. Hier
-    wird das Verhältnis $\sfrac{\Delta\nu}{\cos(\alpha)}$ gegen die jeweilige Strömungsgeschwindigkeit $v$ graphisch dargestellt, wobei der Dopplerwinkel $\alpha$ mit Formel 
-    \eqref{eq:4} unter Verwendung des Winkels $\theta=15°$ bestimmt wird. Als Schallgeschwindigkeit wird hier die Schallgeschwindigkeit innerhalb der Doppler-Flüssigkeit
+    \flushleft{Als\;}\justifying Schallgeschwindigkeit wird hier die Schallgeschwindigkeit innerhalb der Doppler-Flüssigkeit
     $c_L=\text{\SI{1800}{\meter\per\second}}$ verwendet. 
+
+\newpage   
+\subsection{Strömungsgeschwindigkeit für 15°}\label{sec:1}
+
+    \flushleft{Aus\;}\justifying Formel \eqref{eq:5} lassen sich die Strömungsgeschwindigkeiten für die einzelnen Geschwindigkeiten der Pumpe bestimmen, welche in der Tabelle \ref{tab:5}
+    zufinden sind. Mit den Werten aus Tabelle \ref{tab:1} für die Frequenzverschiebung $\Delta\nu$ und den daraus mit Formel \eqref{eq:5} berechneten Geschwindigkeiten aus Tabelle \ref{tab:5}, 
+    lässt sich folgender Graph erstellen. Hier wird das Verhältnis $\sfrac{\Delta\nu}{\cos(\alpha)}$ gegen die jeweilige Strömungsgeschwindigkeit $v$ graphisch dargestellt, wobei der 
+    Dopplerwinkel $\alpha$ mit Formel \eqref{eq:4} unter Verwendung des Winkels $\theta=15°$ bestimmt wird. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{build/plot15.pdf}
-    \caption{}
+    \caption{Dieser Graph stellt die Strömungsgeschwindigkeit $v$ der Doppler-Flüssigkeit gegen das Verhältnis der Frequenzverschiebung $\Delta\nu$ mit dem Dopplerwinkel $\alpha$. 
+    Der hier verwendete Winkel $\theta$ ist 15°. Die Ausgleichsgerade gibt einen strickt linearen Verlauf der berechneten Werte wieder.}
     \label{fig:5}
 \end{figure}
 
-    \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der y-Achse $b$ lauten wie folgt:
+    \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
     \begin{align}
         m_{15°} &= \text{\input{m15.tex}} \label{eq:6}\\
         b_{15°} &= \text{\input{b15.tex}} \label{eq:7}
+    \end{align}
+
+\newpage
+\subsection{Strömungsgeschwindigkeit für 30°}
+
+    \flushleft{Für\;}\justifying die Winkel $\theta=30°$ und $\theta=45°$ wird analog zum Abschnitt \ref{sec:1} verfahren. Aus Formel \eqref{eq:5} und den Werten aus Tabelle \ref{tab:2}
+    werden die Strömungsgeschwindigkeiten $v$ für die einzelnen Stärken der Pumpe berechnet. Der Dopplerwinkel $\alpha$ wird mit Formel \eqref{eq:4} bestimmt und in Formel \eqref{eq:5}
+    eingesetzt. Werden die berechneten Strömungsgeschwindigkeiten aus Tabelle \ref{tab:6} gegen das Verhältnis $\sfrac{\Delta\nu}{\cos(\alpha)}$ graphisch aufgetragen ergibt sich folgender Graph:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{build/plot30.pdf}
+    \caption{Dieser Graph stellt die Strömungsgeschwindigkeit $v$ der Doppler-Flüssigkeit gegen das Verhältnis der Frequenzverschiebung $\Delta\nu$ mit dem Dopplerwinkel $\alpha$. 
+    Der hier verwendete Winkel $\theta$ ist 30°. Die Ausgleichsgerade gibt einen strickt linearen Verlauf der berechneten Werte wieder.}
+    \label{fig:6}
+\end{figure}
+
+    \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
+    \begin{align}
+        m_{30°} &= \text{\input{m30.tex}} \label{eq:8}\\
+        b_{30°} &= \text{\input{b30.tex}} \label{eq:9}
+    \end{align}
+
+\newpage
+\subsection{Strömungsgeschwindigkeit für 45°}
+
+    \flushleft{Im\;}\justifying folgenden Graph werden analog zu den Winkeln $\theta=15°$ und $\theta=30°$ die mit Formel \eqref{eq:5} berechneten Werte der Strömungsgeschwindigkeit 
+    aus Tabelle \ref{tab:7} gegen das das Verhältnis $\sfrac{\Delta\nu}{\cos(\alpha)}$ deplotted:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{build/plot45.pdf}
+    \caption{Dieser Graph stellt die Strömungsgeschwindigkeit $v$ der Doppler-Flüssigkeit gegen das Verhältnis der Frequenzverschiebung $\Delta\nu$ mit dem Dopplerwinkel $\alpha$. 
+    Der hier verwendete Winkel $\theta$ ist 45°. Die Ausgleichsgerade gibt einen strickt linearen Verlauf der berechneten Werte wieder.}
+    \label{fig:7}
+\end{figure}
+
+    \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
+    \begin{align}
+        m_{45°} &= \text{\input{m45.tex}} \label{eq:10}\\
+        b_{45°} &= \text{\input{b45.tex}} \label{eq:11}
     \end{align}
 
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{build/plot30.pdf}
-    \caption{}
-    \label{fig:6}
-\end{figure}
-
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{build/plot45.pdf}
-    \caption{}
-    \label{fig:7}
-\end{figure}
-
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{build/plotdepth.pdf}
+    \includegraphics[width=0.75\textwidth]{build/plotdepth.pdf}
     \caption{}
     \label{fig:8}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{build/plotstrength.pdf}
+    \caption{}
+    \label{fig:9}
 \end{figure}
 
 \section{Diskussion}
@@ -208,5 +241,32 @@
     \label{tab:4}
 \end{table}
 
+\begin{table}[H]
+    \centering
+    \caption{Placeholder}
+    \input{v15.tex}
+    \label{tab:5}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Placeholder}
+    \input{v30.tex}
+    \label{tab:6}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Placeholder}
+    \input{v45.tex}
+    \label{tab:7}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Placeholder}
+    \input{v.tex}
+    \label{tab:7}
+\end{table}
 
 \end{document}
