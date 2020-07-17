@@ -84,7 +84,7 @@ x_plot = np.linspace(250, 650, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 plt.plot(np.abs(dnu15)/np.cos(alpha15(c_L, c_P)), v15(nu_0, alpha15(c_L, c_P), dnu15, c_L), 'ko', label="$Messwerte$")
 plt.xlabel(r'$\frac{\Delta\nu}{\cos(\alpha)}$')
-plt.ylabel(r'Strömungsgeschwindigkeit $v\;[\frac{m}{s}]$')
+plt.ylabel(r'Strömungsgeschwindigkeit $v\;[m/s]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -113,7 +113,7 @@ x_plot = np.linspace(200, 700, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 plt.plot(np.abs(dnu30)/np.cos(alpha30(c_L, c_P)), v30(nu_0, alpha30(c_L, c_P), dnu30, c_L), 'ko', label="$Messwerte$")
 plt.xlabel(r'$\frac{\Delta\nu}{\cos(\alpha)}$')
-plt.ylabel(r'Strömungsgeschwindigkeit $v\;[\frac{m}{s}]$')
+plt.ylabel(r'Strömungsgeschwindigkeit $v\;[m/s]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -142,7 +142,7 @@ x_plot = np.linspace(350, 910, 1000)
 plt.plot(x_plot ,par[0]*x_plot+par[1], 'b-', label="Lineare Regression")
 plt.plot(np.abs(dnu45)/np.cos(alpha45(c_L, c_P)), v45(nu_0, alpha45(c_L, c_P), dnu45, c_L), 'ko', label="$Messwerte$")
 plt.xlabel(r'$\frac{\Delta\nu}{\cos(\alpha)}$')
-plt.ylabel(r'Strömungsgeschwindigkeit $v\;[\frac{m}{s}]$')
+plt.ylabel(r'Strömungsgeschwindigkeit $v\;[m/s]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -179,7 +179,7 @@ plt.plot(depth, v(nu_0, alpha(c_L, c_P), dnu, c_L), 'ko', label="$Messwerte$")
 plt.axhline(y=max(v(nu_0, alpha(c_L, c_P), dnu, c_L)), color='r', linestyle= '--', label="Maximale Strömung")
 plt.axvline(x=depth[7], color='b', linestyle= '--', label="Zentrum des Rohrs")
 plt.xlabel(r'Messtiefe $d\;[\mu s]$')
-plt.ylabel(r'Strömungsgeschwindigkeit $v\;[\frac{m}{s}]$')
+plt.ylabel(r'Strömungsgeschwindigkeit $v\;[m/s]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
@@ -190,12 +190,30 @@ plt.plot(strength, v(nu_0, alpha(c_L, c_P), dnu, c_L), 'ko', label="$Messwerte$"
 plt.axhline(y=max(v(nu_0, alpha(c_L, c_P), dnu, c_L)), color='r', linestyle= '--', label="Maximale Strömung")
 plt.axvline(x=strength[7], color='b', linestyle= '--', label="Stärkstes Signal")
 plt.xlabel(r'Signalstärke $[\frac{V^2}{s}]$')
-plt.ylabel(r'Strömungsgeschwindigkeit $v\;[\frac{m}{s}]$')
+plt.ylabel(r'Strömungsgeschwindigkeit $v\;[m/s]$')
 plt.legend(loc="best")
 plt.grid()
 plt.tight_layout
 plt.savefig('build/plotstrength.pdf')
 plt.close()
+
+
+
+plt.plot(rpm15, np.abs(dnu15), 'ko', label="$Messwerte$")
+plt.xlabel(r'Revolutions per minute $[rpm]$')
+plt.ylabel(r'Frequenzverschiebung $\Delta\nu\;[Hz]$')
+plt.legend(loc="best")
+plt.grid()
+plt.tight_layout
+plt.savefig('build/plotdiskussion.pdf')
+plt.close()
+
+sigma=np.abs(7.5-8)/8
+
+# tex file for sigma
+
+with open('build/sigma.tex', 'w') as f:
+  f.write(make_SI(sigma*1e+2,r'\percent', figures=2))
 
 #Tabellen ========================================================================================================================================================================================================================
 
@@ -353,20 +371,20 @@ with open('build/v45.tex', 'w') as g:
 
 
 table_header = r'''
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \toprule
-    {$\text{Strömungsgeschwindigkeit $v$} \; [\si{\meter\per\second}]$} & {$\text{Revolutions per minute} \; [rpm]$} \\
+    {$\text{Strömungsgeschwindigkeit $v$} \; [\si{\meter\per\second}]$} & {$\text{Tiefe $d$} \; [\si{\micro\second}]$} & {$\text{Signalstärke} \; [\si{\volt\squared\per\second}]$} \\
 
-    \cmidrule(lr{0,5em}){1-2}
+    \cmidrule(lr{0,5em}){1-3}
 '''
 table_footer = r'''    \bottomrule
   \end{tabular}
 '''
-row_template = r'     {0:1.3f} & {1:1.0f} \\'
+row_template = r'     {0:1.3f} & {1:1.1f} & {2:1.0f} \\'
 
 with open('build/v.tex', 'w') as g:
     g.write(table_header)
-    for row in zip( v(nu_0, alpha(c_L, c_P), dnu, c_L), rpm45):
+    for row in zip( v(nu_0, alpha(c_L, c_P), dnu, c_L), depth, strength):
         g.write(row_template.format(*row))
         g.write('\n')
     g.write(table_footer)

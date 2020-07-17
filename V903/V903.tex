@@ -13,7 +13,7 @@
     Paul Störbrock\\
     \texorpdfstring{\href{mailto:paul.stoerbrock@tu-dortmund.de}{paul.stoerbrock@tu-dortmund.de}}{}
     }
-    \date{Durchführung: 07.07.2020, Abgabe: 16.07.2020\vspace{-4ex}}
+    \date{Durchführung: 07.07.2020, Abgabe: 17.07.2020\vspace{-4ex}}
 \maketitle
 \center{\Large Versuchsgruppe: \textbf{23}}
     
@@ -24,6 +24,10 @@
 \setcounter{page}{1}
 
 \section{Ziel}
+
+    \flushleft{Die\;}\justifying Doppler-Sonographie hat viele Anwendungsmöglichkeiten in der Medizin. Sie kann beispielsweise dafür verwendet werden Blutgerinsel in Blutgefäßen zu orten
+    oder um das Befinden eines Embryos zu überprüfen. Ziel dieses Versuches ist es die Strömungsgeschwindigkeit und das Strömungsprofil eines Rohres mithilfe der Doppler-Sonographie
+    zu untersuchen. 
 
 \section{Theorie}
 
@@ -141,10 +145,15 @@
     \label{fig:5}
 \end{figure}
 
-    \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
+    \flushleft{Für\;}\justifying diese und alle folgenden Ausgleichgeraden wird die Geradengleichung 
     \begin{align}
-        m_{15°} &= \text{\input{m15.tex}} \label{eq:6}\\
-        b_{15°} &= \text{\input{b15.tex}} \label{eq:7}
+        v &= m \frac{\Delta\nu}{\cos(\alpha)} + b \label{eq:6}
+    \end{align}
+    \flushleft{verwendet.\;}\justifying
+    Die für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
+    \begin{align}
+        m_{15°} &= \text{\input{m15.tex}} \label{eq:7}\\
+        b_{15°} &= \text{\input{b15.tex}} \label{eq:8}
     \end{align}
 
 \newpage
@@ -164,8 +173,8 @@
 
     \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
     \begin{align}
-        m_{30°} &= \text{\input{m30.tex}} \label{eq:8}\\
-        b_{30°} &= \text{\input{b30.tex}} \label{eq:9}
+        m_{30°} &= \text{\input{m30.tex}} \label{eq:9}\\
+        b_{30°} &= \text{\input{b30.tex}} \label{eq:10}
     \end{align}
 
 \newpage
@@ -184,8 +193,8 @@
 
     \flushleft{Die\;}\justifying für diesen Graphen relevanten Parameter der Steigung $m$ und des Schnittpunkts mit der $v$-Achse $b$ lauten wie folgt:
     \begin{align}
-        m_{45°} &= \text{\input{m45.tex}} \label{eq:10}\\
-        b_{45°} &= \text{\input{b45.tex}} \label{eq:11}
+        m_{45°} &= \text{\input{m45.tex}} \label{eq:11}\\
+        b_{45°} &= \text{\input{b45.tex}} \label{eq:12}
     \end{align}
 
 \newpage
@@ -203,6 +212,7 @@
     \label{fig:8}
 \end{figure}
 
+\newpage
     \flushleft{Neben\;}\justifying der Messtiefe wird außerdem die Streuintensität der Messaperatur bestimmt. Dazu wird die Strömungsgeschwindigkeit gegen die Signalstärke aufgetragen.
     Die Messwerte zur Signalstärke werden der Tabelle \ref{tab:4} und die errechneten Strömungsgeschwindigkeiten der Tabelle \ref{tab:8} entnommen. Der daraus enstehende Graph
     sieht aus wie folgt:
@@ -215,7 +225,37 @@
     \label{fig:9}
 \end{figure}
 
+\newpage
 \section{Diskussion}
+
+    \flushleft{Die\;}\justifying Graphen \ref{fig:5}, \ref{fig:6} und \ref{fig:7} geben die Strömungsgeschwindigkeit in Anhängigkeit von der Frequenzverschiebung $\Delta\nu$ und
+    dem Doppler-Winkel $\alpha$ an. Es ist ein deutliche lineares Verhältnis zwischen Geschwindigkeit und Frequenzverschiebung zu erkennen. Außerdem sind die Steigungen der 
+    jeweiligen Ausgleichgeraden \eqref{eq:7}, \eqref{eq:9} und \eqref{eq:11} fast identisch. Dies lässt die Vermutung einer Unabhängigkeit des Beobachtungswinkels $\theta$ zu.\\
+    Wird der Graph \ref{fig:8} betrachtet, lässt sich ein klares Maximum bei \SI{0.401}{\meter\per\second} erkennen. Daraus lässt sich schließen, dass die maximale Strömungsgeschwindigkeit
+    bei einer Tiefe von \SI{17}{\micro\second} eintritt. Da die Tiefe von dem Doppler-Prisma (\SI{30.7}{\milli\meter} $\approx$ \SI{12}{\micro\second} \cite{V903}) von der gemessen Tiefe 
+    abgezogen werden muss, ergibt sich eine tatsächliche Tiefe von \SI{5}{\micro\second}. Das entspricht einer Messtiefe von \SI{7.5}{\milli\meter}. Hierbei ist zu berücksichtigen,
+    dass die Umrechnungsfaktoren für Acryl (dem Doppler-Prisma) und der Doppler-Flüssigkeit verschieden sind. Die Umrechnungsfaktoren lauten \SI{4}{\micro\second}=\SI{10}{\milli\meter}
+    für Acryl und \SI{4}{\micro\second}=\SI{6}{\milli\meter} für die Doppler-Flüssigkeit \cite{V903}. Da die maximale Strömungsgeschwindigkeit im Zentrum des Rohres, also bei \SI{8}{\milli\meter}, 
+    erwartet wird, ergibt sich der relative Fehler:
+    \begin{align}
+        \sigma_{\text{Tiefe}} &= \abs{\frac{7.5-8}{8}} = \text{\input{sigma.tex}} \label{eq:13}
+    \end{align}
+    \flushleft{Der\;}\justifying fehler ist relativ gering und könnte mit den empfindlichen Gerätschaften erklärt werden. Die Frequenzverschiebung, die über FlowView ausgelesen wurde, 
+    schwankte stark, was eine genaue Bestimmung der Frequenzverschiebung für eine spezifische Pumpleistung erschwerte. Dies wird im folgenden Graphen nocheinmal verdeutlicht. Hier 
+    werden die gemessenen Frequenzverschiebungen gegen die jeweiligen Pumpleistungen bei einem Winkel von $\theta=15°$ gegeneinander gestellt. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{build/plotdiskussion.pdf}
+    \caption{Dieser Graph stellt die Frequenzverschiebung $\Delta\nu$ gegen die Pumpleistung bei einem Winkel $\theta=15°$ dar. Wird dieser Graph mit Graph \ref{fig:5} verglichen, fällt
+    auf, dass der in Graph \ref{fig:5} inhomogene Abstand zwischen den einzelnen Messwerten mit einer zu niedrigen Frequenzverschiebung zu erklären ist.}
+    \label{fig:10}
+\end{figure}
+
+    \flushleft{Der\;}\justifying vierte Messwert weicht ein wenig nach unten ab, was mit der starken Fluktuation der Frequenzverschiebung zusammenhängen könnte.\\
+    Neben der schwankenden Frequenzverschiebung liefert der Graph \ref{fig:9} über die Signalstärke ein ähnliches Bild. Es ist auffällig, dass die Signalstärke ab den vierten
+    Messwert anfängt zu streuen. Dennoch stimmt das Maximum der Signalstärke mit dem Maximum der Strömungsgeschwindigkeit aus Graph \ref{fig:8} überein. Ähnlich wie beim Ablesen
+    der Frequenzverschiebung hat auch die Signalstärke stark geschwankt. Dies könnte auf die, zum Zentrum des Rohrs zunehmende, Strömungsgeschwindigkeit zurückführbar sein. 
 
 \newpage
 \printbibliography
@@ -226,56 +266,61 @@
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die Messwerte des Winkels $\theta=15°$ zu finden. Es wurde die Frequenzverschiebung $\Delta\nu$ für verschiedene Stärken der Pumpe gemessen.}
     \input{15.tex}
     \label{tab:1}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die Messwerte des Winkels $\theta=30°$ zu finden. Es wurde die Frequenzverschiebung $\Delta\nu$ für verschiedene Stärken der Pumpe gemessen.}
     \input{30.tex}
     \label{tab:2}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die Messwerte des Winkels $\theta=45°$ zu finden. Es wurde die Frequenzverschiebung $\Delta\nu$ für verschiedene Stärken der Pumpe gemessen.}
     \input{45.tex}
     \label{tab:3}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die Messwerte der Frequenzverschiebung $\Delta\nu$, der jeweiligen Messtiefe $d$ und der Signalstärke zu finden. Diese wurden an dem großen
+    Rohr mit einem Durchmesser von \SI{2.015}{\centi\meter} unter Verwendung des Winkels $\theta=15°$ gemessen.}
     \input{data.tex}
     \label{tab:4}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die mit Formel \eqref{eq:5} berechneten Strömungsgeschwindigkeiten $v$ und die dazugehörigen Stärken der Pumpe bei einem Winkel von $\theta=15°$ 
+    zu finden.}
     \input{v15.tex}
     \label{tab:5}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die mit Formel \eqref{eq:5} berechneten Strömungsgeschwindigkeiten $v$ und die dazugehörigen Stärken der Pumpe bei einem Winkel von $\theta=30°$ 
+    zu finden.}
     \input{v30.tex}
     \label{tab:6}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die mit Formel \eqref{eq:5} berechneten Strömungsgeschwindigkeiten $v$ und die dazugehörigen Stärken der Pumpe bei einem Winkel von $\theta=45$ 
+    zu finden.}
     \input{v45.tex}
     \label{tab:7}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Placeholder}
+    \caption{In dieser Tabelle sind die mit Formel \eqref{eq:5} berechneten Strömungsgeschwindigkeiten $v$ und die dazugehörige Messtiefe $d$ und Signalstärke zu finden. Diese wurden
+    unter Verwendung des Winkels $\theta=15°$ bestimmt und gemessen.}
     \input{v.tex}
     \label{tab:8}
 \end{table}
